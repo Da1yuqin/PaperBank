@@ -3199,5 +3199,337 @@
       "scope": "2026-10-07 查阅 calculate_retrival_percent_correct：300 个配对候选、30 轮随机批次。当前代码与论文报告分别核对，不据此断言 2025 实验使用同一提交。",
       "public": true
     }
+  },
+  "tools": [
+    {
+      "id": "assistant",
+      "title": "任务助手",
+      "items": [
+        {
+          "id": "openclaw",
+          "title": "OpenClaw",
+          "url": "https://docs.openclaw.ai/start/getting-started",
+          "use_zh": "把任务交给可调用工具的助手，在聊天或浏览器控制台中协作。",
+          "example_zh": "先让助手只读整理三篇公开论文的题名、方法和出处；确认后再安排后续任务。",
+          "example_en": "Start with a read-only task: list the titles, methods, and sources of three public papers, then decide what to do next.",
+          "boundary_zh": "工具权限与任务范围先配清楚；“只读”提示还应配合实际权限限制。不要把密钥贴进公开对话。",
+          "links": [
+            {
+              "title": "官方安全说明",
+              "url": "https://docs.openclaw.ai/gateway/security"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": "找文献与读原文",
+      "items": [
+        {
+          "id": "literature-review-skills",
+          "title": "AI-Powered Literature Review Skills",
+          "url": "https://github.com/stephenlzc/AI-Powered-Literature-Review-Skills",
+          "use_zh": "按检索、去重、逐篇分析和综合写作组织文献回顾。",
+          "example_zh": "限定研究问题、年份和纳入标准，先导出候选文献清单，再人工核对纳入与排除理由。",
+          "example_en": "Specify the research question, date range, and inclusion criteria; export candidate papers and manually check inclusion and exclusion decisions.",
+          "boundary_zh": "README 的验证阶段包含基础元数据检查，不能替代全文核验；检索还取决于数据库访问权限和浏览器环境。"
+        },
+        {
+          "id": "immersive-translate",
+          "title": "沉浸式翻译",
+          "url": "https://immersivetranslate.com/zh-Hans/",
+          "use_zh": "给英文网页和 PDF 加双语对照，保留原文方便逐句核查。",
+          "example_zh": "读英文工具文档时打开双语；复制代码和引用时仍使用原始内容。",
+          "example_en": "Use bilingual views to read English documentation; copy code and quotations from the original.",
+          "boundary_zh": "术语、否定和统计结论可能误译，关键内容回原文核对。安装和账户要求看官方文档。",
+          "links": [
+            {
+              "title": "官方文档",
+              "url": "https://immersivetranslate.com/docs/"
+            }
+          ]
+        },
+        {
+          "id": "zotero-plugins",
+          "title": "Zotero 中文社区插件目录",
+          "url": "https://zotero-chinese.com/plugins/",
+          "use_zh": "按任务找插件，核对 Zotero 版本、更新记录和插件作者。",
+          "example_zh": "只想把批注汇成笔记，先挑笔记插件；需要双语 PDF，再看翻译插件。",
+          "example_en": "Choose a note plugin for annotation summaries, and a translation plugin for bilingual PDFs.",
+          "boundary_zh": "社区目录与 Zotero 官方无从属关系；排行榜不是兼容性或安全审计。",
+          "links": [
+            {
+              "title": "插件排行榜",
+              "url": "https://zotero-chinese.com/plugins/charts"
+            }
+          ]
+        },
+        {
+          "id": "better-notes",
+          "title": "Better Notes",
+          "url": "https://github.com/windingwind/zotero-better-notes",
+          "use_zh": "把 Zotero 批注组织成笔记，连接相关笔记，导出 Markdown 等格式。",
+          "example_zh": "建一页“跨被试迁移”笔记，把三篇论文的方法、数据和局限分别链接进去。",
+          "example_en": "Create a cross-subject transfer note and link the methods, data, and limitations of three papers.",
+          "boundary_zh": "Markdown 自动同步是双向的；启用前确认需要同步的文件，保留原始批注。",
+          "links": []
+        },
+        {
+          "id": "zotero-pdf2zh",
+          "title": "Zotero PDF2zh",
+          "url": "https://github.com/guaguastandup/zotero-pdf2zh",
+          "use_zh": "在 Zotero 内翻译 PDF，查看原文与译文，尽量保留公式和排版。",
+          "example_zh": "先译方法节帮助定位，再对照英文核对变量定义、否定句和实验条件。",
+          "example_en": "Translate the method section for navigation, then check definitions, negation, and experimental conditions against the original.",
+          "boundary_zh": "需要插件与翻译服务配合；译文只辅助阅读，关键结论仍回原文核对。",
+          "links": []
+        },
+        {
+          "id": "zotero-mcp",
+          "title": "Zotero MCP",
+          "url": "https://github.com/cookjohn/zotero-mcp",
+          "use_zh": "让支持 MCP 的 AI 客户端搜索 Zotero 文献、全文、批注和笔记。",
+          "example_zh": "提示词：“只读检索我的跨被试论文，列出题名、年份和带出处的关键批注；不要改文献库。”",
+          "example_en": "Read-only: search my cross-subject papers and list titles, years, and key annotations with sources. Do not modify the library.",
+          "boundary_zh": "插件也有写入笔记、标签和元数据的功能；需要只读时明确限制操作。连接云端 AI 后，读取内容可能发给模型服务商。",
+          "links": []
+        }
+      ]
+    },
+    {
+      "id": "writing",
+      "title": "写作、排版与汇报",
+      "items": [
+        {
+          "id": "chinese-research-latex",
+          "title": "ChineseResearchLaTeX",
+          "url": "https://github.com/huangwb8/ChineseResearchLaTeX",
+          "use_zh": "找中文科研 LaTeX 模板，覆盖标书、论文、学位论文和简历。",
+          "example_zh": "选与你的文档类型相符的模板，先用示例内容编译，再迁移自己的正文。",
+          "example_en": "Choose a template for your document type, compile the sample first, then migrate your own text.",
+          "boundary_zh": "模板先与当年的学校、基金或期刊官方要求对照；项目说明要求使用 XeLaTeX。"
+        },
+        {
+          "id": "thu-ppt",
+          "title": "THU-PPT-Theme",
+          "url": "https://github.com/atomiechen/THU-PPT-Theme",
+          "use_zh": "下载简洁的 PPTX 模板，用幻灯片母版统一答辩或组会排版。",
+          "example_zh": "选 16:9 白底模板，先统一标题和图注，再放一页问题、一页方法、一页主结果。",
+          "example_en": "Start with a 16:9 white template, then align headings and captions across the problem, method, and main-result slides.",
+          "boundary_zh": "采用 CC BY-NC-SA 4.0，保留署名、遵守非商业与相同方式共享条件；校徽等标识另按其规则使用。",
+          "links": []
+        }
+      ]
+    },
+    {
+      "id": "figures",
+      "title": "统计图与框架图",
+      "items": [
+        {
+          "id": "paper-plot-skills",
+          "title": "Paper Plot Skills",
+          "url": "https://github.com/Trae1ounG/paper-plot-skills",
+          "use_zh": "用自己的数据生成论文统计图，或把参考图的布局转成 matplotlib 脚本。",
+          "example_zh": "给出方法名和准确率，用分组柱状图比较方法；保留数据来源和真实数值。",
+          "example_en": "Provide method names and accuracy values, then compare them in a grouped bar chart with the original data preserved.",
+          "boundary_zh": "参考图用于借鉴表达；不要把复现图当成自己的实验结果。仓库首页未明确展示许可证，复制代码或原图前另查授权。"
+        },
+        {
+          "id": "framework-figure-studio",
+          "title": "Paper Framework Figure Studio Pro",
+          "url": "https://github.com/c-narcissus/paper-framework-figure-studio-pro",
+          "use_zh": "先核对方法的模块、箭头和变量，再分轮生成框架图候选。",
+          "example_zh": "给出方法段落，先列出输入、三个模块和输出，确认数据流后再画图。",
+          "example_en": "Provide the method section, verify its inputs, three modules, and outputs, then draw the confirmed data flow.",
+          "boundary_zh": "当前主线主要面向 ChatGPT 网页端；默认交付候选参考图，可编辑 SVG 或 PPT 通常还需另行重绘。"
+        },
+        {
+          "id": "lieflat-charts",
+          "title": "Lieflat Charts",
+          "url": "https://github.com/larashero3-dotcom/lieflat-charts",
+          "use_zh": "把数据做成可交互 HTML 图表，也可生成一页报告。",
+          "example_zh": "用公开实验汇总表生成按方法排序的交互柱状图，旁边写清指标、单位和数据出处。",
+          "example_en": "Turn a public experiment table into an interactive bar chart sorted by method, with the metric, unit, and source stated alongside it.",
+          "boundary_zh": "项目采用非商业许可；商业使用需另行取得许可。图表工具不会替你验证输入数据。",
+          "links": [
+            {
+              "title": "项目 LICENSE",
+              "url": "https://github.com/larashero3-dotcom/lieflat-charts/blob/main/LICENSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "citations",
+      "title": "引用存在吗，支持这句话吗",
+      "items": [
+        {
+          "id": "scholar-ref-cleaner",
+          "title": "Scholar Ref Cleaner",
+          "url": "https://github.com/libo-huang/scholar-ref-cleaner",
+          "use_zh": "将 BibTeX、Word 或文本中的引用与学术数据库元数据比对，生成核验结果。",
+          "example_zh": "对公开论文的 refs.bib 做首轮检查，再逐条复核题名、作者、年份、DOI 和出版社页面。",
+          "example_en": "Screen refs.bib from a public paper, then verify titles, authors, years, DOIs, and publisher pages manually.",
+          "boundary_zh": "查无结果可能来自数据库覆盖或网络问题，不能直接判为伪造；元数据匹配也不证明引用支持正文论断。",
+          "links": []
+        },
+        {
+          "id": "truecite",
+          "title": "TrueCite",
+          "url": "https://www.wispaper.ai/agents/true-cite",
+          "use_zh": "上传 BibTeX 文件，与学术数据库比对，筛出需要复核的引用。",
+          "example_zh": "先拿公开论文的小份 .bib 试用，检查每条异常的数据库来源和原始出版页面。",
+          "example_en": "Try a small .bib from a public paper and inspect the database evidence and publication page for each flagged entry.",
+          "boundary_zh": "页面当前说明只支持 .bib，最大 1 MB；自动标记不是学术不端判定，核查正文论断仍需读原文。",
+          "links": []
+        },
+        {
+          "id": "valiref",
+          "title": "ValiRef",
+          "url": "https://github.com/Gianthard-cyh/ValiRef",
+          "use_zh": "从论文 PDF 提取引用，检索多个来源，并借助 LLM 给出核验报告。",
+          "example_zh": "用公开 PDF 生成报告，把“论文是否存在”和“是否支持正文这句话”分开复核。",
+          "example_en": "Generate a report for a public PDF, then separately verify paper existence and whether it supports the cited claim.",
+          "boundary_zh": "ruanyf/weekly 的链接是开发者自荐，不是独立评测；LLM 报告可能误判，项目的准确率主张未在这里复测。",
+          "links": [
+            {
+              "title": "开发者自荐讨论",
+              "url": "https://github.com/ruanyf/weekly/issues/9505"
+            }
+          ]
+        },
+        {
+          "id": "check-review-alignment",
+          "title": "DrClaw · Check Review Alignment",
+          "url": "https://github.com/InternScience/DrClaw/blob/main/drclaw/agent_hub/templates/proposal-writing/skills/check-review-alignment/SKILL.md",
+          "use_zh": "核对综述句子是否真的得到所引论文支持，并记录原句、证据和定位。",
+          "example_zh": "正文写“方法 A 在低资源任务更好”，逐条找原文的任务、比较方法和结果；证据不足就记为待人工核验。",
+          "example_en": "For a claim that method A performs better in low-resource tasks, locate the original task, comparison, and result; flag insufficient evidence for manual review.",
+          "boundary_zh": "核对已有引用与正文论断的对应关系；不能保证自动核验无误。排版导出另依赖项目里的综述 skill。"
+        }
+      ]
+    },
+    {
+      "id": "code",
+      "title": "读代码",
+      "items": [
+        {
+          "id": "deepwiki",
+          "title": "DeepWiki",
+          "url": "https://deepwiki.com/",
+          "use_zh": "读公开 GitHub 仓库的架构说明，问具体函数和数据流，再沿源代码链接核对。",
+          "example_zh": "提示词：“reward 在哪个函数定义？输入是什么？哪些调用会使用它？给出源文件位置。”",
+          "example_en": "Where is the reward defined, what are its inputs, and which calls use it? Include source-file locations.",
+          "boundary_zh": "先核对索引版本与正在阅读的代码版本；生成文档不能替代源代码或运行结果。未索引的公开仓库可提交仓库 URL。",
+          "links": [
+            {
+              "title": "官方说明",
+              "url": "https://docs.devin.ai/work-with-devin/deepwiki"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "papers",
+      "title": "论文公开与维护",
+      "items": [
+        {
+          "id": "hf-submit",
+          "title": "Hugging Face Daily Papers 投稿",
+          "url": "https://huggingface.co/papers/submit",
+          "use_zh": "把已公开的 arXiv 论文提交到 Daily Papers，关联代码、模型、数据集或演示。",
+          "example_zh": "准备 arXiv ID、公开项目页和 GitHub 仓库，再按投稿页面当前资格要求提交。",
+          "example_en": "Prepare the arXiv ID, public project page, and GitHub repository, then follow the current submission requirements.",
+          "boundary_zh": "论文被索引、作者认领、进入 Daily Papers 是不同状态；当前资格与时间窗口以投稿页面为准。",
+          "links": [
+            {
+              "title": "官方 Paper Pages 说明",
+              "url": "https://huggingface.co/docs/hub/paper-pages"
+            },
+            {
+              "title": "官方 papers skill",
+              "url": "https://github.com/huggingface/skills/blob/main/skills/huggingface-papers/SKILL.md"
+            }
+          ]
+        },
+        {
+          "id": "hf-claim",
+          "title": "Hugging Face 作者认领",
+          "url": "https://huggingface.co/docs/hub/paper-pages#claiming-authorship-to-a-paper",
+          "use_zh": "打开自己的 Paper Page，点击自己的作者姓名，再选择 claim authorship 并等待验证。",
+          "example_zh": "认领通过后，在 Papers 设置里选择是否展示在个人主页；公开链接只放论文页。",
+          "example_en": "After verification, choose whether to show the paper on your profile; share the public paper page.",
+          "boundary_zh": "只认领自己署名的论文；把公开论文页用于分享，个人认领流程留在账号内。",
+          "links": [
+            {
+              "title": "Papers 设置",
+              "url": "https://huggingface.co/settings/papers"
+            }
+          ]
+        },
+        {
+          "id": "hf-daily",
+          "title": "Hugging Face Daily Papers 历史页面",
+          "url": "https://huggingface.co/papers",
+          "use_zh": "按日期浏览社区论文，检查自己的公开 Paper Page 和关联项目入口。",
+          "example_zh": "打开指定日期页查论文是否出现，再进入论文页核对作者、摘要和项目链接。",
+          "example_en": "Open a dated feed to check whether a paper appears, then verify its authors, abstract, and project links.",
+          "boundary_zh": "出现在日期页不代表会议接收、同行评审或结果复现；该链接是历史示例。",
+          "links": [
+            {
+              "title": "2026-02-06 示例页面",
+              "url": "https://huggingface.co/papers/date/2026-02-06"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explore",
+      "title": "待探索与社区补充",
+      "items": [
+        {
+          "id": "edit-banana",
+          "title": "Edit Banana",
+          "url": "https://github.com/BIT-DataLab/Edit-Banana",
+          "use_zh": "把静态示意图转换成可编辑的 DrawIO 元素。",
+          "example_zh": "用自己有权处理的流程图测试转换，逐一核对箭头、文字和公式，再调整布局。",
+          "example_en": "Test a flowchart you are authorized to process, check each arrow, label, and formula, then adjust the layout.",
+          "boundary_zh": "项目说明线上服务与仓库功能可能不同。README 写 Apache 2.0，LICENSE 文件实际为 AGPL-3.0；复用或部署前先确认许可。",
+          "links": [
+            {
+              "title": "项目 LICENSE",
+              "url": "https://github.com/BIT-DataLab/Edit-Banana/blob/main/LICENSE"
+            }
+          ]
+        },
+        {
+          "id": "pdf-cut-white",
+          "title": "PDF Cut White",
+          "url": "https://github.com/FFengIll/pdf-cut-white",
+          "use_zh": "裁剪 PDF 图表周围的白边，输出新的 PDF。",
+          "example_zh": "把单页图表 input.pdf 裁成 output.pdf，随后检查轴标签、图例和误差线是否完整。",
+          "example_en": "Crop a single-page figure from input.pdf into output.pdf, then check that axis labels, legends, and error bars remain intact.",
+          "boundary_zh": "README 说明默认只处理 PDF 第一页；保留原件，并为输出使用不同文件或目录。仓库首页未明确展示许可证，复制代码前另查授权。"
+        },
+        {
+          "id": "community-skills",
+          "title": "科研 Skills 社区介绍 · 卡尔的AI沃茨",
+          "url": "https://zhuanlan.zhihu.com/p/2063654777473569661",
+          "use_zh": "看看九类科研 skill 的使用介绍，用来找候选，再回项目原文核对。",
+          "example_zh": "先按“读文献”或“画图”选候选，再用一篇公开论文或一份样例数据试用。",
+          "example_en": "Choose a candidate for reading or plotting, then try it with a public paper or sample dataset.",
+          "boundary_zh": "作者的体验与排名是社区观点，不是统一条件下的基准测试，也不替项目做许可或安全保证。"
+        }
+      ]
+    }
+  ],
+  "tools_checked_at": "2026-10-07",
+  "code_release_prompt": {
+    "zh": "只处理我指定的文件：<文件或目录>。\n把中文注释、文档字符串和使用说明译成英文，保留解释代码所需的注释，删除版本更改流水账。把注释和文档中的个人信息、内部地址、机器绝对路径改成通用说明、相对路径和可运行的例子。保留必要的作者署名、引用与许可证信息。\n保持算法、控制流程、变量名、接口、参数和数据不变。不要自行翻译程序输出、异常消息、协议字段或其他可执行字符串；若文档字符串被程序读取，也先报告影响。\n疑似密钥、私有数据或运行时配置不要贴出原值。列出文件位置和处理建议；若替换会影响行为，先停在该处，说明需要什么决定。去秘检查也覆盖计划发布的样例、配置、日志和压缩包；若还发布 Git 历史，另查历史内容。\n示例：文档中的机器路径改为 data/example.json，并说明从项目入口定位；只改说明，不改程序的路径解析逻辑。密钥示例使用 YOUR_API_KEY，不写真实值。\n交付修改差异、处理过的内容类型、未解决项和实际验证结果。没有跑过的检查不要说通过；发现真实秘密时不要发布，先报告位置和处置需求。",
+    "en": "Work only on the files I specify: <files or directory>.\nTranslate Chinese comments, docstrings, and usage documentation into English. Keep comments needed to understand the code and remove version-change notes. Replace personal information, internal addresses, and machine-specific absolute paths in comments and documentation with general instructions, relative paths, and runnable examples. Preserve required attribution, citations, and license notices.\nPreserve algorithms, control flow, variable names, interfaces, parameters, and data. Do not automatically translate program output, error messages, protocol fields, or other executable strings. Report the impact first if a docstring is read by the program.\nDo not quote the original values of suspected credentials, private data, or runtime configuration. Report their file locations and proposed treatment. If substitution would affect behavior, stop at that location and explain the decision needed. Check examples, configurations, logs, and archives intended for release; check Git history separately if it will also be published.\nExample: replace a machine-specific path in documentation with data/example.json and explain that it is resolved from the project entry point. Change the explanation, not the program's path-resolution logic. Use YOUR_API_KEY in credential examples, never a real value.\nDeliver the diff, the types of content handled, unresolved items, and the checks actually performed. Do not claim an unperformed check passed. If real secrets are found, do not publish them; report their locations and the required treatment."
   }
 }
