@@ -37,6 +37,19 @@ window.addEventListener('hashchange',reveal);
 $$('.copy').forEach(b=>b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(b.previousElementSibling.textContent);b.textContent='已复制';setTimeout(()=>b.textContent='复制提示词',2000);}catch{b.textContent='请选中文字复制';}}));
 sync();themeState();if(location.hash)requestAnimationFrame(reveal);
 
+if($('#tool-search')){
+function filterTools(){
+ const words=$('#tool-search').value.trim().toLowerCase().split(/\s+/).filter(Boolean), tools=$$('.tool-item');
+ for(const tool of tools)tool.hidden=!words.every(word=>tool.textContent.toLowerCase().includes(word));
+ $$('.tool-group').forEach(group=>group.hidden=!group.querySelector('.tool-item:not([hidden])'));
+ const count=tools.filter(tool=>!tool.hidden).length;
+ $('#tool-count').textContent=`显示 ${count} / ${tools.length} 项资源`;$('#tool-empty').hidden=count>0;
+}
+$('#tool-search').addEventListener('input',filterTools);
+$$('a[href^="#tools"]').forEach(link=>link.addEventListener('click',()=>{$('#tool-search').value='';filterTools();closeMenu();}));
+filterTools();
+}
+
 const beagle=$('#beagle-companion');
 if(beagle){
  const intro=$('#beagle-wake'),wake=$('#beagle-wake-small'),handle=$('#beagle-drag'),dog=$('#beagle-remind'),bubble=$('#beagle-bubble');
