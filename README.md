@@ -1,10 +1,10 @@
 # PaperBank · 论文少走弯路指南
 
-先讲清贡献，再交代证据。12 章、60 项 checklist、39 个例子，卡住了再展开看分析与原文。
+先讲清贡献，再交代证据。12 章、70 项 checklist、50 个例子，卡住了再展开看分析与原文。
 
 [在线阅读](https://Da1yuqin.github.io/PaperBank/) · [Markdown 全文](book/guide.md) · [来源说明](SOURCES.md) · [使用许可](LICENSE)
 
-主要面向实证型 CS / AI 论文。包含 RQ、引言论证、方法与实验、图表、AI 写作提示词和审稿回应。普通条目简短，图表保留分析；例子明确区分教学假设与真实论文。网页支持搜索、章节筛选、本地勾选与深色模式。
+主要面向实证型 CS / AI 论文。包含 RQ、引言论证、方法与实验、图表、AI 写作提示词和 14 条审稿回应检查。普通条目简短，图表保留分析；例子明确区分教学假设与真实论文。网页支持搜索、章节筛选、本地勾选与深色模式。
 
 ## 欢迎来用，也欢迎带走
 
@@ -17,6 +17,14 @@
 > 来源：Da1yuqin，《PaperBank · 论文少走弯路指南》，https://Da1yuqin.github.io/PaperBank/ ，CC BY 4.0。本文有修改。
 
 觉得省了点力，欢迎顺手点个 **Star**，给这家论文银行攒点信用。Star 自愿，署名认真。
+
+## 比格行长 · 贝果
+
+个人主页同款小比格，换上写作台词。网页右下角摸摸它，听一句笑话或写作提醒；累了让它休息，想它再叫醒。
+
+[头像 PNG](assets/beagle-logo.png) · [全身 PNG](assets/beagle-pet.png) · [挥笔 GIF](assets/beagle-wave.gif) · [macOS 桌面伴侣](assets/beagle-desktop.zip) · [桌伴源码与构建](companion/README.md)
+
+吉祥物以作者头像为参照，使用图像生成工具制作；素材可按 CC BY 4.0 使用，保留出处。桌面伴侣是可选的小浮窗。
 
 ## 本地阅读与修改
 
