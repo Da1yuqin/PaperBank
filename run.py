@@ -60,6 +60,39 @@ def render_example(example, refs):
   md+=['',f'**原文／图片许可：**{example["license"]}']
  return rendered+'</div>',md
 
+def render_tools(data):
+ """Render linked resources separately from manuscript checks."""
+ e=html.escape
+ groups=data.get('tools',[])
+ intro='按用途选一个先试。下面核对了公开页面或项目说明，未安装评测；“待探索”保留待试用状态。例子是使用情境，不代表实测效果。外部项目按自己的许可使用，链接收录不代表推荐它们的全部做法。'
+ rendered=f'<section class="toolbox" id="tools"><h2>好用工具：省点手工，判断还得自己来</h2><p class="chapter-desc">{e(intro)}</p>'
+ rendered+='<p class="tool-index">'+ ' · '.join(f'<a href="#tools-{e(g["id"])}">{e(g["title"])}</a>' for g in groups)+' · <a href="#code-release-prompt">开源整理提示词</a></p>'
+ total=sum(len(g['items']) for g in groups)
+ rendered+=f'<div class="tool-search js-only"><label for="tool-search">搜索工具</label><input type="search" id="tool-search" placeholder="搜 Zotero、画图、引用……"><span id="tool-count" role="status" aria-live="polite">{total} 项资源</span></div>'
+ md=['','<a id="tools"></a>','## 好用工具：省点手工，判断还得自己来','',intro,'','核对日期：'+data['tools_checked_at']+'。']
+ for group in groups:
+  rendered+=f'<section class="tool-group" id="tools-{e(group["id"])}"><h3>{e(group["title"])}</h3><ul class="tool-list">'
+  md+=['',f'### {group["title"]}','']
+  for tool in group['items']:
+   assert all(tool.get(k) for k in ['id','title','url','use_zh','example_zh','example_en','boundary_zh'])
+   rendered+=f'<li class="tool-item" id="tool-{e(tool["id"])}"><p><strong><a href="{e(tool["url"])}">{e(tool["title"])}</a>：</strong>{e(tool["use_zh"])}</p><details class="tool-detail"><summary>中英例子与使用边界</summary><p lang="zh-CN"><strong>例子：</strong>{e(tool["example_zh"])}</p><p lang="en"><strong>Example:</strong> {e(tool["example_en"])}</p><p class="boundary"><strong>注意：</strong>{e(tool["boundary_zh"])}</p>'
+   md+=[f'- **[{tool["title"]}]({tool["url"]})：**{tool["use_zh"]}','',f'  <details><summary>中英例子与使用边界</summary>','',f'  **例子：**{tool["example_zh"]}','',f'  **Example:** {tool["example_en"]}','',f'  **注意：**{tool["boundary_zh"]}']
+   if tool.get('links'):
+    rendered+='<p class="sources">'+' · '.join(f'<a href="{e(link["url"])}">{e(link["title"])}</a>' for link in tool['links'])+'</p>'
+    md+=['','  '+' · '.join(f'[{link["title"]}]({link["url"]})' for link in tool['links'])]
+   rendered+='</details></li>'
+   md+=['','  </details>','']
+  rendered+='</ul></section>'
+ rendered+='<p class="boundary js-only" id="tool-empty" hidden>没有匹配的工具。换个短词试试。</p>'
+ prompt=data['code_release_prompt']
+ rendered+='<section class="release-prompt" id="code-release-prompt"><h3>开源整理：翻译注释，清掉私货，保留行为</h3><p>先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。下面中英两版都可复制。</p>'
+ md+=['','<a id="code-release-prompt"></a>','### 开源整理：翻译注释，清掉私货，保留行为','','先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。']
+ for key,label,lang in [('zh','中文提示词','zh-CN'),('en','English prompt','en')]:
+  rendered+=f'<details class="prompt"><summary>{label}</summary><pre lang="{lang}">{e(prompt[key])}</pre><button class="copy js-only">复制提示词</button></details>'
+  md+=['','**'+label+'**','','```text',prompt[key],'```']
+ rendered+=f'<p class="tool-checked">链接与文档核对日期：{e(data["tools_checked_at"])}。安装方法、兼容版本和许可可能变化，使用前再看项目原文。</p></section></section>'
+ return rendered,md
+
 def build():
  data=json.loads((ROOT/'data/guide.json').read_text(encoding='utf-8'))
  sections,items,refs=data['sections'],data['items'],data['references']
@@ -76,6 +109,7 @@ def build():
  entries=''
  md=['# PaperBank · 论文少走弯路指南','','先把贡献讲清楚，再把证据交代全。按主题检查，卡住了再展开例子。','','主要面向实证型 CS / AI 论文；按学科、研究类型与投稿要求取舍。论文摘录就近标明出处与版本，中文为本指南翻译；教学改写与假设情境另行标注，不代表原论文结果。','','欢迎使用、改写、转载，也欢迎拿去给 Codex 等工具做 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，改过请注明。Star 自愿，署名别失联。','','## 目录','']
  md += [f'- [{int(s["number"])}. {s["title"]}](#{s["id"]})' for s in sections]
+ md += ['- [好用工具与开源整理提示词](#tools)']
  for s in sections:
   group=[i for i in items if i['section']==s['id']]
   entries+=f'<section class="chapter" id="chapter-{s["id"]}"><div class="chapter-head"><h2>{int(s["number"])}. {e(s["title"])}</h2><span class="shown">{len(group)} 条</span></div><p class="chapter-desc">{e(s.get("summary",s["description"]))}</p>'
@@ -101,9 +135,11 @@ def build():
    entries+='</ul></div>'
   entries+='</section>'
  examples=sum(len(i.get('examples',[])) for i in items)
+ tools,tools_md=render_tools(data)
+ md+=tools_md
  reading=''.join(f'<li>{link(k)}<span> — {e(r["scope"])}</span></li>' for k,r in refs.items() if r.get('public'))
  t=(ROOT/'assets/template.html').read_text(encoding='utf-8')
- for k,v in {'NAV':nav,'ENTRIES':entries,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':str(len(sections)),'EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
+ for k,v in {'NAV':nav,'ENTRIES':entries,'TOOLS':tools,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':str(len(sections)),'EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
  (ROOT/'index.html').write_text(t,encoding='utf-8')
  (ROOT/'book').mkdir(exist_ok=True)
  md+=['','## 参考阅读','']+[f'- [{r["title"]}]({r["url"]})：{r["scope"]}' for r in refs.values() if r.get('public')]

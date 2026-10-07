@@ -2,9 +2,9 @@
 
 先讲清贡献，再交代证据。12 章、70 项 checklist、70 个中英双语例子，卡住了再展开看分析与原文。
 
-[在线阅读](https://Da1yuqin.github.io/PaperBank/) · [Markdown 全文](book/guide.md) · [来源说明](SOURCES.md) · [使用许可](LICENSE)
+[在线阅读](https://Da1yuqin.github.io/PaperBank/) · [Markdown 全文](book/guide.md) · [好用工具](https://Da1yuqin.github.io/PaperBank/#tools) · [来源说明](SOURCES.md) · [使用许可](LICENSE)
 
-主要面向实证型 CS / AI 论文。包含 RQ、引言论证、方法与实验、图表、AI 写作提示词和 14 条审稿回应检查。普通条目简短，图表保留分析；每项都附已发表论文的英文摘录、中文翻译与逐句拆解；需要时再给教学改写。审稿回复为基于论文证据的模拟示范，不是真实审稿记录。网页支持搜索、章节筛选、本地勾选与深色模式。
+主要面向实证型 CS / AI 论文。包含 RQ、引言论证、方法与实验、图表、AI 写作提示词和 14 条审稿回应检查。普通条目简短，图表保留分析；每项都附已发表论文的英文摘录、中文翻译与逐句拆解；需要时再给教学改写。审稿回复为基于论文证据的模拟示范，不是真实审稿记录。网页支持搜索、章节筛选、本地勾选与深色模式。另附 23 项工具与资源，按阅读、画图、引用核验、代码阅读和论文维护分类；每项有中英使用例子，附保留程序行为的开源整理提示词。工具只核对公开说明，未逐项安装评测。
 
 ## 欢迎来用，也欢迎带走
 
@@ -36,7 +36,7 @@ python3 run.py --serve
 
 打开终端显示的地址。只重建网页与 Markdown，用 `python3 run.py`。
 
-- `data/guide.json`：章节、checklist、分析、例子与参考。
+- `data/guide.json`：章节、checklist、分析、例子、参考与工具清单。
 - `assets/`：模板、样式、交互、原创素材与标明出处的论文原图。
 - `index.html`、`book/guide.md`：生成文件，修改内容后一起重建。
 
