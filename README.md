@@ -24,14 +24,6 @@
 
 觉得省了点力，欢迎顺手点个 **Star**，给这家论文银行攒点信用。Star 自愿，署名认真。
 
-## 比格行长 · 贝果
-
-个人主页同款小比格，换上写作台词。网页右下角摸摸它，听一句笑话或写作提醒；累了让它休息，想它再叫醒。
-
-[头像 PNG](assets/beagle-logo.png) · [全身 PNG](assets/beagle-pet.png) · [挥笔 GIF](assets/beagle-wave.gif) · [macOS 桌面伴侣](assets/beagle-desktop.zip) · [桌伴源码与构建](companion/README.md)
-
-吉祥物以作者头像为参照，使用图像生成工具制作；素材可按 CC BY 4.0 使用，保留出处。桌面伴侣是可选的小浮窗。
-
 ## 本地阅读与修改
 
 Python 3 即可，无第三方依赖：
