@@ -19,7 +19,7 @@
 - [9. 附录：让人找得到细节](#appendix)
 - [10. 精修：先讲通，再写顺](#revision)
 - [11. 用 AI：省力，也别省掉判断](#ai)
-- [12. 回意见和交稿：别在最后掉链子](#rebuttal)
+- [12. Rebuttal 和交稿：把问题回清楚](#rebuttal)
 
 <a id="core"></a>
 ## 1. 先想清楚，别急着写
@@ -1378,11 +1378,11 @@ Research Question（RQ）告诉读者这组实验到底要查明什么。它可�
 
 
 <a id="rebuttal"></a>
-## 12. 回意见和交稿：别在最后掉链子
+## 12. Rebuttal 和交稿：把问题回清楚
 
-逐条回应问题、区分新增证据与原有结果，并核对最终提交文件及流程要求。
+按原文拆题、按证据安排回复；补实验、澄清与不同意分别处理，未完成的检验和影响结论的负结果如实交代。
 
-**问题与证据**
+**读准意见**
 
 - [ ] **第 49 条：**把审稿意见拆成具体问题，先正面回答，再给证据与修改位置，避免用笼统感谢或“已修改”替代回答。
 
@@ -1392,13 +1392,72 @@ Research Question（RQ）告诉读者这组实验到底要查明什么。它可�
 
 审稿人问预算，你回模型很强，双方都会累。先用一句话正面回答，再给证据和修改位置。
 
-**做法：**把意见分成几个具体问题：哪里读错了，哪里没写清，哪里缺比较，哪里确实有限制。每个问题分别处理，少用一大段感谢把答案藏起来。
+**做法：**通读 summary、strengths、weaknesses 和 questions，再对照原稿。先复述原文实际质疑的主张与理由，再回答；一条意见有几层，就拆几层。缺比较、定义不清和机制未证实，需要的证据不同。
 
-**边界：**别只说“已修改”。改了什么、在哪里、依据是什么，说明白。
+**边界：**问题标题保留真实关切，不通过改名、删条件或改成 Yes/No 来弱化质疑。引用原话就保持准确；转述就标明是转述。
 
-来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)
+**先确认自己在回答哪条因果链：中英文教学例子**
+
+**改前：**教学示例：审稿人说“提升可能来自更多检索”，作者回复“我们的检索模块很新颖”。
+
+**改后：**假设回复，非真实审稿记录。中文：当前结果不能区分检索次数与证据核验的作用。原稿表 2 比较了整体系统，没有控制检索次数；因此“核验导致提升”的机制解释尚未得到单独验证。English: The current results do not separate retrieval count from evidence verification. Table 2 compares the full systems without controlling retrieval count; it does not establish the effect of verification alone.
+
+**说明：**先回答替代解释是否排除，再交代现有表格的证据范围。认可一个证据缺口，不等于否定整篇工作的价值。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[NeurIPS 2026 · Main Track Handbook V2026.3，Author Responses](https://neurips.cc/Conferences/2026/MainTrackHandbook)；[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)
 
 </details>
+
+- [ ] **第 61 条：**按原文顺序给问题编号，一句话有多个关切就拆开；先处理影响结论的问题，保留完整问题清单。
+
+<a id="tip-61"></a>
+<details>
+<summary>第 61 条：别替审稿人发明问题 · 说明、例子与参考</summary>
+
+先问自己：这段回复回答的是原文，还是自己更容易回答的问题？问题清单齐了，再安排时间与篇幅。
+
+**做法：**保留原文短引句和对应位置，用 Q1.1、Q1.1a 等编号拆题。给每题标注事实澄清、缺少对照、机制解释、复现或表达问题；优先处理核心正确性和关键证据，简单勘误简短说明。
+
+**边界：**优先级改变工作顺序，不改变问题含义，也不意味着可以遗漏难题。不要根据低分、高 confidence 或未回复推断审稿人水平。
+
+**原创中英文回复例子：假设多文档问答研究**
+
+**改前：**教学示例：将“是否用到答案，以及数据是否跨划分重复”统称为“数据质量”，只回复测试集大小。
+
+**改后：**以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：关于数据泄漏，分两点回答：Q1.1a，推理时不提供参考答案，输入格式见附录 A.1；Q1.1b，文档去重检查尚未完成，因此当前不能排除跨划分的文档重复。 English: We address the leakage concern in two parts. Q1.1a: Reference answers are not provided at inference; the input format is in Appendix A.1. Q1.1b: The cross-split document deduplication check is not complete, so document overlap has not yet been ruled out.
+
+**说明：**同一意见里的两个条件分别回答。清楚暴露未解决的问题，避免用一项已完成检查替代另一项。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[NeurIPS 2026 · Main Track Handbook V2026.3，Author Responses](https://neurips.cc/Conferences/2026/MainTrackHandbook)
+
+</details>
+
+- [ ] **第 63 条：**第一句给实际答案，再交代依据和修改位置；感谢具体而简短，只在问题本来是二选一时用 Yes/No。
+
+<a id="tip-63"></a>
+<details>
+<summary>第 63 条：感谢一句够了，答案别躲在后面 · 说明、例子与参考</summary>
+
+让人愿意读，靠的是回答好找、依据清楚。感谢指出一个真实问题就够，不需要夸到对方不好意思。
+
+**做法：**参数问题直接给值；定义问题直接给定义；合理批评说明承认哪一点；有条件的问题保留条件。随后给最必要的证据，修订真的完成且流程允许时再写完成位置。
+
+**边界：**不把开放问题硬改成 Yes/No，不用礼貌措辞掩盖没有答案。接受、澄清和合理不同意都可以自然表达。
+
+**原创中英文回复例子：假设多文档问答研究**
+
+**改前：**教学示例：“这是一个极具洞见的精彩问题，我们花了很多精力认真考虑……”但没有说最多检索几次。
+
+**改后：**以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：最多检索 6 次，这个上限对所有受控比较相同；停止条件见算法 1，第 8 行。感谢指出描述不清。原稿没有明确写出这个上限，这是需要澄清的设置。 English: The retrieval cap is six calls for all controlled comparisons; the stopping condition is given in Algorithm 1, line 8. Thank you for flagging the unclear description. The cap was not explicit in the submitted text.
+
+**说明：**短感谢指向实际问题。例子只说原稿哪里不清楚，没有伪称正文已经改完。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[ICLR 2026 · Author Guide，Discussion Stages](https://iclr.cc/Conferences/2026/AuthorGuide)
+
+</details>
+
+
+**证据与实验**
 
 - [ ] **第 50 条：**区分原有结果、新分析与新实验，补充必要设置，无法回答就说明限制，并按流程要求收窄主张。
 
@@ -1408,9 +1467,9 @@ Research Question（RQ）告诉读者这组实验到底要查明什么。它可�
 
 原稿里已有的结果、新加的分析和新跑的实验，读者需要分得清。做不到的也直接说明，别用未来承诺冒充现在的证据。
 
-**做法：**回应时交代证据来自哪里。新增结果带上必要设置；没法回答的部分，解释限制并考虑收窄原稿主张。
+**做法：**每条证据标明是原稿结果、新增分析、新实验还是未完成的计划，并附范围与位置。先核对当轮规则再补材料：NeurIPS 2026 主会允许回复新结果，但不允许修订稿件、附件或新增上传文件；ICLR 2026 讨论期允许修订，需清楚告知变更。
 
-**边界：**能不能加实验、放外链、承诺修改，看当前审稿流程的具体规则。
+**边界：**上面的流程只对应列出的版本。外链、字符数、附件和修订权限按当年赛道与系统通知重新核对；不能把一个会议的习惯套到所有会议。
 
 **回复区分已有结果与新实验**
 
@@ -1420,12 +1479,84 @@ Research Question（RQ）告诉读者这组实验到底要查明什么。它可�
 
 **说明：**回复需要让读者知道证据何时取得、覆盖什么范围，清楚承认缺口比用未来承诺冒充当前结果更能解决问题。
 
-来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[NeurIPS 2026 · Main Track Handbook V2026.3，Author Responses](https://neurips.cc/Conferences/2026/MainTrackHandbook)；[ICLR 2026 · Author Guide，Discussion Stages](https://iclr.cc/Conferences/2026/AuthorGuide)；[ACL Rolling Review · Authors Guidelines，Author response](https://aclrollingreview.org/authors#author-response)
+
+</details>
+
+- [ ] **第 62 条：**给每个回复主张登记证据、设置、位置和完成状态，核对原始结果；没有证据就保留未解决。
+
+<a id="tip-62"></a>
+<details>
+<summary>第 62 条：每句话背后，要有能找到的证据 · 说明、例子与参考</summary>
+
+写回复前做一张小账本：问题、结论、证据、状态、位置。它用来防止自己把计划写成事实，不一定放进最终回复。
+
+**做法：**已有图表登记提交版本与行列；新增结果登记代码配置、样本单位、指标、比较条件与原始输出；文献给出支持的具体主张。引用论文里的汇总数前，回查分母和异常样本处理。
+
+**边界：**设计动机、开源承诺、投入了多少卡或 API，都不能代替效果证据。文献支持一般原理，也不能冒充本方法已经通过的实验。
+
+**原创中英文回复例子：假设多文档问答研究**
+
+**改前：**教学示例：“我们进行了大量 API 调用，证明方法效率更高。”
+
+**改后：**以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：原稿表 3 的比较单位是 800 道测试题：固定检索与自适应检索分别平均调用 3.0 和 2.4 次，模型和文档池相同。这支持该测试集上调用量更低，不代表端到端耗时更短；耗时尚未测量。 English: Table 3 reports mean calls per question on 800 test questions: 3.0 for fixed retrieval and 2.4 for adaptive retrieval, with the same model and document pool. This supports fewer calls on this test set. End-to-end latency has not been measured.
+
+**说明：**数值为假设，指标分母是题目；调用量与耗时是两种不同证据，不互相代替。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)；[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)
+
+</details>
+
+- [ ] **第 64 条：**补实验前写清待区分的解释、固定条件、改变因素与指标；报告完整比较及不确定性，再决定结论。
+
+<a id="tip-64"></a>
+<details>
+<summary>第 64 条：补实验，先看它能不能分清原因 · 说明、例子与参考</summary>
+
+审稿人问“是不是多检索一次就够了”，再跑一张总分表通常不够。先让两种解释在实验里有不同预期。
+
+**做法：**写出备选解释；匹配模型、题目、文档池和允许预算，只改变需要检验的因素。预先确定指标、纳入范围和重复方式；相关数据集都报告，比较条件不同就分开展示。先检查当轮允许补哪些结果。
+
+**边界：**一个消融的相关变化不自动证明机制；样本、资源与信息范围不一致的公开论文数字不能当作受控比较。补多少实验不等于态度分。
+
+**原创中英文回复例子：假设多文档问答研究**
+
+**改前：**教学示例：“我们加了一个更强模型，得分更高，因此核验模块的机制正确。”
+
+**改后：**以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：为区分“检索更多”与“核验更好”，补实验需要匹配每题检索次数、候选文档与基础模型，只改变是否使用核验分数。目前尚无这组结果，表 2 的整体比较不能回答机制问题。 English: To distinguish more retrieval from better verification, the additional comparison must match per-question retrieval counts, candidate documents, and the base model, changing only the use of verification scores. We do not yet have these results; the full-system comparison in Table 2 does not resolve the mechanism question.
+
+**说明：**这是实验设计与当前证据状态的回答，不把尚未运行的检验说成机制已被证明。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)；[NeurIPS 2026 · Main Track Handbook V2026.3，Author Responses](https://neurips.cc/Conferences/2026/MainTrackHandbook)
+
+</details>
+
+- [ ] **第 67 条：**如实说明未完成检验和影响结论的负结果，保留分组与分母；证据不支持原主张，就收窄或撤回。
+
+<a id="tip-67"></a>
+<details>
+<summary>第 67 条：没做完就说没做完，不好看的结果也要留 · 说明、例子与参考</summary>
+
+回复的任务是让评审正确判断论文。一个平均数把失败组盖住，或者一句“最终版会补”把缺口盖住，都没有回答问题。
+
+**做法：**完成结果给实际范围；阶段性结果标明覆盖与选择规则；未完成说明具体缺口及结论影响。表格只保留相关行，但不能删除会改变判断的行；异常现象需要核对，不能先编一个有利解释。
+
+**边界：**计划不是证据，负结果不等于工作毫无价值。若重要主张被否定，应纠正主张，而不是更换指标、样本或措辞把它重新说成成立。
+
+**原创中英文回复例子：假设多文档问答研究**
+
+**改前：**教学示例：“整体更好，细节会在最终版补齐。”实际短题更好，跨文档题更差。
+
+**改后：**以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：表 R1 的假设结果按预先定义的题型汇总：400 道单文档题的 EM 为 68% 对 64%，400 道跨文档题为 52% 对 56%，前者为自适应检索，后者为固定检索。整体 EM 都是 60%。因此“所有题型都提升”不成立，单文档题的优势伴随跨文档题的损失；原因尚未确定。 English: Table R1 uses predefined question types. On 400 single-document questions, EM is 68% for adaptive retrieval and 64% for fixed retrieval; on 400 cross-document questions, it is 52% and 56%. Overall EM is 60% for both. The claim of improvement across all question types is not supported; the cause of the cross-document loss remains unresolved.
+
+**说明：**数字为教学假设，两个等大分组的汇总与整体一致。保留损失、样本量和未确定的原因，没有选择性报告。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)；[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)
 
 </details>
 
 
-**分歧与交付**
+**澄清与分歧**
 
 - [ ] **第 51 条：**不同意意见时承认其中成立的部分，用任务定义、比较条件和证据解释分歧，不猜测审稿人动机。
 
@@ -1435,15 +1566,90 @@ Research Question（RQ）告诉读者这组实验到底要查明什么。它可�
 
 尊重审稿人，不等于每条意见都得照单全收。你可以不同意，但要让对方看见理由，而不是情绪。
 
-**做法：**先承认意见里成立的部分，再说明任务定义、比较条件或证据为何支持另一种判断。讨论论文，不猜测对方是不是认真看了。
+**做法：**判断批评是否成立，成立就承认并改；不成立就给定义、条件与证据。涉及理论问题给推导与假设，涉及实现问题给实际流程，涉及效果问题给对应比较。事实差异影响结论时必须澄清。
 
-**边界：**语气好不能代替结果，更不能保证改分或录用。
+**边界：**礼貌不等于照单全收，也不保证改分或录用。按意见内容选择论证，不推测审稿人的身份、能力、情绪或动机。
 
-来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[NeurIPS 2026 · Main Track Handbook V2026.3，Author Responses](https://neurips.cc/Conferences/2026/MainTrackHandbook)
 
 </details>
 
-- [ ] **第 52 条：**按当年指南核对页数、匿名和附件，打开最终提交文件检查图文与链接，移除内部备注和无关备份。
+- [ ] **第 65 条：**事实澄清给出准确版本、定义和原稿位置，必要时用一个案例解释；不指责审稿人没读懂或没认真看。
+
+<a id="tip-65"></a>
+<details>
+<summary>第 65 条：澄清事实，把定义与出处放在眼前 · 说明、例子与参考</summary>
+
+真正影响判断的事实要说清：推理看到什么、训练用什么、评价是谁做的。先校对自己的稿件与代码，别只凭记忆反驳。
+
+**做法：**核对被质疑的对象与版本，用简短原文位置和具体操作澄清。若文字确实容易混淆，承认表达问题；有权限修改且已完成时指出修改处，尚未修改就直接给出当前解释。
+
+**边界：**不要为了避冲突保留错误描述，也不要纠缠不影响核心关切的措辞。澄清一个事实不自动解决相邻的效果质疑。
+
+**原创中英文回复例子：假设多文档问答研究**
+
+**改前：**教学示例：“审稿人显然没看附录，我们根本不是这么做的。”
+
+**改后：**以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：核验分数来自文档与候选答案的匹配，不使用参考答案；附录 A.2 定义了这一步。参考答案只用于测试评分。不过，核验分数能否识别措辞相近的错误答案，仍需独立检验。 English: Verification scores compare documents with candidate answers and do not use reference answers; Appendix A.2 defines this step. Reference answers are used only for test evaluation. Whether the verifier detects incorrect answers with similar wording still requires a separate check.
+
+**说明：**先区分信号来源，再保留尚未检验的有效性问题。事实澄清与机制验证不能混为一谈。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)
+
+</details>
+
+- [ ] **第 66 条：**不同意补充请求时说明目标、适用条件与限制，给出能回答原关切的替代；保留实际设置差异。
+
+<a id="tip-66"></a>
+<details>
+<summary>第 66 条：不同意请求，给理由和可比的替代 · 说明、例子与参考</summary>
+
+不必每条建议都照单全收。拒绝请求需要让人看懂：这项比较回答什么，为什么当前条件回答不了，以及还能提供什么。
+
+**做法：**区分核心正确性检验与研究范围扩展。请求适用就完成；不适用就说明任务定义、数据权限、模型可见信息或预算的实际差异。能提供诊断或参照时说明其用途，不能比较就诚实保留边界。
+
+**边界：**不把“结果较差”当作设置不合理的证据；商业模型、私有数据或大预算也不天然无效。比较受限时收窄结论，不暗示自己或对方的机构身份。
+
+**原创中英文回复例子：假设多文档问答研究**
+
+**改前：**教学示例：“商用模型要付费又不安全，所以这个比较没有意义。”
+
+**改后：**以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：商业模型可作为应用性能参照，但无法检验同一基础模型下核验模块的作用：其训练数据和参数不同，部分设置不可获知。我们尚未完成该参照比较，因此当前结论仅限于同一基础模型的受控实验。 English: A commercial model would be useful as an application-level reference, but it would not isolate verification under the same base model: its training data and parameters differ, and some settings are unavailable. We have not completed this reference comparison, so our conclusions are limited to the controlled experiments using the same base model.
+
+**说明：**承认建议有用途，同时说清它不能回答哪个问题。没有用假设的设置差异替失败结果开脱。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[NeurIPS 2026 · Main Track Handbook V2026.3，Author Responses](https://neurips.cc/Conferences/2026/MainTrackHandbook)
+
+</details>
+
+- [ ] **第 69 条：**允许给 AC 摘要时列出关键关切、证据位置和仍未解决的限制；准确引用反馈，不要求按分数或身份选边。
+
+<a id="tip-69"></a>
+<details>
+<summary>第 69 条：给 AC 的摘要：帮忙定位，别帮忙选边 · 说明、例子与参考</summary>
+
+AC 是负责汇总与判断的领域主席。摘要的用处，是把几条分散讨论接起来，让重要证据和剩余分歧容易核查。
+
+**做法：**按问题整理成短摘要：质疑是什么，回复提供什么，证据支持到哪一步，哪里仍未解决。引用正面或负面反馈都保留原意，分清作者判断与评审确认；流程问题走官方渠道并给可核查事实。
+
+**边界：**不存在适用于所有会议的审稿分数与 AC 摘要权重公式。摘要长度与私密读者权限按当轮规则；不隐去关键负结果，不猜测低分或未回复的原因，也不奉承 AC。
+
+**原创中英文回复例子：假设多文档问答研究**
+
+**改前：**教学示例：“高分审稿人更专业，问题都解决了，请支持接收。”但机制问题没有补实验。
+
+**改后：**以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：主要分歧仍是核验机制。Q1.2 给出所需对照设计，但实验尚未完成；Q2.1 已定位调用上限，原稿表 3 支持较少的平均调用量。现有证据支持系统层面的调用量差异，不能归因于核验机制。 English: The main unresolved issue is the verification mechanism. Q1.2 specifies the required control, but the experiment is not complete. Q2.1 locates the call cap, and Table 3 supports fewer mean calls. The current evidence supports a system-level difference in calls, not an attribution to verification.
+
+**说明：**摘要同时交代已提供的证据和未解决的问题。它帮助判断证据范围，不替评审确认结果或要求录用。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[NeurIPS 2026 · Main Track Handbook V2026.3，Author Responses](https://neurips.cc/Conferences/2026/MainTrackHandbook)；[ICLR 2026 · Author Guide，Discussion Stages](https://iclr.cc/Conferences/2026/AuthorGuide)；[ACL Rolling Review · Authors Guidelines，Author response](https://aclrollingreview.org/authors#author-response)
+
+</details>
+
+
+**提交与复核**
+
+- [ ] **第 52 条：**按当轮指南核对篇幅、匿名、读者权限和附件，回读系统中的实际文件与评论，确认版本和新增位置。
 
 <a id="tip-52"></a>
 <details>
@@ -1451,11 +1657,63 @@ Research Question（RQ）告诉读者这组实验到底要查明什么。它可�
 
 本地有一份正确的 PDF，不代表投稿系统里传的就是它。最后一步很普通，也很值得认真做。
 
-**做法：**对照当年作者指南检查篇幅、匿名和附件。打开最终文件，从第一页翻到附录，试一下代码和数据链接，再确认提交版本。
+**做法：**对照当年赛道指南核对回复篇幅、匿名、读者权限、附件与截止时间。允许修订时列清新增位置；不允许修订时不要写“已加入正文”。提交后重新打开系统中的文件和评论，确认内容与版本。
 
-**边界：**把日志、内部备注和无关备份留在提交包外。需要披露的限制和研究事实仍然保留。
+**边界：**ICLR 2026 指南说明可多次修订，但审稿人和 AC 不必阅读每版；关键回答应在回复里可直接找到。把日志和内部备注留在提交包外，保留必要限制。
 
-来源与延伸阅读：[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)
+来源与延伸阅读：[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[NeurIPS 2026 · Main Track Handbook V2026.3，Author Responses](https://neurips.cc/Conferences/2026/MainTrackHandbook)；[ICLR 2026 · Author Guide，Discussion Stages](https://iclr.cc/Conferences/2026/AuthorGuide)
+
+</details>
+
+- [ ] **第 68 条：**统一各回复、修订稿和表格的版本、数值与主张；交叉引用先给一句直接答案，未回复不视为认可。
+
+<a id="tip-68"></a>
+<details>
+<summary>第 68 条：不同回复，可以复用证据，不能换一套事实 · 说明、例子与参考</summary>
+
+不同审稿人可能问到同一处。共享证据能省篇幅，但审稿人读自己那条回复时，也应该知道答案是什么。
+
+**做法：**维护一份共同事实表：方法定义、模型与数据版本、样本单位、统计口径、结果位置和未解决问题。交叉引用给标题或编号与短结论；新增结果后更新所有受影响的回复，避免各说各话。
+
+**边界：**未留言不代表接受解释；只有明确回复才能称为已确认。不要用其他审稿人的高分或赞许代替当前问题的证据。
+
+**原创中英文回复例子：假设多文档问答研究**
+
+**改前：**教学示例：对一个审稿人说最多 6 次调用，对另一个说最多 3 次；回复没有统一修正。
+
+**改后：**以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：Q2.1 的调用上限也是 6 次。Q1.2 已区分上限与实际平均调用量：表 3 中自适应检索平均调用 2.4 次，上限没有改变。这位审稿人尚未回复，不能据此声称该关切已被认可为解决。 English: The cap in Q2.1 is also six calls. Q1.2 distinguishes the cap from the observed mean: adaptive retrieval averages 2.4 calls in Table 3, while the cap is unchanged. The reviewer has not replied, so we cannot claim that the reviewer confirmed this concern was resolved.
+
+**说明：**上限与平均值分开，跨回复事实一致；客观陈述讨论状态，不推断沉默的含义。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[ICLR 2026 · Author Guide，Discussion Stages](https://iclr.cc/Conferences/2026/AuthorGuide)；[NeurIPS 2026 · Main Track Handbook V2026.3，Author Responses](https://neurips.cc/Conferences/2026/MainTrackHandbook)
+
+</details>
+
+- [ ] **第 70 条：**让同事或获准工具按原文检查漏答、证据、语气与版本；模拟输出只作修改建议，不当真实评分预测。
+
+<a id="tip-70"></a>
+<details>
+<summary>第 70 条：模拟审核：查回复，别算审稿人的心情 · 说明、例子与参考</summary>
+
+模拟最有用的部分，是替你找一句看似回答了、其实没有依据的话。它读不到审稿人的心理，也不能保证对方会涨分。
+
+**做法：**提供允许使用的意见与论文片段，让检查者逐题标注：原文关切是否保留，首句是否回答，证据是否支持，完成状态是否准确，结论是否过大。再人工回查；使用 AI 前核对会议保密与工具政策。
+
+**边界：**未经许可的审稿材料、真实匿名 ID、内部讨论和身份线索不发布到公共仓库。按意见类型检查，不生成身份画像、情绪推测或录用概率。
+
+**原创中英文回复例子：假设多文档问答研究**
+
+**改前：**教学示例：“模拟这位审稿人会不会开心，给出最终涨分概率。”
+
+**改后：**以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：复核发现 Q1.2 写“已证明核验有效”，但证据仅为整体系统比较；因此改为“当前证据不能分离核验作用”。检查未预测评分，也未把尚未完成的控制实验记为通过。 English: Our response audit found that Q1.2 claimed verification was established, while the evidence compared only full systems. We replaced this with: “The current evidence does not isolate the effect of verification.” The audit did not predict scores or mark the unfinished control as passed.
+
+**说明：**审核结果只说明回复哪里需要修正。模拟不能替代真实实验、人工核对和评审判断。
+
+```text
+请只根据我提供且允许用于此工具的材料，检查 rebuttal。按每条原始意见保留顺序，列出：实际关切、当前答案、证据位置、完成状态、遗漏或不一致、最小修改建议。不要虚构实验、引用或已完成修改；不要从评分、匿名编号、语气或未回复推断审稿人身份、能力与心理；不要预测涨分或录用。区分事实澄清、合理不同意、缺少证据与已完成修改。检查是否遗漏会改变结论的负结果，是否违反当轮匿名、保密、篇幅、外链或附件规则；未提供规则时只指出需核验的项目。最后逐句核对回复主张是否由给出的证据支持。
+```
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[NeurIPS 2026 · Main Track Handbook V2026.3，Author Responses](https://neurips.cc/Conferences/2026/MainTrackHandbook)
 
 </details>
 
@@ -1470,3 +1728,6 @@ Research Question（RQ）告诉读者这组实验到底要查明什么。它可�
 - [Liu et al. (2024) · Lost in the Middle, Figure 1 / §2](https://aclanthology.org/2024.tacl-1.9/)：证据位置与问答表现的控制实验，适合学习“现象—诊断”的论证。
 - [TCOD (2026 预印本) · Figure 1](https://arxiv.org/pdf/2604.24005v3)：多轮监督案例与课程设计并排呈现；概念图本身不证明效果。
 - [Reinforcing Real-world Service Agents (2026 预印本) · Figure 1](https://arxiv.org/html/2602.22697v1#S4.F1)：交互环境、轨迹、学习信号与更新对象的框架图；模拟表现不等于真实部署收益。
+- [NeurIPS 2026 · Main Track Handbook V2026.3，Author Responses](https://neurips.cc/Conferences/2026/MainTrackHandbook)：2026 主会回复流程、匿名、篇幅与新结果要求；其他年份和赛道另查指南。核查日期：2026-10-07。
+- [ICLR 2026 · Author Guide，Discussion Stages](https://iclr.cc/Conferences/2026/AuthorGuide)：2026 讨论期修订与变更说明；审稿人和 AC 不必阅读每一版。实际投稿遵循当轮最新通知。核查日期：2026-10-07。
+- [ACL Rolling Review · Authors Guidelines，Author response](https://aclrollingreview.org/authors#author-response)：截至 2026-10-07 可见的作者回复指南；页面注明此版适用至 2026 年 8 月轮次，后续轮次需重查。用于了解 ARR 与直接投会议的区别，不作后续轮次规则保证。
