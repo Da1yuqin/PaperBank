@@ -1,0 +1,51 @@
+PaperBank licenses
+Copyright (c) 2026 Da1yuqin
+
+1. Original writing, prompts, and teaching illustrations
+
+The original text in data/guide.json, book/guide.md, README.md, SOURCES.md,
+and the corresponding text in index.html, plus the original teaching
+illustrations in assets/flow-example.svg and assets/case-example.svg,
+is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).
+
+License: https://creativecommons.org/licenses/by/4.0/
+Legal terms: https://creativecommons.org/licenses/by/4.0/legalcode.en
+Attribution name: Da1yuqin / PaperBank
+Original source: https://Da1yuqin.github.io/PaperBank/
+Repository: https://github.com/Da1yuqin/PaperBank
+
+When sharing, give appropriate credit, retain the source and license links
+where reasonably practicable, and indicate changes. Commercial use and
+adaptation are allowed. A GitHub Star is appreciated but never required.
+
+2. Original code and page implementation
+
+The original program code, JavaScript, CSS, template structure, and generated
+HTML implementation are licensed under the MIT License below. Text contained
+in these files remains governed by section 1.
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+3. Third-party material
+
+External papers, linked websites, trademarks, and explicitly identified
+third-party material retain their own copyrights and licenses. The licenses
+above do not grant rights to those materials or imply endorsement.
