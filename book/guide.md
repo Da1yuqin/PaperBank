@@ -20,6 +20,7 @@
 - [10. 精修：先讲通，再写顺](#revision)
 - [11. 用 AI：省力，也别省掉判断](#ai)
 - [12. Rebuttal 和交稿：把问题回清楚](#rebuttal)
+- [好用工具与开源整理提示词](#tools)
 
 <a id="core"></a>
 ## 1. 先想清楚，别急着写
@@ -3197,6 +3198,360 @@ Treat the output as an editing checklist, not a prediction of reviewer scores, i
 
 </details>
 
+
+<a id="tools"></a>
+## 好用工具：省点手工，判断还得自己来
+
+按用途选一个先试。下面核对了公开页面或项目说明，未安装评测；“待探索”保留待试用状态。例子是使用情境，不代表实测效果。外部项目按自己的许可使用，链接收录不代表推荐它们的全部做法。
+
+核对日期：2026-10-07。
+
+### 任务助手
+
+- **[OpenClaw](https://docs.openclaw.ai/start/getting-started)：**把任务交给可调用工具的助手，在聊天或浏览器控制台中协作。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**先让助手只读整理三篇公开论文的题名、方法和出处；确认后再安排后续任务。
+
+  **Example:** Start with a read-only task: list the titles, methods, and sources of three public papers, then decide what to do next.
+
+  **注意：**工具权限与任务范围先配清楚；“只读”提示还应配合实际权限限制。不要把密钥贴进公开对话。
+
+  [官方安全说明](https://docs.openclaw.ai/gateway/security)
+
+  </details>
+
+
+### 找文献与读原文
+
+- **[AI-Powered Literature Review Skills](https://github.com/stephenlzc/AI-Powered-Literature-Review-Skills)：**按检索、去重、逐篇分析和综合写作组织文献回顾。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**限定研究问题、年份和纳入标准，先导出候选文献清单，再人工核对纳入与排除理由。
+
+  **Example:** Specify the research question, date range, and inclusion criteria; export candidate papers and manually check inclusion and exclusion decisions.
+
+  **注意：**README 的验证阶段包含基础元数据检查，不能替代全文核验；检索还取决于数据库访问权限和浏览器环境。
+
+  </details>
+
+- **[沉浸式翻译](https://immersivetranslate.com/zh-Hans/)：**给英文网页和 PDF 加双语对照，保留原文方便逐句核查。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**读英文工具文档时打开双语；复制代码和引用时仍使用原始内容。
+
+  **Example:** Use bilingual views to read English documentation; copy code and quotations from the original.
+
+  **注意：**术语、否定和统计结论可能误译，关键内容回原文核对。安装和账户要求看官方文档。
+
+  [官方文档](https://immersivetranslate.com/docs/)
+
+  </details>
+
+- **[Zotero 中文社区插件目录](https://zotero-chinese.com/plugins/)：**按任务找插件，核对 Zotero 版本、更新记录和插件作者。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**只想把批注汇成笔记，先挑笔记插件；需要双语 PDF，再看翻译插件。
+
+  **Example:** Choose a note plugin for annotation summaries, and a translation plugin for bilingual PDFs.
+
+  **注意：**社区目录与 Zotero 官方无从属关系；排行榜不是兼容性或安全审计。
+
+  [插件排行榜](https://zotero-chinese.com/plugins/charts)
+
+  </details>
+
+- **[Better Notes](https://github.com/windingwind/zotero-better-notes)：**把 Zotero 批注组织成笔记，连接相关笔记，导出 Markdown 等格式。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**建一页“跨被试迁移”笔记，把三篇论文的方法、数据和局限分别链接进去。
+
+  **Example:** Create a cross-subject transfer note and link the methods, data, and limitations of three papers.
+
+  **注意：**Markdown 自动同步是双向的；启用前确认需要同步的文件，保留原始批注。
+
+  </details>
+
+- **[Zotero PDF2zh](https://github.com/guaguastandup/zotero-pdf2zh)：**在 Zotero 内翻译 PDF，查看原文与译文，尽量保留公式和排版。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**先译方法节帮助定位，再对照英文核对变量定义、否定句和实验条件。
+
+  **Example:** Translate the method section for navigation, then check definitions, negation, and experimental conditions against the original.
+
+  **注意：**需要插件与翻译服务配合；译文只辅助阅读，关键结论仍回原文核对。
+
+  </details>
+
+- **[Zotero MCP](https://github.com/cookjohn/zotero-mcp)：**让支持 MCP 的 AI 客户端搜索 Zotero 文献、全文、批注和笔记。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**提示词：“只读检索我的跨被试论文，列出题名、年份和带出处的关键批注；不要改文献库。”
+
+  **Example:** Read-only: search my cross-subject papers and list titles, years, and key annotations with sources. Do not modify the library.
+
+  **注意：**插件也有写入笔记、标签和元数据的功能；需要只读时明确限制操作。连接云端 AI 后，读取内容可能发给模型服务商。
+
+  </details>
+
+
+### 写作、排版与汇报
+
+- **[ChineseResearchLaTeX](https://github.com/huangwb8/ChineseResearchLaTeX)：**找中文科研 LaTeX 模板，覆盖标书、论文、学位论文和简历。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**选与你的文档类型相符的模板，先用示例内容编译，再迁移自己的正文。
+
+  **Example:** Choose a template for your document type, compile the sample first, then migrate your own text.
+
+  **注意：**模板先与当年的学校、基金或期刊官方要求对照；项目说明要求使用 XeLaTeX。
+
+  </details>
+
+- **[THU-PPT-Theme](https://github.com/atomiechen/THU-PPT-Theme)：**下载简洁的 PPTX 模板，用幻灯片母版统一答辩或组会排版。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**选 16:9 白底模板，先统一标题和图注，再放一页问题、一页方法、一页主结果。
+
+  **Example:** Start with a 16:9 white template, then align headings and captions across the problem, method, and main-result slides.
+
+  **注意：**采用 CC BY-NC-SA 4.0，保留署名、遵守非商业与相同方式共享条件；校徽等标识另按其规则使用。
+
+  </details>
+
+
+### 统计图与框架图
+
+- **[Paper Plot Skills](https://github.com/Trae1ounG/paper-plot-skills)：**用自己的数据生成论文统计图，或把参考图的布局转成 matplotlib 脚本。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**给出方法名和准确率，用分组柱状图比较方法；保留数据来源和真实数值。
+
+  **Example:** Provide method names and accuracy values, then compare them in a grouped bar chart with the original data preserved.
+
+  **注意：**参考图用于借鉴表达；不要把复现图当成自己的实验结果。仓库首页未明确展示许可证，复制代码或原图前另查授权。
+
+  </details>
+
+- **[Paper Framework Figure Studio Pro](https://github.com/c-narcissus/paper-framework-figure-studio-pro)：**先核对方法的模块、箭头和变量，再分轮生成框架图候选。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**给出方法段落，先列出输入、三个模块和输出，确认数据流后再画图。
+
+  **Example:** Provide the method section, verify its inputs, three modules, and outputs, then draw the confirmed data flow.
+
+  **注意：**当前主线主要面向 ChatGPT 网页端；默认交付候选参考图，可编辑 SVG 或 PPT 通常还需另行重绘。
+
+  </details>
+
+- **[Lieflat Charts](https://github.com/larashero3-dotcom/lieflat-charts)：**把数据做成可交互 HTML 图表，也可生成一页报告。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**用公开实验汇总表生成按方法排序的交互柱状图，旁边写清指标、单位和数据出处。
+
+  **Example:** Turn a public experiment table into an interactive bar chart sorted by method, with the metric, unit, and source stated alongside it.
+
+  **注意：**项目采用非商业许可；商业使用需另行取得许可。图表工具不会替你验证输入数据。
+
+  [项目 LICENSE](https://github.com/larashero3-dotcom/lieflat-charts/blob/main/LICENSE)
+
+  </details>
+
+
+### 引用存在吗，支持这句话吗
+
+- **[Scholar Ref Cleaner](https://github.com/libo-huang/scholar-ref-cleaner)：**将 BibTeX、Word 或文本中的引用与学术数据库元数据比对，生成核验结果。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**对公开论文的 refs.bib 做首轮检查，再逐条复核题名、作者、年份、DOI 和出版社页面。
+
+  **Example:** Screen refs.bib from a public paper, then verify titles, authors, years, DOIs, and publisher pages manually.
+
+  **注意：**查无结果可能来自数据库覆盖或网络问题，不能直接判为伪造；元数据匹配也不证明引用支持正文论断。
+
+  </details>
+
+- **[TrueCite](https://www.wispaper.ai/agents/true-cite)：**上传 BibTeX 文件，与学术数据库比对，筛出需要复核的引用。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**先拿公开论文的小份 .bib 试用，检查每条异常的数据库来源和原始出版页面。
+
+  **Example:** Try a small .bib from a public paper and inspect the database evidence and publication page for each flagged entry.
+
+  **注意：**页面当前说明只支持 .bib，最大 1 MB；自动标记不是学术不端判定，核查正文论断仍需读原文。
+
+  </details>
+
+- **[ValiRef](https://github.com/Gianthard-cyh/ValiRef)：**从论文 PDF 提取引用，检索多个来源，并借助 LLM 给出核验报告。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**用公开 PDF 生成报告，把“论文是否存在”和“是否支持正文这句话”分开复核。
+
+  **Example:** Generate a report for a public PDF, then separately verify paper existence and whether it supports the cited claim.
+
+  **注意：**ruanyf/weekly 的链接是开发者自荐，不是独立评测；LLM 报告可能误判，项目的准确率主张未在这里复测。
+
+  [开发者自荐讨论](https://github.com/ruanyf/weekly/issues/9505)
+
+  </details>
+
+- **[DrClaw · Check Review Alignment](https://github.com/InternScience/DrClaw/blob/main/drclaw/agent_hub/templates/proposal-writing/skills/check-review-alignment/SKILL.md)：**核对综述句子是否真的得到所引论文支持，并记录原句、证据和定位。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**正文写“方法 A 在低资源任务更好”，逐条找原文的任务、比较方法和结果；证据不足就记为待人工核验。
+
+  **Example:** For a claim that method A performs better in low-resource tasks, locate the original task, comparison, and result; flag insufficient evidence for manual review.
+
+  **注意：**核对已有引用与正文论断的对应关系；不能保证自动核验无误。排版导出另依赖项目里的综述 skill。
+
+  </details>
+
+
+### 读代码
+
+- **[DeepWiki](https://deepwiki.com/)：**读公开 GitHub 仓库的架构说明，问具体函数和数据流，再沿源代码链接核对。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**提示词：“reward 在哪个函数定义？输入是什么？哪些调用会使用它？给出源文件位置。”
+
+  **Example:** Where is the reward defined, what are its inputs, and which calls use it? Include source-file locations.
+
+  **注意：**先核对索引版本与正在阅读的代码版本；生成文档不能替代源代码或运行结果。未索引的公开仓库可提交仓库 URL。
+
+  [官方说明](https://docs.devin.ai/work-with-devin/deepwiki)
+
+  </details>
+
+
+### 论文公开与维护
+
+- **[Hugging Face Daily Papers 投稿](https://huggingface.co/papers/submit)：**把已公开的 arXiv 论文提交到 Daily Papers，关联代码、模型、数据集或演示。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**准备 arXiv ID、公开项目页和 GitHub 仓库，再按投稿页面当前资格要求提交。
+
+  **Example:** Prepare the arXiv ID, public project page, and GitHub repository, then follow the current submission requirements.
+
+  **注意：**论文被索引、作者认领、进入 Daily Papers 是不同状态；当前资格与时间窗口以投稿页面为准。
+
+  [官方 Paper Pages 说明](https://huggingface.co/docs/hub/paper-pages) · [官方 papers skill](https://github.com/huggingface/skills/blob/main/skills/huggingface-papers/SKILL.md)
+
+  </details>
+
+- **[Hugging Face 作者认领](https://huggingface.co/docs/hub/paper-pages#claiming-authorship-to-a-paper)：**打开自己的 Paper Page，点击自己的作者姓名，再选择 claim authorship 并等待验证。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**认领通过后，在 Papers 设置里选择是否展示在个人主页；公开链接只放论文页。
+
+  **Example:** After verification, choose whether to show the paper on your profile; share the public paper page.
+
+  **注意：**只认领自己署名的论文；把公开论文页用于分享，个人认领流程留在账号内。
+
+  [Papers 设置](https://huggingface.co/settings/papers)
+
+  </details>
+
+- **[Hugging Face Daily Papers 历史页面](https://huggingface.co/papers)：**按日期浏览社区论文，检查自己的公开 Paper Page 和关联项目入口。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**打开指定日期页查论文是否出现，再进入论文页核对作者、摘要和项目链接。
+
+  **Example:** Open a dated feed to check whether a paper appears, then verify its authors, abstract, and project links.
+
+  **注意：**出现在日期页不代表会议接收、同行评审或结果复现；该链接是历史示例。
+
+  [2026-02-06 示例页面](https://huggingface.co/papers/date/2026-02-06)
+
+  </details>
+
+
+### 待探索与社区补充
+
+- **[Edit Banana](https://github.com/BIT-DataLab/Edit-Banana)：**把静态示意图转换成可编辑的 DrawIO 元素。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**用自己有权处理的流程图测试转换，逐一核对箭头、文字和公式，再调整布局。
+
+  **Example:** Test a flowchart you are authorized to process, check each arrow, label, and formula, then adjust the layout.
+
+  **注意：**项目说明线上服务与仓库功能可能不同。README 写 Apache 2.0，LICENSE 文件实际为 AGPL-3.0；复用或部署前先确认许可。
+
+  [项目 LICENSE](https://github.com/BIT-DataLab/Edit-Banana/blob/main/LICENSE)
+
+  </details>
+
+- **[PDF Cut White](https://github.com/FFengIll/pdf-cut-white)：**裁剪 PDF 图表周围的白边，输出新的 PDF。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**把单页图表 input.pdf 裁成 output.pdf，随后检查轴标签、图例和误差线是否完整。
+
+  **Example:** Crop a single-page figure from input.pdf into output.pdf, then check that axis labels, legends, and error bars remain intact.
+
+  **注意：**README 说明默认只处理 PDF 第一页；保留原件，并为输出使用不同文件或目录。仓库首页未明确展示许可证，复制代码前另查授权。
+
+  </details>
+
+- **[科研 Skills 社区介绍 · 卡尔的AI沃茨](https://zhuanlan.zhihu.com/p/2063654777473569661)：**看看九类科研 skill 的使用介绍，用来找候选，再回项目原文核对。
+
+  <details><summary>中英例子与使用边界</summary>
+
+  **例子：**先按“读文献”或“画图”选候选，再用一篇公开论文或一份样例数据试用。
+
+  **Example:** Choose a candidate for reading or plotting, then try it with a public paper or sample dataset.
+
+  **注意：**作者的体验与排名是社区观点，不是统一条件下的基准测试，也不替项目做许可或安全保证。
+
+  </details>
+
+
+<a id="code-release-prompt"></a>
+### 开源整理：翻译注释，清掉私货，保留行为
+
+先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。
+
+**中文提示词**
+
+```text
+只处理我指定的文件：<文件或目录>。
+把中文注释、文档字符串和使用说明译成英文，保留解释代码所需的注释，删除版本更改流水账。把注释和文档中的个人信息、内部地址、机器绝对路径改成通用说明、相对路径和可运行的例子。保留必要的作者署名、引用与许可证信息。
+保持算法、控制流程、变量名、接口、参数和数据不变。不要自行翻译程序输出、异常消息、协议字段或其他可执行字符串；若文档字符串被程序读取，也先报告影响。
+疑似密钥、私有数据或运行时配置不要贴出原值。列出文件位置和处理建议；若替换会影响行为，先停在该处，说明需要什么决定。去秘检查也覆盖计划发布的样例、配置、日志和压缩包；若还发布 Git 历史，另查历史内容。
+示例：文档中的机器路径改为 data/example.json，并说明从项目入口定位；只改说明，不改程序的路径解析逻辑。密钥示例使用 YOUR_API_KEY，不写真实值。
+交付修改差异、处理过的内容类型、未解决项和实际验证结果。没有跑过的检查不要说通过；发现真实秘密时不要发布，先报告位置和处置需求。
+```
+
+**English prompt**
+
+```text
+Work only on the files I specify: <files or directory>.
+Translate Chinese comments, docstrings, and usage documentation into English. Keep comments needed to understand the code and remove version-change notes. Replace personal information, internal addresses, and machine-specific absolute paths in comments and documentation with general instructions, relative paths, and runnable examples. Preserve required attribution, citations, and license notices.
+Preserve algorithms, control flow, variable names, interfaces, parameters, and data. Do not automatically translate program output, error messages, protocol fields, or other executable strings. Report the impact first if a docstring is read by the program.
+Do not quote the original values of suspected credentials, private data, or runtime configuration. Report their file locations and proposed treatment. If substitution would affect behavior, stop at that location and explain the decision needed. Check examples, configurations, logs, and archives intended for release; check Git history separately if it will also be published.
+Example: replace a machine-specific path in documentation with data/example.json and explain that it is resolved from the project entry point. Change the explanation, not the program's path-resolution logic. Use YOUR_API_KEY in credential examples, never a real value.
+Deliver the diff, the types of content handled, unresolved items, and the checks actually performed. Do not claim an unperformed check passed. If real secrets are found, do not publish them; report their locations and the required treatment.
+```
 
 ## 参考阅读
 
