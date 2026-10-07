@@ -47,6 +47,12 @@
 | Yuqin Dai et al., [Harmonious Music-driven Group Choreography with Trajectory-Controllable Diffusion（TCDiff）](https://ojs.aaai.org/index.php/AAAI/article/view/32268) | AAAI 2025, 39(3):2645–2653；摘录来自正式发表版。 | © 2025 AAAI，保留原版权；作者教学短引，不纳入本指南原创内容的 CC BY 许可。 |
 | Yuqin Dai et al., [MindAligner: Explicit Brain Functional Alignment for Cross-Subject Visual Decoding from Limited fMRI Data](https://proceedings.mlr.press/v267/dai25m.html) | ICML 2025, PMLR 267:12214–12228；短引核对正式版与作者终稿，原图来自作者终稿素材。 | Copyright 2025 by the authors，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。保留论文署名、出处与许可，说明翻译和新增分析。 |
 | Pengyu Zeng et al., [CARD: Cross-modal Agent Framework for Generative and Editable Residential Design](https://aclanthology.org/2025.emnlp-main.473/) | EMNLP 2025:9304–9319；短引来自正式发表版。 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。保留原论文署名、出处与许可，说明中文翻译。 |
+| [Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3) | arXiv v3，2026-09-05，公开预印本 | arXiv.org perpetual non-exclusive license；原文权利保留 |
+| [Ling Shi, Yuqin Dai et al. · SAGE: An Extensible Benchmark for Service Agent Graph-guided Evaluation](https://arxiv.org/abs/2604.09285) | 教学摘录采用作者终稿 2026-10-04 只读快照；公开 arXiv v1（2026-04-10）题名为 SAGE: A Service Agent Graph-guided Evaluation Benchmark，两者不是同一版本。 | 作者终稿教学短引，保留原论文版权；不随 PaperBank 原创内容转授终稿转载权。公开 arXiv v1 的 CC BY 4.0 已核验，该许可不自动延伸到不同版本的作者终稿。 |
+| [Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html) | CVF Open Access 作者接受版；正式发表元数据已由 CVF 条目核对 | 原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。 |
+| [Yuqin Dai et al. · EviNoteRAG: Enhancing RAG Models via Quality-Augmented Evidence Notes](https://arxiv.org/abs/2509.00877) | 教学摘录采用作者提供的 EMNLP 2026 revised 终稿；公开 arXiv v3（2025-10-16）题名为 EviNote-RAG: Enhancing RAG Models via Answer-Supportive Evidence Notes，两者不是同一版本。 | 作者终稿教学短引，保留原论文版权；不随 PaperBank 原创内容转授原论文再版许可。公开 arXiv v3 为 non-exclusive distribution，并非 CC 授权；代码 Apache 2.0 不作为论文许可。 |
+| [Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3) | 短引来自 arXiv:2506.18671v4，2025-10-05；正式期刊元数据已核对，不将作者稿等同于期刊排版终版 | arXiv 作者稿采用 non-exclusive distribution 许可，非 CC BY。正式期刊版权按 Springer 出版协议保留；本指南不向第三方转授原论文版权。 |
+| [Chaoyang Shi, Yuqin Dai et al. · UrbanZero（公开项目介绍）](https://github.com/Da1yuqin/Da1yuqin.github.io/blob/main/_pages/includes/pub.md#L193-L202) | 作者公开项目介绍（GitHub 仓库） | 项目论文及原图版权保留；本指南教学改写单独授权，不转授论文或原图许可。 |
 
 AAAI 的[版权与作者复用说明](https://aaai.org/aaai-publications/request-to-reproduce-copyrighted-materials/)与 [PMLR 许可说明](https://proceedings.mlr.press/pmlr-license-agreement.html)分别适用原论文材料。网页许可不覆盖原论文全文或所有外部图片；复用带原文的例子时，一并检查原材料许可。
 
@@ -86,3 +92,10 @@ OpenClaw 的私人笔记只作为整理线索，公开页面链接官方文档�
 Lieflat Charts 的非商业许可、THU-PPT-Theme 的 CC BY-NC-SA 条件，以及 Edit Banana 的 README 与 LICENSE 不一致问题，均就近说明。工具“找到论文”与“论文支持正文论断”分开核验，自动报告不作为学术不端判定。
 
 开源整理提示词由作者需求改写，限制在指定文件，区分注释翻译与可执行字符串、配置和路径改动；保留作者署名与许可，不把秘密原值写进报告，也不承诺只靠文字替换就完成去秘。
+
+
+## 多来源例子
+
+62 个原文例子来自九篇论文：PlanCraft、SAGE、GreenPlanner、EviNoteRAG、TCDiff、TCDiff++、WebFilter、MindAligner 和 CARD。每篇采用 4–8 处短引，按条目的写作问题选例子。原文、中文翻译与教学改写分别展示；终稿与所链公开预印本不同版本时就近说明。
+
+UrbanZero 的 8 个例子依据作者公开主页仓库的项目介绍编写，仅为教学改写。公开介绍不能替代论文的实验记录；教学 RQ、对照与模拟回复不声称已经实施。写作铁律的 32 个双语例子仍为假设情境。
