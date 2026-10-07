@@ -31,7 +31,29 @@
 
 ## 例子与图片
 
-50 个例子包含原创教学改写与 3 篇真实论文的读图说明。教学情境与数值明确标为假设，不代表已完成实验。真实论文说明标出原文及图号，前两篇 2026 年论文标为预印本。没有复制论文图片、网站截图或企业标志。
+70 项检查各附一个中英双语例子：英文原文、中文翻译、逐句拆解及出处。需要迁移到自己的文章时，再给单独标注的教学改写；rebuttal 以模拟问题和模拟回复演示，不能当作真实审稿记录，也不表示作者已经补做实验。
+
+摘录核对作者终稿或正式发表 PDF，仅移除 LaTeX 排版、文献标记和排版断词，合并换行；数学符号以可读形式转写，图表引用按正式版解析。原句不作润色，中文为本指南翻译。第 37 条另核对了截至 2026-10-07 的[公开评估代码](https://github.com/Da1yuqin/MindAligner/blob/master/eval.py#L37-L61)，区分论文的重复评价表述与当前实现；未据此验证 2025 年实验所用提交。原文中的强主张、指标局限或单位问题，在拆解中解释，不静默改动引文。
+
+本轮通过 Overleaf 网页只读导出 WebFilter 与 MindAligner 的作者终稿副本，其他短引依据作者已有的公开论文 PDF。未编辑原论文项目，不公开完整源稿、私人项目链接或内部路径。
+
+| 摘录论文 | 原始发表与摘录版本 | 许可与复用范围 |
+| --- | --- | --- |
+| Yuqin Dai et al., [Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools with Reinforcement Learning（WebFilter）](https://ojs.aaai.org/index.php/AAAI/article/view/40299) | AAAI 2026, 40(36):30458–30466；2026-03-14 正式发表。摘录核对作者 camera-ready 终稿与正式版。 | © 2026 AAAI，保留原版权；以作者教学短引展示，不随本指南转授第三方再版权利。 |
+| Yuqin Dai et al., [Harmonious Music-driven Group Choreography with Trajectory-Controllable Diffusion（TCDiff）](https://ojs.aaai.org/index.php/AAAI/article/view/32268) | AAAI 2025, 39(3):2645–2653；摘录来自正式发表版。 | © 2025 AAAI，保留原版权；作者教学短引，不纳入本指南原创内容的 CC BY 许可。 |
+| Yuqin Dai et al., [MindAligner: Explicit Brain Functional Alignment for Cross-Subject Visual Decoding from Limited fMRI Data](https://proceedings.mlr.press/v267/dai25m.html) | ICML 2025, PMLR 267:12214–12228；短引核对正式版与作者终稿，原图来自作者终稿素材。 | Copyright 2025 by the authors，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。保留论文署名、出处与许可，说明翻译和新增分析。 |
+| Pengyu Zeng et al., [CARD: Cross-modal Agent Framework for Generative and Editable Residential Design](https://aclanthology.org/2025.emnlp-main.473/) | EMNLP 2025:9304–9319；短引来自正式发表版。 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。保留原论文署名、出处与许可，说明中文翻译。 |
+
+AAAI 的[版权与作者复用说明](https://aaai.org/aaai-publications/request-to-reproduce-copyrighted-materials/)与 [PMLR 许可说明](https://proceedings.mlr.press/pmlr-license-agreement.html)分别适用原论文材料。网页许可不覆盖原论文全文或所有外部图片；复用带原文的例子时，一并检查原材料许可。
+
+两张论文原图取自 MindAligner：
+
+- `assets/paper-mindaligner-fig5-transfer-quantity.png`：Figure 5，正式 PDF 第 7 页。作者原生 PDF 图文件整页转为 PNG，未重绘数据、标签或色条。
+- `assets/paper-mindaligner-fig6-fsc.png`：Figure 6，正式 PDF 第 7 页。直接复制作者终稿 PNG，未裁切、重绘或改值。
+
+图的署名：Yuqin Dai, Zhouheng Yao, Chunfeng Song, Qihao Zheng, Weijian Mai, Kunyu Peng, Shuai Lu, Wanli Ouyang, Jian Yang, Jiamin Wu. *MindAligner: Explicit Brain Functional Alignment for Cross-Subject Visual Decoding from Limited fMRI Data*. ICML 2025, PMLR 267:12214–12228. [原文](https://proceedings.mlr.press/v267/dai25m.html)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。中文图注与拆解为本指南新增。
+
+所选两张图只包含研究可视化与标签，不包含 NSD / COCO 视觉刺激照片；含外部照片的 Figure 2、4 只链接原论文并分析结构，未整图复制。
 
 `assets/flow-example.svg` 与 `assets/case-example.svg` 是原创教学示意图，展示信息布局，不模拟真实实验结果。
 
@@ -45,7 +67,7 @@
 
 ## 使用与转载
 
-原创正文、提示词与教学图采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)，原创代码采用 [MIT](https://opensource.org/license/mit)，详见 [LICENSE](LICENSE)。转载保留作者 Da1yuqin / PaperBank、原文链接及许可信息；改编注明改动。Star 不是许可条件。第三方原始材料保留自己的许可。
+原创正文、提示词与教学图采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)，原创代码采用 [MIT](https://opensource.org/license/mit)，详见 [LICENSE](LICENSE)。转载保留作者 Da1yuqin / PaperBank、原文链接及许可信息；改编注明改动。Star 不是许可条件。论文摘录、摘录译文与原图保留各自版权和许可；原创指南的授权不转授这些材料，复用时保留紧邻的论文出处与许可。
 
 ## checklist 怎么用
 

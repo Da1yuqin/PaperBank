@@ -8,7 +8,8 @@ and the corresponding text in index.html, plus the original teaching
 illustrations in assets/flow-example.svg and assets/case-example.svg,
 plus the author-supplied and AI-generated beagle mascot assets
 (beagle-logo.png, beagle-pet.png, beagle-wave.gif, and beagle-sitting.png),
-are offered under Creative Commons Attribution 4.0 International (CC BY 4.0).
+excluding quoted paper text, its translations, and identified third-party
+figures, are offered under Creative Commons Attribution 4.0 International (CC BY 4.0).
 
 License: https://creativecommons.org/licenses/by/4.0/
 Legal terms: https://creativecommons.org/licenses/by/4.0/legalcode.en
@@ -48,6 +49,28 @@ SOFTWARE.
 
 3. Third-party material
 
-External papers, linked websites, trademarks, and explicitly identified
-third-party material retain their own copyrights and licenses. The licenses
-above do not grant rights to those materials or imply endorsement.
+Quoted paper text, its translations, original paper figures, external papers,
+linked websites, trademarks, and other identified third-party material retain
+their own copyrights and licenses. Sections 1 and 2 do not relicense these
+materials or imply endorsement.
+
+AAAI paper excerpts (WebFilter / Careful Queries, Credible Results and TCDiff)
+retain the original AAAI copyright. Their inclusion as attributed author
+teaching excerpts is not a blanket permission for republication.
+
+MindAligner (Yuqin Dai et al., ICML 2025, PMLR 267:12214-12228) and CARD
+(Pengyu Zeng et al., EMNLP 2025, pp. 9304-9319) retain their original CC BY 4.0
+licenses. Preserve their paper attribution and source links when reusing the
+excerpts or their translations.
+
+assets/paper-mindaligner-fig5-transfer-quantity.png and
+assets/paper-mindaligner-fig6-fsc.png reproduce MindAligner Figures 5 and 6
+under CC BY 4.0. Figure 5 was rasterized from the authors' native PDF; Figure 6
+was copied from the authors' original PNG. No plotted data or labels were
+redrawn. Paper: https://proceedings.mlr.press/v267/dai25m.html
+License: https://creativecommons.org/licenses/by/4.0/
+
+Chinese translations and the separately labeled teaching analyses/adaptations
+were prepared for PaperBank. Analyses and original teaching adaptations are
+licensed under section 1; underlying quoted material retains its original
+license. Teaching responses are simulations, not actual peer-review records.
