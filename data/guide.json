@@ -116,15 +116,29 @@
       "checklist": "用一句话交代研究对象、现有困难、你的改动和结果，删去方法名后仍能看出具体贡献。",
       "examples": [
         {
-          "title": "把方法名换成研究内容",
-          "before": "教学示例：我们提出了一个新颖的多智能体问答框架，包含多个有效模块。",
-          "after": "假设研究：多文档问答需要同时找到不同文档中的证据，固定次数的检索可能漏掉关键条件，也可能重复调用。我们研究能否根据已有证据决定继续检索或开始回答，并在相同模型和信息范围下比较回答质量与调用成本。贡献的范围由这些比较决定。",
-          "why": "改写给出了对象、困难、操作和验证方式，读者不用先记住方法名，也不会把研究目标误当成已经取得的结果。"
+          "title": "TCDiff：方法名之外，把动作与代价说清",
+          "original_en": "To address these challenges, we propose a Trajectory-Controllable Diffusion (TCDiff) framework, which leverages non-overlapping trajectories to ensure coherent and aesthetically pleasing dance movements.",
+          "translation_zh": "为解决这些困难，我们提出轨迹可控扩散框架 TCDiff，利用不重叠轨迹来生成协调且具有美感的舞蹈动作。",
+          "analysis_zh": [
+            "先读出具体操作：先生成不同舞者的位置轨迹，再据此生成动作。去掉 TCDiff 名字，核心操作仍然成立。",
+            "collisions / foot sliding 的前文问题对应轨迹与脚步处理；“协调、美观”还要落到群舞、脚滑指标和用户研究，不能拿形容词代替结果。",
+            "Table1 的群舞真实感 GMR 从 CoDancers 的 26.10 到 13.86（越低越好），但 TCDiff 的个体保真度 FID 为 37.47、CoDancers 为 23.98。因此示范摘要要保留收益与代价。"
+          ],
+          "provenance": {
+            "reference": "paper_tcdiff",
+            "location": "Abstract, PDF p.1 / proceedings p.2645；方法 §TCDiff；Table1, p.2650",
+            "version": "正式发表论文",
+            "status": "已发表；作者原文摘录"
+          },
+          "transfer_en": "TCDiff generates dancer trajectories before motion. On AIOZ-GDance, it improves group-motion realism relative to CoDancers (GMR: 26.10 to 13.86, lower is better), with a trade-off in individual fidelity (FID: 23.98 to 37.47, lower is better).",
+          "transfer_zh": "TCDiff 先生成舞者轨迹，再生成动作。在 AIOZ-GDance 上，相比 CoDancers，群舞真实感 GMR 从 26.10 降到 13.86，但个体保真度 FID 从 23.98 升到 37.47；两个指标都越低越好。",
+          "license": "Yuqin Dai et al., AAAI 2025, pp.2645–2653. ©2025 AAAI，保留原版权；作者教学短引，不纳入本指南原创内容的 CC BY 许可。中文为本指南翻译。"
         }
       ],
       "refs": [
         "plos_structure",
-        "neurips"
+        "neurips",
+        "paper_tcdiff"
       ]
     },
     {
@@ -142,7 +156,30 @@
       "cost": "重排一次贡献列表和提纲。",
       "payoff": "读者更容易记住你的工作，也更容易复述给别人。",
       "group": "贡献定位",
-      "checklist": "选出读者应记住的主要贡献，说明其他设计如何支持它；独立发现另交代共同研究范围。"
+      "checklist": "选出读者应记住的主要贡献，说明其他设计如何支持它；独立发现另交代共同研究范围。",
+      "examples": [
+        {
+          "title": "教学迁移：让矩阵映射成为主线，而不是让模块争主角",
+          "original_en": "We present MindAligner, a functional alignment framework for cross-subject brain visual decoding. Unlike existing methods, it addresses insufficient alignment and lack of interpretability by learning a brain transfer matrix for voxel-level correspondences and proposing a brain functional alignment module for cross-subject mapping.",
+          "translation_zh": "我们提出 MindAligner，一个用于跨被试脑视觉解码的功能对齐框架。与现有方法不同，该方法通过学习用于体素级对应关系的脑迁移矩阵，并提出用于跨被试映射的脑功能对齐模块，处理对齐不足与缺乏可解释性的问题。",
+          "analysis_zh": [
+            "第一句先给研究对象与任务，第二句把两项设计连接到具体困难，模块名因而有了各自的位置。",
+            "教学迁移强调论证组织，不声称作者采用了某种写作流程，也不把“主要贡献”机械理解成只能有一个模块。"
+          ],
+          "transfer_en": "The central idea is to map a new subject’s fMRI signals into the signal space of a known subject.\nThe transfer matrix performs this mapping, while the alignment module supports learning the matrix.\nOrganize the contribution around this relationship before listing individual losses or components.",
+          "transfer_zh": "主线是把新被试的 fMRI 信号映射到已知被试的信号空间。\n迁移矩阵执行这次映射，对齐模块则支持矩阵的学习。\n先按这层关系组织贡献，再列各项损失或组件。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "§ 6 Conclusion，第 1–2 句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
+        }
+      ],
+      "refs": [
+        "paper_mindaligner"
+      ]
     },
     {
       "id": "tip-03",
@@ -162,14 +199,28 @@
       "checklist": "给每个主要主张标出对应设计和实验；缺少支持就补证据或收窄主张，机制解释另需对照。",
       "examples": [
         {
-          "title": "给每项主张配一份证据",
-          "before": "教学示例：引言说系统更便宜、更可靠，实验只报告一次回答正确率。",
-          "after": "假设修订：若主张降低调用成本，就记录每题模型调用次数、输入输出量及统一价格下的费用；若主张回答更可靠，就报告正确率、证据支持率和多次运行的波动。没有成本记录时先删除省钱结论，只有整体涨分时不宣称证据筛选机制已获证明。",
-          "why": "两种主张需要不同测量，整体分数不能同时证明成本下降和可靠性提高，删除缺证据的结论比换个形容词有效。"
+          "title": "TCDiff：引言说要避碰，实验就查碰撞指标",
+          "original_en": "To mitigate collisions, we introduce a Dance-Trajectory Navigator that generates collision-free trajectories for multiple dancers, utilizing a distance-consistency loss to maintain optimal spacing.",
+          "translation_zh": "为减少碰撞，我们引入舞蹈轨迹导航器，为多名舞者生成无碰撞轨迹，并利用距离一致性损失维持合适间距。",
+          "analysis_zh": [
+            "原句给出“碰撞→轨迹导航器→距离损失→舞者间距”的链条，所以实验要查碰撞相关的 TIF，不只报动作多样性。",
+            "原 Table1 的 TIF 为 TCDiff 0.13、CoDancers 0.10、GCD 0.17，越低越好：比 GCD 降低，但没有在这张表上超过 CoDancers。",
+            "因此 collision-free 是原作者的设计措辞，不应转述为测试结果零碰撞或所有指标最优。补实验或缩小主张，都要回到实际证据。"
+          ],
+          "provenance": {
+            "reference": "paper_tcdiff",
+            "location": "Abstract, PDF p.1 / p.2645；Table1, PDF p.6 / p.2650",
+            "version": "正式发表论文",
+            "status": "已发表；作者原文摘录"
+          },
+          "transfer_en": "The navigator targets collision reduction. Table 1 reports TIF of 0.13 for TCDiff, 0.17 for GCD, and 0.10 for CoDancers; the result supports a reduction against GCD, not universal superiority or zero collisions.",
+          "transfer_zh": "导航器针对碰撞问题。表 1 中 TCDiff、GCD、CoDancers 的 TIF 分别为 0.13、0.17、0.10；结果支持相对 GCD 的降低，不支持全面最优或零碰撞。",
+          "license": "Yuqin Dai et al., AAAI 2025, pp.2645–2653. ©2025 AAAI，保留原版权；作者教学短引，不纳入本指南原创内容的 CC BY 许可。中文为本指南翻译。"
         }
       ],
       "refs": [
-        "neurips"
+        "neurips",
+        "paper_tcdiff"
       ]
     },
     {
@@ -187,7 +238,30 @@
       "cost": "改几个名字，再检查它们有没有夸大。",
       "payoff": "读者更快听懂，也不容易被名字带偏。",
       "group": "贡献定位",
-      "checklist": "先说明方法的实际操作，再定名称与比喻；逐项检查名称是否暗示了未经验证的能力。"
+      "checklist": "先说明方法的实际操作，再定名称与比喻；逐项检查名称是否暗示了未经验证的能力。",
+      "examples": [
+        {
+          "title": "教学迁移：Filter 是实际操作，不是自动辨真假的保证",
+          "original_en": "WebFilter is implemented as a prompt-based Information Retrieval Agent that proactively conducts web searches and reasons over retrieved results before issuing a final answer.",
+          "translation_zh": "WebFilter 被实现为一个基于提示词的信息检索代理：代理主动进行网页搜索，并在给出最终答案前对检索结果进行推理。",
+          "analysis_zh": [
+            "原句用“搜索—分析结果—回答”的动作解释代理，名称没有代替方法说明。",
+            "教学改写额外划清名称的边界；“过滤”不能被读成已实现自动事实核验。"
+          ],
+          "transfer_en": "WebFilter uses source-aware query formulation to guide web retrieval.\nThe name refers to query restrictions and training signals, not a guarantee that every retrieved page is correct.\nExplain the operations before asking readers to remember the name.",
+          "transfer_zh": "WebFilter 通过关注来源的查询构造来指导网页检索。\n这个名称对应查询限制与训练信号，不保证每个返回网页都正确。\n先解释实际操作，再让读者记住名称。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "§ Methodology，Learning to Use Advanced Search Tools，第 1 句",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
+        }
+      ],
+      "refs": [
+        "paper_webfilter"
+      ]
     },
     {
       "id": "tip-05",
@@ -204,7 +278,30 @@
       "cost": "平时多记几行，保留原始文件。",
       "payoff": "少重跑，也可能多出一个比涨分更有启发的发现。",
       "group": "主张与证据",
-      "checklist": "保存失败实验的配置、输出和原因，区分程序故障与方法失效，并保留影响结论的负结果。"
+      "checklist": "保存失败实验的配置、输出和原因，区分程序故障与方法失效，并保留影响结论的负结果。",
+      "examples": [
+        {
+          "title": "教学迁移：保留较弱的消融，别把它与程序崩溃混在一起",
+          "original_en": "To evaluate the effectiveness of each model design in MindAligner, we perform an ablation study using Subject 2 as the novel subject and Subject 1 as the known subject. The results exclude the refinement step of MindEye2 for generated images.",
+          "translation_zh": "为了评价 MindAligner 中各项模型设计的效果，我们将被试 2 作为新被试、被试 1 作为已知被试进行消融实验。结果不包含 MindEye2 对生成图像的精修步骤。",
+          "analysis_zh": [
+            "原句固定了被试迁移方向并说明排除精修步骤，较弱结果才有明确的比较条件。",
+            "表 2 报告只用解码损失的较弱变体；它是有效消融的结果，不等于程序故障，也不能据此断言任何采用该损失的系统都会失败。"
+          ],
+          "transfer_en": "Ablation results and crashed runs need separate records.\nFor the decoding-loss-only variant, retain the configuration, generated outputs, and evaluation results so that the weaker reconstruction can be inspected.\nReport the weaker variant when it changes the conclusion about the need for alignment losses.",
+          "transfer_zh": "消融结果与程序崩溃记录需要分开保存。\n对于只使用解码损失的变体，应保存配置、生成输出与评价结果，让较弱的重建表现可以回查。\n当较弱变体影响对齐损失是否必要的判断时，应报告这个变体。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "§ 5.4 fMRI-based Visual Decoding，Ablation Study，第 1–2 句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
+        }
+      ],
+      "refs": [
+        "paper_mindaligner"
+      ]
     },
     {
       "id": "tip-06",
@@ -224,14 +321,27 @@
       "checklist": "先完成贡献句、提纲、草图或结果表，依据已有证据逐步写作；主张不成立就及时修改。",
       "examples": [
         {
-          "title": "用可讨论的小材料开始写",
-          "before": "教学示例：等所有实验做完、故事完全想好后，再一次性写整篇论文。",
-          "after": "假设起草安排：先写研究问题和一句贡献，再列出检索、证据筛选、回答三个步骤，画出输入与输出；把已有结果放进一张注明设置的表。合作者先讨论这些材料能支持哪项结论，方法与实验据此展开，摘要等主张稳定后再写，缺证据的位置暂不填结论。",
-          "why": "小材料能暴露流程、设置和证据缺口，让讨论有明确对象；先占住结果位置不等于提前编好结果。"
+          "title": "教学迁移：先写已经清楚的方法，再补齐论证",
+          "original_en": "Notably, the alignment module is utilized only during the training phase to assist BTM learning; during the inference phase, only the lightweight BTM is retained.",
+          "translation_zh": "需要注意，对齐模块只在训练阶段用于辅助 BTM 学习；推理阶段仅保留轻量的 BTM。",
+          "analysis_zh": [
+            "原句先把训练与推理职责讲清，是可以先写的方法骨架；不需要等全部英文都想好。",
+            "这里给出的是可采用的写作顺序，不是作者真实写作记录；结果尚未取得时不能先填成绩。"
+          ],
+          "transfer_en": "A working draft can first distinguish how the transfer matrix is learned from how it is used.\nNext, place the corresponding reconstruction comparisons beside the claims they evaluate.\nWrite the abstract after checking which claims the available results actually support.",
+          "transfer_zh": "工作稿可以先分清迁移矩阵怎样学习、怎样使用。\n随后把相应的重建比较放到它们检验的主张旁边。\n核对已有结果实际支持哪些主张后，再写摘要。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "§ 4.1 Overview，训练与推理的说明句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
         }
       ],
       "refs": [
-        "plos_structure"
+        "plos_structure",
+        "paper_mindaligner"
       ]
     },
     {
@@ -249,7 +359,30 @@
       "cost": "整理一次标题和模块名称。",
       "payoff": "正文更好读，方法图也更容易画。",
       "group": "起草与结构",
-      "checklist": "同层标题按统一逻辑组织，方法按步骤、实验按问题划分，并统一标题、模块名与图中名称。"
+      "checklist": "同层标题按统一逻辑组织，方法按步骤、实验按问题划分，并统一标题、模块名与图中名称。",
+      "examples": [
+        {
+          "title": "教学迁移：目录要沿实验问题走",
+          "original_en": "In this section, we present the implementation details, followed by fMRI-to-image reconstruction results and brain functional alignment analysis. The Appendix includes additional metrics, qualitative and quantitative results, model efficiency, and further visualizations.",
+          "translation_zh": "本节先介绍实现细节，再给出 fMRI 到图像的重建结果与脑功能对齐分析。附录包含额外指标、定性与定量结果、模型效率以及更多可视化。",
+          "analysis_zh": [
+            "第一句告诉读者实验内容怎样分工，第二句交代补充材料承接什么。",
+            "教学迁移借用这套对象与问题组织方式，不要求每篇论文采用相同小节数量，也不改原论文目录。"
+          ],
+          "transfer_en": "Use implementation, visual decoding, and functional alignment as distinct parts of the experiment section.\nWithin each part, state the question being evaluated rather than using headings such as More Results.\nKeep the names of the transfer matrix and alignment module consistent with the method section and framework figure.",
+          "transfer_zh": "将实现、视觉解码与功能对齐分别作为实验章节中的不同部分。\n各部分写明要检验的问题，不用“更多结果”这类标题代替问题。\n迁移矩阵与对齐模块的名称应与方法章节及框架图一致。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "§ 5 Experiments，开头 2 句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
+        }
+      ],
+      "refs": [
+        "paper_mindaligner"
+      ]
     },
     {
       "id": "tip-08",
@@ -269,15 +402,28 @@
       "checklist": "按作者指南给问题、关键设计和主要结果留足篇幅，超页先删重复铺垫，保留结论成立条件。",
       "examples": [
         {
-          "title": "超页时先删重复背景",
-          "before": "教学示例：背景用了三页，实验只剩一页，于是缩小表格字体并删掉限制。",
-          "after": "假设修订安排：合并两段重复介绍检索增强问答的背景，保留理解跨文档证据所需的定义；给关键比较和结果解释留出正文位置，把完整参数表移到附录并准确引用。最后按作者指南检查篇幅和字号，保留影响主结论的条件、限制及必要对照。",
-          "why": "篇幅先按论证需要分配，背景压缩可以减少重复，但不能用超页作为隐藏限制或违反模板的理由。"
+          "title": "教学迁移：省篇幅时保留影响结论的限制",
+          "original_en": "Yet, stronger retrieval alone cannot address challenges in interpreting and reasoning over evidence. Integrating our method with more capable reasoning models and exploring richer web interactions are promising directions for advancing real-world RAG.",
+          "translation_zh": "但更强的检索本身不能解决解释证据与基于证据推理的困难。将本方法与更强的推理模型结合，并探索更丰富的网页交互，是推进现实 RAG 应用的有前景方向。",
+          "analysis_zh": [
+            "“Yet”把检索改进与尚未解决的推理困难分开；后一项不能因超页被悄悄删掉。",
+            "后一原句属于未来方向，不能压缩成已经完成的能力，也不能把一般页数经验替代目标会议规定。"
+          ],
+          "transfer_en": "Keep the limitation that better retrieval does not by itself solve evidence reasoning.\nIf space is tight, remove repeated background before shortening this boundary or the main comparison conditions.\nMove secondary implementation details only when readers can still find the information needed to judge the central claim.",
+          "transfer_zh": "保留“更好的检索本身不能解决证据推理”这项限制。\n篇幅紧张时，先删重复背景，再考虑缩短这项边界或主要比较条件。\n迁移次要实现细节时，仍要让读者找得到判断核心主张所需的信息。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "§ Conclusion，第 2–3 句",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "refs": [
         "plos_structure",
-        "neurips"
+        "neurips",
+        "paper_webfilter"
       ]
     },
     {
@@ -298,15 +444,28 @@
       "checklist": "让标题直接说明研究对象及值得读的内容，少用未解释的缩写，结论型标题限定适用范围。",
       "examples": [
         {
-          "title": "标题说明研究对象和边界",
-          "before": "教学示例：OmniMind：通向通用智能的自主进化问答革命。",
-          "after": "假设标题修改为《根据证据覆盖决定检索次数：多文档问答中的质量与成本比较》。标题交代了实际操作、应用对象和比较维度。若只评测多文档问答，就保留这一范围；尚未证明质量与成本同时改善时，不在标题中写全面优于现有方法或通用智能。",
-          "why": "标题可以有辨识度，但研究对象和可验证的动作更方便读者判断相关性，也能避免名字暗示未经研究的能力。"
+          "title": "标题同时交代工具与训练方式",
+          "original_en": "Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools with Reinforcement Learning",
+          "translation_zh": "谨慎查询，可信结果：通过强化学习教会 RAG 模型使用高级网页搜索工具。",
+          "analysis_zh": [
+            "前半句给读者一个好记的结果方向；冒号后立即交代研究对象、工具和训练方式。",
+            "只留下 Careful Queries, Credible Results 会让人猜主题。完整标题的后半句把主题落到了 RAG、网页搜索工具和强化学习。",
+            "“可信结果”是标题的主张，仍需正文中的来源质量与回答评价支撑，不能当作已自动证明的属性。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Title，PDF第1页（刊页30458）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "refs": [
         "plos_structure",
-        "neurips"
+        "neurips",
+        "paper_webfilter"
       ]
     },
     {
@@ -327,15 +486,29 @@
       "checklist": "在摘要中连贯交代具体问题、已有困难、关键方法及主要结果，字数与格式按投稿要求处理。",
       "examples": [
         {
-          "title": "写一段范围明确的摘要",
-          "before": "教学示例：本文提出高效强大的框架，大量实验显示全面领先，具有广阔应用前景。",
-          "after": "假设摘要示例：多文档问答中的固定检索次数难以适应不同问题的证据需求。我们用证据覆盖判断是否继续检索，并在相同模型、数据和预算条件下评测。假设结果为平均调用次数下降，但困难问题的正确率未提高；这些结果说明该策略能节省部分调用，其质量优势仍受问题类型限制。",
-          "why": "摘要把问题、动作、比较与有限结果连起来；假设数字或结果不能脱离教学标签，转写成真实实验成绩。"
+          "title": "完整摘要：背景、困难、设计、结果逐句接上",
+          "original_en": "Retrieval-Augmented Generation (RAG) enhances large language models (LLMs) by integrating up-to-date external knowledge, yet real-world web environments present unique challenges. These limitations manifest as two key challenges: pervasive misinformation in the web environment, which introduces unreliable or misleading content that can degrade retrieval accuracy, and the underutilization of web tools, which, if effectively employed, could enhance query precision and help mitigate this noise, ultimately improving the retrieval results in RAG systems. To address these issues, we propose WebFilter, a novel RAG framework that generates source-restricted queries and filters out unreliable content. This approach combines a retrieval filtering mechanism with a behavior- and outcome-driven reward strategy, optimizing both query formulation and retrieval outcomes. Extensive experiments demonstrate that WebFilter improves answer quality and retrieval precision, outperforming existing RAG methods on both in-domain and out-of-domain benchmarks.",
+          "translation_zh": "检索增强生成（RAG）通过引入最新外部知识来增强大语言模型（LLM），但真实网页环境带来了独特的挑战。这些局限表现为两项关键困难：网页环境中普遍存在的错误信息会带来不可靠或误导性的内容，降低检索准确性；网页工具使用不足，而有效利用这些工具，本可提高查询精度并帮助减少此类噪声，最终改善RAG系统的检索结果。为解决这些问题，我们提出WebFilter：一种生成带来源限制的查询、并过滤不可靠内容的新型RAG框架。该方法把检索过滤机制与同时由行为和结果驱动的奖励策略结合起来，优化查询构造和检索结果。广泛的实验表明，WebFilter提高了答案质量与检索精度，在域内和域外基准上优于已有RAG方法。",
+          "analysis_zh": [
+            "背景只用一句：RAG引入最新外部知识，随后立即转到真实网页环境；没有继续铺陈整个LLM发展史。",
+            "困难明确分两项：错误信息污染检索结果，网页工具使用不足；读者能据此检查后文是否分别处理。",
+            "设计接回困难：带来源限制的查询与内容过滤，再加行为和结果两类奖励。方法名之后有具体动作，不靠“新颖”替代机制。",
+            "最后一句报告评价范围与结果方向，完成背景→问题→方法→结果。但摘要没有关键数字，outperforming仍要按数据集和指标核表，不能解释为每项指标都优于全部基线。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Abstract，PDF第1页（刊页30458）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "作者源稿摘要逐字摘录，仅合并换行；未改原词句。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "refs": [
         "plos_structure",
-        "neurips"
+        "neurips",
+        "paper_webfilter"
       ]
     },
     {
@@ -353,7 +526,30 @@
       "cost": "改写几处术语最密的句子。",
       "payoff": "读者不用反复翻回去查词。",
       "group": "术语与核对",
-      "checklist": "首次出现的必要术语立即解释，先说明操作与原因，再介绍名称；影响复现的版本在后文交代。"
+      "checklist": "首次出现的必要术语立即解释，先说明操作与原因，再介绍名称；影响复现的版本在后文交代。",
+      "examples": [
+        {
+          "title": "给工具一个清楚的输入动作",
+          "original_en": "The agent is explicitly instructed to integrate advanced search operators such as OR, AND, NOT, quotation marks for exact phrases, domain restrictions via site:, and date filters like after:, enabling precise, source-restricted retrieval.",
+          "translation_zh": "系统明确要求智能体使用高级搜索操作符，例如 OR、AND、NOT、精确短语引号、通过 site: 限制域名，以及通过 after: 过滤日期，以实现精确且带来源限制的检索。",
+          "analysis_zh": [
+            "“高级搜索操作符”后立刻举出 OR、site:、after:，读者不用另查抽象名称。",
+            "一类操作给一个能执行的例子即可；缩写和语法都要说明作用对象。",
+            "系统允许使用某语法，不等于模型实际正确使用，也不等于结果因此可信。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Methodology / Learning to Use Advanced Search Tools，PDF第3页（刊页30460）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
+        }
+      ],
+      "refs": [
+        "paper_webfilter"
+      ]
     },
     {
       "id": "tip-12",
@@ -370,7 +566,30 @@
       "cost": "成稿后再花一点时间核对。",
       "payoff": "避免最显眼的位置反而说错了。",
       "group": "术语与核对",
-      "checklist": "将摘要逐句对应到正文证据，核对方法名、对象、数据范围与完成状态，并同步标题和结论。"
+      "checklist": "将摘要逐句对应到正文证据，核对方法名、对象、数据范围与完成状态，并同步标题和结论。",
+      "examples": [
+        {
+          "title": "教学迁移：摘要中的“检索精度”要对上真实测量",
+          "original_en": "Extensive experiments demonstrate that WebFilter improves answer quality and retrieval precision, outperforming existing RAG methods on both in-domain and out-of-domain benchmarks.",
+          "translation_zh": "大量实验表明 WebFilter 改善了答案质量与检索精度，并在域内和域外基准上超过现有 RAG 方法。",
+          "analysis_zh": [
+            "原句同时声称答案质量与检索精度改善，因此回查正文时需要分别寻找测量依据，不能只找到一个涨分就停止。",
+            "教学改写是摘要核对方法；它采用条件句，不替原文编造新的文档标注或独立检索精度实验。"
+          ],
+          "transfer_en": "Check the abstract’s phrase retrieval precision against the actual metric definitions.\nIf the reported metrics measure answer correctness, do not present them as a separate evaluation of retrieved-document relevance.\nAlign the final abstract with the comparisons and evaluation scope actually reported in the body.",
+          "transfer_zh": "将摘要中的“检索精度”与实际指标定义逐项对应。\n如果报告的指标测量答案正确性，就不要将这些指标说成独立的检索文档相关性评价。\n最终摘要应与正文实际报告的比较及评价范围一致。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Abstract，最后一句",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
+        }
+      ],
+      "refs": [
+        "paper_webfilter"
+      ]
     },
     {
       "id": "tip-13",
@@ -387,7 +606,30 @@
       "cost": "删掉几段没有下文的背景。",
       "payoff": "更快进入贡献，也给后面的解释腾出篇幅。",
       "group": "问题与局限",
-      "checklist": "只保留理解研究问题所需的背景，交代现有做法后尽快进入具体困难，文献按相关性保留。"
+      "checklist": "只保留理解研究问题所需的背景，交代现有做法后尽快进入具体困难，文献按相关性保留。",
+      "examples": [
+        {
+          "title": "背景只铺到研究困难",
+          "original_en": "Despite the wide applicability of LLMs, they often struggle with knowledge-intensive queries because their knowledge can be incomplete or outdated, which leads to factual inaccuracies or hallucinations.",
+          "translation_zh": "尽管 LLM 应用广泛，但在知识密集型查询上常常遇到困难，因为模型知识可能不完整或已过时，进而造成事实错误或幻觉。",
+          "analysis_zh": [
+            "句子从已有应用直接转到知识密集型查询的困难，没有继续铺陈整个AI的发展史。",
+            "原因明确是知识不完整或过时，后面的RAG外部检索因此有了针对性。",
+            "背景的量词often和因果解释仍要由所引工作支持；学的是收敛主题的写法，不是无条件复制事实判断。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Introduction，PDF第1页（刊页30458）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
+        }
+      ],
+      "refs": [
+        "paper_webfilter"
+      ]
     },
     {
       "id": "tip-14",
@@ -407,15 +649,28 @@
       "checklist": "指出具体方法在特定条件下的未解问题，用原文或诊断支持；区分未报告、未测试和做不到。",
       "examples": [
         {
-          "title": "把前人不够好写成可核验的差别",
-          "before": "教学示例：现有问答方法都无法处理复杂问题，也没有考虑推理成本。",
-          "after": "假设近邻方法 A 固定检索两轮，论文只报告回答正确率。可以写：A 在该任务上取得了已有结果，但固定轮次未直接按每题证据需求调整；其文中也未报告逐题调用成本。我们因此比较按证据调整轮次与固定轮次的质量和开销。未报告成本，不等于 A 不具备节省成本的能力。",
-          "why": "虚构方法 A 只是教学对象；改写区分实际设计、报告范围和能力判断，避免把原文没有测的事写成已知缺陷。"
+          "title": "相关工作：把局限写成可检查的条件",
+          "original_en": "However, online access introduces efficiency bottlenecks, including API cost, latency, rate limits, and noise, complicating scalable agentic RAG. Moreover, without source-specified retrieval supervision, existing reward designs are limited in handling misinformation and poor usage of advanced search operators.",
+          "translation_zh": "然而，在线接入会带来效率瓶颈，包括API成本、延迟、速率限制和噪声，使智能体RAG的规模化更加复杂。此外，在缺少指定来源的检索监督时，已有奖励设计在处理错误信息和高级搜索操作符使用不佳方面受到限制。",
+          "analysis_zh": [
+            "第一句把“效率有问题”拆成API成本、延迟、速率限制和噪声；局限落到实际使用在线工具时能检查的条件。",
+            "第二句先加条件“缺少指定来源的检索监督”，再说奖励设计处理什么问题受到限制；不能删掉条件，改成“已有方法都不会搜索”。",
+            "这两句解释为什么仅接入在线搜索还不够，不是否认已有方法的检索能力。具体批评须回到原文所引工作核对范围；本文设计与实验再说明如何应对这些局限。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Related Work / Agentic Retrieval Augmented Generation，PDF第2页（刊页30459）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "作者源稿两句连续摘录；仅移除文献标记并清理其留下的标点前空格，未改原词句。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "refs": [
         "neurips",
-        "plos_structure"
+        "plos_structure",
+        "paper_webfilter"
       ]
     },
     {
@@ -436,15 +691,28 @@
       "checklist": "说明每项设计改变哪一步、为何对应当前困难；缺少对照支持的机制解释标为可能原因。",
       "examples": [
         {
-          "title": "解释模块怎样对应困难",
-          "before": "教学示例：为了解决上述问题，我们提出一个证据增强模块来提升问答能力。",
-          "after": "假设设计说明：候选段落可能各自相关，却没有共同覆盖问题要求的条件。证据筛选模块把问题拆成待回答条件，再检查已取段落覆盖了哪些条件；仍有缺口就继续检索，覆盖后才开始回答。这样做可能减少无用调用，但是否有效要由覆盖判断的准确性和固定预算对照共同检验。",
-          "why": "改写说清对象、操作和后续去向，机制解释有了实际内容，同时把合理直觉与实验已经证明的作用分开。"
+          "title": "把笼统工具落到具体操作",
+          "original_en": "These operators, such as source selection and time filtering, enable precise retrieval by filtering out noisy sources and enhancing credibility.",
+          "translation_zh": "这些操作符，例如来源选择和时间过滤，通过过滤噪声来源、提高可信度来实现精确检索。",
+          "analysis_zh": [
+            "先给来源选择、时间过滤这两个动作，再解释它们如何过滤噪声来源。",
+            "需要让读者知道：模块改了哪个环节，为什么这个环节与问题有关。",
+            "“提高可信度”是待验证的作用解释；操作符使用率只能证明行为变化，不能替代来源质量或回答正确性的评价。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Introduction，PDF第2页（刊页30459）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "refs": [
         "plos_structure",
-        "neurips"
+        "neurips",
+        "paper_webfilter"
       ]
     },
     {
@@ -465,15 +733,28 @@
       "checklist": "贡献列表分别说明提出、构建或发现了什么，合并重复项，并给每项对应正文展开和证据。",
       "examples": [
         {
-          "title": "贡献列发现，不列工作量",
-          "before": "教学示例：我们写了大量代码，设计了三个模块，完成了很多实验。",
-          "after": "假设下列材料均已完成并可核验，贡献可以写：提出按证据覆盖选择检索轮次的策略，说明其输入与停止条件；建立相同模型和信息边界下的比较，分别测量质量与调用成本；分析策略在证据冲突和跨文档条件组合题中的适用范围。具体发现仍以实际结果为准。",
-          "why": "每条说明读者得到什么及正文如何展开；实验数量和脚本数量本身不构成发现，未完成材料也不能列作已完成贡献。"
+          "title": "贡献写设计和目标",
+          "original_en": "We introduce an information-filtering reward strategy that guides precise, source-restricted retrieval and enables robust misinformation filtering, addressing both pervasive web noise and tool underutilization.",
+          "translation_zh": "我们提出信息过滤奖励策略，引导精确且带来源限制的检索、支持稳健的错误信息过滤，同时应对广泛存在的网络噪声和工具使用不足。",
+          "analysis_zh": [
+            "这项贡献按“提出哪项设计→改变什么行为→回应什么问题”组织。",
+            "没有把编码、训练、做实验罗列成三项贡献；每个动作都接到研究目的。",
+            "robust等强词必须有适用范围；贡献列表应与后文实际证据对应。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Introduction / Contributions，PDF第2页（刊页30459）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "refs": [
         "plos_structure",
-        "neurips"
+        "neurips",
+        "paper_webfilter"
       ]
     },
     {
@@ -494,14 +775,27 @@
       "checklist": "方法开头概述各步骤的目的、输入和输出，说明先后与并行关系，并使用正文及图中的统一名称。",
       "examples": [
         {
-          "title": "方法总览对应真实流程",
-          "before": "教学示例：系统包括语义模块、智能模块和认知模块，下文分别介绍。",
-          "after": "假设方法总览：输入是一个问题和可检索文档。检索器先取候选段落，证据筛选器标记各段落对应的问题条件；覆盖不足时返回检索器补充材料，覆盖满足或达到预算上限后，将已选段落交给回答模型。检索与筛选形成循环，回答发生在循环结束后，三个名字与图中标签一致。",
-          "why": "总览说明信息从哪里来、在哪一步回流及何时进入回答，读者知道各小节的位置，而不是只得到一串模块名称。"
+          "title": "方法概览先带读者走一遍",
+          "original_en": "As shown in Fig. 2, we model the retrieval process as a Markov Decision Process, enabling the model to decide when and how to issue search queries and integrate the retrieved information.",
+          "translation_zh": "如框架图所示，我们把检索过程建模为MDP，使模型能够决定何时以及如何发起搜索查询，并整合检索得到的信息。",
+          "analysis_zh": [
+            "概览先说主要过程：决定何时搜索、构造查询、整合返回信息，再让后面的模块展开。",
+            "读者因此知道自己将沿哪条路径读方法；不必一上来先记所有奖励符号。",
+            "这里Fig.ref的正式定位是Figure2；公开摘录只呈现原句意图，不能把引用标签当图号。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Methodology，PDF第2–3页（刊页30459–30460）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版并合并换行；fig:framework按正式PDF解析为Figure2；未改其他原词句。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "refs": [
-        "plos_structure"
+        "plos_structure",
+        "paper_webfilter"
       ]
     },
     {
@@ -522,15 +816,28 @@
       "checklist": "逐模块写清目的、输入、处理规则、输出和去向，说明信息来源与可见范围，注明沿用的组件。",
       "examples": [
         {
-          "title": "把一个模块写到能够实现",
-          "before": "教学示例：证据筛选器接收语义信息并输出增强表示，提升系统表现。",
-          "after": "假设模块说明：证据筛选器接收问题、候选段落及各段落的文档编号，输出保留段落和未覆盖的条件列表。判断只使用这些输入，不能访问标准答案；未覆盖条件交给下一轮检索，保留段落交给回答模型。若筛选器调用现成语言模型，另注明模型版本、提示词与输入长度限制。",
-          "why": "输入、输出、规则和可见信息决定方法能否复现；把现成模型重新命名为模块，不会自动形成新的模型贡献。"
+          "title": "WD-Net的输入和输出一眼可见",
+          "original_en": "Specifically, WD-Net takes the residential layout as input and produces a residential floor plan with doors, windows, and walls.",
+          "translation_zh": "具体而言，WD-Net以住宅布局作为输入，输出包含门、窗和墙的住宅平面图。",
+          "analysis_zh": [
+            "输入是住宅布局，输出是补齐门窗墙的平面图；读者能看出模块实际新增了什么。",
+            "把它写成“设计优化模块”会丢掉数据形态和操作内容。",
+            "这里解释的是原论文模块的任务，不证明每个输出都通过真实建筑安全审查。"
+          ],
+          "provenance": {
+            "reference": "paper_card",
+            "location": "§3.2 Initial Generation / WD-Net，PDF第4页（刊页9307）",
+            "version": "EMNLP 2025正式发表版",
+            "status": "已发表；CC BY 4.0"
+          },
+          "processing": "合并PDF换行与排版断词；未改原词句。",
+          "license": "Pengyu Zeng et al., EMNLP 2025, pp.9304–9319. 原文采用 CC BY 4.0；中文翻译、拆解为本指南新增。"
         }
       ],
       "refs": [
         "neurips",
-        "plos_structure"
+        "plos_structure",
+        "paper_card"
       ]
     },
     {
@@ -548,7 +855,30 @@
       "cost": "顺着方法章查一遍符号。",
       "payoff": "少一些“这个 i 又是谁”的阅读中断。",
       "group": "符号与信号",
-      "checklist": "在符号首次出现时解释对象、下标和必要单位，同一对象统一记号，并用文字说明公式的操作。"
+      "checklist": "在符号首次出现时解释对象、下标和必要单位，同一对象统一记号，并用文字说明公式的操作。",
+      "examples": [
+        {
+          "title": "给奖励一个可执行判据",
+          "original_en": "We define the Source-restricting Reward R_src ∈ {0,1} to be 1 if any query in Q contains an advanced search pattern from K, and 0 otherwise.",
+          "translation_zh": "我们把来源限制奖励 R_src 定义为二值量：查询集合 Q 中只要有一个查询包含预定义集合 K 中的高级搜索模式，奖励就取 1，否则取 0。",
+          "analysis_zh": [
+            "先给二值范围，再给取1与取0的条件，公式因此可对应实现核验。",
+            "Q是从模型响应里提取的查询集合，K是预定义搜索模式；在第一次使用时就要解释这两个对象。",
+            "任何查询命中模式只证明语法出现，不能把该奖励解释成答案正确或来源可信。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Methodology / Source-restricting Reward，PDF第3页（刊页30460）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
+        }
+      ],
+      "refs": [
+        "paper_webfilter"
+      ]
     },
     {
       "id": "tip-20",
@@ -568,14 +898,27 @@
       "checklist": "沿一个样本说明输入、输出、评分者、评分规则与更新对象，分清奖励、优势、损失和梯度。",
       "examples": [
         {
-          "title": "说明奖励如何进入更新",
-          "before": "教学示例：我们使用高质量反馈优化系统，让每个智能体都变得更好。",
-          "after": "假设训练变体：证据选择器对同一训练问题生成多份段落选择，回答模型分别作答，按人工标注的答案规则核验得到任务奖励。将每份奖励减去该问题各份奖励的平均值，作为相对优势，再据此更新选择器的选择策略；回答模型保持固定。标准答案仅用于训练和离线评测，部署时不可见。",
-          "why": "例子逐步交代评分规则、相对优势与更新对象；整次回答得到的奖励不能未经说明就称为每个动作的独立贡献。"
+          "title": "先区分行为信号与结果信号",
+          "original_en": "The Source-restricting Reward (SR) acts as a behavior-based restriction, promoting the use of advanced search operators for precise, source-restricted queries. In contrast, the Retrieval-precision Reward (RR) serves as an outcome-based signal, leveraging external critique to assess and refine retrieval quality.",
+          "translation_zh": "来源限制奖励 SR 作为基于行为的约束，促进使用高级搜索操作符来构造精确且带来源限制的查询。相比之下，检索精度奖励 RR 是基于结果的信号，利用外部评判来评价并改进检索质量。",
+          "analysis_zh": [
+            "SR对应操作符使用行为，RR对应外部评判的结果；两种学习信号没有混成一个“反馈”。",
+            "写自己的奖励时还要逐一说明哪个模型看哪些输入、给哪个输出评分，结果更新哪个模型。",
+            "原论文Implementation Details注明RR评判模型Qwen3-30B-A3B；Metrics中的GPT-4o-mini用于另一种评价，不能混称同一位judge。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Methodology / Information-Filtering Reward Strategy，PDF第3页（刊页30460）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "refs": [
-        "neurips"
+        "neurips",
+        "paper_webfilter"
       ]
     },
     {
@@ -593,7 +936,33 @@
       "cost": "跑之前多想一步。",
       "payoff": "少跑用不上、解释不清的实验。",
       "group": "比较设计",
-      "checklist": "每个实验先写清待检验主张、固定项、改变项和比较对象，不因容易涨分的设置倒改研究问题。"
+      "checklist": "每个实验先写清待检验主张、固定项、改变项和比较对象，不因容易涨分的设置倒改研究问题。",
+      "examples": [
+        {
+          "title": "先说实验要考哪种能力",
+          "original_en": "Our experimental setting uses question answering datasets that assess reasoning and retrieval capabilities across diverse scenarios.",
+          "translation_zh": "我们的实验设置使用问答数据集，评价不同场景中的推理能力和检索能力。",
+          "analysis_zh": [
+            "先明确评价目标，再选择覆盖目标的数据与对照，不从“手头能跑什么榜单”倒推研究问题。",
+            "这句仍偏总括；后文将场景拆成域内与域外，并交代具体数据集。",
+            "教学迁移中的RQ由这里的目标提炼，不是论文原文写出的编号RQ。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Experiments / Benchmarks，PDF第4页（刊页30461）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "transfer_en": "Does the source-restricting reward increase correct operator use, and does the complete reward strategy improve answer scores under the same retrieval setting?",
+          "transfer_zh": "来源限制奖励是否增加正确的操作符使用？在相同检索设置下，完整奖励策略是否提高答案评分？",
+          "transfer_label": "教学迁移，非论文原文或新增实测结果",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
+        }
+      ],
+      "refs": [
+        "paper_webfilter"
+      ]
     },
     {
       "id": "tip-22",
@@ -613,14 +982,27 @@
       "checklist": "交代模型、数据、可见信息、调参机会和预算，尽量匹配比较条件；无法匹配的差别明确报告。",
       "examples": [
         {
-          "title": "把信息和预算放在分数旁边",
-          "before": "教学示例：我们比基线高两分；基线用小模型和一轮检索，我们用大模型和五轮检索。",
-          "after": "假设公平比较：两种策略使用同一回答模型、同一文档集合、相同问题和相同最大检索预算，分别记录实际调用次数与输入输出量。若原版基线需要另一模型，另列原版结果与这些差异，并补充在相同模型下的策略比较。分数优势先按对应条件解释，不把资源差异归功于策略。",
-          "why": "原版系统比较和控制条件后的策略比较回答不同问题，把两者分开报告，才能判断优势是否来自额外资源。"
+          "title": "比较前交代共同训练数据",
+          "original_en": "To ensure fairness, all the trainable models mentioned above are trained and tested on RPLAN.",
+          "translation_zh": "为保证公平，上述所有可训练模型都在RPLAN上训练和测试。",
+          "analysis_zh": [
+            "比较条件先落到共同的数据集，读者不会把训练数据差异误当成方法收益。",
+            "“所有可训练模型”限定了这项安排的对象，不能扩大为所有系统的模型容量、预算和输入都相同。",
+            "自己的实验还要交代输入权限、训练规模与预算；同一数据集只是公平比较的一部分。"
+          ],
+          "provenance": {
+            "reference": "paper_card",
+            "location": "§4.1 Experimental Settings，PDF第6页（刊页9309）",
+            "version": "EMNLP 2025正式发表版",
+            "status": "已发表；CC BY 4.0"
+          },
+          "processing": "合并PDF换行与排版断词；未改原词句。",
+          "license": "Pengyu Zeng et al., EMNLP 2025, pp.9304–9319. 原文采用 CC BY 4.0；中文翻译、拆解为本指南新增。"
         }
       ],
       "refs": [
-        "neurips"
+        "neurips",
+        "paper_card"
       ]
     },
     {
@@ -641,14 +1023,27 @@
       "checklist": "定义指标的测量对象、分母、算法和高低方向，交代平均方式与缺失项，区分百分点和相对增幅。",
       "examples": [
         {
-          "title": "分清百分比与百分点",
-          "before": "教学示例：正确率从百分之四十变为百分之五十，因此提升了百分之十。",
-          "after": "假设共有二百道测试题，基线答对八十道，新方法答对一百道；两者正确率分别为百分之四十与百分之五十，即增加十个百分点，相对增幅为百分之二十五。分母包括全部二百道题，拒答按预先规定计为未答对；不能先删除拒答，再与使用全部题目的基线比较。",
-          "why": "同一差值的绝对变化与相对变化不同，分母处理也会改变指标；先定义计算方式，读者才知道数字能否直接比较。"
+          "title": "指标先说比较了什么",
+          "original_en": "We evaluate model performance using both rule-based (ACC_R) and LLM-based (ACC_L) metrics. The rule-based metric uses an F1 score to measure overlap between predictions and reference answers, reflecting factual precision.",
+          "translation_zh": "我们采用基于规则的 ACC_R 和基于大语言模型的 ACC_L 两类指标评价性能。规则指标使用 F1 分数衡量预测答案和参考答案之间的重合，反映事实精确程度。",
+          "analysis_zh": [
+            "先区分规则指标与模型评判指标，再写清规则指标比较预测答案和参考答案的重合。",
+            "定义要回答比较单位、得分规则、聚合方式；不能只在表头放ACC_R。",
+            "原句把词语重合解释为事实精确程度；拆解时须保留边界，词语重合不等同完整事实核验。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Experiments / Metrics，PDF第5页（刊页30462）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "refs": [
-        "neurips"
+        "neurips",
+        "paper_webfilter"
       ]
     },
     {
@@ -666,7 +1061,30 @@
       "cost": "整理一次基线分组。",
       "payoff": "比较对象更清楚，结果也更好分析。",
       "group": "比较设计",
-      "checklist": "按解决的问题给基线分组，说明选择理由、来源及实现改动，不能因难以超过而跳过最相近工作。"
+      "checklist": "按解决的问题给基线分组，说明选择理由、来源及实现改动，不能因难以超过而跳过最相近工作。",
+      "examples": [
+        {
+          "title": "基线按信息来源分组",
+          "original_en": "To evaluate WebFilter's effectiveness, we compare it against several baselines representing different methodologies:",
+          "translation_zh": "为评价 WebFilter 的有效性，我们将其与代表不同方法路线的多种基线进行比较。",
+          "analysis_zh": [
+            "后文按Direct Reasoning、Local RAG、Web Search分组，即内部知识、离线检索、在线工具。",
+            "分组先解释方法之间的信息条件，读者再理解每个方法名和性能差距。",
+            "跨组差距不能全部归到奖励策略；隔离奖励作用还需同一底座和检索设置下的消融。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Experiments / Baselines，PDF第4页（刊页30461）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
+        }
+      ],
+      "refs": [
+        "paper_webfilter"
+      ]
     },
     {
       "id": "tip-25",
@@ -686,15 +1104,31 @@
       "checklist": "结果段先写发现，再给对应图表、比较条件和必要差值；没有对照支持的原因只作可能解释。",
       "examples": [
         {
-          "title": "分析结果，不重新念表格",
-          "before": "教学示例：新方法是五十分，基线是四十八分，因此证据筛选解决了跨文档推理问题。",
-          "after": "假设结果分析：在相同模型与预算下，新方法的正确率略高，调用次数较少；收益主要出现在证据已较齐全的题目，证据冲突题没有同样变化。这些现象与减少重复检索的设计目标一致，但目前只能作为解释线索；要把提升归因于筛选机制，还需控制其他因素的消融比较。",
-          "why": "正文补充条件、差异分布和解释边界，表格已有的数字不必全部重复；观察到涨分还不足以确定机制因果。"
+          "title": "百分比和百分点要分清",
+          "original_en": "For instance, on Bamboogle, ACC_R improves by 8.5%, from 64.6% to 73.1%, and ACC_L rises from 65.2% to 74.3%.",
+          "translation_zh": "例如，在 Bamboogle 上，ACC_R 提高了 8.5%，从 64.6% 增至 73.1%；ACC_L 从 65.2% 增至 74.3%。",
+          "analysis_zh": [
+            "这句只挑Bamboogle的两个指标，没有逐格复述整张表。",
+            "数值口径须核对：64.6%到73.1%是提高8.5个百分点；原引文中的8.5%照录，不静默替作者修正。",
+            "教学改写单独列出，保留比较起点、终点和指标；不能把结果解释扩大到所有数据集。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Experiments / Ablation Study，PDF第6页（刊页30463）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "transfer_en": "On Bamboogle, ACC_R increases from 64.6% to 73.1%, a gain of 8.5 percentage points. ACC_L increases from 65.2% to 74.3%.",
+          "transfer_zh": "在 Bamboogle 上，ACC_R 从64.6%增至73.1%，提高8.5个百分点；ACC_L 从65.2%增至74.3%。",
+          "transfer_label": "教学改写，非论文原文；只澄清数值口径。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "refs": [
         "neurips",
-        "plos_structure"
+        "plos_structure",
+        "paper_webfilter"
       ]
     },
     {
@@ -715,14 +1149,27 @@
       "checklist": "消融比较组件作用时尽量只改一个因素，参数分析另报合理范围，无法控制的差别照实说明。",
       "examples": [
         {
-          "title": "让消融只回答一个变化",
-          "before": "教学示例：删掉证据筛选，同时换模型、减预算、改提示词，得分下降说明筛选很有效。",
-          "after": "假设消融设计：先固定回答模型、候选段落、检索次数与回答提示词，只比较有无证据筛选，以检验筛选对回答质量的影响。另做允许动态停止的比较，记录其质量和实际开销。前者研究筛选，后者研究整套策略；如果两个设置一起变，就不把差异全部归因于一个组件。",
-          "why": "控制条件后的消融与完整系统比较有不同用途，先区分检验对象，能够减少把多个改动的结果误算为一个机制的效果。"
+          "title": "消融逐个说明新增内容",
+          "original_en": "SR also encourages the use of advanced operators.",
+          "translation_zh": "SR 也促进了高级搜索操作符的使用。",
+          "analysis_zh": [
+            "与该句配套的Table3依次是Base、Base+SR、Base+SR+RR，每一步标明新增了什么。",
+            "Figure3另报告操作符使用频率，将行为变化与最终成绩分开。",
+            "原设置没有Base+RR，不能据此完整区分两个奖励的交互作用；不把顺序添加消融当完整因果分解。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Experiments / Ablation Study，PDF第6页（刊页30463）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "refs": [
-        "neurips"
+        "neurips",
+        "paper_webfilter"
       ]
     },
     {
@@ -743,14 +1190,27 @@
       "checklist": "保存全部运行，说明重复次数、变化因素及统计方式，报告适当波动；不把最高分当稳定领先。",
       "examples": [
         {
-          "title": "最高分不代表稳定领先",
-          "before": "教学示例：运行五次，只把最高一次写进表格，结论说方法稳定优于所有基线。",
-          "after": "假设重复运行方案：对同一测试集独立运行五次，保留每次配置和结果，表中报告均值及标准差，并注明误差条来自运行随机性。若还评估抽题差异，则另说明重采样方法与区间含义。没有统计检验时写观察到的差值，不因均值较高就使用显著或稳定领先的结论。",
-          "why": "运行波动与测试样本不确定性是不同来源，误差条需要明确含义；选择最好一次会遮住波动，也不能证明显著性。"
+          "title": "平均值之外还要让波动可见",
+          "original_en": "A total of 37 experts and users were invited, and each person conducted 10 tests. The final result is the average value calculated from these tests.",
+          "translation_zh": "共邀请37位专家和用户，每人进行10次测试。最终结果是这些测试所得的平均值。",
+          "analysis_zh": [
+            "报告参与者数量、每人测试次数和平均方式，比只挑一次最好看的评分更清楚。",
+            "这里重复的是人类评价任务，不能冒充多随机种子的模型训练。",
+            "平均值仍不足以显示波动；自己的研究应按适当统计单位补充分布、标准差或区间，并明确独立样本的分母。"
+          ],
+          "provenance": {
+            "reference": "paper_card",
+            "location": "§4.4 CARD User Study / Consistency and Rationality，PDF第8页（刊页9311）",
+            "version": "EMNLP 2025正式发表版",
+            "status": "已发表；CC BY 4.0"
+          },
+          "processing": "合并PDF换行与排版断词；未改原词句。",
+          "license": "Pengyu Zeng et al., EMNLP 2025, pp.9304–9319. 原文采用 CC BY 4.0；中文翻译、拆解为本指南新增。"
         }
       ],
       "refs": [
-        "neurips"
+        "neurips",
+        "paper_card"
       ]
     },
     {
@@ -772,14 +1232,30 @@
       "detail": true,
       "examples": [
         {
-          "title": "先确定一张方法图的任务",
-          "before": "教学示例：同一张图塞进全部背景、模块、贡献、结果曲线和应用场景。",
-          "after": "假设这张图只解释何时继续检索。左侧放问题与候选段落，中间放条件覆盖判断，缺失条件沿回路返回检索器，满足条件或预算耗尽后进入回答。用一条主路径和一条回路表达控制关系，性能结果另放独立图表；图中的每条箭头均对应实际传递的对象。",
-          "why": "图型与布局由要解释的信息决定，分离流程和结果后，读者能沿路径追踪操作，也不会从装饰推断未经验证的优势。"
+          "title": "MindAligner Fig.5：先确定热图要回答什么",
+          "original_en": "We apply the Transfer Quantity (TQ) metric on MindAligner’s brain transfer matrix to assess cross-subject associations and visualize the results through brain heatmaps.",
+          "translation_zh": "我们将迁移量指标 TQ 用于 MindAligner 的脑迁移矩阵，以评价被试间关联，并用脑热图展示结果。",
+          "analysis_zh": [
+            "这张图要回答“不同被试之间的映射权重，在哪些脑区更大”，因此用带脑区边界的热图，而非只给平均性能柱。",
+            "输入是学到的脑迁移矩阵；TQ 为对应映射权重绝对值之和，图中按脑区位置显示。它不是直接记录的脑活动。",
+            "四个面板改变迁移方向，色条帮助比较空间分布；脑区相关解释来自作者分析，单凭颜色不能确认因果机制。"
+          ],
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "§5.5 Region-level Functional Mapping, PDF p.8；Fig.5, PDF p.7；TQ 定义 §5.3, p.6",
+            "version": "ICML 2025 正式发表论文；英文短引与作者终稿逐句核对",
+            "status": "已发表；作者原文摘录"
+          },
+          "image": "assets/paper-mindaligner-fig5-transfer-quantity.png",
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。 作者终稿原生 PDF 图文件整页渲染为 PNG；完整保留四个被试迁移面板、脑区边界、标注与色条，未裁切、未重新绘制图形或更改数值。",
+          "alt": "MindAligner Figure 5：以脑热图可视化迁移量。",
+          "caption_en": "Figure 5. Visualization of transfer quantity in brain heatmaps.",
+          "caption_zh": "以脑热图可视化迁移量。 点击原图可放大查看。"
         }
       ],
       "refs": [
-        "plos_figures"
+        "plos_figures",
+        "paper_mindaligner"
       ]
     },
     {
@@ -801,14 +1277,30 @@
       "detail": true,
       "examples": [
         {
-          "title": "在最终尺寸下重排图",
-          "before": "教学示例：宽屏画布上的图很好看，缩进双栏论文后标签已经读不清。",
-          "after": "假设图最终放在单栏宽度。先按这一宽度排布问题、检索、筛选和回答四个标签，删去各模块内与图注重复的长句；循环关系仍拥挤时，将辅助例子移到第二面板。把图放回最终 PDF，以正常阅读大小检查文字、线条与图注，再决定是否需要跨栏。",
-          "why": "可读性取决于最终展示尺寸，缩小整幅图会同时缩小文字和间距，重新组织信息比继续缩放更容易保住关键关系。"
+          "title": "MindAligner Fig.6：轴标签和图例也是内容",
+          "original_en": "Comparison of fSC results between MindAligner and the baseline.",
+          "translation_zh": "比较 MindAligner 与基线的 fSC 结果。",
+          "analysis_zh": [
+            "在最终网页与窄屏上，检查每个“源被试→目标被试”标签、MindEye2 / MindAligner 图例和 fSC 刻度是否可读；不只检查图片文件本身。",
+            "原图蓝柱表示 MindAligner，红柱表示 MindEye2。若缩小后看不清，用可打开的大图与紧邻文字解码，不删掉不利方向、挤压比例或重画柱高。",
+            "fSC 是对应脑区信号的皮尔逊相关，越高表示线性一致性越强；它不是百分比准确率。"
+          ],
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Fig.6 caption, PDF p.7；fSC 定义 §5.3, p.6",
+            "version": "ICML 2025 正式发表论文；英文短引与作者终稿逐句核对",
+            "status": "已发表；作者原文摘录"
+          },
+          "image": "assets/paper-mindaligner-fig6-fsc.png",
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。 直接复制作者终稿 PNG 图文件；完整保留柱形、迁移方向、fSC 轴、截断轴起点与方法图例，未重新绘制或改值。",
+          "alt": "MindAligner Figure 6：比较 MindAligner 与基线的 fSC 结果。",
+          "caption_en": "Figure 6. Comparison of fSC results between MindAligner and the baseline.",
+          "caption_zh": "比较 MindAligner 与基线的 fSC 结果。 点击原图可放大查看。"
         }
       ],
       "refs": [
-        "plos_figures"
+        "plos_figures",
+        "paper_mindaligner"
       ]
     },
     {
@@ -829,7 +1321,31 @@
       "checklist": "给颜色明确含义并在全文统一，同类对象保持一致，类别区分同时使用文字、线型或形状，避免只靠红绿传递信息。",
       "detail": true,
       "refs": [
-        "plos_figures"
+        "plos_figures",
+        "paper_mindaligner"
+      ],
+      "examples": [
+        {
+          "title": "MindAligner Fig.5：颜色必须对应可解释的量",
+          "original_en": "Visualization of transfer quantity in brain heatmaps.",
+          "translation_zh": "以脑热图可视化迁移量。",
+          "analysis_zh": [
+            "蓝到红编码图示迁移量从低到高，白色线划出脑区；颜色有一个一致的数值含义，不用来装饰。",
+            "面板标题给出源被试和目标被试，EarlyVis、OPA 等文字帮助定位；解释颜色时也要解释这些对象，否则只剩“红的更明显”。",
+            "高迁移量表示矩阵权重派生量更大，不能直接写成实测脑活动更强。保留原色条与映射，不重新挑色让差异显得更大。"
+          ],
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Fig.5 caption, PDF p.7；TQ 定义 §5.3, p.6",
+            "version": "ICML 2025 正式发表论文；英文短引与作者终稿逐句核对",
+            "status": "已发表；作者原文摘录"
+          },
+          "image": "assets/paper-mindaligner-fig5-transfer-quantity.png",
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。 作者终稿原生 PDF 图文件整页渲染为 PNG；完整保留四个被试迁移面板、脑区边界、标注与色条，未裁切、未重新绘制图形或更改数值。",
+          "alt": "MindAligner Figure 5：以脑热图可视化迁移量。",
+          "caption_en": "Figure 5. Visualization of transfer quantity in brain heatmaps.",
+          "caption_zh": "以脑热图可视化迁移量。 点击原图可放大查看。"
+        }
       ]
     },
     {
@@ -851,16 +1367,32 @@
       "detail": true,
       "examples": [
         {
-          "title": "示意素材和实验曲线分开制作",
-          "before": "教学示例：让图像模型生成一张新方法明显领先的曲线，再把坐标数字改成实验值。",
-          "after": "假设制作流程：生成工具只提供问题、文档和模块布局的示意草图，结果面板先留空。实验脚本读取每次运行的原始指标，再生成曲线、点位和误差条；组合后逐项核对数据、坐标尺度、线条位置与图例。若使用生成素材，还检查目标投稿政策，并保留许可和使用说明。",
-          "why": "曲线的几何位置本身就是结果，后改数字不能修复虚构走势；构图辅助可以省时，数据表达仍需要可追溯的绘图过程。"
+          "title": "MindAligner Fig.6：真实柱形直接取原图",
+          "original_en": "Comparison of fSC results between MindAligner and the baseline.",
+          "translation_zh": "比较 MindAligner 与基线的 fSC 结果。",
+          "analysis_zh": [
+            "这里展示从作者终稿原生图素材复制的实验图；柱高、迁移方向和图例均保留，不让图像生成模型猜结果。",
+            "AI 可另想构图或画图标，但不能把“蓝柱整体更高”的文字变成虚构数值；原始结果表与真实图形要共同核对。",
+            "此原图没有误差条。不能为了让图看起来完整，补画未报告的标准差或置信区间；也不能按像素估算精确值后当成原始数据。"
+          ],
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Fig.6 caption, PDF p.7；fSC 定义 §5.3, p.6",
+            "version": "ICML 2025 正式发表论文；英文短引与作者终稿逐句核对",
+            "status": "已发表；作者原文摘录"
+          },
+          "image": "assets/paper-mindaligner-fig6-fsc.png",
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。 直接复制作者终稿 PNG 图文件；完整保留柱形、迁移方向、fSC 轴、截断轴起点与方法图例，未重新绘制或改值。",
+          "alt": "MindAligner Figure 6：比较 MindAligner 与基线的 fSC 结果。",
+          "caption_en": "Figure 6. Comparison of fSC results between MindAligner and the baseline.",
+          "caption_zh": "比较 MindAligner 与基线的 fSC 结果。 点击原图可放大查看。"
         }
       ],
       "refs": [
         "plos_figures",
         "neurips",
-        "arr"
+        "arr",
+        "paper_mindaligner"
       ]
     },
     {
@@ -882,15 +1414,33 @@
       "detail": true,
       "examples": [
         {
-          "title": "让图注解释比较和误差条",
-          "before": "教学示例：图二：我们的方法效果更好。",
-          "after": "假设图注：固定轮次与按证据停止策略在同一多文档问答测试集上的比较，两者使用相同回答模型和最大检索预算。横轴为平均模型调用次数，纵轴为回答正确率；圆点表示五次独立运行的均值，竖线表示运行间标准差。假设配置不同的点使用形状区分，颜色只帮助辨认策略。",
-          "why": "图注交代对象、条件、坐标与标记的含义，读者能够独立读图；标准差不能被误称为均值的置信区间。"
+          "title": "MindAligner Fig.5：短图注还需要解码说明",
+          "original_en": "Visualization of transfer quantity in brain heatmaps.",
+          "translation_zh": "以脑热图可视化迁移量。",
+          "analysis_zh": [
+            "原图注很短；独立展示时，读者还不知道量怎么来、面板比什么、颜色表示什么。教学改写把这三件事补齐。",
+            "图里没有行为干预；比较是不同被试之间的映射方向。迁移量来自学到的矩阵，不能改写成实测活跃程度。",
+            "原文和教学图注分别标注，新的解释不回写到原论文，也不冒充作者已经使用的图注。"
+          ],
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Fig.5 caption, PDF p.7；§5.3 Metrics, p.6；§5.5, p.8",
+            "version": "ICML 2025 正式发表论文；英文短引与作者终稿逐句核对",
+            "status": "已发表；作者原文摘录"
+          },
+          "transfer_en": "Transfer-quantity maps derived from the learned brain transfer matrix. Panel labels show source → target subjects; blue-to-red indicates increasing displayed values. White outlines identify cortical regions. Transfer quantity is derived from mapping weights and is not a direct measurement of neural activity.",
+          "transfer_zh": "由学到的脑迁移矩阵得到的迁移量热图。面板标题表示源被试→目标被试，蓝到红表示图示数值递增，白线标出皮层脑区。迁移量由映射权重计算，不能直接解释为神经活动强弱。",
+          "image": "assets/paper-mindaligner-fig5-transfer-quantity.png",
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。 作者终稿原生 PDF 图文件整页渲染为 PNG；完整保留四个被试迁移面板、脑区边界、标注与色条，未裁切、未重新绘制图形或更改数值。",
+          "alt": "MindAligner Figure 5：以脑热图可视化迁移量。",
+          "caption_en": "Figure 5. Visualization of transfer quantity in brain heatmaps.",
+          "caption_zh": "以脑热图可视化迁移量。 点击原图可放大查看。"
         }
       ],
       "refs": [
         "plos_figures",
-        "neurips"
+        "neurips",
+        "paper_mindaligner"
       ]
     },
     {
@@ -911,7 +1461,28 @@
       "checklist": "在最终 PDF 中检查图表的引用顺序、图注归属、数值精度、高亮规则及整页布局；图的作用是传达信息，不承诺录用收益。",
       "detail": true,
       "refs": [
-        "plos_figures"
+        "plos_figures",
+        "paper_mindaligner"
+      ],
+      "examples": [
+        {
+          "title": "教学迁移：推理路径必须在整页图文中读得通",
+          "original_en": "In the inference stage, only the BTM is utilized for functional mapping, enabling cross-subject brain decoding.",
+          "translation_zh": "推理阶段仅使用 BTM 进行功能映射，从而实现跨被试脑解码。",
+          "analysis_zh": [
+            "原句中的“only”限定功能映射阶段；如果整页让读者误以为预训练解码器也被删除，图注与流程就不一致。",
+            "教学检查针对最终排版与信息关系，不修改原图，也不把图表美观换算成录用收益。"
+          ],
+          "transfer_en": "Inspect the framework figure at its final size and check that the inference path retains the transfer matrix before the pre-trained decoder.\nMake the training-only alignment components distinguishable without relying on color alone.\nCheck the first text reference, figure caption, and surrounding page together so that the diagram’s scope remains clear.",
+          "transfer_zh": "按最终尺寸检查框架图，确认推理路径保留迁移矩阵，并接到预训练解码器。\n让只在训练阶段使用的对齐组件可以被辨认，不只依赖颜色。\n同时检查首次正文引用、图注与整页邻文，让图的范围保持明确。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Figure 2 caption，最后一句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
+        }
       ]
     },
     {
@@ -929,7 +1500,30 @@
       "cost": "读清近邻工作，再分组重写。",
       "payoff": "读者看得出你了解领域，也知道为什么还需要这篇论文。",
       "group": "文献组织",
-      "checklist": "按问题或技术路线组织相关工作，先讲共同思路再讲差异，并说明与本研究的关系，不硬凑缺点。"
+      "checklist": "按问题或技术路线组织相关工作，先讲共同思路再讲差异，并说明与本研究的关系，不硬凑缺点。",
+      "examples": [
+        {
+          "title": "相关工作按路线和设计差别组织",
+          "original_en": "A growing area of interest is the application of RL to tool-integrated tasks, which involve multi-step interactions and dynamic tool states. The high interactivity with the environment makes them a natural fit for RL.",
+          "translation_zh": "一个日益受到关注的方向是把RL用于工具集成任务；这类任务包含多步交互和动态工具状态。与环境的高度交互，使这类任务自然适合RL。",
+          "analysis_zh": [
+            "先说明这一类工作的任务特征，多步交互、动态工具状态，而不是先罗列一串方法名字。",
+            "后文再比较结果奖励、工具使用奖励与来源限制监督，分类服务于本文要讨论的缺口。",
+            "“适合RL”是方法选择理由，不等于RL在所有工具任务里都优于其他训练方式。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Related Work / Reinforcement Learning for LLMs，PDF第2页（刊页30459）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
+        }
+      ],
+      "refs": [
+        "paper_webfilter"
+      ]
     },
     {
       "id": "tip-35",
@@ -949,15 +1543,28 @@
       "checklist": "对照最相近工作的任务、输入、方法和设置，说明沿用与改进部分，必要时比较并如实解释复现限制。",
       "examples": [
         {
-          "title": "主动交代最相近工作的关系",
-          "before": "教学示例：方法 A 太接近我们的思路，相关工作里不写它，避免削弱新颖性。",
-          "after": "假设方法 A 已按检索分数决定是否追加检索，我们的方法改为按问题条件的覆盖状态判断。相关工作应承认共同使用动态轮次，再说明判断信号和输入信息的差别；实验优先比较 A。若暂时没有可复现实现，写清检索范围和实现限制，也不把动态检索本身宣称为首次提出。",
-          "why": "承认共同基础后，真实改进更容易看见；不引用近邻不会消除先例，不能复现也需要具体说明而不是直接跳过。"
+          "title": "最相近工作先按真实范围介绍",
+          "original_en": "Several methods train models to autonomously issue search queries within local search environments, but such systems often fail to generalize to real-world web settings.",
+          "translation_zh": "已有若干方法在本地搜索环境中训练模型自主发起查询，但这类系统往往难以泛化到真实网页环境。",
+          "analysis_zh": [
+            "承认近邻工作已经能自主发起查询，再把讨论的差别限定到本地环境与真实网页环境。",
+            "不要为了显得新颖而把近邻工作写成“从未使用搜索工具”。",
+            "often fail的判断必须回到被引论文的评价范围；写自己的相关工作时，逐篇核查，不能复制这句负面评价。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Related Work / Agentic Retrieval Augmented Generation，PDF第2页（刊页30459）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "refs": [
         "plos_structure",
-        "neurips"
+        "neurips",
+        "paper_webfilter"
       ]
     },
     {
@@ -975,7 +1582,30 @@
       "cost": "随写随核对，不在最后统一凑数。",
       "payoff": "少错引，也少让读者追到不相干的出处。",
       "group": "近邻与引用",
-      "checklist": "逐条核对引用原文和书目信息，说明它支持哪项表述，按相关性保留文献并准确标注预印本。"
+      "checklist": "逐条核对引用原文和书目信息，说明它支持哪项表述，按相关性保留文献并准确标注预印本。",
+      "examples": [
+        {
+          "title": "引文围绕一句事实服务",
+          "original_en": "To overcome this, recent approaches train with online search engines to expose models to open-domain, dynamic information.",
+          "translation_zh": "为应对这一问题，近期方法使用在线搜索引擎训练，使模型接触开放域、动态变化的信息。",
+          "analysis_zh": [
+            "原稿在这一句后放了五个文献标记，共同支撑“训练使用在线搜索”这项具体事实。",
+            "数量不是充分条件：每篇都要确实支持训练阶段、在线工具和信息条件，不能用推理时搜索论文凑数。",
+            "展示中省去了文献标记；实际引用要回到原论文的reference核对标题和版本，不把当前摘录当新的文献综述。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Related Work / Agentic Retrieval Augmented Generation，PDF第2页（刊页30459）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
+        }
+      ],
+      "refs": [
+        "paper_webfilter"
+      ]
     },
     {
       "id": "tip-37",
@@ -992,7 +1622,33 @@
       "cost": "把已有材料重新分组，补上准确引用。",
       "payoff": "想查细节的人能找到，也能看明白。",
       "group": "补充材料",
-      "checklist": "按实现、设置、结果和证明组织附录，正文指向具体小节；影响主结论的限制与反例仍在正文交代。"
+      "checklist": "按实现、设置、结果和证明组织附录，正文指向具体小节；影响主结论的限制与反例仍在正文交代。",
+      "examples": [
+        {
+          "title": "教学迁移：附录给出可复核的检索评价操作",
+          "original_en": "We then compute the cosine similarity between this representation and the CLIP-derived image representations of 300 randomly selected images from the test set. Retrieval success is defined as the maximization of cosine similarity between the fMRI embedding and its ground truth CLIP embedding (top-1 retrieval, with random chance at 1/300). To mitigate variability from random batch sampling, the evaluation is repeated 30 times per test sample.",
+          "translation_zh": "随后，我们计算该表示与从测试集随机选出的 300 张图像的 CLIP 图像表示之间的余弦相似度。检索成功定义为 fMRI 嵌入与对应真实图像的 CLIP 嵌入具有最高余弦相似度，即 top-1 检索，随机命中率为 1/300。为减小随机候选批次采样带来的波动，对每个测试样本重复评价 30 次。",
+          "analysis_zh": [
+            "三句依次交代比较集合、怎样算成功和怎样处理采样波动，读者可据此理解结果的统计含义。",
+            "300 张候选与 30 次重复用途不同；附录整理不能把它们压成含糊的“多次检索”。",
+            "当前公开 eval.py 在同一轮抽取 300 个配对索引，图像与脑表示共用这些索引，因此参与该轮的真图包含在 300 张候选中，不是另加一张变成 301。",
+            "原文写“每个测试样本重复 30 次”；截至 2026-10-07 的公开实现是 30 轮随机候选批次，不保证每个样本都出现 30 次。应分别核对报告口径与实现版本；此处未验证 2025 年实验使用同一提交。"
+          ],
+          "transfer_en": "Keep the candidate count, success criterion, and repetition rule together in the metric appendix.\nPoint the main-text retrieval result to this exact subsection.\nDo not move a limitation that changes the main conclusion into the appendix without mentioning it in the body.",
+          "transfer_zh": "将候选数、成功判据与重复规则集中写在指标附录。\n让正文中的检索结果指向这个具体小节。\n会改变主要结论的限制移入附录后，正文仍需说明。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Appendix A，Explanation of Metrics，检索评价段",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
+        }
+      ],
+      "refs": [
+        "paper_mindaligner",
+        "paper_mindaligner_code"
+      ]
     },
     {
       "id": "tip-38",
@@ -1012,14 +1668,27 @@
       "checklist": "将版本、输入、配置、输出和统计脚本对应保存，写明运行入口，并区分提供代码与实际复现成功。",
       "examples": [
         {
-          "title": "从结果表找到原始运行",
-          "before": "教学示例：表格数字存在一个手工文件里，只留了一份能运行的代码。",
-          "after": "假设交付记录：每个结果表单元标注运行编号，编号对应代码版本、问题集合、模型版本、检索配置与原始输出；统计脚本从这些文件重新计算表格。说明运行命令、必要资源及受限数据的合法获取方式。若只验证过部分配置，就明确列出范围，不把提供代码写成全部结果已复现。",
-          "why": "保存代码与复核结果之间还需要配置、输入和统计链路，运行编号让读者可以追到数值来源，复现状态也更明确。"
+          "title": "教学迁移：代码入口与复现成功分开写",
+          "original_en": "For implementation details, please refer to our GitHub repository.",
+          "translation_zh": "实现细节请参阅我们的 GitHub 仓库。",
+          "analysis_zh": [
+            "原句用于帮助读者定位实现材料，本身没有说明任何读者已经重现成绩。",
+            "教学迁移补充的是交付应有的信息，不替原仓库编造运行入口、版本哈希或成功日志。"
+          ],
+          "transfer_en": "A repository link identifies a starting point, not evidence of a successful reproduction.\nA reproduction note should specify the code version, input data, configuration, execution command, and expected output.\nIf a full reproduction has not been run, describe the available code without claiming that the published results have been reproduced.",
+          "transfer_zh": "仓库链接给出起点，不构成复现成功的证据。\n复现说明应写明代码版本、输入数据、配置、执行命令与预期输出。\n尚未运行完整复现时，说明提供了哪些代码，不宣称已复现发表结果。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "§ Methodology，Learning to Use Advanced Search Tools，最后一句",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "refs": [
-        "neurips"
+        "neurips",
+        "paper_webfilter"
       ]
     },
     {
@@ -1040,14 +1709,27 @@
       "checklist": "说明参数来自先例还是开发集选择，报告搜索范围，关键参数考虑敏感性分析，不用测试集反复调参。",
       "examples": [
         {
-          "title": "交代阈值为什么这样选",
-          "before": "教学示例：覆盖阈值设为零点七，挑选依据是这个值在测试集上最高。",
-          "after": "假设参数说明：先在开发集上比较预先确定的覆盖阈值范围，以回答质量达到约定水平后的调用成本选择配置；随后固定阈值，在独立测试集上评测。报告搜索范围、选择准则和开发集大小，并把主要阈值的质量与成本变化放入附录。测试结果仅用于最终评测，不循环指导阈值选择。",
-          "why": "参数选择规则和所用数据决定评测是否独立，报出一个看似精确的值不能代替选择依据，也不能掩盖测试集调参。"
+          "title": "教学迁移：区分参数敏感性结果与选择过程",
+          "original_en": "To investigate the potential for further reducing the model size, we adjusted the hidden size and evaluated the model's performance at different values. The experiments showed that when the hidden size is set to 1024, the model delivers comparable performance, while its size is reduced to one-quarter of the original.",
+          "translation_zh": "为研究进一步缩小模型的可能性，我们调整隐藏维度，并在不同取值下评价模型表现。实验表明，隐藏维度设为 1024 时，模型表现相近，而模型规模缩小为原来的四分之一。",
+          "analysis_zh": [
+            "第一句说明改变了什么，第二句说明 1024 的质量与规模权衡；参数值有了相应的比较。",
+            "原文这两句未交代开发集选择流程，教学改写明确保留这项未知，不替作者补一段不存在的调参记录。"
+          ],
+          "transfer_en": "Table 6 supports a sensitivity discussion across the reported hidden sizes.\nDescribe how the final value was selected only when the selection record is available.\nDo not infer a development-set search protocol from a sensitivity table, and do not repeatedly tune on the test set.",
+          "transfer_zh": "表 6 支持围绕已报告隐藏维度进行敏感性讨论。\n只有选择记录可查时，才说明最终值如何选出。\n不能从敏感性表推断出开发集搜索流程，也不能反复用测试集调参。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Appendix D，Ablation Study on Hidden Size，第 1–2 句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
         }
       ],
       "refs": [
-        "neurips"
+        "neurips",
+        "paper_mindaligner"
       ]
     },
     {
@@ -1065,7 +1747,30 @@
       "cost": "留出一段不被打断的通读时间。",
       "payoff": "少做后来又被删掉的精修。",
       "group": "全文逻辑",
-      "checklist": "通读摘要至结论、图注及附录，核对问题、方法和结果是否对应，先修跳步与重复，再改语法。"
+      "checklist": "通读摘要至结论、图注及附录，核对问题、方法和结果是否对应，先修跳步与重复，再改语法。",
+      "examples": [
+        {
+          "title": "教学迁移：先核对检索改进与推理限制，再润色英语",
+          "original_en": "WebFilter enhances Retrieval-Augmented Generation by using advanced search operators for more precise, source-aware retrieval and misinformation filtering. Yet, stronger retrieval alone cannot address challenges in interpreting and reasoning over evidence.",
+          "translation_zh": "WebFilter 使用高级搜索操作符，使 RAG 的检索更精确、更关注来源，并过滤错误信息。但更强的检索本身不能解决解释证据与基于证据推理的困难。",
+          "analysis_zh": [
+            "两句分别给出工作改善的环节与尚未解决的环节，全文检查要保留这层关系。",
+            "这里只给出检查顺序，不宣称本次修改了论文，也不以摘要核对代替全文核对。"
+          ],
+          "transfer_en": "First check whether the method and experiment sections support the retrieval claims in the conclusion.\nThen verify that the abstract, figure captions, and appendices retain the same distinction between retrieval and reasoning.\nPolish sentence structure only after correcting unsupported jumps or inconsistent scope.",
+          "transfer_zh": "先检查方法与实验章节是否支持结论中的检索主张。\n再核对摘要、图注与附录是否保持相同的检索与推理区分。\n纠正缺少依据的跳步或不一致的范围后，再润色句子结构。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "§ Conclusion，第 1–2 句",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
+        }
+      ],
+      "refs": [
+        "paper_webfilter"
+      ]
     },
     {
       "id": "tip-41",
@@ -1085,15 +1790,28 @@
       "checklist": "逐段检查相邻句的解释、转折和因果关系，先补内容联系，再加连接词，不用“因此”制造因果。",
       "examples": [
         {
-          "title": "先补逻辑，再加连接词",
-          "before": "教学示例：系统能够判断证据覆盖。因此，我们使用了一个更大的语言模型。",
-          "after": "假设修订：证据覆盖判断需要识别多个段落是否共同回答问题条件。我们选择一个能够处理这些段落的模型作为筛选器，并报告其版本和输入限制；模型大小本身不构成选择依据。若没有比较不同模型的筛选准确性，就只描述当前实现，不写成更大模型因此带来更强覆盖判断。",
-          "why": "原来的因果并不存在，补充实际任务和选择依据后句子才衔接；连接词不能把实现选择包装成经验证的能力提升。"
+          "title": "教学迁移：设计理由不是实验因果证明",
+          "original_en": "However, due to the absence of brain prior knowledge, directly generating fMRI signals is still challenging.",
+          "translation_zh": "然而，由于缺少脑先验知识，直接生成 fMRI 信号仍然很困难。",
+          "analysis_zh": [
+            "“However”承接前文的跨刺激转换需求，困难与随后采用条件映射的设计由内容联系起来。",
+            "不能仅凭“因此”或“由于”就把设计动机升级为已经验证的机制因果；教学迁移把两者分开。"
+          ],
+          "transfer_en": "Start with the difficulty of generating fMRI signals directly.\nThen explain that the mapper is conditioned on differences between the two visual stimuli.\nThis connection states a design rationale; a causal claim about improved reconstruction still needs a controlled comparison.",
+          "transfer_zh": "先说明直接生成 fMRI 信号的困难。\n再解释映射器以两个视觉刺激的差异作为条件。\n这层联系交代设计理由；若要声称它导致重建改善，仍需要受控比较。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "§ 4.3 Brain Functional Alignment Module，Cross-stimulus Neural Mapper 段",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
         }
       ],
       "refs": [
         "plos_structure",
-        "neurips"
+        "neurips",
+        "paper_mindaligner"
       ]
     },
     {
@@ -1111,7 +1829,30 @@
       "cost": "专门扫一遍容易混淆的指代。",
       "payoff": "少一些来回重读。",
       "group": "用词与压缩",
-      "checklist": "将有歧义的代词换成简短对象名，统一同一对象的称呼，必要时拆句；指向清楚的代词保留。"
+      "checklist": "将有歧义的代词换成简短对象名，统一同一对象的称呼，必要时拆句；指向清楚的代词保留。",
+      "examples": [
+        {
+          "title": "教学迁移：明确谁创建空间，谁执行映射",
+          "original_en": "The matrix decomposition creates a shared latent space between two subjects for subsequent alignment.",
+          "translation_zh": "矩阵分解为两个被试创建了一个共享潜在空间，用于随后的对齐。",
+          "analysis_zh": [
+            "原句直接以“The matrix decomposition”作主语，让空间由什么操作创建不需要读者猜。",
+            "教学改写进一步给三个动作各自确定对象，同时保留训练空间与推理信号映射的区别。"
+          ],
+          "transfer_en": "The matrix decomposition creates the latent space used during alignment training.\nThe learned transfer matrix maps the new subject’s fMRI signals to the known subject’s signal space.\nThe pre-trained decoder receives the mapped signals; these distinct objects should not all be called it.",
+          "transfer_zh": "矩阵分解创建对齐训练所用的潜在空间。\n学得的迁移矩阵将新被试的 fMRI 信号映射到已知被试的信号空间。\n预训练解码器接收映射后的信号；这些不同对象不应全部用“它”指代。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "§ 4.2 Brain Transfer Matrix，矩阵分解后的说明句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
+        }
+      ],
+      "refs": [
+        "paper_mindaligner"
+      ]
     },
     {
       "id": "tip-43",
@@ -1128,7 +1869,30 @@
       "cost": "按信息价值压缩一遍。",
       "payoff": "篇幅更短，论证还在。",
       "group": "用词与压缩",
-      "checklist": "超页先删无新增信息的句子，合并重复定义、迁移次要细节，再核对关键比较、条件和结论完整性。"
+      "checklist": "超页先删无新增信息的句子，合并重复定义、迁移次要细节，再核对关键比较、条件和结论完整性。",
+      "examples": [
+        {
+          "title": "教学迁移：删重复模块介绍，保留训练与推理的区别",
+          "original_en": "MindAligner comprises the Brain Transfer Matrix (BTM), Functional Embedder (FE), and Cross-Stimulus Neural Mapper (CNM).",
+          "translation_zh": "MindAligner 包含脑迁移矩阵（BTM）、功能嵌入器（FE）和跨刺激神经映射器（CNM）。",
+          "analysis_zh": [
+            "原句给出组件集合，附录 B 承接参数计数；简化时可以合并重复介绍。",
+            "训练参数、推理保留组件与整个解码器的参数不是一回事；压缩篇幅不能删掉这项区别。"
+          ],
+          "transfer_en": "Define the three components once and refer to their established names later.\nKeep the statement that the alignment helpers are used for training while the transfer matrix is retained for inference.\nMove secondary parameter breakdowns to a precise appendix reference instead of deleting the execution boundary.",
+          "transfer_zh": "一次定义三个组件，后文使用已经确定的名称。\n保留“对齐辅助组件用于训练，迁移矩阵保留到推理”的说明。\n将次要参数分解指向具体附录，而不是删除执行阶段的边界。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Appendix B，Details on Model Parameters，组件说明句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
+        }
+      ],
+      "refs": [
+        "paper_mindaligner"
+      ]
     },
     {
       "id": "tip-44",
@@ -1145,7 +1909,30 @@
       "cost": "整理一份能反复使用的写作材料。",
       "payoff": "少纠正虚构细节，也少整篇返工。",
       "group": "起草与精修",
-      "checklist": "给 AI 研究问题、真实方法、核验结果、术语和引用，明确区分已完成、推测与计划后再指定章节。"
+      "checklist": "给 AI 研究问题、真实方法、核验结果、术语和引用，明确区分已完成、推测与计划后再指定章节。",
+      "examples": [
+        {
+          "title": "教学迁移：给 AI 一份具体设置，不让它补调参故事",
+          "original_en": "Each iteration processes 256 samples, generating 16 rollouts per sample. Additionally, we apply a sampling temperature of 1.0 and limit the maximum retrieval count to 10. We apply loss masking to update only model-generated tokens.",
+          "translation_zh": "每次迭代处理 256 个样本，每个样本生成 16 条轨迹。此外，我们使用 1.0 的采样温度，并将最大检索次数限制为 10。我们应用损失掩码，只更新模型生成的 token。",
+          "analysis_zh": [
+            "三句分别说明采样单位、生成控制与更新范围，材料具体，AI 才知道哪些事实需要保护。",
+            "原句没有说明参数怎样选出，教学迁移保留该未知；“16 条轨迹”不能被改成重复运行 16 次完整实验。"
+          ],
+          "transfer_en": "Give the drafting model the reported settings: 256 samples per iteration, 16 rollouts per sample, temperature 1.0, at most 10 retrievals, and masking for model-generated tokens.\nMark the hyperparameter-selection history as unavailable if no selection record is supplied.\nThe model may organize these facts into prose, but it must not change values or invent tuning trials.",
+          "transfer_zh": "向起草模型提供已报告设置：每次迭代 256 个样本、每个样本 16 条轨迹、温度 1.0、最多 10 次检索，以及模型生成 token 的损失掩码。\n未提供选择记录时，说明超参数选择历史不可用。\n模型可以将这些事实组织成正文，但不能改数值或编造调参试验。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "§ Experiments，Implementation Details，采样与更新设置",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
+        }
+      ],
+      "refs": [
+        "paper_webfilter"
+      ]
     },
     {
       "id": "tip-45",
@@ -1163,7 +1950,30 @@
       "cost": "把下方提示词填好，逐节使用。",
       "payoff": "问题容易定位，也方便人工改。",
       "group": "起草与精修",
-      "checklist": "逐节提供任务、材料和篇幅，先核对主张与证据再生成正文；缺失依据单列讨论，不编造细节。"
+      "checklist": "逐节提供任务、材料和篇幅，先核对主张与证据再生成正文；缺失依据单列讨论，不编造细节。",
+      "examples": [
+        {
+          "title": "教学迁移：方法节先回答这一节负责的问题",
+          "original_en": "In this section, we introduce the WebFilter training framework, designed to enhance Retrieval-Augmented Generation (RAG) by improving query formulation and filtering unreliable web content.",
+          "translation_zh": "本节介绍 WebFilter 训练框架，框架通过改善查询构造与过滤不可靠网页内容来增强 RAG。",
+          "analysis_zh": [
+            "原句先限定本节介绍训练框架，读者知道后文应解释设计与操作，而不是突然跳到成绩。",
+            "教学迁移给 AI 的材料和章节职责都有边界；缺少依据的实现细节不能靠模板补齐。"
+          ],
+          "transfer_en": "For a method-section draft, ask how retrieval actions and reward signals are organized.\nSupply the Markov decision process definition and the source-restricting and retrieval-precision reward descriptions as evidence.\nRequest one focused subsection without adding benchmark scores or unreported implementation details.",
+          "transfer_zh": "起草方法节时，指定要回答检索动作与奖励信号如何组织。\n提供马尔可夫决策过程定义，以及来源限制奖励、检索精度奖励的说明作为依据。\n要求先写好一个聚焦的小节，不加入基准成绩或未报告的实现细节。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "§ Methodology，开头第 1 句",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
+        }
+      ],
+      "refs": [
+        "paper_webfilter"
+      ]
     },
     {
       "id": "tip-46",
@@ -1182,7 +1992,30 @@
       "payoff": "少在漂亮但错误的流程图上来回修补。",
       "group": "绘图辅助",
       "checklist": "先说明图的主要信息及真实输入、模块、输出和依赖，使用自己制作或许可允许的参考素材；先核对布局关系，再调配色，不复制受保护的具体表达。",
-      "detail": true
+      "detail": true,
+      "examples": [
+        {
+          "title": "教学绘图任务：先让训练关系正确，再谈配色",
+          "original_en": "We formulate retrieval as a Markov Decision Process, where the model interacts with web search tools through step-by-step actions, including query generation and evidence selection.",
+          "translation_zh": "我们将检索表述为马尔可夫决策过程，模型通过逐步动作与网页搜索工具交互，动作包括查询生成与证据选择。",
+          "analysis_zh": [
+            "原句给出交互对象与动作，原图注其余部分再交代指令示范与奖励训练，先能核对流程关系。",
+            "教学任务不要求临摹原图的受保护具体表达；参考素材仍需有相应使用权限，结果面板只能使用真实数据。"
+          ],
+          "transfer_en": "Draw three parts: retrieval interactions, tool-use instructions, and reward-guided training.\nLabel the query, search result, and model response where these objects actually enter the process.\nShow the training feedback path, and do not add performance bars without measured data.",
+          "transfer_zh": "画出检索交互、工具使用指令和奖励引导训练三部分。\n在查询、搜索结果与模型回复实际进入流程的位置标出这些对象。\n画清训练反馈路径，没有实测数据就不添加成绩柱状图。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Figure 2／framework caption，Upper 的说明句",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
+        }
+      ],
+      "refs": [
+        "paper_webfilter"
+      ]
     },
     {
       "id": "tip-47",
@@ -1203,15 +2036,28 @@
       "checklist": "限定 AI 修改范围，保护数据、公式、引用及原始提示词，检查修改差异并核对结论边界是否变化。",
       "examples": [
         {
-          "title": "润色不能改变证据强度",
-          "before": "教学示例：原句是筛选可能减少重复检索，AI 改成筛选证明了系统的最优性。",
-          "after": "假设修订指令：只改这一段的结构、语法与指代，保留可能、当前测试集和已有对照这些限制；数据、公式、引文及原始实验提示词不变。修订后可以写：当前测试集上观察到的调用下降，与减少重复检索的设计目标一致，但尚不能排除其他因素。另列可能改变含义的修改供人工核对。",
-          "why": "把可能解释改成证明最优会改变研究结论；明确保护事实和证据强度，再看修改差异，能发现这种看似流畅的越界。"
+          "title": "教学润色指令：保护“一次采集、一小时数据”的范围",
+          "original_en": "In line with MindEye2's data-limited setting, our approach uses only a single session of neural recordings, corresponding to one hour of data.",
+          "translation_zh": "按照 MindEye2 的数据受限设置，我们的方法只使用一次神经记录采集，对应一小时数据。",
+          "analysis_zh": [
+            "原句明确数据受限条件与对应数据量；这些是研究条件，不是可以为了顺口而省略的修饰语。",
+            "这条是教学润色指令，不表示本次已改论文；原始提示词、输出与实验记录也不能当普通正文重写。"
+          ],
+          "transfer_en": "Polish only the grammar of the dataset description.\nPreserve the single-session and one-hour limits, and do not replace them with full-dataset training or a broader clinical claim.\nReturn the changed sentence beside the original so that the factual scope can be checked.",
+          "transfer_zh": "只润色数据集说明的语法。\n保留一次采集与一小时的限制，不改成完整数据集训练，也不扩大为临床能力主张。\n将修改句与原句并列返回，以便核对事实范围。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "§ 5.2 Dataset，最后一句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
         }
       ],
       "refs": [
         "neurips",
-        "arr"
+        "arr",
+        "paper_mindaligner"
       ]
     },
     {
@@ -1232,15 +2078,29 @@
       "checklist": "人工回查关键来源和原始结果，按投稿当年的 AI 规则披露使用情况，不上传未授权交给外部服务的材料。",
       "examples": [
         {
-          "title": "按实际使用情况核对和披露",
-          "before": "教学示例：模型说参考文献都查过了，于是不打开原文，也没有记录 AI 用途。",
-          "after": "假设投稿前核对：人工打开关键引文原文，确认它支持相邻表述；回到原始运行重新核对模型改写过的数值和结论。记录 AI 用于哪些章节或图形构思，再按目标会议当年的政策判断披露内容和位置。交给外部服务的材料需有相应授权，审稿保密材料不能因想润色就直接上传。",
-          "why": "工具声称已核验不是来源证据，披露也必须对应实际使用和具体投稿政策；材料能否外传要单独检查授权。"
+          "title": "教学迁移：数据公开不等于所有材料都能交给 AI",
+          "original_en": "The datasets used are publicly available, ensuring transparency and participant privacy.",
+          "translation_zh": "所用数据集可公开获取，保障了透明性与参与者隐私。",
+          "analysis_zh": [
+            "原句是论文对所用数据集的说明，不是向所有外部服务分享任意材料的授权。",
+            "教学迁移将数据可获取性、材料使用权限与作者核对责任分开；这里不推断该论文实际使用过 AI 写作。",
+            "公开可获取本身不能证明隐私已经得到保障；这项原文表述仍需数据处理与隐私保护措施支持，不能只由公开状态推出。"
+          ],
+          "transfer_en": "Public dataset availability does not authorize uploading private peer-review discussions or restricted materials to an external tool.\nCheck the target venue’s current AI and confidentiality rules before using such materials.\nVerify the source and the actual edits yourself, and disclose assistance according to the applicable policy.",
+          "transfer_zh": "数据集公开获取不等于可以将私有审稿讨论或受限材料上传外部工具。\n使用这些材料前，应核对目标会议当前的 AI 与保密规则。\n自行核对来源和实际修改，并按适用政策披露辅助使用。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Impact Statement，最后一句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
         }
       ],
       "refs": [
         "arr",
-        "neurips"
+        "neurips",
+        "paper_mindaligner"
       ]
     },
     {
@@ -1261,14 +2121,27 @@
       "checklist": "把审稿意见拆成具体问题，先正面回答，再给证据与修改位置，避免用笼统感谢或“已修改”替代回答。",
       "refs": [
         "neurips_rebuttal",
-        "skills"
+        "skills",
+        "paper_webfilter"
       ],
       "examples": [
         {
-          "title": "先确认自己在回答哪条因果链：中英文教学例子",
-          "before": "教学示例：审稿人说“提升可能来自更多检索”，作者回复“我们的检索模块很新颖”。",
-          "after": "假设回复，非真实审稿记录。中文：当前结果不能区分检索次数与证据核验的作用。原稿表 2 比较了整体系统，没有控制检索次数；因此“核验导致提升”的机制解释尚未得到单独验证。English: The current results do not separate retrieval count from evidence verification. Table 2 compares the full systems without controlling retrieval count; it does not establish the effect of verification alone.",
-          "why": "先回答替代解释是否排除，再交代现有表格的证据范围。认可一个证据缺口，不等于否定整篇工作的价值。"
+          "title": "模拟回复：检索更强就等于证据推理更可靠吗？",
+          "original_en": "Yet, stronger retrieval alone cannot address challenges in interpreting and reasoning over evidence.",
+          "translation_zh": "但更强的检索本身不能解决解释证据与基于证据推理的困难。",
+          "analysis_zh": [
+            "第一句直接回应模拟的二选一问题，后两句分别给出处与结论边界。",
+            "这是依据公开结论写的模拟回复，不是实际审稿记录，也不声称已经完成新的推理实验或改稿。"
+          ],
+          "transfer_en": "No: improved retrieval does not by itself establish reliable reasoning over evidence.\nThe conclusion explicitly separates these two capabilities.\nThe retrieval results should therefore be discussed within their measured scope rather than presented as proof that the reasoning problem is solved.",
+          "transfer_zh": "不能：检索改善本身不证明证据推理可靠。\n结论明确区分了这两项能力。\n因此应按已测量范围讨论检索结果，不能将这些结果说成推理问题已经解决的证明。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "§ Conclusion，第 2 句",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ]
     },
@@ -1290,16 +2163,29 @@
       "checklist": "区分原有结果、新分析与新实验，补充必要设置，无法回答就说明限制，并按流程要求收窄主张。",
       "examples": [
         {
-          "title": "回复区分已有结果与新实验",
-          "before": "教学示例：审稿人问困难题的成本，我们说已经全面验证，但实际上只计划补跑。",
-          "after": "假设回复：原稿已报告全测试集的平均调用量，未单独分析困难题。若流程允许且已经完成新增分析，说明困难题定义、样本量、设置和新增结果的位置；尚未运行时明确写当前证据不足，并收窄相应主张。不要把计划补做、正在运行或未来上传写成现在已完成的验证。",
-          "why": "回复需要让读者知道证据何时取得、覆盖什么范围，清楚承认缺口比用未来承诺冒充当前结果更能解决问题。"
+          "title": "模拟回复：已有表格与新增证据怎样区分？",
+          "original_en": "MindAligner surpasses the baseline in almost all metrics, even when applying the same novel subject to different known subjects.",
+          "translation_zh": "即使将同一新被试分别对齐到不同已知被试，MindAligner 也在几乎所有指标上超过基线。",
+          "analysis_zh": [
+            "“almost all”保留例外，表 7 是已有公开证据，不能把同一张表换个标题就称为补了实验。",
+            "这段模拟回复没有新增测量或改稿声明；允许补哪些材料仍需按当轮流程核对。"
+          ],
+          "transfer_en": "The cross-subject comparisons in Appendix Table 7 are existing paper results.\nReorganizing these comparisons would be a new analysis, not a new experiment.\nAny new measurement or manuscript change would require its own evidence and an accurate completion status.",
+          "transfer_zh": "附录表 7 的跨被试比较属于论文已有结果。\n重新组织这些比较属于新的分析，不是新的实验。\n任何新测量或稿件修改都需要各自的证据和准确完成状态。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Appendix E，More Detialed MindAligner Reconstruction Performance，第 2 句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
         }
       ],
       "refs": [
         "neurips_rebuttal",
         "iclr_rebuttal",
-        "arr_rebuttal"
+        "arr_rebuttal",
+        "paper_mindaligner"
       ]
     },
     {
@@ -1320,7 +2206,28 @@
       "checklist": "不同意意见时承认其中成立的部分，用任务定义、比较条件和证据解释分歧，不猜测审稿人动机。",
       "refs": [
         "skills",
-        "neurips_rebuttal"
+        "neurips_rebuttal",
+        "paper_mindaligner"
+      ],
+      "examples": [
+        {
+          "title": "模拟回复：推理时是否运行全部对齐辅助模块？",
+          "original_en": "Notably, the alignment module is utilized only during the training phase to assist BTM learning; during the inference phase, only the lightweight BTM is retained.",
+          "translation_zh": "需要注意，对齐模块只在训练阶段用于辅助 BTM 学习；推理阶段仅保留轻量的 BTM。",
+          "analysis_zh": [
+            "模拟回复以训练／推理职责解释不同意的事实依据，没有评价提问者的能力或动机。",
+            "第二句保留解码器，避免把“推理只保留 BTM”误读成完整系统只运行矩阵；效果质疑仍需对应实验。"
+          ],
+          "transfer_en": "No: the alignment helpers assist matrix learning during training, while the retained transfer matrix performs functional mapping during inference.\nThe pre-trained decoder still runs after this mapping, so only the BTM refers to the alignment component.\nThis clarifies the execution path but does not by itself establish an accuracy advantage.",
+          "transfer_zh": "不是：对齐辅助组件在训练时帮助学习矩阵，保留的迁移矩阵在推理时执行功能映射。\n映射之后仍运行预训练解码器，所以“仅有 BTM”限定的是对齐组件。\n这澄清了执行路径，但本身不证明准确率优势。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "§ 4.1 Overview，训练与推理的说明句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
+        }
       ]
     },
     {
@@ -1341,7 +2248,28 @@
       "checklist": "按当轮指南核对篇幅、匿名、读者权限和附件，回读系统中的实际文件与评论，确认版本和新增位置。",
       "refs": [
         "neurips_rebuttal",
-        "iclr_rebuttal"
+        "iclr_rebuttal",
+        "paper_webfilter"
+      ],
+      "examples": [
+        {
+          "title": "教学提交检查：代码链接能打开，仍要检查系统里的文件",
+          "original_en": "For implementation details, please refer to our GitHub repository.",
+          "translation_zh": "实现细节请参阅我们的 GitHub 仓库。",
+          "analysis_zh": [
+            "原句提供实现入口，但链接本身不能证明匿名权限、文件版本或提交内容已经核对。",
+            "教学检查采用“应”与条件句，不编造系统上传或已修改状态，也不将某篇论文的代码公开方式当作所有会议规则。"
+          ],
+          "transfer_en": "When a venue permits a repository link, verify reviewer access to the exact code snapshot referenced in the submission.\nUpload only the manuscript and additional materials allowed by that round’s rules.\nReopen the actual system files and comments before claiming that a change has been submitted.",
+          "transfer_zh": "会议允许仓库链接时，应核对审稿人能否访问提交材料引用的准确代码快照。\n仅上传当轮规则允许的稿件与补充材料。\n声称修改已提交前，重新打开系统中的实际文件与评论核对。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "§ Methodology，Learning to Use Advanced Search Tools，最后一句",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
+        }
       ]
     },
     {
@@ -1355,20 +2283,30 @@
       "boundary": "问题需说明指标和比较条件；效果阈值可按研究目的预先定义，别根据已看到的涨分倒写问题。RQ 不等于假设，Registered Reports 的规划要求也不能直接套到全部 CS 论文。",
       "refs": [
         "rr",
-        "neurips"
+        "neurips",
+        "paper_webfilter"
       ],
       "examples": [
         {
-          "title": "问题—设计—回答：原创教学示例",
-          "before": "RQ1: Is our method effective? RQ2: Is each module effective?",
-          "after": "假设研究多文档问答。RQ1：相同检索库与 token 预算下，证据核验是否改善答案正确率？比较基础系统与核验系统。RQ2：改善来自核验还是额外调用？加入同预算的追加检索对照。RQ3：证据缺失或互相矛盾时，收益与拒答率怎样变化？分条件报告。",
-          "why": "三个问题分别检查总体差异、替代解释与适用边界；回答必须跟实际实验走，未做的比较不能写成已有发现。"
-        },
-        {
-          "title": "RQ 和 hypothesis 怎么分",
-          "before": "RQ：我们的方法会比基线好。",
-          "after": "RQ 是问题：“固定预算时，核验步骤怎样影响答案正确率？”若研究前有依据，可提出假设：“核验会减少与证据冲突的答案。”再明确冲突的判定与统计方式。若看完结果才想到这个解释，就写探索性分析，而不是补写成预先假设。",
-          "why": "编号有助组织，不会自动让研究更严谨。关键是时间顺序、可观察量和证据对应。"
+          "title": "先给可观察现象",
+          "original_en": "Our experiments show that, even with instructions, models rarely proactively use advanced operators.",
+          "translation_zh": "我们的实验表明，即使给出指令，模型也很少主动使用高级搜索操作符。",
+          "analysis_zh": [
+            "原句给出可观察现象：有指令时，仍很少主动使用高级操作符。",
+            "据此可提炼要回答的RQ，再安排使用率与回答质量两类测量；RQ不是把每张表换个问句。",
+            "下面是教学问题，原论文没有把这句话编号成RQ，也不能把拟议的消融冒充作者已经做过。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Introduction，PDF第2页（刊页30459）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "transfer_en": "RQ: Under the same model and web-search setting, does a source-restricting reward change operator use, and how does that change relate to answer scores?",
+          "transfer_zh": "RQ：在相同模型和网页搜索设置下，来源限制奖励是否改变操作符使用？这种行为变化与答案评分有什么关系？",
+          "transfer_label": "教学迁移，非论文原文或新增实测结果",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "detail": false,
@@ -1391,14 +2329,27 @@
       "boundary": "不是找个难看的例子就能宣布整条路线失效。挑选案例需说明规则，总体结论需要相应样本与对照。",
       "refs": [
         "plos_structure",
-        "lost"
+        "lost",
+        "paper_webfilter"
       ],
       "examples": [
         {
-          "title": "真实论文怎么读：Lost in the Middle",
-          "before": "模型上下文很长，所以一定能充分使用其中的信息。",
-          "after": "Liu 等（TACL 2024）Figure 1 把含答案文档的位置放在横轴，问答准确率放在纵轴。§2 中移动证据文档以改变位置、增减干扰文档以改变长度；两种操作要分别理解。多条模型曲线呈现中间位置较弱的表现，由此提出长上下文信息利用的具体问题。",
-          "why": "这个例子支持受测模型与这组任务中的位置敏感性，不能推到所有模型，也不能只凭一条曲线认定内部机制。"
+          "title": "先给可观察现象",
+          "original_en": "Our experiments show that, even with instructions, models rarely proactively use advanced operators.",
+          "translation_zh": "我们的实验表明，即使给出指令，模型也很少主动使用高级搜索操作符。",
+          "analysis_zh": [
+            "先呈现“即使给指令仍少用”的现象，读者能理解为什么只有工具接口还不够。",
+            "接下来应报告哪一个模型、何种指令、多少查询以及操作符使用率，避免用rarely替代证据。",
+            "这种诊断支持研究行为奖励的必要性，但不能单独证明某个奖励一定有效。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Introduction，PDF第2页（刊页30459）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "detail": false,
@@ -1420,14 +2371,27 @@
       "action": "做一张内部对照表：局限→设计→改变的环节→验证。保留真正影响主结论的几条；多个设计合力解决一个问题，就如实交代共同作用。",
       "boundary": "不要把每个实现模块包装成一个独立科学贡献；也不要因表格好看而声称一项设计解决了未测的问题。",
       "refs": [
-        "plos_structure"
+        "plos_structure",
+        "paper_webfilter"
       ],
       "examples": [
         {
-          "title": "一条局限怎么接到证据：原创教学示例",
-          "before": "现有工作有三个问题，因此提出三个模块。",
-          "after": "假设系统常把相互矛盾的检索片段一起送入生成器。局限是“证据冲突未被区分”，设计是在生成前标注冲突对并保留出处，作用位置是证据筛选。验证比较有冲突与无冲突的样本，再用删除标注的消融检查这一步；额外调用预算需同时报告。",
-          "why": "先解释具体问题，再描述操作和比较。设计“想要缓解什么”与实验“已表明什么”分别写。"
+          "title": "先区分行为信号与结果信号",
+          "original_en": "The Source-restricting Reward (SR) acts as a behavior-based restriction, promoting the use of advanced search operators for precise, source-restricted queries. In contrast, the Retrieval-precision Reward (RR) serves as an outcome-based signal, leveraging external critique to assess and refine retrieval quality.",
+          "translation_zh": "来源限制奖励 SR 作为基于行为的约束，促进使用高级搜索操作符来构造精确且带来源限制的查询。相比之下，检索精度奖励 RR 是基于结果的信号，利用外部评判来评价并改进检索质量。",
+          "analysis_zh": [
+            "两类问题分别接回设计：工具少用对应行为奖励，检索质量对应结果评判。",
+            "并列句把SR和RR的名称、信号类型、目标一一对齐，读者能检查有没有问题被遗漏。",
+            "问题—设计对应只是论证结构；各模块是否有用，还需实验和消融证明。"
+          ],
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Methodology / Information-Filtering Reward Strategy，PDF第3页（刊页30460）",
+            "version": "AAAI 2026 camera-ready；2026-03-14正式发表",
+            "status": "已发表；作者源稿摘录"
+          },
+          "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ],
       "detail": false,
@@ -1449,14 +2413,27 @@
       "action": "交代比喻中每个部分在方法里对应什么，接着给可执行定义。若借用其他学科的理论，引用原出处，并说明是组织灵感、形式模型，还是被实际检验的机制。",
       "boundary": "不把“像人的记忆”写成“具有人的记忆机制”；修辞强度不能超过证据强度。选论文也没有适用于所有项目的“37%规则”。",
       "refs": [
-        "plos_structure"
+        "plos_structure",
+        "paper_card"
       ],
       "examples": [
         {
-          "title": "把“审稿人”这个比喻落到操作：原创教学示例",
-          "before": "我们引入一位审稿人，使代理获得反思能力。",
-          "after": "假设系统中“审稿人”是第二次模型调用：输入候选答案及检索片段，输出答案中缺少证据的句子和对应片段编号。这个名称便于理解检查作用；它不拥有投稿审稿人的资格，也不能据此声称系统形成了人类反思机制。",
-          "why": "比喻说明用途，输入输出说明方法。能力是否改善，需要实际对照与错误分析。"
+          "title": "先落地表示，再使用简称",
+          "original_en": "It converts point data into image data for generation and back into point data for editing.",
+          "translation_zh": "这种表示把点数据转成图像数据用于生成，再把图像数据转回点数据用于编辑。",
+          "analysis_zh": [
+            "原文It指前一句定义的CMI-P；译文显式展开对象，帮助读者知道究竟是谁在转换。",
+            "比喻可以说“翻译器”，正式定义还要落到点数据→图像→点数据和生成/编辑两个目的。",
+            "此处是表示格式转换，不能误写成把任何模态任意转换、或无需数据的通用跨模态模型。"
+          ],
+          "provenance": {
+            "reference": "paper_card",
+            "location": "§3.2 Initial Generation / CMI-P，PDF第4页（刊页9307）",
+            "version": "EMNLP 2025正式发表版",
+            "status": "已发表；CC BY 4.0"
+          },
+          "processing": "合并PDF换行与排版断词；未改原词句。",
+          "license": "Pengyu Zeng et al., EMNLP 2025, pp.9304–9319. 原文采用 CC BY 4.0；中文翻译、拆解为本指南新增。"
         }
       ],
       "detail": false,
@@ -1480,26 +2457,28 @@
       "refs": [
         "plos_figures",
         "tcod",
-        "service"
+        "service",
+        "paper_mindaligner"
       ],
       "examples": [
         {
-          "title": "原创布局示例：一个案例贯穿流程",
-          "before": "四个模块各有名字，却看不出它们传递什么。",
-          "after": "示例问题是“报告 A 与报告 B 的结论是否一致？”沿流程保留问题、两份证据编号、冲突标签与最终出处。上排看系统步骤，下排看同一个案例的中间产物；读者无需在四张不相干的例子间切换。",
-          "why": "下面仅示意信息组织，不展示实际模型输出或实验效果。真实论文替换成可核查案例。",
-          "image": "assets/flow-example.svg",
-          "alt": "原创教学流程图，上方依次为问题、证据、核验、回答，下方对应同一案例的中间信息。"
-        },
-        {
-          "title": "真实论文怎么读：TCOD，Figure 1",
-          "after": "TCOD（2026 预印本）左侧用早轮、晚轮的文本片段及教师词元概率串起多轮监督的困难；右侧对照全轨迹 OPD 与前向扩展 F2B、后向扩展 B2F 两种课程策略。先读旧做法卡在哪里，再读新做法改变了哪段训练。",
-          "why": "图是机制说明与设计概览，不能单凭它证明效果或因果机制；性能证据需读实验。"
-        },
-        {
-          "title": "真实论文怎么读：服务代理训练，Figure 1",
-          "after": "Reinforcing Real-world Service Agents（2026 预印本）将交互环境与训练放在同一图中：用户画像与角色扮演产生轨迹，终局满意度、每轮规范评分与成本惩罚构成学习信号，更新服务代理。沿箭头可追踪数据与信号。",
-          "why": "它展示模拟训练框架，不能直接推出真实用户满意度提升或全局最优的成本权衡。"
+          "title": "MindAligner：同一个新被试贯穿推理流程",
+          "original_en": "In the inference stage, only the BTM is utilized for functional mapping, enabling cross-subject brain decoding.",
+          "translation_zh": "推理阶段只使用脑迁移矩阵进行功能映射，从而实现跨被试脑解码。",
+          "analysis_zh": [
+            "让一个新被试的 fMRI 沿主线走：新被试信号→脑迁移矩阵→已知被试信号空间→预训练解码模型→重建图像。每一步都接得上前一步输出。",
+            "训练时才使用的跨刺激神经映射器和损失放在训练分支；不要把它们画成推理必经步骤，也不要把 only BTM 误解成整个系统没有解码模型。",
+            "原 Fig.2 含 NSD / COCO 示例照片；本例只摘已许可文字并分析真实流程，没有整图复用这些第三方照片。"
+          ],
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Fig.2 caption, PDF p.4；§4.1, p.4；§4.4, p.6",
+            "version": "ICML 2025 正式发表论文；英文短引与作者终稿逐句核对",
+            "status": "已发表；作者原文摘录"
+          },
+          "transfer_en": "For one novel subject, inference maps recorded fMRI through the brain transfer matrix into a known-subject signal space and feeds it to the pretrained decoder. Training-only alignment components do not remain on this inference path.",
+          "transfer_zh": "对一个新被试，推理先通过脑迁移矩阵把记录的 fMRI 映射到已知被试的信号空间，再交给预训练解码模型；仅在训练时使用的对齐组件不进入这条推理主线。",
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
         }
       ],
       "detail": true,
@@ -1521,16 +2500,28 @@
       "action": "同一行或同一列承担同一层级；相同类型用相同颜色，并用短图例解码。用原创图标辅助定位，不依靠未经授权的企业标志。引用文本保留出处，涉及个人信息时按合法授权与匿名要求处理。",
       "boundary": "展示失败案例时说明筛选规则；一条漂亮的案例不能说明总体成功率。颜色区分的是信息类型，不是显著性。",
       "refs": [
-        "plos_figures"
+        "plos_figures",
+        "paper_mindaligner"
       ],
       "examples": [
         {
-          "title": "原创布局示例：输入、输出、核对分开",
-          "before": "整段输入和答案都装进深色大框，读者要自己找矛盾。",
-          "after": "假设证据 A 写“2019 年开放”，证据 B 写“2021 年扩建”。分别呈现输入证据、系统回答与人工核对，只高亮时间与动作，显示答案是否混淆“开放”和“扩建”。出处 A/B 与高亮含义放在旁边。",
-          "why": "图中内容是教学假设。布局表达信息来源，不给案例伪造评审得分。",
-          "image": "assets/case-example.svg",
-          "alt": "原创案例图，证据、候选回答、人工核对分为三栏，年份与动作词以少量蓝色高亮。"
+          "title": "MindAligner Fig.4：密集案例让行列各负其责",
+          "original_en": "Visualization results of aligning a new subject with different known subjects.",
+          "translation_zh": "将同一个新被试对齐到不同已知被试时的可视化结果。",
+          "analysis_zh": [
+            "原 Fig.4 固定新被试 5，列标题分别为 Stimulus、5→1、5→2、5→7；同一行固定一个刺激案例。这让读者沿行看同一输入，沿列看不同目标被试。",
+            "不同图像不靠随意底色决定好坏；行列标签承担实验条件，类别与图例只编码确实需要区分的含义。若做文字案例图，也让问题、证据、答案各占固定位置。",
+            "这张图包含 NSD / COCO 外部照片，本页不整图复用，只用短引与结构分析；原图读者可通过论文出处查看。"
+          ],
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Fig.4 caption, PDF p.7；§5.4 Impact of Aligning to Different Subjects, pp.7–8",
+            "version": "ICML 2025 正式发表论文；英文短引与作者终稿逐句核对",
+            "status": "已发表；作者原文摘录"
+          },
+          "transfer_en": "Keep one stimulus case per row and one target-subject condition per column. Label the stimulus and transfer direction explicitly, then inspect whether the outputs change with the known subject.",
+          "transfer_zh": "每行固定一个刺激案例，每列固定一个目标被试条件。明确标出真实刺激和迁移方向，再看输出是否随已知被试改变。",
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
         }
       ],
       "detail": true,
@@ -1553,14 +2544,28 @@
       "boundary": "测试集不能用来反复挑最漂亮的点；漂亮的散点位置不证明部署净收益，经济结论另需相应成本与场景。",
       "refs": [
         "neurips",
-        "plos_figures"
+        "plos_figures",
+        "paper_mindaligner"
       ],
       "examples": [
         {
-          "title": "百分比和百分点：原创教学示例",
-          "before": "从 40% 到 50%，性能提升 10%。",
-          "after": "若准确率从 40% 变成 50%，差值是 10 个百分点，相对增幅是 (50−40)/40=25%。两种说法均须写清分母；若 token 成本同时翻倍，就把成本一并报告，不能只用“提高 25%”概括取舍。",
-          "why": "数值为假设示例。先给绝对值再给相对量，读者才能判断差异大小。"
+          "title": "MindAligner Table3：省参数和省时间分开算",
+          "original_en": "Table 3. Efficiency comparison results. “Tr. Param.” refers to the model’s trainable parameters when adding a new subject.",
+          "translation_zh": "表 3：效率比较结果。“Tr. Param.” 指新增一名被试时模型的可训练参数量。",
+          "analysis_zh": [
+            "“省了什么”的单位是新增被试的可训练参数：MindEye2 2.21G，MindAligner 139.23M；两者总参数表中同为 2.21G。",
+            "“花了什么”的单位是每张图像推理时间：5.000 秒对 5.056 秒。因此减少训练参数不等于缩小总模型，也不等于推理加速。",
+            "若把这张表转成收益图，可将同协议的训练参数与解码性能配对；时间单独标单位。不能把参数比例、运行时间和准确率混成一个“效率分”。"
+          ],
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Table3 and §5.4 Computational Efficiency, PDF p.8",
+            "version": "ICML 2025 正式发表论文；英文短引与作者终稿逐句核对",
+            "status": "已发表；作者原文摘录"
+          },
+          "transfer_en": "MindAligner uses 139.23M trainable parameters for new-subject adaptation versus 2.21G for MindEye2. Total model size remains 2.21G in both rows, and per-image inference increases from 5.000 to 5.056 seconds.",
+          "transfer_zh": "新增被试适配时，MindAligner 的可训练参数为 139.23M，MindEye2 为 2.21G；表中两者总模型同为 2.21G，而每张图像推理时间从 5.000 增至 5.056 秒。",
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
         }
       ],
       "detail": true,
@@ -1583,14 +2588,30 @@
       "boundary": "KDE 不是累计分布；PCA 图分得开不等于证明机制或泛化；置信区间不表示某次观测落入范围的概率。不凭图形平滑程度评判方法。",
       "refs": [
         "plos_figures",
-        "neurips"
+        "neurips",
+        "paper_mindaligner"
       ],
       "examples": [
         {
-          "title": "误差条先定义：原创教学示例",
-          "before": "曲线带阴影，说明方法稳定。",
-          "after": "假设阴影来自 5 次不同随机种子的运行，图注应写均值、重复次数及阴影是标准差。若展示平均值的 95% 置信区间，另交代计算方式；若只是样本分位数，就写对应分位范围。这些区间回答的问题不同。",
-          "why": "误差条必须由数据和明确统计方法计算；单次运行的样本区间与多次运行波动分开说明，不能凭绘图工具编造。区间重叠与否也不能替代合适的统计检验。"
+          "title": "MindAligner Fig.6：柱图比较方向，轴起点也要读",
+          "original_en": "fSC measures the Pearson correlation between corresponding brain regions of two subjects (i ≠ j), assessing global alignment consistency.",
+          "translation_zh": "fSC 测量两名不同被试对应脑区之间的皮尔逊相关，以评价整体对齐一致性。",
+          "analysis_zh": [
+            "每个横轴类别是一种被试迁移方向，两个柱对应两种方法；柱图适合按条件逐项比较相关值。",
+            "纵轴从 0.25 开始，因此蓝柱看起来比红柱高一倍，不表示 fSC 大一倍。读者需要比较数值或差值，不能比较截断后的柱长比例。",
+            "这里没有 KDE、PCA 或区间带，也没有报告误差条；不为套用图型清单发明分析。想说明总体优势与不确定性，需要另外有真实汇总与重复证据。"
+          ],
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "§5.3 Metrics, PDF p.6；Fig.6, p.7",
+            "version": "ICML 2025 正式发表论文；英文短引与作者终稿逐句核对",
+            "status": "已发表；作者原文摘录"
+          },
+          "image": "assets/paper-mindaligner-fig6-fsc.png",
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。 直接复制作者终稿 PNG 图文件；完整保留柱形、迁移方向、fSC 轴、截断轴起点与方法图例，未重新绘制或改值。",
+          "alt": "MindAligner Figure 6：比较 MindAligner 与基线的 fSC 结果。",
+          "caption_en": "Figure 6. Comparison of fSC results between MindAligner and the baseline.",
+          "caption_zh": "比较 MindAligner 与基线的 fSC 结果。 点击原图可放大查看。"
         }
       ],
       "detail": true,
@@ -1620,14 +2641,27 @@
       "payoff": "让疑问、回答和证据一一对应。",
       "refs": [
         "skills",
-        "neurips_rebuttal"
+        "neurips_rebuttal",
+        "paper_webfilter"
       ],
       "examples": [
         {
-          "title": "原创中英文回复例子：假设多文档问答研究",
-          "before": "教学示例：将“是否用到答案，以及数据是否跨划分重复”统称为“数据质量”，只回复测试集大小。",
-          "after": "以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：关于数据泄漏，分两点回答：Q1.1a，推理时不提供参考答案，输入格式见附录 A.1；Q1.1b，文档去重检查尚未完成，因此当前不能排除跨划分的文档重复。 English: We address the leakage concern in two parts. Q1.1a: Reference answers are not provided at inference; the input format is in Appendix A.1. Q1.1b: The cross-split document deduplication check is not complete, so document overlap has not yet been ruled out.",
-          "why": "同一意见里的两个条件分别回答。清楚暴露未解决的问题，避免用一项已完成检查替代另一项。"
+          "title": "模拟拆题：工具使用和答案可靠性分别回答",
+          "original_en": "WebFilter enhances Retrieval-Augmented Generation by using advanced search operators for more precise, source-aware retrieval and misinformation filtering.",
+          "translation_zh": "WebFilter 使用高级搜索操作符，使 RAG 的检索更精确、更关注来源，并过滤错误信息。",
+          "analysis_zh": [
+            "原句包含操作、检索目标与错误信息处理三个层次；模拟拆题不能把可靠性质疑缩成“是否使用操作符”。",
+            "这是假设的问题拆分，不是真实审稿意见；工作顺序可以调整，困难问题的含义和条件不能删掉。"
+          ],
+          "transfer_en": "For the tool-use concern, the paper describes domain and date restrictions in query construction.\nFor the reliability concern, operator use alone does not certify the truth of a returned page.\nThese are separate questions and should receive separate evidence.",
+          "transfer_zh": "对于工具使用问题，论文说明了查询构造中的域名限制与日期限制。\n对于可靠性问题，使用操作符本身不保证返回网页的内容真实。\n这是两个不同问题，应分别提供证据。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "§ Conclusion，第 1 句",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ]
     },
@@ -1649,14 +2683,28 @@
       "payoff": "让疑问、回答和证据一一对应。",
       "refs": [
         "neurips",
-        "skills"
+        "skills",
+        "paper_mindaligner"
       ],
       "examples": [
         {
-          "title": "原创中英文回复例子：假设多文档问答研究",
-          "before": "教学示例：“我们进行了大量 API 调用，证明方法效率更高。”",
-          "after": "以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：原稿表 3 的比较单位是 800 道测试题：固定检索与自适应检索分别平均调用 3.0 和 2.4 次，模型和文档池相同。这支持该测试集上调用量更低，不代表端到端耗时更短；耗时尚未测量。 English: Table 3 reports mean calls per question on 800 test questions: 3.0 for fixed retrieval and 2.4 for adaptive retrieval, with the same model and document pool. This supports fewer calls on this test set. End-to-end latency has not been measured.",
-          "why": "数值为假设，指标分母是题目；调用量与耗时是两种不同证据，不互相代替。"
+          "title": "模拟回复：汇总行到底平均了什么？",
+          "original_en": "“(subj1) Ours” refers to the average result obtained by aligning the novel subject (subj 1) to every subject in the known subject list (subj 2, 5, 7).",
+          "translation_zh": "“(subj1) Ours”指将新被试（被试 1）分别对齐到已知被试列表中的每个被试（被试 2、5、7）后取得的平均结果。",
+          "analysis_zh": [
+            "原句定义了平均的单位是迁移结果，不是把“被试 1”当成一个测试图像；统计口径因此可以定位。",
+            "模拟回复给出证据回查路径，没有声称已经取得原始运行记录或完成重算。"
+          ],
+          "transfer_en": "The subj1 summary averages transfers from the same new subject to known subjects 2, 5, and 7.\nTo support a numerical reply, identify this row and the individual transfer rows in Appendix Table 7, then check the underlying aggregation and outputs.\nThe published summary alone should not be described as a fresh verification of the raw runs.",
+          "transfer_zh": "subj1 汇总项平均的是同一个新被试向已知被试 2、5、7 的迁移结果。\n回复数值时，应定位这一行和附录表 7 的各迁移行，再核对底层汇总与输出。\n仅有发表的汇总项，不应被说成刚完成了对原始运行的重新核验。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "§ 5.4 Quantitative Comparison，“(subj1) Ours”行的定义",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "processing": "合并换行，将 LaTeX 引号还原为排版引号；原词句未改。",
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
         }
       ]
     },
@@ -1678,14 +2726,27 @@
       "payoff": "让疑问、回答和证据一一对应。",
       "refs": [
         "skills",
-        "iclr_rebuttal"
+        "iclr_rebuttal",
+        "paper_webfilter"
       ],
       "examples": [
         {
-          "title": "原创中英文回复例子：假设多文档问答研究",
-          "before": "教学示例：“这是一个极具洞见的精彩问题，我们花了很多精力认真考虑……”但没有说最多检索几次。",
-          "after": "以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：最多检索 6 次，这个上限对所有受控比较相同；停止条件见算法 1，第 8 行。感谢指出描述不清。原稿没有明确写出这个上限，这是需要澄清的设置。 English: The retrieval cap is six calls for all controlled comparisons; the stopping condition is given in Algorithm 1, line 8. Thank you for flagging the unclear description. The cap was not explicit in the submitted text.",
-          "why": "短感谢指向实际问题。例子只说原稿哪里不清楚，没有伪称正文已经改完。"
+          "title": "模拟回复：最大检索次数是多少？",
+          "original_en": "Additionally, we apply a sampling temperature of 1.0 and limit the maximum retrieval count to 10.",
+          "translation_zh": "此外，我们使用 1.0 的采样温度，并将最大检索次数限制为 10。",
+          "analysis_zh": [
+            "第一句直接给参数值，第二句补相邻设置，答案没有被长篇感谢挡住。",
+            "原文没有在这一句交代最优性与选择流程，模拟回复保留未知，不把参数问题硬改成 Yes／No。"
+          ],
+          "transfer_en": "The maximum retrieval count is 10.\nThe implementation details also specify a sampling temperature of 1.0.\nThese are reported settings; their presence does not establish that the values were optimal or selected by a particular tuning procedure.",
+          "transfer_zh": "最大检索次数是 10。\n实现细节同时指定采样温度为 1.0。\n这些是已报告设置；报告这些值不证明它们最优，也不证明采用了某种特定调参流程。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "§ Experiments，Implementation Details，检索上限说明句",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ]
     },
@@ -1707,14 +2768,27 @@
       "payoff": "让疑问、回答和证据一一对应。",
       "refs": [
         "neurips",
-        "neurips_rebuttal"
+        "neurips_rebuttal",
+        "paper_mindaligner"
       ],
       "examples": [
         {
-          "title": "原创中英文回复例子：假设多文档问答研究",
-          "before": "教学示例：“我们加了一个更强模型，得分更高，因此核验模块的机制正确。”",
-          "after": "以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：为区分“检索更多”与“核验更好”，补实验需要匹配每题检索次数、候选文档与基础模型，只改变是否使用核验分数。目前尚无这组结果，表 2 的整体比较不能回答机制问题。 English: To distinguish more retrieval from better verification, the additional comparison must match per-question retrieval counts, candidate documents, and the base model, changing only the use of verification scores. We do not yet have these results; the full-system comparison in Table 2 does not resolve the mechanism question.",
-          "why": "这是实验设计与当前证据状态的回答，不把尚未运行的检验说成机制已被证明。"
+          "title": "模拟补实验方案：只改变待检验的对齐组件",
+          "original_en": "To evaluate the effectiveness of each model design in MindAligner, we perform an ablation study using Subject 2 as the novel subject and Subject 1 as the known subject. The results exclude the refinement step of MindEye2 for generated images.",
+          "translation_zh": "为了评价 MindAligner 中各项模型设计的效果，我们将被试 2 作为新被试、被试 1 作为已知被试进行消融实验。结果不包含 MindEye2 对生成图像的精修步骤。",
+          "analysis_zh": [
+            "原句明示迁移方向与是否精修，能帮助识别哪些条件需要匹配。",
+            "教学方案另要求预先确定测量与重复方式，不声称原文已做额外比较；消融相关变化也不自动证明所有机制解释。"
+          ],
+          "transfer_en": "To test an additional alignment explanation, fix the subject-2-to-subject-1 transfer, data budget, decoder, and image-refinement setting.\nChange only the component or loss relevant to that explanation and predefine the reconstruction metrics and repetition rule.\nThis is an experimental proposal, not a completed result, and the conclusion would depend on the full comparison.",
+          "transfer_zh": "检验额外的对齐解释时，应固定被试 2 到被试 1 的迁移、数据预算、解码器与图像精修设置。\n只改变与该解释相关的组件或损失，并预先确定重建指标与重复规则。\n这是实验方案，不是完成的结果；结论取决于完整比较。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "§ 5.4 fMRI-based Visual Decoding，Ablation Study，第 1–2 句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
         }
       ]
     },
@@ -1736,14 +2810,27 @@
       "payoff": "让疑问、回答和证据一一对应。",
       "refs": [
         "skills",
-        "neurips"
+        "neurips",
+        "paper_webfilter"
       ],
       "examples": [
         {
-          "title": "原创中英文回复例子：假设多文档问答研究",
-          "before": "教学示例：“审稿人显然没看附录，我们根本不是这么做的。”",
-          "after": "以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：核验分数来自文档与候选答案的匹配，不使用参考答案；附录 A.2 定义了这一步。参考答案只用于测试评分。不过，核验分数能否识别措辞相近的错误答案，仍需独立检验。 English: Verification scores compare documents with candidate answers and do not use reference answers; Appendix A.2 defines this step. Reference answers are used only for test evaluation. Whether the verifier detects incorrect answers with similar wording still requires a separate check.",
-          "why": "先区分信号来源，再保留尚未检验的有效性问题。事实澄清与机制验证不能混为一谈。"
+          "title": "模拟澄清：SR 的触发条件不是事实核验",
+          "original_en": "The Source-restricting Reward (SR) acts as a behavior-based restriction, promoting the use of advanced search operators for precise, source-restricted queries.",
+          "translation_zh": "来源限制奖励（SR）作为一种基于行为的约束，鼓励使用高级搜索操作符来构造精确、限制来源的查询。",
+          "analysis_zh": [
+            "原句把 SR 定位为行为约束；对应公式进一步给出正则匹配条件，定义可以就近回查。",
+            "模拟澄清不指责读者，也不把行为触发条件误写成“所有检索文档可信”；效果仍需要独立证据。"
+          ],
+          "transfer_en": "The source-restricting reward is triggered when an extracted query matches a predefined advanced-search pattern.\nThis is a rule about query behavior, not a certificate that the retrieved source is correct.\nThe distinction follows the SR definition in the method section, while response evaluation is described separately under RR.",
+          "transfer_zh": "来源限制奖励在提取出的查询匹配预定义高级搜索模式时触发。\n这是一条关于查询行为的规则，不是检索来源正确的凭证。\n这项区别来自方法章节的 SR 定义，而回复评价另在 RR 部分说明。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "§ Information-Filtering Reward Strategy，SR／RR 的职责说明",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ]
     },
@@ -1765,14 +2852,27 @@
       "payoff": "让疑问、回答和证据一一对应。",
       "refs": [
         "skills",
-        "neurips_rebuttal"
+        "neurips_rebuttal",
+        "paper_mindaligner"
       ],
       "examples": [
         {
-          "title": "原创中英文回复例子：假设多文档问答研究",
-          "before": "教学示例：“商用模型要付费又不安全，所以这个比较没有意义。”",
-          "after": "以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：商业模型可作为应用性能参照，但无法检验同一基础模型下核验模块的作用：其训练数据和参数不同，部分设置不可获知。我们尚未完成该参照比较，因此当前结论仅限于同一基础模型的受控实验。 English: A commercial model would be useful as an application-level reference, but it would not isolate verification under the same base model: its training data and parameters differ, and some settings are unavailable. We have not completed this reference comparison, so our conclusions are limited to the controlled experiments using the same base model.",
-          "why": "承认建议有用途，同时说清它不能回答哪个问题。没有用假设的设置差异替失败结果开脱。"
+          "title": "模拟回复：零样本比较可以有，但要标明条件差异",
+          "original_en": "The acquisition of fMRI data is both time-intensive and costly, leading to brain decoding scenarios frequently constrained by limited data. Therefore, this study focuses on investigating cross-subject brain decoding in a data-limited setting.",
+          "translation_zh": "fMRI 数据采集既耗时又昂贵，使脑解码场景经常受到数据量限制。因此，本研究关注数据受限条件下的跨被试脑解码。",
+          "analysis_zh": [
+            "原句先说明研究为什么关注数据受限适配，完整 Problem Definition 随后给出一次采集与一小时数据条件。",
+            "不同意用零样本条件替代匹配比较，不等于否定零样本研究；模拟回复提供条件明确的替代，并保留未完成状态。"
+          ],
+          "transfer_en": "A zero-shot comparison addresses a different adaptation condition from the reported one-hour setting.\nIt can be informative, but it should not replace a comparison in which methods receive the same new-subject data.\nIf both conditions are evaluated, report them separately; this simulated reply claims no new zero-shot result.",
+          "transfer_zh": "零样本比较与论文报告的一小时数据设置涉及不同的适配条件。\n零样本比较可以有参考价值，但不能替代各方法获得相同新被试数据的比较。\n若评价两种条件，应分别报告；这段模拟回复不声称有新的零样本结果。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "§ 3 Preliminary，Problem Definition，开头 2 句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
         }
       ]
     },
@@ -1794,14 +2894,27 @@
       "payoff": "让疑问、回答和证据一一对应。",
       "refs": [
         "neurips",
-        "skills"
+        "skills",
+        "paper_mindaligner"
       ],
       "examples": [
         {
-          "title": "原创中英文回复例子：假设多文档问答研究",
-          "before": "教学示例：“整体更好，细节会在最终版补齐。”实际短题更好，跨文档题更差。",
-          "after": "以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：表 R1 的假设结果按预先定义的题型汇总：400 道单文档题的 EM 为 68% 对 64%，400 道跨文档题为 52% 对 56%，前者为自适应检索，后者为固定检索。整体 EM 都是 60%。因此“所有题型都提升”不成立，单文档题的优势伴随跨文档题的损失；原因尚未确定。 English: Table R1 uses predefined question types. On 400 single-document questions, EM is 68% for adaptive retrieval and 64% for fixed retrieval; on 400 cross-document questions, it is 52% and 56%. Overall EM is 60% for both. The claim of improvement across all question types is not supported; the cause of the cross-document loss remains unresolved.",
-          "why": "数字为教学假设，两个等大分组的汇总与整体一致。保留损失、样本量和未确定的原因，没有选择性报告。"
+          "title": "模拟回复：SSIM 没提高，就别写成所有指标胜出",
+          "original_en": "MindAligner surpasses the baseline in almost all metrics, even when applying the same novel subject to different known subjects.",
+          "translation_zh": "即使将同一新被试分别对齐到不同已知被试，MindAligner 也在几乎所有指标上超过基线。",
+          "analysis_zh": [
+            "原句中的“almost”不能删；表 1 的 SSIM 提供需要保留的具体例外，高值为优时 0.414 低于 0.419。",
+            "模拟回复使用原表数值而不编造新实验，并区分有效负结果与程序故障；不能删掉这一行重新包装全面胜出。"
+          ],
+          "transfer_en": "Not every metric improves: the one-hour summary in Table 1 reports SSIM of 0.414 for MindAligner and 0.419 for MindEye2.\nThese are existing reported results, not a newly failed or newly completed run.\nRetain this comparison and avoid a claim that the method wins on every metric.",
+          "transfer_zh": "并非每项指标都提高：表 1 的一小时汇总项报告 MindAligner 的 SSIM 为 0.414，MindEye2 为 0.419。\n这些是已有报告结果，不是新失败或新完成的运行。\n应保留这项比较，避免声称方法在所有指标上胜出。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Appendix E，More Detialed MindAligner Reconstruction Performance，第 2 句；Table 1 的 1h 汇总行",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
         }
       ]
     },
@@ -1823,14 +2936,27 @@
       "payoff": "让疑问、回答和证据一一对应。",
       "refs": [
         "iclr_rebuttal",
-        "neurips_rebuttal"
+        "neurips_rebuttal",
+        "paper_webfilter"
       ],
       "examples": [
         {
-          "title": "原创中英文回复例子：假设多文档问答研究",
-          "before": "教学示例：对一个审稿人说最多 6 次调用，对另一个说最多 3 次；回复没有统一修正。",
-          "after": "以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：Q2.1 的调用上限也是 6 次。Q1.2 已区分上限与实际平均调用量：表 3 中自适应检索平均调用 2.4 次，上限没有改变。这位审稿人尚未回复，不能据此声称该关切已被认可为解决。 English: The cap in Q2.1 is also six calls. Q1.2 distinguishes the cap from the observed mean: adaptive retrieval averages 2.4 calls in Table 3, while the cap is unchanged. The reviewer has not replied, so we cannot claim that the reviewer confirmed this concern was resolved.",
-          "why": "上限与平均值分开，跨回复事实一致；客观陈述讨论状态，不推断沉默的含义。"
+          "title": "模拟事实统一：训练奖励 Judge 与评价 Judge 分别是什么？",
+          "original_en": "We thus propose an LLM-based, outcome-oriented Retrieval-precision Reward (RR) that evaluates responses and provides feedback on operator correctness and quality.",
+          "translation_zh": "因此，我们提出基于 LLM、面向结果的检索精度奖励（RR），用于评价回复，并反馈操作符使用的正确性与质量。",
+          "analysis_zh": [
+            "原句定义奖励信号的用途；具体型号需要同时回查实现与评价小节，而不是看见“Judge”就合并对象。",
+            "模拟回复复用共同事实，不声称评审已经认可解释，也不把无回复理解为确认。"
+          ],
+          "transfer_en": "The training RR judge and the answer-evaluation judge have different roles.\nImplementation Details names Qwen3-30B-A3B for the retrieval reward, while Metrics names GPT-4o-mini for the LLM-based answer metric.\nKeep these roles and model names consistent across replies, and do not describe one judge as if it served both stages.",
+          "transfer_zh": "训练时的 RR 评判模型与答案评价评判模型承担不同职责。\nImplementation Details 将检索奖励模型写为 Qwen3-30B-A3B，Metrics 将基于 LLM 的答案指标评判模型写为 GPT-4o-mini。\n各条回复应统一这些职责与型号，不将一个评判模型说成同时承担两个阶段。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "§ Information-Filtering Reward Strategy，RR 定义；§ Metrics 与 Implementation Details",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ]
     },
@@ -1853,14 +2979,27 @@
       "refs": [
         "neurips_rebuttal",
         "iclr_rebuttal",
-        "arr_rebuttal"
+        "arr_rebuttal",
+        "paper_webfilter"
       ],
       "examples": [
         {
-          "title": "原创中英文回复例子：假设多文档问答研究",
-          "before": "教学示例：“高分审稿人更专业，问题都解决了，请支持接收。”但机制问题没有补实验。",
-          "after": "以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：主要分歧仍是核验机制。Q1.2 给出所需对照设计，但实验尚未完成；Q2.1 已定位调用上限，原稿表 3 支持较少的平均调用量。现有证据支持系统层面的调用量差异，不能归因于核验机制。 English: The main unresolved issue is the verification mechanism. Q1.2 specifies the required control, but the experiment is not complete. Q2.1 locates the call cap, and Table 3 supports fewer mean calls. The current evidence supports a system-level difference in calls, not an attribution to verification.",
-          "why": "摘要同时交代已提供的证据和未解决的问题。它帮助判断证据范围，不替评审确认结果或要求录用。"
+          "title": "模拟 AC 摘要：定位证据与未解决的限制",
+          "original_en": "WebFilter enhances Retrieval-Augmented Generation by using advanced search operators for more precise, source-aware retrieval and misinformation filtering. Yet, stronger retrieval alone cannot address challenges in interpreting and reasoning over evidence.",
+          "translation_zh": "WebFilter 使用高级搜索操作符，使 RAG 的检索更精确、更关注来源，并过滤错误信息。但更强的检索本身不能解决解释证据与基于证据推理的困难。",
+          "analysis_zh": [
+            "两句把主张与限制同时放进摘要，读者可以沿实验小节和结论找到对应位置。",
+            "没有真实审稿反馈可引用时不编造“评审已认可”；模拟摘要只帮忙定位，不揣测分数、身份或 AC 偏好。"
+          ],
+          "transfer_en": "The original evaluation uses in-domain and out-of-domain question-answering benchmarks; Experimental Results and Ablation Study contain the relevant comparisons.\nThe conclusion retains interpreting and reasoning over evidence as a limitation, so answer scores and operator-use frequency should not be presented as independent verification of source truth.\nThis simulated summary reports no new reasoning experiment and no reviewer agreement.",
+          "transfer_zh": "原有评价使用域内与域外问答基准；Experimental Results 和 Ablation Study 给出相关比较。\n结论保留了解释证据与基于证据推理的限制，因此答案评分和操作符使用频率不能被说成独立的来源真伪核验。\n这份模拟摘要不报告新的推理实验，也不声称审稿人已认可。",
+          "provenance": {
+            "reference": "paper_webfilter",
+            "location": "Conclusion，第 1–2 句；证据定位至 Experiments / Experimental Results 与 Ablation Study",
+            "version": "AAAI 2026 作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., AAAI 2026, pp.30458–30466. ©2026 AAAI，保留原版权；作者教学短引，不随本指南转授再版许可。中文为本指南翻译，拆解与教学改写单独标注。"
         }
       ]
     },
@@ -1882,14 +3021,27 @@
       "payoff": "让疑问、回答和证据一一对应。",
       "refs": [
         "skills",
-        "neurips_rebuttal"
+        "neurips_rebuttal",
+        "paper_mindaligner"
       ],
       "examples": [
         {
-          "title": "原创中英文回复例子：假设多文档问答研究",
-          "before": "教学示例：“模拟这位审稿人会不会开心，给出最终涨分概率。”",
-          "after": "以下为假设情境，数字与完成状态仅作教学演示，不能直接当作自己的实验结果。中文：复核发现 Q1.2 写“已证明核验有效”，但证据仅为整体系统比较；因此改为“当前证据不能分离核验作用”。检查未预测评分，也未把尚未完成的控制实验记为通过。 English: Our response audit found that Q1.2 claimed verification was established, while the evidence compared only full systems. We replaced this with: “The current evidence does not isolate the effect of verification.” The audit did not predict scores or mark the unfinished control as passed.",
-          "why": "审核结果只说明回复哪里需要修正。模拟不能替代真实实验、人工核对和评审判断。"
+          "title": "教学模拟审核：检查主张范围，不预测审稿心情",
+          "original_en": "This allows us to directly assess the contribution of the linear design in each module and evaluate the impact of introducing nonlinearity on model performance and generalization.",
+          "translation_zh": "这让我们能够直接评价各模块中线性设计的贡献，并评价引入非线性对模型表现与泛化的影响。",
+          "analysis_zh": [
+            "“This”在原段指将 FE、神经映射器替换为 Transformer 的消融，实验范围是 subj2 到 subj1；审核要先补回这个明确对象。",
+            "教学模拟检查证据与范围，不声称用工具审核过真实审稿材料，也不把该组比较扩成所有被试与所有非线性结构的定律。"
+          ],
+          "transfer_en": "Ask a colleague or permitted tool whether the subject-2-to-subject-1 comparison supports the scope of a claim about nonlinear replacements.\nRequire a pointer to Appendix F and Table 8 for each claim about that comparison.\nTreat the output as an editing checklist, not a prediction of reviewer scores, identities, or acceptance.",
+          "transfer_zh": "请同事或获准工具检查，被试 2 到被试 1 的比较是否支持有关非线性替换主张的范围。\n每个有关该比较的主张都应指向附录 F 与表 8。\n将输出作为修改清单，不当作审稿分数、身份或录用结果的预测。",
+          "provenance": {
+            "reference": "paper_mindaligner",
+            "location": "Appendix F，The Linear Hypothesis Underlying MindAligner，非线性替换实验后的说明句",
+            "version": "ICML 2025／PMLR 267 正式论文，已对照作者终稿",
+            "status": "已发表论文；下方教学改写或模拟回复不属于论文原文"
+          },
+          "license": "Yuqin Dai et al., ICML 2025, PMLR 267:12214–12228. 原文与所选原图采用 CC BY 4.0；中文翻译、拆解与教学改写为本指南新增。"
         }
       ],
       "prompt": "请只根据我提供且允许用于此工具的材料，检查 rebuttal。按每条原始意见保留顺序，列出：实际关切、当前答案、证据位置、完成状态、遗漏或不一致、最小修改建议。不要虚构实验、引用或已完成修改；不要从评分、匿名编号、语气或未回复推断审稿人身份、能力与心理；不要预测涨分或录用。区分事实澄清、合理不同意、缺少证据与已完成修改。检查是否遗漏会改变结论的负结果，是否违反当轮匿名、保密、篇幅、外链或附件规则；未提供规则时只指出需核验的项目。最后逐句核对回复主张是否由给出的证据支持。"
@@ -1970,6 +3122,81 @@
       "title": "ACL Rolling Review · Authors Guidelines，Author response",
       "url": "https://aclrollingreview.org/authors#author-response",
       "scope": "截至 2026-10-07 可见的作者回复指南；页面注明此版适用至 2026 年 8 月轮次，后续轮次需重查。用于了解 ARR 与直接投会议的区别，不作后续轮次规则保证。",
+      "public": true
+    },
+    "paper_tcdiff": {
+      "title": "Yuqin Dai et al. (AAAI 2025) · Harmonious Music-driven Group Choreography with Trajectory-Controllable Diffusion",
+      "authors": [
+        "Yuqin Dai",
+        "Wanlu Zhu",
+        "Ronghui Li",
+        "Zeping Ren",
+        "Xiangzheng Zhou",
+        "Jixuan Ying",
+        "Jun Li",
+        "Jian Yang"
+      ],
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/32268",
+      "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/32268/34423",
+      "doi": "10.1609/aaai.v39i3.32268",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence 39(3):2645–2653, 2025",
+      "published_date": "2025-04-11",
+      "scope": "论文作者在本指南中用少量原文短引讲解贡献、动机、方法与实验，逐项标明节名、页码和中文翻译；英文引句保持原貌，教学改写单独标注。TCDiff 的数据、性能与结论仅限论文报告的任务与比较条件。",
+      "version": "正式发表版本；作者原文短引",
+      "copyright": "Copyright © 2025 Association for the Advancement of Artificial Intelligence. All rights reserved.",
+      "license": "作者教学复用；原论文英文短引与原图不受 PaperBank 原创内容 CC BY 授权覆盖。本文不转授第三方转载原论文材料的权利。",
+      "rights_url": "https://aaai.org/aaai-publications/request-to-reproduce-copyrighted-materials/",
+      "reuse_note": "AAAI 的 Returned Rights 允许作者非商业复用本人论文并署名；第三方再利用需遵循原出版者许可。此指南不重新发布完整论文。",
+      "public": true
+    },
+    "paper_mindaligner": {
+      "title": "Yuqin Dai et al. (ICML 2025) · MindAligner: Explicit Brain Functional Alignment for Cross-Subject Visual Decoding from Limited fMRI Data",
+      "authors": [
+        "Yuqin Dai",
+        "Zhouheng Yao",
+        "Chunfeng Song",
+        "Qihao Zheng",
+        "Weijian Mai",
+        "Kunyu Peng",
+        "Shuai Lu",
+        "Wanli Ouyang",
+        "Jian Yang",
+        "Jiamin Wu"
+      ],
+      "url": "https://proceedings.mlr.press/v267/dai25m.html",
+      "pdf_url": "https://raw.githubusercontent.com/mlresearch/v267/main/assets/dai25m/dai25m.pdf",
+      "venue": "Proceedings of the 42nd International Conference on Machine Learning, PMLR 267:12214–12228, 2025",
+      "scope": "采用作者终稿及正式发表论文中的短句、段落和 Fig.5/Fig.6，讲解引言、问题、模块输入输出、指标、消融、效率与图表表达。英文原文、中文翻译和教学分析分别标注；结论仅限原论文的数据与迁移设置。",
+      "version": "ICML 2025 正式发表论文；英文短引与作者终稿核对，原图取自作者终稿图文件",
+      "copyright": "Copyright 2025 by the authors.",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "rights_url": "https://proceedings.mlr.press/pmlr-license-agreement.html",
+      "reuse_note": "保留作者、论文标题、原始发表出处与 PMLR 链接，注明中文翻译及教学分析为本指南新增内容。所选图不含视觉刺激照片。",
+      "public": true
+    },
+    "paper_webfilter": {
+      "title": "Yuqin Dai et al. (AAAI 2026) · Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools with Reinforcement Learning",
+      "authors": "Yuqin Dai et al.",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/40299",
+      "pages": "30458–30466",
+      "license": "©2026 AAAI. All rights reserved. 独立保留原论文版权；未授予PaperBank整篇或原图再许可。",
+      "scope": "AAAI 2026 正式发表；作者终稿短引，讲解问题、搜索操作、奖励、指标与消融。保留 AAAI 原版权。",
+      "public": true
+    },
+    "paper_card": {
+      "title": "Pengyu Zeng et al. (EMNLP 2025) · CARD: Cross-modal Agent Framework for Generative and Editable Residential Design",
+      "authors": "Pengyu Zeng et al.",
+      "url": "https://aclanthology.org/2025.emnlp-main.473/",
+      "pages": "9304–9319",
+      "license": "CC BY 4.0",
+      "scope": "EMNLP 2025 正式发表；模块输入输出、公平比较、人评重复与表示转换。原文 CC BY 4.0，中文为本指南翻译。",
+      "public": true
+    },
+    "paper_mindaligner_code": {
+      "title": "MindAligner · 公开评估实现 eval.py",
+      "url": "https://github.com/Da1yuqin/MindAligner/blob/master/eval.py#L37-L61",
+      "scope": "2026-10-07 查阅 calculate_retrival_percent_correct：300 个配对候选、30 轮随机批次。当前代码与论文报告分别核对，不据此断言 2025 实验使用同一提交。",
       "public": true
     }
   }
