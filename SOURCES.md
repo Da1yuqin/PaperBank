@@ -10,7 +10,11 @@
 
 ## 写作技能
 
-吸收作者日常使用的 `paper-writing-clarity`、`cs-writing-skill`、`paper-visual-standards`、`paper-reading-assistant` 中可迁移的检查习惯：定义具体对象，核对主张与证据，说明输入输出，统一术语与图注。审稿回复部分还参考 `review-response`、`rebuttal-reviewer-profile`、`rebuttal-reviewer-simulator` 的通用做法：保留意见原意、逐题核对证据、说明完成状态与修改位置。未转载技能文件、真实审稿人画像或内部实验材料。
+吸收作者日常使用的 `paper-writing-clarity`、`cs-writing-skill`、`paper-visual-standards`、`paper-reading-assistant` 中可迁移的检查习惯：定义具体对象，核对主张与证据，说明输入输出，统一术语与图注。审稿回复部分还参考 `review-response`、`rebuttal-reviewer-profile`、`rebuttal-reviewer-simulator` 的通用做法：保留意见原意、逐题核对证据、说明完成状态与修改位置。未转载本地技能文件、真实审稿人画像或内部实验材料。
+
+新增独立的 32 条写作铁律章节与 `paperbank-writing` skill。规则由上述检查习惯及 `paper-introduction`、`clean-flow-figures`、`minimal-code-layout` 的通用要求重新表述；区分证据、记录和权限边界与可调整的写法。每条配原创中英教学例子，假设情境不是真实论文结果。未把特定项目的色板、尺寸、段落配额、固定连接词或禁用全部代词推广为通用学术规范。
+
+公开 skill 由本项目独立编写，包含入口、生成的规则参考及许可；网页和 skill 参考从同一份章节数据生成，避免两套规则分叉。ZIP 不含私人 skill 原件、机器路径、论文源稿、真实审稿记录或第三方摘录。
 
 ## 公开参考与适用范围
 
@@ -31,7 +35,7 @@
 
 ## 例子与图片
 
-70 项检查各附一个中英双语例子：英文原文、中文翻译、逐句拆解及出处。需要迁移到自己的文章时，再给单独标注的教学改写；rebuttal 以模拟问题和模拟回复演示，不能当作真实审稿记录，也不表示作者已经补做实验。
+原有 70 项检查各附一个论文中英双语例子：英文原文、中文翻译、逐句拆解及出处。需要迁移到自己的文章时，再给单独标注的教学改写；rebuttal 以模拟问题和模拟回复演示，不能当作真实审稿记录，也不表示作者已经补做实验。
 
 摘录核对作者终稿或正式发表 PDF，仅移除 LaTeX 排版、文献标记和排版断词，合并换行；数学符号以可读形式转写，图表引用按正式版解析。原句不作润色，中文为本指南翻译。第 37 条另核对了截至 2026-10-07 的[公开评估代码](https://github.com/Da1yuqin/MindAligner/blob/master/eval.py#L37-L61)，区分论文的重复评价表述与当前实现；未据此验证 2025 年实验所用提交。原文中的强主张、指标局限或单位问题，在拆解中解释，不静默改动引文。
 

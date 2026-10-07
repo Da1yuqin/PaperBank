@@ -3,6 +3,7 @@
 import argparse
 import html
 import json
+import zipfile
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -10,11 +11,21 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 REPO = 'https://github.com/Da1yuqin/PaperBank'
 
+def section_label(section):
+ return '先读 · ' if int(section['number'])==0 else str(int(section['number']))+'. '
+
 def render_example(example, refs):
  """Keep quoted text, translations and teaching adaptations distinguishable."""
  e=html.escape
  rendered=f'<div class="example"><h5>{e(example["title"])}</h5>'
  md=['',f'**{example["title"]}**']
+ if example.get('kind')=='teaching':
+  label=example.get('label','教学示例：假设情境，非论文原文／实测记录')
+  rendered+=f'<p class="example-label"><strong>{e(label)}</strong></p>'
+  md+=['',f'**{label}**']
+  note=example.get('context_zh','改后假定已有对应记录；实际改稿须先核对这些事实，不能从改前文字推断或补造。')
+  rendered+=f'<p class="boundary">{e(note)}</p>'
+  md+=['',note]
  if example.get('original_en'):
   assert all(example.get(k) for k in ['translation_zh','analysis_zh','provenance'])
   rendered+='<p class="example-label"><strong>论文原文 · English</strong></p>'
@@ -27,6 +38,10 @@ def render_example(example, refs):
    style=' class="why"' if key=='why' else ''
    rendered+=f'<p{style}><strong>{label}：</strong>{e(example[key])}</p>'
    md+=['',f'**{label}：**{example[key]}']
+ for key,label,lang in [('before_zh','改前 · 中文','zh-CN'),('before_en','Before · English','en'),('after_zh','改后 · 中文','zh-CN'),('after_en','After · English','en')]:
+  if example.get(key):
+   rendered+=f'<p class="example-label"><strong>{label}</strong></p><p lang="{lang}">{e(example[key])}</p>'
+   md+=['',f'**{label}**','',example[key]]
  if example.get('analysis_zh'):
   analysis=example['analysis_zh']
   rendered+='<p class="example-label"><strong>逐句拆解</strong></p>'
@@ -59,6 +74,39 @@ def render_example(example, refs):
   rendered+=f'<p class="example-source"><strong>原文／图片许可：</strong>{e(example["license"])}</p>'
   md+=['',f'**原文／图片许可：**{example["license"]}']
  return rendered+'</div>',md
+
+def render_skill(data):
+ """Keep the portable entry point separate from the full reading guide."""
+ e=html.escape
+ skill=data['writing_skill']
+ rendered=f'<section class="writing-skill" id="writing-skill"><h2>PaperBank 写作 skill：让 Codex 也按这份清单检查</h2><p>{e(skill["intro"])}</p>'
+ rendered+=f'<p class="skill-links"><a href="{e(skill["download"])}" download>下载写作 skill ZIP</a> · <a href="{REPO}/blob/main/{e(skill["source"])}">查看 SKILL.md</a> · <a href="#chapter-rules">32 条写作铁律</a></p><p>下载、解压，保留整个 <code>paperbank-writing/</code> 文件夹，把它交给 Codex 读取。下面提示词可直接用，再补上你的文件、任务和允许修改的范围。</p>'
+ md=['','<a id="writing-skill"></a>','## PaperBank 写作 skill：让 Codex 也按这份清单检查','',skill['intro'],'',f'[下载 ZIP](../{skill["download"]}) · [查看 SKILL.md](../{skill["source"]}) · [32 条写作铁律](#rules)','','下载、解压，保留整个 paperbank-writing/ 文件夹，把它交给 Codex 读取；补上文件、任务和允许修改的范围。']
+ for key,label,lang in [('prompt_zh','中文使用提示词','zh-CN'),('prompt_en','English usage prompt','en')]:
+  rendered+=f'<details class="prompt"><summary>{label}</summary><pre lang="{lang}">{e(skill[key])}</pre><button class="copy js-only">复制提示词</button></details>'
+  md+=['',f'**{label}**','','```text',skill[key],'```']
+ return rendered+'</section>',md
+
+def package_skill(data):
+ """Generate the skill reference from the same rules used by the website."""
+ folder=ROOT/'skills/paperbank-writing'
+ rules=[i for i in data['items'] if i['section']=='rules']
+ md=['# PaperBank 写作检查参考','','按本次任务选规则。证据和记录必须如实；结构与措辞是可调整的写法。下面示例均为假设的教学情境，不是论文原文、真实模型输出或实际完成的工作。改后假定已有对应记录；实际改稿须先核对事实，不能从改前文字推断或补造。','','网页：[32 条写作铁律](https://da1yuqin.github.io/PaperBank/#chapter-rules) · [70 个论文原文例子](https://da1yuqin.github.io/PaperBank/#chapter-core) · [rebuttal](https://da1yuqin.github.io/PaperBank/#chapter-rebuttal)']
+ for group in dict.fromkeys(i['group'] for i in rules):
+  md+=['','## '+group,'']
+  for i in [x for x in rules if x['group']==group]:
+   md+=['',f'### 第 {i["id"][4:]} 条：{i["title"]}','',i['checklist'],'','适用边界：'+i['boundary']]
+   _,example_md=render_example(i['examples'][0],data['references'])
+   md+=example_md
+ md+=['','---','','原创规则与教学示例：Da1yuqin / PaperBank，[原文](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处及许可，改编注明改动。']
+ (folder/'references').mkdir(parents=True,exist_ok=True)
+ (folder/'references/checklist.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
+ with zipfile.ZipFile(ROOT/data['writing_skill']['download'],'w',zipfile.ZIP_DEFLATED) as z:
+  for name in ['SKILL.md','references/checklist.md','LICENSE']:
+   info=zipfile.ZipInfo('paperbank-writing/'+name,date_time=(2026,10,7,0,0,0))
+   info.compress_type=zipfile.ZIP_DEFLATED
+   info.external_attr=0o644<<16
+   z.writestr(info,(folder/name).read_bytes())
 
 def render_tools(data):
  """Render linked resources separately from manuscript checks."""
@@ -105,15 +153,17 @@ def build():
  nav=f'<button data-chapter="all" aria-pressed="true" class="active">全部章节<i>{len(items)}</i></button>'
  for s in sections:
   group=[i for i in items if i['section']==s['id']]
-  nav+=f'<button data-chapter="{s["id"]}" aria-pressed="false">{int(s["number"])}. {e(s["nav"])}<i>{len(group)}</i></button>'
+  nav+=f'<button data-chapter="{s["id"]}" aria-pressed="false">{section_label(s)}{e(s["nav"])}<i>{len(group)}</i></button>'
  entries=''
  md=['# PaperBank · 论文少走弯路指南','','先把贡献讲清楚，再把证据交代全。按主题检查，卡住了再展开例子。','','主要面向实证型 CS / AI 论文；按学科、研究类型与投稿要求取舍。论文摘录就近标明出处与版本，中文为本指南翻译；教学改写与假设情境另行标注，不代表原论文结果。','','欢迎使用、改写、转载，也欢迎拿去给 Codex 等工具做 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，改过请注明。Star 自愿，署名别失联。','','## 目录','']
- md += [f'- [{int(s["number"])}. {s["title"]}](#{s["id"]})' for s in sections]
+ skill,skill_md=render_skill(data)
+ md[md.index('## 目录'):md.index('## 目录')]=skill_md+['']
+ md += [f'- [{section_label(s)}{s["title"]}](#{s["id"]})' for s in sections]
  md += ['- [好用工具与开源整理提示词](#tools)']
  for s in sections:
   group=[i for i in items if i['section']==s['id']]
-  entries+=f'<section class="chapter" id="chapter-{s["id"]}"><div class="chapter-head"><h2>{int(s["number"])}. {e(s["title"])}</h2><span class="shown">{len(group)} 条</span></div><p class="chapter-desc">{e(s.get("summary",s["description"]))}</p>'
-  md+=['',f'<a id="{s["id"]}"></a>',f'## {int(s["number"])}. {s["title"]}','',s.get('summary',s['description'])]
+  entries+=f'<section class="chapter" id="chapter-{s["id"]}"><div class="chapter-head"><h2>{section_label(s)}{e(s["title"])}</h2><span class="shown">{len(group)} 条</span></div><p class="chapter-desc">{e(s.get("summary",s["description"]))}</p>'
+  md+=['',f'<a id="{s["id"]}"></a>',f'## {section_label(s)}{s["title"]}','',s.get('summary',s['description'])]
   for subgroup in dict.fromkeys(i['group'] for i in group):
    entries+=f'<div class="check-group"><h3 class="group-title">{e(subgroup)}</h3><ul class="checklist">'
    md+=['',f'**{subgroup}**','']
@@ -139,11 +189,12 @@ def build():
  md+=tools_md
  reading=''.join(f'<li>{link(k)}<span> — {e(r["scope"])}</span></li>' for k,r in refs.items() if r.get('public'))
  t=(ROOT/'assets/template.html').read_text(encoding='utf-8')
- for k,v in {'NAV':nav,'ENTRIES':entries,'TOOLS':tools,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':str(len(sections)),'EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
+ for k,v in {'NAV':nav,'ENTRIES':entries,'TOOLS':tools,'SKILL':skill,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':str(len(sections)),'EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
  (ROOT/'index.html').write_text(t,encoding='utf-8')
  (ROOT/'book').mkdir(exist_ok=True)
  md+=['','## 参考阅读','']+[f'- [{r["title"]}]({r["url"]})：{r["scope"]}' for r in refs.values() if r.get('public')]
  (ROOT/'book/guide.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
+ package_skill(data)
  print(f'Built {len(sections)} chapters, {len(items)} checks, {examples} examples.')
 
 if __name__=='__main__':
