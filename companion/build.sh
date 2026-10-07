@@ -54,7 +54,7 @@ cat > "$app_dir/Contents/Info.plist" <<'PLIST'
   <key>CFBundleExecutable</key><string>Beagle</string>
   <key>CFBundleIdentifier</key><string>io.github.da1yuqin.paperbank.beagle</string>
   <key>CFBundleName</key><string>PaperBank Beagle</string>
-  <key>CFBundleDisplayName</key><string>PaperBank 比格小馆长</string>
+  <key>CFBundleDisplayName</key><string>PaperBank 贝果</string>
   <key>CFBundleIconFile</key><string>Beagle.icns</string>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>CFBundleVersion</key><string>1</string>

@@ -40,7 +40,7 @@ final class CompanionApp: NSObject, NSApplicationDelegate {
 
         window = NSWindow(contentRect: NSRect(origin: .zero, size: size),
                           styleMask: .borderless, backing: .buffered, defer: false)
-        window.title = "PaperBank 比格小馆长"
+        window.title = "PaperBank 贝果"
         window.isOpaque = false
         window.backgroundColor = .clear
         window.hasShadow = false
@@ -51,13 +51,13 @@ final class CompanionApp: NSObject, NSApplicationDelegate {
         view = BeagleView(frame: NSRect(origin: .zero, size: size))
         view.imageScaling = .scaleProportionallyUpOrDown
         view.imageAlignment = .alignCenter
-        view.toolTip = "拖动小馆长；右键打开菜单。"
-        view.setAccessibilityLabel("PaperBank 比格小馆长，拖动移动，右键打开菜单")
+        view.toolTip = "拖动贝果；右键打开菜单。"
+        view.setAccessibilityLabel("PaperBank 贝果，拖动移动，右键打开菜单")
         window.contentView = view
 
         let menu = NSMenu()
         menu.autoenablesItems = false
-        let title = NSMenuItem(title: "PaperBank · 比格小馆长", action: nil, keyEquivalent: "")
+        let title = NSMenuItem(title: "比格行长 · 贝果", action: nil, keyEquivalent: "")
         title.isEnabled = false
         menu.addItem(title)
         menu.addItem(.separator())
@@ -73,7 +73,7 @@ final class CompanionApp: NSObject, NSApplicationDelegate {
 
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem.button?.title = "🐶"
-        statusItem.button?.toolTip = "PaperBank 比格小馆长"
+        statusItem.button?.toolTip = "PaperBank 贝果"
         statusItem.menu = menu
 
         NSWorkspace.shared.notificationCenter.addObserver(
