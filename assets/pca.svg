@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="610" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+<title id="title">PCA: project standardized features, then explain the axes</title>
+<desc id="desc">Synthetic example. Not paper results. Reproducible using the accompanying Python source.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="45.000" y="42.000" font-size="25" text-anchor="start" fill="#27343E">PCA: project standardized features, then explain the axes</text>
+<text x="45.000" y="72.000" font-size="18" text-anchor="start" fill="#BA7D73">Synthetic example / Not paper results</text>
+<line x1="110.000" y1="460.000" x2="780.000" y2="460.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="466.000" font-size="16" text-anchor="end" fill="#27343E">-3</text>
+<line x1="110.000" y1="404.167" x2="780.000" y2="404.167" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="410.167" font-size="16" text-anchor="end" fill="#27343E">-2</text>
+<line x1="110.000" y1="348.333" x2="780.000" y2="348.333" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="354.333" font-size="16" text-anchor="end" fill="#27343E">-1</text>
+<line x1="110.000" y1="292.500" x2="780.000" y2="292.500" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="298.500" font-size="16" text-anchor="end" fill="#27343E">0</text>
+<line x1="110.000" y1="236.667" x2="780.000" y2="236.667" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="242.667" font-size="16" text-anchor="end" fill="#27343E">1</text>
+<line x1="110.000" y1="180.833" x2="780.000" y2="180.833" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="186.833" font-size="16" text-anchor="end" fill="#27343E">2</text>
+<line x1="110.000" y1="125.000" x2="780.000" y2="125.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="131.000" font-size="16" text-anchor="end" fill="#27343E">3</text>
+<line x1="110.000" y1="460.000" x2="110.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="110.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">-4</text>
+<line x1="277.500" y1="460.000" x2="277.500" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="277.500" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">-2</text>
+<line x1="445.000" y1="460.000" x2="445.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="445.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">0</text>
+<line x1="612.500" y1="460.000" x2="612.500" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="612.500" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">2</text>
+<line x1="780.000" y1="460.000" x2="780.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="780.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">4</text>
+<line x1="110.000" y1="125.000" x2="110.000" y2="460.000" stroke="#27343E" stroke-width="1.7"/>
+<line x1="110.000" y1="460.000" x2="780.000" y2="460.000" stroke="#27343E" stroke-width="1.7"/>
+<text x="445.000" y="526.000" font-size="18" text-anchor="middle" fill="#27343E">PC1 (62.4% explained variance)</text>
+<text x="30.000" y="292.500" font-size="18" text-anchor="middle" fill="#27343E" transform="rotate(-90 30 292.5)">PC2 (27.8% explained variance)</text>
+<line x1="110.000" y1="100.000" x2="135.000" y2="100.000" stroke="#567F9C" stroke-width="4"/>
+<text x="144.000" y="106.000" font-size="16" text-anchor="start" fill="#27343E">Group A</text>
+<line x1="238.500" y1="100.000" x2="263.500" y2="100.000" stroke="#659386" stroke-width="4"/>
+<text x="272.500" y="106.000" font-size="16" text-anchor="start" fill="#27343E">Group B</text>
+<circle cx="437.579" cy="265.000" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="502.510" cy="359.004" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="487.309" cy="339.694" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="472.814" cy="275.717" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="438.859" cy="296.915" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="433.709" cy="321.520" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="402.516" cy="279.510" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="704.718" cy="336.669" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="393.975" cy="304.698" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="479.973" cy="327.881" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="486.733" cy="300.282" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="505.405" cy="269.727" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="320.693" cy="397.779" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="582.079" cy="314.720" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="532.124" cy="241.137" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="568.235" cy="326.702" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="676.257" cy="363.260" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="383.005" cy="266.090" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="435.175" cy="205.343" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="568.636" cy="280.673" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="563.836" cy="251.161" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="496.236" cy="274.428" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="519.466" cy="328.958" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="410.268" cy="316.187" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="383.734" cy="318.441" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="717.512" cy="287.556" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="544.412" cy="200.095" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="539.707" cy="361.107" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="482.572" cy="239.338" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="293.160" cy="379.983" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="556.710" cy="359.225" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="568.420" cy="343.874" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="425.354" cy="295.479" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="371.277" cy="234.198" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="587.700" cy="225.138" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="590.408" cy="246.341" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="336.032" cy="337.998" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="552.260" cy="253.907" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="613.461" cy="279.211" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="566.590" cy="346.089" r="4.8" fill="#567F9C" fill-opacity="0.75"/>
+<circle cx="443.824" cy="285.012" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="527.761" cy="273.319" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="459.809" cy="221.964" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="320.973" cy="275.911" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="357.721" cy="146.208" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="353.730" cy="228.912" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="333.934" cy="399.247" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="341.843" cy="318.316" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="272.536" cy="314.254" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="322.516" cy="415.032" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="322.740" cy="279.719" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="460.340" cy="258.309" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="613.090" cy="287.832" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="257.409" cy="342.230" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="158.676" cy="250.991" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="531.176" cy="286.171" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="607.545" cy="213.879" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="275.837" cy="313.186" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="443.998" cy="263.784" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="500.670" cy="280.946" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="379.081" cy="217.689" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="374.473" cy="348.037" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="376.551" cy="269.941" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="483.797" cy="341.120" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="267.518" cy="333.195" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="374.137" cy="304.693" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="552.056" cy="297.415" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="332.426" cy="267.525" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="382.386" cy="304.458" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="417.016" cy="277.880" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="323.865" cy="300.425" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="330.885" cy="282.361" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="247.927" cy="270.808" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="489.878" cy="341.044" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="457.041" cy="364.597" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="317.270" cy="210.009" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="347.170" cy="228.848" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="309.332" cy="248.312" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="544.760" cy="340.811" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<circle cx="454.884" cy="244.575" r="4.8" fill="#659386" fill-opacity="0.75"/>
+<text x="45.000" y="558.000" font-size="14" text-anchor="start" fill="#27343E">80 synthetic observations; 3 features centered and scaled by sample standard deviation.</text>
+<text x="45.000" y="579.000" font-size="14" text-anchor="start" fill="#27343E">PCA uses the sample covariance eigensystem. A projection is not a generalization test.</text>
+</g>
+</svg>

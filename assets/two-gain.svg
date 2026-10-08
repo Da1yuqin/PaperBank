@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="610" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+<title id="title">Two gains: separate improvement from trade-offs</title>
+<desc id="desc">Synthetic example. Not paper results. Reproducible using the accompanying Python source.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="45.000" y="42.000" font-size="25" text-anchor="start" fill="#27343E">Two gains: separate improvement from trade-offs</text>
+<text x="45.000" y="72.000" font-size="18" text-anchor="start" fill="#BA7D73">Synthetic example / Not paper results</text>
+<line x1="110.000" y1="460.000" x2="780.000" y2="460.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="466.000" font-size="16" text-anchor="end" fill="#27343E">-20</text>
+<line x1="110.000" y1="376.250" x2="780.000" y2="376.250" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="382.250" font-size="16" text-anchor="end" fill="#27343E">-10</text>
+<line x1="110.000" y1="292.500" x2="780.000" y2="292.500" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="298.500" font-size="16" text-anchor="end" fill="#27343E">0</text>
+<line x1="110.000" y1="208.750" x2="780.000" y2="208.750" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="214.750" font-size="16" text-anchor="end" fill="#27343E">10</text>
+<line x1="110.000" y1="125.000" x2="780.000" y2="125.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="131.000" font-size="16" text-anchor="end" fill="#27343E">20</text>
+<line x1="110.000" y1="460.000" x2="110.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="110.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">-10</text>
+<line x1="277.500" y1="460.000" x2="277.500" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="277.500" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">-5</text>
+<line x1="445.000" y1="460.000" x2="445.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="445.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">0</text>
+<line x1="612.500" y1="460.000" x2="612.500" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="612.500" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">5</text>
+<line x1="780.000" y1="460.000" x2="780.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="780.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">10</text>
+<line x1="110.000" y1="125.000" x2="110.000" y2="460.000" stroke="#27343E" stroke-width="1.7"/>
+<line x1="110.000" y1="460.000" x2="780.000" y2="460.000" stroke="#27343E" stroke-width="1.7"/>
+<text x="445.000" y="526.000" font-size="18" text-anchor="middle" fill="#27343E">Accuracy gain (percentage points)</text>
+<text x="30.000" y="292.500" font-size="18" text-anchor="middle" fill="#27343E" transform="rotate(-90 30 292.5)">Latency reduction (%)</text>
+<rect x="445.0" y="125.0" width="335.0" height="167.5" fill="#E8F2ED"/>
+<line x1="445.000" y1="125.000" x2="445.000" y2="460.000" stroke="#9099A1" stroke-width="1.7" stroke-dasharray="5 4"/>
+<line x1="110.000" y1="292.500" x2="780.000" y2="292.500" stroke="#9099A1" stroke-width="1.7" stroke-dasharray="5 4"/>
+<text x="646.000" y="150.125" font-size="16" text-anchor="middle" fill="#659386">Both improve</text>
+<circle cx="311.000" cy="192.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<text x="321.000" y="184.000" font-size="16" text-anchor="start" fill="#27343E">A</text>
+<circle cx="545.500" cy="225.500" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<text x="555.500" y="217.500" font-size="16" text-anchor="start" fill="#27343E">B</text>
+<circle cx="679.500" cy="376.250" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<text x="689.500" y="368.250" font-size="16" text-anchor="start" fill="#27343E">C</text>
+<circle cx="612.500" cy="326.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<text x="622.500" y="318.000" font-size="16" text-anchor="start" fill="#27343E">D</text>
+<circle cx="378.000" cy="334.375" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<text x="388.000" y="326.375" font-size="16" text-anchor="start" fill="#27343E">E</text>
+<circle cx="210.500" cy="166.875" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<text x="220.500" y="158.875" font-size="16" text-anchor="start" fill="#27343E">F</text>
+<circle cx="478.500" cy="393.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<text x="488.500" y="385.000" font-size="16" text-anchor="start" fill="#27343E">G</text>
+<circle cx="713.000" cy="259.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<text x="723.000" y="251.000" font-size="16" text-anchor="start" fill="#27343E">H</text>
+<text x="45.000" y="558.000" font-size="14" text-anchor="start" fill="#27343E">Eight synthetic configurations. Positive latency reduction means faster responses.</text>
+<text x="45.000" y="579.000" font-size="14" text-anchor="start" fill="#27343E">Latency reduction = 100 × (baseline latency − new latency) / baseline latency.</text>
+</g>
+</svg>

@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="610" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+<title id="title">Heatmap: share one scale and show missing observations</title>
+<desc id="desc">Synthetic example. Not paper results. Reproducible using the accompanying Python source.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="45.000" y="42.000" font-size="25" text-anchor="start" fill="#27343E">Heatmap: share one scale and show missing observations</text>
+<text x="45.000" y="72.000" font-size="18" text-anchor="start" fill="#BA7D73">Synthetic example / Not paper results</text>
+<text x="217.500" y="132.000" font-size="18" text-anchor="middle" fill="#27343E">Task 1</text>
+<text x="342.500" y="132.000" font-size="18" text-anchor="middle" fill="#27343E">Task 2</text>
+<text x="467.500" y="132.000" font-size="18" text-anchor="middle" fill="#27343E">Task 3</text>
+<text x="592.500" y="132.000" font-size="18" text-anchor="middle" fill="#27343E">Task 4</text>
+<text x="717.500" y="132.000" font-size="18" text-anchor="middle" fill="#27343E">Task 5</text>
+<text x="140.000" y="197.000" font-size="17" text-anchor="end" fill="#27343E">Model A</text>
+<rect x="155" y="150" width="125" height="82" fill="#bed2dd" stroke="white" stroke-width="3"/>
+<text x="217.500" y="197.000" font-size="18" text-anchor="middle" fill="#27343E">68%</text>
+<rect x="280" y="150" width="125" height="82" fill="#e5eef2" stroke="white" stroke-width="3"/>
+<text x="342.500" y="197.000" font-size="18" text-anchor="middle" fill="#27343E">62%</text>
+<rect x="405" y="150" width="125" height="82" fill="#98b7c9" stroke="white" stroke-width="3"/>
+<text x="467.500" y="197.000" font-size="18" text-anchor="middle" fill="#27343E">74%</text>
+<rect x="530" y="150" width="125" height="82" fill="#b8ceda" stroke="white" stroke-width="3"/>
+<text x="592.500" y="197.000" font-size="18" text-anchor="middle" fill="#27343E">69%</text>
+<rect x="655" y="150" width="125" height="82" fill="#b2c9d6" stroke="white" stroke-width="3"/>
+<text x="717.500" y="197.000" font-size="18" text-anchor="middle" fill="#27343E">70%</text>
+<text x="140.000" y="279.000" font-size="17" text-anchor="end" fill="#27343E">Model B</text>
+<rect x="155" y="232" width="125" height="82" fill="#9ebbcc" stroke="white" stroke-width="3"/>
+<text x="217.500" y="279.000" font-size="18" text-anchor="middle" fill="#27343E">73%</text>
+<rect x="280" y="232" width="125" height="82" fill="#cbdbe4" stroke="white" stroke-width="3"/>
+<text x="342.500" y="279.000" font-size="18" text-anchor="middle" fill="#27343E">66%</text>
+<rect x="405" y="232" width="125" height="82" fill="#abc4d3" stroke="white" stroke-width="3"/>
+<text x="467.500" y="279.000" font-size="18" text-anchor="middle" fill="#27343E">71%</text>
+<rect x="530" y="232" width="125" height="82" fill="#a5c0d0" stroke="white" stroke-width="3"/>
+<text x="592.500" y="279.000" font-size="18" text-anchor="middle" fill="#27343E">72%</text>
+<rect x="655" y="232" width="125" height="82" fill="#91b2c5" stroke="white" stroke-width="3"/>
+<text x="717.500" y="279.000" font-size="18" text-anchor="middle" fill="#27343E">75%</text>
+<text x="140.000" y="361.000" font-size="17" text-anchor="end" fill="#27343E">Model C</text>
+<rect x="155" y="314" width="125" height="82" fill="#8badc2" stroke="white" stroke-width="3"/>
+<text x="217.500" y="361.000" font-size="18" text-anchor="middle" fill="#27343E">76%</text>
+<rect x="280" y="314" width="125" height="82" fill="#EBECEE" stroke="white" stroke-width="3"/>
+<text x="342.500" y="361.000" font-size="18" text-anchor="middle" fill="#27343E">Missing</text>
+<rect x="405" y="314" width="125" height="82" fill="#84a9be" stroke="white" stroke-width="3"/>
+<text x="467.500" y="361.000" font-size="18" text-anchor="middle" fill="#27343E">77%</text>
+<rect x="530" y="314" width="125" height="82" fill="#9ebbcc" stroke="white" stroke-width="3"/>
+<text x="592.500" y="361.000" font-size="18" text-anchor="middle" fill="#27343E">73%</text>
+<rect x="655" y="314" width="125" height="82" fill="#8badc2" stroke="white" stroke-width="3"/>
+<text x="717.500" y="361.000" font-size="18" text-anchor="middle" fill="#27343E">76%</text>
+<rect x="250" y="445" width="4.1" height="18" fill="#f2f7f9"/>
+<rect x="254" y="445" width="4.1" height="18" fill="#f1f6f8"/>
+<rect x="258" y="445" width="4.1" height="18" fill="#eff5f8"/>
+<rect x="262" y="445" width="4.1" height="18" fill="#eef4f7"/>
+<rect x="266" y="445" width="4.1" height="18" fill="#edf3f6"/>
+<rect x="270" y="445" width="4.1" height="18" fill="#ecf2f6"/>
+<rect x="274" y="445" width="4.1" height="18" fill="#eaf1f5"/>
+<rect x="278" y="445" width="4.1" height="18" fill="#e9f1f4"/>
+<rect x="282" y="445" width="4.1" height="18" fill="#e8f0f3"/>
+<rect x="286" y="445" width="4.1" height="18" fill="#e6eff3"/>
+<rect x="290" y="445" width="4.1" height="18" fill="#e5eef2"/>
+<rect x="294" y="445" width="4.1" height="18" fill="#e4edf1"/>
+<rect x="298" y="445" width="4.1" height="18" fill="#e3ecf1"/>
+<rect x="302" y="445" width="4.1" height="18" fill="#e1ebf0"/>
+<rect x="306" y="445" width="4.1" height="18" fill="#e0eaef"/>
+<rect x="310" y="445" width="4.1" height="18" fill="#dfe9ef"/>
+<rect x="314" y="445" width="4.1" height="18" fill="#dde8ee"/>
+<rect x="318" y="445" width="4.1" height="18" fill="#dce7ed"/>
+<rect x="322" y="445" width="4.1" height="18" fill="#dbe6ed"/>
+<rect x="326" y="445" width="4.1" height="18" fill="#d9e6ec"/>
+<rect x="330" y="445" width="4.1" height="18" fill="#d8e5eb"/>
+<rect x="334" y="445" width="4.1" height="18" fill="#d7e4eb"/>
+<rect x="338" y="445" width="4.1" height="18" fill="#d6e3ea"/>
+<rect x="342" y="445" width="4.1" height="18" fill="#d4e2e9"/>
+<rect x="346" y="445" width="4.1" height="18" fill="#d3e1e8"/>
+<rect x="350" y="445" width="4.1" height="18" fill="#d2e0e8"/>
+<rect x="354" y="445" width="4.1" height="18" fill="#d0dfe7"/>
+<rect x="358" y="445" width="4.1" height="18" fill="#cfdee6"/>
+<rect x="362" y="445" width="4.1" height="18" fill="#cedde6"/>
+<rect x="366" y="445" width="4.1" height="18" fill="#cddce5"/>
+<rect x="370" y="445" width="4.1" height="18" fill="#cbdbe4"/>
+<rect x="374" y="445" width="4.1" height="18" fill="#cadae4"/>
+<rect x="378" y="445" width="4.1" height="18" fill="#c9dae3"/>
+<rect x="382" y="445" width="4.1" height="18" fill="#c7d9e2"/>
+<rect x="386" y="445" width="4.1" height="18" fill="#c6d8e2"/>
+<rect x="390" y="445" width="4.1" height="18" fill="#c5d7e1"/>
+<rect x="394" y="445" width="4.1" height="18" fill="#c4d6e0"/>
+<rect x="398" y="445" width="4.1" height="18" fill="#c2d5df"/>
+<rect x="402" y="445" width="4.1" height="18" fill="#c1d4df"/>
+<rect x="406" y="445" width="4.1" height="18" fill="#c0d3de"/>
+<rect x="410" y="445" width="4.1" height="18" fill="#bed2dd"/>
+<rect x="414" y="445" width="4.1" height="18" fill="#bdd1dd"/>
+<rect x="418" y="445" width="4.1" height="18" fill="#bcd0dc"/>
+<rect x="422" y="445" width="4.1" height="18" fill="#bbcfdb"/>
+<rect x="426" y="445" width="4.1" height="18" fill="#b9cfdb"/>
+<rect x="430" y="445" width="4.1" height="18" fill="#b8ceda"/>
+<rect x="434" y="445" width="4.1" height="18" fill="#b7cdd9"/>
+<rect x="438" y="445" width="4.1" height="18" fill="#b5ccd9"/>
+<rect x="442" y="445" width="4.1" height="18" fill="#b4cbd8"/>
+<rect x="446" y="445" width="4.1" height="18" fill="#b3cad7"/>
+<rect x="450" y="445" width="4.1" height="18" fill="#b2c9d6"/>
+<rect x="454" y="445" width="4.1" height="18" fill="#b0c8d6"/>
+<rect x="458" y="445" width="4.1" height="18" fill="#afc7d5"/>
+<rect x="462" y="445" width="4.1" height="18" fill="#aec6d4"/>
+<rect x="466" y="445" width="4.1" height="18" fill="#acc5d4"/>
+<rect x="470" y="445" width="4.1" height="18" fill="#abc4d3"/>
+<rect x="474" y="445" width="4.1" height="18" fill="#aac3d2"/>
+<rect x="478" y="445" width="4.1" height="18" fill="#a8c3d2"/>
+<rect x="482" y="445" width="4.1" height="18" fill="#a7c2d1"/>
+<rect x="486" y="445" width="4.1" height="18" fill="#a6c1d0"/>
+<rect x="490" y="445" width="4.1" height="18" fill="#a5c0d0"/>
+<rect x="494" y="445" width="4.1" height="18" fill="#a3bfcf"/>
+<rect x="498" y="445" width="4.1" height="18" fill="#a2bece"/>
+<rect x="502" y="445" width="4.1" height="18" fill="#a1bdce"/>
+<rect x="506" y="445" width="4.1" height="18" fill="#9fbccd"/>
+<rect x="510" y="445" width="4.1" height="18" fill="#9ebbcc"/>
+<rect x="514" y="445" width="4.1" height="18" fill="#9dbacb"/>
+<rect x="518" y="445" width="4.1" height="18" fill="#9cb9cb"/>
+<rect x="522" y="445" width="4.1" height="18" fill="#9ab8ca"/>
+<rect x="526" y="445" width="4.1" height="18" fill="#99b8c9"/>
+<rect x="530" y="445" width="4.1" height="18" fill="#98b7c9"/>
+<rect x="534" y="445" width="4.1" height="18" fill="#96b6c8"/>
+<rect x="538" y="445" width="4.1" height="18" fill="#95b5c7"/>
+<rect x="542" y="445" width="4.1" height="18" fill="#94b4c7"/>
+<rect x="546" y="445" width="4.1" height="18" fill="#93b3c6"/>
+<rect x="550" y="445" width="4.1" height="18" fill="#91b2c5"/>
+<rect x="554" y="445" width="4.1" height="18" fill="#90b1c5"/>
+<rect x="558" y="445" width="4.1" height="18" fill="#8fb0c4"/>
+<rect x="562" y="445" width="4.1" height="18" fill="#8dafc3"/>
+<rect x="566" y="445" width="4.1" height="18" fill="#8caec2"/>
+<rect x="570" y="445" width="4.1" height="18" fill="#8badc2"/>
+<rect x="574" y="445" width="4.1" height="18" fill="#8aacc1"/>
+<rect x="578" y="445" width="4.1" height="18" fill="#88acc0"/>
+<rect x="582" y="445" width="4.1" height="18" fill="#87abc0"/>
+<rect x="586" y="445" width="4.1" height="18" fill="#86aabf"/>
+<rect x="590" y="445" width="4.1" height="18" fill="#84a9be"/>
+<rect x="594" y="445" width="4.1" height="18" fill="#83a8be"/>
+<rect x="598" y="445" width="4.1" height="18" fill="#82a7bd"/>
+<rect x="602" y="445" width="4.1" height="18" fill="#80a6bc"/>
+<rect x="606" y="445" width="4.1" height="18" fill="#7fa5bc"/>
+<rect x="610" y="445" width="4.1" height="18" fill="#7ea4bb"/>
+<rect x="614" y="445" width="4.1" height="18" fill="#7da3ba"/>
+<rect x="618" y="445" width="4.1" height="18" fill="#7ba2ba"/>
+<rect x="622" y="445" width="4.1" height="18" fill="#7aa1b9"/>
+<rect x="626" y="445" width="4.1" height="18" fill="#79a1b8"/>
+<rect x="630" y="445" width="4.1" height="18" fill="#77a0b7"/>
+<rect x="634" y="445" width="4.1" height="18" fill="#769fb7"/>
+<rect x="638" y="445" width="4.1" height="18" fill="#759eb6"/>
+<rect x="642" y="445" width="4.1" height="18" fill="#749db5"/>
+<rect x="646" y="445" width="4.1" height="18" fill="#729cb5"/>
+<rect x="650" y="445" width="4.1" height="18" fill="#719bb4"/>
+<text x="250.000" y="489.000" font-size="16" text-anchor="middle" fill="#27343E">60%</text>
+<text x="450.000" y="489.000" font-size="16" text-anchor="middle" fill="#27343E">70%</text>
+<text x="650.000" y="489.000" font-size="16" text-anchor="middle" fill="#27343E">80%</text>
+<text x="450.000" y="527.000" font-size="18" text-anchor="middle" fill="#27343E">Synthetic accuracy (%)</text>
+<text x="45.000" y="558.000" font-size="14" text-anchor="start" fill="#27343E">All cells use the same 60% to 80% color scale; gray means no observation.</text>
+<text x="45.000" y="579.000" font-size="14" text-anchor="start" fill="#27343E">Synthetic values illustrate formatting only. Missing data are not replaced by zero.</text>
+</g>
+</svg>

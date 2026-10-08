@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="610" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+<title id="title">Cost and performance: identify actual configurations</title>
+<desc id="desc">Synthetic example. Not paper results. Reproducible using the accompanying Python source.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="45.000" y="42.000" font-size="25" text-anchor="start" fill="#27343E">Cost and performance: identify actual configurations</text>
+<text x="45.000" y="72.000" font-size="18" text-anchor="start" fill="#BA7D73">Synthetic example / Not paper results</text>
+<line x1="110.000" y1="460.000" x2="780.000" y2="460.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="466.000" font-size="16" text-anchor="end" fill="#27343E">50</text>
+<line x1="110.000" y1="364.286" x2="780.000" y2="364.286" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="370.286" font-size="16" text-anchor="end" fill="#27343E">60</text>
+<line x1="110.000" y1="268.571" x2="780.000" y2="268.571" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="274.571" font-size="16" text-anchor="end" fill="#27343E">70</text>
+<line x1="110.000" y1="172.857" x2="780.000" y2="172.857" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="178.857" font-size="16" text-anchor="end" fill="#27343E">80</text>
+<line x1="110.000" y1="460.000" x2="110.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="110.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">0</text>
+<line x1="205.714" y1="460.000" x2="205.714" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="205.714" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">2</text>
+<line x1="301.429" y1="460.000" x2="301.429" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="301.429" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">4</text>
+<line x1="397.143" y1="460.000" x2="397.143" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="397.143" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">6</text>
+<line x1="492.857" y1="460.000" x2="492.857" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="492.857" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">8</text>
+<line x1="588.571" y1="460.000" x2="588.571" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="588.571" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">10</text>
+<line x1="684.286" y1="460.000" x2="684.286" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="684.286" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">12</text>
+<line x1="780.000" y1="460.000" x2="780.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="780.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">14</text>
+<line x1="110.000" y1="125.000" x2="110.000" y2="460.000" stroke="#27343E" stroke-width="1.7"/>
+<line x1="110.000" y1="460.000" x2="780.000" y2="460.000" stroke="#27343E" stroke-width="1.7"/>
+<text x="445.000" y="526.000" font-size="18" text-anchor="middle" fill="#27343E">Online cost per 1,000 queries (synthetic cost units)</text>
+<text x="30.000" y="292.500" font-size="18" text-anchor="middle" fill="#27343E" transform="rotate(-90 30 292.5)">Synthetic accuracy (%)</text>
+<path d="M 148.286,412.143 L 196.143,326.000 L 263.143,249.429 L 349.286,230.286 L 516.786,182.429" stroke="#659386" stroke-width="2" fill="none" fill-opacity="1" stroke-dasharray="5 5"/>
+<circle cx="148.286" cy="412.143" r="6" fill="#567F9C" fill-opacity="1"/>
+<text x="158.286" y="403.143" font-size="16" text-anchor="start" fill="#27343E">A</text>
+<circle cx="196.143" cy="326.000" r="6" fill="#567F9C" fill-opacity="1"/>
+<text x="206.143" y="317.000" font-size="16" text-anchor="start" fill="#27343E">B</text>
+<circle cx="263.143" cy="249.429" r="6" fill="#567F9C" fill-opacity="1"/>
+<text x="273.143" y="240.429" font-size="16" text-anchor="start" fill="#27343E">C</text>
+<circle cx="349.286" cy="230.286" r="6" fill="#567F9C" fill-opacity="1"/>
+<text x="359.286" y="221.286" font-size="16" text-anchor="start" fill="#27343E">D</text>
+<circle cx="516.786" cy="182.429" r="6" fill="#567F9C" fill-opacity="1"/>
+<text x="526.786" y="173.429" font-size="16" text-anchor="start" fill="#27343E">E</text>
+<circle cx="708.214" cy="192.000" r="6" fill="#567F9C" fill-opacity="1"/>
+<text x="718.214" y="183.000" font-size="16" text-anchor="start" fill="#27343E">F</text>
+<text x="45.000" y="558.000" font-size="14" text-anchor="start" fill="#27343E">Dots are six synthetic configurations; dashed segments join non-dominated shown points only.</text>
+<text x="45.000" y="579.000" font-size="14" text-anchor="start" fill="#27343E">Cost covers online queries and excludes one-time training; no intermediate settings are implied.</text>
+</g>
+</svg>

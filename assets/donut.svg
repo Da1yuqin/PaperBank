@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="610" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+<title id="title">Donut: show a composition with an explicit denominator</title>
+<desc id="desc">Synthetic example. Not paper results. Reproducible using the accompanying Python source.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="45.000" y="42.000" font-size="25" text-anchor="start" fill="#27343E">Donut: show a composition with an explicit denominator</text>
+<text x="45.000" y="72.000" font-size="18" text-anchor="start" fill="#BA7D73">Synthetic example / Not paper results</text>
+<circle cx="330" cy="310" r="125" fill="none" stroke="#567F9C" stroke-width="58" stroke-dasharray="314.159265 471.238898" stroke-dashoffset="0.000000" transform="rotate(-90 330 310)"/>
+<circle cx="330" cy="310" r="125" fill="none" stroke="#659386" stroke-width="58" stroke-dasharray="235.619449 549.778714" stroke-dashoffset="-314.159265" transform="rotate(-90 330 310)"/>
+<circle cx="330" cy="310" r="125" fill="none" stroke="#C39D5C" stroke-width="58" stroke-dasharray="157.079633 628.318531" stroke-dashoffset="-549.778714" transform="rotate(-90 330 310)"/>
+<circle cx="330" cy="310" r="125" fill="none" stroke="#BA7D73" stroke-width="58" stroke-dasharray="78.539816 706.858347" stroke-dashoffset="-706.858347" transform="rotate(-90 330 310)"/>
+<text x="330.000" y="305.000" font-size="24" text-anchor="middle" fill="#27343E">n = 100</text>
+<text x="330.000" y="336.000" font-size="16" text-anchor="middle" fill="#27343E">synthetic items</text>
+<circle cx="590.000" cy="224.000" r="7" fill="#567F9C" fill-opacity="1"/>
+<text x="610.000" y="230.000" font-size="18" text-anchor="start" fill="#27343E">Category A: 40 (40%)</text>
+<circle cx="590.000" cy="275.000" r="7" fill="#659386" fill-opacity="1"/>
+<text x="610.000" y="281.000" font-size="18" text-anchor="start" fill="#27343E">Category B: 30 (30%)</text>
+<circle cx="590.000" cy="326.000" r="7" fill="#C39D5C" fill-opacity="1"/>
+<text x="610.000" y="332.000" font-size="18" text-anchor="start" fill="#27343E">Category C: 20 (20%)</text>
+<circle cx="590.000" cy="377.000" r="7" fill="#BA7D73" fill-opacity="1"/>
+<text x="610.000" y="383.000" font-size="18" text-anchor="start" fill="#27343E">Category D: 10 (10%)</text>
+<text x="45.000" y="558.000" font-size="14" text-anchor="start" fill="#27343E">100 synthetic items in four mutually exclusive categories; counts sum to the displayed total.</text>
+<text x="45.000" y="579.000" font-size="14" text-anchor="start" fill="#27343E">Percentages describe a composition, not joint associations between different variables.</text>
+</g>
+</svg>

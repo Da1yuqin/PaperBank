@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="610" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+<title id="title">Paired gains: keep each matched task together</title>
+<desc id="desc">Synthetic example. Not paper results. Reproducible using the accompanying Python source.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="45.000" y="42.000" font-size="25" text-anchor="start" fill="#27343E">Paired gains: keep each matched task together</text>
+<text x="45.000" y="72.000" font-size="18" text-anchor="start" fill="#BA7D73">Synthetic example / Not paper results</text>
+<line x1="110.000" y1="446.600" x2="780.000" y2="446.600" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="452.600" font-size="16" text-anchor="end" fill="#27343E">1</text>
+<line x1="110.000" y1="379.600" x2="780.000" y2="379.600" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="385.600" font-size="16" text-anchor="end" fill="#27343E">6</text>
+<line x1="110.000" y1="299.200" x2="780.000" y2="299.200" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="305.200" font-size="16" text-anchor="end" fill="#27343E">12</text>
+<line x1="110.000" y1="218.800" x2="780.000" y2="218.800" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="224.800" font-size="16" text-anchor="end" fill="#27343E">18</text>
+<line x1="110.000" y1="138.400" x2="780.000" y2="138.400" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="144.400" font-size="16" text-anchor="end" fill="#27343E">24</text>
+<line x1="110.000" y1="460.000" x2="110.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="110.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">-30</text>
+<line x1="213.077" y1="460.000" x2="213.077" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="213.077" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">-20</text>
+<line x1="316.154" y1="460.000" x2="316.154" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="316.154" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">-10</text>
+<line x1="419.231" y1="460.000" x2="419.231" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="419.231" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">0</text>
+<line x1="522.308" y1="460.000" x2="522.308" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="522.308" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">10</text>
+<line x1="625.385" y1="460.000" x2="625.385" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="625.385" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">20</text>
+<line x1="728.462" y1="460.000" x2="728.462" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="728.462" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">30</text>
+<line x1="110.000" y1="125.000" x2="110.000" y2="460.000" stroke="#27343E" stroke-width="1.7"/>
+<line x1="110.000" y1="460.000" x2="780.000" y2="460.000" stroke="#27343E" stroke-width="1.7"/>
+<text x="445.000" y="526.000" font-size="18" text-anchor="middle" fill="#27343E">Accuracy gain (percentage points)</text>
+<text x="30.000" y="292.500" font-size="18" text-anchor="middle" fill="#27343E" transform="rotate(-90 30 292.5)">Matched task ID</text>
+<line x1="419.231" y1="125.000" x2="419.231" y2="460.000" stroke="#9099A1" stroke-width="1.7" stroke-dasharray="5 4"/>
+<line x1="419.231" y1="446.600" x2="305.814" y2="446.600" stroke="#BA7D73" stroke-width="1.6"/>
+<circle cx="305.814" cy="446.600" r="4.5" fill="#BA7D73" fill-opacity="1"/>
+<line x1="419.231" y1="433.200" x2="406.460" y2="433.200" stroke="#BA7D73" stroke-width="1.6"/>
+<circle cx="406.460" cy="433.200" r="4.5" fill="#BA7D73" fill-opacity="1"/>
+<line x1="419.231" y1="419.800" x2="511.540" y2="419.800" stroke="#659386" stroke-width="1.6"/>
+<circle cx="511.540" cy="419.800" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="406.400" x2="556.301" y2="406.400" stroke="#659386" stroke-width="1.6"/>
+<circle cx="556.301" cy="406.400" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="393.000" x2="447.375" y2="393.000" stroke="#659386" stroke-width="1.6"/>
+<circle cx="447.375" cy="393.000" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="379.600" x2="474.453" y2="379.600" stroke="#659386" stroke-width="1.6"/>
+<circle cx="474.453" cy="379.600" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="366.200" x2="204.340" y2="366.200" stroke="#BA7D73" stroke-width="1.6"/>
+<circle cx="204.340" cy="366.200" r="4.5" fill="#BA7D73" fill-opacity="1"/>
+<line x1="419.231" y1="352.800" x2="588.359" y2="352.800" stroke="#659386" stroke-width="1.6"/>
+<circle cx="588.359" cy="352.800" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="339.400" x2="632.505" y2="339.400" stroke="#659386" stroke-width="1.6"/>
+<circle cx="632.505" cy="339.400" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="326.000" x2="552.330" y2="326.000" stroke="#659386" stroke-width="1.6"/>
+<circle cx="552.330" cy="326.000" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="312.600" x2="453.596" y2="312.600" stroke="#659386" stroke-width="1.6"/>
+<circle cx="453.596" cy="312.600" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="299.200" x2="242.939" y2="299.200" stroke="#BA7D73" stroke-width="1.6"/>
+<circle cx="242.939" cy="299.200" r="4.5" fill="#BA7D73" fill-opacity="1"/>
+<line x1="419.231" y1="285.800" x2="439.747" y2="285.800" stroke="#659386" stroke-width="1.6"/>
+<circle cx="439.747" cy="285.800" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="272.400" x2="544.095" y2="272.400" stroke="#659386" stroke-width="1.6"/>
+<circle cx="544.095" cy="272.400" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="259.000" x2="496.985" y2="259.000" stroke="#659386" stroke-width="1.6"/>
+<circle cx="496.985" cy="259.000" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="245.600" x2="475.198" y2="245.600" stroke="#659386" stroke-width="1.6"/>
+<circle cx="475.198" cy="245.600" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="232.200" x2="436.990" y2="232.200" stroke="#659386" stroke-width="1.6"/>
+<circle cx="436.990" cy="232.200" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="218.800" x2="522.667" y2="218.800" stroke="#659386" stroke-width="1.6"/>
+<circle cx="522.667" cy="218.800" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="205.400" x2="501.126" y2="205.400" stroke="#659386" stroke-width="1.6"/>
+<circle cx="501.126" cy="205.400" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="192.000" x2="484.140" y2="192.000" stroke="#659386" stroke-width="1.6"/>
+<circle cx="484.140" cy="192.000" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="178.600" x2="558.876" y2="178.600" stroke="#659386" stroke-width="1.6"/>
+<circle cx="558.876" cy="178.600" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="165.200" x2="541.966" y2="165.200" stroke="#659386" stroke-width="1.6"/>
+<circle cx="541.966" cy="165.200" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="151.800" x2="460.536" y2="151.800" stroke="#659386" stroke-width="1.6"/>
+<circle cx="460.536" cy="151.800" r="4.5" fill="#659386" fill-opacity="1"/>
+<line x1="419.231" y1="138.400" x2="417.212" y2="138.400" stroke="#BA7D73" stroke-width="1.6"/>
+<circle cx="417.212" cy="138.400" r="4.5" fill="#BA7D73" fill-opacity="1"/>
+<text x="45.000" y="558.000" font-size="14" text-anchor="start" fill="#27343E">24 synthetic matched tasks; each dot is intervention accuracy minus baseline accuracy.</text>
+<text x="45.000" y="579.000" font-size="14" text-anchor="start" fill="#27343E">The dashed zero line marks no gain. These task-level differences are not significance tests.</text>
+</g>
+</svg>

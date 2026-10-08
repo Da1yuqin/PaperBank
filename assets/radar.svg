@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="610" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+<title id="title">Radar: compare profiles on explicitly normalized axes</title>
+<desc id="desc">Synthetic example. Not paper results. Reproducible using the accompanying Python source.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="45.000" y="42.000" font-size="25" text-anchor="start" fill="#27343E">Radar: compare profiles on explicitly normalized axes</text>
+<text x="45.000" y="72.000" font-size="18" text-anchor="start" fill="#BA7D73">Synthetic example / Not paper results</text>
+<path d="M 410.000,258.000 L 449.944,287.021 L 434.687,333.979 L 385.313,333.979 L 370.056,287.021 Z" stroke="#E3E8EB" stroke-width="1.2" fill="none" fill-opacity="1"/>
+<text x="418.000" y="264.000" font-size="14" text-anchor="start" fill="#27343E">0.25</text>
+<path d="M 410.000,216.000 L 489.889,274.043 L 459.374,367.957 L 360.626,367.957 L 330.111,274.043 Z" stroke="#E3E8EB" stroke-width="1.2" fill="none" fill-opacity="1"/>
+<text x="418.000" y="222.000" font-size="14" text-anchor="start" fill="#27343E">0.5</text>
+<path d="M 410.000,174.000 L 529.833,261.064 L 484.061,401.936 L 335.939,401.936 L 290.167,261.064 Z" stroke="#E3E8EB" stroke-width="1.2" fill="none" fill-opacity="1"/>
+<text x="418.000" y="180.000" font-size="14" text-anchor="start" fill="#27343E">0.75</text>
+<path d="M 410.000,132.000 L 569.777,248.085 L 508.748,435.915 L 311.252,435.915 L 250.223,248.085 Z" stroke="#E3E8EB" stroke-width="1.2" fill="none" fill-opacity="1"/>
+<text x="418.000" y="138.000" font-size="14" text-anchor="start" fill="#27343E">1</text>
+<line x1="410.000" y1="300.000" x2="410.000" y2="132.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="410.000" y="112.000" font-size="17" text-anchor="middle" fill="#27343E">Coverage</text>
+<line x1="410.000" y1="300.000" x2="569.777" y2="248.085" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="615.428" y="246.051" font-size="17" text-anchor="middle" fill="#27343E">Recall</text>
+<line x1="410.000" y1="300.000" x2="508.748" y2="435.915" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="536.962" y="462.949" font-size="17" text-anchor="middle" fill="#27343E">Precision</text>
+<line x1="410.000" y1="300.000" x2="311.252" y2="435.915" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="283.038" y="462.949" font-size="17" text-anchor="middle" fill="#27343E">Consistency</text>
+<line x1="410.000" y1="300.000" x2="250.223" y2="248.085" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="204.572" y="246.051" font-size="17" text-anchor="middle" fill="#27343E">Recovery</text>
+<line x1="595.000" y1="100.000" x2="620.000" y2="100.000" stroke="#567F9C" stroke-width="4"/>
+<text x="629.000" y="106.000" font-size="16" text-anchor="start" fill="#27343E">Profile A</text>
+<line x1="742.500" y1="100.000" x2="767.500" y2="100.000" stroke="#659386" stroke-width="4"/>
+<text x="776.500" y="106.000" font-size="16" text-anchor="start" fill="#27343E">Profile B</text>
+<path d="M 410.000,179.040 L 515.453,265.736 L 488.998,408.732 L 340.876,395.140 L 307.742,266.774 Z" stroke="#567F9C" stroke-width="2.7" fill="#567F9C" fill-opacity="0.12"/>
+<circle cx="410.000" cy="179.040" r="4" fill="#567F9C" fill-opacity="1"/>
+<circle cx="515.453" cy="265.736" r="4" fill="#567F9C" fill-opacity="1"/>
+<circle cx="488.998" cy="408.732" r="4" fill="#567F9C" fill-opacity="1"/>
+<circle cx="340.876" cy="395.140" r="4" fill="#567F9C" fill-opacity="1"/>
+<circle cx="307.742" cy="266.774" r="4" fill="#567F9C" fill-opacity="1"/>
+<path d="M 410.000,165.600 L 531.431,260.545 L 486.036,404.654 L 329.027,411.450 L 299.754,264.179 Z" stroke="#659386" stroke-width="2.7" fill="#659386" fill-opacity="0.12"/>
+<circle cx="410.000" cy="165.600" r="4" fill="#659386" fill-opacity="1"/>
+<circle cx="531.431" cy="260.545" r="4" fill="#659386" fill-opacity="1"/>
+<circle cx="486.036" cy="404.654" r="4" fill="#659386" fill-opacity="1"/>
+<circle cx="329.027" cy="411.450" r="4" fill="#659386" fill-opacity="1"/>
+<circle cx="299.754" cy="264.179" r="4" fill="#659386" fill-opacity="1"/>
+<text x="45.000" y="558.000" font-size="14" text-anchor="start" fill="#27343E">All axes use synthetic normalized scores from 0 to 1; higher is better.</text>
+<text x="45.000" y="579.000" font-size="14" text-anchor="start" fill="#27343E">Compare individual axes. Filled polygon area is not a validated overall score.</text>
+</g>
+</svg>

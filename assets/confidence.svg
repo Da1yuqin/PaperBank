@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="610" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+<title id="title">Bootstrap intervals: identify the resampled unit</title>
+<desc id="desc">Synthetic example. Not paper results. Reproducible using the accompanying Python source.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="45.000" y="42.000" font-size="25" text-anchor="start" fill="#27343E">Bootstrap intervals: identify the resampled unit</text>
+<text x="45.000" y="72.000" font-size="18" text-anchor="start" fill="#BA7D73">Synthetic example / Not paper results</text>
+<line x1="110.000" y1="429.545" x2="780.000" y2="429.545" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="435.545" font-size="16" text-anchor="end" fill="#27343E">30</text>
+<line x1="110.000" y1="368.636" x2="780.000" y2="368.636" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="374.636" font-size="16" text-anchor="end" fill="#27343E">40</text>
+<line x1="110.000" y1="307.727" x2="780.000" y2="307.727" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="313.727" font-size="16" text-anchor="end" fill="#27343E">50</text>
+<line x1="110.000" y1="246.818" x2="780.000" y2="246.818" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="252.818" font-size="16" text-anchor="end" fill="#27343E">60</text>
+<line x1="110.000" y1="185.909" x2="780.000" y2="185.909" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="191.909" font-size="16" text-anchor="end" fill="#27343E">70</text>
+<line x1="110.000" y1="125.000" x2="780.000" y2="125.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="97.000" y="131.000" font-size="16" text-anchor="end" fill="#27343E">80</text>
+<line x1="110.000" y1="460.000" x2="110.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="110.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">0</text>
+<line x1="244.000" y1="460.000" x2="244.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="244.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">1</text>
+<line x1="378.000" y1="460.000" x2="378.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="378.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">2</text>
+<line x1="512.000" y1="460.000" x2="512.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="512.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">3</text>
+<line x1="646.000" y1="460.000" x2="646.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="646.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">4</text>
+<line x1="780.000" y1="460.000" x2="780.000" y2="466.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="780.000" y="487.000" font-size="16" text-anchor="middle" fill="#27343E">5</text>
+<line x1="110.000" y1="125.000" x2="110.000" y2="460.000" stroke="#27343E" stroke-width="1.7"/>
+<line x1="110.000" y1="460.000" x2="780.000" y2="460.000" stroke="#27343E" stroke-width="1.7"/>
+<text x="445.000" y="526.000" font-size="18" text-anchor="middle" fill="#27343E">Ordered synthetic setting</text>
+<text x="30.000" y="292.500" font-size="18" text-anchor="middle" fill="#27343E" transform="rotate(-90 30 292.5)">Mean synthetic response (arbitrary units)</text>
+<line x1="110.000" y1="100.000" x2="135.000" y2="100.000" stroke="#567F9C" stroke-width="4"/>
+<text x="144.000" y="106.000" font-size="16" text-anchor="start" fill="#27343E">Mean</text>
+<line x1="210.000" y1="100.000" x2="235.000" y2="100.000" stroke="#659386" stroke-width="4"/>
+<text x="244.000" y="106.000" font-size="16" text-anchor="start" fill="#27343E">Inner: 68%</text>
+<line x1="367.000" y1="100.000" x2="392.000" y2="100.000" stroke="#9099A1" stroke-width="4"/>
+<text x="401.000" y="106.000" font-size="16" text-anchor="start" fill="#27343E">Outer: 95%</text>
+<path d="M 110.000,385.044 L 244.000,366.234 L 378.000,326.396 L 512.000,281.980 L 646.000,259.708 L 780.000,224.463 L 780.000,192.085 L 646.000,230.646 L 512.000,251.207 L 378.000,291.230 L 244.000,336.711 L 110.000,351.786 Z" stroke="#9099A1" stroke-width="0" fill="#9099A1" fill-opacity="0.14"/>
+<path d="M 110.000,376.332 L 244.000,359.022 L 378.000,316.912 L 512.000,274.976 L 646.000,252.505 L 780.000,216.166 L 780.000,200.364 L 646.000,237.791 L 512.000,259.431 L 378.000,299.754 L 244.000,344.612 L 110.000,359.726 Z" stroke="#659386" stroke-width="0" fill="#659386" fill-opacity="0.3"/>
+<path d="M 110.000,367.827 L 244.000,351.554 L 378.000,308.006 L 512.000,267.407 L 646.000,244.954 L 780.000,208.381" stroke="#567F9C" stroke-width="3" fill="none" fill-opacity="1"/>
+<circle cx="110.000" cy="367.827" r="4.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="244.000" cy="351.554" r="4.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="378.000" cy="308.006" r="4.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="512.000" cy="267.407" r="4.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="646.000" cy="244.954" r="4.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="780.000" cy="208.381" r="4.5" fill="#567F9C" fill-opacity="1"/>
+<text x="45.000" y="558.000" font-size="14" text-anchor="start" fill="#27343E">40 independent synthetic observations per setting; 1,000 bootstrap resamples per setting.</text>
+<text x="45.000" y="579.000" font-size="14" text-anchor="start" fill="#27343E">Pointwise percentile intervals of the mean; connecting bands only guide the eye.</text>
+</g>
+</svg>
