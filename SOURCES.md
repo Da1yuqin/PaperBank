@@ -108,3 +108,12 @@ UrbanZero 的 8 个例子依据作者公开主页仓库的项目介绍编写，�
 29 组逐句示范包括 9 处真实论文短引，其余为明确标注的教学例句。真实短引沿用上面的出处、版本与位置，不把不同论文拼成同一篇文章；摘要或图注中的句子用于说明引言或方法写法时，标明实际来源位置。教学问答研究中的方法协议、200 道问题、72%→81% 支持率和 1.2→1.5 秒延迟均为假设，不是任何论文的实测结果。段落顺序展示论证任务，不规定固定段数；按领域、研究类型和投稿模板调整。
 
 首页提示词按作者笔记的流程整理：先提纲与粗稿，再画图、人工精挑，最后通读全文精修。贡献修饰词例子对应已确认的写作要求：具体、正面、有事实依据；等量替换，不靠堆词增加篇幅。例句不声称描述任何已发表论文的事实。
+
+
+## 四章结构与补充模板
+
+起草、绘图、Refine、工具按作者提供的流程重新组织。全文表达要求、Related Work 和 Method Overview 等完整句式由 PaperBank 编写，方括号模板和改写均为教学示例，不是论文原文。原有 56 处短引保持原句与出处。公开 skill 同步包含全文规范和各章模板，不分发论文源稿或第三方原图。
+
+Overleaf 本地 Git 同步的 Premium 权限与当前入口核对自 [Git integration](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/git-integration)；无 Git 权限时的 ZIP 下载核对自 [Downloading a project](https://docs.overleaf.com/managing-projects-and-files/downloading-a-project)。
+
+新版子刊图例对应 Bruno et al., *A universal framework for inclusive 15-minute cities*, Nature Cities 1, 633–641 (2024), [DOI](https://doi.org/10.1038/s44284-024-00119-4)。图 1、图 2 的内容与编码核对自作者的 [arXiv:2408.03794v1](https://arxiv.org/html/2408.03794v1)：颜色为 Gini，圆大小为人口密度；图 2b 为现有 POI 迁移比例。该预印本是 arXiv 非独占分发许可，出版社版本保留版权；本指南只链接原图并提供原创点评，不重新托管这两张图片。

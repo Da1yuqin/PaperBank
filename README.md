@@ -1,6 +1,6 @@
 # PaperBank · 论文怎么写
 
-开头约 300 字讲清怎么让 Codex 先粗写，附可复制提示词与七项填法。再看通用铁律，按论文顺序逐段读：29 组例子逐句给英文、中文和解释；检查清单按需展开。
+四章按实际写作流程走：① 一天拉完草稿，四步与填空提示词；② 光速出美图，图型、原图和拆解；③ Refine，先讲全文规范，再按论文顺序逐段逐句精修；④ 推荐 AI 工具。Related Work 和 Method Overview 附完整模板。
 
 [在线阅读](https://da1yuqin.github.io/PaperBank/) · [写作 skill](assets/paperbank-writing-skill.zip) · [Markdown 全文](book/guide.md) · [工具](https://da1yuqin.github.io/PaperBank/#tools) · [来源](SOURCES.md)
 
