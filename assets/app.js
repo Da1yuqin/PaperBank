@@ -14,6 +14,7 @@ function sync(){
   const n=c.querySelectorAll('.entry:not([hidden])').length, paragraphs=c.querySelectorAll('.paragraph-lesson:not([hidden])').length;
   c.hidden=!n&&!paragraphs;
   const shown=c.querySelector('.shown');if(shown)shown.textContent=paragraphs?`${paragraphs} 段 · ${n} 项检查`:`${n} 项检查`;
+  c.querySelectorAll('.more-lessons').forEach(detail=>{const matches=detail.querySelector('.paragraph-lesson:not([hidden])');detail.hidden=!matches;if(filtering&&matches&&!detail.open){detail.dataset.filterOpened='true';detail.open=true;}else if(!filtering&&detail.dataset.filterOpened){detail.open=false;delete detail.dataset.filterOpened;}});
   c.querySelectorAll('.chapter-checks').forEach(detail=>{
    const matches=detail.querySelector('.entry:not([hidden])');detail.hidden=!matches;
    if(filtering&&matches&&!detail.open){detail.dataset.filterOpened='true';detail.open=true;}
