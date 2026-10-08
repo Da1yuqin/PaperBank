@@ -11,7 +11,7 @@
 
 先把故事、图和结构立住，再磨英语。实验材料齐了，就让 Codex 先拉一版可讨论的粗稿；你负责挑贡献、审逻辑。第一天别和一个形容词决斗。
 
-### Step 1 下载会议官方模板
+### 1.1 下载会议官方模板
 
 去目标会议官网拿当年的模板，确认正文几页、参考文献和附录算不算。先编译原模板，再开始填内容。
 
@@ -21,7 +21,7 @@ Try: Read the official author guide, preserve the template font size, column wid
 
 Download the current template from the venue website. Check the body page limit and whether references and appendices count. Compile the unchanged template before adding content.
 
-### Step 2 拉到本地，填提示词，先粗写
+### 1.2 Overleaf 同步到本地，用 Codex 拉粗稿
 
 Overleaf 会员支持 Git 同步：Integrations → Git 取地址，让 Codex 拉到本地，改完再同步回去。没有 Git 权限就下载源文件 ZIP。读入 PaperBank 写作 skill，填好下面的提示词，先出提纲和粗稿。
 
@@ -77,7 +77,7 @@ Overleaf Cloud 的 Git 同步属于 Premium 功能，按项目拥有者的订阅
 
 [Overleaf: Git integration](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/git-integration) · [Overleaf: Downloading a project](https://docs.overleaf.com/managing-projects-and-files/downloading-a-project)
 
-### Step 3 先把图画出来
+### 1.3 先做图，给合作者看
 
 引言图讲为什么要做，方法图讲怎么做，结果图讲发现了什么。先把图定下来，方便合作者审故事；正文跟着图写。曲线用真实数据画，精修见第二章「光速出美图」。
 
@@ -87,7 +87,7 @@ Try: Propose one introduction figure and one method figure. Use the same case to
 
 The introduction figure explains why the work is needed, the method figure shows how it works, and result plots show what was found. Settle the figures so coauthors can review the story, then refine the prose around them. Plot curves from actual data; see Chapter 2 for figure refinement.
 
-### Step 4 控篇幅，中文审核，定 section 标题
+### 1.4 控篇幅、审逻辑，定下全部章节标题
 
 让 Codex 按页数分配各节篇幅，每次把一节译成中文，你来审逻辑。讲通后定下全部正文 section 标题，再组织英文写回去。同级小节别一边两行、一边两页。逐段精修放到第三章。
 
@@ -513,7 +513,7 @@ Read the supplied paperbank-writing/SKILL.md and select the rules in references/
 
 Less is more。画了半天还讲不清，先删东西。先用粗图定问题和论证，再调配色、字号、留白。
 
-以下是本指南的绘图默认，不替代会议模板；图型按数据关系选，不要求每篇论文集齐全套。
+这些是本指南的绘图默认，按数据关系和会议模板调整。论文原图保留出处与许可；标为教学图的只含模拟数据。
 
 ### 先定规则，再画
 
@@ -523,11 +523,17 @@ Show where the existing pipeline fails and which step our method changes.
 
 画清旧流程在哪一步出问题，我们改了哪一步。
 
+![问题和解法放在同一张图](../assets/paper-tcod-fig-1.png)
+[原图与拆解](#visual-tcod-fig-1)
+
 - **图先于正文精修：**先用粗图和真实数据定论证，给合作者看；图讲不清，正文先别忙着抛光。
 
 Panel (a) shows the observed gap; panel (b) tests the proposed repair.
 
 (a) 展示实际缺口；(b) 检验我们的修补。
+
+![对照图要对齐改动](../assets/paper-tcod-fig-3.png)
+[原图与拆解](#visual-tcod-fig-3)
 
 - **统计图用 Python，概念图用 imagegen：**曲线、柱图、散点、热图从真实数据绘制；框架、动机、案例图用 imagegen。别让生成模型自由发挥实验点。
 
@@ -535,11 +541,20 @@ Draw the recorded success rates with Python. Generate only the workflow illustra
 
 成功率用 Python 按记录画；imagegen 只生成流程示意。
 
+![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
+[原图与拆解](#visual-interactcs-fig-1)
+
+![KDE：看哪里密集，不是已经累计了多少](../assets/kde.svg)
+[原图与拆解](#teaching-kde)
+
 - **先定最终宽度和字号：**按会议栏宽起稿；图内同一字体、同一字号，正文至小 2 pt。通栏约 16:9，单栏约 4:3；附录长图可纵排。
 
 Use the paper’s column width and body font; remove repeated labels rather than shrinking text.
 
 用论文栏宽和正文字体；删重复标签，不把字缩成蚂蚁。
+
+![对照图要对齐改动](../assets/paper-tcod-fig-3.png)
+[原图与拆解](#visual-tcod-fig-3)
 
 - **位置就是阅读顺序：**主方向统一；同层成组，并行流程按真实依赖分支或汇合，反馈单列支路。每条箭头都能说清谁给谁什么。
 
@@ -547,11 +562,17 @@ Retrieved passages enter the generator; the evaluator receives the generated ans
 
 检索段落送给生成器；生成的回答交给评价器。
 
+![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
+[原图与拆解](#visual-interactcs-fig-1)
+
 - **输入、输出和评分分清：**用不同边框或线型区分；评分只供评价时，不要连成模型输入。同类对象全文同色、同样式。
 
 Dashed boxes contain model inputs; solid boxes contain responses; dotted boxes contain evaluator-only criteria.
 
 虚线框是模型输入，实线框是回复，点线框是只供评价的判据。
+
+![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
+[原图与拆解](#visual-interactcs-fig-1)
 
 - **白底，少色，颜色有含义：**面板尽量白；低饱和色用于分组与关键对照。颜色再配文字、形状或纹理，黑白打印也能认。
 
@@ -559,11 +580,17 @@ Blue circles denote the baseline; orange triangles denote our method in every pa
 
 每个面板都用蓝圆点表示基线，橙三角表示我们的方法。
 
+![消融：颜色分组，纹理分方法](../assets/paper-interactcs-fig2.png)
+[原图与拆解](#visual-interactcs-fig-2)
+
 - **字多就分组，别开彩虹派对：**案例按背景、证据、动作、结果排；同类文本同框，重点才高亮。图标就近写对象名。
 
 The left column contains evidence; the right column shows the model response and its evaluation.
 
 左栏放证据；右栏放模型回复和评价。
+
+![案例：相同信息同框](../assets/paper-interactcs-case-summary.png)
+[原图与拆解](#fig-interactcs-case)
 
 - **同一内容别反复贴：**同一段对话别在动机、方法、附录反复贴；新增分析可复用案例，写清区别。案例解释怎么运行，不替代总体实验。
 
@@ -571,17 +598,26 @@ Figure 1 presents the case; Section 4 refers back to Figure 1 without repeating 
 
 案例放图 1；第 4 节回引图 1，不再抄一遍对话。
 
+![案例：相同信息同框](../assets/paper-interactcs-case-summary.png)
+[原图与拆解](#fig-interactcs-case)
+
 - **多子图必须组成论证：**现象、诊断、对照、稳健性按任务排；同对象同颜色，同条件同顺序，相关横轴对齐。
 
 The first panel identifies the gap, the second locates it, and the third tests whether it persists.
 
 第一图找差距，第二图找发生位置，第三图检验差距是否仍在。
 
-- **数据和几何一起核对：**查数值、分母、单位、方向、坐标起点、误差含义。相对增益同时给绝对值；均值最好不等于显著。
+![TCOD：四幅图围着一个诊断](../assets/paper-tcod-fig2.png)
+[原图与拆解](#visual-tcod-fig-2)
+
+- **数据和几何一起核对：**查数值、分母、单位、方向、坐标起点、误差含义。相对增益同时给绝对值；均值最高不等于差异显著。
 
 Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.
 
 准确率从 60% 到 66%：增加 6 个百分点，相对提高 10%。
+
+![配对增益：同一任务，直接看差了多少](../assets/paired-gain.svg)
+[原图与拆解](#teaching-paired-gain)
 
 - **图注讲读法和发现：**主题句、子图含义、必要口径；缩写、误差、参考线讲清。尽量三行，必要信息优先，不复述整段正文。
 
@@ -589,11 +625,17 @@ Error bars show 95% question-level bootstrap intervals; the horizontal line mark
 
 误差条表示按题目重采样的 95% 区间；水平线表示零增益。
 
+![置信带：先认统计单位，再认内外两层](../assets/confidence.svg)
+[原图与拆解](#teaching-confidence)
+
 - **交付 PDF，放回论文看：**统计图优先矢量；imagegen 图面可配原生 PDF 文字，不能冒充全矢量。最终检查字号、可选文字、裁切、引用顺序与图注。
 
 Place the figure after its first mention and check all labels at normal reading size.
 
 按首次引用顺序排图，以正常阅读大小检查全部文字。
+
+![问题和解法放在同一张图](../assets/paper-tcod-fig-1.png)
+[原图与拆解](#visual-tcod-fig-1)
 
 ### 按图的任务选模板
 
@@ -603,11 +645,17 @@ Show the problem, the existing limitation, and the changed step.
 
 展示问题、已有解法的缺口和我们改动的步骤。
 
+![问题和解法放在同一张图](../assets/paper-tcod-fig-1.png)
+[原图与拆解](#visual-tcod-fig-1)
+
 - **框架图：**输入是什么，经过哪几个模块，每步产物交给谁，输出是什么。旁边走一个可追踪例子。
 
 Given a query, retrieve passages, rank evidence, and generate an answer with cited support.
 
 输入问题，检索段落，筛选证据，再生成带来源的回答。
+
+![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
+[原图与拆解](#visual-interactcs-fig-1)
 
 - **案例图：**必要背景、有效需求、关键证据、动作、结果、判据；同类信息同框。
 
@@ -615,11 +663,17 @@ Separate the request, evidence, response, and evaluation.
 
 把请求、证据、回复和评价分开。
 
-- **主结果与消融：**少量方法用点图或柱图；完整方法与删组件版本同顺序、同配色。误差按实际运行计算。
+![案例：相同信息同框](../assets/paper-interactcs-case-summary.png)
+[原图与拆解](#fig-interactcs-case)
+
+- **主结果与消融：**少量方法用点图或柱图；完整方法与删组件版本同顺序、同配色。说明误差的统计单位和计算方法。
 
 Compare the complete model with variants that remove one component.
 
 完整方法与只删除一个组件的变体对照。
+
+![消融：颜色分组，纹理分方法](../assets/paper-interactcs-fig2.png)
+[原图与拆解](#visual-interactcs-fig-2)
 
 - **配对增益：**同一样本的干预与对照，画差值和零线；写清收益方向与尺度。
 
@@ -627,17 +681,35 @@ Each point shows the intervention-minus-control accuracy on matched questions.
 
 每个点表示同一批题目上干预相对对照的准确率差。
 
+![配对增益：同一任务，直接看差了多少](../assets/paired-gain.svg)
+[原图与拆解](#teaching-paired-gain)
+
 - **训练或轮次动态：**折线只连有序变量；横轴写训练步数或轮次，不把无序方法连成趋势。
 
 Track success rate and penalty magnitude against the same training steps.
 
 用相同训练步数同时追踪成功率和惩罚强度。
 
-- **分布图：**ECDF 看累计分布，KDE 看平滑密度。标样本、带宽或分位数；曲线顺滑不代表实验好。
+![训练动态：控制量和实际行为并排](../assets/paper-interactcs-fig3.png)
+[原图与拆解](#visual-interactcs-fig-3)
 
-Use an ECDF to compare cumulative probabilities; use KDE to inspect density.
+- **KDE：看分布形状：**横轴是变量，纵轴是密度；颜色跟组走，均值线补位置，交代样本量和带宽。峰高不是人数，也不是累计比例。
 
-ECDF 比累计概率，KDE 看密度。
+Compare density shapes with a shared bandwidth; mark sample counts and mean values.
+
+统一带宽比较密度形状，并标样本量与均值。
+
+![KDE：看哪里密集，不是已经累计了多少](../assets/kde.svg)
+[原图与拆解](#teaching-kde)
+
+- **ECDF：看阈值以下有多少：**横轴取阈值，纵轴直接读累计比例；同一坐标比两组，阶梯从 0 到 1。想读“多少样本低于 10”，别去量 KDE 的峰。
+
+At a threshold of 10, the ECDF gives the fraction of observations at or below 10.
+
+阈值取 10 时，ECDF 直接给出不超过 10 的样本比例。
+
+![ECDF：直接读有多少样本不超过这个值](../assets/ecdf.svg)
+[原图与拆解](#teaching-ecdf)
 
 - **热图：**条件乘方法，统一色标；正负增益以零为中点，缺测留空并说明。
 
@@ -645,11 +717,26 @@ Use one shared color scale for all conditions and mark missing cells.
 
 全部条件使用统一色标，缺测单元明确标记。
 
-- **PCA 与雷达图：**PCA 写输入、标准化、解释方差；雷达图写归一化，量纲不同别比较面积。
+![热图：一个色标，缺测直接空出来](../assets/heatmap.svg)
+[原图与拆解](#teaching-heatmap)
 
-A separated PCA projection illustrates the representation; it does not establish generalization.
+- **PCA：把高维关系投到二维：**说明输入特征、标准化、每轴解释方差。颜色或轨迹分别代表什么写清；分得开不等于泛化好。PaCMAP、t-SNE 也别改名叫 PCA。
 
-PCA 投影展示特征关系；投影分得开不证明泛化。
+Project standardized features onto two principal components and report the variance explained by each axis.
+
+把标准化特征投到两个主成分，并报告每根轴的解释方差。
+
+![PCA：先定义输入，再看二维投影](../assets/pca.svg)
+[原图与拆解](#teaching-pca)
+
+- **雷达图：多指标逐轴读：**每轴一个指标，写尺度、归一化和好坏方向；颜色再配点形。量纲不同别比面积，轴换个顺序，面积也会换。
+
+Compare normalized metrics spoke by spoke; polygon area is not an overall score.
+
+沿每根轴比较归一化指标；多边形面积不是综合分数。
+
+![雷达：看各项轮廓，别拿面积当总分](../assets/radar.svg)
+[原图与拆解](#teaching-radar)
 
 - **成本性能图：**每点是一个实际配置；在线与离线成本分开，写单位和好坏方向。连接前沿不意味着有中间配置。
 
@@ -657,17 +744,26 @@ Plot measured accuracy against online cost; report one-time training cost separa
 
 实测准确率对照在线成本；一次性训练成本另报。
 
+![成本性能：每个点对应一项明确配置](../assets/cost.svg)
+[原图与拆解](#teaching-cost)
+
 - **数据集分布：**统计单位、样本量、类别和分母先写清；同一图别混案例数、回复数和判据数。重点是覆盖了什么，不是圆画得多圆。
 
 Count unique cases by domain; report response counts separately.
 
 按领域统计独立案例数；回复数量另报。
 
-- **置信带：**按实际重采样或模型计算区间；内外带标置信水平。同一图中更宽的带表示更高覆盖范围，不是更多实验。
+![环图：组成比例，先说总数](../assets/donut.svg)
+[原图与拆解](#teaching-donut)
+
+- **置信带：**按实际重采样或模型计算区间，写清区间类型和置信水平。同一估计的嵌套区间才可比较覆盖范围；不同样本量、方差也会改变带宽。
 
 Nested bands show the estimated 68% and 95% intervals under the stated procedure.
 
 嵌套色带表示按所述方法估计的 68% 和 95% 区间。
+
+![置信带：先认统计单位，再认内外两层](../assets/confidence.svg)
+[原图与拆解](#teaching-confidence)
 
 - **饼图、环图与圆环排名：**饼图只画互斥且组成整体的比例；圆环柱图可画排名，极值相邻只是环形排序，不是变量关系。要读精确差值，横向条图更方便。
 
@@ -675,64 +771,859 @@ Use slices for a composition and ordered bars for a ranking.
 
 组成比例用扇区；排名用有顺序的柱条。
 
+![环图：组成比例，先说总数](../assets/donut.svg)
+[原图与拆解](#teaching-donut)
+
 - **二维增益与九宫格：**两轴分别写指标、单位和好坏方向；差值图以零线分区。九宫格用于两个有序因素的组合，别为凑九格补数据。
 
 With both gains defined as higher is better, the upper-right quadrant shows improvements on both metrics.
 
 两个增益都定义为越高越好时，右上象限表示两项指标都改善。
 
+![二维增益：右上都改善，其他象限看取舍](../assets/two-gain.svg)
+[原图与拆解](#teaching-two-gain)
+
+### 图例库：原图与逐图拆解
+
+
+<details><summary>动机与框架 · 3 张图</summary>
+
+
+<a id="visual-tcod-fig-1"></a>
+#### 问题和解法放在同一张图
+
+左边画误差随轮次的示意，中间放大回复细节，右边对照三种训练范围；先看到问题，再看到改哪一步。
+
+![问题和解法放在同一张图](../assets/paper-tcod-fig-1.png)
+
+Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。
+
+A schematic turn-wise divergence trend appears on the left, enlarged response details in the center, and three training ranges on the right, linking the problem to the changed step.
+
+颜色、文本框和时间线分别承担不同信息，关键对照沿同一个方向阅读。
+
+示意曲线不等于实测数据；数值块代表什么、为什么某些轮次不计算，须回到原图注解释。
+
+来源：[TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 1, PDF p. 2](https://arxiv.org/abs/2604.24005v3)
+
+[图片许可](https://creativecommons.org/licenses/by/4.0/)
+
+<a id="visual-tcod-fig-3"></a>
+#### 对照图要对齐改动
+
+基线和两种课程共用步骤框与师生图标，再沿轮数展开；读者直接看训练覆盖哪一段，不必重读三套流程。
+
+![对照图要对齐改动](../assets/paper-tcod-fig-3.png)
+
+Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 3. CC BY 4.0. 从原页裁切；图形与数据未改。
+
+The baseline and two curricula reuse step boxes and teacher–student icons, then unfold across rounds; aligned structures reveal which segment each training strategy covers.
+
+共享图形语法，只有变动位置需要额外解释；比三个完全不同的布局更容易比较。
+
+步骤色彩与轮数标签要在原图注中定义，图标本身不解释损失或训练目标。
+
+来源：[TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 3, PDF p. 5](https://arxiv.org/abs/2604.24005v3)
+
+[图片许可](https://creativecommons.org/licenses/by/4.0/)
+
+<a id="visual-interactcs-fig-1"></a>
+#### 大框先分两块，小框再编号
+
+先分交互生成和策略优化两块，再编号结果、过程、成本三种信号；旁边的对话走一遍流程。
+
+![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
+
+Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。
+
+Group interaction generation and policy optimization first, then number the outcome, process, and cost signals. The dialogue traces an instance through the workflow.
+
+分组讲职责，箭头讲信息流，编号讲步骤。
+
+原图用公开论文中的对话示例；自己的案例须处理身份信息，并区分输入、输出与评分信号。
+
+来源：[Reinforcing Real-world Service Agents: Balancing Utility and Cost in Task-oriented Dialogue · arXiv:2602.22697v1, Fig. 1, PDF p. 4](https://arxiv.org/abs/2602.22697v1)
+
+[图片许可](https://creativecommons.org/licenses/by/4.0/)
+
+</details>
+
+
+<details><summary>诊断与训练动态 · 4 张图</summary>
+
+
+<a id="visual-tcod-fig-4"></a>
+#### 效果曲线旁边放机制曲线
+
+成功率和 KL 共用训练步数，效果与诊断可以就近对照；曲线一起变，不等于已经证明因果。
+
+![效果曲线旁边放机制曲线](../assets/paper-tcod-fig-4.png)
+
+Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 4. CC BY 4.0. 从原页裁切；图形与数据未改。
+
+Performance and KL share a training axis, placing the outcome beside its diagnostic. Co-movement alone does not establish causation.
+
+同一模型配一对面板；不同量各用自己的纵轴。
+
+原图图例用了训练日志简写，自己的论文应换成可直接识别的模型和条件。
+
+来源：[TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 4, PDF p. 8](https://arxiv.org/abs/2604.24005v3)
+
+[图片许可](https://creativecommons.org/licenses/by/4.0/)
+
+<a id="visual-tcod-fig-5"></a>
+#### 辅助指标分开画
+
+轮数、优势、长度、损失各占一格；共用训练步数，不同单位不挤在一根纵轴上。
+
+![辅助指标分开画](../assets/paper-tcod-fig-5.png)
+
+Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 5. CC BY 4.0. 从原页裁切；图形与数据未改。
+
+Turns, advantage, length, and loss use separate panels with a shared training axis. Different units do not compete on one y-axis.
+
+按同一时间点横向核对过程指标。
+
+这是训练诊断；损失下降本身不能替代最终任务实验。
+
+来源：[TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 5, PDF p. 9](https://arxiv.org/abs/2604.24005v3)
+
+[图片许可](https://creativecommons.org/licenses/by/4.0/)
+
+<a id="visual-tcod-fig-2"></a>
+#### TCOD：四幅图围着一个诊断
+
+每个师生组合紧挨着放 Initial／final 两根柱子，颜色区分阶段，柱顶数字省掉来回读轴。
+
+![TCOD：四幅图围着一个诊断](../assets/paper-tcod-fig2.png)
+
+Jiaqi Wang et al., arXiv:2604.24005v3, Fig. 2. CC BY 4.0. 从原 PDF 裁切；图形与数据未改。
+
+Initial and final bars sit together for each student–teacher pair; colors identify stages and value labels reduce axis lookup.
+
+横
+
+轴
+
+箭
+
+头
+
+写
+
+出
+
+配
+
+对
+
+方
+
+向
+
+。
+
+纵
+
+轴
+
+从
+
+5
+
+0
+
+起
+
+而
+
+非
+
+0
+
+，
+
+能
+
+读
+
+标
+
+注
+
+数
+
+值
+
+，
+
+但
+
+不
+
+能
+
+直
+
+接
+
+以
+
+柱
+
+高
+
+判
+
+断
+
+初
+
+始
+
+值
+
+是
+
+最
+
+终
+
+值
+
+的
+
+多
+
+少
+
+倍
+
+。
+
+原
+
+件
+
+含
+
+水
+
+印
+
+。
+
+来源：[Jiaqi Wang et al. · arXiv:2604.24005v3 · Fig. 2](https://arxiv.org/abs/2604.24005v3)
+
+[图片许可](https://creativecommons.org/licenses/by/4.0/)
+
+<a id="visual-interactcs-fig-3"></a>
+#### 训练动态：控制量和实际行为并排
+
+左边画成本，右边画使用率，红蓝固定对应两种目标；共用训练步数，把两条动态放到一起读。
+
+![训练动态：控制量和实际行为并排](../assets/paper-interactcs-fig3.png)
+
+Ning Gao et al., arXiv:2602.22697v1, Fig. 3. CC BY 4.0. 从原 PDF 裁切；图形与数据未改。
+
+Cost and usage rate appear side by side, with red and blue consistently identifying two targets along the same training-step axis.
+
+图
+
+中
+
+带
+
+半
+
+透
+
+明
+
+色
+
+带
+
+，
+
+但
+
+此
+
+图
+
+面
+
+未
+
+说
+
+明
+
+它
+
+是
+
+方
+
+差
+
+、
+
+标
+
+准
+
+误
+
+还
+
+是
+
+置
+
+信
+
+区
+
+间
+
+，
+
+不
+
+能
+
+自
+
+行
+
+补
+
+名
+
+。
+
+原
+
+件
+
+跨
+
+两
+
+页
+
+并
+
+含
+
+水
+
+印
+
+，
+
+公
+
+开
+
+应
+
+回
+
+到
+
+已
+
+核
+
+对
+
+的
+
+单
+
+独
+
+原
+
+图
+
+。
+
+来源：[Ning Gao et al. · arXiv:2602.22697v1 · Fig. 3](https://arxiv.org/abs/2602.22697v1)
+
+[图片许可](https://creativecommons.org/licenses/by/4.0/)
+
+</details>
+
+
+<details><summary>消融与资源成本 · 2 张图</summary>
+
+
+<a id="visual-tcod-fig-6"></a>
+#### 少量方法，用柱图直接比
+
+两个任务各一幅图，方法顺序一致，柱顶给小时数。想讲省算力，就把时间写出来。
+
+![少量方法，用柱图直接比](../assets/paper-tcod-fig-6.png)
+
+Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 6. CC BY 4.0. 从原页裁切；图形与数据未改。
+
+Use one panel per task, a consistent method order, and measured hours above the bars. An efficiency claim needs a resource measurement.
+
+单位是训练小时，不是在线推理延迟。比较时另交代硬件和训练条件。
+
+原图误差线的含义没有给全，不替作者猜重复次数或置信水平。
+
+来源：[TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 6, PDF p. 10](https://arxiv.org/abs/2604.24005v3)
+
+[图片许可](https://creativecommons.org/licenses/by/4.0/)
+
+<a id="visual-interactcs-fig-2"></a>
+#### 消融：颜色分组，纹理分方法
+
+颜色分方法族，实色、斜线和点纹再分组内方案，四个面板共用图例，误差棒也留在柱顶。
+
+![消融：颜色分组，纹理分方法](../assets/paper-interactcs-fig2.png)
+
+Ning Gao et al., arXiv:2602.22697v1, Fig. 2. CC BY 4.0. 从原 PDF 裁切；图形与数据未改。
+
+Colors identify method families, solid fills and patterns distinguish variants, and four panels share a legend while retaining error bars.
+
+实
+
+际
+
+图
+
+面
+
+为
+
+ 
+
+I
+
+n
+
+t
+
+e
+
+r
+
+a
+
+c
+
+t
+
+C
+
+S
+
+-
+
+R
+
+L
+
+ 
+
+F
+
+i
+
+g
+
+u
+
+r
+
+e
+
+ 
+
+2
+
+。
+
+指
+
+标
+
+标
+
+题
+
+的
+
+↑
+
+／
+
+↓
+
+提
+
+醒
+
+比
+
+较
+
+方
+
+向
+
+；
+
+图
+
+面
+
+未
+
+定
+
+义
+
+误
+
+差
+
+棒
+
+具
+
+体
+
+含
+
+义
+
+，
+
+不
+
+能
+
+自
+
+行
+
+称
+
+为
+
+标
+
+准
+
+差
+
+或
+
+置
+
+信
+
+区
+
+间
+
+。
+
+前
+
+三
+
+面
+
+板
+
+非
+
+零
+
+起
+
+点
+
+，
+
+不
+
+能
+
+以
+
+柱
+
+高
+
+读
+
+倍
+
+数
+
+。
+
+原
+
+件
+
+含
+
+水
+
+印
+
+。
+
+来源：[Ning Gao et al. · arXiv:2602.22697v1 · Fig. 2](https://arxiv.org/abs/2602.22697v1)
+
+[图片许可](https://creativecommons.org/licenses/by/4.0/)
+
+</details>
+
+
+<details><summary>KDE 密度分布 · 1 张图</summary>
+
+
+<a id="teaching-kde"></a>
+#### KDE：看哪里密集，不是已经累计了多少
+
+同一坐标对照两组模拟分数，曲线越高说明该处更密集；浅色填充只是曲线下面积。
+
+![KDE：看哪里密集，不是已经累计了多少](../assets/kde.svg)
+
+PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+The two synthetic groups share axes; taller curves indicate greater local density, and shading marks area under the curve.
+
+每组100个模拟样本，使用高斯核和0.4的固定带宽；纵轴是密度。
+
+曲线面积约为1，曲线高度不是累计比例；阴影不代表置信区间。
+
+来源：[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+</details>
+
+
+<details><summary>ECDF 累计分布 · 1 张图</summary>
+
+
+<a id="teaching-ecdf"></a>
+#### ECDF：直接读有多少样本不超过这个值
+
+阶梯线在每个样本处上升，纵轴是已累计的样本比例；不用把平滑密度误认成覆盖率。
+
+![ECDF：直接读有多少样本不超过这个值](../assets/ecdf.svg)
+
+PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+Each observed score raises the step curve, and the vertical axis shows the cumulative sample fraction.
+
+与KDE使用同一批模拟样本，累计比例按样本计数直接计算。
+
+在某个阈值比较两条线，读的是不超过阈值的比例，不是该处密度。
+
+来源：[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+</details>
+
+
+<details><summary>PCA / 空间嵌入 · 1 张图</summary>
+
+
+<a id="teaching-pca"></a>
+#### PCA：先定义输入，再看二维投影
+
+两组模拟样本的三个标准化特征投到前两主成分，轴上直接给真实计算的解释方差。
+
+![PCA：先定义输入，再看二维投影](../assets/pca.svg)
+
+PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+Three standardized features from two synthetic groups are projected onto the first two principal components, with computed explained variance on the axes.
+
+80个样本，三维特征先中心化，再除以样本标准差；主成分由协方差矩阵求得。
+
+颜色是原分组，PCA没有使用分组训练；分得开不等于分类准确或泛化成立。
+
+来源：[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+</details>
+
+
+<details><summary>雷达与多指标 · 1 张图</summary>
+
+
+<a id="teaching-radar"></a>
+#### 雷达：看各项轮廓，别拿面积当总分
+
+每根轴都是越高越好的0到1模拟分数，颜色贯穿点和线；逐项比较，比比较整块面积更有意义。
+
+![雷达：看各项轮廓，别拿面积当总分](../assets/radar.svg)
+
+PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+Every axis is a synthetic 0–1 score with higher values preferred; consistent point and line colors support axis-by-axis comparisons.
+
+各轴同尺度、同方向，中心是0，外圈是1；真实图必须先说明如何归一化。
+
+这张图没有定义综合分数，不能把多边形面积当作经过验证的总能力。
+
+来源：[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+</details>
+
+
+<details><summary>置信带 · 1 张图</summary>
+
+
+<a id="teaching-confidence"></a>
+#### 置信带：先认统计单位，再认内外两层
+
+深线是模拟样本均值，内层是68%、外层是95%的逐点bootstrap区间；宽度有计算依据，不是调个透明度。
+
+![置信带：先认统计单位，再认内外两层](../assets/confidence.svg)
+
+PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+The line shows synthetic sample means; the inner and outer bands are computed 68% and 95% pointwise bootstrap percentile intervals.
+
+每个设置有40个独立模拟观测，按观测有放回重采样1000次，再取均值分位数。
+
+区间针对各个均值，不是覆盖整个函数的同时置信带，也不表示样本本身落在带内。
+
+来源：[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+</details>
+
+
+<details><summary>配对增益 · 1 张图</summary>
+
+
+<a id="teaching-paired-gain"></a>
+#### 配对增益：同一任务，直接看差了多少
+
+每点是一项模拟任务的干预减基线，零线右侧提高、左侧下降；既显示收益，也留下失败。
+
+![配对增益：同一任务，直接看差了多少](../assets/paired-gain.svg)
+
+PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+Each point is the intervention-minus-baseline difference for a synthetic matched task; points right of zero improve, while points left of zero decline.
+
+差值单位是百分点，不能写成相对百分比；每个任务保留自己的配对关系。
+
+散点显示任务差异，没有检验显著性，也没有替代总体汇总。
+
+来源：[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+</details>
+
+
+<details><summary>热图 · 1 张图</summary>
+
+
+<a id="teaching-heatmap"></a>
+#### 热图：一个色标，缺测直接空出来
+
+模型与任务交叉排，颜色和格内数值用同一尺度；缺测格单独写Missing，别伪装成零分。
+
+![热图：一个色标，缺测直接空出来](../assets/heatmap.svg)
+
+PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+Models and tasks share one color scale with values printed in each cell; the missing observation is labeled separately rather than replaced by zero.
+
+全图同一60%到80%色标，不能每行各自归一化后继续比较颜色。
+
+格内标数值，帮助读者在不辨色时仍能比较；灰色只表示缺测。
+
+来源：[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+</details>
+
+
+<details><summary>成本性能图 · 1 张图</summary>
+
+
+<a id="teaching-cost"></a>
+#### 成本性能：每个点对应一项明确配置
+
+横轴是模拟在线成本，纵轴是准确率，每个字母是一项配置；虚线只连接已画出的有效取舍点。
+
+![成本性能：每个点对应一项明确配置](../assets/cost.svg)
+
+PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+Online cost and accuracy form the axes, and each letter identifies one synthetic configuration; dashed segments only connect the displayed non-dominated points.
+
+成本按每1000次查询计，不混入一次性训练成本；真实图要另外报告后者。
+
+连接点是阅读辅助，不证明中间配置存在，也不代表连续最优函数。
+
+来源：[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+</details>
+
+
+<details><summary>饼图与环图 · 1 张图</summary>
+
+
+<a id="teaching-donut"></a>
+#### 环图：组成比例，先说总数
+
+中心写100个模拟对象，旁边同时列数量和比例；四类互斥，所有扇区合起来才是一个整体。
+
+![环图：组成比例，先说总数](../assets/donut.svg)
+
+PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+The center states 100 synthetic items and the legend lists counts and percentages; four mutually exclusive categories form the whole.
+
+先给统计单位和分母，数量40、30、20、10真实相加为100。
+
+环图适合看构成；精确比较相近比例，数值或横向条图更直接。
+
+来源：[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+</details>
+
+
+<details><summary>二维增益 · 1 张图</summary>
+
+
+<a id="teaching-two-gain"></a>
+#### 二维增益：右上都改善，其他象限看取舍
+
+准确率增益向右更好，延迟减少向上更好；零线分四区，右上是两项同时改善。
+
+![二维增益：右上都改善，其他象限看取舍](../assets/two-gain.svg)
+
+PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+Accuracy gains improve to the right and latency reduction improves upward; zero lines separate the quadrants, with joint improvements in the upper right.
+
+横轴是百分点，纵轴是相对延迟减少百分比，两种单位明确分开。
+
+每个点是构造的配置，不是论文结果；落在哪个象限只说明这两项指标的关系。
+
+来源：[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+</details>
+
+
 ### 私藏图：好在哪里，怎么借鉴
 
 先看原图，再看点评。借信息组织，不照搬别人的结果。
-
-<a id="fig-tcod-diagnosis"></a>
-四图围着一个诊断；颜色和位置讲两层信息。
-
-**TCOD 图2：四个面板讲一个诊断**
-
-**公开论文图例 · 点评为本指南整理**
-
-图2(c)纵轴从50起；看标出的数值，不拿柱长解释倍数。
-
-![TCOD Figure 2：训练KL、成功率、初末KL与逐轮KL四个面板](../assets/paper-tcod-fig2.png)
-
-Figure 2 organizes the diagnosis by training progress, initial–final comparison, and dialogue turn.
-按训练过程、初末比较、对话轮次组织诊断，图型随问题变化。
-
-**逐句拆解**
-
-1. (a)(b)对照训练步数上的KL与任务完成率；(c)比较三组师生的初末KL；(d)看KL随对话轮次如何变化。
-2. 先看现象，再找差距和发生位置。四图围着同一问题，读者不用猜它们为什么拼在一起。
-3. 可借鉴这条论证顺序。曲线同时变化并不独立证明因果；阴影统计定义不清时不要替作者猜。
-
-**摘录出处：**[Jiaqi Wang et al. · TCOD (arXiv v3)](https://arxiv.org/abs/2604.24005v3)；Fig.2，PDF 第4页；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
-
-**原文／图片许可：**Jiaqi Wang et al., TCOD, arXiv:2604.24005v3. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
-
-<a id="fig-interactcs-ablation"></a>
-颜色分比较组，纹理分方法；同顺序贯穿四个指标。
-
-**消融图：颜色分组，纹理分方法**
-
-**公开论文图例 · 点评为本指南整理**
-
-部分纵轴不从0开始，不能把柱高当倍数；误差线定义须查实验说明。
-
-![InteractCS-RL Figure 2：四个消融指标，共用颜色、纹理和方法顺序](../assets/paper-interactcs-fig2.png)
-
-All four panels share a method order. Colors identify comparison groups; hatching further distinguishes methods.
-四面板共享方法顺序；颜色标比较组，纹理再区分方法。
-
-**逐句拆解**
-
-1. 作者绘图笔记的要点：除了颜色，柱状图的纹理也可以区分信息。
-2. 读图先看图例：绿是RL基线，蓝是成本消融，橙是奖励消融，红是完整方法。
-3. 四个指标沿用相同顺序，类别也能靠纹理识别。打印成灰度，信息不至于集体失联。
-4. 指标旁写↑或↓：前三项高为好，发券率低为好。不同指标的柱高不能横着比。
-
-**摘录出处：**[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)；Fig.2，PDF 第7页；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
-
-**原文／图片许可：**Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
 
 <a id="fig-interactcs-case"></a>
 像 UI 一样分组；相同信息同框，避免每个字段都开气泡。
@@ -755,30 +1646,6 @@ The header names the case; two columns separate evaluation scores from the simul
 3. 字多时先分组、删重复、留白。放回双栏PDF后仍须检查字号；网页放大看清不等于论文里看清。
 
 **摘录出处：**[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)；Appendix B.1，PDF 第13页；仅截取案例摘要框；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
-
-**原文／图片许可：**Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
-
-<a id="fig-interactcs-dynamics"></a>
-控制量和实际行为并排；红蓝在两图中对应同一个目标。
-
-**训练动态图：控制量和行为一起看**
-
-**公开论文图例 · 点评为本指南整理**
-
-阴影的统计含义未在原图注中明确，不称为标准差或置信区间。
-
-![InteractCS-RL Figure 3：成本惩罚与发券率随训练变化，红蓝对应20%和30%目标](../assets/paper-interactcs-fig3.png)
-
-The left panel shows penalty magnitude; the right shows voucher rate. Both use training steps and the same target colors.
-左图看惩罚，右图看发券率；两图共用训练步数和预算颜色。
-
-**逐句拆解**
-
-1. 作者笔记用这类动态展示控制机制。左边是施加的惩罚，右边是实际发券行为，不只贴最终均值。
-2. 红色目标20%，蓝色目标30%；同色跨面板对应同一设置，横轴对齐便于看变化顺序。
-3. 它说明训练过程中发生了什么。要判断方法优势，还需同条件基线与多次运行；曲线本身不能包办。
-
-**摘录出处：**[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)；Fig.3，PDF 第35页；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
 
 **原文／图片许可：**Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
 
@@ -808,47 +1675,83 @@ Bruno et al., A universal framework for inclusive 15-minute cities, Nature Citie
 
 只链接原图，不重托管。arXiv 非独占分发许可。
 
-#### [TCOD 图 1：问题与解法放在同一张图](https://arxiv.org/pdf/2604.24005v3#page=2)
-
-同一时间线对照错误累积和两种课程；可以学对照位置，不能把示意曲线当实测。
-
-Align the failure and the changed training step on the same timeline.
-
-#### [TCOD 图 3：相同结构对齐改动](https://arxiv.org/pdf/2604.24005v3#page=5)
-
-基线、从前到后、从后到前三列沿用同样步骤块；读者直接看哪个步骤换了执行者。
-
-Keep step blocks aligned across strategies so the changed executor is visible.
-
-#### [TCOD 图 4：效果与机制并排](https://arxiv.org/pdf/2604.24005v3#page=8)
-
-成功率与 KL 共用训练步数；诊断变化，不拿一对曲线包办因果。
-
-Place performance and diagnostic curves on aligned training axes.
-
-#### [TCOD 图 5：不同单位各用一根轴](https://arxiv.org/pdf/2604.24005v3#page=9)
-
-轮数、优势、长度、损失分面板；共同横轴，不强塞到同一个纵轴。
-
-Use separate panels for quantities with different units and a shared training axis.
-
-#### [TCOD 图 6：效率写实际小时](https://arxiv.org/pdf/2604.24005v3#page=10)
-
-任务分面板、方法同顺序、柱顶写数值。Efficient 自己不会替你省算力。
-
-Report the measured training hours for each task and method.
-
-#### [InteractCS-RL 图 1：先分职责，再编步骤](https://arxiv.org/pdf/2602.22697v1#page=4)
-
-左侧生成交互，右侧优化策略；结果、过程、成本三个信号编号，旁边有实例。
-
-Group interaction generation and policy optimization before labeling their steps.
-
 #### [OneReason 图 12：对照策略的改动位置](https://arxiv.org/pdf/2606.06260v1#page=34)
 
 相同结构对齐；改动位置突出，符号在图注解释。保留链接读图，不复制整图。
 
 Align the strategies and highlight where their optimization rules differ.
+
+#### [KDE：OneReason 图 6](https://arxiv.org/pdf/2606.06260v1#page=13)
+
+四个领域并排，两个方法保持同色；淡填充保留重叠，虚线与均值标注把位置变化说清，曲线不用自己兼职字幕。
+
+Four domains use the same method colors. Transparent fills preserve overlap, while dashed mean lines and labels make location shifts explicit.
+
+四个领域沿用同色方法与均值线。横轴是 Margin，纵轴是密度；不是累计概率。是否表示任务收益，另看原文对 Margin 的定义。
+
+OneRec Team, OneReason Technical Report, arXiv:2606.06260v1, Fig. 6
+
+只链接原图，不重托管。该版本采用 arXiv 非独占分发许可。
+
+#### [投影：life2vec 图 4，PaCMAP 与局部放大](https://www.nature.com/articles/s43588-023-00573-5/figures/4)
+
+中间给完整嵌入空间，两侧放大选定区域，同一批点分别按性别、年龄、真实标签着色；位置保持，颜色换问题。
+
+The central embedding provides the full view, while selected regions are enlarged and recolored by sex, age, and true labels. Fixed positions make attribute comparisons traceable.
+
+原图明确使用 PaCMAP；保持点的位置、分别换属性颜色，才能追踪同一批点。投影和 TCAV 是不同证据，不能合成因果结论。
+
+Savcisens et al., Nature Computational Science 4, 43–56 (2024), Fig. 4, DOI 10.1038/s43588-023-00573-5
+
+只链接出版社图页；期刊版本未标明可转载的 CC 许可。
+
+#### [OneReason 图 1：把模型身份和结果放一起](https://arxiv.org/pdf/2606.06260v1#page=1)
+
+左侧雷达看多任务表现，右侧成对柱图看推理和训练数据的作用；颜色、纹理、数值分工，提升与下降都直接标出。
+
+The radar summarizes performance across tasks, while paired bars compare thinking and training-data conditions; colors, hatching, and printed values distinguish the comparisons and expose both gains and declines.
+
+雷达各轴的量纲与归一化必须定义，不能仅凭面积判断综合能力。 柱顶相对增幅与原分数同时保留；百分比不是百分点，下降项不能藏起来。
+
+OneRec Team, OneReason Technical Report, arXiv:2606.06260v1, PDF p. 1
+
+只链接原图，不重托管。该版本采用 arXiv 非独占分发许可。
+
+#### [OneReason 图 7：颜色跟着流程职责走](https://arxiv.org/pdf/2606.06260v1#page=19)
+
+两边保持相同网络层次，只换雪花与火焰标记；第一阶段和后续阶段分别更新哪些参数，一眼能对上。
+
+The two stages keep the same network-layer layout and change snowflake and flame markers to show which parameters are frozen or trained.
+
+图标要有明确图例；颜色是辅助，不能只让读者猜蓝色是冻结。 同一层在两边位置一致，适合解释训练范围变化，不说明阶段间性能差异。
+
+OneRec Team, OneReason Technical Report, arXiv:2606.06260v1, PDF p. 19
+
+只链接原图，不重托管。该版本采用 arXiv 非独占分发许可。
+
+#### [OneReason 图 9：分布与多维特征分开读](https://arxiv.org/pdf/2606.06260v1#page=29)
+
+左边堆叠条保留五档评分比例，右边雷达概括五项均分；先看分布，再看轮廓。
+
+Stacked bars retain the five rating proportions, and the radar chart summarizes the five mean scores: distribution first, profile second.
+
+两 面 板 用 同 一 组 维 度 对 应 。 雷 达 上 的 数 值 标 签 减 少 估 读 ， 堆 叠 条 避 免 均 值 掩 盖 不 同 评 分 构 成 ； 不 要 用 雷 达 面 积 代 替 具 体 分 数 。
+
+OneRec Team, OneReason Technical Report, arXiv:2606.06260v1, PDF p. 29
+
+只链接原图，不重托管。该版本采用 arXiv 非独占分发许可。
+
+#### [ShoppingBench 图 1、2：任务概览与案例层级](https://ojs.aaai.org/index.php/AAAI/article/view/40640)
+
+左边按请求、工具调用、观察和结果走流程，右边拆产品、优惠券和预算；高亮颜色贯穿两边，读者能把需求对到检查。 上面分产品采样和字段采样，下面把提示模板与生成指令逐行对齐；同一类任务同色，读者看得出结果从哪来。
+
+The left side follows the request, tool calls, observations, and result; the right side decomposes product, voucher, and budget constraints, with matching highlights connecting requirements to checks. Product sampling and field sampling occupy the top row; prompt templates align with generated instructions below, and consistent task colors make the construction path traceable.
+
+背景、需求、动作、反馈分层；颜色和高亮有角色，不靠密集箭头补逻辑。
+
+ShoppingBench: A Real-World Intent-Grounded Shopping Benchmark for LLM-based Agents, AAAI 2026, Fig. 1–2
+
+只链接正式论文页，不重托管原图。
 
 **让 Codex 开始画图**
 
@@ -3110,7 +4013,26 @@ Module A extracts text, while module B independently retrieves images. The fusio
 
 **边界：**左右对照只是选项，不是所有图的标准答案。没有验证的优势，别靠画面暗示出来。
 
-[第二章：原图、中英例子与拆解](#fig-tcod-diagnosis)
+**TCOD 图2：四个面板讲一个诊断**
+
+**公开论文图例 · 点评为本指南整理**
+
+图2(c)纵轴从50起；看标出的数值，不拿柱长解释倍数。
+
+![TCOD Figure 2：训练KL、成功率、初末KL与逐轮KL四个面板](../assets/paper-tcod-fig2.png)
+
+Figure 2 organizes the diagnosis by training progress, initial–final comparison, and dialogue turn.
+按训练过程、初末比较、对话轮次组织诊断，图型随问题变化。
+
+**逐句拆解**
+
+1. (a)(b)对照训练步数上的KL与任务完成率；(c)比较三组师生的初末KL；(d)看KL随对话轮次如何变化。
+2. 先看现象，再找差距和发生位置。四图围着同一问题，读者不用猜它们为什么拼在一起。
+3. 可借鉴这条论证顺序。曲线同时变化并不独立证明因果；阴影统计定义不清时不要替作者猜。
+
+**摘录出处：**[Jiaqi Wang et al. · TCOD (arXiv v3)](https://arxiv.org/abs/2604.24005v3)；Fig.2，PDF 第4页；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
+
+**原文／图片许可：**Jiaqi Wang et al., TCOD, arXiv:2604.24005v3. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
 
 **OneReason 图12：相同结构对照训练策略**
 
@@ -3879,7 +4801,27 @@ The model receives records available by 2020 and predicts the 2022 outcome. A se
 
 **边界：**不能只靠红绿表达对错。类别确实多时，以看得清为准，别硬凑三种颜色。
 
-[第二章：原图、中英例子与拆解](#fig-interactcs-ablation)
+**消融图：颜色分组，纹理分方法**
+
+**公开论文图例 · 点评为本指南整理**
+
+部分纵轴不从0开始，不能把柱高当倍数；误差线定义须查实验说明。
+
+![InteractCS-RL Figure 2：四个消融指标，共用颜色、纹理和方法顺序](../assets/paper-interactcs-fig2.png)
+
+All four panels share a method order. Colors identify comparison groups; hatching further distinguishes methods.
+四面板共享方法顺序；颜色标比较组，纹理再区分方法。
+
+**逐句拆解**
+
+1. 作者绘图笔记的要点：除了颜色，柱状图的纹理也可以区分信息。
+2. 读图先看图例：绿是RL基线，蓝是成本消融，橙是奖励消融，红是完整方法。
+3. 四个指标沿用相同顺序，类别也能靠纹理识别。打印成灰度，信息不至于集体失联。
+4. 指标旁写↑或↓：前三项高为好，发券率低为好。不同指标的柱高不能横着比。
+
+**摘录出处：**[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)；Fig.2，PDF 第7页；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
+
+**原文／图片许可：**Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
 
 来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Rougier et al. (2014) · Ten Simple Rules for Better Figures](https://doi.org/10.1371/journal.pcbi.1003833)；[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)
 
@@ -4985,7 +5927,26 @@ KDE 写带宽和样本；PCA 写输入、标准化和解释方差；区间带说
 
 **边界：**KDE 不是累计分布；PCA 图分得开不等于证明机制或泛化；置信区间不表示某次观测落入范围的概率。不凭图形平滑程度评判方法。
 
-[第二章：原图、中英例子与拆解](#fig-interactcs-dynamics)
+**训练动态图：控制量和行为一起看**
+
+**公开论文图例 · 点评为本指南整理**
+
+阴影的统计含义未在原图注中明确，不称为标准差或置信区间。
+
+![InteractCS-RL Figure 3：成本惩罚与发券率随训练变化，红蓝对应20%和30%目标](../assets/paper-interactcs-fig3.png)
+
+The left panel shows penalty magnitude; the right shows voucher rate. Both use training steps and the same target colors.
+左图看惩罚，右图看发券率；两图共用训练步数和预算颜色。
+
+**逐句拆解**
+
+1. 作者笔记用这类动态展示控制机制。左边是施加的惩罚，右边是实际发券行为，不只贴最终均值。
+2. 红色目标20%，蓝色目标30%；同色跨面板对应同一设置，横轴对齐便于看变化顺序。
+3. 它说明训练过程中发生了什么。要判断方法优势，还需同条件基线与多次运行；曲线本身不能包办。
+
+**摘录出处：**[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)；Fig.3，PDF 第35页；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
+
+**原文／图片许可：**Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
 
 来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Rougier et al. (2014) · Ten Simple Rules for Better Figures](https://doi.org/10.1371/journal.pcbi.1003833)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)；[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)
 
