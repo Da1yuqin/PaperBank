@@ -58,16 +58,17 @@ AAAI paper excerpts (WebFilter / Careful Queries, Credible Results and TCDiff)
 retain the original AAAI copyright. Their inclusion as attributed author
 teaching excerpts is not a blanket permission for republication.
 
-MindAligner (Yuqin Dai et al., ICML 2025, PMLR 267:12214-12228) and CARD
-(Pengyu Zeng et al., EMNLP 2025, pp. 9304-9319) retain their original CC BY 4.0
-licenses. Preserve their paper attribution and source links when reusing the
-excerpts or their translations.
+CARD (Pengyu Zeng et al., EMNLP 2025, pp. 9304-9319) retains its original
+CC BY 4.0 license. Preserve the paper attribution and source link.
 
-assets/paper-mindaligner-fig5-transfer-quantity.png and
-assets/paper-mindaligner-fig6-fsc.png reproduce MindAligner Figures 5 and 6
-under CC BY 4.0. Figure 5 was rasterized from the authors' native PDF; Figure 6
-was copied from the authors' original PNG. No plotted data or labels were
-redrawn. Paper: https://proceedings.mlr.press/v267/dai25m.html
+assets/paper-tcod-fig2.png reproduces TCOD Figure 2 (Jiaqi Wang et al.,
+arXiv:2604.24005v3). The InteractCS-RL figures and case summary reproduce
+Figures 2 and 3 and the Appendix B.1 summary box (Ning Gao et al.,
+arXiv:2602.22697v1). Their versions are licensed under CC BY 4.0.
+Only the surrounding page area was cropped; plotted data and labels were
+not redrawn. Preserve attribution, source, license and cropping notice.
+Sources: https://arxiv.org/abs/2604.24005v3
+         https://arxiv.org/abs/2602.22697v1
 License: https://creativecommons.org/licenses/by/4.0/
 
 Chinese translations and the separately labeled teaching analyses/adaptations
