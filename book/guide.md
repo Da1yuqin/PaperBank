@@ -1,74 +1,498 @@
 # PaperBank · 论文少走弯路指南
 
-按论文顺序看每个自然段要完成什么，再逐句看中英例子与解释。
+先用 Codex 拉草稿和图，再由你审逻辑、逐章精修。第四章收好用的工具。
 
 主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。
 
 欢迎使用、改写、转载，也欢迎拿去给 Codex 做 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，改过请注明。Star 自愿，署名别失联。
 
-## 先让 Codex 粗写，再自己精挑
+<a id="quick-start"></a>
+## 1. 一天拉完草稿：Codex 快速成型
 
-先把论文要讲的事写成一句话：现有办法哪里不够，你改了什么，结果说明什么。把已有结果、表格、参考论文段落和投稿模板交给 Codex，先列提纲，再按章粗写。引言按大领域、已有路线、具体局限、对应设计、主要结果来展开，最后列贡献；方法按输入输出讲流程，实验逐项回答引言的问题。粗稿先求讲通，不急着逐句磨英语。接着画引言图和方法图，用真实案例串起步骤，参考好图挑配色，曲线和表格由实验数据绘制。然后人工精挑：故事够不够集中，图有没有把创新讲明白，术语、符号和数值是否统一。最后把图放回论文，通读全文，修句间衔接和重复内容，同步摘要、图注与结论。每个设计要有明确作用，每个实验要有值得记住的发现，正文别把表格再念一遍。
+先把故事、图和结构立住，再磨英语。实验材料齐了，就让 Codex 先拉一版可讨论的粗稿；你负责挑贡献、审逻辑。第一天别和一个形容词决斗。
 
-**填什么：**把【】换成这七项材料：结果尽量贴表格，参考写法贴原段落；大文件填文件名并附上文件，缺结果写要检验的问题。
+### Step 1 下载会议官方模板
 
-<details>
-<summary>复制这个提示词</summary>
+去目标会议官网拿当年的模板，确认正文几页、参考文献和附录算不算。先编译原模板，再开始填内容。
+
+可以这样说：请读取官方作者指南，保留模板的字号、栏宽和间距，先把空模板编译通。
+
+Try: Read the official author guide, preserve the template font size, column width, and spacing, and compile the unchanged template first.
+
+Download the current template from the venue website. Check the body page limit and whether references and appendices count. Compile the unchanged template before adding content.
+
+### Step 2 拉到本地，填提示词，先粗写
+
+Overleaf 会员支持 Git 同步：Integrations → Git 取地址，让 Codex 拉到本地，改完再同步回去。没有 Git 权限就下载源文件 ZIP。读入 PaperBank 写作 skill，填好下面的提示词，先出提纲和粗稿。
+
+填贡献：针对【具体问题】，我们用【关键设计】，在【比较条件】下发现【主要结果】。
+
+Fill in the contribution: To address [concrete problem], we use [key design] and find [main result] under [comparison conditions].
+
+With Overleaf Git access, get the address from Integrations → Git and ask Codex to clone and sync the project locally. Without Git access, use File → Download → Download as source (.zip). Add the PaperBank writing skill, fill in the prompt below, and request an outline and rough draft.
+
+**复制这个提示词，填空就能用**
 
 ```text
-请根据下面七项材料，先给论文提纲，再按章写可讨论的粗稿。
+请使用 paperbank-writing skill，先帮我拉完可讨论的粗稿，再按我的中文审核精修。
 
-1. 目标会议：【会议／期刊名称、年份、篇幅要求】
-2. 一句话贡献：【研究对象、具体困难、你的改动、最主要发现】
-3. 已有方法局限：【现有路线、原文依据、在哪些条件下不够；给每项局限一个短名称】
-4. 对应设计：【每项局限对应哪个模块／操作，以及为什么这样做】
-5. 已有结果／表格：【结果表、指标定义、基线与对照条件、消融；缺的结果标出要检验什么】
-6. 参考论文段落：【原文段落或论文与页码；说明希望参考哪种写法】
-7. 文件／模板：【正文或源稿、图表与结果数据、投稿模板；要生成或修改哪些文件】
+会议／模板／篇幅：【】
+先按投稿目标选写作体系：CS 会议使用本页模板；Nature 系列使用独立的 Nature 写作 skill，不套本页章节结构。
+一句话贡献：【具体问题、关键设计、主要发现】
+已有方法与局限：【原文依据；在哪些条件下不够】
+方法流程：【输入、操作、输出；每个设计解决什么】
+已有结果：【表格、指标、基线、消融与比较条件】
+参考写法与图：【原文段落／图片及来源】
+本地目录与修改范围：【】
 
-先按论文顺序列出各节要讲什么，检查困难、设计、结果和贡献是否逐项对应，再写粗稿。引言按“大领域→已有路线→具体局限→对应设计→主要结果”展开，最后列贡献；局限和设计分段，沿用同一组关键词。方法开头串起真实流程，交代每一步的输入、操作和输出。实验逐项回答引言的问题，解释发现，不复述整张表。
+先列论文提纲、各节目的和预计篇幅，再填粗稿。引言按背景、已有路线、具体局限、对应设计、主要发现、贡献组织。方法讲真实流程，实验回答引言的问题；缺结果单列要检验什么，不编数字和引用。
 
-语言简洁直白，少用生词，句子别太长。必要术语首次出现就解释，同一对象全文用同一个名称；公式符号首次出现就定义，前后保持一致。缺结果处写【待填结果：指标、比较和位置】，不要替我编数字或文献。先把粗稿讲通，标出需要引言图、方法图或结果图的位置，暂不逐句打磨英语。
-贡献句可适度用具体、正面的修饰词，如 de-identified、expert-confirmed、tailored；有事实依据就直接写，等量替换，不堆词加长。
+先做引言图、方法图和关键结果图，再精修正文。每次把一节译成中文给我审核；按我确认的逻辑定下全部正文 section 标题，再整理英文写回去。专业名词就近解释，名称和符号前后一致。贡献措辞准确、正面、有记忆点，一个修饰词换一个，不堆词加长。
+
+沿用官方模板，编译检查页数；超页先删重复，不缩字号、间距和栏宽。
 ```
+
+**English prompt**
+
+```text
+Use the paperbank-writing skill to prepare a rough draft for discussion, then refine it through my Chinese review.
+
+Venue / template / page limit: [ ]
+Select the writing system for the venue first. Use these section templates for CS conferences; use independent Nature writing skills for Nature-family journals.
+Contribution in one sentence: [Concrete problem, key design, and main finding]
+Existing methods and limitations: [Original sources and conditions where the methods fall short]
+Method flow: [Inputs, operations, outputs, and the problem each design addresses]
+Available results: [Tables, metrics, baselines, ablations, and comparison conditions]
+Writing and figure references: [Original passages or images with sources]
+Local working directory and files you may edit: [ ]
+
+First list the outline, each section's purpose, and its planned length, then write the rough draft. Organize the Introduction around context, existing approaches, concrete limitations, corresponding designs, main findings, and contributions. Explain the actual Method process and use Experiments to answer the Introduction. List the questions that missing results should test separately; do not invent numbers or citations.
+
+Make the introduction figure, method figure, and key result plots before polishing the prose. Translate one section at a time into Chinese for my review. Settle all body section titles from the argument I confirm, then organize the English and write it back. Explain technical names nearby and use consistent names and symbols. Use accurate, positive, memorable contribution wording; replace one modifier with one, without piling up words.
+
+Preserve the official template and compile to check the page count. If the paper is too long, remove repetition before changing any font size, spacing, or column width.
+```
+
+Overleaf Cloud 的 Git 同步属于 Premium 功能，按项目拥有者的订阅或授权开放；下载的源文件 ZIP 不含编译好的 PDF。
+
+[Overleaf: Git integration](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/git-integration) · [Overleaf: Downloading a project](https://docs.overleaf.com/managing-projects-and-files/downloading-a-project)
+
+### Step 3 先把图画出来
+
+引言图讲为什么要做，方法图讲怎么做，结果图讲发现了什么。先把图定下来，方便合作者审故事；正文跟着图写。曲线用真实数据画，精修见第二章「光速出美图」。
+
+可以这样说：先给引言图和方法图各一个草案，用同一个案例串起问题、操作和输出；我确认后再精修。
+
+Try: Propose one introduction figure and one method figure. Use the same case to connect the problem, operations, and output; refine the figures after I confirm the drafts.
+
+The introduction figure explains why the work is needed, the method figure shows how it works, and result plots show what was found. Settle the figures so coauthors can review the story, then refine the prose around them. Plot curves from actual data; see Chapter 2 for figure refinement.
+
+### Step 4 控篇幅，中文审核，定 section 标题
+
+让 Codex 按页数分配各节篇幅，每次把一节译成中文，你来审逻辑。讲通后定下全部正文 section 标题，再组织英文写回去。同级小节别一边两行、一边两页。逐段精修放到第三章。
+
+可以这样说：先列正文 section 标题、每节目的和预计篇幅；本轮只给 Introduction 的中文，等我确认后再整理英文。
+
+Try: List the body section titles, each section's purpose, and its planned length. For this round, show only the Chinese Introduction; organize the English after I confirm the argument.
+
+Ask Codex to allocate space within the page limit and translate one section at a time into Chinese for your logic review. Once the argument works, settle every body section title, then organize the English and write it back. Keep comparable subsections reasonably balanced. Paragraph-level refinement belongs in Chapter 3.
+
+<details><summary>起草与协作：补充清单与例子</summary>
+
+
+<a id="workflow"></a>
+### 起草与协作
+
+用提纲和证据推进写作，保护原始记录与他人修改。
+
+<details>
+<summary>检查清单和真实论文例子（3 项）</summary>
+
+
+**提纲与篇幅**
+
+- [ ] **第 6 条：**先写贡献句、提纲、草图和结果表；随证据调整主线，不成立的主张及时改。
+
+<a id="tip-06"></a>
+<details>
+<summary>说明、例子与参考</summary>
+
+方法和实验先说清，引言据此调整，摘要最后压缩。顺序可以变；概念图可先画，结果图必须等实际结果。
+
+**边界：**顺序不是规定。概念图可以先画，结果图得等真实结果出来。
+
+**PlanCraft：先写清能落地的数据与任务**
+
+**论文原文 · English**
+
+> Three automated pipelines produce paired inputs (graph-plus-block inputs or incomplete vectors) and complete floor plans for training PlanCraft-Diff.
+
+**中文翻译 · 本指南翻译**
+
+三条自动化流水线生成配对数据：输入为图与块组合或不完整矢量，目标为完整平面图，用于训练 PlanCraft-Diff。
+
+**逐句拆解**
+
+1. 这句话已给出训练数据的输入和目标，可以先作为方法骨架，再核对后文实验是否真的检验两类输入。
+2. 这是根据成稿演示一种起草顺序，不是作者写作过程的记录；还没取得的比较不能提前写成结果。
+
+**教学改写 · English（非论文原文）**
+
+Start with the paired input and target, outline how each pair is built, and place the corresponding evaluation beside it. Refine the contribution sentence only after checking the available evidence.
+
+**教学改写 · 中文（非论文原文）**
+
+先写清配对输入与目标，再列它们怎样构建，并放上相应评价。核对已有证据后，再调整贡献句。
+
+**摘录出处：**[Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3)；Method / SketchPlan Dataset，开头第 2 句；PDF 第 3 页；arXiv:2607.23491v3，2026-09-05；短引对照作者源稿及公开 v3 正文；公开预印本；教学改写不是论文原文或新增实测结果
+
+**原文／图片许可：**Pengyu Zeng et al., arXiv:2607.23491v3 (2026). arXiv 为非独占分发许可，原文版权由权利人保留；作者授权的教学短引，不随本指南转授全文或原图再版许可。中文翻译、拆解及教学改写为本指南新增。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Mensh & Kording (2017) · Ten simple rules for structuring papers](https://doi.org/10.1371/journal.pcbi.1005619)；[Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3)
 
 </details>
 
+- [ ] **第 7 条：**方法按步骤、实验按问题分节；同层标题统一逻辑，与模块名和图中名称一致。
+
+<a id="tip-07"></a>
 <details>
-<summary>English prompt</summary>
+<summary>说明、例子与参考</summary>
 
-```text
-Use the seven inputs below to propose an outline, then write a rough manuscript section by section for discussion.
+标题写实际动作或对象。不同任务分开，过碎的小节合并，不用固定子节数代替判断。
 
-1. Target venue: [Conference or journal, year, and page limit]
-2. Contribution in one sentence: [Research object, concrete difficulty, our change, and main finding]
-3. Limitations of existing methods: [Existing approaches, source evidence, and conditions where they fall short; give each limitation a short name]
-4. Corresponding designs: [The module or operation addressing each limitation, and why it should help]
-5. Available results and tables: [Result tables, metric definitions, baselines, control conditions, and ablations; state what any missing result should test]
-6. Reference paper passages: [Original passages, or paper titles and page numbers; specify the writing pattern to follow]
-7. Files and template: [Manuscript or source files, figures and result data, venue template, and files to create or edit]
+**边界：**不用死守每节最多几个子节。太碎就合并，确实有不同任务就分开。
 
-First outline the job of each section in manuscript order. Match each difficulty with its design, supporting result, and contribution before drafting. Organize the Introduction as broader context, existing approaches, concrete limitations, corresponding designs, and main results, followed by the contributions. Keep limitations and designs in separate paragraphs and reuse the same keywords. Begin the Method with the actual process, stating the inputs, operations, and outputs of each step. Use the Experiments to answer the Introduction's questions and interpret findings rather than repeat every table value.
+**PlanCraft：标题直接写出对象怎样变化**
 
-Use plain language, few unfamiliar terms, and short sentences. Explain necessary terms at first use, keep one name for each object, and define formula symbols when introduced. Use symbols consistently. For missing results, write [Result to fill: metric, comparison, and location]; do not invent numbers or references. Make the rough draft understandable and mark where an introduction figure, method figure, or result plot is needed. Do not polish sentences one by one yet.
-Use factual, positive modifiers such as de-identified, expert-confirmed, or tailored where they fit. Replace modifiers without increasing word count; avoid piling them up.
-```
+**论文原文 · English**
+
+> From Image to Vector: Rule-Based Post-Processing
+
+**中文翻译 · 本指南翻译**
+
+从图像到矢量：基于规则的后处理
+
+**逐句拆解**
+
+1. 标题给出输入、输出和处理方式，读者还没进小节就知道这里把生成图像变成可用的矢量几何。
+2. 同层还有 Progressive Floor Plan Refinement 和 Grounded 3D Scene Assembly，依次对应平面图细化、格式转换与场景装配；这些名字与 Overview 的步骤一致。
+
+**教学改写 · English（非论文原文）**
+
+Organize the method around floor-plan refinement, image-to-vector conversion, and grounded scene assembly. Use these same names in the overview and framework figure.
+
+**教学改写 · 中文（非论文原文）**
+
+按平面图细化、图像转矢量与几何约束下的场景装配组织方法。总览与框架图使用同一组名称。
+
+**摘录出处：**[Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3)；Method，同层小节标题；PDF 第 4 页；arXiv:2607.23491v3，2026-09-05；短引对照作者源稿及公开 v3 正文；公开预印本；教学改写不是论文原文或新增实测结果
+
+**原文／图片许可：**Pengyu Zeng et al., arXiv:2607.23491v3 (2026). arXiv 为非独占分发许可，原文版权由权利人保留；作者授权的教学短引，不随本指南转授全文或原图再版许可。中文翻译、拆解及教学改写为本指南新增。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3)
 
 </details>
 
-**粗稿出来后，人工挑这四件事：**
+- [ ] **第 8 条：**按作者指南给问题、关键设计和结果留篇幅；超页先删重复，保留结论条件。
 
-- **挑故事：**把主要贡献压成一句话，删掉抢主线的支线；检查每项局限是否有对应设计和结果。
-- **挑图和案例：**选参考图定配色，用真实案例走过方法；核对图中模块、步骤和正文名称。
-- **核对术语和数据：**统一术语与符号，核对表格数值和指标方向；图缩到论文尺寸后，字和标记仍要看得清。
-- **通读后逐句修：**图定下来再通读全文。检查每句和前句怎样相接，删重复；同步摘要、图注和结论。
+<a id="tip-08"></a>
+<details>
+<summary>说明、例子与参考</summary>
+
+先列每章必须讲清的内容，再安排页数。最后看 PDF，确认背景没有挤掉关键比较和结果解释。
+
+**边界：**写满不是目标，每页硬放一个实验也没必要。信息够了就停，格式按投稿要求来。
+
+**GreenPlanner：篇幅先留给贯穿贡献的四个环节**
+
+**论文原文 · English**
+
+> GreenPlanner integrates four key components to unify evaluation and generation.
+
+**中文翻译 · 本指南翻译**
+
+GreenPlanner 整合四个关键组成部分，将评价与生成连接起来。
+
+**逐句拆解**
+
+1. 引言按 DesignFD、PDE、GreenPD、GreenFlow 的顺序解释标签数据、评价器、筛选后的数据与生成器；每一项都对后续环节有用途。
+2. 省篇幅时保留这条贡献链，以及数据合规与生成质量的区别。可以减少背景和全称的重复，不能把四个环节压成一个无法解释的“智能系统”。
+
+**教学改写 · English（非论文原文）**
+
+Teaching rewrite: Reserve space for the four-part argument: feasibility labels train the evaluator, evaluator guidance builds compliant demand–plan pairs, and those pairs support constrained generation. Shorten repeated background before removing a necessary link.
+
+**教学改写 · 中文（非论文原文）**
+
+教学改写：给四部分的论证留位置：可行性标签训练评价器，评价器指导构建合规的需求与平面图配对，再用这些配对支持约束下的生成。先压缩重复背景，再处理理解这条论证所必需的环节。
+
+**摘录出处：**[Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html)；§1 Introduction，四组件总览开头；PDF p.2，proceedings p.8597；CVF Open Access 作者接受版；正式发表元数据已由 CVF 条目核对；该工作已发表；引文版本单独标明；教学改写与模拟回复不属于论文原文
+
+**原文／图片许可：**原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Mensh & Kording (2017) · Ten simple rules for structuring papers](https://doi.org/10.1371/journal.pcbi.1005619)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)；[Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html)
+
+</details>
+
+
+</details>
+
+
+</details>
+
+
+<details><summary>AI 辅助：补充清单与例子</summary>
+
+
+<a id="ai"></a>
+### AI辅助
+
+给AI准确材料和明确任务，由作者核对事实和责任。
+
+<details>
+<summary>检查清单和真实论文例子（5 项）</summary>
+
+
+**材料与任务**
+
+- [ ] **第 44 条：**给AI问题、方法流程、真实结果表和参考段落，指定这次要写哪一段。
+
+<a id="tip-44"></a>
+<details>
+<summary>说明、例子与参考</summary>
+
+把输入组织成“具体缺口→对应设计→支持结果”；让AI解释这些材料的关系，别让它从标题猜实验。
+
+**边界：**材料还不够就先补材料。顺口的段落不能当作实验记录。
+
+**EviNoteRAG：先给 AI 精确的监督范围**
+
+**论文原文 · English**
+
+> To reduce computational overhead, EQR is applied only to the final SEN in each output sequence.
+
+**中文翻译 · 本指南翻译**
+
+为减少计算开销，每条输出序列只对最后一条支持性证据笔记（SEN）施加证据质量奖励（EQR）。
+
+**逐句拆解**
+
+1. 这是给 AI 的材料里必须冻结的事实：奖励应用于每条输出中的最后一条笔记，不是每一步或每个 token。
+2. 输入材料还应交代奖励比较最后的 SEN 与由问题及正确答案构成的命题，区分训练可见真值与推理时可见证据。
+3. 下面的教学提示只提供已核验方法约束，不替论文添加新的逐步奖励或训练实验。
+
+**教学改写 · English（非论文原文）**
+
+Teaching prompt: Write the EQR paragraph using these verified facts: a lightweight NLI judge compares the final SEN with a claim constructed from the query and ground-truth answer; EQR is applied only to the final SEN in each output sequence. Preserve the reported reward definition and do not introduce per-note or token-level supervision.
+
+**教学改写 · 中文（非论文原文）**
+
+教学提示：按以下已核验事实写 EQR 段落：轻量 NLI 评判模型比较最后一条 SEN 与由问题及正确答案构成的命题；每条输出序列只对最后一条 SEN 计算 EQR。保留原奖励定义，不增添逐条笔记或 token 级监督。
+
+**摘录出处：**[Yuqin Dai et al. · EviNoteRAG: Enhancing RAG Models via Quality-Augmented Evidence Notes](https://arxiv.org/abs/2509.00877)；§ 3.3 Evidence Quality Reward，公式后计算开销句，PDF 第 3 页；content/03_method.tex 第 34 行；EMNLP 2026 revised 作者终稿；公开链接为 arXiv v3；作者终稿短引；公开链接为不同版本预印本；下方教学改写或模拟回复不属于论文原文
+
+**原文／图片许可：**作者终稿教学短引，保留原论文版权；不随 PaperBank 原创内容转授原论文再版许可。公开 arXiv v3 为 non-exclusive distribution，并非 CC 授权；代码 Apache 2.0 不作为论文许可。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Yuqin Dai et al. · EviNoteRAG: Enhancing RAG Models via Quality-Augmented Evidence Notes](https://arxiv.org/abs/2509.00877)
+
+</details>
+
+- [ ] **第 45 条：**先列每段的核心句，再展开解释；只读这些核心句，也应看懂问题、设计和证据。
+
+<a id="tip-45"></a>
+<details>
+<summary>说明、例子与参考</summary>
+
+先把引言中的困难、方法中的改动、实验中的验证对应起来；这条线通了，再展开句子。
+
+**边界：**模板里写得再严格，作者还是要核对事实和引用。
+
+**TCDiff++：先给一节的实际设置，再让 AI 起草**
+
+**论文原文 · English**
+
+> Following the protocol in (Le et al, 2023b), videos are partitioned into training (80%), validation (10%), and test (10%) sets.
+
+**中文翻译 · 本指南翻译**
+
+依照 Le 等人（2023b）的协议，将视频划分为训练集（80%）、验证集（10%）和测试集（10%）。
+
+**逐句拆解**
+
+1. 实验设置段落交代划分单位、比例与先例。单位是视频，不能让工具擅自改成人数、帧数或舞者互不重叠划分。
+2. 将同节模型结构、数据来源与基线适配记录交给工具，再约束篇幅。原句未给具体视频数或随机种子，不能凭比例补造。
+
+**教学改写 · English（非论文原文）**
+
+Teaching prompt: Draft only the dataset paragraph using the provided video-level split, source, and proportions. Do not infer sample counts, dancer-disjoint partitions, or a random seed that the material does not report.
+
+**教学改写 · 中文（非论文原文）**
+
+教学提示词：仅依据给出的按视频划分、来源和比例，起草数据段落。不要推断材料未报告的样本数、舞者互不重叠划分或随机种子。
+
+**摘录出处：**[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)；§5.1 Experimental Settings，Dataset，最后一句；arXiv v4 PDF p.10；短引来自 arXiv:2506.18671v4，2025-10-05；正式期刊元数据已核对，不将作者稿等同于期刊排版终版；该工作已发表；引文版本单独标明；教学改写与模拟回复不属于论文原文
+
+**原文／图片许可：**arXiv 作者稿采用 non-exclusive distribution 许可，非 CC BY。正式期刊版权按 Springer 出版协议保留；本指南不向第三方转授原论文版权。
+
+```text
+请根据以下材料撰写【章节名称】，面向【领域与读者】。
+材料：【研究问题、真实方法、已核验结果、引用来源】。
+先列出本节主张与证据的对应关系，缺少依据的内容单独列出，不写入正文。随后给出正文：先交代目的，再解释具体对象、机制及证据。术语与【术语表】一致，符号首次出现时定义。每段围绕一个主要判断，相邻句有真实衔接。
+保留实验范围、数值和不确定性；不要编造引文、补做实验、夸大新颖性或把计划写成结果。输出正文与简短核对清单。
+```
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)
+
+</details>
+
+
+**润色与绘图**
+
+- [ ] **第 47 条：**明确 AI 可改范围，保护数据、公式、引用和原始提示词；检查差异与结论条件。
+
+<a id="tip-47"></a>
+<details>
+<summary>说明、例子与参考</summary>
+
+先修结构和指代，再修句子。影响含义的改动单独指出；原始输出、提示词和代码字段不能当普通正文润色。
+
+**边界：**原始输出、实验提示词和代码字段，不按普通正文处理。
+
+**EviNoteRAG：润色不能把可选步骤改成强制步骤**
+
+**论文原文 · English**
+
+> SEN generation is optional after each retrieval step, allowing the model to dynamically determine whether summarization is necessary based on retrieval outcomes.
+
+**中文翻译 · 本指南翻译**
+
+每次检索后是否生成支持性证据笔记（SEN）是可选的，模型根据检索结果动态决定是否需要摘要。
+
+**逐句拆解**
+
+1. optional 是方法约束；润色成“每次检索后必须生成笔记”，就把动态工作流改成了不同实验条件。
+2. 每次检索不强制生成，不等于奖励格式允许整条输出完全没有笔记。Training Strategy 的格式条件仍要求至少一个 <summary>。
+3. 原提示词、标签、奖励条件和消融配置都是研究协议，润色时应保护这些内容并检查差异。
+
+**摘录出处：**[Yuqin Dai et al. · EviNoteRAG: Enhancing RAG Models via Quality-Augmented Evidence Notes](https://arxiv.org/abs/2509.00877)；§ 3.2 Supportive-Evidence Note / Dynamic SEN Workflow，首句，PDF 第 3 页；§ 3.4 Training Strategy 的格式条件，PDF 第 4 页；EMNLP 2026 revised 作者终稿；公开链接为 arXiv v3；作者终稿短引；公开链接为不同版本预印本
+
+**原文／图片许可：**作者终稿教学短引，保留原论文版权；不随 PaperBank 原创内容转授原论文再版许可。公开 arXiv v3 为 non-exclusive distribution，并非 CC 授权；代码 Apache 2.0 不作为论文许可。
+
+```text
+请精修【指定范围】，保持数据、公式含义、引文、模型设定和结论边界不变。
+先检查论证顺序，再修改句子。每段一个主要判断；解释必要术语；消除歧义指代；只有真实转折或因果关系才使用相应连接词。正文、图注和附录沿用同一术语。
+不要增加未经证实的机制、新颖性或显著性。保护原始提示词、模型原话和代码字段。输出修订稿及会改变理解的主要修改；材料不足的问题单列说明。
+```
+
+来源与延伸阅读：[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)；[ACL Rolling Review · Responsible NLP Research](https://aclrollingreview.org/responsibleNLPresearch/)；[Yuqin Dai et al. · EviNoteRAG: Enhancing RAG Models via Quality-Augmented Evidence Notes](https://arxiv.org/abs/2509.00877)
+
+</details>
+
+- [ ] **第 46 条：**讲清主要信息、输入输出与依赖，用自制或获准素材；先核对布局，再调配色。
+
+<a id="tip-46"></a>
+<details>
+<summary>说明、例子与参考</summary>
+
+给实际模块、连线和参考风格，避免照搬受保护的表达。结果面板留给真实数据，生成工具只辅助示意与构图。
+
+**边界：**结果面板留给真实数据。工具不能替你生成实验成绩。
+
+**GreenPlanner：画图先讲清数据和反馈从哪里来**
+
+**论文原文 · English**
+
+> Together, these components form an end-to-end pipeline from data construction to constraint-driven generative design.
+
+**中文翻译 · 本指南翻译**
+
+这些组成部分共同形成一条从数据构建到约束驱动生成设计的端到端流程。
+
+**逐句拆解**
+
+1. 图 2 的四部分不是随意并排的卡片：DesignFD 提供评价标签，PDE 学习快速预测，PDE 指导 GreenPD 重采样，GreenFlow 用 GreenPD 训练并接收 PDE 反馈。
+2. 绘图说明要区分数据流与训练反馈，不能把 PDE 分数画成用户输入。原图保留来源；教学重绘另标为理解示意，不改原论文。
+
+**教学改写 · English（非论文原文）**
+
+Teaching diagram prompt: Show DesignFD labels training PDE, PDE-guided resampling creating GreenPD, GreenPD training GreenFlow, and PDE feedback refining the generator. Label dataset outputs and feedback arrows separately.
+
+**教学改写 · 中文（非论文原文）**
+
+教学绘图提示词：画出 DesignFD 标签训练 PDE，PDE 指导重采样得到 GreenPD，GreenPD 训练 GreenFlow，PDE 反馈进一步优化生成器。分别标出数据产物与反馈箭头。
+
+**摘录出处：**[Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html)；Figure 2 caption，最后一句；PDF p.3，proceedings p.8598；对应§3 Method；CVF Open Access 作者接受版；正式发表元数据已由 CVF 条目核对；该工作已发表；引文版本单独标明；教学改写与模拟回复不属于论文原文
+
+**原文／图片许可：**原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
+
+```text
+为【研究问题】设计一张【方法图或动机图】的概念草图。读者看完应理解【唯一主要信息】。
+真实内容：【输入、模块、输出、依赖关系】。模块和术语严格沿用正文，不添加不存在的步骤、结果或能力。并行与先后关系必须准确。
+参考【自己制作、已获授权或许可允许使用的风格图】的留白、层级与少量协调色，保留清晰标签位置，避免复制受保护的具体表达。不要生成曲线、柱状图、表格数值、性能对比或误差条；需要结果面板时只预留位置，由真实数据另行绘制。
+先给布局说明和信息检查清单，再给绘图提示词。
+```
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html)
+
+</details>
+
+
+**核对与责任**
+
+- [ ] **第 48 条：**人工核对来源和原始结果，按当年投稿规则披露 AI 使用；不上传未经授权的材料。
+
+<a id="tip-48"></a>
+<details>
+<summary>说明、例子与参考</summary>
+
+模型说“已确认”不算核验。打开关键来源，检查数字、图片和改动，再按实际使用情况披露。
+
+**边界：**不要上传没有授权交给外部服务的材料。参考论文可以学写法，不能拼成自己的正文。
+
+**TCDiff++：公开声明不能替代许可与 AI 政策检查**
+
+**论文原文 · English**
+
+> This work does not propose any new dataset.
+
+**中文翻译 · 本指南翻译**
+
+本工作未提出任何新数据集。
+
+**逐句拆解**
+
+1. Data availability 随后指向既有 AIOZ-GDance 数据集，让新增方法与既有数据来源分开，不把公开数据写成自己新建的数据集。
+2. 该声明未说明可以把整篇稿件或数据上传到任意外部 AI 服务。公开可访问、数据许可和投稿当年的 AI 规则要各自核对，不能由一个链接推断全部授权。
+
+**教学改写 · English（非论文原文）**
+
+Teaching rewrite: Verify the cited dataset source and its reuse terms, then check the venue’s current AI policy. Disclose permitted AI assistance as required and retain responsibility for the final claims and citations.
+
+**教学改写 · 中文（非论文原文）**
+
+教学改写：核对被引数据集来源与复用条款，再核对会议或期刊当前 AI 政策。按要求披露允许的 AI 辅助，并对最终主张与引用负责。
+
+**摘录出处：**[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)；Declarations，Data availability，第1句；arXiv v4 PDF p.17；正式期刊页Data Availability可交叉核对；短引来自 arXiv:2506.18671v4，2025-10-05；正式期刊元数据已核对，不将作者稿等同于期刊排版终版；该工作已发表；引文版本单独标明；教学改写与模拟回复不属于论文原文
+
+**原文／图片许可：**arXiv 作者稿采用 non-exclusive distribution 许可，非 CC BY。正式期刊版权按 Springer 出版协议保留；本指南不向第三方转授原论文版权。
+
+来源与延伸阅读：[ACL Rolling Review · Responsible NLP Research](https://aclrollingreview.org/responsibleNLPresearch/)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)；[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)
+
+</details>
+
+
+</details>
+
+
+</details>
+
 
 <a id="writing-skill"></a>
-## PaperBank 写作 skill：让 Codex 也按这份清单检查
+### PaperBank 写作 skill
 
 把这份指南交给 Codex，按当前任务选规则；研究事实仍要回到原文、数据和实验记录。
 
-[下载 ZIP](../assets/paperbank-writing-skill.zip) · [查看 SKILL.md](../skills/paperbank-writing/SKILL.md) · [32 条写作铁律](#rules)
+[下载 ZIP](../assets/paperbank-writing-skill.zip) · [查看 SKILL.md](../skills/paperbank-writing/SKILL.md) · [写作铁律](#rules)
 
 下载、解压，保留整个 paperbank-writing/ 文件夹，把它交给 Codex 读取；补上文件、任务和允许修改的范围。
 
@@ -84,21 +508,1014 @@ Use factual, positive modifiers such as de-identified, expert-confirmed, or tail
 Read the supplied paperbank-writing/SKILL.md and select the rules in references/checklist.md that apply to this task. Check the current manuscript's research questions, contributions, and evidence first. Distinguish facts, hypotheses, and unfinished work; then check terminology, inputs and outputs, figures, and reviewer responses when relevant. Preserve the original data, experimental settings, and records. Work only within the files and scope I specify. For a reading-only task, provide advice and excerpts without editing files. Identify missing evidence rather than inventing citations, results, or completion status. Explain the main issues, supporting evidence, and minimal fixes, then make authorized changes.
 ```
 
-<a id="rules"></a>
+<a id="figures"></a>
+## 2. 光速出美图
 
-## 先记住这几条
+Less is more。画了半天还讲不清，先删东西。先用粗图定问题和论证，再调配色、字号、留白。
 
-- 先用一句话说清核心贡献；标题、摘要和引言围着它写。
-- 先说现有方法卡在哪里，再说本文怎么改、为什么这样改。
-- 一段只讲一件事；第一句给观点，后面的句子给解释或证据。
-- 关键词全文一致；同一个东西别在正文、图和公式里换三个名字。
-- 先解释操作，再给术语和符号；名字响亮不能代替方法说明。
-- 贡献写新增内容和作用，别只把流程步骤当三项贡献。
-- 贡献用具体、正面、有记忆点的词，如 de-identified、expert-confirmed、tailored；等量替换，不堆词加长。
-- 结果先写发现，再指向关键数字；表格已经会报分，正文别当复读机。
-- 方法按输入、处理、输出讲；图中的箭头对应真实信息流。
+以下是本指南的绘图默认，不替代会议模板；图型按数据关系选，不要求每篇论文集齐全套。
 
-## 一篇论文的骨架
+### 先定规则，再画
+
+- **先写一句图的任务：**动机图讲缺口，框架图讲输入、操作和输出，结果图讲比较。删掉不服务这句话的元素。
+
+Show where the existing pipeline fails and which step our method changes.
+
+画清旧流程在哪一步出问题，我们改了哪一步。
+
+- **图先于正文精修：**先用粗图和真实数据定论证，给合作者看；图讲不清，正文先别忙着抛光。
+
+Panel (a) shows the observed gap; panel (b) tests the proposed repair.
+
+(a) 展示实际缺口；(b) 检验我们的修补。
+
+- **统计图用 Python，概念图用 imagegen：**曲线、柱图、散点、热图从真实数据绘制；框架、动机、案例图用 imagegen。别让生成模型自由发挥实验点。
+
+Draw the recorded success rates with Python. Generate only the workflow illustration with imagegen.
+
+成功率用 Python 按记录画；imagegen 只生成流程示意。
+
+- **先定最终宽度和字号：**按会议栏宽起稿；图内同一字体、同一字号，正文至小 2 pt。通栏约 16:9，单栏约 4:3；附录长图可纵排。
+
+Use the paper’s column width and body font; remove repeated labels rather than shrinking text.
+
+用论文栏宽和正文字体；删重复标签，不把字缩成蚂蚁。
+
+- **位置就是阅读顺序：**主方向统一；同层成组，并行流程按真实依赖分支或汇合，反馈单列支路。每条箭头都能说清谁给谁什么。
+
+Retrieved passages enter the generator; the evaluator receives the generated answer.
+
+检索段落送给生成器；生成的回答交给评价器。
+
+- **输入、输出和评分分清：**用不同边框或线型区分；评分只供评价时，不要连成模型输入。同类对象全文同色、同样式。
+
+Dashed boxes contain model inputs; solid boxes contain responses; dotted boxes contain evaluator-only criteria.
+
+虚线框是模型输入，实线框是回复，点线框是只供评价的判据。
+
+- **白底，少色，颜色有含义：**面板尽量白；低饱和色用于分组与关键对照。颜色再配文字、形状或纹理，黑白打印也能认。
+
+Blue circles denote the baseline; orange triangles denote our method in every panel.
+
+每个面板都用蓝圆点表示基线，橙三角表示我们的方法。
+
+- **字多就分组，别开彩虹派对：**案例按背景、证据、动作、结果排；同类文本同框，重点才高亮。图标就近写对象名。
+
+The left column contains evidence; the right column shows the model response and its evaluation.
+
+左栏放证据；右栏放模型回复和评价。
+
+- **同一内容别反复贴：**同一段对话别在动机、方法、附录反复贴；新增分析可复用案例，写清区别。案例解释怎么运行，不替代总体实验。
+
+Figure 1 presents the case; Section 4 refers back to Figure 1 without repeating the dialogue.
+
+案例放图 1；第 4 节回引图 1，不再抄一遍对话。
+
+- **多子图必须组成论证：**现象、诊断、对照、稳健性按任务排；同对象同颜色，同条件同顺序，相关横轴对齐。
+
+The first panel identifies the gap, the second locates it, and the third tests whether it persists.
+
+第一图找差距，第二图找发生位置，第三图检验差距是否仍在。
+
+- **数据和几何一起核对：**查数值、分母、单位、方向、坐标起点、误差含义。相对增益同时给绝对值；均值最好不等于显著。
+
+Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.
+
+准确率从 60% 到 66%：增加 6 个百分点，相对提高 10%。
+
+- **图注讲读法和发现：**主题句、子图含义、必要口径；缩写、误差、参考线讲清。尽量三行，必要信息优先，不复述整段正文。
+
+Error bars show 95% question-level bootstrap intervals; the horizontal line marks zero gain.
+
+误差条表示按题目重采样的 95% 区间；水平线表示零增益。
+
+- **交付 PDF，放回论文看：**统计图优先矢量；imagegen 图面可配原生 PDF 文字，不能冒充全矢量。最终检查字号、可选文字、裁切、引用顺序与图注。
+
+Place the figure after its first mention and check all labels at normal reading size.
+
+按首次引用顺序排图，以正常阅读大小检查全部文字。
+
+### 按图的任务选模板
+
+- **摘要图：**问题在哪、为什么现有解法不够、我们动哪一步。通常最多 5 个环节，必要对照并排。
+
+Show the problem, the existing limitation, and the changed step.
+
+展示问题、已有解法的缺口和我们改动的步骤。
+
+- **框架图：**输入是什么，经过哪几个模块，每步产物交给谁，输出是什么。旁边走一个可追踪例子。
+
+Given a query, retrieve passages, rank evidence, and generate an answer with cited support.
+
+输入问题，检索段落，筛选证据，再生成带来源的回答。
+
+- **案例图：**必要背景、有效需求、关键证据、动作、结果、判据；同类信息同框。
+
+Separate the request, evidence, response, and evaluation.
+
+把请求、证据、回复和评价分开。
+
+- **主结果与消融：**少量方法用点图或柱图；完整方法与删组件版本同顺序、同配色。误差按实际运行计算。
+
+Compare the complete model with variants that remove one component.
+
+完整方法与只删除一个组件的变体对照。
+
+- **配对增益：**同一样本的干预与对照，画差值和零线；写清收益方向与尺度。
+
+Each point shows the intervention-minus-control accuracy on matched questions.
+
+每个点表示同一批题目上干预相对对照的准确率差。
+
+- **训练或轮次动态：**折线只连有序变量；横轴写训练步数或轮次，不把无序方法连成趋势。
+
+Track success rate and penalty magnitude against the same training steps.
+
+用相同训练步数同时追踪成功率和惩罚强度。
+
+- **分布图：**ECDF 看累计分布，KDE 看平滑密度。标样本、带宽或分位数；曲线顺滑不代表实验好。
+
+Use an ECDF to compare cumulative probabilities; use KDE to inspect density.
+
+ECDF 比累计概率，KDE 看密度。
+
+- **热图：**条件乘方法，统一色标；正负增益以零为中点，缺测留空并说明。
+
+Use one shared color scale for all conditions and mark missing cells.
+
+全部条件使用统一色标，缺测单元明确标记。
+
+- **PCA 与雷达图：**PCA 写输入、标准化、解释方差；雷达图写归一化，量纲不同别比较面积。
+
+A separated PCA projection illustrates the representation; it does not establish generalization.
+
+PCA 投影展示特征关系；投影分得开不证明泛化。
+
+- **成本性能图：**每点是一个实际配置；在线与离线成本分开，写单位和好坏方向。连接前沿不意味着有中间配置。
+
+Plot measured accuracy against online cost; report one-time training cost separately.
+
+实测准确率对照在线成本；一次性训练成本另报。
+
+- **数据集分布：**统计单位、样本量、类别和分母先写清；同一图别混案例数、回复数和判据数。重点是覆盖了什么，不是圆画得多圆。
+
+Count unique cases by domain; report response counts separately.
+
+按领域统计独立案例数；回复数量另报。
+
+- **置信带：**按实际重采样或模型计算区间；内外带标置信水平。同一图中更宽的带表示更高覆盖范围，不是更多实验。
+
+Nested bands show the estimated 68% and 95% intervals under the stated procedure.
+
+嵌套色带表示按所述方法估计的 68% 和 95% 区间。
+
+- **饼图、环图与圆环排名：**饼图只画互斥且组成整体的比例；圆环柱图可画排名，极值相邻只是环形排序，不是变量关系。要读精确差值，横向条图更方便。
+
+Use slices for a composition and ordered bars for a ranking.
+
+组成比例用扇区；排名用有顺序的柱条。
+
+- **二维增益与九宫格：**两轴分别写指标、单位和好坏方向；差值图以零线分区。九宫格用于两个有序因素的组合，别为凑九格补数据。
+
+With both gains defined as higher is better, the upper-right quadrant shows improvements on both metrics.
+
+两个增益都定义为越高越好时，右上象限表示两项指标都改善。
+
+### 私藏图：好在哪里，怎么借鉴
+
+先看原图，再看点评。借信息组织，不照搬别人的结果。
+
+<a id="fig-tcod-diagnosis"></a>
+四图围着一个诊断；颜色和位置讲两层信息。
+
+**TCOD 图2：四个面板讲一个诊断**
+
+**公开论文图例 · 点评为本指南整理**
+
+图2(c)纵轴从50起；看标出的数值，不拿柱长解释倍数。
+
+![TCOD Figure 2：训练KL、成功率、初末KL与逐轮KL四个面板](../assets/paper-tcod-fig2.png)
+
+Figure 2 organizes the diagnosis by training progress, initial–final comparison, and dialogue turn.
+按训练过程、初末比较、对话轮次组织诊断，图型随问题变化。
+
+**逐句拆解**
+
+1. (a)(b)对照训练步数上的KL与任务完成率；(c)比较三组师生的初末KL；(d)看KL随对话轮次如何变化。
+2. 先看现象，再找差距和发生位置。四图围着同一问题，读者不用猜它们为什么拼在一起。
+3. 可借鉴这条论证顺序。曲线同时变化并不独立证明因果；阴影统计定义不清时不要替作者猜。
+
+**摘录出处：**[Jiaqi Wang et al. · TCOD (arXiv v3)](https://arxiv.org/abs/2604.24005v3)；Fig.2，PDF 第4页；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
+
+**原文／图片许可：**Jiaqi Wang et al., TCOD, arXiv:2604.24005v3. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
+
+<a id="fig-interactcs-ablation"></a>
+颜色分比较组，纹理分方法；同顺序贯穿四个指标。
+
+**消融图：颜色分组，纹理分方法**
+
+**公开论文图例 · 点评为本指南整理**
+
+部分纵轴不从0开始，不能把柱高当倍数；误差线定义须查实验说明。
+
+![InteractCS-RL Figure 2：四个消融指标，共用颜色、纹理和方法顺序](../assets/paper-interactcs-fig2.png)
+
+All four panels share a method order. Colors identify comparison groups; hatching further distinguishes methods.
+四面板共享方法顺序；颜色标比较组，纹理再区分方法。
+
+**逐句拆解**
+
+1. 作者绘图笔记的要点：除了颜色，柱状图的纹理也可以区分信息。
+2. 读图先看图例：绿是RL基线，蓝是成本消融，橙是奖励消融，红是完整方法。
+3. 四个指标沿用相同顺序，类别也能靠纹理识别。打印成灰度，信息不至于集体失联。
+4. 指标旁写↑或↓：前三项高为好，发券率低为好。不同指标的柱高不能横着比。
+
+**摘录出处：**[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)；Fig.2，PDF 第7页；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
+
+**原文／图片许可：**Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
+
+<a id="fig-interactcs-case"></a>
+像 UI 一样分组；相同信息同框，避免每个字段都开气泡。
+
+**案例摘要框：先分信息，再排字**
+
+**公开论文图例 · 点评为本指南整理**
+
+这是原论文案例摘要，不是完整对话，也不是新收集的真实用户记录。
+
+![InteractCS-RL 附录案例摘要框，评价和用户设定分栏](../assets/paper-interactcs-case-summary.png)
+
+The header names the case; two columns separate evaluation scores from the simulated user profile. The dialogue continues on later pages.
+深色标题交代案例，浅底分栏列出评价和用户设定；完整对话接在后页。
+
+**逐句拆解**
+
+1. 作者笔记强调像UI一样整洁：相同信息放一起，同类信息用同样的框，颜色只强调重点。
+2. 左栏是三个评价结果，右栏是用户设定；标题、字段和值分层，不必把每个字段塞进独立气泡。
+3. 字多时先分组、删重复、留白。放回双栏PDF后仍须检查字号；网页放大看清不等于论文里看清。
+
+**摘录出处：**[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)；Appendix B.1，PDF 第13页；仅截取案例摘要框；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
+
+**原文／图片许可：**Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
+
+<a id="fig-interactcs-dynamics"></a>
+控制量和实际行为并排；红蓝在两图中对应同一个目标。
+
+**训练动态图：控制量和行为一起看**
+
+**公开论文图例 · 点评为本指南整理**
+
+阴影的统计含义未在原图注中明确，不称为标准差或置信区间。
+
+![InteractCS-RL Figure 3：成本惩罚与发券率随训练变化，红蓝对应20%和30%目标](../assets/paper-interactcs-fig3.png)
+
+The left panel shows penalty magnitude; the right shows voucher rate. Both use training steps and the same target colors.
+左图看惩罚，右图看发券率；两图共用训练步数和预算颜色。
+
+**逐句拆解**
+
+1. 作者笔记用这类动态展示控制机制。左边是施加的惩罚，右边是实际发券行为，不只贴最终均值。
+2. 红色目标20%，蓝色目标30%；同色跨面板对应同一设置，横轴对齐便于看变化顺序。
+3. 它说明训练过程中发生了什么。要判断方法优势，还需同条件基线与多次运行；曲线本身不能包办。
+
+**摘录出处：**[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)；Fig.3，PDF 第35页；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
+
+**原文／图片许可：**Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
+
+### 更多参考图，带着问题看
+
+#### [15-minute cities 图 1：地图、分布、多维散点](https://arxiv.org/html/2408.03794v1#S2.F1)
+
+地图定位差异，累计分布看人口覆盖，散点把城市放到同一坐标系。横轴是人口加权平均邻近时间，纵轴是 15 分钟覆盖人口比例；颜色是 Gini，圆大小是人口密度。位置、颜色、大小各讲一件事。灰区是受概率约束的不可达组合，不是“平均不到 15 分钟就人人可达”。
+
+The map locates local gaps; the cumulative distribution measures population coverage. In the scatter plot, position encodes mean proximity time and 15-minute coverage, color encodes the Gini index, and size encodes population density.
+
+适合“总体分布加个体差异”的多维呈现。四种编码有四种明确含义，再多就该拆图。
+
+Bruno et al., A universal framework for inclusive 15-minute cities, Nature Cities (2024), DOI 10.1038/s44284-024-00119-4; arXiv:2408.03794v1
+
+只链接原图，不重托管。arXiv 非独占分发许可。
+
+#### [15-minute cities 图 2：算法、排名、前后变化](https://arxiv.org/html/2408.03794v1#S2.F2)
+
+先画人口导向的 POI 重分配，再给城市迁移比例排名，最后用罗马的地图和直方图看前后变化。POI 是服务设施点；(b) 排的是现有 POI 的迁移比例，不是新增设施数。
+
+The panels progress from the redistribution rule to relocation rates and then to before–after spatial and distributional changes. Panel (b) ranks relocated existing POIs, not newly built facilities.
+
+三个层次回答“怎么做、改动多大、改到了哪里”。排名负责总体差异，地图负责空间位置，直方图负责分布，谁也不用兼职。
+
+Bruno et al., A universal framework for inclusive 15-minute cities, Nature Cities (2024), DOI 10.1038/s44284-024-00119-4; arXiv:2408.03794v1
+
+只链接原图，不重托管。arXiv 非独占分发许可。
+
+#### [TCOD 图 1：问题与解法放在同一张图](https://arxiv.org/pdf/2604.24005v3#page=2)
+
+同一时间线对照错误累积和两种课程；可以学对照位置，不能把示意曲线当实测。
+
+Align the failure and the changed training step on the same timeline.
+
+#### [TCOD 图 3：相同结构对齐改动](https://arxiv.org/pdf/2604.24005v3#page=5)
+
+基线、从前到后、从后到前三列沿用同样步骤块；读者直接看哪个步骤换了执行者。
+
+Keep step blocks aligned across strategies so the changed executor is visible.
+
+#### [TCOD 图 4：效果与机制并排](https://arxiv.org/pdf/2604.24005v3#page=8)
+
+成功率与 KL 共用训练步数；诊断变化，不拿一对曲线包办因果。
+
+Place performance and diagnostic curves on aligned training axes.
+
+#### [TCOD 图 5：不同单位各用一根轴](https://arxiv.org/pdf/2604.24005v3#page=9)
+
+轮数、优势、长度、损失分面板；共同横轴，不强塞到同一个纵轴。
+
+Use separate panels for quantities with different units and a shared training axis.
+
+#### [TCOD 图 6：效率写实际小时](https://arxiv.org/pdf/2604.24005v3#page=10)
+
+任务分面板、方法同顺序、柱顶写数值。Efficient 自己不会替你省算力。
+
+Report the measured training hours for each task and method.
+
+#### [InteractCS-RL 图 1：先分职责，再编步骤](https://arxiv.org/pdf/2602.22697v1#page=4)
+
+左侧生成交互，右侧优化策略；结果、过程、成本三个信号编号，旁边有实例。
+
+Group interaction generation and policy optimization before labeling their steps.
+
+#### [OneReason 图 12：对照策略的改动位置](https://arxiv.org/pdf/2606.06260v1#page=34)
+
+相同结构对齐；改动位置突出，符号在图注解释。保留链接读图，不复制整图。
+
+Align the strategies and highlight where their optimization rules differ.
+
+**让 Codex 开始画图**
+
+```text
+阅读我的论文、绘图 skill 和参考图。先为每张图写一句任务：它解释哪个问题、比较什么、支持哪项贡献。统计图用真实数据和 Python；概念图用 imagegen，先列清输入、模块、箭头、输出，再成图。按会议最终栏宽起稿，正文同族字体、正文至小 2 pt，白底低饱和，同对象同色，所有符号可解释。保持原数据、语义和拓扑，不改数值、不补误差。先给粗图和图注，核对后精修；统计图交付文字可选 PDF；概念图面叠加原生 PDF 文字，并放回论文检查。
+```
+
+**Figure prompt · English**
+
+```text
+Read my paper, figure instructions, and reference images. State one purpose for each figure: the question, comparison, and contribution. Use actual data and Python for quantitative plots; use imagegen for conceptual figures after identifying inputs, operations, arrows, and outputs. Work at the final venue column width, with the paper font and type no larger than body text and at most 2 pt smaller. Use a light background, consistent visual encoding, and explained symbols. Preserve the data and information flow. Show rough figures and captions before refinement, then deliver a PDF with selectable text and inspect the inserted figures in the paper.
+```
+
+<a id="refine"></a>
+## 3. Refine：先审逻辑，再磨句子
+
+先改全文通用要求，再按论文顺序精修。模板中的【】填自己的研究；句子数量按内容调整。这里的写作规范来自作者的 skill，会议硬性格式以官方指南为准。
+
+
+### 全文先守这些要求
+
+下面管整篇文章；章节模板在后面。语言偏好是本指南的默认写法，不能替代会议规定。
+
+#### 语言：短句也得有内容
+
+##### 少夸，多写做了什么
+
+把 powerful、comprehensive 这种空评价换成具体动作。优势需要对象和依据，不能全靠气势。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+通用表达要求
+
+**改前**
+
+Our method is powerful, comprehensive, and highly innovative.
+
+我们的方法强大、全面，而且高度创新。
+
+**改后**
+
+The method links source quotes to constraints from earlier dialogue turns.
+
+该方法将来源摘句与前文对话约束关联。
+
+**第 1 句：**具体操作直接告诉读者改了什么。
+
+##### 一句一个主要判断
+
+长句按真实处理拆开，后句继续用前句的产物。短不是碎，主语和动作要完整。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+PaperBank 短句偏好；实际行长按最终 PDF 检查
+
+**改前**
+
+The retriever selects relevant passages, which are organized into notes that are subsequently supplied to the generator so that the generator can produce cited answers.
+
+检索器选出相关片段，片段被组织成笔记，随后提供给生成器，以便生成器产生带引用的回答。
+
+**改后**
+
+The retriever selects relevant passages.
+
+检索器选出相关片段。
+
+**第 1 句：**第一步：对象和动作明确。
+
+We organize these passages into evidence notes.
+
+我们将这些片段组织成证据笔记。
+
+**第 2 句：**these passages 接住上一句的具体产物。
+
+The generator uses the notes to produce an answer with citations.
+
+生成器使用这些笔记，产生带引用的回答。
+
+**第 3 句：**继续接住笔记，落到最终输出。
+
+##### 别用符号假装写了句话
+
+正文用完整自然语言，别拿加号、箭头或破折号替代关系。公式、代码和图内流程符号按实际用途保留。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+通用表达要求
+
+**改前**
+
+Notes + constraints → better answers.
+
+笔记＋约束→更好的回答。
+
+**改后**
+
+The notes retain earlier constraints.
+
+笔记保留前文约束。
+
+**第 1 句：**先写实际处理。
+
+We test whether retaining these constraints improves citation support.
+
+我们检验保留这些约束是否提高引用支持率。
+
+**第 2 句：**把想验证的作用写成问题，不能让箭头替你证明因果。
+
+##### 相近小节，篇幅别差太远
+
+任务量相近的小节，解释篇幅尽量接近；明显更长先查重复。确实复杂就按问题分段，不缩字号和间距。
+
+教学句式，非论文原文或实测记录。
+
+PaperBank 篇幅与排版要求；各节内容需要优先
+
+We separate evidence selection from answer generation because the two stages use different inputs.
+
+证据筛选与回答生成使用不同输入，因此分别解释两个阶段。
+
+**第 1 句：**按真实职责分段，复杂才多写；不用统一字数删除必要解释。
+
+#### 术语：第一次见，就让人看懂
+
+##### 术语后面立刻接人话
+
+必要名词第一次出现就解释对象和用途。摘要、引言、实验分别检查，不能指望读者全篇背诵。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+通用表达要求
+
+**改前**
+
+We construct evidence notes.
+
+我们构建证据笔记。
+
+**改后**
+
+We construct evidence notes that link source quotes to active dialogue constraints.
+
+我们构建证据笔记，用于将来源摘句与仍需满足的对话约束关联。
+
+**第 1 句：**读完这一句就知道笔记里面是什么、为什么要构建。
+
+##### 符号写清对象、来源和下标
+
+不是给个字母就叫定义。说明这个量来自哪里、怎么算、给谁用；没用到的符号直接删。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+通用表达要求
+
+**改前**
+
+We use r to update the model.
+
+我们用 r 更新模型。
+
+**改后**
+
+For question q, r_q is the citation-support score of the generated answer.
+
+对问题 q，r_q 是生成回答的引用支持得分。
+
+**第 1 句：**交代哪个样本、哪个产物、什么指标。
+
+We use this score as the terminal reward for the sampled answer.
+
+我们将该得分用作这条采样回答的终端奖励。
+
+**第 2 句：**说明信号在哪个阶段作用于哪个对象；真实算法另有条件时补上。
+
+##### 对象名字别偷偷换
+
+同一对象全文统一称呼。它、这些、相关信号有多个可能指代时，直接换成对象名。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+通用要求：指代清楚时保留代词，歧义时换成具体对象。
+
+**改前**
+
+The retriever returns passages and notes. The generator uses them.
+
+检索器返回片段和笔记。生成器使用它们。
+
+**改后**
+
+The retriever returns passages and evidence notes.
+
+检索器返回片段和证据笔记。
+
+**第 1 句：**先列清两种不同产物。
+
+The generator uses the evidence notes.
+
+生成器使用证据笔记。
+
+**第 2 句：**读者不必猜到底是片段、笔记还是两者。
+
+##### 好词要有依据，不要全删光
+
+tailored、expert-confirmed、de-identified 这种词，客观又有贡献感，有依据就用。一个换一个，不增词数。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+PaperBank 贡献措辞偏好；示例词不是跨论文固定词库
+
+**改前**
+
+We use personalized prompts for each role.
+
+我们为每个角色使用个性化提示词。
+
+**改后**
+
+We use tailored prompts for each role.
+
+我们为每个角色使用专门设计的提示词。
+
+**第 1 句：**如果提示词确实针对角色设计，tailored 简短而直接；没有更好词时保留原词。
+
+##### 有记忆点的名字，后面必须解释
+
+有依据的发现可取短名，优先四个英文词以内。名字后直接讲观察，不用另一个陌生术语解释它。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+PaperBank 命名与粗斜体偏好；不为了凑贡献创造标签
+
+**改前**
+
+We identify a Citation Support Gap.
+
+我们发现引用支持差距。
+
+**改后**
+
+We identify a Citation Support Gap.
+
+我们发现引用支持差距。
+
+**第 1 句：**教学名称；确实有该比较才可作为发现，首次可用粗斜体强调。
+
+Answers cite sources, but some answer claims are unsupported by those sources.
+
+回答虽然列出来源，部分断言却得不到这些来源支持。
+
+**第 2 句：**立即说明差距的两端，不把缺乏支持误写成真实断言必然为假。
+
+#### 逻辑：每句话接住一个具体对象
+
+##### 不是加 Therefore 就有逻辑
+
+后一动作要处理前一句留下的问题。每句检查：承接哪个对象，新增什么判断。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+通用表达要求
+
+**改前**
+
+Retrieved passages are relevant. Therefore, we use evidence notes.
+
+检索片段具有相关性。因此，我们使用证据笔记。
+
+**改后**
+
+Relevant passages may conflict with constraints stated in earlier turns.
+
+相关片段仍可能与前文提出的约束冲突。
+
+**第 1 句：**前一句产生实际未解决的问题。
+
+We therefore link each evidence note to the relevant active constraints.
+
+因此，我们将每条证据笔记与相关的有效约束关联。
+
+**第 2 句：**方案真正接住约束冲突，Therefore 才有前提。
+
+##### 连接词按真实关系选
+
+转折写 However；因果有前提才写 Therefore；两个并列事实不必装出冲突。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+通用表达要求
+
+**改前**
+
+Both systems use the same model. However, both systems use the same evidence-context budget.
+
+两套系统使用同一模型。然而，它们使用同一证据上下文预算。
+
+**改后**
+
+Both systems use the same model and evidence-context budget.
+
+两套系统使用相同的模型与证据上下文预算。
+
+**第 1 句：**两个共同条件可以直接并列，However 在这里没有转折。
+
+##### 章际衔接要有产物
+
+开头说明本节接哪项输入，结尾说明产物怎样进入下一步。“下面介绍下一节”没有信息。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+通用表达要求
+
+**改前**
+
+Next, we introduce the next module.
+
+接下来，我们介绍下一个模块。
+
+**改后**
+
+We next organize the selected source quotes into evidence notes.
+
+接下来，我们将已筛选的来源摘句组织成证据笔记。
+
+**第 1 句：**读者知道下一步针对什么、将产生什么。
+
+##### 问题、方案、证据要对上
+
+引言说缺证据，方法就得处理证据，实验也得检查证据。别写到实验突然只谈运行速度。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+通用表达要求
+
+**改前**
+
+The problem is missing evidence. The method reformats answers. The experiment reports runtime.
+
+问题是缺少证据。方法调整回答格式。实验只报告运行时间。
+
+**改后**
+
+The problem is incomplete coverage of supporting evidence.
+
+问题是支持证据覆盖不完整。
+
+**第 1 句：**困难落到可检验的性质。
+
+The method expands the set of relevant evidence segments.
+
+方法扩大相关证据片段的覆盖。
+
+**第 2 句：**设计直接处理该困难。
+
+The experiment evaluates evidence recall and citation support, together with inference cost.
+
+实验评价证据召回与引用支持，同时报告推理成本。
+
+**第 3 句：**效果与代价共同回应贡献。
+
+#### 主张：说到证据支持的地方
+
+##### 条件别被润色删了
+
+模型、任务、范围、分母和必要条件决定结论。有限测试不写成所有场景，未测试不写成失败。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+通用表达要求
+
+**改前**
+
+The method improves answers in all languages.
+
+该方法改善所有语言的回答。
+
+**改后**
+
+On the tested English-manual questions, the method improves citation support.
+
+在已测试的英语手册问题上，该方法提高引用支持率。
+
+**第 1 句：**只描述实际测过的对象和指标，不能替未测语言盖章。
+
+##### 观察、解释、机制分开写
+
+先写看到了什么，再说可能原因；只有匹配对照支持时才归因。一起变化的组件不能一起邀功。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+通用表达要求
+
+**改前**
+
+Evidence notes prove that better organization causes the improvement.
+
+证据笔记证明，更好的组织造成了提升。
+
+**改后**
+
+Citation support is higher with evidence notes in the matched comparison.
+
+在匹配比较中，使用证据笔记的引用支持率更高。
+
+**第 1 句：**第一句只报告观察。
+
+This comparison does not isolate quote organization from retained constraint information.
+
+该比较尚未区分摘句组织与保留约束信息的各自作用。
+
+**第 2 句：**机制归因服从控制范围，不用 prove 放大解释。
+
+##### 让人记住发现，不是记住表头
+
+结果段首写发现，随后给图表与关键关系，再解释贡献。设置是设置，别把 Metrics 当发现加粗。
+
+教学改写：假设已有对应设计或比较，非论文原文与实测结果。
+
+通用表达要求
+
+**改前**
+
+Table 1 shows the scores of all methods.
+
+表1展示了所有方法的分数。
+
+**改后**
+
+Retaining earlier constraints improves citation support in this comparison.
+
+保留前文约束在该比较中提高了引用支持率。
+
+**第 1 句：**第一句就是可判断的主要发现，前提是实际对照支持。
+
+Table 1 reports the matched comparison with and without those constraints.
+
+表1报告保留与移除这些约束的匹配对照。
+
+**第 2 句：**给出证据入口与比较对象，不逐行念分。
+
+<details><summary>全文验收：补充清单与例子</summary>
+
+
+<a id="revision"></a>
+### 全文验收
+
+核对整篇论证、图表及最终交付版本。
+
+<details>
+<summary>检查清单和真实论文例子（5 项）</summary>
+
+
+**全文论证与一致性**
+
+- [ ] **第 40 条：**通读摘要至结论、图注和附录，核对问题、方法、结果是否对应；先修跳步，再改语法。
+
+<a id="tip-40"></a>
+<details>
+<summary>说明、例子与参考</summary>
+
+重复的合并，缺少联系的补上。只检查摘要和引言不能称为全文检查，图注和附录也要核对。
+
+**边界：**只检查摘要和引言，不能叫全文检查。后面的图注和附录也会藏矛盾。
+
+**SAGE：结尾回到前面承诺解决的问题**
+
+**论文原文 · English**
+
+> We presented SAGE, a scenario-extensible benchmark that addresses Scenario Silos and Dialogue Dynamics Gap by formalizing SOPs as directed graphs and coupling them with adversarial multi-turn simulation.
+
+**中文翻译 · 本指南翻译**
+
+我们提出 SAGE 这一可扩展场景的基准，通过将标准操作流程（SOP）形式化为有向图，并结合对抗性多轮模拟，回应场景孤岛和对话动态缺口。
+
+**逐句拆解**
+
+1. 结论没有另起一套故事：Scenario Silos 和 Dialogue Dynamics Gap 对应摘要与引言的问题，图表示和动态模拟对应方法设计。
+2. 全文检查要沿这条对应关系回查方法与实验；术语一致只是起点，还要确认每项设计实际实现、每项效果有比较证据。
+3. 这里陈述设计回应了什么问题，不能仅因结论写得连贯，就把所有领域的有效性说成已验证。
+
+**摘录出处：**[Ling Shi, Yuqin Dai et al. · SAGE: An Extensible Benchmark for Service Agent Graph-guided Evaluation](https://arxiv.org/abs/2604.09285)；§ Conclusion，首句（作者源稿第 1042–1045 行）；作者终稿 2026-10-04 只读快照；公开链接为 arXiv v1；作者终稿短引；公开链接为不同版本预印本
+
+**原文／图片许可：**作者终稿教学短引，保留原论文版权；不随 PaperBank 原创内容转授终稿转载权。公开 arXiv v1 的 CC BY 4.0 已核验，该许可不自动延伸到不同版本的作者终稿。
+
+来源与延伸阅读：[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[Ling Shi, Yuqin Dai et al. · SAGE: An Extensible Benchmark for Service Agent Graph-guided Evaluation](https://arxiv.org/abs/2604.09285)
+
+</details>
+
+
+**衔接、指代与篇幅**
+
+- [ ] **第 41 条：**检查相邻句是解释、转折还是因果；先讲清内容联系，再加连接词。
+
+<a id="tip-41"></a>
+<details>
+<summary>说明、例子与参考</summary>
+
+短句要接得上。前一句推不出后一句，就不能写“因此”；加 However 也不能创造原本不存在的转折。
+
+**边界：**连接词不能替你造因果。前一句推不出后一句，就别硬写“因此”。
+
+**UrbanZero：把两个模块写成真实承接关系**
+
+**教学改写：依据 UrbanZero 公开项目介绍，非论文原文**
+
+依据公开项目介绍中的语义简报、地块任务、逐块规划和程序反馈编写。中英示例为本指南教学改写；实验问题和模拟回复方案不代表项目已完成的工作。
+
+**改前 · 中文**
+
+我们生成任务。因此，我们使用逐块规划。
+
+**Before · English**
+
+We generate tasks. Therefore, we use patch-wise planning.
+
+**改后 · 中文**
+
+语义简报先由程序编译为地块任务。求解模型随后逐块分配用途，使每次决策只处理一部分空间信息。
+
+**After · English**
+
+Semantic briefs are first compiled into parcel-level tasks. The solver then assigns land uses patch by patch, so each decision handles only part of the spatial context.
+
+**逐句拆解**
+
+1. 第二句接住第一句的产物“地块任务”，先后关系自然成立。
+2. 编译本身不能推出必须逐块；逐块设计回应的是每次处理的空间规模，不要用 therefore 硬造因果。
+
+来源与延伸阅读：[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[Mensh & Kording (2017) · Ten simple rules for structuring papers](https://doi.org/10.1371/journal.pcbi.1005619)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)；[Chaoyang Shi, Yuqin Dai et al. · UrbanZero（公开项目介绍）](https://github.com/Da1yuqin/Da1yuqin.github.io/blob/main/_pages/includes/pub.md#L193-L202)
+
+</details>
+
+- [ ] **第 42 条：**歧义代词换成简短对象名，同一对象统一称呼；必要时拆句，指向清楚的代词可留。
+
+<a id="tip-42"></a>
+<details>
+<summary>说明、例子与参考</summary>
+
+一句里出现多个模型或模块，说明每个动作由谁完成。不要靠换近义词制造变化，读者需要知道对象没变。
+
+**边界：**指向清楚的代词可以留。目标是自然准确，不是把每句话写成重复全称。
+
+**TCDiff++：让模块名承担动作，别用“它”包办流程**
+
+**论文原文 · English**
+
+> Our end-to-end TCDiff++ framework comprises two key components: the Group Dance Decoder (GDD) and the Footwork Adaptor (FA).
+
+**中文翻译 · 本指南翻译**
+
+端到端 TCDiff++ 框架包含两个关键组成部分：群舞解码器（GDD）与脚步适配器（FA）。
+
+**逐句拆解**
+
+1. 图注先引入 GDD 与 FA，再分别说明 GDD 产生原始动作，FA 利用位置细化脚步，最后将脚步融入动作；对象不同，动作也不同。
+2. 教学改写用短模块名区分输入输出。单次训练不等于只有一个模块，也不等于删掉适配器；统称“它”会掩盖这些区别。
+
+**教学改写 · English（非论文原文）**
+
+Teaching rewrite: GDD generates the raw group motion from music. FA uses positional information from that motion to refine foot movements, which are then incorporated into the final dance sequence.
+
+**教学改写 · 中文（非论文原文）**
+
+教学改写：GDD 根据音乐生成群舞原始动作。FA 利用这些动作中的位置信息细化脚步，再将细化脚步融入最终舞蹈序列。
+
+**摘录出处：**[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)；Figure 2 caption，第1句及随后模块流程；arXiv v4 PDF p.6；短引来自 arXiv:2506.18671v4，2025-10-05；正式期刊元数据已核对，不将作者稿等同于期刊排版终版；该工作已发表；引文版本单独标明；教学改写与模拟回复不属于论文原文
+
+**原文／图片许可：**arXiv 作者稿采用 non-exclusive distribution 许可，非 CC BY。正式期刊版权按 Springer 出版协议保留；本指南不向第三方转授原论文版权。
+
+来源与延伸阅读：[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)
+
+</details>
+
+- [ ] **第 43 条：**先删无新增信息的句子，合并重复定义，迁移次要细节；保留关键比较、条件与结论。
+
+<a id="tip-43"></a>
+<details>
+<summary>说明、例子与参考</summary>
+
+长列表和实现细节可放附录。删完回查论证是否完整，不按“永远先删某章”的固定顺序处理。
+
+**边界：**没有“永远先删 Related Work”的规定。哪一段重复就处理哪一段。
+
+**GreenPlanner：压缩效率结论，保留同任务的时间比较**
+
+**论文原文 · English**
+
+> Manual design took 24.7 minutes on average, while GreenFlow completed the same task in only 3.2 minutes
+
+**中文翻译 · 本指南翻译**
+
+人工设计平均用时 24.7 分钟，而 GreenFlow 完成同一任务只需 3.2 分钟。
+
+**逐句拆解**
+
+1. 短引保留原句的时间比较从句。“same task”给出比较对象，24.7 与 3.2 分钟给出绝对耗时，不能只剩“效率提高 87%”。
+2. 该段来自 13 名参与者的研究，其中 4 名建筑师、9 名研究生。缩短时仍要保留参与者构成与任务范围，不能推广到所有建筑师和设计任务。
+
+**教学改写 · English（非论文原文）**
+
+Teaching rewrite: In the reported study of four architects and nine graduate students, the same design task took 24.7 minutes manually and 3.2 minutes with GreenFlow. Keep the task and participant scope when shortening the efficiency discussion.
+
+**教学改写 · 中文（非论文原文）**
+
+教学改写：在包含 4 名建筑师和 9 名研究生的研究中，同一设计任务人工用时 24.7 分钟，GreenFlow 用时 3.2 分钟。缩短效率讨论时，保留任务与参与者范围。
+
+**摘录出处：**[Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html)；§4.6 Human Expert User Study，耗时原句前半句；PDF p.7，proceedings p.8602；CVF Open Access 作者接受版；正式发表元数据已由 CVF 条目核对；该工作已发表；引文版本单独标明；教学改写与模拟回复不属于论文原文
+
+**原文／图片许可：**原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
+
+来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html)
+
+</details>
+
+
+**最终图表与版本**
+
+- [ ] **第 33 条：**在最终 PDF 检查引用顺序、图注归属、精度、高亮和整页布局；图表只传达实际信息。
+
+<a id="tip-33"></a>
+<details>
+<summary>说明、例子与参考</summary>
+
+表格的最优标记要有规则，图注要紧邻正确图。拥挤先调结构，空白先查排版，再检查全文是否一致。
+
+**边界：**没有可靠依据能把美观换算成固定录用率。图的任务是帮助理解，不是制造保证。
+
+**TCDiff++：高亮规则写在表旁，再回整页核对**
+
+**论文原文 · English**
+
+> The best results are highlighted in bold, the second best results are underlined
+
+**中文翻译 · 本指南翻译**
+
+最优结果用粗体标出，次优结果用下划线标出。
+
+**逐句拆解**
+
+1. 表 4 包含群舞与单舞指标，箭头说明各列的好坏方向。最优、次优应逐列检查，不能凭整行印象套标记。
+2. 将表题、指标方向、数值与正文一起放回 PDF p.16 检查。高亮帮助比较，不代表完整模型赢得每列，更不是录用收益证据。
+
+**教学改写 · English（非论文原文）**
+
+Teaching rewrite: Verify each best and second-best mark against the metric direction in Table 4. Inspect the caption, numeric precision, and surrounding explanation together at the final page size.
+
+**教学改写 · 中文（非论文原文）**
+
+教学改写：依据表 4 各指标方向逐一检查最优与次优标记。按最终整页尺寸，同时检查表题、数值精度和邻近说明。
+
+**摘录出处：**[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)；Table 4 caption，最后一分句；arXiv v4 PDF p.16；短引来自 arXiv:2506.18671v4，2025-10-05；正式期刊元数据已核对，不将作者稿等同于期刊排版终版；该工作已发表；引文版本单独标明；教学改写与模拟回复不属于论文原文
+
+**原文／图片许可：**arXiv 作者稿采用 non-exclusive distribution 许可，非 CC BY。正式期刊版权按 Springer 出版协议保留；本指南不向第三方转授原论文版权。
+
+来源与延伸阅读：[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[Rougier et al. (2014) · Ten Simple Rules for Better Figures](https://doi.org/10.1371/journal.pcbi.1003833)；[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)
+
+</details>
+
+
+</details>
+
+
+</details>
+
+
+### 按论文顺序精修
 
 摘要把全文缩成一段；引言提出问题，方法给出做法，实验检查做法，讨论说明边界，结论收尾。具体按领域和投稿模板调整。
 
@@ -115,36 +1532,57 @@ Read the supplied paperbank-writing/SKILL.md and select the rules in references/
 
 逐句示范有论文原文短引，也有明确标注的模拟段落。原文例子来自不同论文，不拼接成同一篇完整论文；模拟部分用同一个假设任务串联。
 
-## 目录
+### 本章目录
 
-- [1. 标题](#title)
-- [2. 摘要](#abstract)
-- [3. 引言](#intro)
-- [4. 相关工作](#related)
-- [5. 方法](#method)
-- [6. 实验](#experiments)
-- [7. 讨论与局限](#discussion)
-- [8. 结论](#conclusion)
-- [9. 参考文献](#references)
-- [10. 附录](#appendix)
-- [11. 全文验收](#revision)
-- [12. 起草与协作](#workflow)
-- [13. AI辅助](#ai)
-- [14. Rebuttal](#rebuttal)
-- [好用工具与开源整理提示词](#tools)
+- [标题](#title)
+- [摘要](#abstract)
+- [引言](#intro)
+- [相关工作](#related)
+- [方法](#method)
+- [实验](#experiments)
+- [讨论与局限](#discussion)
+- [结论](#conclusion)
+- [参考文献](#references)
+- [附录](#appendix)
+- [Rebuttal](#rebuttal)
 
 <a id="title"></a>
-## 1. 标题
+### 3.1 标题
 
 让读者看清研究对象、任务和关键改动。
 
-### 标题示范
+#### 标题：对象、困难、关键改动
+
+让读者一眼知道研究什么、解决哪种困难。方法名可以有，信息不能只剩方法名。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 少用 novel、powerful 这类自我评价。冒号、问句或缩写按领域习惯选，不为排成一行删掉研究对象。
+
+推荐骨架
+
+[Method Name]: [Key Design] for [Task under the Specific Difficulty]
+
+[方法名]：用[关键设计]解决[具体困难下的任务]。
+
+**第 1 句：**冒号前是名字，后半句给出研究对象和实际改动。
+
+[Specific Finding] in [Research Setting]
+
+[研究场景]中的[具体发现]。
+
+**第 2 句：**发现或 benchmark 论文也能用结果组织标题，不必伪装成方法论文。
+
+<details><summary>更多中英例子：真实论文短引与教学拆解</summary>
+
+
+#### 标题示范
 
 用研究对象和关键改动让读者判断相关性。
 
-论文原文短引 · 中文为本指南翻译
-
 WebFilter 教 RAG 模型使用高级网页搜索工具，下面摘录论文标题。
+
+论文原文短引 · 中文为本指南翻译
 
 Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools with Reinforcement Learning
 
@@ -153,6 +1591,9 @@ Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools
 **第 1 句：**冒号前给出记忆点，冒号后交代研究对象、搜索工具和强化学习；标题能让读者判断主题。
 
 [Yuqin Dai et al. (AAAI 2026) · Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools with Reinforcement Learning](https://ojs.aaai.org/index.php/AAAI/article/view/40299) · Title，PDF第1页（刊页30458）；AAAI 2026 camera-ready；2026-03-14正式发表
+
+</details>
+
 
 <details>
 <summary>检查清单和真实论文例子（4 项）</summary>
@@ -320,17 +1761,61 @@ On the two long-document QA test sets in this study, the model achieves higher m
 
 
 <a id="abstract"></a>
-## 2. 摘要
+### 3.2 摘要
 
 用一段交代问题、缺口、方法、主要结果和范围。
 
-### 摘要·示范自然段1
+#### 摘要：把整篇论文压成一个闭环
+
+按“任务与瓶颈 → 缺口 → 设计 → 主要发现与范围”写。读完应知道为什么做、怎么做、发现什么。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 必要术语就近解释。只放正文真正支持的主张，别在摘要许下正文还不了的愿。
+- 一般保留最关键的结果，不逐个读分数。本文与基线、指标和范围需要明确；数字确实决定意义时保留。
+
+推荐骨架；长度按投稿要求
+
+[Task] requires [specific capability] in [setting].
+
+[任务]在[场景]下需要[具体能力]。
+
+**第 1 句：**开门见山写任务需求，不先夸领域前景。
+
+Existing approaches [established capability], but [specific limitation].
+
+现有方法已能[已有能力]，但仍有[具体不足]。
+
+**第 2 句：**先承认已有能力，再限定本研究的缺口。
+
+To address this limitation, we propose [method] that [key operation].
+
+为解决这个问题，我们提出[方法]，通过[关键操作]实现改进。
+
+**第 3 句：**方法对应上一句的不足，不突然转向另一件事。
+
+Experiments on [tested scope] show [main finding] compared with [comparison].
+
+在[实测范围]上的实验表明，相比[对照]，[主要发现]。
+
+**第 4 句：**说明比较条件和主要发现，不能只写 achieves superior performance。
+
+This finding supports [specific value] under [necessary condition].
+
+这个发现说明，在[必要条件]下，[具体价值]成立。
+
+**第 5 句：**收束意义及范围；若与上一句重复就合并，不机械凑五句。
+
+<details><summary>更多中英例子：真实论文短引与教学拆解</summary>
+
+
+#### 摘要·示范自然段1
 
 一段给出问题、缺口、设计、结果和必要范围。
 
-论文原文短引 · 中文为本指南翻译
-
 PlanCraft 从不完整草图生成住宅场景，下面摘录摘要里的两句方法说明，不是完整摘要。
+
+论文原文短引 · 中文为本指南翻译
 
 PlanCraft-Diff progressively sharpens an incomplete sketch into a geometrically precise, vectorizable floor plan through a coarse-to-fine strategy.
 
@@ -345,6 +1830,9 @@ With the spatial contract established, PlanCraft-Agent then furnishes the scene 
 **第 2 句：**随后接住上一句的房间边界，再说家具装配；两个模块由产物连起来。
 
 [Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3) · Abstract，PlanCraft-Diff 与 PlanCraft-Agent 两句；PDF 第 1 页；arXiv:2607.23491v3，2026-09-05；短引对照作者源稿及公开 v3 正文
+
+</details>
+
 
 <details>
 <summary>检查清单和真实论文例子（7 项）</summary>
@@ -635,11 +2123,208 @@ HotpotQA、Bamboogle、2Wiki 上的 F1 相对增幅分别为 20%、40%、91%，�
 
 
 <a id="intro"></a>
-## 3. 引言
+### 3.3 引言
 
 背景与已有路线→局限→对应设计→主要结果→贡献列表。
 
-### 引言·示范自然段1：任务与需求
+#### 引言第一段：大方向，立刻落到任务
+
+第一句从研究方向切入；下一句交代实际价值，随后落到具体任务。别连续三句“随着人工智能的发展”。
+
+按论证顺序选用，段落可合并或拆分。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 背景只留后文理解困难所需的信息。把已有路线留到下一段；若内容很短，也可合并。
+
+PaperBank 推荐骨架
+
+[Research direction] aims to [clear task objective] [citations].
+
+[研究方向]旨在[清楚的任务目标][引用]。
+
+**第 1 句：**先立研究对象，引用就近支持这个判断。
+
+In [application], this capability matters because [evidence-supported value].
+
+在[应用]中，这种能力影响[有依据的实际价值]。
+
+**第 2 句：**用一句说明值得做，未经评估别写提高商业收益。
+
+In this setting, [input] must be converted into [output] while satisfying [constraint].
+
+在这一场景下，需要将[输入]转为[输出]，同时满足[约束]。
+
+**第 3 句：**把大方向落到具体任务；下一段才能讨论已有解法做到哪一步。
+
+#### 引言：已有方法单独概括，局限下一段写
+
+一两句话概括已有路线及能做到的部分，引用跟着主张走。机制细分放 Related Work，下一段再集中讲不足。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 按共同任务、机制或评价目标归类，不写作者点名册。
+- 保留有代表性且支持本句的引用；数量按论证需要，不硬凑五篇。引言与 Related Work 的对象、分类和关键词一致。
+
+PaperBank 规范化写法；段数按内容调整
+
+Existing [research line] uses [shared mechanism] to [established capability] [citations].
+
+现有[研究路线]通过[共同机制]实现[已建立的能力][引用]。
+
+**第 1 句：**先承认已经解决的部分，再让读者理解下一段为何还提出困难。
+
+Another line uses [different mechanism] to support [additional capability] [citations].
+
+另一条路线通过[不同机制]支持[另一项能力][引用]。
+
+**第 2 句：**只保留有实质差别的第二类方法；没有这类研究就删掉此句。
+
+#### 引言局限段：把不足写到能检验
+
+接着前段已有方法，指出具体对象在什么条件下仍缺什么。先写问题，再解释原因或例子。
+
+按论证顺序选用，段落可合并或拆分。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 多项困难可给简短标签，标签后立即解释。只保留后文有对应设计和实验的困难。
+- 不足与方案分开写；别让问题还没说清，方法名字已经冲进来。first、ignored、cannot 都要原文核验。
+
+PaperBank 规范化写法
+
+However, [existing capability] does not establish [missing property] when [condition].
+
+然而，在[条件]下，[已有能力]仍不能说明[尚缺性质]成立。
+
+**第 1 句：**说清评价或能力的证明边界，不把未证明改写成完全失败。
+
+We call this difficulty [short name]: [plain-language meaning].
+
+我们将这一困难称为[短名]，具体是指[普通语言解释]。
+
+**第 2 句：**名字服务记忆，解释服务理解；不能靠名字替代问题。
+
+For example, [concrete input or situation] requires [specific behavior], which [existing comparison] does not assess.
+
+例如，[具体输入或场景]需要[具体行为]，而[对照评价]尚未检验这一点。
+
+**第 3 句：**例子显示缺口怎样发生，是否未检验仍需核对实际来源。
+
+#### 引言设计段：每个设计领走自己的问题
+
+按上一段的问题顺序介绍对应设计，用同一组关键词。告诉读者为什么这个操作能处理这个问题。
+
+按论证顺序选用，段落可合并或拆分。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 设计只是机制说明；没有消融时，不提前宣称机制已被证实。核心方法名与后文、框架图一致。
+
+PaperBank 规范化写法
+
+To address [challenge A], we [design A] using [actual input or signal].
+
+为解决[困难 A]，我们利用[实际输入或信号]设计[A 方案]。
+
+**第 1 句：**一对一接回上一段的困难。
+
+This design [specific operation], allowing [specific intended capability].
+
+该设计通过[具体操作]，支持[明确的目标能力]。
+
+**第 2 句：**解释如何发生，不只把方案换个词再说一遍。
+
+To address [challenge B], we [design B].
+
+为解决[困难 B]，我们采用[B 方案]。
+
+**第 3 句：**第二项方案处理另一项真实问题；没有就删除，不凑模块。
+
+#### 引言：设计之后接实际发现
+
+介绍方案后，马上概括最重要的实验发现；之后再列贡献。不能把贡献列表写完才说结果。
+
+按论证顺序选用，段落可合并或拆分。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 发现有辨识度可以取短名，立刻说明名字指什么。名称不能添加未测的心理、因果或部署收益。
+- 引言不朗读后文表格；配图承担动机解释。只引用首图是作者写作偏好，不是所有论文的投稿要求。
+
+PaperBank 规范化写法
+
+Experiments on [tested tasks] reveal [specific finding] under [comparison conditions].
+
+在[比较条件]下，[实测任务]的实验揭示[具体发现]。
+
+**第 1 句：**先说结果，限定实测范围。
+
+This finding indicates [what is supported], while [remaining limitation] remains unresolved.
+
+该发现支持[已证实的认识]，但[剩余局限]仍未解决。
+
+**第 2 句：**解释贡献及边界，不顺手扩大主张。
+
+#### 引言最后：贡献清单收尾
+
+以普通正文 In summary, our contributions are: 引出原生 itemize，列表后直接进下一节。
+
+按论证顺序选用，段落可合并或拆分。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 分别写核心工作、关键设计、评价或验证、实证发现；同一项只讲一个主要贡献，长度接近。
+- 四项是作者常用格式；真实贡献不足四项就合并，不把下载模板、实现脚本等工程步骤充成创新。
+
+PaperBank 规范化写法；不强凑条数
+
+In summary, our contributions are:
+
+概括而言，我们的贡献如下：
+
+**第 1 句：**用清楚的引导句收尾，不再另起论文目录预告。
+
+We propose [core contribution] to [research objective].
+
+我们提出[核心贡献]，用于[研究目标]。
+
+**第 2 句：**第一项说新增研究对象或核心方法。
+
+We design [mechanism] that [specific operation].
+
+我们设计[机制]，通过[具体操作]实现[作用]。
+
+**第 3 句：**第二项解释关键设计，不重复第一项。
+
+We introduce [evaluation or verification] for [what it checks].
+
+我们引入[评价或验证方式]，检验[具体性质]。
+
+**第 4 句：**只有它本身构成实际贡献时单独列项。
+
+Experiments across [scope] reveal [specific finding].
+
+跨[实测范围]的实验揭示[具体发现]。
+
+**第 5 句：**发现用真实结果写，不用 extensive experiments demonstrate effectiveness 糊弄。
+
+**完整 LaTeX 骨架**
+
+```latex
+In summary, our contributions are:
+\begin{itemize}
+    \item We propose [core contribution] to [research objective].
+    \item We design [mechanism] that [specific operation].
+    \item We introduce [evaluation] for [what it checks].
+    \item Experiments across [scope] reveal [specific finding].
+\end{itemize}
+```
+
+<details><summary>更多中英例子：真实论文短引与教学拆解</summary>
+
+
+#### 引言·示范自然段1：任务与需求
 
 从读者能理解的具体任务说明为什么值得研究。
 
@@ -657,13 +2342,13 @@ A useful answer must satisfy earlier constraints and identify its supporting pas
 
 **第 2 句：**交代任务要求，后面的评价才有依据。
 
-### 引言·示范自然段2：领域回顾
+#### 引言·示范自然段2：领域回顾
 
 按路线概括已有进展，为下一段具体局限埋下伏笔。
 
-论文原文短引 · 中文为本指南翻译
-
 EviNoteRAG 研究检索后的证据使用，下面摘录引言里回顾已有 RAG 路线的一句。
+
+论文原文短引 · 中文为本指南翻译
 
 To address this limitation, Retrieval-Augmented Generation (RAG) has emerged by incorporating a search tool that supplies up-to-date external evidence at inference time, enabling models to ground their responses in timely information and improve factual consistency.
 
@@ -673,13 +2358,13 @@ To address this limitation, Retrieval-Augmented Generation (RAG) has emerged by 
 
 [Yuqin Dai et al. · EviNoteRAG: Enhancing RAG Models via Quality-Augmented Evidence Notes](https://arxiv.org/abs/2509.00877) · § 1 Introduction，第一段最后一句，PDF 第 1 页；作者终稿 content/01_introduction.tex；EMNLP 2026 revised 作者终稿；公开链接为 arXiv v3
 
-### 引言第3段：现有方法的局限
+#### 引言第3段：现有方法的局限
 
 接着上一段的做法，说清它在哪里不够用。下一段逐点解决。
 
-教学例句，非论文原文。
-
 假设前文介绍了按当前问题检索片段的问答方法。
+
+教学例句，非论文原文。
 
 However, passage relevance does not tell the generator which earlier constraints still apply.
 
@@ -693,13 +2378,13 @@ For example, a passage may recommend an online service even when the user previo
 
 **第 2 句：**一个具体例子解释约束遗漏，不让读者靠新名词猜意思。
 
-### 引言·示范自然段4：方法逐点回应
+#### 引言·示范自然段4：方法逐点回应
 
 每项设计都接回上一段的具体困难。
 
-论文原文短引 · 中文为本指南翻译
-
 TCDiff 生成多舞者群舞，下面用摘要里的设计句示范如何回应引言困难，不是整段引言。
+
+论文原文短引 · 中文为本指南翻译
 
 To mitigate collisions, we introduce a Dance-Trajectory Navigator that generates collision-free trajectories for multiple dancers, utilizing a distance-consistency loss to maintain optimal spacing.
 
@@ -709,13 +2394,13 @@ To mitigate collisions, we introduce a Dance-Trajectory Navigator that generates
 
 [Yuqin Dai et al. (AAAI 2025) · Harmonious Music-driven Group Choreography with Trajectory-Controllable Diffusion](https://ojs.aaai.org/index.php/AAAI/article/view/32268) · Abstract, PDF p.1 / p.2645；Table1, PDF p.6 / p.2650；正式发表论文
 
-### 引言：设计之后，紧接主要结果
+#### 引言：设计之后，紧接主要结果
 
 说完怎么解决，马上交代实验发现；最后再列贡献。
 
-论文原文短引 · 中文为本指南翻译
-
 接着 TCDiff 的设计句，看同一论文如何概括结果；原句位于实验分析。
+
+论文原文短引 · 中文为本指南翻译
 
 TCDiff effectively captures inter-dancer correlations (high GMC) with a slight trade-off in individual fidelity (FID).
 
@@ -725,13 +2410,13 @@ TCDiff 能较好捕捉舞者间相关性（GMC 较高），同时在个体保真
 
 [Yuqin Dai et al. (AAAI 2025) · Harmonious Music-driven Group Choreography with Trajectory-Controllable Diffusion](https://ojs.aaai.org/index.php/AAAI/article/view/32268) · §Quantitative Results，第3句；PDF p.6，proceedings p.2650；Table 1；正式发表版本；作者原文短引
 
-### 引言·贡献列表
+#### 引言·贡献列表
 
 把贡献写成新增内容和验证方式，而非任务清单。
 
-论文原文短引 · 中文为本指南翻译
-
 PlanCraft 连接草图补全与场景装配，下面摘录引言贡献列表的第一项。
+
+论文原文短引 · 中文为本指南翻译
 
 We identify two overlooked structural insights, design is progressive and the floor plan is a spatial prior, and propose PlanCraft, the first unified system that bridges incomplete design sketches to fully furnished 3D residential scenes.
 
@@ -741,7 +2426,7 @@ We identify two overlooked structural insights, design is progressive and the fl
 
 [Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3) · Introduction，贡献列表第 1 项；PDF 第 2 页；arXiv:2607.23491v3，2026-09-05；短引对照作者源稿及公开 v3 正文
 
-### 贡献措辞：给读者几个记得住的词
+#### 贡献措辞：给读者几个记得住的词
 
 有事实依据就直接写。换掉没信息的修饰词，别给每个名词戴三顶帽子。
 
@@ -770,6 +2455,9 @@ A tailored prompt guides each role in checking the evidence.
 各角色使用定制提示词核查证据。
 
 **第 4 句：**tailored 点出针对性；无需在贡献句里展开提示词细节。
+
+</details>
+
 
 <details>
 <summary>检查清单和真实论文例子（17 项）</summary>
@@ -1422,26 +3110,7 @@ Module A extracts text, while module B independently retrieves images. The fusio
 
 **边界：**左右对照只是选项，不是所有图的标准答案。没有验证的优势，别靠画面暗示出来。
 
-**TCOD 图2：四个面板讲一个诊断**
-
-**公开论文图例 · 点评为本指南整理**
-
-图2(c)纵轴从50起；看标出的数值，不拿柱长解释倍数。
-
-![TCOD Figure 2：训练KL、成功率、初末KL与逐轮KL四个面板](../assets/paper-tcod-fig2.png)
-
-Figure 2 organizes the diagnosis by training progress, initial–final comparison, and dialogue turn.
-按训练过程、初末比较、对话轮次组织诊断，图型随问题变化。
-
-**逐句拆解**
-
-1. (a)(b)对照训练步数上的KL与任务完成率；(c)比较三组师生的初末KL；(d)看KL随对话轮次如何变化。
-2. 先看现象，再找差距和发生位置。四图围着同一问题，读者不用猜它们为什么拼在一起。
-3. 可借鉴这条论证顺序。曲线同时变化并不独立证明因果；阴影统计定义不清时不要替作者猜。
-
-**摘录出处：**[Jiaqi Wang et al. · TCOD (arXiv v3)](https://arxiv.org/abs/2604.24005v3)；Fig.2，PDF 第4页；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
-
-**原文／图片许可：**Jiaqi Wang et al., TCOD, arXiv:2604.24005v3. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
+[第二章：原图、中英例子与拆解](#fig-tcod-diagnosis)
 
 **OneReason 图12：相同结构对照训练策略**
 
@@ -1505,13 +3174,77 @@ Accuracy on the same 100 held-out tasks. Bars show the mean across five independ
 
 
 <a id="related"></a>
-## 4. 相关工作
+### 3.4 相关工作
 
 按问题组织文献，准确说明本文与最相近工作的差别。
 
-### 相关工作·示范自然段1：方法归类
+#### Related Work：完整段落模板
 
-按解决的问题概括代表路线，避免逐篇点名。
+Related Work 主标题后直接进入原生 subsection，不写“本节介绍A和B”。小节标题简短，排版不超过一行。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 每个主题按“路线概括 → 机制分组 → 实质扩展 → 尚缺性质 → 本文对应方案”推进。引用跟着类别主张走，不逐篇配文。
+- 每个主题小节都要收尾：However 说不足，To address/To solve 说方案。第一个小节也要，别把收尾全丢给最后一段。
+- 结尾的对象、范围和关键词与 Intro 完全对齐；两个小节不要重复同一个缺口。先承认已有能力，再讲不同。
+- 短主题可以一个自然段写完；复杂主题按实际职责拆，不把单篇论文的一段配额升格成通行规范。
+
+PaperBank 规范化写法；主题数量按论文内容
+
+[Research line] addresses [shared task] by [shared mechanism] [citations].
+
+[研究路线]通过[共同机制]处理[共同任务][引用]。
+
+**第 1 句：**第一句定义本小节主题，把真正相近的工作归成一类。
+
+One group [mechanism A], whereas another group [mechanism B] [citations].
+
+一类方法采用[机制 A]，另一类采用[机制 B][引用]。
+
+**第 2 句：**分组必须有实质机制差别，不是换作者名字。
+
+More recent extensions [additional established capability] [citations].
+
+后续扩展进一步实现了[已有额外能力][引用]。
+
+**第 3 句：**承接基本路线的扩展，不能为了显得新随便插文献。
+
+However, these approaches do not establish [Intro challenge] under [specific scope].
+
+然而，在[具体范围]内，这些方法尚未说明[引言中的问题]得到解决。
+
+**第 4 句：**不足直接复用引言关键词，并限定到原文支持的边界。
+
+To address this limitation, we [matching design] to [specific purpose].
+
+为解决这个不足，我们通过[对应设计]实现[具体目的]。
+
+**第 5 句：**方案与引言一致；这句写完就结束本小节，不再空泛 Next。
+
+**完整 LaTeX 骨架**
+
+```latex
+\section{Related Work}
+\subsection{[Short Topic A]}
+[Research line] addresses [shared task] by [shared mechanism]~\cite{...}.
+One group [mechanism A], whereas another group [mechanism B]~\cite{...}.
+More recent extensions [additional established capability]~\cite{...}.
+However, these approaches do not establish [Intro challenge A] under [scope A].
+To address this limitation, we [matching design A] to [purpose A].
+
+\subsection{[Short Topic B]}
+[Research line B] evaluates [property] using [evaluation basis]~\cite{...}.
+Other evaluations [substantive extension]~\cite{...}.
+However, [Intro challenge B] remains unresolved under [scope B].
+To address this limitation, we [matching design B] to [purpose B].
+```
+
+<details><summary>更多中英例子：真实论文短引与教学拆解</summary>
+
+
+#### 相关工作·局部句式1：方法归类
+
+按解决的问题概括代表路线，避免逐篇点名。 下面只拆分类与比较句；完整主题段还要按上面的模板补齐不足和本文方案。
 
 教学例句，非论文原文或实测结果。
 
@@ -1527,9 +3260,9 @@ Dense retrieval selects passages, while evidence organization links selected tex
 
 **第 2 句：**概括有实质区别的路线；真实论文应为每类主张配准确引用。
 
-### 相关工作·示范自然段2：近邻与差别
+#### 相关工作·局部句式2：近邻与差别
 
-写准近邻研究已经覆盖什么，再限定本文差别。
+写准近邻研究已经覆盖什么，再限定本文差别。 下面只拆分类与比较句；完整主题段还要按上面的模板补齐不足和本文方案。
 
 教学例句，非论文原文或实测结果。
 
@@ -1544,6 +3277,9 @@ Our study examines whether keeping earlier constraints helps across dialogue tur
 本文检验跨轮保留前文约束是否有用。
 
 **第 2 句：**差别落到研究条件，不凭方法名字宣称新颖。
+
+</details>
+
 
 <details>
 <summary>检查清单和真实论文例子（3 项）</summary>
@@ -1664,11 +3400,136 @@ Our study examines whether keeping earlier constraints helps across dialogue tur
 
 
 <a id="method"></a>
-## 5. 方法
+### 3.5 方法
 
 先定义任务，再按真实依赖说明输入、处理和输出。
 
-### 方法·示范自然段1：任务定义
+#### Problem Formulation：先说任务，再放符号
+
+先用普通语言说明任务，然后定义输入、输出、目标、约束与评价单位。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 训练时、推理时、评价时分别能看到什么，写在实际相关位置；别把参考答案、标签或 judge 规则悄悄喂给模型。
+- 符号说明对象与单位，所有上下标都解释；没在后文用到的定义删掉。优化或判定细节留到对应模块。
+
+通用要求；有需要才设独立小节
+
+Given [input], the task is to produce [output] that satisfies [requirements].
+
+给定[输入]，任务是产生满足[要求]的[输出]。
+
+**第 1 句：**先把任务讲通，读者随后才知道符号代表什么。
+
+We denote [concrete object] by [symbol], where [indices and units].
+
+我们用[符号]表示[具体对象]，其中[说明下标与单位]。
+
+**第 2 句：**符号不能只给英文名，要与真实对象连接。
+
+At inference time, [executor] receives [visible information]; [reference information] is used only for evaluation.
+
+推理时，[执行者]接收[可见信息]；[参考信息]仅用于评价。
+
+**第 3 句：**明确信息边界。实际方法确实使用额外信息时如实写，不照抄示例。
+
+#### Method Overview：规范化完整模板
+
+开头接 Intro 的问题，按实际顺序讲输入如何变成输出。章节名是阅读位置，执行动作的主语是 we、模型、专家或真正模块。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 用 in [准确章节名] (ref) 定位，每个章节名与引用只出现一次；后句接前句产物，不重报目录。
+- 每一步都有目的、输入、处理、输出；真实模块、框架图标签与后续小节一致。并行流程不能硬写 Following。
+- 最后一句引用 framework。已有清楚的章首总览时不为模板另建一个 Overview 小节，也不凭空添加 Problem Formulation。
+- 下面只给职责和衔接。没有案例构造阶段就删掉对应句，新增阶段必须确实存在。
+
+PaperBank 规范化写法；按真实依赖替换或删除阶段
+
+To address [Intro challenge], in [Problem Formulation] (Section [ref]), we define [input] and [required output].
+
+为解决[引言中的困难]，我们在[问题定义]（[真实节号]）中定义[输入]与[要求的输出]。
+
+**第 1 句：**接动机、定任务，并用章节名导航；不是“Problem Formulation performs...” 。
+
+Following this definition, in [Input Construction] (Section [ref]), we construct [inputs] from [verified source].
+
+按照这一任务定义，我们在[输入构造]（[真实节号]）中从[已核验来源]构造[输入]。
+
+**第 2 句：**承接任务定义，不凭空把定义写成数据产物。
+
+Using [constructed inputs], in [Processing] (Section [ref]), we [operation] to obtain [intermediate output].
+
+利用[已构造输入]，我们在[处理章节]（[真实节号]）中执行[操作]，得到[中间产物]。
+
+**第 3 句：**上一句输出成为本句输入，目的和结果都有落点。
+
+Given [intermediate output], in [Output Generation] (Section [ref]), we [operation] and produce [final output].
+
+给定[中间产物]，我们在[输出生成]（[真实节号]）中执行[操作]，产生[最终输出]。
+
+**第 4 句：**交代产物怎样进入下一步；实际并行则改成真实并行关系。
+
+Figure [ref] summarizes this workflow.
+
+图[真实编号]概括了这一流程。
+
+**第 5 句：**收束到框架图，读者此时能把每个节点与正文对应。
+
+**完整 LaTeX 骨架**
+
+```latex
+To address [the Intro challenge], in \textbf{[Problem Formulation]}
+(\S\ref{sec:problem}), we define [input] and [required output].
+Following this definition, in \textbf{[Input Construction]}
+(\S\ref{sec:inputs}), we construct [inputs] from [verified source].
+Using [constructed inputs], in \textbf{[Processing]}
+(\S\ref{sec:processing}), we [operation] to obtain [intermediate output].
+Given [intermediate output], in \textbf{[Output Generation]}
+(\S\ref{sec:output}), we [operation] and produce [final output].
+Figure~\ref{fig:framework} summarizes this workflow.
+```
+
+#### Method 每个小节：输入、目的、操作、输出
+
+开头接上节输出，并说明本节处理目的；结尾把产物交给真实下一步。只有输入输出真接上，then 才有用。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 关键计算或决策规则用有编号公式；符号第一次出现就解释。长算法、完整 prompt 与可复现参数按篇幅放附录。
+- 粗体段首对应真实模块、步骤或明确隶属的子流程；名称与 framework 一致，不凭空制造模块。
+- 并行模块、循环与反馈单独交代；训练信号写清来自哪种样本、哪个阶段、什么指标、更新哪个对象。
+
+通用要求；PaperBank 推荐句式
+
+Using [previous output], we [operation] to [specific purpose].
+
+利用[上一步产物]，我们通过[操作]实现[具体目的]。
+
+**第 1 句：**一句同时承接前文并给本节任务。
+
+For each [unit], we compute [quantity] from [signal source] under [condition].
+
+对每个[计算单位]，我们在[条件]下从[信号来源]计算[量]。
+
+**第 2 句：**操作落实到单位与来源，公式才有实际含义。
+
+Here, [symbol] denotes [object], and [subscript] indexes [unit].
+
+其中，[符号]表示[对象]，[下标]索引[单位]。
+
+**第 3 句：**按公式实际需要逐一说明，不复制没用到的定义。
+
+The resulting [output] is passed to [next step] for [purpose].
+
+生成的[产物]交给[下一步]，用于[目的]。
+
+**第 4 句：**末句启下；不存在这项依赖就如实改写。
+
+<details><summary>更多中英例子：真实论文短引与教学拆解</summary>
+
+
+#### 方法·示范自然段1：任务定义
 
 用具体对象定义输入、输出和不可见信息。
 
@@ -1686,9 +3547,9 @@ The output is an answer with citations; reference answers are used only for eval
 
 **第 2 句：**把生成输入与评估参照分开，避免图与文字造成答案泄漏。
 
-### 方法开头：先把流程讲通
+#### 输入输出接力：局部句式
 
-先讲输入怎样变成输出，再逐节讲模块。别把章节目录念一遍。
+只拆输入、处理、输出的衔接。完整 Method Overview 还要按上面的模板补章节定位、目的和框架图引用。
 
 教学例句，非论文原文。
 
@@ -1710,13 +3571,13 @@ The generator uses these notes to produce an answer with source citations.
 
 **第 3 句：**these notes 承接上一句；回答与引用落到最终输出。
 
-### 方法总览：最后一句收束流程
+#### 方法总览：最后一句收束流程
 
 前面讲清组件怎样接力，最后再概括整条流程。
 
-论文原文短引 · 中文为本指南翻译
-
 GreenPlanner 生成满足约束的规划，下面摘录框架图图注里的流程收束句，不是完整方法总览。
+
+论文原文短引 · 中文为本指南翻译
 
 Together, these components form an end-to-end pipeline from data construction to constraint-driven generative design.
 
@@ -1726,13 +3587,13 @@ Together, these components form an end-to-end pipeline from data construction to
 
 [Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html) · Figure 2 caption，最后一句；PDF p.3，proceedings p.8598；对应§3 Method；CVF Open Access 作者接受版；正式发表元数据已由 CVF 条目核对
 
-### 方法·示范自然段3：表示与操作
+#### 方法·示范自然段3：表示与操作
 
 每个关键步骤说清目的、操作与输出。
 
-论文原文短引 · 中文为本指南翻译
-
 SAGE 将服务对话流程建成图，下面摘录方法中定义流程表示的一句。
+
+论文原文短引 · 中文为本指南翻译
 
 We formalize each SOP as a directed graph G = (V, E) with three node types: Start/End, Decision (branching on conditions), and Action nodes.
 
@@ -1742,7 +3603,7 @@ We formalize each SOP as a directed graph G = (V, E) with three node types: Star
 
 [Ling Shi, Yuqin Dai et al. · SAGE: An Extensible Benchmark for Service Agent Graph-guided Evaluation](https://arxiv.org/abs/2604.09285) · § Universal Dialogue Graph Modeling，有向图定义段（作者源稿第 471 行）；作者终稿 2026-10-04 只读快照；公开链接为 arXiv v1
 
-### 方法·示范自然段4：答案生成
+#### 方法·示范自然段4：答案生成
 
 说明生成器如何使用前面的产物。
 
@@ -1759,6 +3620,9 @@ The generator returns an answer with links to the quoted sources.
 生成器返回回答，并附上指向摘句来源的引用。
 
 **第 2 句：**回答附上笔记中的来源，读者能回查证据。
+
+</details>
+
 
 <details>
 <summary>检查清单和真实论文例子（12 项）</summary>
@@ -1999,26 +3863,7 @@ The model receives records available by 2020 and predicts the 2022 outcome. A se
 
 **边界：**字号按模板和最终效果决定，不照搬另一篇论文的画布尺寸。
 
-**案例摘要框：先分信息，再排字**
-
-**公开论文图例 · 点评为本指南整理**
-
-这是原论文案例摘要，不是完整对话，也不是新收集的真实用户记录。
-
-![InteractCS-RL 附录案例摘要框，评价和用户设定分栏](../assets/paper-interactcs-case-summary.png)
-
-The header names the case; two columns separate evaluation scores from the simulated user profile. The dialogue continues on later pages.
-深色标题交代案例，浅底分栏列出评价和用户设定；完整对话接在后页。
-
-**逐句拆解**
-
-1. 作者笔记强调像UI一样整洁：相同信息放一起，同类信息用同样的框，颜色只强调重点。
-2. 左栏是三个评价结果，右栏是用户设定；标题、字段和值分层，不必把每个字段塞进独立气泡。
-3. 字多时先分组、删重复、留白。放回双栏PDF后仍须检查字号；网页放大看清不等于论文里看清。
-
-**摘录出处：**[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)；Appendix B.1，PDF 第13页；仅截取案例摘要框；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
-
-**原文／图片许可：**Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
+[第二章：原图、中英例子与拆解](#fig-interactcs-case)
 
 来源与延伸阅读：[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[Rougier et al. (2014) · Ten Simple Rules for Better Figures](https://doi.org/10.1371/journal.pcbi.1003833)；[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)
 
@@ -2034,27 +3879,7 @@ The header names the case; two columns separate evaluation scores from the simul
 
 **边界：**不能只靠红绿表达对错。类别确实多时，以看得清为准，别硬凑三种颜色。
 
-**消融图：颜色分组，纹理分方法**
-
-**公开论文图例 · 点评为本指南整理**
-
-部分纵轴不从0开始，不能把柱高当倍数；误差线定义须查实验说明。
-
-![InteractCS-RL Figure 2：四个消融指标，共用颜色、纹理和方法顺序](../assets/paper-interactcs-fig2.png)
-
-All four panels share a method order. Colors identify comparison groups; hatching further distinguishes methods.
-四面板共享方法顺序；颜色标比较组，纹理再区分方法。
-
-**逐句拆解**
-
-1. 作者绘图笔记的要点：除了颜色，柱状图的纹理也可以区分信息。
-2. 读图先看图例：绿是RL基线，蓝是成本消融，橙是奖励消融，红是完整方法。
-3. 四个指标沿用相同顺序，类别也能靠纹理识别。打印成灰度，信息不至于集体失联。
-4. 指标旁写↑或↓：前三项高为好，发券率低为好。不同指标的柱高不能横着比。
-
-**摘录出处：**[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)；Fig.2，PDF 第7页；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
-
-**原文／图片许可：**Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
+[第二章：原图、中英例子与拆解](#fig-interactcs-ablation)
 
 来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Rougier et al. (2014) · Ten Simple Rules for Better Figures](https://doi.org/10.1371/journal.pcbi.1003833)；[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)
 
@@ -2203,11 +4028,203 @@ Illustrative response written by the authors: the assistant requests the missing
 
 
 <a id="experiments"></a>
-## 6. 实验
+### 3.6 实验
 
 用公平比较回答研究问题，报告发现、取舍与条件。
 
-### 实验·示范自然段1：研究问题
+#### Experiments 开头：先告诉读者要验证什么
+
+承接方法构建，交代实际测评对象，以及主结果、消融和其他分析分别回答什么。先导航，再给细节和表格。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- RQ 可以用来组织问题，但不必每张表都领一个号码。标题用 Main Results、Ablation Studies 或具体实验目的，不写 Answer to RQ4。
+- 实验类型由贡献决定；benchmark、方法、理论、质性研究不共享固定实验清单。
+
+通用要求；推荐骨架
+
+After constructing [method or benchmark], we evaluate [actual target] on [scope].
+
+构建[方法或基准]后，我们在[范围]内评价[实际对象]。
+
+**第 1 句：**承接前章产物，先给比较范围。
+
+We first test whether [design] improves [goal] under [fixed conditions].
+
+我们先检验，在[固定条件]下，[设计]能否改善[目标]。
+
+**第 2 句：**主结果回应 Intro 的问题，而不是临时找个漂亮指标。
+
+We then isolate [component] and examine [robustness, efficiency, or transfer question].
+
+随后，我们单独检验[组件]，并检查[稳健性、效率或迁移问题]。
+
+**第 3 句：**只预告实际存在的分析，不能为了补齐模板虚构实验。
+
+#### Experimental Setup：让比较公平、能复现
+
+先写实测数据范围、来源、划分与版本；完整发布数据和实际评价子集不同，结果之前就说清。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- Metrics 交代指标定义、简称、方向、分母、汇总方式、无效或缺失输出怎么处理。
+- Baselines 按比较路线介绍，并给原始来源；说明共享和不共享的模型、训练数据、输入、预算及解码条件。
+- Implementation Details 给实际超参数、选择依据、硬件、运行次数、seed 或确定性说明、成本口径。参数在开发集选，测试集用于最终评价。
+- 人工或模型 judge 写清谁判什么、依据什么、核验覆盖什么；局部一致率不是全体准确率。
+- Metrics、Baselines、Implementation Details 是写作分组，不是执行流程模块。指标说明计算单位、分母和好坏方向；基线说明为什么可比。
+
+通用要求；Metrics/Baselines 为推荐组织
+
+We evaluate [unit] from [dataset version], using [split or selection rule].
+
+我们从[数据版本]中按[划分或选择规则]评价[样本单位]。
+
+**第 1 句：**先定义谁进入比较，不能结果出来后悄悄换分母。
+
+Metrics. We measure [property] using [metric definition]; [direction] is better.
+
+指标。我们用[指标定义]测量[性质]；[方向]表示更好。
+
+**第 2 句：**不是只列缩写；定义、单位和方向决定读法。
+
+We compute [per-unit statistic] and aggregate by [rule]. [Invalid-output policy].
+
+先计算[单位统计量]，再按[规则]汇总；[无效输出处理规则]。
+
+**第 3 句：**宏平均、微平均与条件子集不能混用。
+
+Baselines. We compare [method] with [routes and citations] using [shared conditions].
+
+基线。我们在[共享条件]下，将[方法]与[基线路线及引用]比较。
+
+**第 4 句：**把可影响结果的条件说明白，不只报模型名字。
+
+Implementation Details. We select [parameters] on [development data] and fix them before [final evaluation].
+
+实现细节。我们在[开发数据]上选择[参数]，并在[最终评价]前固定这些选择。
+
+**第 5 句：**明确选择边界；具体值与来源按真实记录填。
+
+#### Main Results：结论先行，别读表
+
+第一句写可判断的发现，并让加粗句本身有信息。后面引用具体图表、解释比较关系，最后回扣贡献。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 正文少重复分数和排名；必须保留的范围、条件与不确定性不能一起删掉。全面胜出、显著、稳定都要相应证据。
+- 有利和不利指标一起解释；benchmark 的价值是能区分、揭示或覆盖什么，不是模型在上面得分高。
+
+通用要求；加粗发现为 PaperBank 偏好
+
+[Design] improves [specific ability] under [tested condition].
+
+在[实测条件]下，[设计]改善了[具体能力]。
+
+**第 1 句：**作为加粗结论；无提升就写真实差异或未支持的主张。
+
+Table [ref] shows [qualitative contrast] relative to [comparison].
+
+表[真实编号]显示，相比[对照]，[关键关系]。
+
+**第 2 句：**只讲决定结论的对照，不逐行复述数字。
+
+This contrast supports [Intro contribution], while [observed trade-off] limits [scope].
+
+这一对照支持[引言贡献]，但[已观察代价]限制了[适用范围]。
+
+**第 3 句：**解释结果意味着什么，同时保留真实取舍。
+
+#### Ablation Studies：一项改动对应一个判断
+
+先写保持了什么，再写删除、替换或改变了什么。对照不匹配，涨分不能全算给新模块。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 一项结果只归因到该比较能识别的作用；同时变两项时补匹配对照，或收窄结论。
+- 把实验目的、改动、发现、作用连起来，别只有 w/o A、w/o B 一张表。
+
+通用要求；按机制归因需求选用
+
+To examine [component purpose], we replace [component] with [control].
+
+为检验[组件作用]，我们用[对照]替换[组件]。
+
+**第 1 句：**消融对准方法声称的作用。
+
+We keep [other settings] fixed.
+
+其余[设置]保持不变。
+
+**第 2 句：**告诉读者哪些替代解释受到控制。
+
+Figure [ref] shows [observed change], supporting [limited component role] in [tested setting].
+
+图[真实编号]显示[观察变化]，支持该组件在[实测设置]中具有[有限作用]。
+
+**第 3 句：**作用不超过实际控制的因素与范围。
+
+#### 扩展实验：稳定、效率、迁移，各自回答一个问题
+
+重复运行说明结果是否受随机性影响；敏感性说明参数变化的作用；迁移说明在新对象上是否仍成立。别把三者混成“泛化强”。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 效率比较说明端到端成本口径、资源与质量取舍；不能只计检索开销却省掉生成和审核。
+- 每组扩展先交代为什么要查、改变什么、保留什么，再说发现及边界。
+
+按贡献选用，不是必做套餐
+
+To test [stability or transfer claim], we vary [factor] while holding [controls] fixed.
+
+为检验[稳定或迁移主张]，我们改变[因素]，保持[控制项]不变。
+
+**第 1 句：**问题与实际变化必须匹配。
+
+We report [variation or outcome] across [repeat unit or new setting].
+
+我们报告跨[重复单位或新设置]的[变化或结果]。
+
+**第 2 句：**说清独立运行、样本和重复层级，不靠最好一次说明稳定。
+
+These comparisons support [scope-limited finding], but do not establish [broader claim].
+
+这些比较支持[有限范围的发现]，尚不能说明[更广主张]成立。
+
+**第 3 句：**范围边界具体写；不是在每段末尾机械加免责声明。
+
+#### Case Study：让读者看到方法怎么走
+
+用具体输入、关键处理与输出走一遍流程。来源清楚，成功和失败都解释发生在哪一步。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 原始用户文本、实测回复与标签保持原文；自己构造的说明案例标清。案例帮助理解，不代替总体结果。
+- 若案例承担评价教学，放在总体分数之前也可；位置按叙事作用选择，不固定所有论文都先 Case Studies。
+
+通用要求；教学案例须明示
+
+In [a recorded case or a stated constructed example], [input] requires [specific behavior].
+
+在[有来源的真实案例或明示构造案例]中，[输入]要求[具体行为]。
+
+**第 1 句：**先给来源类型与任务，不能让虚构案例穿上实测外套。
+
+[Stage] uses [evidence] to produce [intermediate output].
+
+[阶段]利用[证据]生成[中间产物]。
+
+**第 2 句：**把可见处理与 framework 对上。
+
+The final output [meets or violates requirement] because [observable evidence].
+
+最终输出[满足或违反要求]，依据是[可见证据]。
+
+**第 3 句：**判定与证据直接连接，不只写一个勾叉。
+
+<details><summary>更多中英例子：真实论文短引与教学拆解</summary>
+
+
+#### 实验·示范自然段1：研究问题
 
 先确定要回答的问题，再决定比较和图表。
 
@@ -2225,7 +4242,7 @@ We also test whether retaining earlier constraints contributes to this change.
 
 **第 2 句：**第二个问题对应机制消融；RQ编号可用，也可以不用。
 
-### 实验·示范自然段2：数据与指标
+#### 实验·示范自然段2：数据与指标
 
 把样本范围、指标分母和评分方式说明白。
 
@@ -2267,7 +4284,7 @@ Answers with no factual sentences are reported separately as not applicable, wit
 
 **第 6 句：**明确不能计算句子比例的情形，不填零、不静默删除；比较时核对两组的适用范围。
 
-### 实验·示范自然段3：公平比较
+#### 实验·示范自然段3：公平比较
 
 按任务介绍基线，并对齐会影响结果的条件。
 
@@ -2285,13 +4302,13 @@ Both systems use the same evidence-context token budget and decoding settings.
 
 **第 2 句：**预算计入实际输入生成器的证据与笔记，避免只对齐检索长度却增加额外输入。
 
-### 实验·示范自然段4：主要发现
+#### 实验·示范自然段4：主要发现
 
 先回答研究问题，再解释主要比较和取舍。
 
-论文原文短引 · 中文为本指南翻译
-
 TCDiff 评价群舞与个体动作，下面摘录结果分析里的收益与代价句。
+
+论文原文短引 · 中文为本指南翻译
 
 TCDiff effectively captures inter-dancer correlations (high GMC) with a slight trade-off in individual fidelity (FID).
 
@@ -2301,7 +4318,7 @@ TCDiff 能较好捕捉舞者间相关性（GMC 较高），同时在个体保真
 
 [Yuqin Dai et al. (AAAI 2025) · Harmonious Music-driven Group Choreography with Trajectory-Controllable Diffusion](https://ojs.aaai.org/index.php/AAAI/article/view/32268) · §Quantitative Results，第3句；PDF p.6，proceedings p.2650；Table 1；正式发表版本；作者原文短引
 
-### 实验·示范自然段5：消融与解释
+#### 实验·示范自然段5：消融与解释
 
 一次改变待检验因素，说明结果支持什么。
 
@@ -2319,7 +4336,7 @@ If support decreases, this comparison indicates the value of retained constraint
 
 **第 2 句：**若唯一改动后表现下降，就支持该因素在当前设置下有用。
 
-### 实验·示范自然段6：稳健性与复测
+#### 实验·示范自然段6：稳健性与复测
 
 按主张补重复或分组检验，别只保留最好一次。
 
@@ -2337,7 +4354,7 @@ We also compare short and long dialogue histories using the same scoring rule.
 
 **第 2 句：**分组检验直接围绕跨轮约束，不为凑实验随意增加维度。
 
-### 实验·示范自然段7：案例分析
+#### 实验·示范自然段7：案例分析
 
 用一个明确来源的案例解释流程与失败，别以案例代替总体证据。
 
@@ -2354,6 +4371,9 @@ The case shows where the constraint enters the note, but it does not establish o
 案例展示约束在哪里进入笔记，但不能证明总体成功率。
 
 **第 2 句：**案例服务于流程理解，整体效果仍看正式实验。
+
+</details>
+
 
 <details>
 <summary>检查清单和真实论文例子（19 项）</summary>
@@ -2965,26 +4985,7 @@ KDE 写带宽和样本；PCA 写输入、标准化和解释方差；区间带说
 
 **边界：**KDE 不是累计分布；PCA 图分得开不等于证明机制或泛化；置信区间不表示某次观测落入范围的概率。不凭图形平滑程度评判方法。
 
-**训练动态图：控制量和行为一起看**
-
-**公开论文图例 · 点评为本指南整理**
-
-阴影的统计含义未在原图注中明确，不称为标准差或置信区间。
-
-![InteractCS-RL Figure 3：成本惩罚与发券率随训练变化，红蓝对应20%和30%目标](../assets/paper-interactcs-fig3.png)
-
-The left panel shows penalty magnitude; the right shows voucher rate. Both use training steps and the same target colors.
-左图看惩罚，右图看发券率；两图共用训练步数和预算颜色。
-
-**逐句拆解**
-
-1. 作者笔记用这类动态展示控制机制。左边是施加的惩罚，右边是实际发券行为，不只贴最终均值。
-2. 红色目标20%，蓝色目标30%；同色跨面板对应同一设置，横轴对齐便于看变化顺序。
-3. 它说明训练过程中发生了什么。要判断方法优势，还需同条件基线与多次运行；曲线本身不能包办。
-
-**摘录出处：**[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)；Fig.3，PDF 第35页；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
-
-**原文／图片许可：**Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
+[第二章：原图、中英例子与拆解](#fig-interactcs-dynamics)
 
 来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Rougier et al. (2014) · Ten Simple Rules for Better Figures](https://doi.org/10.1371/journal.pcbi.1003833)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)；[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)
 
@@ -3111,11 +5112,43 @@ Teaching layout: keep the scenario facts on a white background. Use consistent l
 
 
 <a id="discussion"></a>
-## 7. 讨论与局限
+### 3.7 讨论与局限
 
 解释证据支持的意义，交代未覆盖条件与未证实原因。
 
-### 讨论·示范自然段1：发现的意义
+#### Discussion / Limitations：解释意义，划清边界
+
+先回答研究问题，再区分观察到的现象、可能解释、已有对照支持的机制。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 局限写具体数据、语言、条件、预算和判定范围；说明哪些没测、哪些测了没解决。别用泛泛“未来增加更多数据”。
+- 局限不藏必要事实，也不把所有未测试条件都写成方法失败。
+
+通用要求；标题位置按领域
+
+The results suggest [specific interpretation] within [tested scope].
+
+在[实测范围]内，结果提示[具体认识]。
+
+**第 1 句：**解释发现的意义。
+
+The present comparison does not isolate [alternative explanation].
+
+当前比较尚未单独排除[替代解释]。
+
+**第 2 句：**没做归因对照时直说仍不能区分什么。
+
+Our evaluation covers [range], while [different condition] remains untested.
+
+当前评价覆盖[范围]，[不同条件]尚未检验。
+
+**第 3 句：**边界具体，能自然指导下一步研究。
+
+<details><summary>更多中英例子：真实论文短引与教学拆解</summary>
+
+
+#### 讨论·示范自然段1：发现的意义
 
 回到研究问题解释发现，机制判断服从对照证据。
 
@@ -3133,7 +5166,7 @@ The current comparison does not isolate source organization from added constrain
 
 **第 2 句：**把未区分原因写清，不把整体提高归因于全部设计。
 
-### 局限·示范自然段1：尚未覆盖条件
+#### 局限·示范自然段1：尚未覆盖条件
 
 把外推范围写具体，区分未知与失败。
 
@@ -3150,6 +5183,9 @@ Cross-language questions and frequently updated documents remain untested.
 跨语言问题和频繁更新的文档尚未检验。
 
 **第 2 句：**未测设置不能写成已适用，也不能写成已失败。
+
+</details>
+
 
 <details>
 <summary>检查清单和真实论文例子（2 项）</summary>
@@ -3247,11 +5283,42 @@ Suppose that the evaluation covers only static English documents. Cross-language
 
 
 <a id="conclusion"></a>
-## 8. 结论
+### 3.8 结论
 
 回到开头的问题，用已报告证据概括主要贡献。
 
-### 结论·示范自然段1
+#### Conclusion：把开头的问题收回来
+
+短写任务答案、关键设计认识、主要发现与范围。结尾不引入新实验、新数字或新贡献。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 未来工作只写与已指出局限相连的下一步；不能把计划写成已经有的能力。
+
+通用要求；推荐骨架
+
+We studied [research problem] by [core design].
+
+我们通过[核心设计]研究了[问题]。
+
+**第 1 句：**回到起点，不重新铺领域背景。
+
+The evaluation establishes [supported finding] under [conditions].
+
+评价表明，在[条件]下，[有证据的发现]成立。
+
+**第 2 句：**收束真正得到的认识。
+
+[Specific limitation] motivates future evaluation in [relevant setting].
+
+[具体局限]说明，后续需要在[相关设置]继续检验。
+
+**第 3 句：**实际需要未来工作才写，不能机械凑末句。
+
+<details><summary>更多中英例子：真实论文短引与教学拆解</summary>
+
+
+#### 结论·示范自然段1
 
 用已有发现收束开头的问题，不在结尾新增结果。
 
@@ -3268,6 +5335,9 @@ The illustrative evaluation shows higher citation support with extra latency; br
 模拟评价显示引用支持率提高但延迟增加；更广泛的文档设置还需检验。
 
 **第 2 句：**把主要发现、取舍和外推范围一起收束，不再宣传一遍。
+
+</details>
+
 
 <details>
 <summary>检查清单和真实论文例子（1 项）</summary>
@@ -3321,11 +5391,37 @@ Suppose that evidence notes improve citation support in static-document question
 
 
 <a id="references"></a>
-## 9. 参考文献
+### 3.9 参考文献
 
 让每个引用对得到正确原文和实际版本。
 
-### 参考文献核对示范
+#### References：查支持关系，不只查作者年份
+
+逐个核对正文判断与原文实际支持范围，来源、版本、页码及 BibTeX 元数据准确。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 同一论文预印本与正式版去重，优先记录实际使用的版本。模型和工具首次出现引用原始报告或官方文档。
+- 固定引文数量、近两年配额是特定稿件要求，不能为了数字塞不相关论文。
+
+通用要求
+
+[Grouped claim] [citations that actually support the claim].
+
+[归类判断][真正支持该判断的引用]。
+
+**第 1 句：**每条引用都服务近旁判断，不能只把出处堆在段尾。
+
+We use [model or tool version] [original report or official documentation].
+
+我们使用[模型或工具版本][原始报告或官方文档]。
+
+**第 2 句：**记录实际使用版本，不能用后发布的模型文档装饰早期实验。
+
+<details><summary>更多中英例子：真实论文短引与教学拆解</summary>
+
+
+#### 参考文献核对示范
 
 让正文判断、引用键和实际文献版本对应。
 
@@ -3342,6 +5438,9 @@ A source evaluated only on single-turn retrieval cannot support a claim about mu
 只评估单轮检索的来源，不能支撑多轮检索结论。
 
 **第 2 句：**核对支持关系比排版整齐更重要。
+
+</details>
+
 
 <details>
 <summary>检查清单和真实论文例子（2 项）</summary>
@@ -3430,11 +5529,37 @@ The repository provides plotting code and aggregate figure data. The individual-
 
 
 <a id="appendix"></a>
-## 10. 附录
+### 3.10 附录
 
 把补充细节放在容易找到、足以复核的位置。
 
-### 附录·示范自然段1：复核细节
+#### Appendix：按职责放，不是剩菜桶
+
+技术细节回答如何实现；实验细节回答如何产生并比较结果；补充结果回答稳定性、机制或范围；证明说明假设和成立条件。
+
+完整教学句式；方括号换成本文事实，非论文原文。
+
+- 正文核心设计与关键限制不能全部藏进附录。每个附录节开头说明服务哪项正文主张，正文给具体入口。
+- 统一术语、符号、数据版本与分母；新结果改变主结论时正文一起更新。
+
+通用要求；分组名按内容
+
+Appendix [ref] provides [details] needed to reproduce [method or comparison].
+
+附录[编号]给出复现[方法或比较]所需的[具体细节]。
+
+**第 1 句：**正文指向实际有用的入口，不笼统“更多见附录”。
+
+This section tests [main-text claim] while controlling [alternative explanation].
+
+本节在控制[替代解释]的条件下检验[正文主张]。
+
+**第 2 句：**附录开头重建本节作用，读者不必回翻数页猜。
+
+<details><summary>更多中英例子：真实论文短引与教学拆解</summary>
+
+
+#### 附录·示范自然段1：复核细节
 
 用明确入口提供正文未展开的设置和补充结果。
 
@@ -3452,7 +5577,7 @@ Appendix B reports per-run results, including failures, with configuration ident
 
 **第 2 句：**结果与配置对应，不能只放最好的一次或把故障当成方法发现。
 
-### 附录·示范自然段2：参数选择
+#### 附录·示范自然段2：参数选择
 
 交代选参数据和规则，区分选择过程与最终测试。
 
@@ -3469,6 +5594,9 @@ We freeze this choice before evaluating the test questions.
 我们在评价测试问题前冻结这个选择。
 
 **第 2 句：**把开发与测试边界写清，不能根据最终涨分倒选参数。
+
+</details>
+
 
 <details>
 <summary>检查清单和真实论文例子（3 项）</summary>
@@ -3610,605 +5738,8 @@ Teaching rewrite: Report the stopping metric, evaluation split, and search range
 </details>
 
 
-<a id="revision"></a>
-## 11. 全文验收
-
-核对整篇论证、图表及最终交付版本。
-
-<details>
-<summary>检查清单和真实论文例子（5 项）</summary>
-
-
-**全文论证与一致性**
-
-- [ ] **第 40 条：**通读摘要至结论、图注和附录，核对问题、方法、结果是否对应；先修跳步，再改语法。
-
-<a id="tip-40"></a>
-<details>
-<summary>说明、例子与参考</summary>
-
-重复的合并，缺少联系的补上。只检查摘要和引言不能称为全文检查，图注和附录也要核对。
-
-**边界：**只检查摘要和引言，不能叫全文检查。后面的图注和附录也会藏矛盾。
-
-**SAGE：结尾回到前面承诺解决的问题**
-
-**论文原文 · English**
-
-> We presented SAGE, a scenario-extensible benchmark that addresses Scenario Silos and Dialogue Dynamics Gap by formalizing SOPs as directed graphs and coupling them with adversarial multi-turn simulation.
-
-**中文翻译 · 本指南翻译**
-
-我们提出 SAGE 这一可扩展场景的基准，通过将标准操作流程（SOP）形式化为有向图，并结合对抗性多轮模拟，回应场景孤岛和对话动态缺口。
-
-**逐句拆解**
-
-1. 结论没有另起一套故事：Scenario Silos 和 Dialogue Dynamics Gap 对应摘要与引言的问题，图表示和动态模拟对应方法设计。
-2. 全文检查要沿这条对应关系回查方法与实验；术语一致只是起点，还要确认每项设计实际实现、每项效果有比较证据。
-3. 这里陈述设计回应了什么问题，不能仅因结论写得连贯，就把所有领域的有效性说成已验证。
-
-**摘录出处：**[Ling Shi, Yuqin Dai et al. · SAGE: An Extensible Benchmark for Service Agent Graph-guided Evaluation](https://arxiv.org/abs/2604.09285)；§ Conclusion，首句（作者源稿第 1042–1045 行）；作者终稿 2026-10-04 只读快照；公开链接为 arXiv v1；作者终稿短引；公开链接为不同版本预印本
-
-**原文／图片许可：**作者终稿教学短引，保留原论文版权；不随 PaperBank 原创内容转授终稿转载权。公开 arXiv v1 的 CC BY 4.0 已核验，该许可不自动延伸到不同版本的作者终稿。
-
-来源与延伸阅读：[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[Ling Shi, Yuqin Dai et al. · SAGE: An Extensible Benchmark for Service Agent Graph-guided Evaluation](https://arxiv.org/abs/2604.09285)
-
-</details>
-
-
-**衔接、指代与篇幅**
-
-- [ ] **第 41 条：**检查相邻句是解释、转折还是因果；先讲清内容联系，再加连接词。
-
-<a id="tip-41"></a>
-<details>
-<summary>说明、例子与参考</summary>
-
-短句要接得上。前一句推不出后一句，就不能写“因此”；加 However 也不能创造原本不存在的转折。
-
-**边界：**连接词不能替你造因果。前一句推不出后一句，就别硬写“因此”。
-
-**UrbanZero：把两个模块写成真实承接关系**
-
-**教学改写：依据 UrbanZero 公开项目介绍，非论文原文**
-
-依据公开项目介绍中的语义简报、地块任务、逐块规划和程序反馈编写。中英示例为本指南教学改写；实验问题和模拟回复方案不代表项目已完成的工作。
-
-**改前 · 中文**
-
-我们生成任务。因此，我们使用逐块规划。
-
-**Before · English**
-
-We generate tasks. Therefore, we use patch-wise planning.
-
-**改后 · 中文**
-
-语义简报先由程序编译为地块任务。求解模型随后逐块分配用途，使每次决策只处理一部分空间信息。
-
-**After · English**
-
-Semantic briefs are first compiled into parcel-level tasks. The solver then assigns land uses patch by patch, so each decision handles only part of the spatial context.
-
-**逐句拆解**
-
-1. 第二句接住第一句的产物“地块任务”，先后关系自然成立。
-2. 编译本身不能推出必须逐块；逐块设计回应的是每次处理的空间规模，不要用 therefore 硬造因果。
-
-来源与延伸阅读：[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[Mensh & Kording (2017) · Ten simple rules for structuring papers](https://doi.org/10.1371/journal.pcbi.1005619)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)；[Chaoyang Shi, Yuqin Dai et al. · UrbanZero（公开项目介绍）](https://github.com/Da1yuqin/Da1yuqin.github.io/blob/main/_pages/includes/pub.md#L193-L202)
-
-</details>
-
-- [ ] **第 42 条：**歧义代词换成简短对象名，同一对象统一称呼；必要时拆句，指向清楚的代词可留。
-
-<a id="tip-42"></a>
-<details>
-<summary>说明、例子与参考</summary>
-
-一句里出现多个模型或模块，说明每个动作由谁完成。不要靠换近义词制造变化，读者需要知道对象没变。
-
-**边界：**指向清楚的代词可以留。目标是自然准确，不是把每句话写成重复全称。
-
-**TCDiff++：让模块名承担动作，别用“它”包办流程**
-
-**论文原文 · English**
-
-> Our end-to-end TCDiff++ framework comprises two key components: the Group Dance Decoder (GDD) and the Footwork Adaptor (FA).
-
-**中文翻译 · 本指南翻译**
-
-端到端 TCDiff++ 框架包含两个关键组成部分：群舞解码器（GDD）与脚步适配器（FA）。
-
-**逐句拆解**
-
-1. 图注先引入 GDD 与 FA，再分别说明 GDD 产生原始动作，FA 利用位置细化脚步，最后将脚步融入动作；对象不同，动作也不同。
-2. 教学改写用短模块名区分输入输出。单次训练不等于只有一个模块，也不等于删掉适配器；统称“它”会掩盖这些区别。
-
-**教学改写 · English（非论文原文）**
-
-Teaching rewrite: GDD generates the raw group motion from music. FA uses positional information from that motion to refine foot movements, which are then incorporated into the final dance sequence.
-
-**教学改写 · 中文（非论文原文）**
-
-教学改写：GDD 根据音乐生成群舞原始动作。FA 利用这些动作中的位置信息细化脚步，再将细化脚步融入最终舞蹈序列。
-
-**摘录出处：**[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)；Figure 2 caption，第1句及随后模块流程；arXiv v4 PDF p.6；短引来自 arXiv:2506.18671v4，2025-10-05；正式期刊元数据已核对，不将作者稿等同于期刊排版终版；该工作已发表；引文版本单独标明；教学改写与模拟回复不属于论文原文
-
-**原文／图片许可：**arXiv 作者稿采用 non-exclusive distribution 许可，非 CC BY。正式期刊版权按 Springer 出版协议保留；本指南不向第三方转授原论文版权。
-
-来源与延伸阅读：[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)
-
-</details>
-
-- [ ] **第 43 条：**先删无新增信息的句子，合并重复定义，迁移次要细节；保留关键比较、条件与结论。
-
-<a id="tip-43"></a>
-<details>
-<summary>说明、例子与参考</summary>
-
-长列表和实现细节可放附录。删完回查论证是否完整，不按“永远先删某章”的固定顺序处理。
-
-**边界：**没有“永远先删 Related Work”的规定。哪一段重复就处理哪一段。
-
-**GreenPlanner：压缩效率结论，保留同任务的时间比较**
-
-**论文原文 · English**
-
-> Manual design took 24.7 minutes on average, while GreenFlow completed the same task in only 3.2 minutes
-
-**中文翻译 · 本指南翻译**
-
-人工设计平均用时 24.7 分钟，而 GreenFlow 完成同一任务只需 3.2 分钟。
-
-**逐句拆解**
-
-1. 短引保留原句的时间比较从句。“same task”给出比较对象，24.7 与 3.2 分钟给出绝对耗时，不能只剩“效率提高 87%”。
-2. 该段来自 13 名参与者的研究，其中 4 名建筑师、9 名研究生。缩短时仍要保留参与者构成与任务范围，不能推广到所有建筑师和设计任务。
-
-**教学改写 · English（非论文原文）**
-
-Teaching rewrite: In the reported study of four architects and nine graduate students, the same design task took 24.7 minutes manually and 3.2 minutes with GreenFlow. Keep the task and participant scope when shortening the efficiency discussion.
-
-**教学改写 · 中文（非论文原文）**
-
-教学改写：在包含 4 名建筑师和 9 名研究生的研究中，同一设计任务人工用时 24.7 分钟，GreenFlow 用时 3.2 分钟。缩短效率讨论时，保留任务与参与者范围。
-
-**摘录出处：**[Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html)；§4.6 Human Expert User Study，耗时原句前半句；PDF p.7，proceedings p.8602；CVF Open Access 作者接受版；正式发表元数据已由 CVF 条目核对；该工作已发表；引文版本单独标明；教学改写与模拟回复不属于论文原文
-
-**原文／图片许可：**原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
-
-来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html)
-
-</details>
-
-
-**最终图表与版本**
-
-- [ ] **第 33 条：**在最终 PDF 检查引用顺序、图注归属、精度、高亮和整页布局；图表只传达实际信息。
-
-<a id="tip-33"></a>
-<details>
-<summary>说明、例子与参考</summary>
-
-表格的最优标记要有规则，图注要紧邻正确图。拥挤先调结构，空白先查排版，再检查全文是否一致。
-
-**边界：**没有可靠依据能把美观换算成固定录用率。图的任务是帮助理解，不是制造保证。
-
-**TCDiff++：高亮规则写在表旁，再回整页核对**
-
-**论文原文 · English**
-
-> The best results are highlighted in bold, the second best results are underlined
-
-**中文翻译 · 本指南翻译**
-
-最优结果用粗体标出，次优结果用下划线标出。
-
-**逐句拆解**
-
-1. 表 4 包含群舞与单舞指标，箭头说明各列的好坏方向。最优、次优应逐列检查，不能凭整行印象套标记。
-2. 将表题、指标方向、数值与正文一起放回 PDF p.16 检查。高亮帮助比较，不代表完整模型赢得每列，更不是录用收益证据。
-
-**教学改写 · English（非论文原文）**
-
-Teaching rewrite: Verify each best and second-best mark against the metric direction in Table 4. Inspect the caption, numeric precision, and surrounding explanation together at the final page size.
-
-**教学改写 · 中文（非论文原文）**
-
-教学改写：依据表 4 各指标方向逐一检查最优与次优标记。按最终整页尺寸，同时检查表题、数值精度和邻近说明。
-
-**摘录出处：**[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)；Table 4 caption，最后一分句；arXiv v4 PDF p.16；短引来自 arXiv:2506.18671v4，2025-10-05；正式期刊元数据已核对，不将作者稿等同于期刊排版终版；该工作已发表；引文版本单独标明；教学改写与模拟回复不属于论文原文
-
-**原文／图片许可：**arXiv 作者稿采用 non-exclusive distribution 许可，非 CC BY。正式期刊版权按 Springer 出版协议保留；本指南不向第三方转授原论文版权。
-
-来源与延伸阅读：[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[Rougier et al. (2014) · Ten Simple Rules for Better Figures](https://doi.org/10.1371/journal.pcbi.1003833)；[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)
-
-</details>
-
-
-</details>
-
-
-<a id="workflow"></a>
-## 12. 起草与协作
-
-用提纲和证据推进写作，保护原始记录与他人修改。
-
-<details>
-<summary>检查清单和真实论文例子（3 项）</summary>
-
-
-**提纲与篇幅**
-
-- [ ] **第 6 条：**先写贡献句、提纲、草图和结果表；随证据调整主线，不成立的主张及时改。
-
-<a id="tip-06"></a>
-<details>
-<summary>说明、例子与参考</summary>
-
-方法和实验先说清，引言据此调整，摘要最后压缩。顺序可以变；概念图可先画，结果图必须等实际结果。
-
-**边界：**顺序不是规定。概念图可以先画，结果图得等真实结果出来。
-
-**PlanCraft：先写清能落地的数据与任务**
-
-**论文原文 · English**
-
-> Three automated pipelines produce paired inputs (graph-plus-block inputs or incomplete vectors) and complete floor plans for training PlanCraft-Diff.
-
-**中文翻译 · 本指南翻译**
-
-三条自动化流水线生成配对数据：输入为图与块组合或不完整矢量，目标为完整平面图，用于训练 PlanCraft-Diff。
-
-**逐句拆解**
-
-1. 这句话已给出训练数据的输入和目标，可以先作为方法骨架，再核对后文实验是否真的检验两类输入。
-2. 这是根据成稿演示一种起草顺序，不是作者写作过程的记录；还没取得的比较不能提前写成结果。
-
-**教学改写 · English（非论文原文）**
-
-Start with the paired input and target, outline how each pair is built, and place the corresponding evaluation beside it. Refine the contribution sentence only after checking the available evidence.
-
-**教学改写 · 中文（非论文原文）**
-
-先写清配对输入与目标，再列它们怎样构建，并放上相应评价。核对已有证据后，再调整贡献句。
-
-**摘录出处：**[Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3)；Method / SketchPlan Dataset，开头第 2 句；PDF 第 3 页；arXiv:2607.23491v3，2026-09-05；短引对照作者源稿及公开 v3 正文；公开预印本；教学改写不是论文原文或新增实测结果
-
-**原文／图片许可：**Pengyu Zeng et al., arXiv:2607.23491v3 (2026). arXiv 为非独占分发许可，原文版权由权利人保留；作者授权的教学短引，不随本指南转授全文或原图再版许可。中文翻译、拆解及教学改写为本指南新增。
-
-来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Mensh & Kording (2017) · Ten simple rules for structuring papers](https://doi.org/10.1371/journal.pcbi.1005619)；[Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3)
-
-</details>
-
-- [ ] **第 7 条：**方法按步骤、实验按问题分节；同层标题统一逻辑，与模块名和图中名称一致。
-
-<a id="tip-07"></a>
-<details>
-<summary>说明、例子与参考</summary>
-
-标题写实际动作或对象。不同任务分开，过碎的小节合并，不用固定子节数代替判断。
-
-**边界：**不用死守每节最多几个子节。太碎就合并，确实有不同任务就分开。
-
-**PlanCraft：标题直接写出对象怎样变化**
-
-**论文原文 · English**
-
-> From Image to Vector: Rule-Based Post-Processing
-
-**中文翻译 · 本指南翻译**
-
-从图像到矢量：基于规则的后处理
-
-**逐句拆解**
-
-1. 标题给出输入、输出和处理方式，读者还没进小节就知道这里把生成图像变成可用的矢量几何。
-2. 同层还有 Progressive Floor Plan Refinement 和 Grounded 3D Scene Assembly，依次对应平面图细化、格式转换与场景装配；这些名字与 Overview 的步骤一致。
-
-**教学改写 · English（非论文原文）**
-
-Organize the method around floor-plan refinement, image-to-vector conversion, and grounded scene assembly. Use these same names in the overview and framework figure.
-
-**教学改写 · 中文（非论文原文）**
-
-按平面图细化、图像转矢量与几何约束下的场景装配组织方法。总览与框架图使用同一组名称。
-
-**摘录出处：**[Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3)；Method，同层小节标题；PDF 第 4 页；arXiv:2607.23491v3，2026-09-05；短引对照作者源稿及公开 v3 正文；公开预印本；教学改写不是论文原文或新增实测结果
-
-**原文／图片许可：**Pengyu Zeng et al., arXiv:2607.23491v3 (2026). arXiv 为非独占分发许可，原文版权由权利人保留；作者授权的教学短引，不随本指南转授全文或原图再版许可。中文翻译、拆解及教学改写为本指南新增。
-
-来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3)
-
-</details>
-
-- [ ] **第 8 条：**按作者指南给问题、关键设计和结果留篇幅；超页先删重复，保留结论条件。
-
-<a id="tip-08"></a>
-<details>
-<summary>说明、例子与参考</summary>
-
-先列每章必须讲清的内容，再安排页数。最后看 PDF，确认背景没有挤掉关键比较和结果解释。
-
-**边界：**写满不是目标，每页硬放一个实验也没必要。信息够了就停，格式按投稿要求来。
-
-**GreenPlanner：篇幅先留给贯穿贡献的四个环节**
-
-**论文原文 · English**
-
-> GreenPlanner integrates four key components to unify evaluation and generation.
-
-**中文翻译 · 本指南翻译**
-
-GreenPlanner 整合四个关键组成部分，将评价与生成连接起来。
-
-**逐句拆解**
-
-1. 引言按 DesignFD、PDE、GreenPD、GreenFlow 的顺序解释标签数据、评价器、筛选后的数据与生成器；每一项都对后续环节有用途。
-2. 省篇幅时保留这条贡献链，以及数据合规与生成质量的区别。可以减少背景和全称的重复，不能把四个环节压成一个无法解释的“智能系统”。
-
-**教学改写 · English（非论文原文）**
-
-Teaching rewrite: Reserve space for the four-part argument: feasibility labels train the evaluator, evaluator guidance builds compliant demand–plan pairs, and those pairs support constrained generation. Shorten repeated background before removing a necessary link.
-
-**教学改写 · 中文（非论文原文）**
-
-教学改写：给四部分的论证留位置：可行性标签训练评价器，评价器指导构建合规的需求与平面图配对，再用这些配对支持约束下的生成。先压缩重复背景，再处理理解这条论证所必需的环节。
-
-**摘录出处：**[Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html)；§1 Introduction，四组件总览开头；PDF p.2，proceedings p.8597；CVF Open Access 作者接受版；正式发表元数据已由 CVF 条目核对；该工作已发表；引文版本单独标明；教学改写与模拟回复不属于论文原文
-
-**原文／图片许可：**原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
-
-来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Mensh & Kording (2017) · Ten simple rules for structuring papers](https://doi.org/10.1371/journal.pcbi.1005619)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)；[Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html)
-
-</details>
-
-
-</details>
-
-
-<a id="ai"></a>
-## 13. AI辅助
-
-给AI准确材料和明确任务，由作者核对事实和责任。
-
-<details>
-<summary>检查清单和真实论文例子（5 项）</summary>
-
-
-**材料与任务**
-
-- [ ] **第 44 条：**给AI问题、方法流程、真实结果表和参考段落，指定这次要写哪一段。
-
-<a id="tip-44"></a>
-<details>
-<summary>说明、例子与参考</summary>
-
-把输入组织成“具体缺口→对应设计→支持结果”；让AI解释这些材料的关系，别让它从标题猜实验。
-
-**边界：**材料还不够就先补材料。顺口的段落不能当作实验记录。
-
-**EviNoteRAG：先给 AI 精确的监督范围**
-
-**论文原文 · English**
-
-> To reduce computational overhead, EQR is applied only to the final SEN in each output sequence.
-
-**中文翻译 · 本指南翻译**
-
-为减少计算开销，每条输出序列只对最后一条支持性证据笔记（SEN）施加证据质量奖励（EQR）。
-
-**逐句拆解**
-
-1. 这是给 AI 的材料里必须冻结的事实：奖励应用于每条输出中的最后一条笔记，不是每一步或每个 token。
-2. 输入材料还应交代奖励比较最后的 SEN 与由问题及正确答案构成的命题，区分训练可见真值与推理时可见证据。
-3. 下面的教学提示只提供已核验方法约束，不替论文添加新的逐步奖励或训练实验。
-
-**教学改写 · English（非论文原文）**
-
-Teaching prompt: Write the EQR paragraph using these verified facts: a lightweight NLI judge compares the final SEN with a claim constructed from the query and ground-truth answer; EQR is applied only to the final SEN in each output sequence. Preserve the reported reward definition and do not introduce per-note or token-level supervision.
-
-**教学改写 · 中文（非论文原文）**
-
-教学提示：按以下已核验事实写 EQR 段落：轻量 NLI 评判模型比较最后一条 SEN 与由问题及正确答案构成的命题；每条输出序列只对最后一条 SEN 计算 EQR。保留原奖励定义，不增添逐条笔记或 token 级监督。
-
-**摘录出处：**[Yuqin Dai et al. · EviNoteRAG: Enhancing RAG Models via Quality-Augmented Evidence Notes](https://arxiv.org/abs/2509.00877)；§ 3.3 Evidence Quality Reward，公式后计算开销句，PDF 第 3 页；content/03_method.tex 第 34 行；EMNLP 2026 revised 作者终稿；公开链接为 arXiv v3；作者终稿短引；公开链接为不同版本预印本；下方教学改写或模拟回复不属于论文原文
-
-**原文／图片许可：**作者终稿教学短引，保留原论文版权；不随 PaperBank 原创内容转授原论文再版许可。公开 arXiv v3 为 non-exclusive distribution，并非 CC 授权；代码 Apache 2.0 不作为论文许可。
-
-来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Yuqin Dai et al. · EviNoteRAG: Enhancing RAG Models via Quality-Augmented Evidence Notes](https://arxiv.org/abs/2509.00877)
-
-</details>
-
-- [ ] **第 45 条：**先列每段的核心句，再展开解释；只读这些核心句，也应看懂问题、设计和证据。
-
-<a id="tip-45"></a>
-<details>
-<summary>说明、例子与参考</summary>
-
-先把引言中的困难、方法中的改动、实验中的验证对应起来；这条线通了，再展开句子。
-
-**边界：**模板里写得再严格，作者还是要核对事实和引用。
-
-**TCDiff++：先给一节的实际设置，再让 AI 起草**
-
-**论文原文 · English**
-
-> Following the protocol in (Le et al, 2023b), videos are partitioned into training (80%), validation (10%), and test (10%) sets.
-
-**中文翻译 · 本指南翻译**
-
-依照 Le 等人（2023b）的协议，将视频划分为训练集（80%）、验证集（10%）和测试集（10%）。
-
-**逐句拆解**
-
-1. 实验设置段落交代划分单位、比例与先例。单位是视频，不能让工具擅自改成人数、帧数或舞者互不重叠划分。
-2. 将同节模型结构、数据来源与基线适配记录交给工具，再约束篇幅。原句未给具体视频数或随机种子，不能凭比例补造。
-
-**教学改写 · English（非论文原文）**
-
-Teaching prompt: Draft only the dataset paragraph using the provided video-level split, source, and proportions. Do not infer sample counts, dancer-disjoint partitions, or a random seed that the material does not report.
-
-**教学改写 · 中文（非论文原文）**
-
-教学提示词：仅依据给出的按视频划分、来源和比例，起草数据段落。不要推断材料未报告的样本数、舞者互不重叠划分或随机种子。
-
-**摘录出处：**[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)；§5.1 Experimental Settings，Dataset，最后一句；arXiv v4 PDF p.10；短引来自 arXiv:2506.18671v4，2025-10-05；正式期刊元数据已核对，不将作者稿等同于期刊排版终版；该工作已发表；引文版本单独标明；教学改写与模拟回复不属于论文原文
-
-**原文／图片许可：**arXiv 作者稿采用 non-exclusive distribution 许可，非 CC BY。正式期刊版权按 Springer 出版协议保留；本指南不向第三方转授原论文版权。
-
-```text
-请根据以下材料撰写【章节名称】，面向【领域与读者】。
-材料：【研究问题、真实方法、已核验结果、引用来源】。
-先列出本节主张与证据的对应关系，缺少依据的内容单独列出，不写入正文。随后给出正文：先交代目的，再解释具体对象、机制及证据。术语与【术语表】一致，符号首次出现时定义。每段围绕一个主要判断，相邻句有真实衔接。
-保留实验范围、数值和不确定性；不要编造引文、补做实验、夸大新颖性或把计划写成结果。输出正文与简短核对清单。
-```
-
-来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)
-
-</details>
-
-
-**润色与绘图**
-
-- [ ] **第 47 条：**明确 AI 可改范围，保护数据、公式、引用和原始提示词；检查差异与结论条件。
-
-<a id="tip-47"></a>
-<details>
-<summary>说明、例子与参考</summary>
-
-先修结构和指代，再修句子。影响含义的改动单独指出；原始输出、提示词和代码字段不能当普通正文润色。
-
-**边界：**原始输出、实验提示词和代码字段，不按普通正文处理。
-
-**EviNoteRAG：润色不能把可选步骤改成强制步骤**
-
-**论文原文 · English**
-
-> SEN generation is optional after each retrieval step, allowing the model to dynamically determine whether summarization is necessary based on retrieval outcomes.
-
-**中文翻译 · 本指南翻译**
-
-每次检索后是否生成支持性证据笔记（SEN）是可选的，模型根据检索结果动态决定是否需要摘要。
-
-**逐句拆解**
-
-1. optional 是方法约束；润色成“每次检索后必须生成笔记”，就把动态工作流改成了不同实验条件。
-2. 每次检索不强制生成，不等于奖励格式允许整条输出完全没有笔记。Training Strategy 的格式条件仍要求至少一个 <summary>。
-3. 原提示词、标签、奖励条件和消融配置都是研究协议，润色时应保护这些内容并检查差异。
-
-**摘录出处：**[Yuqin Dai et al. · EviNoteRAG: Enhancing RAG Models via Quality-Augmented Evidence Notes](https://arxiv.org/abs/2509.00877)；§ 3.2 Supportive-Evidence Note / Dynamic SEN Workflow，首句，PDF 第 3 页；§ 3.4 Training Strategy 的格式条件，PDF 第 4 页；EMNLP 2026 revised 作者终稿；公开链接为 arXiv v3；作者终稿短引；公开链接为不同版本预印本
-
-**原文／图片许可：**作者终稿教学短引，保留原论文版权；不随 PaperBank 原创内容转授原论文再版许可。公开 arXiv v3 为 non-exclusive distribution，并非 CC 授权；代码 Apache 2.0 不作为论文许可。
-
-```text
-请精修【指定范围】，保持数据、公式含义、引文、模型设定和结论边界不变。
-先检查论证顺序，再修改句子。每段一个主要判断；解释必要术语；消除歧义指代；只有真实转折或因果关系才使用相应连接词。正文、图注和附录沿用同一术语。
-不要增加未经证实的机制、新颖性或显著性。保护原始提示词、模型原话和代码字段。输出修订稿及会改变理解的主要修改；材料不足的问题单列说明。
-```
-
-来源与延伸阅读：[写作技能与检查方法](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作技能)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)；[ACL Rolling Review · Responsible NLP Research](https://aclrollingreview.org/responsibleNLPresearch/)；[Yuqin Dai et al. · EviNoteRAG: Enhancing RAG Models via Quality-Augmented Evidence Notes](https://arxiv.org/abs/2509.00877)
-
-</details>
-
-- [ ] **第 46 条：**讲清主要信息、输入输出与依赖，用自制或获准素材；先核对布局，再调配色。
-
-<a id="tip-46"></a>
-<details>
-<summary>说明、例子与参考</summary>
-
-给实际模块、连线和参考风格，避免照搬受保护的表达。结果面板留给真实数据，生成工具只辅助示意与构图。
-
-**边界：**结果面板留给真实数据。工具不能替你生成实验成绩。
-
-**GreenPlanner：画图先讲清数据和反馈从哪里来**
-
-**论文原文 · English**
-
-> Together, these components form an end-to-end pipeline from data construction to constraint-driven generative design.
-
-**中文翻译 · 本指南翻译**
-
-这些组成部分共同形成一条从数据构建到约束驱动生成设计的端到端流程。
-
-**逐句拆解**
-
-1. 图 2 的四部分不是随意并排的卡片：DesignFD 提供评价标签，PDE 学习快速预测，PDE 指导 GreenPD 重采样，GreenFlow 用 GreenPD 训练并接收 PDE 反馈。
-2. 绘图说明要区分数据流与训练反馈，不能把 PDE 分数画成用户输入。原图保留来源；教学重绘另标为理解示意，不改原论文。
-
-**教学改写 · English（非论文原文）**
-
-Teaching diagram prompt: Show DesignFD labels training PDE, PDE-guided resampling creating GreenPD, GreenPD training GreenFlow, and PDE feedback refining the generator. Label dataset outputs and feedback arrows separately.
-
-**教学改写 · 中文（非论文原文）**
-
-教学绘图提示词：画出 DesignFD 标签训练 PDE，PDE 指导重采样得到 GreenPD，GreenPD 训练 GreenFlow，PDE 反馈进一步优化生成器。分别标出数据产物与反馈箭头。
-
-**摘录出处：**[Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html)；Figure 2 caption，最后一句；PDF p.3，proceedings p.8598；对应§3 Method；CVF Open Access 作者接受版；正式发表元数据已由 CVF 条目核对；该工作已发表；引文版本单独标明；教学改写与模拟回复不属于论文原文
-
-**原文／图片许可：**原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
-
-```text
-为【研究问题】设计一张【方法图或动机图】的概念草图。读者看完应理解【唯一主要信息】。
-真实内容：【输入、模块、输出、依赖关系】。模块和术语严格沿用正文，不添加不存在的步骤、结果或能力。并行与先后关系必须准确。
-参考【自己制作、已获授权或许可允许使用的风格图】的留白、层级与少量协调色，保留清晰标签位置，避免复制受保护的具体表达。不要生成曲线、柱状图、表格数值、性能对比或误差条；需要结果面板时只预留位置，由真实数据另行绘制。
-先给布局说明和信息检查清单，再给绘图提示词。
-```
-
-来源与延伸阅读：[作者提供的写作、绘图与进阶笔记](https://github.com/Da1yuqin/PaperBank/blob/main/SOURCES.md#写作笔记)；[Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html)
-
-</details>
-
-
-**核对与责任**
-
-- [ ] **第 48 条：**人工核对来源和原始结果，按当年投稿规则披露 AI 使用；不上传未经授权的材料。
-
-<a id="tip-48"></a>
-<details>
-<summary>说明、例子与参考</summary>
-
-模型说“已确认”不算核验。打开关键来源，检查数字、图片和改动，再按实际使用情况披露。
-
-**边界：**不要上传没有授权交给外部服务的材料。参考论文可以学写法，不能拼成自己的正文。
-
-**TCDiff++：公开声明不能替代许可与 AI 政策检查**
-
-**论文原文 · English**
-
-> This work does not propose any new dataset.
-
-**中文翻译 · 本指南翻译**
-
-本工作未提出任何新数据集。
-
-**逐句拆解**
-
-1. Data availability 随后指向既有 AIOZ-GDance 数据集，让新增方法与既有数据来源分开，不把公开数据写成自己新建的数据集。
-2. 该声明未说明可以把整篇稿件或数据上传到任意外部 AI 服务。公开可访问、数据许可和投稿当年的 AI 规则要各自核对，不能由一个链接推断全部授权。
-
-**教学改写 · English（非论文原文）**
-
-Teaching rewrite: Verify the cited dataset source and its reuse terms, then check the venue’s current AI policy. Disclose permitted AI assistance as required and retain responsibility for the final claims and citations.
-
-**教学改写 · 中文（非论文原文）**
-
-教学改写：核对被引数据集来源与复用条款，再核对会议或期刊当前 AI 政策。按要求披露允许的 AI 辅助，并对最终主张与引用负责。
-
-**摘录出处：**[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)；Declarations，Data availability，第1句；arXiv v4 PDF p.17；正式期刊页Data Availability可交叉核对；短引来自 arXiv:2506.18671v4，2025-10-05；正式期刊元数据已核对，不将作者稿等同于期刊排版终版；该工作已发表；引文版本单独标明；教学改写与模拟回复不属于论文原文
-
-**原文／图片许可：**arXiv 作者稿采用 non-exclusive distribution 许可，非 CC BY。正式期刊版权按 Springer 出版协议保留；本指南不向第三方转授原论文版权。
-
-来源与延伸阅读：[ACL Rolling Review · Responsible NLP Research](https://aclrollingreview.org/responsibleNLPresearch/)；[NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)；[Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)
-
-</details>
-
-
-</details>
-
-
 <a id="rebuttal"></a>
-## 14. Rebuttal
+### 3.11 Rebuttal
 
 按原问题逐点给答案、证据、修改位置和完成状态。
 
@@ -4902,7 +6433,7 @@ Reopen the actual system files and comments before claiming that a change has be
 
 
 <a id="tools"></a>
-## 好用工具：省点手工，判断还得自己来
+## 4. 我推荐的 AI 工具
 
 按用途挑一个先试。只核对公开说明，未逐项安装评测；例子是使用情境，许可和兼容版本看原项目。
 
@@ -5280,3 +6811,4 @@ Deliver the diff, the types of content handled, unresolved items, and the checks
 - [Jiaqi Wang et al. · TCOD (arXiv v3)](https://arxiv.org/abs/2604.24005v3)：多轮智能体蒸馏；图2说明如何把训练诊断组织成一条论证。公开预印本，CC BY 4.0。
 - [Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)：服务智能体的质量与成本；图2/3和附录案例用于讲解编码、动态和排版。公开预印本，CC BY 4.0。
 - [OneReason Technical Report · Figure 12](https://arxiv.org/pdf/2606.06260v1#page=34)：训练策略对照图；仅链接分析，不转载原图。arXiv 分发许可不等于图片复用许可。
+- [Bruno et al. (2024) · A universal framework for inclusive 15-minute cities](https://arxiv.org/html/2408.03794v1)：地图、累计分布、多维气泡与设施迁移排名。原图只链接，点评为本指南整理；颜色和大小按原图注解释。
