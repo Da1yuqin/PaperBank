@@ -6008,8 +6008,8 @@
     "steps": [
       {
         "id": "draft-step-1",
-        "title_zh": "Step 1 下载会议官方模板",
-        "title_en": "Step 1 Download the official venue template",
+        "title_zh": "1.1 下载会议官方模板",
+        "title_en": "1.1 Download the official venue template",
         "text_zh": "去目标会议官网拿当年的模板，确认正文几页、参考文献和附录算不算。先编译原模板，再开始填内容。",
         "text_en": "Download the current template from the venue website. Check the body page limit and whether references and appendices count. Compile the unchanged template before adding content.",
         "example_zh": "可以这样说：请读取官方作者指南，保留模板的字号、栏宽和间距，先把空模板编译通。",
@@ -6017,8 +6017,8 @@
       },
       {
         "id": "draft-step-2",
-        "title_zh": "Step 2 拉到本地，填提示词，先粗写",
-        "title_en": "Step 2 Work locally, fill in the prompt, and draft",
+        "title_zh": "1.2 Overleaf 同步到本地，用 Codex 拉粗稿",
+        "title_en": "1.2 Sync Overleaf locally and draft with Codex",
         "text_zh": "Overleaf 会员支持 Git 同步：Integrations → Git 取地址，让 Codex 拉到本地，改完再同步回去。没有 Git 权限就下载源文件 ZIP。读入 PaperBank 写作 skill，填好下面的提示词，先出提纲和粗稿。",
         "text_en": "With Overleaf Git access, get the address from Integrations → Git and ask Codex to clone and sync the project locally. Without Git access, use File → Download → Download as source (.zip). Add the PaperBank writing skill, fill in the prompt below, and request an outline and rough draft.",
         "example_zh": "填贡献：针对【具体问题】，我们用【关键设计】，在【比较条件】下发现【主要结果】。",
@@ -6028,8 +6028,8 @@
       },
       {
         "id": "draft-step-3",
-        "title_zh": "Step 3 先把图画出来",
-        "title_en": "Step 3 Make the figures first",
+        "title_zh": "1.3 先做图，给合作者看",
+        "title_en": "1.3 Make figures first for collaborator review",
         "text_zh": "引言图讲为什么要做，方法图讲怎么做，结果图讲发现了什么。先把图定下来，方便合作者审故事；正文跟着图写。曲线用真实数据画，精修见第二章「光速出美图」。",
         "text_en": "The introduction figure explains why the work is needed, the method figure shows how it works, and result plots show what was found. Settle the figures so coauthors can review the story, then refine the prose around them. Plot curves from actual data; see Chapter 2 for figure refinement.",
         "example_zh": "可以这样说：先给引言图和方法图各一个草案，用同一个案例串起问题、操作和输出；我确认后再精修。",
@@ -6037,8 +6037,8 @@
       },
       {
         "id": "draft-step-4",
-        "title_zh": "Step 4 控篇幅，中文审核，定 section 标题",
-        "title_en": "Step 4 Plan the space, review in Chinese, and settle section titles",
+        "title_zh": "1.4 控篇幅、审逻辑，定下全部章节标题",
+        "title_en": "1.4 Control length, review logic, and settle all section titles",
         "text_zh": "让 Codex 按页数分配各节篇幅，每次把一节译成中文，你来审逻辑。讲通后定下全部正文 section 标题，再组织英文写回去。同级小节别一边两行、一边两页。逐段精修放到第三章。",
         "text_en": "Ask Codex to allocate space within the page limit and translate one section at a time into Chinese for your logic review. Once the argument works, settle every body section title, then organize the English and write it back. Keep comparable subsections reasonably balanced. Paragraph-level refinement belongs in Chapter 3.",
         "example_zh": "可以这样说：先列正文 section 标题、每节目的和预计篇幅；本轮只给 Introduction 的中文，等我确认后再整理英文。",
@@ -6070,98 +6070,138 @@
   "figure_chapter": {
     "title": "光速出美图",
     "lead": "Less is more。画了半天还讲不清，先删东西。先用粗图定问题和论证，再调配色、字号、留白。",
-    "scope_note": "以下是本指南的绘图默认，不替代会议模板；图型按数据关系选，不要求每篇论文集齐全套。",
+    "scope_note": "这些是本指南的绘图默认，按数据关系和会议模板调整。论文原图保留出处与许可；标为教学图的只含模拟数据。",
     "rules": [
       {
         "title": "先写一句图的任务",
         "zh": "动机图讲缺口，框架图讲输入、操作和输出，结果图讲比较。删掉不服务这句话的元素。",
         "en": "Choose one message before choosing a layout.",
         "example_en": "Show where the existing pipeline fails and which step our method changes.",
-        "example_zh": "画清旧流程在哪一步出问题，我们改了哪一步。"
+        "example_zh": "画清旧流程在哪一步出问题，我们改了哪一步。",
+        "visuals": [
+          "visual-tcod-fig-1"
+        ]
       },
       {
         "title": "图先于正文精修",
         "zh": "先用粗图和真实数据定论证，给合作者看；图讲不清，正文先别忙着抛光。",
         "en": "Use a rough figure to settle the argument before polishing prose.",
         "example_en": "Panel (a) shows the observed gap; panel (b) tests the proposed repair.",
-        "example_zh": "(a) 展示实际缺口；(b) 检验我们的修补。"
+        "example_zh": "(a) 展示实际缺口；(b) 检验我们的修补。",
+        "visuals": [
+          "visual-tcod-fig-3"
+        ]
       },
       {
         "title": "统计图用 Python，概念图用 imagegen",
         "zh": "曲线、柱图、散点、热图从真实数据绘制；框架、动机、案例图用 imagegen。别让生成模型自由发挥实验点。",
         "en": "Plot quantitative results from data; use imagegen for conceptual figures.",
         "example_en": "Draw the recorded success rates with Python. Generate only the workflow illustration with imagegen.",
-        "example_zh": "成功率用 Python 按记录画；imagegen 只生成流程示意。"
+        "example_zh": "成功率用 Python 按记录画；imagegen 只生成流程示意。",
+        "visuals": [
+          "visual-interactcs-fig-1",
+          "teaching-kde"
+        ]
       },
       {
         "title": "先定最终宽度和字号",
         "zh": "按会议栏宽起稿；图内同一字体、同一字号，正文至小 2 pt。通栏约 16:9，单栏约 4:3；附录长图可纵排。",
         "en": "Design at the final column width and readable type size.",
         "example_en": "Use the paper’s column width and body font; remove repeated labels rather than shrinking text.",
-        "example_zh": "用论文栏宽和正文字体；删重复标签，不把字缩成蚂蚁。"
+        "example_zh": "用论文栏宽和正文字体；删重复标签，不把字缩成蚂蚁。",
+        "visuals": [
+          "visual-tcod-fig-3"
+        ]
       },
       {
         "title": "位置就是阅读顺序",
         "zh": "主方向统一；同层成组，并行流程按真实依赖分支或汇合，反馈单列支路。每条箭头都能说清谁给谁什么。",
         "en": "Make position and arrows encode the actual information flow.",
         "example_en": "Retrieved passages enter the generator; the evaluator receives the generated answer.",
-        "example_zh": "检索段落送给生成器；生成的回答交给评价器。"
+        "example_zh": "检索段落送给生成器；生成的回答交给评价器。",
+        "visuals": [
+          "visual-interactcs-fig-1"
+        ]
       },
       {
         "title": "输入、输出和评分分清",
         "zh": "用不同边框或线型区分；评分只供评价时，不要连成模型输入。同类对象全文同色、同样式。",
         "en": "Distinguish model inputs, model outputs, and evaluation rules.",
         "example_en": "Dashed boxes contain model inputs; solid boxes contain responses; dotted boxes contain evaluator-only criteria.",
-        "example_zh": "虚线框是模型输入，实线框是回复，点线框是只供评价的判据。"
+        "example_zh": "虚线框是模型输入，实线框是回复，点线框是只供评价的判据。",
+        "visuals": [
+          "visual-interactcs-fig-1"
+        ]
       },
       {
         "title": "白底，少色，颜色有含义",
         "zh": "面板尽量白；低饱和色用于分组与关键对照。颜色再配文字、形状或纹理，黑白打印也能认。",
         "en": "Use a light background and redundant visual encoding.",
         "example_en": "Blue circles denote the baseline; orange triangles denote our method in every panel.",
-        "example_zh": "每个面板都用蓝圆点表示基线，橙三角表示我们的方法。"
+        "example_zh": "每个面板都用蓝圆点表示基线，橙三角表示我们的方法。",
+        "visuals": [
+          "visual-interactcs-fig-2"
+        ]
       },
       {
         "title": "字多就分组，别开彩虹派对",
         "zh": "案例按背景、证据、动作、结果排；同类文本同框，重点才高亮。图标就近写对象名。",
         "en": "Group dense case text by role and function.",
         "example_en": "The left column contains evidence; the right column shows the model response and its evaluation.",
-        "example_zh": "左栏放证据；右栏放模型回复和评价。"
+        "example_zh": "左栏放证据；右栏放模型回复和评价。",
+        "visuals": [
+          "fig-interactcs-case"
+        ]
       },
       {
         "title": "同一内容别反复贴",
         "zh": "同一段对话别在动机、方法、附录反复贴；新增分析可复用案例，写清区别。案例解释怎么运行，不替代总体实验。",
         "en": "Present each case once and cross-reference its unique location.",
         "example_en": "Figure 1 presents the case; Section 4 refers back to Figure 1 without repeating the dialogue.",
-        "example_zh": "案例放图 1；第 4 节回引图 1，不再抄一遍对话。"
+        "example_zh": "案例放图 1；第 4 节回引图 1，不再抄一遍对话。",
+        "visuals": [
+          "fig-interactcs-case"
+        ]
       },
       {
         "title": "多子图必须组成论证",
         "zh": "现象、诊断、对照、稳健性按任务排；同对象同颜色，同条件同顺序，相关横轴对齐。",
         "en": "Make panels answer consecutive questions.",
         "example_en": "The first panel identifies the gap, the second locates it, and the third tests whether it persists.",
-        "example_zh": "第一图找差距，第二图找发生位置，第三图检验差距是否仍在。"
+        "example_zh": "第一图找差距，第二图找发生位置，第三图检验差距是否仍在。",
+        "visuals": [
+          "visual-tcod-fig-2"
+        ]
       },
       {
         "title": "数据和几何一起核对",
-        "zh": "查数值、分母、单位、方向、坐标起点、误差含义。相对增益同时给绝对值；均值最好不等于显著。",
+        "zh": "查数值、分母、单位、方向、坐标起点、误差含义。相对增益同时给绝对值；均值最高不等于差异显著。",
         "en": "Verify both labels and statistical geometry.",
         "example_en": "Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.",
-        "example_zh": "准确率从 60% 到 66%：增加 6 个百分点，相对提高 10%。"
+        "example_zh": "准确率从 60% 到 66%：增加 6 个百分点，相对提高 10%。",
+        "visuals": [
+          "teaching-paired-gain"
+        ]
       },
       {
         "title": "图注讲读法和发现",
         "zh": "主题句、子图含义、必要口径；缩写、误差、参考线讲清。尽量三行，必要信息优先，不复述整段正文。",
         "en": "State the comparison, finding, and necessary reading keys.",
         "example_en": "Error bars show 95% question-level bootstrap intervals; the horizontal line marks zero gain.",
-        "example_zh": "误差条表示按题目重采样的 95% 区间；水平线表示零增益。"
+        "example_zh": "误差条表示按题目重采样的 95% 区间；水平线表示零增益。",
+        "visuals": [
+          "teaching-confidence"
+        ]
       },
       {
         "title": "交付 PDF，放回论文看",
         "zh": "统计图优先矢量；imagegen 图面可配原生 PDF 文字，不能冒充全矢量。最终检查字号、可选文字、裁切、引用顺序与图注。",
         "en": "Inspect the figure inside the final paper PDF.",
         "example_en": "Place the figure after its first mention and check all labels at normal reading size.",
-        "example_zh": "按首次引用顺序排图，以正常阅读大小检查全部文字。"
+        "example_zh": "按首次引用顺序排图，以正常阅读大小检查全部文字。",
+        "visuals": [
+          "visual-tcod-fig-1"
+        ]
       }
     ],
     "types": [
@@ -6169,112 +6209,154 @@
         "title": "摘要图",
         "zh": "问题在哪、为什么现有解法不够、我们动哪一步。通常最多 5 个环节，必要对照并排。",
         "example_en": "Show the problem, the existing limitation, and the changed step.",
-        "example_zh": "展示问题、已有解法的缺口和我们改动的步骤。"
+        "example_zh": "展示问题、已有解法的缺口和我们改动的步骤。",
+        "visuals": [
+          "visual-tcod-fig-1"
+        ]
       },
       {
         "title": "框架图",
         "zh": "输入是什么，经过哪几个模块，每步产物交给谁，输出是什么。旁边走一个可追踪例子。",
         "example_en": "Given a query, retrieve passages, rank evidence, and generate an answer with cited support.",
-        "example_zh": "输入问题，检索段落，筛选证据，再生成带来源的回答。"
+        "example_zh": "输入问题，检索段落，筛选证据，再生成带来源的回答。",
+        "visuals": [
+          "visual-interactcs-fig-1"
+        ]
       },
       {
         "title": "案例图",
         "zh": "必要背景、有效需求、关键证据、动作、结果、判据；同类信息同框。",
         "example_en": "Separate the request, evidence, response, and evaluation.",
-        "example_zh": "把请求、证据、回复和评价分开。"
+        "example_zh": "把请求、证据、回复和评价分开。",
+        "visuals": [
+          "fig-interactcs-case"
+        ]
       },
       {
         "title": "主结果与消融",
-        "zh": "少量方法用点图或柱图；完整方法与删组件版本同顺序、同配色。误差按实际运行计算。",
+        "zh": "少量方法用点图或柱图；完整方法与删组件版本同顺序、同配色。说明误差的统计单位和计算方法。",
         "example_en": "Compare the complete model with variants that remove one component.",
-        "example_zh": "完整方法与只删除一个组件的变体对照。"
+        "example_zh": "完整方法与只删除一个组件的变体对照。",
+        "visuals": [
+          "visual-interactcs-fig-2"
+        ]
       },
       {
         "title": "配对增益",
         "zh": "同一样本的干预与对照，画差值和零线；写清收益方向与尺度。",
         "example_en": "Each point shows the intervention-minus-control accuracy on matched questions.",
-        "example_zh": "每个点表示同一批题目上干预相对对照的准确率差。"
+        "example_zh": "每个点表示同一批题目上干预相对对照的准确率差。",
+        "visuals": [
+          "teaching-paired-gain"
+        ]
       },
       {
         "title": "训练或轮次动态",
         "zh": "折线只连有序变量；横轴写训练步数或轮次，不把无序方法连成趋势。",
         "example_en": "Track success rate and penalty magnitude against the same training steps.",
-        "example_zh": "用相同训练步数同时追踪成功率和惩罚强度。"
+        "example_zh": "用相同训练步数同时追踪成功率和惩罚强度。",
+        "visuals": [
+          "visual-interactcs-fig-3"
+        ]
       },
       {
-        "title": "分布图",
-        "zh": "ECDF 看累计分布，KDE 看平滑密度。标样本、带宽或分位数；曲线顺滑不代表实验好。",
-        "example_en": "Use an ECDF to compare cumulative probabilities; use KDE to inspect density.",
-        "example_zh": "ECDF 比累计概率，KDE 看密度。"
+        "title": "KDE：看分布形状",
+        "zh": "横轴是变量，纵轴是密度；颜色跟组走，均值线补位置，交代样本量和带宽。峰高不是人数，也不是累计比例。",
+        "example_en": "Compare density shapes with a shared bandwidth; mark sample counts and mean values.",
+        "example_zh": "统一带宽比较密度形状，并标样本量与均值。",
+        "visuals": [
+          "teaching-kde"
+        ]
+      },
+      {
+        "title": "ECDF：看阈值以下有多少",
+        "zh": "横轴取阈值，纵轴直接读累计比例；同一坐标比两组，阶梯从 0 到 1。想读“多少样本低于 10”，别去量 KDE 的峰。",
+        "example_en": "At a threshold of 10, the ECDF gives the fraction of observations at or below 10.",
+        "example_zh": "阈值取 10 时，ECDF 直接给出不超过 10 的样本比例。",
+        "visuals": [
+          "teaching-ecdf"
+        ]
       },
       {
         "title": "热图",
         "zh": "条件乘方法，统一色标；正负增益以零为中点，缺测留空并说明。",
         "example_en": "Use one shared color scale for all conditions and mark missing cells.",
-        "example_zh": "全部条件使用统一色标，缺测单元明确标记。"
+        "example_zh": "全部条件使用统一色标，缺测单元明确标记。",
+        "visuals": [
+          "teaching-heatmap"
+        ]
       },
       {
-        "title": "PCA 与雷达图",
-        "zh": "PCA 写输入、标准化、解释方差；雷达图写归一化，量纲不同别比较面积。",
-        "example_en": "A separated PCA projection illustrates the representation; it does not establish generalization.",
-        "example_zh": "PCA 投影展示特征关系；投影分得开不证明泛化。"
+        "title": "PCA：把高维关系投到二维",
+        "zh": "说明输入特征、标准化、每轴解释方差。颜色或轨迹分别代表什么写清；分得开不等于泛化好。PaCMAP、t-SNE 也别改名叫 PCA。",
+        "example_en": "Project standardized features onto two principal components and report the variance explained by each axis.",
+        "example_zh": "把标准化特征投到两个主成分，并报告每根轴的解释方差。",
+        "visuals": [
+          "teaching-pca"
+        ]
+      },
+      {
+        "title": "雷达图：多指标逐轴读",
+        "zh": "每轴一个指标，写尺度、归一化和好坏方向；颜色再配点形。量纲不同别比面积，轴换个顺序，面积也会换。",
+        "example_en": "Compare normalized metrics spoke by spoke; polygon area is not an overall score.",
+        "example_zh": "沿每根轴比较归一化指标；多边形面积不是综合分数。",
+        "visuals": [
+          "teaching-radar"
+        ]
       },
       {
         "title": "成本性能图",
         "zh": "每点是一个实际配置；在线与离线成本分开，写单位和好坏方向。连接前沿不意味着有中间配置。",
         "example_en": "Plot measured accuracy against online cost; report one-time training cost separately.",
-        "example_zh": "实测准确率对照在线成本；一次性训练成本另报。"
+        "example_zh": "实测准确率对照在线成本；一次性训练成本另报。",
+        "visuals": [
+          "teaching-cost"
+        ]
       },
       {
         "title": "数据集分布",
         "zh": "统计单位、样本量、类别和分母先写清；同一图别混案例数、回复数和判据数。重点是覆盖了什么，不是圆画得多圆。",
         "example_en": "Count unique cases by domain; report response counts separately.",
-        "example_zh": "按领域统计独立案例数；回复数量另报。"
+        "example_zh": "按领域统计独立案例数；回复数量另报。",
+        "visuals": [
+          "teaching-donut"
+        ]
       },
       {
         "title": "置信带",
-        "zh": "按实际重采样或模型计算区间；内外带标置信水平。同一图中更宽的带表示更高覆盖范围，不是更多实验。",
+        "zh": "按实际重采样或模型计算区间，写清区间类型和置信水平。同一估计的嵌套区间才可比较覆盖范围；不同样本量、方差也会改变带宽。",
         "example_en": "Nested bands show the estimated 68% and 95% intervals under the stated procedure.",
-        "example_zh": "嵌套色带表示按所述方法估计的 68% 和 95% 区间。"
+        "example_zh": "嵌套色带表示按所述方法估计的 68% 和 95% 区间。",
+        "visuals": [
+          "teaching-confidence"
+        ]
       },
       {
         "title": "饼图、环图与圆环排名",
         "zh": "饼图只画互斥且组成整体的比例；圆环柱图可画排名，极值相邻只是环形排序，不是变量关系。要读精确差值，横向条图更方便。",
         "example_en": "Use slices for a composition and ordered bars for a ranking.",
-        "example_zh": "组成比例用扇区；排名用有顺序的柱条。"
+        "example_zh": "组成比例用扇区；排名用有顺序的柱条。",
+        "visuals": [
+          "teaching-donut"
+        ]
       },
       {
         "title": "二维增益与九宫格",
         "zh": "两轴分别写指标、单位和好坏方向；差值图以零线分区。九宫格用于两个有序因素的组合，别为凑九格补数据。",
         "example_en": "With both gains defined as higher is better, the upper-right quadrant shows improvements on both metrics.",
-        "example_zh": "两个增益都定义为越高越好时，右上象限表示两项指标都改善。"
+        "example_zh": "两个增益都定义为越高越好时，右上象限表示两项指标都改善。",
+        "visuals": [
+          "teaching-two-gain"
+        ]
       }
     ],
     "prompt_zh": "阅读我的论文、绘图 skill 和参考图。先为每张图写一句任务：它解释哪个问题、比较什么、支持哪项贡献。统计图用真实数据和 Python；概念图用 imagegen，先列清输入、模块、箭头、输出，再成图。按会议最终栏宽起稿，正文同族字体、正文至小 2 pt，白底低饱和，同对象同色，所有符号可解释。保持原数据、语义和拓扑，不改数值、不补误差。先给粗图和图注，核对后精修；统计图交付文字可选 PDF；概念图面叠加原生 PDF 文字，并放回论文检查。",
     "gallery": [
       {
-        "item": "tip-28",
-        "example_index": 0,
-        "figure_id": "fig-tcod-diagnosis",
-        "comment": "四图围着一个诊断；颜色和位置讲两层信息。"
-      },
-      {
-        "item": "tip-30",
-        "example_index": 0,
-        "figure_id": "fig-interactcs-ablation",
-        "comment": "颜色分比较组，纹理分方法；同顺序贯穿四个指标。"
-      },
-      {
         "item": "tip-29",
         "example_index": 0,
         "figure_id": "fig-interactcs-case",
         "comment": "像 UI 一样分组；相同信息同框，避免每个字段都开气泡。"
-      },
-      {
-        "item": "tip-60",
-        "example_index": 0,
-        "figure_id": "fig-interactcs-dynamics",
-        "comment": "控制量和实际行为并排；红蓝在两图中对应同一个目标。"
       }
     ],
     "links": [
@@ -6297,49 +6379,436 @@
         "license": "只链接原图，不重托管。arXiv 非独占分发许可。"
       },
       {
-        "title": "TCOD 图 1：问题与解法放在同一张图",
-        "url": "https://arxiv.org/pdf/2604.24005v3#page=2",
-        "zh": "同一时间线对照错误累积和两种课程；可以学对照位置，不能把示意曲线当实测。",
-        "en": "Align the failure and the changed training step on the same timeline."
-      },
-      {
-        "title": "TCOD 图 3：相同结构对齐改动",
-        "url": "https://arxiv.org/pdf/2604.24005v3#page=5",
-        "zh": "基线、从前到后、从后到前三列沿用同样步骤块；读者直接看哪个步骤换了执行者。",
-        "en": "Keep step blocks aligned across strategies so the changed executor is visible."
-      },
-      {
-        "title": "TCOD 图 4：效果与机制并排",
-        "url": "https://arxiv.org/pdf/2604.24005v3#page=8",
-        "zh": "成功率与 KL 共用训练步数；诊断变化，不拿一对曲线包办因果。",
-        "en": "Place performance and diagnostic curves on aligned training axes."
-      },
-      {
-        "title": "TCOD 图 5：不同单位各用一根轴",
-        "url": "https://arxiv.org/pdf/2604.24005v3#page=9",
-        "zh": "轮数、优势、长度、损失分面板；共同横轴，不强塞到同一个纵轴。",
-        "en": "Use separate panels for quantities with different units and a shared training axis."
-      },
-      {
-        "title": "TCOD 图 6：效率写实际小时",
-        "url": "https://arxiv.org/pdf/2604.24005v3#page=10",
-        "zh": "任务分面板、方法同顺序、柱顶写数值。Efficient 自己不会替你省算力。",
-        "en": "Report the measured training hours for each task and method."
-      },
-      {
-        "title": "InteractCS-RL 图 1：先分职责，再编步骤",
-        "url": "https://arxiv.org/pdf/2602.22697v1#page=4",
-        "zh": "左侧生成交互，右侧优化策略；结果、过程、成本三个信号编号，旁边有实例。",
-        "en": "Group interaction generation and policy optimization before labeling their steps."
-      },
-      {
         "title": "OneReason 图 12：对照策略的改动位置",
         "url": "https://arxiv.org/pdf/2606.06260v1#page=34",
         "zh": "相同结构对齐；改动位置突出，符号在图注解释。保留链接读图，不复制整图。",
         "en": "Align the strategies and highlight where their optimization rules differ."
+      },
+      {
+        "title": "KDE：OneReason 图 6",
+        "url": "https://arxiv.org/pdf/2606.06260v1#page=13",
+        "source": "OneRec Team, OneReason Technical Report, arXiv:2606.06260v1, Fig. 6",
+        "zh": "四个领域并排，两个方法保持同色；淡填充保留重叠，虚线与均值标注把位置变化说清，曲线不用自己兼职字幕。",
+        "en": "Four domains use the same method colors. Transparent fills preserve overlap, while dashed mean lines and labels make location shifts explicit.",
+        "analysis": "四个领域沿用同色方法与均值线。横轴是 Margin，纵轴是密度；不是累计概率。是否表示任务收益，另看原文对 Margin 的定义。",
+        "license": "只链接原图，不重托管。该版本采用 arXiv 非独占分发许可。"
+      },
+      {
+        "title": "投影：life2vec 图 4，PaCMAP 与局部放大",
+        "url": "https://www.nature.com/articles/s43588-023-00573-5/figures/4",
+        "source": "Savcisens et al., Nature Computational Science 4, 43–56 (2024), Fig. 4, DOI 10.1038/s43588-023-00573-5",
+        "zh": "中间给完整嵌入空间，两侧放大选定区域，同一批点分别按性别、年龄、真实标签着色；位置保持，颜色换问题。",
+        "en": "The central embedding provides the full view, while selected regions are enlarged and recolored by sex, age, and true labels. Fixed positions make attribute comparisons traceable.",
+        "analysis": "原图明确使用 PaCMAP；保持点的位置、分别换属性颜色，才能追踪同一批点。投影和 TCAV 是不同证据，不能合成因果结论。",
+        "license": "只链接出版社图页；期刊版本未标明可转载的 CC 许可。"
+      },
+      {
+        "title": "OneReason 图 1：把模型身份和结果放一起",
+        "url": "https://arxiv.org/pdf/2606.06260v1#page=1",
+        "source": "OneRec Team, OneReason Technical Report, arXiv:2606.06260v1, PDF p. 1",
+        "zh": "左侧雷达看多任务表现，右侧成对柱图看推理和训练数据的作用；颜色、纹理、数值分工，提升与下降都直接标出。",
+        "en": "The radar summarizes performance across tasks, while paired bars compare thinking and training-data conditions; colors, hatching, and printed values distinguish the comparisons and expose both gains and declines.",
+        "analysis": "雷达各轴的量纲与归一化必须定义，不能仅凭面积判断综合能力。 柱顶相对增幅与原分数同时保留；百分比不是百分点，下降项不能藏起来。",
+        "license": "只链接原图，不重托管。该版本采用 arXiv 非独占分发许可。"
+      },
+      {
+        "title": "OneReason 图 7：颜色跟着流程职责走",
+        "url": "https://arxiv.org/pdf/2606.06260v1#page=19",
+        "source": "OneRec Team, OneReason Technical Report, arXiv:2606.06260v1, PDF p. 19",
+        "zh": "两边保持相同网络层次，只换雪花与火焰标记；第一阶段和后续阶段分别更新哪些参数，一眼能对上。",
+        "en": "The two stages keep the same network-layer layout and change snowflake and flame markers to show which parameters are frozen or trained.",
+        "analysis": "图标要有明确图例；颜色是辅助，不能只让读者猜蓝色是冻结。 同一层在两边位置一致，适合解释训练范围变化，不说明阶段间性能差异。",
+        "license": "只链接原图，不重托管。该版本采用 arXiv 非独占分发许可。"
+      },
+      {
+        "title": "OneReason 图 9：分布与多维特征分开读",
+        "url": "https://arxiv.org/pdf/2606.06260v1#page=29",
+        "source": "OneRec Team, OneReason Technical Report, arXiv:2606.06260v1, PDF p. 29",
+        "zh": "左边堆叠条保留五档评分比例，右边雷达概括五项均分；先看分布，再看轮廓。",
+        "en": "Stacked bars retain the five rating proportions, and the radar chart summarizes the five mean scores: distribution first, profile second.",
+        "analysis": "两 面 板 用 同 一 组 维 度 对 应 。 雷 达 上 的 数 值 标 签 减 少 估 读 ， 堆 叠 条 避 免 均 值 掩 盖 不 同 评 分 构 成 ； 不 要 用 雷 达 面 积 代 替 具 体 分 数 。",
+        "license": "只链接原图，不重托管。该版本采用 arXiv 非独占分发许可。"
+      },
+      {
+        "title": "ShoppingBench 图 1、2：任务概览与案例层级",
+        "url": "https://ojs.aaai.org/index.php/AAAI/article/view/40640",
+        "source": "ShoppingBench: A Real-World Intent-Grounded Shopping Benchmark for LLM-based Agents, AAAI 2026, Fig. 1–2",
+        "zh": "左边按请求、工具调用、观察和结果走流程，右边拆产品、优惠券和预算；高亮颜色贯穿两边，读者能把需求对到检查。 上面分产品采样和字段采样，下面把提示模板与生成指令逐行对齐；同一类任务同色，读者看得出结果从哪来。",
+        "en": "The left side follows the request, tool calls, observations, and result; the right side decomposes product, voucher, and budget constraints, with matching highlights connecting requirements to checks. Product sampling and field sampling occupy the top row; prompt templates align with generated instructions below, and consistent task colors make the construction path traceable.",
+        "analysis": "背景、需求、动作、反馈分层；颜色和高亮有角色，不靠密集箭头补逻辑。",
+        "license": "只链接正式论文页，不重托管原图。"
       }
     ],
-    "prompt_en": "Read my paper, figure instructions, and reference images. State one purpose for each figure: the question, comparison, and contribution. Use actual data and Python for quantitative plots; use imagegen for conceptual figures after identifying inputs, operations, arrows, and outputs. Work at the final venue column width, with the paper font and type no larger than body text and at most 2 pt smaller. Use a light background, consistent visual encoding, and explained symbols. Preserve the data and information flow. Show rough figures and captions before refinement, then deliver a PDF with selectable text and inspect the inserted figures in the paper."
+    "prompt_en": "Read my paper, figure instructions, and reference images. State one purpose for each figure: the question, comparison, and contribution. Use actual data and Python for quantitative plots; use imagegen for conceptual figures after identifying inputs, operations, arrows, and outputs. Work at the final venue column width, with the paper font and type no larger than body text and at most 2 pt smaller. Use a light background, consistent visual encoding, and explained symbols. Preserve the data and information flow. Show rough figures and captions before refinement, then deliver a PDF with selectable text and inspect the inserted figures in the paper.",
+    "visual_examples": [
+      {
+        "id": "visual-tcod-fig-1",
+        "topic": "动机与框架",
+        "title": "问题和解法放在同一张图",
+        "asset": "assets/paper-tcod-fig-1.png",
+        "zh": "左边画误差随轮次的示意，中间放大回复细节，右边对照三种训练范围；先看到问题，再看到改哪一步。",
+        "en": "A schematic turn-wise divergence trend appears on the left, enlarged response details in the center, and three training ranges on the right, linking the problem to the changed step.",
+        "analysis_zh": [
+          "颜色、文本框和时间线分别承担不同信息，关键对照沿同一个方向阅读。",
+          "示意曲线不等于实测数据；数值块代表什么、为什么某些轮次不计算，须回到原图注解释。"
+        ],
+        "license": "Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。",
+        "source_title": "TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 1, PDF p. 2",
+        "source_url": "https://arxiv.org/abs/2604.24005v3",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "id": "visual-tcod-fig-3",
+        "topic": "动机与框架",
+        "title": "对照图要对齐改动",
+        "asset": "assets/paper-tcod-fig-3.png",
+        "zh": "基线和两种课程共用步骤框与师生图标，再沿轮数展开；读者直接看训练覆盖哪一段，不必重读三套流程。",
+        "en": "The baseline and two curricula reuse step boxes and teacher–student icons, then unfold across rounds; aligned structures reveal which segment each training strategy covers.",
+        "analysis_zh": [
+          "共享图形语法，只有变动位置需要额外解释；比三个完全不同的布局更容易比较。",
+          "步骤色彩与轮数标签要在原图注中定义，图标本身不解释损失或训练目标。"
+        ],
+        "license": "Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 3. CC BY 4.0. 从原页裁切；图形与数据未改。",
+        "source_title": "TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 3, PDF p. 5",
+        "source_url": "https://arxiv.org/abs/2604.24005v3",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "id": "visual-tcod-fig-4",
+        "topic": "诊断与训练动态",
+        "title": "效果曲线旁边放机制曲线",
+        "asset": "assets/paper-tcod-fig-4.png",
+        "zh": "成功率和 KL 共用训练步数，效果与诊断可以就近对照；曲线一起变，不等于已经证明因果。",
+        "en": "Performance and KL share a training axis, placing the outcome beside its diagnostic. Co-movement alone does not establish causation.",
+        "analysis_zh": [
+          "同一模型配一对面板；不同量各用自己的纵轴。",
+          "原图图例用了训练日志简写，自己的论文应换成可直接识别的模型和条件。"
+        ],
+        "license": "Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 4. CC BY 4.0. 从原页裁切；图形与数据未改。",
+        "source_title": "TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 4, PDF p. 8",
+        "source_url": "https://arxiv.org/abs/2604.24005v3",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "id": "visual-tcod-fig-5",
+        "topic": "诊断与训练动态",
+        "title": "辅助指标分开画",
+        "asset": "assets/paper-tcod-fig-5.png",
+        "zh": "轮数、优势、长度、损失各占一格；共用训练步数，不同单位不挤在一根纵轴上。",
+        "en": "Turns, advantage, length, and loss use separate panels with a shared training axis. Different units do not compete on one y-axis.",
+        "analysis_zh": [
+          "按同一时间点横向核对过程指标。",
+          "这是训练诊断；损失下降本身不能替代最终任务实验。"
+        ],
+        "license": "Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 5. CC BY 4.0. 从原页裁切；图形与数据未改。",
+        "source_title": "TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 5, PDF p. 9",
+        "source_url": "https://arxiv.org/abs/2604.24005v3",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "id": "visual-tcod-fig-6",
+        "topic": "消融与资源成本",
+        "title": "少量方法，用柱图直接比",
+        "asset": "assets/paper-tcod-fig-6.png",
+        "zh": "两个任务各一幅图，方法顺序一致，柱顶给小时数。想讲省算力，就把时间写出来。",
+        "en": "Use one panel per task, a consistent method order, and measured hours above the bars. An efficiency claim needs a resource measurement.",
+        "analysis_zh": [
+          "单位是训练小时，不是在线推理延迟。比较时另交代硬件和训练条件。",
+          "原图误差线的含义没有给全，不替作者猜重复次数或置信水平。"
+        ],
+        "license": "Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 6. CC BY 4.0. 从原页裁切；图形与数据未改。",
+        "source_title": "TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 6, PDF p. 10",
+        "source_url": "https://arxiv.org/abs/2604.24005v3",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "id": "visual-interactcs-fig-1",
+        "topic": "动机与框架",
+        "title": "大框先分两块，小框再编号",
+        "asset": "assets/paper-interactcs-fig-1.png",
+        "zh": "先分交互生成和策略优化两块，再编号结果、过程、成本三种信号；旁边的对话走一遍流程。",
+        "en": "Group interaction generation and policy optimization first, then number the outcome, process, and cost signals. The dialogue traces an instance through the workflow.",
+        "analysis_zh": [
+          "分组讲职责，箭头讲信息流，编号讲步骤。",
+          "原图用公开论文中的对话示例；自己的案例须处理身份信息，并区分输入、输出与评分信号。"
+        ],
+        "license": "Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。",
+        "source_title": "Reinforcing Real-world Service Agents: Balancing Utility and Cost in Task-oriented Dialogue · arXiv:2602.22697v1, Fig. 1, PDF p. 4",
+        "source_url": "https://arxiv.org/abs/2602.22697v1",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "id": "visual-tcod-fig-2",
+        "topic": "诊断与训练动态",
+        "title": "TCOD：四幅图围着一个诊断",
+        "asset": "assets/paper-tcod-fig2.png",
+        "zh": "每个师生组合紧挨着放 Initial／final 两根柱子，颜色区分阶段，柱顶数字省掉来回读轴。",
+        "en": "Initial and final bars sit together for each student–teacher pair; colors identify stages and value labels reduce axis lookup.",
+        "analysis_zh": "横轴箭头写出配对方向。纵轴从50起而非0，能读标注数值，但不能直接以柱高判断初始值是最终值的多少倍。原件含水印。",
+        "license": "Jiaqi Wang et al., arXiv:2604.24005v3, Fig. 2. CC BY 4.0. 从原 PDF 裁切；图形与数据未改。",
+        "source_title": "Jiaqi Wang et al. · arXiv:2604.24005v3 · Fig. 2",
+        "source_url": "https://arxiv.org/abs/2604.24005v3",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "id": "visual-interactcs-fig-2",
+        "topic": "消融与资源成本",
+        "title": "消融：颜色分组，纹理分方法",
+        "asset": "assets/paper-interactcs-fig2.png",
+        "zh": "颜色分方法族，实色、斜线和点纹再分组内方案，四个面板共用图例，误差棒也留在柱顶。",
+        "en": "Colors identify method families, solid fills and patterns distinguish variants, and four panels share a legend while retaining error bars.",
+        "analysis_zh": "实际图面为 InteractCS-RL Figure 2。指标标题的↑／↓提醒比较方向；图面未定义误差棒具体含义，不能自行称为标准差或置信区间。前三面板非零起点，不能以柱高读倍数。原件含水印。",
+        "license": "Ning Gao et al., arXiv:2602.22697v1, Fig. 2. CC BY 4.0. 从原 PDF 裁切；图形与数据未改。",
+        "source_title": "Ning Gao et al. · arXiv:2602.22697v1 · Fig. 2",
+        "source_url": "https://arxiv.org/abs/2602.22697v1",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "id": "visual-interactcs-fig-3",
+        "topic": "诊断与训练动态",
+        "title": "训练动态：控制量和实际行为并排",
+        "asset": "assets/paper-interactcs-fig3.png",
+        "zh": "左边画成本，右边画使用率，红蓝固定对应两种目标；共用训练步数，把两条动态放到一起读。",
+        "en": "Cost and usage rate appear side by side, with red and blue consistently identifying two targets along the same training-step axis.",
+        "analysis_zh": "图中带半透明色带，但此图面未说明它是方差、标准误还是置信区间，不能自行补名。原件跨两页并含水印，公开应回到已核对的单独原图。",
+        "license": "Ning Gao et al., arXiv:2602.22697v1, Fig. 3. CC BY 4.0. 从原 PDF 裁切；图形与数据未改。",
+        "source_title": "Ning Gao et al. · arXiv:2602.22697v1 · Fig. 3",
+        "source_url": "https://arxiv.org/abs/2602.22697v1",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "id": "fig-interactcs-case",
+        "topic": "案例",
+        "title": "案例：相同信息同框",
+        "asset": "assets/paper-interactcs-case-summary.png",
+        "existing": true
+      },
+      {
+        "id": "teaching-kde",
+        "topic": "KDE 密度分布",
+        "title": "KDE：看哪里密集，不是已经累计了多少",
+        "asset": "assets/kde.svg",
+        "zh": "同一坐标对照两组模拟分数，曲线越高说明该处更密集；浅色填充只是曲线下面积。",
+        "en": "The two synthetic groups share axes; taller curves indicate greater local density, and shading marks area under the curve.",
+        "analysis_zh": [
+          "每组100个模拟样本，使用高斯核和0.4的固定带宽；纵轴是密度。",
+          "曲线面积约为1，曲线高度不是累计比例；阴影不代表置信区间。"
+        ],
+        "license": "PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py",
+        "calculation": {
+          "kernel": "Gaussian",
+          "bandwidth": 0.4,
+          "n_per_group": 100
+        }
+      },
+      {
+        "id": "teaching-ecdf",
+        "topic": "ECDF 累计分布",
+        "title": "ECDF：直接读有多少样本不超过这个值",
+        "asset": "assets/ecdf.svg",
+        "zh": "阶梯线在每个样本处上升，纵轴是已累计的样本比例；不用把平滑密度误认成覆盖率。",
+        "en": "Each observed score raises the step curve, and the vertical axis shows the cumulative sample fraction.",
+        "analysis_zh": [
+          "与KDE使用同一批模拟样本，累计比例按样本计数直接计算。",
+          "在某个阈值比较两条线，读的是不超过阈值的比例，不是该处密度。"
+        ],
+        "license": "PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py"
+      },
+      {
+        "id": "teaching-pca",
+        "topic": "PCA / 空间嵌入",
+        "title": "PCA：先定义输入，再看二维投影",
+        "asset": "assets/pca.svg",
+        "zh": "两组模拟样本的三个标准化特征投到前两主成分，轴上直接给真实计算的解释方差。",
+        "en": "Three standardized features from two synthetic groups are projected onto the first two principal components, with computed explained variance on the axes.",
+        "analysis_zh": [
+          "80个样本，三维特征先中心化，再除以样本标准差；主成分由协方差矩阵求得。",
+          "颜色是原分组，PCA没有使用分组训练；分得开不等于分类准确或泛化成立。"
+        ],
+        "license": "PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py",
+        "calculation": {
+          "n": 80,
+          "features": 3,
+          "standardization_ddof": 1,
+          "eigenvalues": [
+            1.871299135815907,
+            0.8341128346926736,
+            0.29458802949141966
+          ],
+          "explained_variance_ratio": [
+            0.6237663786053023,
+            0.2780376115642245,
+            0.0981960098304732
+          ]
+        }
+      },
+      {
+        "id": "teaching-radar",
+        "topic": "雷达与多指标",
+        "title": "雷达：看各项轮廓，别拿面积当总分",
+        "asset": "assets/radar.svg",
+        "zh": "每根轴都是越高越好的0到1模拟分数，颜色贯穿点和线；逐项比较，比比较整块面积更有意义。",
+        "en": "Every axis is a synthetic 0–1 score with higher values preferred; consistent point and line colors support axis-by-axis comparisons.",
+        "analysis_zh": [
+          "各轴同尺度、同方向，中心是0，外圈是1；真实图必须先说明如何归一化。",
+          "这张图没有定义综合分数，不能把多边形面积当作经过验证的总能力。"
+        ],
+        "license": "PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py"
+      },
+      {
+        "id": "teaching-confidence",
+        "topic": "置信带",
+        "title": "置信带：先认统计单位，再认内外两层",
+        "asset": "assets/confidence.svg",
+        "zh": "深线是模拟样本均值，内层是68%、外层是95%的逐点bootstrap区间；宽度有计算依据，不是调个透明度。",
+        "en": "The line shows synthetic sample means; the inner and outer bands are computed 68% and 95% pointwise bootstrap percentile intervals.",
+        "analysis_zh": [
+          "每个设置有40个独立模拟观测，按观测有放回重采样1000次，再取均值分位数。",
+          "区间针对各个均值，不是覆盖整个函数的同时置信带，也不表示样本本身落在带内。"
+        ],
+        "license": "PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py",
+        "calculation": {
+          "observations_per_setting": 40,
+          "bootstrap_resamples_per_setting": 1000,
+          "interval_type": "pointwise percentile bootstrap of mean",
+          "levels": [
+            0.68,
+            0.95
+          ],
+          "means": [
+            40.13280233540217,
+            42.804545005516616,
+            49.95429230390021,
+            56.61979846888309,
+            60.30606350456212,
+            66.31050340403127
+          ],
+          "bounds": [
+            [
+              37.30616438677041,
+              38.736583992497195,
+              41.46283118546995,
+              42.76646144367157
+            ],
+            [
+              40.394389647402015,
+              41.57842991466312,
+              43.944255952166145,
+              45.24147412402171
+            ],
+            [
+              46.93496756367669,
+              48.492095872723645,
+              51.309121687414695,
+              52.70846058285732
+            ],
+            [
+              54.227089987578566,
+              55.377119655259754,
+              57.929277590721455,
+              59.27940149197638
+            ],
+            [
+              57.88382834853421,
+              59.06629326738573,
+              61.482015226129604,
+              62.65510261028818
+            ],
+            [
+              63.67023764144392,
+              65.03243655402702,
+              67.62672718999475,
+              68.9860013797089
+            ]
+          ]
+        }
+      },
+      {
+        "id": "teaching-paired-gain",
+        "topic": "配对增益",
+        "title": "配对增益：同一任务，直接看差了多少",
+        "asset": "assets/paired-gain.svg",
+        "zh": "每点是一项模拟任务的干预减基线，零线右侧提高、左侧下降；既显示收益，也留下失败。",
+        "en": "Each point is the intervention-minus-baseline difference for a synthetic matched task; points right of zero improve, while points left of zero decline.",
+        "analysis_zh": [
+          "差值单位是百分点，不能写成相对百分比；每个任务保留自己的配对关系。",
+          "散点显示任务差异，没有检验显著性，也没有替代总体汇总。"
+        ],
+        "license": "PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py"
+      },
+      {
+        "id": "teaching-heatmap",
+        "topic": "热图",
+        "title": "热图：一个色标，缺测直接空出来",
+        "asset": "assets/heatmap.svg",
+        "zh": "模型与任务交叉排，颜色和格内数值用同一尺度；缺测格单独写Missing，别伪装成零分。",
+        "en": "Models and tasks share one color scale with values printed in each cell; the missing observation is labeled separately rather than replaced by zero.",
+        "analysis_zh": [
+          "全图同一60%到80%色标，不能每行各自归一化后继续比较颜色。",
+          "格内标数值，帮助读者在不辨色时仍能比较；灰色只表示缺测。"
+        ],
+        "license": "PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py"
+      },
+      {
+        "id": "teaching-cost",
+        "topic": "成本性能图",
+        "title": "成本性能：每个点对应一项明确配置",
+        "asset": "assets/cost.svg",
+        "zh": "横轴是模拟在线成本，纵轴是准确率，每个字母是一项配置；虚线只连接已画出的有效取舍点。",
+        "en": "Online cost and accuracy form the axes, and each letter identifies one synthetic configuration; dashed segments only connect the displayed non-dominated points.",
+        "analysis_zh": [
+          "成本按每1000次查询计，不混入一次性训练成本；真实图要另外报告后者。",
+          "连接点是阅读辅助，不证明中间配置存在，也不代表连续最优函数。"
+        ],
+        "license": "PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py"
+      },
+      {
+        "id": "teaching-donut",
+        "topic": "饼图与环图",
+        "title": "环图：组成比例，先说总数",
+        "asset": "assets/donut.svg",
+        "zh": "中心写100个模拟对象，旁边同时列数量和比例；四类互斥，所有扇区合起来才是一个整体。",
+        "en": "The center states 100 synthetic items and the legend lists counts and percentages; four mutually exclusive categories form the whole.",
+        "analysis_zh": [
+          "先给统计单位和分母，数量40、30、20、10真实相加为100。",
+          "环图适合看构成；精确比较相近比例，数值或横向条图更直接。"
+        ],
+        "license": "PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py"
+      },
+      {
+        "id": "teaching-two-gain",
+        "topic": "二维增益",
+        "title": "二维增益：右上都改善，其他象限看取舍",
+        "asset": "assets/two-gain.svg",
+        "zh": "准确率增益向右更好，延迟减少向上更好；零线分四区，右上是两项同时改善。",
+        "en": "Accuracy gains improve to the right and latency reduction improves upward; zero lines separate the quadrants, with joint improvements in the upper right.",
+        "analysis_zh": [
+          "横轴是百分点，纵轴是相对延迟减少百分比，两种单位明确分开。",
+          "每个点是构造的配置，不是论文结果；落在哪个象限只说明这两项指标的关系。"
+        ],
+        "license": "PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py"
+      }
+    ]
   },
   "refine_scope": "这里的“规范化要求”指 PaperBank 的统一写法，不是所有会议的强制格式。模板提供句子的职责与顺序，方括号填自己的事实；段数、贡献条数、章节位置服从论文类型和官方模板。",
   "refine_templates": [
