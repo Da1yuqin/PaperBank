@@ -153,8 +153,9 @@ def render_example(example, refs):
   md+=['',f'**原文／图片许可：**{example["license"]}']
  return rendered+'</div>',md
 
-def render_short_rules(rules):
+def render_short_rules(rules, visuals=None):
  e=html.escape
+ visuals=visuals or {}
  rendered='<ul class="compact-rules">';md=[]
  for r in rules:
   rendered+=f'<li><strong>{e(r["title"])}：</strong>{e(r["zh"])}'
@@ -162,17 +163,43 @@ def render_short_rules(rules):
   if r.get('example_en'):
    rendered+=f'<details class="short-example"><summary>中英例子</summary><p lang="en">{e(r["example_en"])}</p><p>{e(r["example_zh"])}</p></details>'
    md+=['',r['example_en'],'',r['example_zh']]
+  for key in r.get('visuals',[]):
+   if key not in visuals:continue
+   v=visuals[key]
+   rendered+=f'<a class="rule-visual" href="#{e(v["id"])}"><img src="{e(v["asset"])}" alt="{e(v["title"])}" loading="lazy"><span>{e(v["title"])} · 点开原图与拆解 ↗</span></a>'
+   md+=['',f'![{v["title"]}](../{v["asset"]})',f'[原图与拆解](#{v["id"]})']
   rendered+='</li>'
  return rendered+'</ul>',md
 
 def render_figures(data):
  e=html.escape;f=data['figure_chapter']
+ visuals={v['id']:v for v in f.get('visual_examples',[])}
  rendered=f'<section class="major-chapter figure-chapter" id="figures"><h2>2. {e(f["title"])}</h2><p>{e(f["lead"])}</p><p class="lesson-context">{e(f["scope_note"])}</p>'
  md=['','<a id="figures"></a>','## 2. '+f['title'],'',f['lead'],'',f['scope_note']]
  rendered+='<h3>先定规则，再画</h3>'
- rh,rm=render_short_rules(f['rules']);rendered+=rh;md+=['','### 先定规则，再画']+rm
+ rh,rm=render_short_rules(f['rules'],visuals);rendered+=rh;md+=['','### 先定规则，再画']+rm
  rendered+='<h3>按图的任务选模板</h3><p class="lesson-context">下面均为教学句式；数值、误差和区间按实际记录填写。</p>'
- rh,rm=render_short_rules(f['types']);rendered+=rh;md+=['','### 按图的任务选模板']+rm
+ rh,rm=render_short_rules(f['types'],visuals);rendered+=rh;md+=['','### 按图的任务选模板']+rm
+ if visuals:
+  rendered+='<h3 id="notion-gallery">图例库：原图与逐图拆解</h3><p>同类图放一起；点击缩略图或展开目录看原图。</p>'
+  md+=['','### 图例库：原图与逐图拆解','']
+  for topic in dict.fromkeys(v['topic'] for v in visuals.values() if not v.get('existing')):
+   group=[v for v in visuals.values() if v['topic']==topic and not v.get('existing')]
+   rendered+=f'<details class="figure-set"><summary>{e(topic)} · {len(group)} 张图</summary>'
+   md+=['','<details><summary>'+topic+' · '+str(len(group))+' 张图</summary>','']
+   for v in group:
+    license_link=f' · <a href="{e(v["license_url"])}">许可</a>' if v.get('license_url') else ''
+    rendered+=f'<section class="visual-example" id="{e(v["id"])}"><h4>{e(v["title"])}</h4><p>{e(v["zh"])}</p><figure><a href="{e(v["asset"])}"><img src="{e(v["asset"])}" alt="{e(v["title"])}" loading="lazy"></a><figcaption>{e(v["license"])}{license_link}</figcaption></figure><details class="short-example"><summary>English 与拆解</summary><p lang="en">{e(v["en"])}</p>'
+    md+=['',f'<a id="{v["id"]}"></a>','#### '+v['title'],'',v['zh'],'',f'![{v["title"]}](../{v["asset"]})','',v['license'],'',v['en']]
+    for why in v.get('analysis_zh',[]):rendered+=f'<p>{e(why)}</p>';md+=['',why]
+    rendered+='</details>'
+    if v.get('source_url'):
+     rendered+=f'<p class="example-source">来源：<a href="{e(v["source_url"])}">{e(v["source_title"])}</a></p>'
+     source_url=v['source_url'] if '://' in v['source_url'] else '../'+v['source_url']
+     md+=['',f'来源：[{v["source_title"]}]({source_url})']
+    if v.get('license_url'):md+=['',f'[图片许可]({v["license_url"]})']
+    rendered+='</section>'
+   rendered+='</details>';md+=['','</details>','']
  rendered+='<h3 id="figure-gallery">私藏图：好在哪里，怎么借鉴</h3><p>先看原图，再看点评。借信息组织，不照搬别人的结果。</p>'
  md+=['','### 私藏图：好在哪里，怎么借鉴','','先看原图，再看点评。借信息组织，不照搬别人的结果。']
  items={i['id']:i for i in data['items']}
@@ -181,6 +208,7 @@ def render_figures(data):
   rendered+=f'<section class="gallery-example" id="{g["figure_id"]}"><p><strong>{e(g["comment"])}</strong></p>'
   eh,em=render_example(ex,data['references']);rendered+=eh+'</section>';md+=['',f'<a id="{g["figure_id"]}"></a>',g['comment']]+em
  rendered+='<h3>更多参考图，带着问题看</h3>'
+ rendered+=f'<details class="figure-source-links"><summary>原文图页与点评 · {len(f["links"])} 项</summary>'
  md+=['','### 更多参考图，带着问题看']
  for n,g in enumerate(f['links'],1):
   rendered+=f'<section class="linked-figure" id="figure-link-{n}"><h4><a href="{e(g["url"])}">{e(g["title"])} ↗</a></h4><p>{e(g["zh"])}</p><details class="short-example"><summary>English 与拆解</summary><p lang="en">{e(g["en"])}</p>'
@@ -193,6 +221,7 @@ def render_figures(data):
   if g.get('analysis'):md+=['',g['analysis']]
   if g.get('source'):md+=['',g['source']]
   if g.get('license'):md+=['',g['license']]
+ rendered+='</details>'
  for k,label,lang in [('prompt_zh','让 Codex 开始画图','zh-CN'),('prompt_en','Figure prompt · English','en')]:
   rendered+=f'<details class="prompt"><summary>{label}</summary><pre lang="{lang}">{e(f[k])}</pre><button class="copy js-only">复制提示词</button></details>'
   md+=['','**'+label+'**','','```text',f[k],'```']
@@ -291,11 +320,13 @@ def build():
  figures,figures_md=render_figures(data)
  opening,opening_md=render_opening(data)
  skill,skill_md=render_skill(data)
- nav=f'<button data-chapter="all" aria-pressed="true" class="active">全部清单与例子<i>{len(items)}</i></button>'
+ draft_nav=''.join(f'<a href="#{e(s["id"])}">{e(s["title_zh"])}</a>' for s in data['quick_start']['steps'])
+ nav='<a href="#refine">全文要求与验收</a>'
  for s in sections:
   if not s.get('manuscript') and s['id']!='rebuttal':continue
   group=[i for i in items if i['section']==s['id']]
-  nav+=f'<button data-chapter="{s["id"]}" aria-pressed="false">{e(s["nav"])}<i>{len(group)}</i></button>'
+  number=11 if s['id']=='rebuttal' else int(s['number'])
+  nav+=f'<a href="#chapter-{s["id"]}">3.{number} {e(s["nav"])}</a>'
  entries='';chapter_html={};chapter_md={}
  md=['# PaperBank · 论文少走弯路指南','','先用 Codex 拉草稿和图，再由你审逻辑、逐章精修。第四章收好用的工具。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎拿去给 Codex 做 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，改过请注明。Star 自愿，署名别失联。']
  md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. Refine：先审逻辑，再磨句子','','先改全文通用要求，再按论文顺序精修。模板中的【】填自己的研究；句子数量按内容调整。这里的写作规范来自作者的 skill，会议硬性格式以官方指南为准。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
@@ -360,7 +391,8 @@ def build():
   md+=['','</details>','']
   chapter_html[s['id']]=entries[html_start:];chapter_md[s['id']]=md[md_start:]
  def extras(key,label):
-  return f'<details class="chapter-extra"><summary>{label}</summary>{chapter_html[key]}</details>'
+  content=chapter_html[key].replace('<h3>','<h4>').replace('</h3>','</h4>')
+  return f'<details class="chapter-extra"><summary>{label}</summary>{content}</details>'
  quick_start=quick_start[:-len('</section>')]+extras('workflow','起草与协作：补充清单与例子')+extras('ai','AI 辅助：补充清单与例子')+'</section>'
  map_start=opening.index('<section class="paper-map"')
  opening=opening[:map_start]+extras('revision','全文验收：补充清单与例子')+opening[map_start:]
@@ -379,7 +411,7 @@ def build():
  md+=tools_md
  reading=''.join(f'<li>{link(k)}<span> — {e(r["scope"])}</span></li>' for k,r in refs.items() if r.get('public'))
  t=(ROOT/'assets/template.html').read_text(encoding='utf-8')
- for k,v in {'NAV':nav,'ENTRIES':entries,'TOOLS':tools,'QUICK_START':quick_start,'FIGURES':figures,'OPENING':opening,'SKILL':skill,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':'4','EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
+ for k,v in {'NAV':nav,'DRAFT_NAV':draft_nav,'ENTRIES':entries,'TOOLS':tools,'QUICK_START':quick_start,'FIGURES':figures,'OPENING':opening,'SKILL':skill,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':'4','EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
  (ROOT/'index.html').write_text(t,encoding='utf-8')
  (ROOT/'book').mkdir(exist_ok=True)
  md+=['','## 参考阅读','']+[f'- [{r["title"]}]({r["url"]})：{r["scope"]}' for r in refs.values() if r.get('public')]

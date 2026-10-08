@@ -117,3 +117,11 @@ UrbanZero 的 8 个例子依据作者公开主页仓库的项目介绍编写，�
 Overleaf 本地 Git 同步的 Premium 权限与当前入口核对自 [Git integration](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/git-integration)；无 Git 权限时的 ZIP 下载核对自 [Downloading a project](https://docs.overleaf.com/managing-projects-and-files/downloading-a-project)。
 
 新版子刊图例对应 Bruno et al., *A universal framework for inclusive 15-minute cities*, Nature Cities 1, 633–641 (2024), [DOI](https://doi.org/10.1038/s44284-024-00119-4)。图 1、图 2 的内容与编码核对自作者的 [arXiv:2408.03794v1](https://arxiv.org/html/2408.03794v1)：颜色为 Gini，圆大小为人口密度；图 2b 为现有 POI 迁移比例。该预印本是 arXiv 非独占分发许可，出版社版本保留版权；本指南只链接原图并提供原创点评，不重新托管这两张图片。
+
+## 绘图图例与逐图点评
+
+图型拆分为 KDE、ECDF、PCA、雷达、置信带等；每条绘图要求链接对应的图例与中英拆解。KDE 是密度，ECDF 是累计比例；life2vec 正式图使用 PaCMAP，不称为 PCA。阴影和误差条的统计定义须看原图说明，不从外形推断置信水平。
+
+重新核对 Notion 收藏中的 64 张图。公开版重现许可明确的 TCOD v3 图 1–6、InteractCS-RL v1 图 1–3，均从对应原 PDF 裁切，仅去掉周围页边，保留图内数据、文字和颜色，并署名、标示 CC BY 4.0 与裁切。图片中的角色图标不单独提取或重新授权。OneReason、ShoppingBench 和 life2vec 的图保留原文链接与原创点评。包含内部信息标记、账号水印、订单编号或匿名投稿材料的截图不公开；收藏在私人笔记中不自动意味着可转载。
+
+标为“教学图”的统计图由 PaperBank 用固定模拟数据独立生成，只演示图型、读法和信息编码，不对应任何论文实验。绘图源码提供相对路径入口，数据和计算方法随源码公开；这些图与 Notion 原图明确区分。
