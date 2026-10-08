@@ -3,3 +3,28 @@
 .toolbox{margin:48px 0;border-top:1px solid var(--line);padding-top:24px}.toolbox h2{font-size:25px;line-height:1.5;margin:0}.tool-index{font-size:13px;line-height:2}.tool-search{display:none;align-items:center;gap:12px;flex-wrap:wrap;margin:20px 0;font-size:13px}.js .tool-search{display:flex}.tool-search input{max-width:320px;flex:1;min-width:160px;background:var(--side);color:var(--text);border:1px solid var(--line);border-radius:5px;padding:7px 10px}.tool-search span,.tool-checked{font-size:12px;color:var(--muted)}.tool-group{margin:26px 0}.tool-group h3,.release-prompt h3{font-size:17px;margin:0 0 8px}.tool-list{list-style:none;padding:0;margin:0}.tool-item{border-bottom:1px solid var(--line);padding:10px 0;font-size:14px;overflow-wrap:anywhere}.tool-item>p{margin:0}.tool-detail{font-size:13px;margin-top:3px}.tool-detail>summary{color:var(--muted);font-size:12px;width:fit-content}.tool-detail p{margin:8px 0}.tool-detail .sources{font-size:12px}.release-prompt{margin-top:32px;font-size:14px}.release-prompt pre{white-space:pre-wrap;overflow-wrap:anywhere}.tool-checked{margin-top:20px}@media(max-width:820px){.toolbox h2{font-size:23px}.tool-search span{width:100%}}@media print{.tool-search{display:none!important}.tool-item[hidden],.tool-group[hidden]{display:block!important}}
 
 .writing-skill{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0 24px;margin:26px 0;font-size:14px}.writing-skill h2{font-size:23px;line-height:1.5;margin:0 0 10px}.writing-skill p{margin:10px 0}.writing-skill .prompt{margin-top:8px}.skill-links{font-size:13px;line-height:2}.skill-links a:first-child{font-weight:650}.writing-skill code{font-size:12px;overflow-wrap:anywhere}@media(max-width:820px){.writing-skill h2{font-size:21px}.writing-skill{font-size:13px}}
+
+#general-rules,#paper-order{margin:30px 0;padding:22px 0 0;border-top:1px solid var(--line)}
+#general-rules h2,#paper-order h2{font-size:24px;line-height:1.5;margin:0 0 12px}
+#general-rules p,#paper-order p{margin:10px 0}
+#general-rules li,#paper-order li{margin:8px 0;font-size:15px}
+#general-rules ul,#general-rules ol,#paper-order ul,#paper-order ol{padding-left:24px}
+#chapter-rules>summary{font-size:14px;color:var(--blue);padding:12px 0}
+.paragraph-lesson{margin:28px 0 34px;padding:0;border:0;background:none;box-shadow:none;scroll-margin-top:85px}
+.paragraph-lesson h3{font-size:19px;line-height:1.6;margin:0 0 10px;font-weight:650}
+.paragraph-purpose{margin:0 0 18px;padding:0 0 0 12px;border-left:2px solid var(--blue);font-size:15px;line-height:1.85;font-weight:600;color:var(--text)}
+.sentence{margin:18px 0 22px;padding:0;border:0;background:none}
+.sentence p{margin:5px 0;overflow-wrap:anywhere}
+.sentence-en{font:16px/1.75 Georgia,"Times New Roman",serif;color:var(--text)}
+.sentence-zh{font-size:15px;line-height:1.85;color:var(--text)}
+.sentence-why,.sentence .why{font-size:14px;line-height:1.85;color:var(--muted)}
+.paragraph-lesson .sources{margin:14px 0 0!important;padding-top:9px}
+.chapter-checks{margin:26px 0 10px;padding-top:12px;border-top:1px solid var(--line)}
+.chapter-checks>summary{font-size:14px;line-height:1.8;color:var(--blue);width:fit-content}
+.chapter-checks[open]>summary{margin-bottom:14px}
+.chapter-checks .check-group{margin:18px 0}
+.chapter-checks .entry{padding:9px 0}
+.teaching-figure{border:0;border-radius:0}
+.quick-start h2{font-size:24px;line-height:1.5;margin:0 0 12px}.quick-start>p{font-size:16px;line-height:1.9;margin:12px 0}.quick-start .fill-hint{font-size:14px;color:var(--muted)}.manual-refinement{font-size:14px;margin:16px 0}.manual-refinement>summary{color:var(--blue)}.manual-refinement li{margin:8px 0}.lesson-context,.teaching-note{font-size:13px;color:var(--muted);line-height:1.8}
+@media(max-width:820px){#general-rules h2,#paper-order h2{font-size:22px}.paragraph-lesson h3{font-size:18px}.paragraph-purpose,.sentence-zh{font-size:14px}.sentence-en{font-size:15px}.paragraph-lesson{margin:24px 0 30px}.sentence{margin:16px 0 20px}}
+@media print{.paragraph-lesson[hidden]{display:block!important}.paragraph-lesson{break-inside:avoid}.chapter-checks::details-content{content-visibility:visible;display:block}.sentence-en{font-size:12pt}.sentence-zh,.paragraph-purpose{font-size:11pt}.sentence-why{font-size:10pt}}
