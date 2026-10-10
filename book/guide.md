@@ -104,6 +104,8 @@ Organize the Introduction as background and existing capabilities, specific prob
 
 ### 1.2 先定图：mainfig、framework 和结果图
 
+[先下载绘图 skill ZIP](../assets/paperbank-figures-skill.zip) · [查看 SKILL.md](../skills/paperbank-figures/SKILL.md) · [绘图铁律](#figure-rules)
+
 图先给合作者看。看完能说清为什么做、怎么做、发现了什么，再填正文。流程讲不通，换个配色也救不了。
 
 #### mainfig：读者先看懂为什么做
@@ -150,21 +152,21 @@ The figure separates interaction generation from policy optimization. A dialogue
 
 Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。 [原论文](https://arxiv.org/abs/2602.22697v1) · [许可](https://creativecommons.org/licenses/by/4.0/)
 
-#### 三类图都要过的检查
+#### 绘图铁律：这些错别犯
 
-- **配色：**白底，面板用极浅的低饱和色；文字保持深色。同一方法、角色、条件全篇同色，重要对照再配形状或线型，别让读者只靠分辨红绿。
+- **配色：**白底，面板接近白色，文字和刻度保持深色。同对象全篇同色，再配点形、线型或纹理；低饱和不是糊一层灰。
 
 中：基线用灰色圆点，本文方法用灰蓝菱形；颜色变淡，文字不跟着变淡。
 
 EN: Use gray circles for the baseline and muted blue diamonds for the proposed method. Keep the text dark on pale backgrounds.
 
-- **字号与字体：**字体与正文统一，按最终插入宽度检查 PDF。PaperBank 默认图内字与正文同大，最多小 2 pt；标题、轴、图例、注释也算。先减内容、重排，别靠整图缩放塞进一栏。统计图优先矢量 PDF；生成底图的文字另排成可选文字。
+- **字号与字体：**按最终栏宽起稿，图内所有字同字号、同字体家族；范围为正文减 2 pt 至正文，标题、轴、图例、注释都算。以论文 PDF 的实测字号为准，放不下先重排，不缩字硬塞。
 
 中：正文实际为 10 pt，图内字用 8–10 pt；在论文整页大小下读，不只看放大的 PNG。
 
 EN: With 10 pt body text, use 8–10 pt figure text and inspect it at its final size in the paper, not only in a magnified PNG.
 
-- **布局：**一个主读序，同级框对齐，箭头不穿字。双栏图先按约 16:9、单栏图约 4:3 起排；同时看图注总占高。比例是起点，不拉扁图、不删关键证据。
+- **布局：**一个主读序，同层成组并命名；并行先汇合，反馈另走清楚的路径。通栏约 16:9、单栏约 4:3 起排，附录可纵排。连图注一起查占高，不拉扁图、不改论文模板。
 
 中：两个并行输入先汇合再进入模型；长解释移到图注，关键输入保留在图里。
 
@@ -182,9 +184,46 @@ EN: Label the y-axis as success rate (%). If error bars show standard deviations
 
 EN: The figure compares success rate and inference cost on the same test set; each point represents a method configuration.
 
+- **箭头与信息边界：**每条箭头都对应真实产物和接收者，别穿字、交叉或乱连。输入、输出、评价规则用三种边框；只供评价的 rubric 不接到模型。
+
+中：核查结果交给规划器；评分规则只交给评价器。
+
+EN: Checked constraints go to the planner; scoring criteria go only to the evaluator.
+
+- **标签与图标：**缩写、符号、颜色、边框和图标就近解释。图标旁写对象名；别让读者猜这个机器人到底是谁。
+
+中：机器人标为 Planner；虚线箭头注明 Feedback。
+
+EN: Label the robot as Planner and dashed arrows as Feedback.
+
+- **案例：**保留必要背景、关键请求、证据和输出，注明实测或作者示例。同一来源的案例只完整展示一次，改名、翻译或裁剪也算同一个。
+
+中：图 1 展示案例，第 4 节回引图 1。
+
+EN: Present the case in Figure 1 and refer back to it in Section 4.
+
+- **PDF 导出：**统计图导出矢量 PDF；生成底图的标签另排原生、可见、可选文字。截图装进 PDF 仍是位图，隐藏 OCR 层也不算排好字。
+
+中：实际选中图内标签，核对字体和缩放后的字号。
+
+EN: Select the labels in the manuscript PDF and verify their font and final size.
+
+- **改图范围：**只改颜色就保留文字、布局、照片、公式、字号和连线。原始数据、实验和合作者的图别顺手改。
+
+中：只换底色，保留坐标与箭头端点。
+
+EN: Change only the fills; retain all coordinates and arrow endpoints.
+
+- **最终验收：**编译后在正常阅读大小查字号、碰撞、裁切、图注和首次引用顺序。CS 默认 [!t]；源码顺序对了，还要看实际 PDF。
+
+中：图 1 先引用，就检查它是否真的先出现在 PDF。
+
+EN: If Figure 1 is cited first, verify that it actually appears first in the PDF.
+
 **给 Codex 的绘图说明单**
 
 ```text
+先读 paperbank-figures/SKILL.md，再填：
 图的用途：【mainfig／framework／结果图】
 要讲清的贡献或问题：【】
 输入、操作、输出及真实依赖：【】
@@ -450,11 +489,31 @@ Read the supplied paperbank-writing/SKILL.md and select the rules in references/
 
 先定图要说明什么，再画。统计图用真实数据，概念图先排流程。配色最后调，毕竟颜色救不了逻辑。
 
-图例附出处和许可；教学图使用模拟数据。尺寸、字号按目标会议调整。
+以下是 PaperBank 面向 CS 论文的默认约定，会议硬性要求和当前稿件已确认的配置优先。参考图用来学信息组织，不照搬它的字号、色板或数据。
 
-### 先定规则，再画
+<a id="figure-skill"></a>
+### 先给 Codex 绘图 skill
 
-- **先定图的任务：**动机图讲问题，方法图讲流程，结果图讲比较；无关元素删掉。
+[下载绘图 skill ZIP](../assets/paperbank-figures-skill.zip) · [查看 SKILL.md](../skills/paperbank-figures/SKILL.md) · [绘图铁律](#figure-rules)
+
+解压后把整个 paperbank-figures/ 文件夹交给 Codex，再附稿件、原始数据、参考图和允许修改的文件。先给材料，再给它发挥；空手也画不出你的实验。
+
+**复制给 Codex：开始画图**
+
+```text
+读取 paperbank-figures/SKILL.md。图的用途：【mainfig／framework／结果图／案例图】；材料：【稿件、原始数据、参考图】；允许修改：【文件】；最终插入宽度：【mm】；正文实测字号：【pt】；已确认色板：【】。先写图要回答的问题，列清输入、操作、输出和每条箭头的真实依赖，再给布局。统计图只从所附数据绘制；概念图按环境使用 imagegen。按绘图铁律检查字号、配色、图例、图注和最终 PDF，修好再交图。
+```
+
+**Figure prompt · English**
+
+```text
+Read paperbank-figures/SKILL.md. Figure type: 【main figure / framework / quantitative chart / case】. Materials: 【manuscript, original data, references】. Editable files: 【】. Final width: 【mm】. Measured body font size: 【pt】. Approved palette: 【】. State the question first, then specify inputs, operations, outputs, and the real dependency behind every edge. Propose the layout before rendering. Plot quantitative results only from the supplied data. Check labels, fonts, colors, the caption, and the final manuscript PDF against the figure rules.
+```
+
+<a id="figure-rules"></a>
+### 绘图铁律：这些错别犯
+
+- **别让一张图讲所有事：**mainfig 讲问题和改动，framework 讲真实流程，结果图讲比较。先写一句图的任务，再选内容；mainfig 默认不超过 5 个环节。
 
 Show where the existing pipeline fails and which step our method changes.
 
@@ -463,7 +522,7 @@ Show where the existing pipeline fails and which step our method changes.
 ![问题和解法放在同一张图](../assets/paper-tcod-fig-1.png)
 [原图与拆解](#visual-tcod-fig-1)
 
-- **先画图，再精修正文：**用草图和真实数据定论证，先给合作者看。
+- **别等正文定稿才画图：**先用草图和真实结果定论证，给合作者审。图里问题、做法和证据对不上，正文也别急着精修。
 
 Panel (a) shows the observed gap; panel (b) tests the proposed repair.
 
@@ -472,7 +531,7 @@ Panel (a) shows the observed gap; panel (b) tests the proposed repair.
 ![对照图要对齐改动](../assets/paper-tcod-fig-3.png)
 [原图与拆解](#visual-tcod-fig-3)
 
-- **统计图与概念图：**统计图用 Python 读真实数据；框架、动机和案例图用 imagegen。
+- **别让 AI 编实验曲线：**统计图用 Python 从真实数据绘制；imagegen 用于动机、框架和案例图。缺数据就停，不补点、不编误差、不为平滑改曲线。
 
 Draw the recorded success rates with Python. Generate only the workflow illustration with imagegen.
 
@@ -484,7 +543,7 @@ Draw the recorded success rates with Python. Generate only the workflow illustra
 ![KDE：看哪里密集，不是已经累计了多少](../assets/kde.svg)
 [原图与拆解](#teaching-kde)
 
-- **按最终尺寸排字：**按会议栏宽起稿，统一字体；图内字号为正文字号至小 2 pt。通栏约 16:9，单栏约 4:3，长图可纵排。
+- **别看放大 PNG 判断字号：**按最终栏宽排字，字体与正文一致；所有图内字同一字号，介于正文与正文减 2 pt 之间，标题也不能更大。放不下先重排，不把字缩成蚂蚁。
 
 Use the paper’s column width and body font; remove repeated labels rather than shrinking text.
 
@@ -493,7 +552,7 @@ Use the paper’s column width and body font; remove repeated labels rather than
 ![对照图要对齐改动](../assets/paper-tcod-fig-3.png)
 [原图与拆解](#visual-tcod-fig-3)
 
-- **按阅读顺序布局：**同层成组，主方向一致；并行、汇合、反馈按真实依赖画。箭头写清传什么。
+- **别用箭头改写真实流程：**同层成组并命名；先后、并行、汇合、反馈按真实依赖画。每条箭头说清传什么，起止明确，不穿字、不绕远路。
 
 Retrieved passages enter the generator; the evaluator receives the generated answer.
 
@@ -502,7 +561,7 @@ Retrieved passages enter the generator; the evaluator receives the generated ans
 ![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
 [原图与拆解](#visual-interactcs-fig-1)
 
-- **输入、输出、评分分开：**用边框或线型区分；仅供评价的分数不能画成模型输入。
+- **别把评分规则画成模型输入：**输入、输出、评价规则用三种边框区分，并给图例。只供评价的 rubric 不连到被测模型；不同模型收到不同材料，也要标清。
 
 Dashed boxes contain model inputs; solid boxes contain responses; dotted boxes contain evaluator-only criteria.
 
@@ -511,7 +570,7 @@ Dashed boxes contain model inputs; solid boxes contain responses; dotted boxes c
 ![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
 [原图与拆解](#visual-interactcs-fig-1)
 
-- **颜色表示类别：**白底、低饱和、同类同色；再配文字、形状或纹理，黑白也能读。
+- **别把低饱和画成一层灰雾：**白底，面板接近白色，文字和刻度保持深色。同对象全篇同色，再配点形或线型；不用浓重底色、渐变、阴影救场。
 
 Blue circles denote the baseline; orange triangles denote our method in every panel.
 
@@ -520,7 +579,7 @@ Blue circles denote the baseline; orange triangles denote our method in every pa
 ![消融：颜色分组，纹理分方法](../assets/paper-interactcs-fig2.png)
 [原图与拆解](#visual-interactcs-fig-2)
 
-- **文字分组，重点高亮：**案例按背景、证据、动作、结果排；同类信息同框，图标旁写名称。
+- **别扔一整块对话让人读：**一轮一框，注明角色；同一轮长回复按语义分段，不伪装成多轮。高亮只标关键约束、证据或错误，颜色含义要能读懂。
 
 The left column contains evidence; the right column shows the model response and its evaluation.
 
@@ -529,7 +588,7 @@ The left column contains evidence; the right column shows the model response and
 ![案例：相同信息同框](../assets/paper-interactcs-case-summary.png)
 [原图与拆解](#fig-interactcs-case)
 
-- **案例不重复贴：**同一案例在论文里只完整展示一次，其他位置交叉引用；案例讲流程，总体效果看实验。
+- **别把同一案例复制三遍：**同一来源的案例在全文只完整呈现一次，其他位置交叉引用。改名、翻译、裁剪也算同一个；必要对照集中展示，别靠一个 case 证明总体效果。
 
 Figure 1 presents the case; Section 4 refers back to Figure 1 without repeating the dialogue.
 
@@ -538,7 +597,7 @@ Figure 1 presents the case; Section 4 refers back to Figure 1 without repeating 
 ![案例：相同信息同框](../assets/paper-interactcs-case-summary.png)
 [原图与拆解](#fig-interactcs-case)
 
-- **多子图合讲一个问题：**按现象、诊断、对照、稳健性排列；同条件同顺序，相关横轴对齐。
+- **别每个子图换一套尺度：**围绕一个问题排现象、诊断、对照和稳健性；同条件同顺序、同配色，同类轴和色标保持可比。
 
 The first panel identifies the gap, the second locates it, and the third tests whether it persists.
 
@@ -547,7 +606,7 @@ The first panel identifies the gap, the second locates it, and the third tests w
 ![TCOD：四幅图围着一个诊断](../assets/paper-tcod-fig2.png)
 [原图与拆解](#visual-tcod-fig-2)
 
-- **图形对应数值：**查分母、单位、方向、坐标起点和误差；相对增益给绝对值，显著性另看统计。
+- **别靠断轴制造胜利：**查单位、分母、方向、坐标起点和误差类型；截断坐标要明确标出。相对增益同时给绝对值，柱长和数值必须对应。
 
 Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.
 
@@ -556,7 +615,7 @@ Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.
 ![配对增益：同一任务，直接看差了多少](../assets/paired-gain.svg)
 [原图与拆解](#teaching-paired-gain)
 
-- **图注写读法和发现：**主题句、子图含义、关键口径；解释缩写、误差和参考线。尽量三行，定义不能省。
+- **别把图注写成画法说明：**写比较对象、读法和实际发现；解释缩写、单位、分母、误差和必要标记。图内已写清的别再抄，尽量三行，必要定义不省。
 
 Error bars show 95% question-level bootstrap intervals; the horizontal line marks zero gain.
 
@@ -565,7 +624,7 @@ Error bars show 95% question-level bootstrap intervals; the horizontal line mark
 ![置信带：先认统计单位，再认内外两层](../assets/confidence.svg)
 [原图与拆解](#teaching-confidence)
 
-- **放回论文检查：**统计图优先矢量 PDF；生成图可叠原生文字。检查字号、裁切、图注和引用顺序。
+- **别把编译通过当作图没问题：**放回论文检查实际字号、字体嵌入、可选文字、裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后仍正确。
 
 Place the figure after its first mention and check all labels at normal reading size.
 
@@ -573,6 +632,90 @@ Place the figure after its first mention and check all labels at normal reading 
 
 ![问题和解法放在同一张图](../assets/paper-tcod-fig-1.png)
 [原图与拆解](#visual-tcod-fig-1)
+
+- **别省输入和输出：**每个关键模块写清收到什么、做什么、交出什么，以及交给谁。模块名与 Method 一致，别让图成为缩写接龙。
+
+The checker receives evidence and returns supported constraints to the planner.
+
+核查器接收证据，把已支持的约束交给规划器。
+
+![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
+[原图与拆解](#visual-interactcs-fig-1)
+
+- **别只留图标、缩写和颜色：**图标旁写对象名；新缩写、符号、边框、线型和数字就近解释。读者只看图与图注，应知道每个标记指什么。
+
+Label the robot as the planner and define dashed edges as feedback.
+
+机器人标为规划器，虚线箭头定义为反馈。
+
+![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
+[原图与拆解](#visual-interactcs-fig-1)
+
+- **别让 framework 变成模块名单：**从创新点组织少量子图，走一条能追踪的案例。保留必要背景、关键请求、证据、操作与输出；删内部编号和无关参数，不删关键文字。
+
+Trace one task from the evidence input through checking to the final plan.
+
+用同一个任务走完证据输入、核查和最终计划。
+
+![案例：相同信息同框](../assets/paper-interactcs-case-summary.png)
+[原图与拆解](#fig-interactcs-case)
+
+![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
+[原图与拆解](#visual-interactcs-fig-1)
+
+- **别把示意画成实测：**估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，别指望图注替错误图形擦屁股。
+
+Keep illustrative module boxes equally sized; plot measured latency on a labeled axis.
+
+示意模块框不靠大小表示耗时；实测延迟另用带坐标的图展示。
+
+![成本性能：每个点对应一项明确配置](../assets/cost.svg)
+[原图与拆解](#teaching-cost)
+
+- **别拿截图 PDF 冒充矢量：**统计图导出矢量 PDF 并嵌入字体。生成底图上的标签另排原生、可见、可选的 PDF 文字；不留重叠字形，不加隐藏 OCR 层。混合 PDF 仍含位图。
+
+Export the plot as vector PDF and verify that its axis labels can be selected.
+
+统计图导出矢量 PDF，再实际选中坐标轴文字检查。
+
+![对照图要对齐改动](../assets/paper-tcod-fig-3.png)
+[原图与拆解](#visual-tcod-fig-3)
+
+- **别说只改色，顺手把内容改了：**只改配色就保留布局、文字、换行、字号、公式、照片和连线；重排须在约定范围内。数据、实验和合作者的图也别顺手动。
+
+Change panel fills while retaining every label, coordinate, and arrow endpoint.
+
+只换面板底色，保留所有标签、坐标和箭头端点。
+
+![消融：颜色分组，纹理分方法](../assets/paper-interactcs-fig2.png)
+[原图与拆解](#visual-interactcs-fig-2)
+
+- **别改论文模板给图腾地方：**按实际栏宽起稿，不改页边距、正文字号或页面方向。正文通栏约 16:9、单栏约 4:3 是起点，附录可纵排；不拉扁图。CS 默认用 [!t]，再按正文首次引用检查实际落点。
+
+Rearrange parallel branches within the column width; keep the paper template unchanged.
+
+在栏宽内重排并行分支，保留论文模板。
+
+![问题和解法放在同一张图](../assets/paper-tcod-fig-1.png)
+[原图与拆解](#visual-tcod-fig-1)
+
+- **别把说明文字塞进表格：**PaperBank 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不截成图片绕过去；统计数字也不能把说明表变成实验结果。
+
+Put success rates in a table and explain the checking procedure in the text.
+
+成功率放表格，核查流程写正文。
+
+![消融：颜色分组，纹理分方法](../assets/paper-interactcs-fig2.png)
+[原图与拆解](#visual-interactcs-fig-2)
+
+- **别拿白块盖住重叠：**图例、标题、刻度和注释不能挡数据、箭头或边框。给文字留空间，重排碰撞处；不是盖住就算修好了。
+
+Move the legend outside the plotted curves while preserving the data and axes.
+
+把图例移出曲线区，保留数据和坐标轴。
+
+![KDE：看哪里密集，不是已经累计了多少](../assets/kde.svg)
+[原图与拆解](#teaching-kde)
 
 ### 按图的任务选模板
 
@@ -1689,18 +1832,6 @@ The left side follows the request, tool calls, observations, and result; the rig
 ShoppingBench: A Real-World Intent-Grounded Shopping Benchmark for LLM-based Agents, AAAI 2026, Fig. 1–2
 
 只链接正式论文页，不重托管原图。
-
-**让 Codex 开始画图**
-
-```text
-阅读我的论文、绘图 skill 和参考图。先为每张图写一句任务：它解释哪个问题、比较什么、支持哪项贡献。统计图用真实数据和 Python；概念图用 imagegen，先列清输入、模块、箭头、输出，再成图。按会议最终栏宽起稿，正文同族字体、正文至小 2 pt，白底低饱和，同对象同色，所有符号可解释。保持原数据、语义和拓扑，不改数值、不补误差。先给粗图和图注，核对后精修；统计图交付文字可选 PDF；概念图面叠加原生 PDF 文字，并放回论文检查。
-```
-
-**Figure prompt · English**
-
-```text
-Read my paper, figure instructions, and reference images. State one purpose for each figure: the question, comparison, and contribution. Use actual data and Python for quantitative plots; use imagegen for conceptual figures after identifying inputs, operations, arrows, and outputs. Work at the final venue column width, with the paper font and type no larger than body text and at most 2 pt smaller. Use a light background, consistent visual encoding, and explained symbols. Preserve the data and information flow. Show rough figures and captions before refinement, then deliver a PDF with selectable text and inspect the inserted figures in the paper.
-```
 
 <a id="refine"></a>
 ## 3. 古法精修
