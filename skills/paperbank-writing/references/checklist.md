@@ -1074,7 +1074,7 @@ Separate inputs, outputs, and evaluation criteria in figures. Use white backgrou
 Organize the Introduction as background and existing capabilities, specific problems, matched designs, main findings, and contributions. Show one section in Chinese for review before writing the English. List evidence gaps without inventing results or citations. Preserve the official template and remove repetition before reducing content. Use independent Nature writing skills for Nature-family journals.
 ```
 
-Overleaf Git 是 Premium 功能，取决于项目拥有者订阅或相应授权；源文件 ZIP 不含 PDF。Git 同步可能影响网页版批注和修订痕迹，协作时先约定使用方式。
+（Git 同步需要项目 owner 有会员或相应权限。没有就下载源文件 ZIP，在本地编译 LaTeX，或直接 skip 同步这步。可以及时求助有会员的老师或高产师兄师姐，请他们帮忙当 owner。）
 
 [Overleaf: Git integration](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/git-integration) · [Overleaf: Downloading a project](https://docs.overleaf.com/managing-projects-and-files/downloading-a-project)
 
