@@ -1006,7 +1006,7 @@ We added a comparison under a fixed budget; results are in Table R2. The cross-d
 
 “一个亮点（标题，摘要，关键词），附赠一堆为了实现亮点而产生的贡献。” 先填最重要的价值或发现，再填为它服务的设计与证据；不要只给模型一串模块名。
 
-#### 材料先给齐
+**材料先给齐**
 
 - **贡献：**写清具体问题、对应设计、已有发现。方法名先放一边，先说你到底解决了什么。
 
@@ -1086,7 +1086,7 @@ Organize the manuscript around the core contribution, its motivating limitation,
 
 “先看框架图和实验，理解贡献和方法” 图先给合作者看。先确认为什么值得做、关键差别和实验发现，再逐句磨正文。
 
-#### mainfig：读者先看懂为什么做
+#### 1.2.a mainfig：读者先看懂为什么做
 
 - **信息：**用一个具体问题串起现有做法、失败点和本文改动。保留读懂案例所需的输入与输出，通常不超过 5 个环节。
 
@@ -1106,7 +1106,7 @@ Read from the multi-turn error problem to response details and the compared trai
 
 Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。 [原论文](https://arxiv.org/abs/2604.24005v3) · [许可](https://creativecommons.org/licenses/by/4.0/)
 
-#### framework：读者看懂怎么做
+#### 1.2.b framework：读者看懂怎么做
 
 - **真实流程：**画清每步的输入、操作、输出，箭头连到实际接收者。并行就并行，反馈就反馈；模块名与正文一致。
 
@@ -1126,7 +1126,7 @@ The figure separates interaction generation from policy optimization. A dialogue
 
 Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。 [原论文](https://arxiv.org/abs/2602.22697v1) · [许可](https://creativecommons.org/licenses/by/4.0/)
 
-#### 绘图铁律：这些错别犯
+#### 1.2.c 绘图铁律：这些错别犯
 
 - **配色：**白底，面板接近白色，文字和刻度保持深色。同对象全篇同色，再配点形、线型或纹理；低饱和不是糊一层灰。
 
@@ -1217,7 +1217,7 @@ Review the figures with coauthors before polishing the body. They should explain
 
 “要做到光看章节名称能看懂你的论文” 同一级的信息放一起，下一节接上一节的产物。标题不是代码目录。
 
-#### 章节顺序与承接
+#### 1.3.a 章节顺序与承接
 
 - **先列职责：**列全部 section 标题、每节目的、所需图表和预计篇幅。Related Work 按主题归类；Method 按真实处理依赖；Experiments 按要检验的问题。
 
@@ -1262,7 +1262,7 @@ Figure~\ref{fig:framework} summarizes the workflow.
 
 这是起排骨架，按实际工作增删小节。方括号全部换成真实内容；framework 标签须对应实际图片。
 
-#### 实验先整理成论证
+#### 1.3.b 实验先整理成论证
 
 - **问题与证据：**每项主张对应一个要检验的问题，再选对照、数据和图表。RQ 可以写，但不是给所有标题加一句问号。
 
@@ -1296,7 +1296,7 @@ EN: The gains after checking are concentrated in conflicting conditions. Cite th
 每个结果段先给一句有证据的结论，再解释关键对照与范围。缺对照就说明还需什么，不补造结果，不用一个个案代替整体结论。
 ```
 
-#### 表格：先让人看清比较
+#### 1.3.c 表格：先让人看清比较
 
 - **结构：**表承载实测结果和数据。模型按实际类型分组；列写指标、单位与好坏方向。三线表，少网格，同一指标保持精度一致。
 
@@ -1367,7 +1367,7 @@ Once the figures are settled, define the body outline. Each section has a purpos
 
 “针对这些问题，本方法做出了哪些改进，为什么这些改进能解决这些问题” 先把这条线用中文讲通，再整理英文；漂亮句子留到逻辑过关以后。
 
-#### Intro 先按这条线排
+#### 1.4.a Intro 先按这条线排
 
 - **第一段：背景与已有能力：**第一句进入研究方向，紧接实际价值，再概括现有路线及已做到的事。别从宇宙大爆炸写到你的模型。
 
@@ -1411,7 +1411,7 @@ EN: We design a pre-planning evidence check that identifies unsupported constrai
 逐句检查前一句是否为后一句提供了对象或前提；把问题、设计与实验逐项对应。先让我看中文，再写英文。
 ```
 
-#### 人工审核，再填全文
+#### 1.4.b 人工审核，再填全文
 
 - **审顺序：**每次给你一节中文，先查问题有没有回答、操作能不能复现、证据够不够。定下全部 section 标题后，再组织英文写回去。
 

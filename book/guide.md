@@ -30,7 +30,7 @@
 
 “一个亮点（标题，摘要，关键词），附赠一堆为了实现亮点而产生的贡献。” 先填最重要的价值或发现，再填为它服务的设计与证据；不要只给模型一串模块名。
 
-#### 材料先给齐
+**材料先给齐**
 
 - **贡献：**写清具体问题、对应设计、已有发现。方法名先放一边，先说你到底解决了什么。
 
@@ -110,7 +110,7 @@ Organize the manuscript around the core contribution, its motivating limitation,
 
 “先看框架图和实验，理解贡献和方法” 图先给合作者看。先确认为什么值得做、关键差别和实验发现，再逐句磨正文。
 
-#### mainfig：读者先看懂为什么做
+#### 1.2.a mainfig：读者先看懂为什么做
 
 - **信息：**用一个具体问题串起现有做法、失败点和本文改动。保留读懂案例所需的输入与输出，通常不超过 5 个环节。
 
@@ -132,7 +132,7 @@ Read from the multi-turn error problem to response details and the compared trai
 
 Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。 [原论文](https://arxiv.org/abs/2604.24005v3) · [许可](https://creativecommons.org/licenses/by/4.0/)
 
-#### framework：读者看懂怎么做
+#### 1.2.b framework：读者看懂怎么做
 
 - **真实流程：**画清每步的输入、操作、输出，箭头连到实际接收者。并行就并行，反馈就反馈；模块名与正文一致。
 
@@ -154,7 +154,7 @@ The figure separates interaction generation from policy optimization. A dialogue
 
 Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。 [原论文](https://arxiv.org/abs/2602.22697v1) · [许可](https://creativecommons.org/licenses/by/4.0/)
 
-#### 绘图铁律：这些错别犯
+#### 1.2.c 绘图铁律：这些错别犯
 
 - **配色：**白底，面板接近白色，文字和刻度保持深色。同对象全篇同色，再配点形、线型或纹理；低饱和不是糊一层灰。
 
@@ -245,7 +245,7 @@ Review the figures with coauthors before polishing the body. They should explain
 
 “要做到光看章节名称能看懂你的论文” 同一级的信息放一起，下一节接上一节的产物。标题不是代码目录。
 
-#### 章节顺序与承接
+#### 1.3.a 章节顺序与承接
 
 - **先列职责：**列全部 section 标题、每节目的、所需图表和预计篇幅。Related Work 按主题归类；Method 按真实处理依赖；Experiments 按要检验的问题。
 
@@ -290,7 +290,7 @@ Figure~\ref{fig:framework} summarizes the workflow.
 
 这是起排骨架，按实际工作增删小节。方括号全部换成真实内容；framework 标签须对应实际图片。
 
-#### 实验先整理成论证
+#### 1.3.b 实验先整理成论证
 
 - **问题与证据：**每项主张对应一个要检验的问题，再选对照、数据和图表。RQ 可以写，但不是给所有标题加一句问号。
 
@@ -324,7 +324,7 @@ EN: The gains after checking are concentrated in conflicting conditions. Cite th
 每个结果段先给一句有证据的结论，再解释关键对照与范围。缺对照就说明还需什么，不补造结果，不用一个个案代替整体结论。
 ```
 
-#### 表格：先让人看清比较
+#### 1.3.c 表格：先让人看清比较
 
 - **结构：**表承载实测结果和数据。模型按实际类型分组；列写指标、单位与好坏方向。三线表，少网格，同一指标保持精度一致。
 
@@ -395,7 +395,7 @@ Once the figures are settled, define the body outline. Each section has a purpos
 
 “针对这些问题，本方法做出了哪些改进，为什么这些改进能解决这些问题” 先把这条线用中文讲通，再整理英文；漂亮句子留到逻辑过关以后。
 
-#### Intro 先按这条线排
+#### 1.4.a Intro 先按这条线排
 
 - **第一段：背景与已有能力：**第一句进入研究方向，紧接实际价值，再概括现有路线及已做到的事。别从宇宙大爆炸写到你的模型。
 
@@ -439,7 +439,7 @@ EN: We design a pre-planning evidence check that identifies unsupported constrai
 逐句检查前一句是否为后一句提供了对象或前提；把问题、设计与实验逐项对应。先让我看中文，再写英文。
 ```
 
-#### 人工审核，再填全文
+#### 1.4.b 人工审核，再填全文
 
 - **审顺序：**每次给你一节中文，先查问题有没有回答、操作能不能复现、证据够不够。定下全部 section 标题后，再组织英文写回去。
 
@@ -494,7 +494,7 @@ Read the supplied paperbank-writing/SKILL.md and select the rules in references/
 以下是 PaperBank 面向 CS 论文的默认约定，会议硬性要求和当前稿件已确认的配置优先。参考图用来学信息组织，不照搬它的字号、色板或数据。
 
 <a id="figure-skill"></a>
-### 先给 Codex 绘图 skill
+### 2.1 先给 Codex 绘图 skill
 
 [下载绘图 skill ZIP](../assets/paperbank-figures-skill.zip) · [查看 SKILL.md](../skills/paperbank-figures/SKILL.md) · [绘图铁律](#figure-rules)
 
@@ -513,7 +513,7 @@ Read paperbank-figures/SKILL.md. Figure type: 【main figure / framework / quant
 ```
 
 <a id="figure-rules"></a>
-### 绘图铁律：这些错别犯
+### 2.2 绘图铁律：这些错别犯
 
 - **别让一张图讲所有事：**“motivation + observation” mainfig 先让人看见问题与发现，framework 解释设计如何对应问题，结果图给证据。一张图一个主任务。
 
@@ -719,7 +719,8 @@ Move the legend outside the plotted curves while preserving the data and axes.
 ![KDE：看哪里密集，不是已经累计了多少](../assets/kde.svg)
 [原图与拆解](#teaching-kde)
 
-### 按图的任务选模板
+<a id="figure-types"></a>
+### 2.3 按图的任务选模板
 
 - **摘要图：**问题在哪、为什么现有解法不够、我们动哪一步。通常最多 5 个环节，必要对照并排。
 
@@ -865,14 +866,15 @@ With both gains defined as higher is better, the upper-right quadrant shows impr
 ![二维增益：右上都改善，其他象限看取舍](../assets/two-gain.svg)
 [原图与拆解](#teaching-two-gain)
 
-### 图例库：原图与逐图拆解
+<a id="notion-gallery"></a>
+### 2.4 图例库：原图与逐图拆解
 
 
 <details><summary>动机与框架 · 3 张图</summary>
 
 
 <a id="visual-tcod-fig-1"></a>
-#### 问题和解法放在同一张图
+**问题和解法放在同一张图**
 
 左边画误差随轮次的示意，中间放大回复细节，右边对照三种训练范围；先看到问题，再看到改哪一步。
 
@@ -891,7 +893,7 @@ A schematic turn-wise divergence trend appears on the left, enlarged response de
 [图片许可](https://creativecommons.org/licenses/by/4.0/)
 
 <a id="visual-tcod-fig-3"></a>
-#### 对照图要对齐改动
+**对照图要对齐改动**
 
 基线和两种课程共用步骤框与师生图标，再沿轮数展开；读者直接看训练覆盖哪一段，不必重读三套流程。
 
@@ -910,7 +912,7 @@ The baseline and two curricula reuse step boxes and teacher–student icons, the
 [图片许可](https://creativecommons.org/licenses/by/4.0/)
 
 <a id="visual-interactcs-fig-1"></a>
-#### 大框先分两块，小框再编号
+**大框先分两块，小框再编号**
 
 先分交互生成和策略优化两块，再编号结果、过程、成本三种信号；旁边的对话走一遍流程。
 
@@ -935,7 +937,7 @@ Group interaction generation and policy optimization first, then number the outc
 
 
 <a id="visual-tcod-fig-4"></a>
-#### 效果曲线旁边放机制曲线
+**效果曲线旁边放机制曲线**
 
 成功率和 KL 共用训练步数，效果与诊断可以就近对照；曲线一起变，不等于已经证明因果。
 
@@ -954,7 +956,7 @@ Performance and KL share a training axis, placing the outcome beside its diagnos
 [图片许可](https://creativecommons.org/licenses/by/4.0/)
 
 <a id="visual-tcod-fig-5"></a>
-#### 辅助指标分开画
+**辅助指标分开画**
 
 轮数、优势、长度、损失各占一格；共用训练步数，不同单位不挤在一根纵轴上。
 
@@ -973,7 +975,7 @@ Turns, advantage, length, and loss use separate panels with a shared training ax
 [图片许可](https://creativecommons.org/licenses/by/4.0/)
 
 <a id="visual-tcod-fig-2"></a>
-#### TCOD：四幅图围着一个诊断
+**TCOD：四幅图围着一个诊断**
 
 每个师生组合紧挨着放 Initial／final 两根柱子，颜色区分阶段，柱顶数字省掉来回读轴。
 
@@ -1100,7 +1102,7 @@ Initial and final bars sit together for each student–teacher pair; colors iden
 [图片许可](https://creativecommons.org/licenses/by/4.0/)
 
 <a id="visual-interactcs-fig-3"></a>
-#### 训练动态：控制量和实际行为并排
+**训练动态：控制量和实际行为并排**
 
 左边画成本，右边画使用率，红蓝固定对应两种目标；共用训练步数，把两条动态放到一起读。
 
@@ -1245,7 +1247,7 @@ Cost and usage rate appear side by side, with red and blue consistently identify
 
 
 <a id="visual-tcod-fig-6"></a>
-#### 少量方法，用柱图直接比
+**少量方法，用柱图直接比**
 
 两个任务各一幅图，方法顺序一致，柱顶给小时数。想讲省算力，就把时间写出来。
 
@@ -1264,7 +1266,7 @@ Use one panel per task, a consistent method order, and measured hours above the 
 [图片许可](https://creativecommons.org/licenses/by/4.0/)
 
 <a id="visual-interactcs-fig-2"></a>
-#### 消融：颜色分组，纹理分方法
+**消融：颜色分组，纹理分方法**
 
 颜色分方法族，实色、斜线和点纹再分组内方案，四个面板共用图例，误差棒也留在柱顶。
 
@@ -1477,7 +1479,7 @@ e
 
 
 <a id="teaching-kde"></a>
-#### KDE：看哪里密集，不是已经累计了多少
+**KDE：看哪里密集，不是已经累计了多少**
 
 同一坐标对照两组模拟分数，曲线越高说明该处更密集；浅色填充只是曲线下面积。
 
@@ -1500,7 +1502,7 @@ The two synthetic groups share axes; taller curves indicate greater local densit
 
 
 <a id="teaching-ecdf"></a>
-#### ECDF：直接读有多少样本不超过这个值
+**ECDF：直接读有多少样本不超过这个值**
 
 阶梯线在每个样本处上升，纵轴是已累计的样本比例；不用把平滑密度误认成覆盖率。
 
@@ -1523,7 +1525,7 @@ Each observed score raises the step curve, and the vertical axis shows the cumul
 
 
 <a id="teaching-pca"></a>
-#### PCA：先定义输入，再看二维投影
+**PCA：先定义输入，再看二维投影**
 
 两组模拟样本的三个标准化特征投到前两主成分，轴上直接给真实计算的解释方差。
 
@@ -1546,7 +1548,7 @@ Three standardized features from two synthetic groups are projected onto the fir
 
 
 <a id="teaching-radar"></a>
-#### 雷达：看各项轮廓，别拿面积当总分
+**雷达：看各项轮廓，别拿面积当总分**
 
 每根轴都是越高越好的0到1模拟分数，颜色贯穿点和线；逐项比较，比比较整块面积更有意义。
 
@@ -1569,7 +1571,7 @@ Every axis is a synthetic 0–1 score with higher values preferred; consistent p
 
 
 <a id="teaching-confidence"></a>
-#### 置信带：先认统计单位，再认内外两层
+**置信带：先认统计单位，再认内外两层**
 
 深线是模拟样本均值，内层是68%、外层是95%的逐点bootstrap区间；宽度有计算依据，不是调个透明度。
 
@@ -1592,7 +1594,7 @@ The line shows synthetic sample means; the inner and outer bands are computed 68
 
 
 <a id="teaching-paired-gain"></a>
-#### 配对增益：同一任务，直接看差了多少
+**配对增益：同一任务，直接看差了多少**
 
 每点是一项模拟任务的干预减基线，零线右侧提高、左侧下降；既显示收益，也留下失败。
 
@@ -1615,7 +1617,7 @@ Each point is the intervention-minus-baseline difference for a synthetic matched
 
 
 <a id="teaching-heatmap"></a>
-#### 热图：一个色标，缺测直接空出来
+**热图：一个色标，缺测直接空出来**
 
 模型与任务交叉排，颜色和格内数值用同一尺度；缺测格单独写Missing，别伪装成零分。
 
@@ -1638,7 +1640,7 @@ Models and tasks share one color scale with values printed in each cell; the mis
 
 
 <a id="teaching-cost"></a>
-#### 成本性能：每个点对应一项明确配置
+**成本性能：每个点对应一项明确配置**
 
 横轴是模拟在线成本，纵轴是准确率，每个字母是一项配置；虚线只连接已画出的有效取舍点。
 
@@ -1661,7 +1663,7 @@ Online cost and accuracy form the axes, and each letter identifies one synthetic
 
 
 <a id="teaching-donut"></a>
-#### 环图：组成比例，先说总数
+**环图：组成比例，先说总数**
 
 中心写100个模拟对象，旁边同时列数量和比例；四类互斥，所有扇区合起来才是一个整体。
 
@@ -1684,7 +1686,7 @@ The center states 100 synthetic items and the legend lists counts and percentage
 
 
 <a id="teaching-two-gain"></a>
-#### 二维增益：右上都改善，其他象限看取舍
+**二维增益：右上都改善，其他象限看取舍**
 
 准确率增益向右更好，延迟减少向上更好；零线分四区，右上是两项同时改善。
 
@@ -1703,7 +1705,8 @@ Accuracy gains improve to the right and latency reduction improves upward; zero 
 </details>
 
 
-### 私藏图：好在哪里，怎么借鉴
+<a id="figure-gallery"></a>
+### 2.5 私藏图：好在哪里，怎么借鉴
 
 先看原图，再看点评。借信息组织，不照搬别人的结果。
 
@@ -1731,9 +1734,10 @@ The header names the case; two columns separate evaluation scores from the simul
 
 **原文／图片许可：**Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1. CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。从原 PDF 裁切；图形、标签和数据未改。
 
-### 更多参考图，带着问题看
+<a id="figure-references"></a>
+### 2.6 更多参考图，带着问题看
 
-#### [15-minute cities 图 1：地图、分布、多维散点](https://arxiv.org/html/2408.03794v1#S2.F1)
+**[15-minute cities 图 1：地图、分布、多维散点](https://arxiv.org/html/2408.03794v1#S2.F1)**
 
 地图定位差异，累计分布看人口覆盖，散点把城市放到同一坐标系。横轴是人口加权平均邻近时间，纵轴是 15 分钟覆盖人口比例；颜色是 Gini，圆大小是人口密度。位置、颜色、大小各讲一件事。灰区是受概率约束的不可达组合，不是“平均不到 15 分钟就人人可达”。
 
@@ -1745,7 +1749,7 @@ Bruno et al., A universal framework for inclusive 15-minute cities, Nature Citie
 
 只链接原图，不重托管。arXiv 非独占分发许可。
 
-#### [15-minute cities 图 2：算法、排名、前后变化](https://arxiv.org/html/2408.03794v1#S2.F2)
+**[15-minute cities 图 2：算法、排名、前后变化](https://arxiv.org/html/2408.03794v1#S2.F2)**
 
 先画人口导向的 POI 重分配，再给城市迁移比例排名，最后用罗马的地图和直方图看前后变化。POI 是服务设施点；(b) 排的是现有 POI 的迁移比例，不是新增设施数。
 
@@ -1757,13 +1761,13 @@ Bruno et al., A universal framework for inclusive 15-minute cities, Nature Citie
 
 只链接原图，不重托管。arXiv 非独占分发许可。
 
-#### [OneReason 图 12：对照策略的改动位置](https://arxiv.org/pdf/2606.06260v1#page=34)
+**[OneReason 图 12：对照策略的改动位置](https://arxiv.org/pdf/2606.06260v1#page=34)**
 
 相同结构对齐；改动位置突出，符号在图注解释。保留链接读图，不复制整图。
 
 Align the strategies and highlight where their optimization rules differ.
 
-#### [KDE：OneReason 图 6](https://arxiv.org/pdf/2606.06260v1#page=13)
+**[KDE：OneReason 图 6](https://arxiv.org/pdf/2606.06260v1#page=13)**
 
 四个领域并排，两个方法保持同色；淡填充保留重叠，虚线与均值标注把位置变化说清，曲线不用自己兼职字幕。
 
@@ -1775,7 +1779,7 @@ OneRec Team, OneReason Technical Report, arXiv:2606.06260v1, Fig. 6
 
 只链接原图，不重托管。该版本采用 arXiv 非独占分发许可。
 
-#### [投影：life2vec 图 4，PaCMAP 与局部放大](https://www.nature.com/articles/s43588-023-00573-5/figures/4)
+**[投影：life2vec 图 4，PaCMAP 与局部放大](https://www.nature.com/articles/s43588-023-00573-5/figures/4)**
 
 中间给完整嵌入空间，两侧放大选定区域，同一批点分别按性别、年龄、真实标签着色；位置保持，颜色换问题。
 
@@ -1787,7 +1791,7 @@ Savcisens et al., Nature Computational Science 4, 43–56 (2024), Fig. 4, DOI 10
 
 只链接出版社图页；期刊版本未标明可转载的 CC 许可。
 
-#### [OneReason 图 1：把模型身份和结果放一起](https://arxiv.org/pdf/2606.06260v1#page=1)
+**[OneReason 图 1：把模型身份和结果放一起](https://arxiv.org/pdf/2606.06260v1#page=1)**
 
 左侧雷达看多任务表现，右侧成对柱图看推理和训练数据的作用；颜色、纹理、数值分工，提升与下降都直接标出。
 
@@ -1799,7 +1803,7 @@ OneRec Team, OneReason Technical Report, arXiv:2606.06260v1, PDF p. 1
 
 只链接原图，不重托管。该版本采用 arXiv 非独占分发许可。
 
-#### [OneReason 图 7：颜色跟着流程职责走](https://arxiv.org/pdf/2606.06260v1#page=19)
+**[OneReason 图 7：颜色跟着流程职责走](https://arxiv.org/pdf/2606.06260v1#page=19)**
 
 两边保持相同网络层次，只换雪花与火焰标记；第一阶段和后续阶段分别更新哪些参数，一眼能对上。
 
@@ -1811,7 +1815,7 @@ OneRec Team, OneReason Technical Report, arXiv:2606.06260v1, PDF p. 19
 
 只链接原图，不重托管。该版本采用 arXiv 非独占分发许可。
 
-#### [OneReason 图 9：分布与多维特征分开读](https://arxiv.org/pdf/2606.06260v1#page=29)
+**[OneReason 图 9：分布与多维特征分开读](https://arxiv.org/pdf/2606.06260v1#page=29)**
 
 左边堆叠条保留五档评分比例，右边雷达概括五项均分；先看分布，再看轮廓。
 
@@ -1823,7 +1827,7 @@ OneRec Team, OneReason Technical Report, arXiv:2606.06260v1, PDF p. 29
 
 只链接原图，不重托管。该版本采用 arXiv 非独占分发许可。
 
-#### [ShoppingBench 图 1、2：任务概览与案例层级](https://ojs.aaai.org/index.php/AAAI/article/view/40640)
+**[ShoppingBench 图 1、2：任务概览与案例层级](https://ojs.aaai.org/index.php/AAAI/article/view/40640)**
 
 左边按请求、工具调用、观察和结果走流程，右边拆产品、优惠券和预算；高亮颜色贯穿两边，读者能把需求对到检查。 上面分产品采样和字段采样，下面把提示模板与生成指令逐行对齐；同一类任务同色，读者看得出结果从哪来。
 
@@ -1842,13 +1846,13 @@ ShoppingBench: A Real-World Intent-Grounded Shopping Benchmark for LLM-based Age
 
 
 <a id="general-rules"></a>
-### 全文先守这些要求
+### 3.1 全文规范
 
 “解释清楚为什么我们的工作应该被接收（贡献）” 先让贡献看得见，再磨英语。读者不负责替你把线索拼起来。
 
-#### 逻辑：每句话接住一个具体对象
+#### 3.1.a 逻辑：每句话接住一个具体对象
 
-##### 先说为什么值得做
+**先说为什么值得做**
 
 每项设计都要回答：原来卡在哪，我们改了什么，为什么有用，哪项证据支持。
 
@@ -1870,7 +1874,7 @@ To check whether retrieved evidence actually supports an answer, we verify each 
 
 **第 1 句：**相同几个模块，现在说出了具体困难、设计目的和改动位置。实际效果另给对照证据。
 
-##### 句子前后接上
+**句子前后接上**
 
 后句处理前句的问题或产物，Then 和 Therefore 不能补逻辑。
 
@@ -1898,7 +1902,7 @@ We therefore link each evidence note to the relevant active constraints.
 
 **第 2 句：**方案真正接住约束冲突，Therefore 才有前提。
 
-##### 连接词用对
+**连接词用对**
 
 转折用 However，有因果依据才用 Therefore；并列直接写。
 
@@ -1920,7 +1924,7 @@ Both systems use the same model and evidence-context budget.
 
 **第 1 句：**两个共同条件可以直接并列，However 在这里没有转折。
 
-##### 章节按流程衔接
+**章节按流程衔接**
 
 开头接输入，结尾交代输出如何进入下一步。
 
@@ -1942,7 +1946,7 @@ We next organize the selected source quotes into evidence notes.
 
 **第 1 句：**读者知道下一步针对什么、将产生什么。
 
-##### 问题、设计、实验对应
+**问题、设计、实验对应**
 
 引言提出的问题，方法处理，实验检验。
 
@@ -1976,9 +1980,9 @@ The experiment evaluates evidence recall and citation support, together with inf
 
 **第 3 句：**效果与代价共同回应贡献。
 
-#### 语言：短句也得有内容
+#### 3.1.b 语言：短句也得有内容
 
-##### 少夸，写做法
+**少夸，写做法**
 
 用具体操作替换 powerful、comprehensive 等空评价。
 
@@ -2000,7 +2004,7 @@ The method links source quotes to constraints from earlier dialogue turns.
 
 **第 1 句：**具体操作直接告诉读者改了什么。
 
-##### 短句，完整动作
+**短句，完整动作**
 
 长句按步骤拆，后句接前句产物；主语、动作和条件写全。
 
@@ -2034,7 +2038,7 @@ The generator uses the notes to produce an answer with citations.
 
 **第 3 句：**继续接住笔记，落到最终输出。
 
-##### 正文写完整句子
+**正文写完整句子**
 
 加号、箭头不能代替文字关系；公式、代码和图中照常使用。
 
@@ -2062,7 +2066,7 @@ We test whether retaining these constraints improves citation support.
 
 **第 2 句：**把想验证的作用写成问题，不能让箭头替你证明因果。
 
-##### 同级小节篇幅相称
+**同级小节篇幅相称**
 
 任务相近，篇幅尽量接近；太长先查重复，复杂内容分段。
 
@@ -2076,9 +2080,9 @@ We separate evidence selection from answer generation because the two stages use
 
 **第 1 句：**按真实职责分段，复杂才多写；不用统一字数删除必要解释。
 
-#### 术语：第一次见，就让人看懂
+#### 3.1.c 术语：第一次见，就让人看懂
 
-##### 术语首次解释
+**术语首次解释**
 
 写清对象和用途，不让读者到后文找定义。
 
@@ -2100,7 +2104,7 @@ We construct evidence notes that link source quotes to active dialogue constrain
 
 **第 1 句：**读完这一句就知道笔记里面是什么、为什么要构建。
 
-##### 符号首次定义
+**符号首次定义**
 
 写对象、来源、算法、用途和下标；不用的符号删掉。
 
@@ -2128,7 +2132,7 @@ We use this score as the terminal reward for the sampled answer.
 
 **第 2 句：**说明信号在哪个阶段作用于哪个对象；真实算法另有条件时补上。
 
-##### 同一对象同一称呼
+**同一对象同一称呼**
 
 代词指代不清时换成对象名，清楚时保留。
 
@@ -2156,7 +2160,7 @@ The generator uses the evidence notes.
 
 **第 2 句：**读者不必猜到底是片段、笔记还是两者。
 
-##### 好词有事实支撑
+**好词有事实支撑**
 
 tailored、expert-confirmed、de-identified 能突出真实贡献。有依据就用，一词换一词，不堆形容词。
 
@@ -2178,7 +2182,7 @@ We use tailored prompts for each role.
 
 **第 1 句：**如果提示词确实针对角色设计，tailored 简短而直接；没有更好词时保留原词。
 
-##### 发现可取短名
+**发现可取短名**
 
 短名后立即解释具体发现；优先四个英文词以内。
 
@@ -2206,9 +2210,9 @@ Answers cite sources, but some answer claims are unsupported by those sources.
 
 **第 2 句：**立即说明差距的两端，不把缺乏支持误写成真实断言必然为假。
 
-#### 主张：说到证据支持的地方
+#### 3.1.d 主张：说到证据支持的地方
 
-##### 保留结论条件
+**保留结论条件**
 
 任务、模型、范围和分母写清；有限测试不推广所有场景。
 
@@ -2230,7 +2234,7 @@ On the tested English-manual questions, the method improves citation support.
 
 **第 1 句：**只描述实际测过的对象和指标，不能替未测语言盖章。
 
-##### 观察与原因分开
+**观察与原因分开**
 
 先报告现象，再讲可能原因；匹配对照支持后才归因。
 
@@ -2258,7 +2262,7 @@ This comparison does not isolate quote organization from retained constraint inf
 
 **第 2 句：**机制归因服从控制范围，不用 prove 放大解释。
 
-##### 首句写发现
+**首句写发现**
 
 随后给图表、关键比较和意义，不复述表头。
 
@@ -2286,44 +2290,44 @@ Table 1 reports the matched comparison with and without those constraints.
 
 **第 2 句：**给出证据入口与比较对象，不逐行念分。
 
-### 按论文顺序精修
+**按论文顺序精修**
 
 摘要概括全文，引言提问题，方法给做法，实验查效果，讨论讲范围，结论收尾。
 
-- 标题：先把最值得记住的发现放进标题。
-- 摘要：让人用一段话看懂为什么这项工作值得做。
-- 引言：让读者认同问题，并记住你的解法为什么有用。
-- 相关工作：把前人的路线和本文的区别讲清，给同一条贡献主线铺路。
-- 方法：铁律：告诉读者为什么你的方法好，比解释清楚方法更重要。
-- 实验：用对照证明贡献，把数字变成读者带得走的发现。
-- 讨论与局限：解释发现，写清适用范围和局限。
-- 结论：回答开头的问题，概括贡献和发现。
-- 参考文献：引用回查原文，信息和版本对齐。
-- 附录：让想核查的人找得到、看得懂。
+- 3.2 标题：先把最值得记住的发现放进标题。
+- 3.3 摘要：让人用一段话看懂为什么这项工作值得做。
+- 3.4 引言：让读者认同问题，并记住你的解法为什么有用。
+- 3.5 相关工作：把前人的路线和本文的区别讲清，给同一条贡献主线铺路。
+- 3.6 方法：铁律：告诉读者为什么你的方法好，比解释清楚方法更重要。
+- 3.7 实验：用对照证明贡献，把数字变成读者带得走的发现。
+- 3.8 讨论与局限：解释发现，写清适用范围和局限。
+- 3.9 结论：回答开头的问题，概括贡献和发现。
+- 3.10 参考文献：引用回查原文，信息和版本对齐。
+- 3.11 附录：让想核查的人找得到、看得懂。
 
 逐句示范有论文原文短引，也有明确标注的模拟段落。原文例子来自不同论文，不拼接成同一篇完整论文；模拟部分用同一个假设任务串联。
 
 ### 本章目录
 
-- [标题](#title)
-- [摘要](#abstract)
-- [引言](#intro)
-- [相关工作](#related)
-- [方法](#method)
-- [实验](#experiments)
-- [讨论与局限](#discussion)
-- [结论](#conclusion)
-- [参考文献](#references)
-- [附录](#appendix)
+- [3.2 标题](#title)
+- [3.3 摘要](#abstract)
+- [3.4 引言](#intro)
+- [3.5 相关工作](#related)
+- [3.6 方法](#method)
+- [3.7 实验](#experiments)
+- [3.8 讨论与局限](#discussion)
+- [3.9 结论](#conclusion)
+- [3.10 参考文献](#references)
+- [3.11 附录](#appendix)
 
 <a id="title"></a>
-### 3.1 标题
+### 3.2 标题
 
 先把最值得记住的发现放进标题。
 
 “一个亮点（标题，摘要，关键词），附赠一堆为了实现亮点而产生的贡献。” 标题围着这个亮点写，不把所有模块挤上去。
 
-#### 标题：对象、任务、改动
+**标题：对象、任务、改动**
 
 “多使用实验性的结论，让人一目了然” 有实测发现就用发现组织标题；问号只留给正文真正回答的问题。
 
@@ -2349,7 +2353,7 @@ Table 1 reports the matched comparison with and without those constraints.
 <details><summary>更多例子：论文原句与拆解</summary>
 
 
-#### 标题示范
+**标题示范**
 
 用研究对象和关键改动让读者判断相关性。
 
@@ -2369,13 +2373,13 @@ Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools
 
 
 <a id="abstract"></a>
-### 3.2 摘要
+### 3.3 摘要
 
 让人用一段话看懂为什么这项工作值得做。
 
 “弱化实现细节，强调的是你要突出的方面。” 写问题、改动和发现；API 名称、参数先让路。
 
-#### 摘要：问题到结果
+**摘要：问题到结果**
 
 “不要用太多专业词汇！不要拉高理解门槛，用平铺直叙，高中生都看得懂的词汇去写” 先突出为什么值得做和新增了什么，再给最关键的结果。
 
@@ -2419,7 +2423,7 @@ This finding supports [specific value] under [necessary condition].
 <details><summary>更多例子：论文原句与拆解</summary>
 
 
-#### 摘要·示范自然段1
+**摘要·示范自然段1**
 
 一段给出问题、缺口、设计、结果和必要范围。
 
@@ -2445,13 +2449,13 @@ With the spatial contract established, PlanCraft-Agent then furnishes the scene 
 
 
 <a id="intro"></a>
-### 3.3 引言
+### 3.4 引言
 
 让读者认同问题，并记住你的解法为什么有用。
 
 “最体现作者水平的章节。” 先讲出有启发的困难，再让设计逐点回应；不是把摘要拉长。
 
-#### 先选主线：价值，还是发现
+#### 3.4.a 先选主线：价值，还是发现
 
 “现象→质疑→诊断→方法→验证” 方法创新不突出、发现亮眼时，先把现象讲透。冷门领域有多个困难，就逐点展开。
 
@@ -2478,7 +2482,7 @@ Motivated by [supported diagnosis], we [matching design] and evaluate [targeted 
 
 **第 3 句：**诊断接方法，验证接贡献；不把相关现象直接写成原因。
 
-#### 引言第一段：方向与任务
+#### 3.4.b 引言第一段：方向与任务
 
 “由大到小。” 从方向落到任务，背景只留理解后文问题所需的部分。
 
@@ -2508,7 +2512,7 @@ In this setting, [input] must be converted into [output] while satisfying [const
 
 **第 3 句：**把大方向落到具体任务，接着概括已有解法做到哪一步。
 
-#### 引言首段后半：已有方法
+#### 3.4.c 引言首段后半：已有方法
 
 “为下一个自然段-局限性-埋下伏笔” 讲清已有路线靠什么工作，后面的困难才有来处。
 
@@ -2531,7 +2535,7 @@ Another line uses [different mechanism] to support [additional capability] [cita
 
 **第 2 句：**只保留有实质差别的第二类方法；没有这类研究就删掉此句。
 
-#### 引言第二段：局限
+#### 3.4.d 引言第二段：局限
 
 “讲清楚现有方法存在的问题 + 为什么存在这些问题” 困难要具体、有启发，不能只写 expensive、limited、inefficient。
 
@@ -2563,7 +2567,7 @@ For example, [concrete input or situation] requires [specific behavior], which [
 
 **第 3 句：**例子显示缺口怎样发生，是否未检验仍需核对实际来源。
 
-#### 引言第三段：设计
+#### 3.4.e 引言第三段：设计
 
 “针对这些问题，本方法做出了哪些改进，为什么这些改进能解决这些问题” 按局限的顺序写。不是报完三个模块名，就把推理交给读者。
 
@@ -2595,7 +2599,7 @@ To address [challenge B], we [design B].
 
 **第 3 句：**第二项方案处理另一项真实问题；没有就删除，不凑模块。
 
-#### 引言第四段：主要发现
+#### 3.4.f 引言第四段：主要发现
 
 “谁会不希望读完一篇论文就有新的灵感/排除一个大方向呢” 把最有启发的发现写出来；不必每次都把“又涨了几点”当唯一卖点。
 
@@ -2620,7 +2624,7 @@ This finding indicates [what is supported], while [remaining limitation] remains
 
 **第 2 句：**解释贡献及边界，不顺手扩大主张。
 
-#### 引言最后：贡献列表
+#### 3.4.g 引言最后：贡献列表
 
 “一般第一句话是宏观贡献（解决了什么核心问题）” 随后写关键设计和亮眼发现。一条一个贡献，别把自己的流程复制三遍。
 
@@ -2678,7 +2682,7 @@ In summary, our contributions are:
 <details><summary>更多例子：论文原句与拆解</summary>
 
 
-#### 引言·示范自然段1：任务与需求
+**引言·示范自然段1：任务与需求**
 
 从读者能理解的具体任务说明为什么值得研究。
 
@@ -2696,7 +2700,7 @@ A useful answer must satisfy earlier constraints and identify its supporting pas
 
 **第 2 句：**交代任务要求，后面的评价才有依据。
 
-#### 引言·示范自然段2：领域回顾
+**引言·示范自然段2：领域回顾**
 
 按路线概括已有进展，为下一段具体局限埋下伏笔。
 
@@ -2712,7 +2716,7 @@ To address this limitation, Retrieval-Augmented Generation (RAG) has emerged by 
 
 [Yuqin Dai et al. · EviNoteRAG: Enhancing RAG Models via Quality-Augmented Evidence Notes](https://arxiv.org/abs/2509.00877) · § 1 Introduction，第一段最后一句，PDF 第 1 页；作者终稿 content/01_introduction.tex；EMNLP 2026 revised 作者终稿；公开链接为 arXiv v3
 
-#### 引言第3段：现有方法的局限
+**引言第3段：现有方法的局限**
 
 接着上一段的做法，说清它在哪里不够用。下一段逐点解决。
 
@@ -2732,7 +2736,7 @@ For example, a passage may recommend an online service even when the user previo
 
 **第 2 句：**一个具体例子解释约束遗漏，不让读者靠新名词猜意思。
 
-#### 引言·示范自然段4：方法逐点回应
+**引言·示范自然段4：方法逐点回应**
 
 每项设计都接回上一段的具体困难。
 
@@ -2748,7 +2752,7 @@ To mitigate collisions, we introduce a Dance-Trajectory Navigator that generates
 
 [Yuqin Dai et al. (AAAI 2025) · Harmonious Music-driven Group Choreography with Trajectory-Controllable Diffusion](https://ojs.aaai.org/index.php/AAAI/article/view/32268) · Abstract, PDF p.1 / p.2645；Table1, PDF p.6 / p.2650；正式发表论文
 
-#### 引言：设计之后，紧接主要结果
+**引言：设计之后，紧接主要结果**
 
 说完怎么解决，马上交代实验发现；最后再列贡献。
 
@@ -2764,7 +2768,7 @@ TCDiff 能较好捕捉舞者间相关性（GMC 较高），同时在个体保真
 
 [Yuqin Dai et al. (AAAI 2025) · Harmonious Music-driven Group Choreography with Trajectory-Controllable Diffusion](https://ojs.aaai.org/index.php/AAAI/article/view/32268) · §Quantitative Results，第3句；PDF p.6，proceedings p.2650；Table 1；正式发表版本；作者原文短引
 
-#### 引言·贡献列表
+**引言·贡献列表**
 
 把贡献写成新增内容和验证方式，而非任务清单。
 
@@ -2780,7 +2784,7 @@ We identify two overlooked structural insights, design is progressive and the fl
 
 [Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3) · Introduction，贡献列表第 1 项；PDF 第 2 页；arXiv:2607.23491v3，2026-09-05；短引对照作者源稿及公开 v3 正文
 
-#### 贡献措辞：给读者几个记得住的词
+**贡献措辞：给读者几个记得住的词**
 
 有事实依据就直接写。换掉没信息的修饰词，别给每个名词戴三顶帽子。
 
@@ -2814,13 +2818,13 @@ A tailored prompt guides each role in checking the evidence.
 
 
 <a id="related"></a>
-### 3.4 相关工作
+### 3.5 相关工作
 
 把前人的路线和本文的区别讲清，给同一条贡献主线铺路。
 
 “Related Work However 部分的挑战要和intro完全对齐啊” 后面的解决方式也对齐；不要在这里突然发明一个新问题。
 
-#### Related Work：完整模板
+**Related Work：完整模板**
 
 “所有可以比的论文，都要同步出现在 baseline” 按共同机制归类；能直接比较就准备对应实验，不能直接比较就解释真实设置差异。
 
@@ -2886,7 +2890,7 @@ To address this limitation, we [matching design B] to [purpose B].
 <details><summary>更多例子：论文原句与拆解</summary>
 
 
-#### 相关工作·局部句式1：方法归类
+**相关工作·局部句式1：方法归类**
 
 按解决的问题概括代表路线，避免逐篇点名。 下面只拆分类与比较句；完整主题段还要按上面的模板补齐不足和本文方案。
 
@@ -2904,7 +2908,7 @@ Dense retrieval selects passages, while evidence organization links selected tex
 
 **第 2 句：**概括有实质区别的路线；真实论文应为每类主张配准确引用。
 
-#### 相关工作·局部句式2：近邻与差别
+**相关工作·局部句式2：近邻与差别**
 
 写准近邻研究已经覆盖什么，再限定本文差别。 下面只拆分类与比较句；完整主题段还要按上面的模板补齐不足和本文方案。
 
@@ -2926,13 +2930,13 @@ Our study examines whether keeping earlier constraints helps across dialogue tur
 
 
 <a id="method"></a>
-### 3.5 方法
+### 3.6 方法
 
 铁律：告诉读者为什么你的方法好，比解释清楚方法更重要。
 
 “不要误解成 Preliminary. 写自己的内容！不要一眼看过去全是别人的公式/方法” 让自己的设计占主导；每个选择都接回 Intro 的具体困难。
 
-#### Method Overview：完整模板
+#### 3.6.a Method Overview：完整模板
 
 “overview 中的设计意图也要和 intro 对应。” 第一句说清核心改动为什么针对这个困难，再按真实依赖串起各节。
 
@@ -2997,7 +3001,7 @@ Given [intermediate output], in \textbf{[Output Generation]}
 Figure~\ref{fig:framework} summarizes this workflow.
 ```
 
-#### Problem Formulation：任务定义
+#### 3.6.b Problem Formulation：任务定义
 
 “学会抽象你的建模” 用最少对象、输入、输出和约束定义任务；别先摆一桌符号再找用途。
 
@@ -3026,7 +3030,7 @@ At inference time, [executor] receives [visible information]; [reference informa
 
 **第 3 句：**明确信息边界。实际方法确实使用额外信息时如实写，不照抄示例。
 
-#### Method 小节：为什么这样做，再写怎么做
+#### 3.6.c Method 小节：为什么这样做，再写怎么做
 
 “围绕创新点来封装模块” 小节按要解决的困难组织。先讲为何这样设计，再给必要实现和产物。
 
@@ -3073,7 +3077,7 @@ The resulting [output] is passed to [next step] for [purpose].
 <details><summary>更多例子：论文原句与拆解</summary>
 
 
-#### 方法·示范自然段1：任务定义
+**方法·示范自然段1：任务定义**
 
 用具体对象定义输入、输出和不可见信息。
 
@@ -3091,7 +3095,7 @@ The output is an answer with citations; reference answers are used only for eval
 
 **第 2 句：**把生成输入与评估参照分开，避免图与文字造成答案泄漏。
 
-#### 输入输出接力：局部句式
+**输入输出接力：局部句式**
 
 只拆输入、处理、输出的衔接。完整 Method Overview 还要按上面的模板补章节定位、目的和框架图引用。
 
@@ -3115,7 +3119,7 @@ The generator uses these notes to produce an answer with source citations.
 
 **第 3 句：**these notes 承接上一句；回答与引用落到最终输出。
 
-#### 方法总览：最后一句收束流程
+**方法总览：最后一句收束流程**
 
 前面讲清组件怎样接力，最后再概括整条流程。
 
@@ -3131,7 +3135,7 @@ Together, these components form an end-to-end pipeline from data construction to
 
 [Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html) · Figure 2 caption，最后一句；PDF p.3，proceedings p.8598；对应§3 Method；CVF Open Access 作者接受版；正式发表元数据已由 CVF 条目核对
 
-#### 方法·示范自然段3：表示与操作
+**方法·示范自然段3：表示与操作**
 
 每个关键步骤说清目的、操作与输出。
 
@@ -3147,7 +3151,7 @@ We formalize each SOP as a directed graph G = (V, E) with three node types: Star
 
 [Ling Shi, Yuqin Dai et al. · SAGE: An Extensible Benchmark for Service Agent Graph-guided Evaluation](https://arxiv.org/abs/2604.09285) · § Universal Dialogue Graph Modeling，有向图定义段（作者源稿第 471 行）；作者终稿 2026-10-04 只读快照；公开链接为 arXiv v1
 
-#### 方法·示范自然段4：答案生成
+**方法·示范自然段4：答案生成**
 
 说明生成器如何使用前面的产物。
 
@@ -3169,13 +3173,13 @@ The generator returns an answer with links to the quoted sources.
 
 
 <a id="experiments"></a>
-### 3.6 实验
+### 3.7 实验
 
 用对照证明贡献，把数字变成读者带得走的发现。
 
 “还原 Introduction 中的结论怎么来的.” 每个核心观点都要有证据，实验分析讲它为何成立。
 
-#### Experiments：先列要验证的问题
+#### 3.7.a Experiments：先列要验证的问题
 
 “Intro 提到的所有点都要有实验验证” 先列观点和判据，再安排主结果、消融与补充分析。不是先跑一堆表，再替它们找故事。
 
@@ -3204,7 +3208,7 @@ We then isolate [component] and examine [robustness, efficiency, or transfer que
 
 **第 3 句：**只预告实际存在的分析，不能为了补齐模板虚构实验。
 
-#### Experimental Setup：比较设置
+#### 3.7.b Experimental Setup：比较设置
 
 “这里的作用是给审稿人的“所有metric相关的解释”的字典” 指标定义、方向、分母和简称都在这里找得到；新指标单独说明贡献。
 
@@ -3247,7 +3251,7 @@ Implementation Details. We select [parameters] on [development data] and fix the
 
 **第 5 句：**明确选择边界；具体值与来源按真实记录填。
 
-#### Main Results：先写发现
+#### 3.7.c Main Results：先写发现
 
 “不要读数字，这些都是看表格就能知道的信息，写在正文是信息冗余。” 解释数字说明什么、现象为何出现、支持哪项设计。正文不是表格播报员。
 
@@ -3277,7 +3281,7 @@ This contrast supports [Intro contribution], while [observed trade-off] limits [
 
 **第 3 句：**解释结果意味着什么，同时保留真实取舍。
 
-#### Ablation：改一项，查一个作用
+#### 3.7.d Ablation：改一项，查一个作用
 
 “围绕 Introduction 提出的观点进行论证，形成闭环” 每次去掉或替换一项，固定其他条件，检查对应问题是否回来。
 
@@ -3306,7 +3310,7 @@ Figure [ref] shows [observed change], supporting [limited component role] in [te
 
 **第 3 句：**作用不超过实际控制的因素与范围。
 
-#### 扩展实验：稳定性、效率、迁移
+#### 3.7.e 扩展实验：稳定性、效率、迁移
 
 “重点就是保存自己的实验结果，失败的也可以，然后呈现有意义的结论在论文中就行” 失败尝试可能排除一种解释。先保留记录，再筛对贡献有启发的结论。
 
@@ -3336,7 +3340,7 @@ These comparisons support [scope-limited finding], but do not establish [broader
 
 **第 3 句：**范围边界具体写；不是在每段末尾机械加免责声明。
 
-#### 进阶：性能与成本一起比
+#### 3.7.f 进阶：性能与成本一起比
 
 “帕累托前沿” 适合多个目标互相牵制的实验。某个配置更省但更弱，就讲取舍，不硬说全面胜出。
 
@@ -3358,7 +3362,7 @@ We report the non-dominated configurations among the tested settings.
 
 [pymoo · Pareto dominance](https://pymoo.org/getting_started/preface.html) · Pareto dominance 定义；本文例句为独立教学改写
 
-#### 进阶：同时做两个差
+#### 3.7.g 进阶：同时做两个差
 
 “直接比较上线前后不行，因为可能同期发生了别的事” 同期对照也有变化时，比较两组各自的前后变化。别把普通算法消融改名叫 DID。
 
@@ -3380,7 +3384,7 @@ The difference between these changes is 10 points, rather than the treated group
 
 [Callaway & Sant’Anna · Difference-in-Differences with Multiple Time Periods](https://arxiv.org/abs/1803.09015) · 比较设计与识别条件；数值为独立教学示例
 
-#### Case Study：走一遍流程
+#### 3.7.h Case Study：走一遍流程
 
 “需要放上自己的生成结果，以一个 case 来展示流程图是怎么运行的” NLP 看真实输入和回复，CV 看图与中间产物；案例解释机制，整体效果仍靠统计。
 
@@ -3412,7 +3416,7 @@ The final output [meets or violates requirement] because [observable evidence].
 <details><summary>更多例子：论文原句与拆解</summary>
 
 
-#### 实验·示范自然段1：研究问题
+**实验·示范自然段1：研究问题**
 
 先确定要回答的问题，再决定比较和图表。
 
@@ -3430,7 +3434,7 @@ We also test whether retaining earlier constraints contributes to this change.
 
 **第 2 句：**第二个问题对应机制消融；RQ编号可用，也可以不用。
 
-#### 实验·示范自然段2：数据与指标
+**实验·示范自然段2：数据与指标**
 
 把样本范围、指标分母和评分方式说明白。
 
@@ -3472,7 +3476,7 @@ Answers with no factual sentences are reported separately as not applicable, wit
 
 **第 6 句：**明确不能计算句子比例的情形，不填零、不静默删除；比较时核对两组的适用范围。
 
-#### 实验·示范自然段3：公平比较
+**实验·示范自然段3：公平比较**
 
 按任务介绍基线，并对齐会影响结果的条件。
 
@@ -3490,7 +3494,7 @@ Both systems use the same evidence-context token budget and decoding settings.
 
 **第 2 句：**预算计入实际输入生成器的证据与笔记，避免只对齐检索长度却增加额外输入。
 
-#### 实验·示范自然段4：主要发现
+**实验·示范自然段4：主要发现**
 
 先回答研究问题，再解释主要比较和取舍。
 
@@ -3506,7 +3510,7 @@ TCDiff 能较好捕捉舞者间相关性（GMC 较高），同时在个体保真
 
 [Yuqin Dai et al. (AAAI 2025) · Harmonious Music-driven Group Choreography with Trajectory-Controllable Diffusion](https://ojs.aaai.org/index.php/AAAI/article/view/32268) · §Quantitative Results，第3句；PDF p.6，proceedings p.2650；Table 1；正式发表版本；作者原文短引
 
-#### 实验·示范自然段5：消融与解释
+**实验·示范自然段5：消融与解释**
 
 一次改变待检验因素，说明结果支持什么。
 
@@ -3524,7 +3528,7 @@ If support decreases, this comparison indicates the value of retained constraint
 
 **第 2 句：**若唯一改动后表现下降，就支持该因素在当前设置下有用。
 
-#### 实验·示范自然段6：稳健性与复测
+**实验·示范自然段6：稳健性与复测**
 
 按主张补重复或分组检验，别只保留最好一次。
 
@@ -3542,7 +3546,7 @@ We also compare short and long dialogue histories using the same scoring rule.
 
 **第 2 句：**分组检验直接围绕跨轮约束，不为凑实验随意增加维度。
 
-#### 实验·示范自然段7：案例分析
+**实验·示范自然段7：案例分析**
 
 用一个明确来源的案例解释流程与失败，别以案例代替总体证据。
 
@@ -3564,11 +3568,11 @@ The case shows where the constraint enters the note, but it does not establish o
 
 
 <a id="discussion"></a>
-### 3.7 讨论与局限
+### 3.8 讨论与局限
 
 解释发现，写清适用范围和局限。
 
-#### Discussion / Limitations：意义与局限
+**Discussion / Limitations：意义与局限**
 
 “传达自己实验过程中发现的心得体会，和知识，和发现” 解释发现改变了什么认识，哪些情况仍然失效。经验归经验，机制证据另说。
 
@@ -3600,7 +3604,7 @@ Our evaluation covers [range], while [different condition] remains untested.
 <details><summary>更多例子：论文原句与拆解</summary>
 
 
-#### 讨论·示范自然段1：发现的意义
+**讨论·示范自然段1：发现的意义**
 
 回到研究问题解释发现，机制判断服从对照证据。
 
@@ -3618,7 +3622,7 @@ The current comparison does not isolate source organization from added constrain
 
 **第 2 句：**把未区分原因写清，不把整体提高归因于全部设计。
 
-#### 局限·示范自然段1：尚未覆盖条件
+**局限·示范自然段1：尚未覆盖条件**
 
 把外推范围写具体，区分未知与失败。
 
@@ -3640,11 +3644,11 @@ Cross-language questions and frequently updated documents remain untested.
 
 
 <a id="conclusion"></a>
-### 3.8 结论
+### 3.9 结论
 
 回答开头的问题，概括贡献和发现。
 
-#### Conclusion：回答开头的问题
+**Conclusion：回答开头的问题**
 
 “一个亮点（标题，摘要，关键词），附赠一堆为了实现亮点而产生的贡献。” 回到这个亮点，收束做了什么、发现了什么；别把整个流程再背一遍。
 
@@ -3675,7 +3679,7 @@ The evaluation establishes [supported finding] under [conditions].
 <details><summary>更多例子：论文原句与拆解</summary>
 
 
-#### 结论·示范自然段1
+**结论·示范自然段1**
 
 用已有发现收束开头的问题，不在结尾新增结果。
 
@@ -3697,11 +3701,11 @@ The illustrative evaluation shows higher citation support with extra latency; br
 
 
 <a id="references"></a>
-### 3.9 参考文献
+### 3.10 参考文献
 
 引用回查原文，信息和版本对齐。
 
-#### References：回查原文
+**References：回查原文**
 
 “不要引用错误的论文” 逐条回查原文、版本与支持关系。参考文献数量不替你证明读过。
 
@@ -3727,7 +3731,7 @@ We use [model or tool version] [original report or official documentation].
 <details><summary>更多例子：论文原句与拆解</summary>
 
 
-#### 参考文献核对示范
+**参考文献核对示范**
 
 让正文判断、引用键和实际文献版本对应。
 
@@ -3749,13 +3753,13 @@ A source evaluated only on single-turn retrieval cannot support a claim about mu
 
 
 <a id="appendix"></a>
-### 3.10 附录
+### 3.11 附录
 
 让想核查的人找得到、看得懂。
 
 “确保在正文中被有效引用” 详细设置、补充实验和完整案例各有入口，不把附录当杂物间。
 
-#### Appendix：实现与补充实验
+**Appendix：实现与补充实验**
 
 “千万不要为了节省篇幅去缩减实验结论。先缩 related work, 然后缩方法” 先删重复，次要细节移附录；支撑核心贡献的比较和分析留在正文。
 
@@ -3781,7 +3785,7 @@ This section tests [main-text claim] while controlling [alternative explanation]
 <details><summary>更多例子：论文原句与拆解</summary>
 
 
-#### 附录·示范自然段1：复核细节
+**附录·示范自然段1：复核细节**
 
 用明确入口提供正文未展开的设置和补充结果。
 
@@ -3799,7 +3803,7 @@ Appendix B reports per-run results, including failures, with configuration ident
 
 **第 2 句：**结果与配置对应，不能只放最好的一次或把故障当成方法发现。
 
-#### 附录·示范自然段2：参数选择
+**附录·示范自然段2：参数选择**
 
 交代选参数据和规则，区分选择过程与最终测试。
 
@@ -3821,13 +3825,13 @@ We freeze this choice before evaluating the test questions.
 
 
 <a id="rebuttal"></a>
-### 4. Rebuttal
+## 4. Rebuttal
 
 让审稿人愿意看，并用证据回答真正的疑问。
 
 “尊重你的审稿人，让他感到快乐的基础上回复他” 感谢一句就够。先答题，再给证据；礼貌不替你证明结论。
 
-#### 4.1 拆审稿意见
+### 4.1 拆审稿意见
 
 “不要只看 weakness 栏目！” Summary 查是否理解准确，Strengths 查已认可的亮点，Weaknesses 查真正缺什么证据。
 
@@ -3849,7 +3853,7 @@ We compare the two generators using the same retrieved passages.
 
 **第 2 句：**对照必须扣住问题：固定检索，改变生成器。
 
-#### 4.2 逐题回复
+### 4.2 逐题回复
 
 “第一句话就要回复他的问题！” Yes/No 直接答，参数直接给，流程用 case。再给证据、解释和具体位置。
 
@@ -3880,7 +3884,7 @@ This comparison isolates the generator change under the tested retrieval setting
 
 **第 3 句：**收束到已检验的范围，不顺手扩大到所有场景。
 
-#### 4.3 区分两种解释
+### 4.3 区分两种解释
 
 “然后拆解他的第一步逻辑链，证明错误，进而结论错误” 先复述对方的推理，再用针对性对照检验关键前提。不是先给人扣“误解”的帽子。
 
@@ -3907,7 +3911,7 @@ The difference is 【result】; this supports 【bounded conclusion】 but does 
 
 **第 3 句：**结果支持到哪里，就写到哪里。
 
-#### 4.4 澄清：定义、流程、例子
+### 4.4 澄清：定义、流程、例子
 
 “流程都用case来展示。” 拿一个真实输入走完步骤，指出被问到的那一步。公式多不等于澄清得好。
 
@@ -3934,7 +3938,7 @@ Section 【N】 specifies this interface; we clarify 【ambiguous phrase】 in �
 
 **第 3 句：**位置要真实存在；会议不允许改稿时，只在回复中澄清。
 
-#### 4.5 Revise loop
+### 4.5 Revise loop
 
 “审稿人真的在问这个问题吗？还是我在回答我自己想回答的问题？” 每轮按原问题查漏答和证据，只改没过的回复；再压长度和语气。
 
@@ -3958,7 +3962,7 @@ Minimal fix: 【edit】. Required evidence: 【existing result or experiment nee
 
 **第 2 句：**把改文字和补证据分开，便于作者判断。
 
-#### 4.6 第二轮与 AC 总结
+### 4.6 第二轮与 AC 总结
 
 “回复完所有审稿人写。” 先逐题回应，再给 AC 压缩总结。准确引用已确认的评价，保留仍有争议的边界。
 
@@ -3991,7 +3995,7 @@ The main concern was 【issue】. Our response provides 【evidence】, supporti
 
 核对日期：2026-10-07。
 
-### 找文献与读原文
+### 5.1 找文献与读原文
 
 - **[AI-Powered Literature Review Skills](https://github.com/stephenlzc/AI-Powered-Literature-Review-Skills)：**检索、去重、逐篇分析，再组织综述。
 
@@ -4070,7 +4074,7 @@ The main concern was 【issue】. Our response provides 【evidence】, supporti
   </details>
 
 
-### 写作、排版与汇报
+### 5.2 写作、排版与汇报
 
 - **[ChineseResearchLaTeX](https://github.com/huangwb8/ChineseResearchLaTeX)：**中文科研 LaTeX 模板：标书、论文、学位论文、简历。
 
@@ -4097,7 +4101,7 @@ The main concern was 【issue】. Our response provides 【evidence】, supporti
   </details>
 
 
-### 统计图与框架图
+### 5.3 统计图与框架图
 
 - **[Paper Plot Skills](https://github.com/Trae1ounG/paper-plot-skills)：**用自己的数据画统计图，参考图布局转 matplotlib。
 
@@ -4138,7 +4142,7 @@ The main concern was 【issue】. Our response provides 【evidence】, supporti
   </details>
 
 
-### 引用存在吗，支持这句话吗
+### 5.4 引用存在吗，支持这句话吗
 
 - **[Scholar Ref Cleaner](https://github.com/libo-huang/scholar-ref-cleaner)：**BibTeX、Word、文本引用与数据库元数据比对。
 
@@ -4191,7 +4195,7 @@ The main concern was 【issue】. Our response provides 【evidence】, supporti
   </details>
 
 
-### 读代码
+### 5.5 读代码
 
 - **[DeepWiki](https://deepwiki.com/)：**看 GitHub 仓库架构，查函数和数据流。
 
@@ -4208,7 +4212,7 @@ The main concern was 【issue】. Our response provides 【evidence】, supporti
   </details>
 
 
-### 论文公开与维护
+### 5.6 论文公开与维护
 
 - **[Hugging Face Daily Papers 投稿](https://huggingface.co/papers/submit)：**将公开 arXiv 论文提交到 Daily Papers。
 
@@ -4253,7 +4257,7 @@ The main concern was 【issue】. Our response provides 【evidence】, supporti
   </details>
 
 
-### 待探索与社区补充
+### 5.7 待探索与社区补充
 
 - **[Edit Banana](https://github.com/BIT-DataLab/Edit-Banana)：**静态图转可编辑 DrawIO 元素。
 
@@ -4295,7 +4299,7 @@ The main concern was 【issue】. Our response provides 【evidence】, supporti
 
 
 <a id="code-release-prompt"></a>
-### 开源整理：翻译注释，清掉私货，保留行为
+### 5.8 开源整理：翻译注释，清掉私货，保留行为
 
 先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。
 
