@@ -1,4 +1,4 @@
-# PaperBank · 论文少走弯路指南
+# PaperBank: 存入你的时间（Star🌟），取出你的 Accept
 
 ![大字红色 accept 和庆祝彩带下，边牧和比格收到论文录用邮件，开心举起爪子。](../assets/paperbank-accept-red.png)
 
