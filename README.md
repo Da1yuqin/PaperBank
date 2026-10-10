@@ -1,4 +1,4 @@
-# PaperBank · 论文怎么写
+# PaperBank: 存入你的时间（Star🌟），取出你的 Accept
 
 五章：粗稿、绘图、正文精修、Rebuttal、AI 工具。附中英例子、Related Work / Method Overview 完整模板和 Codex skill。
 
@@ -20,7 +20,7 @@
 
 知识可以搬家，门牌别摘。觉得省了点力，欢迎 Star；本银行只收星，不收版面费。
 
-> 来源：Da1yuqin，《PaperBank · 论文怎么写》，https://da1yuqin.github.io/PaperBank/ ，CC BY 4.0。本文有修改。
+> 来源：Da1yuqin，《PaperBank: 存入你的时间（Star🌟），取出你的 Accept》，https://da1yuqin.github.io/PaperBank/ ，CC BY 4.0。本文有修改。
 
 ## 本地预览
 
