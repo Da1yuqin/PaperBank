@@ -1,62 +1,7 @@
 # 给 Codex 的提示词
 
-填写【】后使用。以下采用本地技能中适用于实证型 CS 论文的通用规则；不套用某篇论文的固定宽度、色值、模型阵容或重复次数。Nature 系列使用独立体系。
+填写【】后使用。以下采用适用于实证型 CS 论文的通用规则；不套用某篇论文的固定宽度、色值、模型阵容或重复次数。Nature 系列使用独立体系。
 
-
-<a id="figures"></a>
-## 给 Codex 的绘图说明单
-
-依据：paper-visual-standards · academic-plotting · clean-flow-figures。
-
-对应规则：最终宽度和统一字号；输入、输出与评价边界；案例全文唯一使用；统计图的真实数据与自解释；Caption、顶部浮动与最终 PDF 验收。
-
-### 中文
-
-```text
-读取 paperbank-figures/SKILL.md 和 references/rules.md。按以下材料画图。
-图型：【mainfig／framework／统计图／案例图】
-要突出的问题与贡献：【对应 Intro 的哪项困难，方法改了什么，依据在哪里】
-材料：【稿件、真实数据、参考图与出处、已有案例及使用位置】
-真实结构：【输入、操作、输出、接收者；并行、汇合、反馈；训练／推理／评价】
-允许修改：【文件与范围】；最终插入宽度：【mm】
-正文 PDF 实测字体与字号：【字体，pt】；本篇已确认色板：【】
-
-铁律：
-1. mainfig 讲问题、已有缺口与关键改动，默认不超过 5 个环节；framework 先让人看懂设计为什么好，再画完整输入、操作与产物。两图分别承担不同叙述任务。
-2. 每条箭头对应真实依赖，不穿文字。保留并行与反馈；训练、推理、评价分开。输入、输出、评价规则用三种边框并给图例；仅供评价的信息不能画成模型输入。
-3. 按最终宽度起稿。所有标题、坐标、刻度、图例、数字、注释用同一字号，正文减 2 pt ≤ 图字 ≤ 正文，字体家族匹配。放不下就重排或拆图，不缩小规定字号、不进行非等比缩放、不修改论文模板。
-4. 白底、近白面板、深色文字、低饱和配色。同一对象全篇同色，用形状或线型辅助区分；不加渐变、阴影和装饰光效。通栏先参考 16:9，单栏参考 4:3，内容与可读性优先。
-5. 模块名与正文一致。缩写、变量、单位、图标、颜色和线型都能解释；图标旁写对象名。标签用自然语言，不用符号拼句。
-6. 同一案例全文只呈现一次，翻译、裁剪或改名仍算同一个。先按来源核对使用位置，其他位置交叉引用。对话一轮一框；作者示例与实测回复分清，没有评分不画勾。
-7. 统计图用 Python 等专业工具读取所附数据，保留数值、坐标几何、分母、单位与 SD／SE／CI 定义；同类比较统一尺度。不为美观补缺测、改数据或平滑曲线，不重跑实验；KDE 等估计图说明样本量、方法和带宽。概念图按当前环境使用 imagegen，生成内容须依据已确认流程，不生成虚构结果。
-8. Caption 说明读法、比较、必要口径与实际发现，简称在本条 Caption 写全称。方法图说明机制，不编实验结论。尽量三行，必要定义与事实边界优先。
-9. PDF 文字可见、可选，字体嵌入；不叠两套字形或隐藏 OCR。统计图优先矢量 PDF，含位图的 PDF 不称全矢量。CS 图表默认 [!t]，实际位置跟随正文首次引用，保留附录归属。
-10. 先给问题、布局和缺口，再绘制。插回论文编译，看最终页面的字号、图例、裁切、碰撞和引用顺序。交付源文件、PDF、预览及实际检查结果。只改色时保留原布局、文字、连线与图片；保留他人修改，不扩大范围。
-```
-
-### English
-
-```text
-Read paperbank-figures/SKILL.md and references/rules.md. Draw from these materials.
-Type: [main figure / framework / quantitative chart / case]
-Problem and contribution: [Introduction challenge, actual design change, evidence]
-Materials: [manuscript, original data, references and sources, cases and their existing locations]
-Actual structure: [inputs, operations, outputs, recipients; parallel paths, merges, feedback; training / inference / evaluation]
-Editable files and scope: [ ]; final insertion width: [mm]
-Font family and body size measured in the manuscript PDF: [family, pt]; approved palette: [ ]
-
-Hard rules:
-1. The main figure shows the problem, existing gap, and key change, with at most five stages by default. The framework explains why the design addresses the challenge before showing inputs, operations, and products. Give the two figures distinct jobs.
-2. Every arrow represents an actual dependency and avoids text. Preserve parallel paths and feedback; separate training, inference, and evaluation. Use three explained border encodings for inputs, outputs, and evaluation criteria. Evaluation-only information must not appear as model input.
-3. Design at the final width. Use one size for titles, axes, ticks, legends, numbers, and annotations: body size minus 2 pt ≤ figure text ≤ body size, with a matching font family. Rearrange or split crowded content; do not shrink text, distort geometry, or change the paper template.
-4. Use a white canvas, near-white panels, dark text, and muted colors. Keep each object's color consistent throughout the paper; add shapes or line styles. Avoid gradients, shadows, and decorative glow. Start near 16:9 for full-width figures and 4:3 for single-column figures; prioritize content and readability.
-5. Match module names to the body. Explain abbreviations, variables, units, icons, colors, and line styles; label icons with object names. Use natural-language labels rather than symbol-packed prose.
-6. Present each source case only once across the paper. Translations, crops, and renamed versions still count as the same case. Check existing locations by source and cross-reference elsewhere. Use one frame per dialogue turn. Distinguish author examples from measured outputs; do not show unrecorded check marks.
-7. Use Python or equivalent professional plotting tools for supplied quantitative data. Preserve values, coordinate geometry, denominators, units, and SD / SE / CI definitions; use common scales for comparable plots. Do not fill missing measurements, alter data, or smooth curves for appearance, and do not rerun experiments. For KDE and other estimated plots, specify sample counts, methods, and bandwidth where applicable. Use imagegen for conceptual figures in the current environment; do not let a generator invent dependencies or results.
-8. Captions explain reading, comparisons, necessary scope, and actual findings. Expand abbreviations in each caption. Method figures explain mechanisms without fabricated experimental conclusions. Aim for three final lines; necessary definitions and factual limits take priority.
-9. Use visible, selectable PDF text and embedded fonts; avoid duplicate lettering and hidden OCR. Prefer vector PDF for statistical plots; a PDF containing raster images is not fully vector. Use [!t] for CS figures and tables by default. Verify actual order against first body citations and retain appendix ownership.
-10. Propose the question, layout, and evidence gaps before drawing. Insert the figure into the paper, compile, and inspect final-size text, legends, crops, collisions, and citation order. Deliver sources, PDF, preview, and completed checks. A color-only edit preserves layout, text, edges, and images. Preserve concurrent edits and the authorized scope.
-```
 
 <a id="draft"></a>
 ## 一天拉完草稿：给 Codex 的提示词
@@ -68,7 +13,8 @@ Hard rules:
 ### 中文
 
 ```text
-读取 paperbank-writing/SKILL.md、references/checklist.md；绘图同时读 paperbank-figures/SKILL.md。先形成初稿，再由我审中文逻辑。本提示词用于实证型 CS 论文，Nature 系列另用独立体系。
+读取 cs-paper-writing/SKILL.md、references/checklist.md；绘图同时读 paperbank-figures/SKILL.md。先形成初稿，再由我审中文逻辑。本提示词用于实证型 CS 论文，Nature 系列另用独立体系。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 会议、当年官方模板、页数与附录规则：【】
 问题与依据：【已有做法能做什么，在哪个条件下不足】
 一句话贡献：【新对象／设计、对应缺口、与最近工作的区别】
@@ -92,7 +38,8 @@ Hard rules:
 ### English
 
 ```text
-Read paperbank-writing/SKILL.md and references/checklist.md; also read paperbank-figures/SKILL.md for figures. Draft first and let me review the reasoning in Chinese. This prompt targets empirical CS papers; use the independent Nature system for Nature-family journals.
+Read cs-paper-writing/SKILL.md and references/checklist.md; also read paperbank-figures/SKILL.md for figures. Draft first and let me review the reasoning in Chinese. This prompt targets empirical CS papers; use the independent Nature system for Nature-family journals.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Venue, current official template, page limit, and appendix rules: [ ]
 Problem and evidence: [existing capabilities and the condition where they fall short]
 Contribution: [new object / design, matched gap, difference from the closest work]
@@ -123,7 +70,8 @@ Language: use professional, concise, direct wording; omit jokes, metaphors, and 
 ### 中文
 
 ```text
-读取 paperbank-writing/SKILL.md 和 references/checklist.md，按当前任务选规则。
+读取 cs-paper-writing/SKILL.md 和 references/checklist.md，按当前任务选规则。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 任务：【起草／精修哪节／只读检查】；目标会议与限制：【】
 材料：【最新稿件、真实结果、参考原文】；允许修改：【文件与范围】
 
@@ -140,7 +88,8 @@ Language: use professional, concise, direct wording; omit jokes, metaphors, and 
 ### English
 
 ```text
-Read paperbank-writing/SKILL.md and references/checklist.md and select rules for this task.
+Read cs-paper-writing/SKILL.md and references/checklist.md and select rules for this task.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Task: [draft / refine a specified section / read-only check]; venue and limits: [ ]
 Materials: [current manuscript, actual results, source passages]; editable files and scope: [ ]
 
@@ -164,7 +113,8 @@ Language: use professional, concise, direct wording; omit jokes, metaphors, and 
 ### 中文
 
 ```text
-读取 paperbank-writing/SKILL.md 的 Experiments 与图表规则。
+读取 cs-paper-writing/SKILL.md 的 Experiments 与图表规则。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 材料：【Intro 主张、真实结果文件、数据划分、基线配置、预算、重复记录】
 允许修改：【实验正文、表格及相关文件】；不得改动：【原始结果与实验协议】
 
@@ -179,7 +129,8 @@ Language: use professional, concise, direct wording; omit jokes, metaphors, and 
 ### English
 
 ```text
-Read the Experiments and figure/table rules in paperbank-writing/SKILL.md.
+Read the Experiments and figure/table rules in cs-paper-writing/SKILL.md.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Materials: [Introduction claims, actual result files, data splits, baseline configurations, budgets, repeat records]
 Editable files: [experiment prose, tables, related files]; preserve: [original results and protocols]
 
@@ -201,7 +152,8 @@ Editable files: [experiment prose, tables, related files]; preserve: [original r
 ### 中文
 
 ```text
-读取 paperbank-writing/SKILL.md 的 Introduction 规则与模板。
+读取 cs-paper-writing/SKILL.md 的 Introduction 规则与模板。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 材料：【问题依据、最近工作、真实设计、已验证结果与范围】
 任务：先写中文提纲；允许修改：【文件与范围】。
 
@@ -217,7 +169,8 @@ Editable files: [experiment prose, tables, related files]; preserve: [original r
 ### English
 
 ```text
-Read the Introduction rules and templates in paperbank-writing/SKILL.md.
+Read the Introduction rules and templates in cs-paper-writing/SKILL.md.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Materials: [problem evidence, closest work, actual designs, verified findings and scope]
 Task: write a Chinese outline first; editable files and scope: [ ].
 
@@ -228,74 +181,6 @@ Task: write a Chinese outline first; editable files and scope: [ ].
 5. Findings: report actual main findings, key comparisons, and scope only. Omit result sentences without results. Distinguish diagnosis from causality and bounded tests from universal claims.
 6. Use native itemize for parallel, concise contributions of similar length; let the actual work determine the count. Give each item one main contribution; routine implementation is not novelty. Use de-identified, expert-confirmed, tailored, or similar modifiers only when supported, as concise word replacements. Avoid unsupported first / unique claims.
 7. Check that each sentence supplies the next sentence's object or premise and that problem, mechanism, and experiment names agree. Define necessary terms and replace it / they with concrete objects. Adapt paragraph count to the argument. Let me review Chinese before English; update the Abstract only when research facts materially change. Preserve original results, citations, and concurrent edits.
-```
-
-<a id="rebuttal"></a>
-## Rebuttal + revise loop
-
-依据：rebuttal · rebuttal-reviewer-simulator。
-
-对应规则：原始问题逐条覆盖；事实来源与承诺边界；每问首句结论与精简表格；revise loop 与 AC 总结。
-
-### 中文
-
-```text
-读取 paperbank-writing/SKILL.md 的 Rebuttal 与 revise loop。
-材料：【论文、完整 review、当前回复、已验证补充结果】
-会议当轮规则：【字数／字符限制、补实验／链接／修订稿／AI 使用规定】
-阶段：【初次／追问】；允许修改：【回复文件与范围】
-
-1. 先保留 review 原文，逐条拆出 Summary、Weaknesses、Questions、建议和评分理由里的具体关切；Strengths 记录已认可点。列“原问题→需要的证据→现有依据与位置→缺口”，不按回复现有顺序漏问，不猜审稿人动机或水平。
-2. 每问首句直接回答，随后给证据、解释和位置；问题标题忠于原意，感谢简短。数据、对照或成本适合表格就用紧凑表格，保留必要比较条件、数值口径与范围，不用文字重复每格。
-3. 每个事实回到论文、原 review、真实结果或已确认推导。合理批评就承认并改，争议就查前提与证据；不隐藏影响比较的条件。补实验的承诺不能替代结果；缺结果交给我决定，不编数字、不把 future work 写成已完成，不自动跑实验或提交回复。
-4. 执行 revise loop：按原问题清单查“原问题→回复位置→是否回答→证据是否匹配→剩余疑问→最小改法→还缺什么”。先修漏答、证据与逻辑，再压文字、调语气。只改不通过项，改后重查同一张清单，不盲目重跑全部基线。
-5. 所有问题明确覆盖、事实与证据对应、逻辑通顺、长度和当轮政策合规后停止，由我定稿。证据不足就交回缺口，不通过模拟预测评分变化或录用。
-6. 追问轮只答新增关切；AC 总结写关键问题、回应、证据与限制，不请求提分或接收。英文回复逐段附中文供我审，内部检查和缺口不混入提交文本。
-```
-
-### English
-
-```text
-Read Rebuttal and revise loop in paperbank-writing/SKILL.md.
-Materials: [paper, complete reviews, current response, verified supplementary results]
-Current venue rules: [word / character limit; experiments, links, revised PDFs, and AI-use policies]
-Stage: [initial / follow-up]; editable response files and scope: [ ].
-
-1. Preserve raw reviews. Extract each concrete concern from Summary, Weaknesses, Questions, suggestions, and scoring reasons; record acknowledged strengths. Map original question → required evidence → available evidence and location → gap. Follow original questions rather than the response's order; do not infer reviewer motives or competence.
-2. Answer each question in the first sentence, then give evidence, explanation, and location. Keep question headings faithful and thanks brief. Use compact tables for suitable results, comparisons, or costs, retaining necessary conditions, definitions, and scope. Do not repeat every cell in prose.
-3. Ground each fact in the paper, review, actual results, or confirmed derivations. Acknowledge and repair valid criticisms; check disputed premises against evidence. Retain conditions that affect comparability. Promised experiments do not replace results. Bring missing evidence to me; invent no numbers or completed work and do not automatically run experiments or submit responses.
-4. Run the revise loop against the original issue list: question → response location → answered? → matching evidence? → remaining doubt → minimal fix → missing evidence. Repair coverage, evidence, and logic before shortening or adjusting tone. Revise failed items only, then recheck the same list; do not blindly rerun every baseline.
-5. Stop when all issues are explicitly covered, facts match evidence, logic is clear, and length and venue rules are satisfied. I make the final decision. Return unresolved evidence gaps; do not predict score changes or acceptance from simulations.
-6. Answer new concerns only in follow-ups. An AC summary states key concerns, responses, evidence, and limits without asking for score increases or acceptance. Add a Chinese translation per English paragraph for my review; keep internal checks and evidence gaps outside the submitted text.
-```
-
-<a id="code-release"></a>
-## 开源整理提示词
-
-依据：minimal-code-layout · 作者指定的翻译与去秘范围。
-
-对应规则：相对路径与凭据边界；不改变代码行为；保留署名、引用与许可。
-
-### 中文
-
-```text
-只处理我指定的文件：<文件或目录>。
-把中文注释、文档字符串和使用说明译成英文，保留解释代码所需的注释，删除版本更改流水账。把注释和文档中的个人信息、内部地址、机器绝对路径改成通用说明、相对路径和可运行的例子。保留必要的作者署名、引用与许可证信息。
-保持算法、控制流程、变量名、接口、参数和数据不变。不要自行翻译程序输出、异常消息、协议字段或其他可执行字符串；若文档字符串被程序读取，也先报告影响。
-疑似密钥、私有数据或运行时配置不要贴出原值。列出文件位置和处理建议；若替换会影响行为，先停在该处，说明需要什么决定。去秘检查也覆盖计划发布的样例、配置、日志和压缩包；若还发布 Git 历史，另查历史内容。
-示例：文档中的机器路径改为 data/example.json，并说明从项目入口定位；只改说明，不改程序的路径解析逻辑。密钥示例使用 YOUR_API_KEY，不写真实值。
-交付修改差异、处理过的内容类型、未解决项和实际验证结果。没有跑过的检查不要说通过；发现真实秘密时不要发布，先报告位置和处置需求。
-```
-
-### English
-
-```text
-Work only on the files I specify: <files or directory>.
-Translate Chinese comments, docstrings, and usage documentation into English. Keep comments needed to understand the code and remove version-change notes. Replace personal information, internal addresses, and machine-specific absolute paths in comments and documentation with general instructions, relative paths, and runnable examples. Preserve required attribution, citations, and license notices.
-Preserve algorithms, control flow, variable names, interfaces, parameters, and data. Do not automatically translate program output, error messages, protocol fields, or other executable strings. Report the impact first if a docstring is read by the program.
-Do not quote the original values of suspected credentials, private data, or runtime configuration. Report their file locations and proposed treatment. If substitution would affect behavior, stop at that location and explain the decision needed. Check examples, configurations, logs, and archives intended for release; check Git history separately if it will also be published.
-Example: replace a machine-specific path in documentation with data/example.json and explain that it is resolved from the project entry point. Change the explanation, not the program's path-resolution logic. Use YOUR_API_KEY in credential examples, never a real value.
-Deliver the diff, the types of content handled, unresolved items, and the checks actually performed. Do not claim an unperformed check passed. If real secrets are found, do not publish them; report their locations and the required treatment.
 ```
 
 ---

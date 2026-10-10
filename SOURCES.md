@@ -14,7 +14,7 @@
 
 吸收作者日常使用的 `paper-writing-clarity`、`cs-writing-skill`、`paper-visual-standards`、`paper-reading-assistant` 中可迁移的检查习惯：定义具体对象，核对主张与证据，说明输入输出，统一术语与图注。审稿回复部分还参考 `review-response`、`rebuttal-reviewer-profile`、`rebuttal-reviewer-simulator` 的通用做法：保留意见原意、逐题核对证据、说明完成状态与修改位置。未转载本地技能文件、真实审稿人画像或内部实验材料。
 
-开头保留通用写法与规则索引；执行边界单独收录到 Codex skill与 `paperbank-writing` skill。规则由上述检查习惯及 `paper-introduction`、`clean-flow-figures`、`minimal-code-layout` 的通用要求重新表述；区分证据、记录和权限边界与可调整的写法。每条配原创中英教学例子，假设情境不是真实论文结果。未把特定项目的色板、尺寸、段落配额、固定连接词或禁用全部代词推广为通用学术规范。
+公开下载分为 `cs-paper-writing`、`paperbank-figures` 和 `rebuttal` 三个独立 skill，分别负责正文、绘图与审稿回复。规则由上述检查习惯及 `paper-introduction`、`clean-flow-figures`、`minimal-code-layout` 的通用要求重新表述；区分证据、记录和权限边界与可调整的写法。每条配原创中英教学例子，假设情境不是真实论文结果。未把特定项目的色板、尺寸、段落配额、固定连接词或禁用全部代词推广为通用学术规范。
 
 公开 skill 由本项目独立编写，包含入口、生成的规则参考及许可；网页和 skill 参考从同一份章节数据生成，避免两套规则分叉。ZIP 不含私人 skill 原件、机器路径、论文源稿、真实审稿记录或第三方摘录。
 
@@ -39,7 +39,7 @@
 
 ## 例子与图片
 
-`assets/paperbank-accept-red.png` 是为 PaperBank 生成的 AI 开场插画：红色 accept 和庆祝彩带下，边牧和比格收到论文录用邮件后庆祝。它不对应真实录用通知，不含会议标识。采用本项目原创素材许可；生成时参考作者提供的蓝色 accept 草图。
+`assets/paperbank-accept-team.png` 是为 PaperBank 生成的 AI 开场插画：红色 accept 和庆祝彩带下，边牧、魔法橘猫和龙收到论文录用邮件后庆祝。它不对应真实录用通知，不含会议标识。生成时参考作者提供的蓝色 accept 草图及魔法橘猫角色图；参考角色的权利归原权利人，项目许可不授予第三方角色权利。
 
 真实论文例子包含英文原文、中文翻译、逐句拆解及出处。需要迁移到自己的文章时，再给单独标注的教学改写；rebuttal 以模拟问题和模拟回复演示，不能当作真实审稿记录，也不表示作者已经补做实验。
 
@@ -73,6 +73,8 @@ AAAI 的[版权与作者复用说明](https://aaai.org/aaai-publications/request
 以上图来自对应版本的公开 PDF，采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。仅裁切图外区域并渲染为 PNG，未修改图形、标签、分数或曲线；中文点评与双语读图说明为本指南新增。原图未明确定义的阴影和误差线不代称为标准差或置信区间。截断坐标轴保留，并在点评中提醒不能据柱高推倍数。
 
 作者笔记中 OneReason Technical Report 的 Figure 12 已核对至 arXiv:2606.06260v1、PDF p.34。仅链接并分析结构，不复制整图；arXiv 分发许可不是第三方复用图片许可。未核实来源的图片不以相邻链接猜出处。
+
+单栏 mainfig 示例 `assets/paper-lost-middle-fig-1.png` 来自 Liu et al., *Lost in the Middle: How Language Models Use Long Contexts*, TACL 12 (2024), Figure 1，期刊 p.158 / PDF p.2（[正式论文](https://aclanthology.org/2024.tacl-1.9/)）。PDF 首页明确采用 CC BY 4.0。仅提取完整图面，保留原始曲线、坐标、标题与图例；中英读图说明为本指南新增。图中为 GPT-3.5-Turbo 在 20 文档任务中的位置对照，用于讲解发现型首图，不推广至所有模型与任务。
 
 `assets/flow-example.svg` 与 `assets/case-example.svg` 是原创教学示意图，展示信息布局，不模拟真实实验结果。
 

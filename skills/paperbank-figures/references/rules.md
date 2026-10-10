@@ -12,7 +12,7 @@ Show where the existing pipeline fails and which step our method changes.
 
 画清旧流程在哪一步出问题，我们改了哪一步。
 
-图例与拆解：[问题和解法放在同一张图](https://da1yuqin.github.io/PaperBank/#visual-tcod-fig-1)
+图例与拆解：[单栏首图：一条曲线提出问题](https://da1yuqin.github.io/PaperBank/#visual-lost-middle-fig-1)
 
 - **绘图先于正文精修：**先完成可供合作者审核的框架图与实验图，再精修正文。图未能体现贡献时，先调整内容与布局，再修改配色。
 
@@ -184,13 +184,13 @@ Move the legend outside the plotted curves while preserving the data and axes.
 
 ## 按图的任务选模板
 
-- **摘要图：**问题在哪、为什么现有解法不够、我们动哪一步。通常最多 5 个环节，必要对照并排。
+- **摘要图：**方法型画问题、旧做法和本文改动；发现型展示一个关键观察。通常最多 5 个环节，保留必要对照。
 
 Show the problem, the existing limitation, and the changed step.
 
 展示问题、已有解法的缺口和我们改动的步骤。
 
-图例与拆解：[问题和解法放在同一张图](https://da1yuqin.github.io/PaperBank/#visual-tcod-fig-1)
+图例与拆解：[单栏首图：一条曲线提出问题](https://da1yuqin.github.io/PaperBank/#visual-lost-middle-fig-1)
 
 - **框架图：**输入是什么，经过哪几个模块，每步产物交给谁，输出是什么。旁边走一个可追踪例子。
 

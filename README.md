@@ -1,20 +1,28 @@
-# PaperBank: 存入你的时间（Star🌟），取出你的 Accept
+# PaperBank
+
+: 存入你的时间，取出你的 Accept
+
+这里有三个可以直接使用的 skill：[cs-paper-writing](assets/cs-paper-writing-skill.zip)、[绘图](assets/paperbank-figures-skill.zip)、[rebuttal](assets/rebuttal-skill.zip)。按任务下载，解压后让 Codex 读取对应的 `SKILL.md`，填入材料、任务和允许修改的范围。
 
 五章：起草、绘图、正文精修、Rebuttal、AI 工具。附中英例子、Related Work / Method Overview 完整模板和 Codex skill。
 
 每章说明写作要求，再逐句拆解例子。Method 先解释设计为何针对困难，Experiments 分析发现，Introduction 对应问题、设计与证据。先审核论证，再精修语言。
 
-[在线阅读](https://da1yuqin.github.io/PaperBank/) · [写作 skill](assets/paperbank-writing-skill.zip) · [绘图 skill](assets/paperbank-figures-skill.zip) · [Markdown 全文](book/guide.md) · [工具](https://da1yuqin.github.io/PaperBank/#tools) · [来源](SOURCES.md)
+[在线阅读](https://da1yuqin.github.io/PaperBank/) · [cs-paper-writing](assets/cs-paper-writing-skill.zip) · [绘图 skill](assets/paperbank-figures-skill.zip) · [rebuttal skill](assets/rebuttal-skill.zip) · [Markdown 全文](book/guide.md) · [来源](SOURCES.md)
 
 主要面向实证型 CS / AI 论文。逐句示范混合真实短引与明确标注的教学例句，不把不同论文拼成一篇文章。PlanCraft、SAGE、GreenPlanner、EviNoteRAG、TCDiff、TCDiff++、WebFilter、CARD 共提供 56 处短引和双语拆解；另有 UrbanZero 公开介绍的教学改写。Rebuttal 保留逐点回应例子，工具附中英使用情境。
 
 ## 给 Codex 用
 
-[下载 skill ZIP](assets/paperbank-writing-skill.zip)，解压后让 Codex 读取整个 `paperbank-writing/` 文件夹，再说明当前文件、任务和允许修改的范围。包内只有原创规则、教学例子和许可，不含论文源稿或第三方摘录。
+[cs-paper-writing ZIP](assets/cs-paper-writing-skill.zip)：正文起草、章节模板、实验组织与语言精修。解压后读取 `cs-paper-writing/SKILL.md`。
 
 绘图使用[绘图 skill ZIP](assets/paperbank-figures-skill.zip)：解压后让 Codex 读取 `paperbank-figures/SKILL.md`，附稿件、原始数据和参考图。包内有 mainfig / framework 区别、22 条绘图铁律、16 类图型及中英例子；图例链接回网页，不打包第三方原图。
 
-包内的 `references/prompts.md` 可直接复制：按任务列明铁律和技能依据。提示词统一维护在 `data/guide.json` 的 `codex_prompts`，网页与下载包同步生成。
+[rebuttal ZIP](assets/rebuttal-skill.zip)：逐题回应、证据核对、revise loop 与 AC 总结。解压后读取 `rebuttal/SKILL.md`，不含真实审稿记录或审稿人画像。
+
+保留完整文件夹，再说明材料、任务和允许修改的范围。三个包各有 `SKILL.md`、规则与中英模板、`references/prompts.md` 和 LICENSE，只分发通用规则、教学例子与公开来源，不含私人 skill 原件、论文源稿或第三方摘录。
+
+提示词统一维护在 `data/guide.json` 的 `codex_prompts`，网页与对应下载包同步生成。起草、精修、实验、Intro 属于写作包；绘图与 rebuttal 分别独立。开源代码整理提示词保留在网页工具章节。
 
 ## 使用与转载
 
@@ -22,7 +30,7 @@
 
 如有帮助，欢迎 Star。
 
-> 来源：Da1yuqin，《PaperBank: 存入你的时间（Star🌟），取出你的 Accept》，https://da1yuqin.github.io/PaperBank/ ，CC BY 4.0。本文有修改。
+> 来源：Da1yuqin，《PaperBank》，https://da1yuqin.github.io/PaperBank/ ，CC BY 4.0。本文有修改。
 
 ## 本地预览
 

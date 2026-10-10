@@ -1,6 +1,12 @@
-# PaperBank: 存入你的时间（Star🌟），取出你的 Accept
+# PaperBank
 
-![大字红色 accept 和庆祝彩带下，边牧和比格收到论文录用邮件，开心举起爪子。](../assets/paperbank-accept-red.png)
+: 存入你的时间，取出你的 Accept
+
+
+这里有三个可以直接使用的 skill，按任务下载。
+[cs-paper-writing](../assets/cs-paper-writing-skill.zip) · [绘图](../assets/paperbank-figures-skill.zip) · [rebuttal](../assets/rebuttal-skill.zip) · [用法](#writing-skill)
+
+![大字红色 accept 和庆祝彩带下，边牧、魔法橘猫和龙收到论文录用邮件，开心举起爪子。](../assets/paperbank-accept-team.png)
 
 ## 写在前头
 
@@ -9,8 +15,6 @@
 网页开源并支持批注。欢迎指出错误、讨论具体写法，我会根据反馈修订。
 
 *多数例子来自本人、本人参与或熟人的论文，另选少量具有参考价值的公开论文。各例均附出处；如用于研究，请引用对应原论文。*
-
-个人网页：[【我的个人网页】](https://da1yuqin.github.io/)
 
 
 先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为 Rebuttal，第五章为 AI 工具。
@@ -65,7 +69,8 @@ Fill in the prompt before asking Codex to draft. A venue name alone does not sup
 **复制这个提示词，填空就能用**
 
 ```text
-读取 paperbank-writing/SKILL.md、references/checklist.md；绘图同时读 paperbank-figures/SKILL.md。先形成初稿，再由我审中文逻辑。本提示词用于实证型 CS 论文，Nature 系列另用独立体系。
+读取 cs-paper-writing/SKILL.md、references/checklist.md；绘图同时读 paperbank-figures/SKILL.md。先形成初稿，再由我审中文逻辑。本提示词用于实证型 CS 论文，Nature 系列另用独立体系。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 会议、当年官方模板、页数与附录规则：【】
 问题与依据：【已有做法能做什么，在哪个条件下不足】
 一句话贡献：【新对象／设计、对应缺口、与最近工作的区别】
@@ -89,7 +94,8 @@ Fill in the prompt before asking Codex to draft. A venue name alone does not sup
 **English prompt**
 
 ```text
-Read paperbank-writing/SKILL.md and references/checklist.md; also read paperbank-figures/SKILL.md for figures. Draft first and let me review the reasoning in Chinese. This prompt targets empirical CS papers; use the independent Nature system for Nature-family journals.
+Read cs-paper-writing/SKILL.md and references/checklist.md; also read paperbank-figures/SKILL.md for figures. Draft first and let me review the reasoning in Chinese. This prompt targets empirical CS papers; use the independent Nature system for Nature-family journals.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Venue, current official template, page limit, and appendix rules: [ ]
 Problem and evidence: [existing capabilities and the condition where they fall short]
 Contribution: [new object / design, matched gap, difference from the closest work]
@@ -110,7 +116,7 @@ Order and hard rules:
 Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
 ```
 
-依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-writing/references/prompts.md#draft)
+依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#draft)
 
 （Git 同步需要项目 owner 有会员或相应权限。没有就下载源文件 ZIP，在本地编译 LaTeX，或直接 skip 同步这步。可以及时求助有会员的老师或高产师兄师姐，请他们帮忙当 owner。）
 
@@ -124,7 +130,7 @@ Language: use professional, concise, direct wording; omit jokes, metaphors, and 
 
 #### 1.2.a mainfig：读者先看懂为什么做
 
-- **信息：**用一个具体问题串起现有做法、失败点和本文改动。保留读懂案例所需的输入与输出，通常不超过 5 个环节。
+- **信息：**用一个具体问题或发现说明为什么做。方法型画现有做法、失败点和本文改动；发现型展示关键观察。保留必要输入、输出和对照，通常不超过 5 个环节。
 
 中：任务要求同时满足 A、B；旧计划遗漏 B；本文在生成前核查 B。
 
@@ -136,13 +142,13 @@ EN: The task requires both A and B. The existing plan omits B; our design checks
 
 EN: Contrast an omitted constraint with its retention after checking; leave training parameters out of the main figure.
 
-![看图：TCOD 的动机图](../assets/paper-tcod-fig-1.png)
+![看图：单栏 mainfig，一条曲线说明问题](../assets/paper-lost-middle-fig-1.png)
 
-左侧先提出多轮误差问题，中间放大回复细节，右侧对齐训练范围。读序是“哪里出问题 → 改哪一段”，先说明问题与对应改动，再介绍模块。左侧曲线是示意；细节数值与颜色含义要结合原图注读。这里学习信息组织，不照搬原图的字号和配色。
+这张单栏图只问一件事：答案所在文档的位置，会不会影响问答准确率？横轴是答案文档在 20 篇输入文档中的位置，纵轴是 GPT-3.5-Turbo 的准确率。紫线是带文档问答，红虚线是同一模型不读文档时的准确率。中间位置更低，开头和结尾更高；读者先记住这个发现，再去正文看实验。 这是发现型首图：先展示关键观察；方法型首图则画清旧做法与本文改动。
 
-Read from the multi-turn error problem to response details and the compared training ranges. The left curve is schematic; consult the original caption for the numeric blocks and color meanings. This example illustrates information order, not a universal font or palette.
+This single-column figure asks whether answer-document position affects QA accuracy. The x-axis locates the answer document among 20 input documents; the y-axis shows GPT-3.5-Turbo accuracy. The purple curve uses documents, while the red dashed line is the same model’s closed-book baseline. The middle performs worse than the beginning and end in this setting. This is a finding-led main figure; a method-led main figure can instead contrast the existing limitation with the changed step.
 
-Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。 [原论文](https://arxiv.org/abs/2604.24005v3) · [许可](https://creativecommons.org/licenses/by/4.0/)
+Nelson F. Liu et al., Lost in the Middle: How Language Models Use Long Contexts, TACL 12 (2024), Fig. 1, p. 158. CC BY 4.0. 从正式 PDF 提取图面；图形、坐标、文字和图例未改。 [原论文](https://aclanthology.org/2024.tacl-1.9/) · [许可](https://creativecommons.org/licenses/by/4.0/)
 
 #### 1.2.b framework：读者看懂怎么做
 
@@ -238,6 +244,7 @@ EN: If Figure 1 is cited first, verify that it actually appears first in the PDF
 
 ```text
 读取 paperbank-figures/SKILL.md 和 references/rules.md。按以下材料画图。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 图型：【mainfig／framework／统计图／案例图】
 要突出的问题与贡献：【对应 Intro 的哪项困难，方法改了什么，依据在哪里】
 材料：【稿件、真实数据、参考图与出处、已有案例及使用位置】
@@ -262,6 +269,7 @@ EN: If Figure 1 is cited first, verify that it actually appears first in the PDF
 
 ```text
 Read paperbank-figures/SKILL.md and references/rules.md. Draw from these materials.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Type: [main figure / framework / quantitative chart / case]
 Problem and contribution: [Introduction challenge, actual design change, evidence]
 Materials: [manuscript, original data, references and sources, cases and their existing locations]
@@ -370,7 +378,8 @@ EN: The gains after checking are concentrated in conflicting conditions. Cite th
 **给 Codex 的实验整理提示词**
 
 ```text
-读取 paperbank-writing/SKILL.md 的 Experiments 与图表规则。
+读取 cs-paper-writing/SKILL.md 的 Experiments 与图表规则。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 材料：【Intro 主张、真实结果文件、数据划分、基线配置、预算、重复记录】
 允许修改：【实验正文、表格及相关文件】；不得改动：【原始结果与实验协议】
 
@@ -385,7 +394,8 @@ EN: The gains after checking are concentrated in conflicting conditions. Cite th
 **English prompt**
 
 ```text
-Read the Experiments and figure/table rules in paperbank-writing/SKILL.md.
+Read the Experiments and figure/table rules in cs-paper-writing/SKILL.md.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Materials: [Introduction claims, actual result files, data splits, baseline configurations, budgets, repeat records]
 Editable files: [experiment prose, tables, related files]; preserve: [original results and protocols]
 
@@ -397,7 +407,7 @@ Editable files: [experiment prose, tables, related files]; preserve: [original r
 6. Show Chinese reasoning for approval before English. Use supplied records only; do not fabricate results, rerun baselines, or change aggregation. Compile and inspect pages, numbers, markings, fonts, and overflow; report evidence gaps and completed checks.
 ```
 
-依据：cs-paper-writing · paper-writing-clarity · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-writing/references/prompts.md#experiments)
+依据：cs-paper-writing · paper-writing-clarity · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#experiments)
 
 #### 1.3.c 表格：先让人看清比较
 
@@ -505,7 +515,8 @@ EN: We design a pre-planning evidence check that identifies unsupported constrai
 **Intro 中文提纲提示词**
 
 ```text
-读取 paperbank-writing/SKILL.md 的 Introduction 规则与模板。
+读取 cs-paper-writing/SKILL.md 的 Introduction 规则与模板。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 材料：【问题依据、最近工作、真实设计、已验证结果与范围】
 任务：先写中文提纲；允许修改：【文件与范围】。
 
@@ -521,7 +532,8 @@ EN: We design a pre-planning evidence check that identifies unsupported constrai
 **English prompt**
 
 ```text
-Read the Introduction rules and templates in paperbank-writing/SKILL.md.
+Read the Introduction rules and templates in cs-paper-writing/SKILL.md.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Materials: [problem evidence, closest work, actual designs, verified findings and scope]
 Task: write a Chinese outline first; editable files and scope: [ ].
 
@@ -534,7 +546,7 @@ Task: write a Chinese outline first; editable files and scope: [ ].
 7. Check that each sentence supplies the next sentence's object or premise and that problem, mechanism, and experiment names agree. Define necessary terms and replace it / they with concrete objects. Adapt paragraph count to the argument. Let me review Chinese before English; update the Abstract only when research facts materially change. Preserve original results, citations, and concurrent edits.
 ```
 
-依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-writing/references/prompts.md#intro)
+依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#intro)
 
 #### 1.4.b 人工审核，再填全文
 
@@ -563,18 +575,23 @@ Teaching example: Plans must satisfy multiple conditions. Existing methods gener
 The Introduction compresses the argument of the paper. Make the problem, design, and evidence clear in Chinese before drafting the English.
 
 <a id="writing-skill"></a>
-### PaperBank 写作 skill
+### 三个独立 skill
 
-下载 skill，交给 Codex 读取；按当前任务选规则。
+正文起草、章节模板、实验组织与语言精修。
 
-[下载 ZIP](../assets/paperbank-writing-skill.zip) · [查看 SKILL.md](../skills/paperbank-writing/SKILL.md) · [写作铁律](#general-rules)
+[cs-paper-writing ZIP](../assets/cs-paper-writing-skill.zip) · [SKILL.md](../skills/cs-paper-writing/SKILL.md)：正文起草、章节模板、实验组织与语言精修。
 
-下载、解压，保留整个 paperbank-writing/ 文件夹，把它交给 Codex 读取；补上文件、任务和允许修改的范围。
+[绘图 ZIP](../assets/paperbank-figures-skill.zip) · [SKILL.md](../skills/paperbank-figures/SKILL.md)：解压后让 Codex 读取整个 paperbank-figures/ 文件夹，并提供稿件、原始数据、参考图及允许修改的文件。
+
+[rebuttal ZIP](../assets/rebuttal-skill.zip) · [SKILL.md](../skills/rebuttal/SKILL.md)：逐题回应、证据核对、revise loop 与 AC 总结。
+
+下载所需 ZIP，解压并保留完整文件夹，让 Codex 读取其中的 SKILL.md。填入材料、任务和允许修改的范围；需要写作和绘图时同时读取两个 skill。
 
 **中文使用提示词**
 
 ```text
-读取 paperbank-writing/SKILL.md 和 references/checklist.md，按当前任务选规则。
+读取 cs-paper-writing/SKILL.md 和 references/checklist.md，按当前任务选规则。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 任务：【起草／精修哪节／只读检查】；目标会议与限制：【】
 材料：【最新稿件、真实结果、参考原文】；允许修改：【文件与范围】
 
@@ -591,7 +608,8 @@ The Introduction compresses the argument of the paper. Make the problem, design,
 **English usage prompt**
 
 ```text
-Read paperbank-writing/SKILL.md and references/checklist.md and select rules for this task.
+Read cs-paper-writing/SKILL.md and references/checklist.md and select rules for this task.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Task: [draft / refine a specified section / read-only check]; venue and limits: [ ]
 Materials: [current manuscript, actual results, source passages]; editable files and scope: [ ]
 
@@ -605,7 +623,7 @@ Hard rules:
 Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
 ```
 
-依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-writing/references/prompts.md#writing)
+依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#writing)
 
 <a id="figures"></a>
 ## 2. 光速出美图
@@ -625,6 +643,7 @@ Language: use professional, concise, direct wording; omit jokes, metaphors, and 
 
 ```text
 读取 paperbank-figures/SKILL.md 和 references/rules.md。按以下材料画图。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 图型：【mainfig／framework／统计图／案例图】
 要突出的问题与贡献：【对应 Intro 的哪项困难，方法改了什么，依据在哪里】
 材料：【稿件、真实数据、参考图与出处、已有案例及使用位置】
@@ -649,6 +668,7 @@ Language: use professional, concise, direct wording; omit jokes, metaphors, and 
 
 ```text
 Read paperbank-figures/SKILL.md and references/rules.md. Draw from these materials.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Type: [main figure / framework / quantitative chart / case]
 Problem and contribution: [Introduction challenge, actual design change, evidence]
 Materials: [manuscript, original data, references and sources, cases and their existing locations]
@@ -680,8 +700,8 @@ Show where the existing pipeline fails and which step our method changes.
 
 画清旧流程在哪一步出问题，我们改了哪一步。
 
-![问题和解法放在同一张图](../assets/paper-tcod-fig-1.png)
-[原图与拆解](#visual-tcod-fig-1)
+![单栏首图：一条曲线提出问题](../assets/paper-lost-middle-fig-1.png)
+[原图与拆解](#visual-lost-middle-fig-1)
 
 - **绘图先于正文精修：**先完成可供合作者审核的框架图与实验图，再精修正文。图未能体现贡献时，先调整内容与布局，再修改配色。
 
@@ -881,14 +901,14 @@ Move the legend outside the plotted curves while preserving the data and axes.
 <a id="figure-types"></a>
 ### 2.3 按图的任务选模板
 
-- **摘要图：**问题在哪、为什么现有解法不够、我们动哪一步。通常最多 5 个环节，必要对照并排。
+- **摘要图：**方法型画问题、旧做法和本文改动；发现型展示一个关键观察。通常最多 5 个环节，保留必要对照。
 
 Show the problem, the existing limitation, and the changed step.
 
 展示问题、已有解法的缺口和我们改动的步骤。
 
-![问题和解法放在同一张图](../assets/paper-tcod-fig-1.png)
-[原图与拆解](#visual-tcod-fig-1)
+![单栏首图：一条曲线提出问题](../assets/paper-lost-middle-fig-1.png)
+[原图与拆解](#visual-lost-middle-fig-1)
 
 - **框架图：**输入是什么，经过哪几个模块，每步产物交给谁，输出是什么。旁边走一个可追踪例子。
 
@@ -1029,8 +1049,31 @@ With both gains defined as higher is better, the upper-right quadrant shows impr
 ### 2.4 图例库：原图与逐图拆解
 
 
-<details><summary>动机与框架 · 3 张图</summary>
+<details><summary>动机与框架 · 4 张图</summary>
 
+
+<a id="visual-lost-middle-fig-1"></a>
+**单栏首图：一条曲线提出问题**
+
+这张单栏图只问一件事：答案所在文档的位置，会不会影响问答准确率？横轴是答案文档在 20 篇输入文档中的位置，纵轴是 GPT-3.5-Turbo 的准确率。紫线是带文档问答，红虚线是同一模型不读文档时的准确率。中间位置更低，开头和结尾更高；读者先记住这个发现，再去正文看实验。
+
+![单栏首图：一条曲线提出问题](../assets/paper-lost-middle-fig-1.png)
+
+Nelson F. Liu et al., Lost in the Middle: How Language Models Use Long Contexts, TACL 12 (2024), Fig. 1, p. 158. CC BY 4.0. 从正式 PDF 提取图面；图形、坐标、文字和图例未改。
+
+This single-column figure asks whether answer-document position affects QA accuracy. The x-axis locates the answer document among 20 input documents; the y-axis shows GPT-3.5-Turbo accuracy. The purple curve uses documents, while the red dashed line is the same model’s closed-book baseline. The middle performs worse than the beginning and end in this setting.
+
+信息少：一个横轴变量、一条结果曲线、一条基准线。图例直接写模型与条件。
+
+发现明确：U 形曲线提出研究问题，无文档基准线说明中间位置的表现为什么值得关注。
+
+这是发现型 mainfig，用关键观察开题。方法型 mainfig 则用简短对照画清旧做法的问题和本文改动。
+
+结论限图中模型与 20 文档设置；纵轴未从零开始，不能把曲线高度解释成倍数。
+
+来源：[Liu et al. · Lost in the Middle (TACL 2024), Fig. 1, p. 158 / PDF p. 2](https://aclanthology.org/2024.tacl-1.9/)
+
+[图片许可](https://creativecommons.org/licenses/by/4.0/)
 
 <a id="visual-tcod-fig-1"></a>
 **问题和解法放在同一张图**
@@ -3986,6 +4029,8 @@ We freeze this choice before evaluating the test questions.
 <a id="rebuttal"></a>
 ## 4. Rebuttal
 
+
+[下载 rebuttal skill ZIP](../assets/rebuttal-skill.zip) · [SKILL.md](../skills/rebuttal/SKILL.md)：逐题回应、证据核对、revise loop 与 AC 总结。
 用明确证据回答审稿人的具体关切。
 
 首句回答原问题，再给证据、解释与位置；感谢简短，保持礼貌。
@@ -3996,6 +4041,7 @@ We freeze this choice before evaluating the test questions.
 
 教学模板；【】填真实材料。
 
+- 先查当轮 AI 与保密规定；确认材料可在所选工具中使用后，再提供稿件和 review。
 - 保留原问题与顺序，一句话有多问就拆开。区分机制解释与实施情况，分别回应。
 - 区分描述不清、缺对照和机制未证实；分别给案例、比较和针对性检验。
 - 从原意见判断阅读关注点，不凭 confidence 猜身份或保证提分；查当轮回复规则。
@@ -4103,7 +4149,7 @@ Section 【N】 specifies this interface; we clarify 【ambiguous phrase】 in �
 
 教学模板；【】填真实材料。
 
-- 给 Codex 论文、原始 review、证据和回复。
+- 确认材料可在所选工具中使用后，再给 Codex 论文、原始 review、证据和回复。
 - 逐题输出：原问题、回复位置、剩余缺口、改法、所需证据。
 - 先查漏答、证据和逻辑，再缩文字、调语气。改完重查同一张问题清单。
 - 每问有答、证据对应、逻辑通顺、篇幅合规就停；缺实验交给人决定。
@@ -4146,7 +4192,8 @@ The main concern was 【issue】. Our response provides 【evidence】, supporti
 **复制给 Codex：Rebuttal + revise loop**
 
 ```text
-读取 paperbank-writing/SKILL.md 的 Rebuttal 与 revise loop。
+读取 rebuttal/SKILL.md 和 references/rules.md。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 材料：【论文、完整 review、当前回复、已验证补充结果】
 会议当轮规则：【字数／字符限制、补实验／链接／修订稿／AI 使用规定】
 阶段：【初次／追问】；允许修改：【回复文件与范围】
@@ -4162,7 +4209,8 @@ The main concern was 【issue】. Our response provides 【evidence】, supporti
 **Rebuttal + revise loop · English**
 
 ```text
-Read Rebuttal and revise loop in paperbank-writing/SKILL.md.
+Read rebuttal/SKILL.md and references/rules.md.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Materials: [paper, complete reviews, current response, verified supplementary results]
 Current venue rules: [word / character limit; experiments, links, revised PDFs, and AI-use policies]
 Stage: [initial / follow-up]; editable response files and scope: [ ].
@@ -4175,7 +4223,7 @@ Stage: [initial / follow-up]; editable response files and scope: [ ].
 6. Answer new concerns only in follow-ups. An AC summary states key concerns, responses, evidence, and limits without asking for score increases or acceptance. Add a Chinese translation per English paragraph for my review; keep internal checks and evidence gaps outside the submitted text.
 ```
 
-依据：rebuttal · rebuttal-reviewer-simulator · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-writing/references/prompts.md#rebuttal)
+依据：rebuttal · rebuttal-reviewer-simulator（通用证据核查规则） · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/rebuttal/references/prompts.md#rebuttal)
 
 <a id="tools"></a>
 ## 5. 我推荐的 AI 工具
@@ -4514,7 +4562,7 @@ Example: replace a machine-specific path in documentation with data/example.json
 Deliver the diff, the types of content handled, unresolved items, and the checks actually performed. Do not claim an unperformed check passed. If real secrets are found, do not publish them; report their locations and the required treatment.
 ```
 
-依据：minimal-code-layout · 作者指定的翻译与去秘范围 · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-writing/references/prompts.md#code-release)
+依据：minimal-code-layout · 作者指定的翻译与去秘范围 · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/data/guide.json)
 
 ## 参考阅读
 

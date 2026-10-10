@@ -1,11 +1,18 @@
 ---
-name: paperbank-writing
-description: Draft and refine CS papers and rebuttals using section templates, evidence checks, and bilingual examples.
+name: cs-paper-writing
+description: Draft and refine empirical CS conference papers with section templates, evidence checks, and bilingual examples.
 ---
 
-# PaperBank 写作 skill
+# CS 论文写作 skill
 
 先形成初稿，再由作者审核逻辑并精修。全文说明研究问题、关键设计与验证依据，明确核心贡献及其价值。语言专业、简洁、直白，不添加调侃、比喻或空泛修饰。
+
+## 使用前
+
+- 核对目标会议、年份及 track 的 AI 规定。只在允许范围内起草、改写或绘图，按要求披露使用情况；作者核实内容并承担责任。不提供规避 AI 政策或检测的做法。
+- 确认材料使用权限和工具的数据处理方式。未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥；权限不清先问作者。
+- 不编造结果、引用、人工确认或匿名化记录，不隐去影响判断的负结果。教学例子明确标注，不能作为实测证据。
+- 本包只分发通用规则、教学例子、公开来源链接和许可，不附私人项目配置或论文源稿。公开署名、引用与许可证保留。
 
 ## 任务与范围
 
@@ -53,21 +60,9 @@ description: Draft and refine CS papers and rebuttals using section templates, e
 
 比较写清对象、协议、样本、分母和指标方向。分清记录与独立样本、百分比与百分点。观察、解释和机制分开；有限测试不推广所有场景，计划不能写成结果。
 
-## 图
+## 配合其他 skill
 
-先写图要回答的问题，再定布局。统计图用 Python 读真实数据；概念、框架、案例图可用 imagegen。每条箭头对应真实依赖，评价信息不能画成推理输入。
-
-按最终栏宽起稿，统一字体；图内字号为正文字号至小 2 pt。白底、低饱和、同类同色，再配形状、线型或纹理。通栏约 16:9、单栏约 4:3，按内容调整。
-
-统计图优先矢量 PDF；生成图可叠原生文字，但位图封装不等于全矢量。图注写比较、发现、单位和图例，解释分母与误差。尽量三行，必要定义保留。放回论文检查字号、裁切、引用顺序和可读性。
-
-## Rebuttal 与 revise loop
-
-读取完整 review：Summary 核对理解，Strengths 记录已认可的贡献，Weaknesses 与 Questions 提取关切。逐问引用原意见，首句直接回答，随后给证据、解释与位置。流程用真实案例展示。感谢简短，不猜对方动机。请求不适用时解释条件；合理批评应修改，存在分歧时检验争议前提并给依据。
-
-初稿完成后，按原 review 检查：原问题 → 回复位置 → 剩余缺口 → 最小改法 → 所需证据。已有实验能够回答时直接使用，不盲目重跑全部基线。先查遗漏、证据与逻辑，再压缩文字、调整语气。修改后重查同一问题清单；问题覆盖完整、证据对应、逻辑通顺且篇幅合规后停止。缺实验交给作者决定，模拟不预测评分变化或录用。
-
-第二轮只答新增问题。AC 总结写关键问题、回应、证据和限制，不请求提分或接收。补实验、链接、修订稿和 AI 使用按当轮政策。
+本包负责正文起草、章节逻辑与语言精修。详细图型与绘图模板使用独立的 `paperbank-figures`；审稿回复与 revise loop 使用独立的 `rebuttal`。
 
 ## 交付
 
@@ -77,4 +72,4 @@ description: Draft and refine CS papers and rebuttals using section templates, e
 
 ## 给 Codex 的提示词
 
-从 [prompts.md](references/prompts.md) 选择起草、精修、绘图、实验、Intro 或 rebuttal 提示词，填写【】。各提示词列出本任务的适用铁律与来源，和网页使用同一份内容。
+从 [prompts.md](references/prompts.md) 选择起草、精修、实验或 Intro 提示词，填写【】。各提示词列出本任务的适用铁律与来源，和网页使用同一份内容。

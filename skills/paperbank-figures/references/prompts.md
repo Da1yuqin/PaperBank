@@ -1,6 +1,6 @@
 # 给 Codex 的提示词
 
-填写【】后使用。以下采用本地技能中适用于实证型 CS 论文的通用规则；不套用某篇论文的固定宽度、色值、模型阵容或重复次数。Nature 系列使用独立体系。
+填写【】后使用。以下采用适用于实证型 CS 论文的通用规则；不套用某篇论文的固定宽度、色值、模型阵容或重复次数。Nature 系列使用独立体系。
 
 
 <a id="figures"></a>
@@ -14,6 +14,7 @@
 
 ```text
 读取 paperbank-figures/SKILL.md 和 references/rules.md。按以下材料画图。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 图型：【mainfig／framework／统计图／案例图】
 要突出的问题与贡献：【对应 Intro 的哪项困难，方法改了什么，依据在哪里】
 材料：【稿件、真实数据、参考图与出处、已有案例及使用位置】
@@ -38,6 +39,7 @@
 
 ```text
 Read paperbank-figures/SKILL.md and references/rules.md. Draw from these materials.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Type: [main figure / framework / quantitative chart / case]
 Problem and contribution: [Introduction challenge, actual design change, evidence]
 Materials: [manuscript, original data, references and sources, cases and their existing locations]

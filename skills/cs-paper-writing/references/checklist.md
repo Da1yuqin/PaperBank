@@ -1,8 +1,8 @@
-# PaperBank 写作检查参考
+# CS 论文写作检查参考
 
 按本次任务选规则。下面示例是假设情境，不是论文原文或实测；实际改稿先核对事实。
 
-网页：[写作铁律](https://da1yuqin.github.io/PaperBank/#general-rules) · [论文结构与逐句例子](https://da1yuqin.github.io/PaperBank/#paper-order) · [rebuttal](https://da1yuqin.github.io/PaperBank/#chapter-rebuttal)
+网页：[写作铁律](https://da1yuqin.github.io/PaperBank/#general-rules) · [论文结构与逐句例子](https://da1yuqin.github.io/PaperBank/#paper-order)
 
 ## 对象与贡献
 
@@ -371,33 +371,6 @@ Module A extracts text, while module B independently retrieves images. The fusio
 
 连接词须符合真实依赖关系，不能暗示未经证明的因果或步骤。
 
-## 动机图
-
-
-### 第 89 条：图表能独立读懂
-
-图中对象、指标、单位、误差和图例都要说明。
-
-适用边界：数据、信息边界和完成状态按实际记录说明。
-
-**看图就能知道比了什么**
-
-**教学示例：假设情境，非论文原文／实测记录**
-
-改后假定已有对应记录；实际改稿须先核对这些事实，不能从改前文字推断或补造。
-
-**逐句拆解**
-
-任务数和重复次数分开写；误差条是哪一种不确定性也写清。
-
-**教学改写 · English（非论文原文）**
-
-Accuracy on the same 100 held-out tasks. Bars show the mean across five independent runs; error bars show the standard deviation across runs. Higher is better. Blue denotes the baseline and green denotes the revised method.
-
-**教学改写 · 中文（非论文原文）**
-
-同一批 100 个留出任务上的准确率。柱高表示五次独立运行的均值；误差条表示运行间的标准差。指标越高越好。蓝色是基线，绿色是修改后的方法。
-
 ## 任务与真实流程
 
 
@@ -424,81 +397,6 @@ The model receives records available by 2020 and predicts the 2022 outcome. A se
 **教学改写 · 中文（非论文原文）**
 
 模型接收截至 2020 年已经知道的记录，预测 2022 年的结果。另一条评价流程用真实的 2022 年记录检验预测；真实结果不传给预测模型。
-
-## 框架图与案例读法
-
-
-### 第 91 条：验收最终 PDF
-
-最终 PDF 查字号、遮挡、裁切和读序；需要可选文字时实测。
-
-适用边界：字号、色板和版式以当前模板及读者需求为准，不要求固定尺寸或固定配色。
-
-**按最终尺寸验收，不要只看放大预览**
-
-**教学示例：假设情境，非论文原文／实测记录**
-
-改后假定已有对应记录；实际改稿须先核对这些事实，不能从改前文字推断或补造。
-
-**逐句拆解**
-
-缩图会连带缩字；把位图装进 PDF 也不会自动得到原生文字。
-
-**教学改写 · English（非论文原文）**
-
-A 160 mm source figure will be inserted at 80 mm, so its text will shrink by half. Re-export it for 80 mm and inspect the inserted page; extract the labels if the deliverable requires selectable text.
-
-**教学改写 · 中文（非论文原文）**
-
-源图宽 160 mm，插入论文时只有 80 mm，图中文字也会缩成一半。按 80 mm 重新导出，再看实际论文页面；交付要求文字可选择时，还要抽取标签验证。
-
-### 第 92 条：图形标记含义一致
-
-全文统一颜色、线型和名称；通过、失败、不适用标清。
-
-适用边界：字号、色板和版式以当前模板及读者需求为准，不要求固定尺寸或固定配色。
-
-**同一含义用同一标记，结论不要只靠颜色**
-
-**教学示例：假设情境，非论文原文／实测记录**
-
-改后假定已有对应记录；实际改稿须先核对这些事实，不能从改前文字推断或补造。
-
-**逐句拆解**
-
-蓝色只是这个示例的自定映射，其他论文可以选自己的色板，但要前后一致。
-
-**教学改写 · English（非论文原文）**
-
-Blue dashed boxes denote model inputs throughout the paper. An evaluated rule is labeled Pass, Fail, or N/A; a rule that has not been evaluated remains unchecked.
-
-**教学改写 · 中文（非论文原文）**
-
-全文都用蓝色虚线框表示模型输入。已经评价的规则写通过、失败或不适用；还没评价的规则保留空框。
-
-### 第 95 条：教学例子标明身份
-
-教学例子、模型实测和人工评价标清；无记录不画评分。
-
-适用边界：数据、信息边界和完成状态按实际记录说明。
-
-**明确区分作者示例与模型实测**
-
-**教学示例：假设情境，非论文原文／实测记录**
-
-改后假定已有对应记录；实际改稿须先核对这些事实，不能从改前文字推断或补造。
-
-**逐句拆解**
-
-图面附近标出例子身份；总体表现仍由有记录的测试来支持。
-
-**教学改写 · English（非论文原文）**
-
-Illustrative response written by the authors: the assistant requests the missing budget before recommending an option. This example explains the intended behavior; it is not a recorded model output or evidence of a pass rate.
-
-**教学改写 · 中文（非论文原文）**
-
-作者构造的示例回复：助手先询问缺失的预算，再给建议。这个例子解释预期行为，不是记录中的模型输出，也不能证明通过率。
 
 ## 问题与比较设计
 
@@ -688,33 +586,6 @@ Cross-lingual transfer has not been tested in this study. Current conclusions ar
 
 时态和完成状态本身就是事实，不能靠措辞提前完成研究。
 
-## 结果图与案例
-
-
-### 第 88 条：数据与统计几何一致
-
-点位、长度、面积和坐标对应真实数值。
-
-适用边界：数据、信息边界和完成状态按实际记录说明。
-
-**好看可以调，数据不能调**
-
-**教学示例：假设情境，非论文原文／实测记录**
-
-改后假定已有对应记录；实际改稿须先核对这些事实，不能从改前文字推断或补造。
-
-**逐句拆解**
-
-2 个百分点的差异不能被画成两倍；没有测量的点不能为了曲线顺滑补上。
-
-**教学改写 · English（非论文原文）**
-
-Methods A and B score 62% and 64%. Plot the recorded values with the actual axis scale; if the axis is truncated, make the break explicit. Leave an unmeasured third condition missing.
-
-**教学改写 · 中文（非论文原文）**
-
-方法 A、B 的得分是 62% 和 64%。按记录值和真实刻度画图；截断坐标轴就明确标出断轴。第三个条件没有测量，就保留缺失。
-
 ## 来源与开放条件
 
 
@@ -890,111 +761,6 @@ Requested change: replace the green fill with gray. Change that fill only, prese
 
 仅将绿色填充改为灰色，保留节点位置与箭头。其他文字错误单独指出，不扩大修改范围。
 
-## 读准问题，先给答案
-
-
-### 第 100 条：每个审稿关切有回应
-
-一条意见有几个问题就逐个答；不能仅以“已全部修改”替代逐项回应。
-
-适用边界：模拟审稿问题与回复只用于教学，不是真实审稿记录。补实验、修订和回复格式以当轮官方政策为准；没有完成的事不写成已完成。
-
-**审稿意见拆开，每点都有回应**
-
-**教学示例：假设情境，非论文原文**
-
-改后假定已有对应记录；实际改稿须先核对这些事实，不能从改前文字推断或补造。
-
-**改前 · 中文**
-
-意见包含缺基线、定义不清、速度未知；回复：感谢，均已修改。
-
-**Before · English**
-
-The comment raises missing baselines, an unclear definition, and unknown speed. Response: Thank you; everything is fixed.
-
-**改后 · 中文**
-
-基线比较见表 R1。定义补在第 3 节。速度尚未测试，现有稿件不作加速主张。
-
-**After · English**
-
-Baseline comparisons are in Table R1. The definition is clarified in Section 3. Runtime has not been measured, and the manuscript makes no speedup claim.
-
-**逐句拆解**
-
-每个关切均须回应，并说明证据或无法完成的原因。
-
-## 澄清与分歧
-
-
-### 第 102 条：回复讨论事实
-
-给理由和证据；不写“显然”“你错了”，也不乱认错。
-
-适用边界：模拟审稿问题与回复只用于教学，不是真实审稿记录。补实验、修订和回复格式以当轮官方政策为准；没有完成的事不写成已完成。
-
-**讨论事实，不评价审稿人**
-
-**教学示例：假设情境，非论文原文**
-
-改后假定已有对应记录；实际改稿须先核对这些事实，不能从改前文字推断或补造。
-
-**改前 · 中文**
-
-审稿人显然没看懂，我们早就做了。
-
-**Before · English**
-
-The reviewer clearly misunderstood; we already did this.
-
-**改后 · 中文**
-
-感谢指出这处说明不清。该比较已列在表 3；我们已在第 4.2 节补充对照条件，方便定位。
-
-**After · English**
-
-Thank you for noting the unclear description. The comparison is in Table 3. We clarified the control conditions in Section 4.2 to make the evidence easier to locate.
-
-**逐句拆解**
-
-回复讨论条件、结果与表述，不评价审稿人的动机或能力。
-
-## 状态与提交
-
-
-### 第 101 条：回复能定位结果
-
-给图表、章节或结果位置；完成、计划与未解决分开，未完成实验不配虚构结果。
-
-适用边界：模拟审稿问题与回复只用于教学，不是真实审稿记录。补实验、修订和回复格式以当轮官方政策为准；没有完成的事不写成已完成。
-
-**回复给位置，修改给状态**
-
-**教学示例：假设情境，非论文原文**
-
-改后假定已有对应记录；实际改稿须先核对这些事实，不能从改前文字推断或补造。
-
-**改前 · 中文**
-
-我们补了很多实验，效果很好。
-
-**Before · English**
-
-We added many experiments, and the results are excellent.
-
-**改后 · 中文**
-
-我们新增固定预算对比，结果见表 R2；跨领域实验尚未完成，本次回复不报告该项结果。
-
-**After · English**
-
-We added a comparison under a fixed budget; results are in Table R2. The cross-domain experiment is incomplete, and no result from that experiment is reported here.
-
-**逐句拆解**
-
-审稿人应能直接定位回应的依据，并区分证据与承诺。
-
 <a id="quick-start"></a>
 ## 1. 一天拉完草稿：Codex 快速成型
 
@@ -1041,7 +807,8 @@ Fill in the prompt before asking Codex to draft. A venue name alone does not sup
 **复制这个提示词，填空就能用**
 
 ```text
-读取 paperbank-writing/SKILL.md、references/checklist.md；绘图同时读 paperbank-figures/SKILL.md。先形成初稿，再由我审中文逻辑。本提示词用于实证型 CS 论文，Nature 系列另用独立体系。
+读取 cs-paper-writing/SKILL.md、references/checklist.md；绘图同时读 paperbank-figures/SKILL.md。先形成初稿，再由我审中文逻辑。本提示词用于实证型 CS 论文，Nature 系列另用独立体系。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 会议、当年官方模板、页数与附录规则：【】
 问题与依据：【已有做法能做什么，在哪个条件下不足】
 一句话贡献：【新对象／设计、对应缺口、与最近工作的区别】
@@ -1065,7 +832,8 @@ Fill in the prompt before asking Codex to draft. A venue name alone does not sup
 **English prompt**
 
 ```text
-Read paperbank-writing/SKILL.md and references/checklist.md; also read paperbank-figures/SKILL.md for figures. Draft first and let me review the reasoning in Chinese. This prompt targets empirical CS papers; use the independent Nature system for Nature-family journals.
+Read cs-paper-writing/SKILL.md and references/checklist.md; also read paperbank-figures/SKILL.md for figures. Draft first and let me review the reasoning in Chinese. This prompt targets empirical CS papers; use the independent Nature system for Nature-family journals.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Venue, current official template, page limit, and appendix rules: [ ]
 Problem and evidence: [existing capabilities and the condition where they fall short]
 Contribution: [new object / design, matched gap, difference from the closest work]
@@ -1086,7 +854,7 @@ Order and hard rules:
 Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
 ```
 
-依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-writing/references/prompts.md#draft)
+依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#draft)
 
 （Git 同步需要项目 owner 有会员或相应权限。没有就下载源文件 ZIP，在本地编译 LaTeX，或直接 skip 同步这步。可以及时求助有会员的老师或高产师兄师姐，请他们帮忙当 owner。）
 
@@ -1094,173 +862,9 @@ Language: use professional, concise, direct wording; omit jokes, metaphors, and 
 
 ### 1.2 先定图：mainfig、framework 和结果图
 
-[先下载绘图 skill ZIP](../assets/paperbank-figures-skill.zip) · [查看 SKILL.md](../skills/paperbank-figures/SKILL.md) · [绘图铁律](#figure-rules)
-
 先完成框架图与主要实验图，供合作者审核。确认研究价值、设计差异和实验发现后，再精修正文。
 
-#### 1.2.a mainfig：读者先看懂为什么做
-
-- **信息：**用一个具体问题串起现有做法、失败点和本文改动。保留读懂案例所需的输入与输出，通常不超过 5 个环节。
-
-中：任务要求同时满足 A、B；旧计划遗漏 B；本文在生成前核查 B。
-
-EN: The task requires both A and B. The existing plan omits B; our design checks B before generation.
-
-- **取舍：**突出最关键的差别，少放模块、logo 和工程细节。示意趋势标明示意，实测结果给出对应来源。
-
-中：只画“遗漏约束”和“核查后保留约束”的对照，首图不列全部训练参数。
-
-EN: Contrast an omitted constraint with its retention after checking; leave training parameters out of the main figure.
-
-左侧先提出多轮误差问题，中间放大回复细节，右侧对齐训练范围。读序是“哪里出问题 → 改哪一段”，先说明问题与对应改动，再介绍模块。左侧曲线是示意；细节数值与颜色含义要结合原图注读。这里学习信息组织，不照搬原图的字号和配色。
-
-Read from the multi-turn error problem to response details and the compared training ranges. The left curve is schematic; consult the original caption for the numeric blocks and color meanings. This example illustrates information order, not a universal font or palette.
-
-Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。 [原论文](https://arxiv.org/abs/2604.24005v3) · [许可](https://creativecommons.org/licenses/by/4.0/)
-
-#### 1.2.b framework：读者看懂怎么做
-
-- **真实流程：**画清每步的输入、操作、输出，箭头连到实际接收者。并行就并行，反馈就反馈；模块名与正文一致。
-
-中：任务与证据进入核查器；核查结果进入规划器；生成的计划再交给评价器。
-
-EN: The task and evidence enter the checker. The checked constraints enter the planner, and the generated plan goes to the evaluator.
-
-- **信息边界：**输入、输出、评价规则分组并区分边框。仅供评价的 rubric 不画进被测模型。用必要案例解释关键操作；同一案例只在论文里完整展示一次。
-
-中：蓝色虚线框是模型可见输入，灰绿实线框是输出；评价器另收冻结的评分规则。
-
-EN: Blue dashed boxes denote model-visible inputs and green-gray solid boxes denote outputs. The evaluator separately receives the frozen scoring criteria.
-
-这张图先分交互生成和策略优化两块：左侧用对话走流程，右侧分结果效用、过程信用和成本信号。大框讲职责，箭头讲数据去向，编号讲步骤。自己的图先写清每个框收到什么、交出什么，再加图标。
-
-The figure separates interaction generation from policy optimization. A dialogue traces the left side; outcome utility, process credit, and cost signals organize the right. Groups explain responsibilities, arrows show information flow, and numbers order the steps.
-
-Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。 [原论文](https://arxiv.org/abs/2602.22697v1) · [许可](https://creativecommons.org/licenses/by/4.0/)
-
-#### 1.2.c 绘图铁律
-
-- **配色：**白底，面板接近白色，文字和刻度保持深色。同对象全篇同色，再配点形、线型或纹理；低饱和配色仍须保持文字、标记与背景的清晰对比。
-
-中：基线用灰色圆点，本文方法用灰蓝菱形；颜色变淡，文字不跟着变淡。
-
-EN: Use gray circles for the baseline and muted blue diamonds for the proposed method. Keep the text dark on pale backgrounds.
-
-- **字号与字体：**按最终栏宽起稿，图内所有字同字号、同字体家族；范围为正文减 2 pt 至正文，标题、轴、图例、注释都算。以论文 PDF 的实测字号为准，放不下先重排，不通过缩小字号解决空间不足。
-
-中：正文实际为 10 pt，图内字用 8–10 pt；在论文整页大小下读，不只看放大的 PNG。
-
-EN: With 10 pt body text, use 8–10 pt figure text and inspect it at its final size in the paper, not only in a magnified PNG.
-
-- **布局：**一个主读序，同层成组并命名；并行先汇合，反馈另走清楚的路径。通栏约 16:9、单栏约 4:3 布局，附录可纵排。连图注一起查占高，不进行非等比缩放、不改论文模板。
-
-中：两个并行输入先汇合再进入模型；长解释移到图注，关键输入保留在图里。
-
-EN: Merge parallel inputs before the model. Move long explanations to the caption while retaining the essential inputs in the figure.
-
-- **结果图：**从真实数据绘制。轴写变量和单位，图例解释颜色与线型，误差条写 SD、SE 或 CI 及计算单位；同类图共用尺度。
-
-中：纵轴写成功率（%）；误差条若是跨运行标准差，不能标作 95% 置信区间。
-
-EN: Label the y-axis as success rate (%). If error bars show standard deviations across runs, do not label them as 95% confidence intervals.
-
-- **图注：**短句说明图在回答什么、怎么读、结果支持什么。简称给全称；必要的分母、范围、误差含义保留。方法图讲机制，结果图才讲实测发现。
-
-中：该图比较同一测试集上的成功率与推理成本；点表示方法配置。
-
-EN: The figure compares success rate and inference cost on the same test set; each point represents a method configuration.
-
-- **箭头与信息边界：**每条箭头对应真实产物和接收者，避免穿过文字、交叉或错误连接。输入、输出、评价规则用三种边框；只供评价的 rubric 不接到模型。
-
-中：核查结果交给规划器；评分规则只交给评价器。
-
-EN: Checked constraints go to the planner; scoring criteria go only to the evaluator.
-
-- **标签与图标：**缩写、符号、颜色、边框和图标就近解释。图标旁标明对象名，明确角色与模块。
-
-中：机器人标为 Planner；虚线箭头注明 Feedback。
-
-EN: Label the robot as Planner and dashed arrows as Feedback.
-
-- **案例：**保留必要背景、关键请求、证据和输出，注明实测或作者示例。同一来源的案例只完整展示一次，改名、翻译或裁剪也算同一个。
-
-中：图 1 展示案例，第 4 节回引图 1。
-
-EN: Present the case in Figure 1 and refer back to it in Section 4.
-
-- **PDF 导出：**统计图导出矢量 PDF；生成底图的标签另排原生、可见、可选文字。将截图封装为 PDF 仍是位图；隐藏 OCR 层不能替代可见的原生文字。
-
-中：实际选中图内标签，核对字体和缩放后的字号。
-
-EN: Select the labels in the manuscript PDF and verify their font and final size.
-
-- **改图范围：**只改颜色就保留文字、布局、照片、公式、字号和连线。保留原始数据、实验和合作者的图。
-
-中：只换底色，保留坐标与箭头端点。
-
-EN: Change only the fills; retain all coordinates and arrow endpoints.
-
-- **最终验收：**编译后在正常阅读大小查字号、碰撞、裁切、图注和首次引用顺序。CS 默认 [!t]；源码顺序对了，还要看实际 PDF。
-
-中：图 1 先引用，就检查它是否真的先出现在 PDF。
-
-EN: If Figure 1 is cited first, verify that it actually appears first in the PDF.
-
-**给 Codex 的绘图说明单**
-
-```text
-读取 paperbank-figures/SKILL.md 和 references/rules.md。按以下材料画图。
-图型：【mainfig／framework／统计图／案例图】
-要突出的问题与贡献：【对应 Intro 的哪项困难，方法改了什么，依据在哪里】
-材料：【稿件、真实数据、参考图与出处、已有案例及使用位置】
-真实结构：【输入、操作、输出、接收者；并行、汇合、反馈；训练／推理／评价】
-允许修改：【文件与范围】；最终插入宽度：【mm】
-正文 PDF 实测字体与字号：【字体，pt】；本篇已确认色板：【】
-
-铁律：
-1. mainfig 讲问题、已有缺口与关键改动，默认不超过 5 个环节；framework 先让人看懂设计为什么好，再画完整输入、操作与产物。两图分别承担不同叙述任务。
-2. 每条箭头对应真实依赖，不穿文字。保留并行与反馈；训练、推理、评价分开。输入、输出、评价规则用三种边框并给图例；仅供评价的信息不能画成模型输入。
-3. 按最终宽度起稿。所有标题、坐标、刻度、图例、数字、注释用同一字号，正文减 2 pt ≤ 图字 ≤ 正文，字体家族匹配。放不下就重排或拆图，不缩小规定字号、不进行非等比缩放、不修改论文模板。
-4. 白底、近白面板、深色文字、低饱和配色。同一对象全篇同色，用形状或线型辅助区分；不加渐变、阴影和装饰光效。通栏先参考 16:9，单栏参考 4:3，内容与可读性优先。
-5. 模块名与正文一致。缩写、变量、单位、图标、颜色和线型都能解释；图标旁写对象名。标签用自然语言，不用符号拼句。
-6. 同一案例全文只呈现一次，翻译、裁剪或改名仍算同一个。先按来源核对使用位置，其他位置交叉引用。对话一轮一框；作者示例与实测回复分清，没有评分不画勾。
-7. 统计图用 Python 等专业工具读取所附数据，保留数值、坐标几何、分母、单位与 SD／SE／CI 定义；同类比较统一尺度。不为美观补缺测、改数据或平滑曲线，不重跑实验；KDE 等估计图说明样本量、方法和带宽。概念图按当前环境使用 imagegen，生成内容须依据已确认流程，不生成虚构结果。
-8. Caption 说明读法、比较、必要口径与实际发现，简称在本条 Caption 写全称。方法图说明机制，不编实验结论。尽量三行，必要定义与事实边界优先。
-9. PDF 文字可见、可选，字体嵌入；不叠两套字形或隐藏 OCR。统计图优先矢量 PDF，含位图的 PDF 不称全矢量。CS 图表默认 [!t]，实际位置跟随正文首次引用，保留附录归属。
-10. 先给问题、布局和缺口，再绘制。插回论文编译，看最终页面的字号、图例、裁切、碰撞和引用顺序。交付源文件、PDF、预览及实际检查结果。只改色时保留原布局、文字、连线与图片；保留他人修改，不扩大范围。
-```
-
-**English prompt**
-
-```text
-Read paperbank-figures/SKILL.md and references/rules.md. Draw from these materials.
-Type: [main figure / framework / quantitative chart / case]
-Problem and contribution: [Introduction challenge, actual design change, evidence]
-Materials: [manuscript, original data, references and sources, cases and their existing locations]
-Actual structure: [inputs, operations, outputs, recipients; parallel paths, merges, feedback; training / inference / evaluation]
-Editable files and scope: [ ]; final insertion width: [mm]
-Font family and body size measured in the manuscript PDF: [family, pt]; approved palette: [ ]
-
-Hard rules:
-1. The main figure shows the problem, existing gap, and key change, with at most five stages by default. The framework explains why the design addresses the challenge before showing inputs, operations, and products. Give the two figures distinct jobs.
-2. Every arrow represents an actual dependency and avoids text. Preserve parallel paths and feedback; separate training, inference, and evaluation. Use three explained border encodings for inputs, outputs, and evaluation criteria. Evaluation-only information must not appear as model input.
-3. Design at the final width. Use one size for titles, axes, ticks, legends, numbers, and annotations: body size minus 2 pt ≤ figure text ≤ body size, with a matching font family. Rearrange or split crowded content; do not shrink text, distort geometry, or change the paper template.
-4. Use a white canvas, near-white panels, dark text, and muted colors. Keep each object's color consistent throughout the paper; add shapes or line styles. Avoid gradients, shadows, and decorative glow. Start near 16:9 for full-width figures and 4:3 for single-column figures; prioritize content and readability.
-5. Match module names to the body. Explain abbreviations, variables, units, icons, colors, and line styles; label icons with object names. Use natural-language labels rather than symbol-packed prose.
-6. Present each source case only once across the paper. Translations, crops, and renamed versions still count as the same case. Check existing locations by source and cross-reference elsewhere. Use one frame per dialogue turn. Distinguish author examples from measured outputs; do not show unrecorded check marks.
-7. Use Python or equivalent professional plotting tools for supplied quantitative data. Preserve values, coordinate geometry, denominators, units, and SD / SE / CI definitions; use common scales for comparable plots. Do not fill missing measurements, alter data, or smooth curves for appearance, and do not rerun experiments. For KDE and other estimated plots, specify sample counts, methods, and bandwidth where applicable. Use imagegen for conceptual figures in the current environment; do not let a generator invent dependencies or results.
-8. Captions explain reading, comparisons, necessary scope, and actual findings. Expand abbreviations in each caption. Method figures explain mechanisms without fabricated experimental conclusions. Aim for three final lines; necessary definitions and factual limits take priority.
-9. Use visible, selectable PDF text and embedded fonts; avoid duplicate lettering and hidden OCR. Prefer vector PDF for statistical plots; a PDF containing raster images is not fully vector. Use [!t] for CS figures and tables by default. Verify actual order against first body citations and retain appendix ownership.
-10. Propose the question, layout, and evidence gaps before drawing. Insert the figure into the paper, compile, and inspect final-size text, legends, crops, collisions, and citation order. Deliver sources, PDF, preview, and completed checks. A color-only edit preserves layout, text, edges, and images. Preserve concurrent edits and the authorized scope.
-```
-
-依据：paper-visual-standards · academic-plotting · clean-flow-figures · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-figures/references/prompts.md#figures)
-
-教学例：mainfig 用一个约束冲突说明动机；framework 用另一个案例走完证据核查与计划生成；结果图比较同一批任务的成功率和成本。
-
-Teaching example: The main figure motivates the work with a constraint conflict. The framework traces evidence checking and plan generation on a different case. Result plots compare success and cost on the same tasks.
-
-Review the figures with coauthors before polishing the body. They should explain the motivation, the method, and the findings. Styling cannot repair an unclear workflow.
+绘图规则与模板另见 [绘图 skill](https://github.com/Da1yuqin/PaperBank/tree/main/skills/paperbank-figures)。
 
 ### 1.3 整理章节、实验和表格
 
@@ -1342,7 +946,8 @@ EN: The gains after checking are concentrated in conflicting conditions. Cite th
 **给 Codex 的实验整理提示词**
 
 ```text
-读取 paperbank-writing/SKILL.md 的 Experiments 与图表规则。
+读取 cs-paper-writing/SKILL.md 的 Experiments 与图表规则。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 材料：【Intro 主张、真实结果文件、数据划分、基线配置、预算、重复记录】
 允许修改：【实验正文、表格及相关文件】；不得改动：【原始结果与实验协议】
 
@@ -1357,7 +962,8 @@ EN: The gains after checking are concentrated in conflicting conditions. Cite th
 **English prompt**
 
 ```text
-Read the Experiments and figure/table rules in paperbank-writing/SKILL.md.
+Read the Experiments and figure/table rules in cs-paper-writing/SKILL.md.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Materials: [Introduction claims, actual result files, data splits, baseline configurations, budgets, repeat records]
 Editable files: [experiment prose, tables, related files]; preserve: [original results and protocols]
 
@@ -1369,7 +975,7 @@ Editable files: [experiment prose, tables, related files]; preserve: [original r
 6. Show Chinese reasoning for approval before English. Use supplied records only; do not fabricate results, rerun baselines, or change aggregation. Compile and inspect pages, numbers, markings, fonts, and overflow; report evidence gaps and completed checks.
 ```
 
-依据：cs-paper-writing · paper-writing-clarity · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-writing/references/prompts.md#experiments)
+依据：cs-paper-writing · paper-writing-clarity · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#experiments)
 
 #### 1.3.c 表格：先让人看清比较
 
@@ -1477,7 +1083,8 @@ EN: We design a pre-planning evidence check that identifies unsupported constrai
 **Intro 中文提纲提示词**
 
 ```text
-读取 paperbank-writing/SKILL.md 的 Introduction 规则与模板。
+读取 cs-paper-writing/SKILL.md 的 Introduction 规则与模板。
+使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 材料：【问题依据、最近工作、真实设计、已验证结果与范围】
 任务：先写中文提纲；允许修改：【文件与范围】。
 
@@ -1493,7 +1100,8 @@ EN: We design a pre-planning evidence check that identifies unsupported constrai
 **English prompt**
 
 ```text
-Read the Introduction rules and templates in paperbank-writing/SKILL.md.
+Read the Introduction rules and templates in cs-paper-writing/SKILL.md.
+Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Materials: [problem evidence, closest work, actual designs, verified findings and scope]
 Task: write a Chinese outline first; editable files and scope: [ ].
 
@@ -1506,7 +1114,7 @@ Task: write a Chinese outline first; editable files and scope: [ ].
 7. Check that each sentence supplies the next sentence's object or premise and that problem, mechanism, and experiment names agree. Define necessary terms and replace it / they with concrete objects. Adapt paragraph count to the argument. Let me review Chinese before English; update the Abstract only when research facts materially change. Preserve original results, citations, and concurrent edits.
 ```
 
-依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-writing/references/prompts.md#intro)
+依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#intro)
 
 #### 1.4.b 人工审核，再填全文
 
@@ -2025,12 +1633,6 @@ We separate evidence selection from answer generation because the two stages use
 提供可定位、可复核的设置与补充材料。
 
 详细设置、补充实验与完整案例分类组织，并从正文引用具体位置。
-
-### Rebuttal
-
-用明确证据回答审稿人的具体关切。
-
-首句回答原问题，再给证据、解释与位置；感谢简短，保持礼貌。
 
 ## 各章完整句式模板
 
@@ -2859,393 +2461,6 @@ This section tests [main-text claim] while controlling [alternative explanation]
 本节在控制[替代解释]的条件下检验[正文主张]。
 
 **第 2 句：**附录开头重建本节作用，读者不必回翻数页猜。
-
-#### 4.1 拆审稿意见
-
-读取完整 review：Summary 核对理解，Strengths 记录认可点，Weaknesses 与 Questions 提取待回应关切。
-
-教学模板；【】填真实材料。
-
-- 保留原问题与顺序，一句话有多问就拆开。区分机制解释与实施情况，分别回应。
-- 区分描述不清、缺对照和机制未证实；分别给案例、比较和针对性检验。
-- 从原意见判断阅读关注点，不凭 confidence 猜身份或保证提分；查当轮回复规则。
-
-The reviewer asks whether the gain comes from retrieval quality or answer generation.
-
-审稿人问的是：收益来自检索质量，还是答案生成。
-
-**第 1 句：**先说清真正的问题；这里要区分两种解释。
-
-We compare the two generators using the same retrieved passages.
-
-我们使用相同的检索段落比较两个生成器。
-
-**第 2 句：**对照须对应原问题：固定检索，改变生成器。
-
-#### 4.2 逐题回复
-
-首句直接回答问题，再给证据、解释与位置；流程问题用明确来源的案例展示。
-
-教学模板；【】填真实材料。
-
-- 标题沿用原问题；首句给结论或具体值。
-- 给设置、对照、绝对值和指标方向；数据适合表格就用表格。
-- 说明证据如何回答问题，附表号、节号或行号。
-- 已有实验能回答就整理出来；缺关键证据时做能隔离争议的最小对照，不盲目把全部基线重跑。
-- 感谢具体、简短。说明已经补出的内容，不用一句“我们将补充”代替答案。
-- 一个段落回一个小点。表格写结果与必要设置差异，分析接回贡献；没有标准条件支持时不能把落后全归咎于不公平。
-
-The gain persists when retrieval is held fixed.
-
-固定检索后，收益仍然存在。
-
-**第 1 句：**首句直接回答；只有相应对照支持时才能用。
-
-With identical passages and decoding settings, 【method】 scores 【A】 versus 【B】 for 【baseline】 on 【metric】 (higher is better; Table 【R1】).
-
-使用相同段落和解码设置时，【方法】在【指标】上为【A】，而【基线】为【B】（越高越好；表【R1】）。
-
-**第 2 句：**给协议、对照、绝对值和位置，不要只报“提升显著”。
-
-This comparison isolates the generator change under the tested retrieval setting.
-
-这一比较在所测试的检索设置下隔离了生成器改动。
-
-**第 3 句：**收束到已检验的范围，不扩大到所有场景。
-
-#### 4.3 区分两种解释
-
-准确复述审稿人的推理，用针对性对照检验争议前提，并说明证据支持的结论。
-
-教学模板；【】填真实材料。
-
-- 两种解释各预测什么？用什么实验分开？
-- 无法区分就缩小机制主张；设计动机不能代替结果。
-
-A plausible alternative is that the improvement comes from longer outputs.
-
-一种合理的替代解释是：收益来自更长的输出。
-
-**第 1 句：**准确点出竞争解释，不评价审稿人的水平。
-
-We therefore match the output-token budget and compare 【A】 with 【B】 under the same evaluation protocol.
-
-因此，我们匹配输出 token 预算，并在相同评测协议下比较【A】和【B】。
-
-**第 2 句：**控制对方指出的混淆因素。
-
-The difference is 【result】; this supports 【bounded conclusion】 but does not establish 【untested mechanism】.
-
-差异为【结果】；它支持【限定结论】，但尚不能确立【未经检验的机制】。
-
-**第 3 句：**结果支持到哪里，就写到哪里。
-
-#### 4.4 澄清：定义、流程、例子
-
-说明定义、真实输入与各步产物，定位争议环节；公式数量不能替代解释。
-
-教学模板；【】填真实材料。
-
-- 术语不清给定义，流程不清给案例，效果不清给对照。
-- 确有错误就改；不同意就给依据。不以“你误读了”替代澄清与证据。
-
-Here, 【term】 denotes 【concrete definition】.
-
-这里，【术语】指【具体定义】。
-
-**第 1 句：**定义先落到对象，不绕回抽象名词。
-
-For input 【x】, the module performs 【operation】 and returns 【y】 to 【next module】.
-
-输入【x】后，该模块执行【操作】，将【y】交给【下一模块】。
-
-**第 2 句：**一条样例走完整条路径。
-
-Section 【N】 specifies this interface; we clarify 【ambiguous phrase】 in 【permitted revision location】.
-
-第【N】节说明了这一接口；我们在【允许的修订位置】澄清【歧义表述】。
-
-**第 3 句：**位置要真实存在；会议不允许改稿时，只在回复中澄清。
-
-#### 4.5 Revise loop
-
-按原问题逐轮检查覆盖、证据与逻辑，仅修改未通过的回复，再压缩文字并调整语气。
-
-教学模板；【】填真实材料。
-
-- 给 Codex 论文、原始 review、证据和回复。
-- 逐题输出：原问题、回复位置、剩余缺口、改法、所需证据。
-- 先查漏答、证据和逻辑，再缩文字、调语气。改完重查同一张问题清单。
-- 每问有答、证据对应、逻辑通顺、篇幅合规就停；缺实验交给人决定。
-- 模拟用于查漏洞，不预测评分变化或录用。
-
-Concern: 【verbatim concern】. Response location: 【paragraph/table】. Remaining gap: 【specific gap】.
-
-原问题：【审稿原话】。回复位置：【段落/表】。剩余缺口：【具体缺口】。
-
-**第 1 句：**每条批评必须定位，不能仅给“还不够有说服力”等笼统评价。
-
-Minimal fix: 【edit】. Required evidence: 【existing result or experiment needed】.
-
-最小修改：【改法】。所需证据：【已有结果或需要的实验】。
-
-**第 2 句：**把改文字和补证据分开，便于作者判断。
-
-#### 4.6 第二轮与 AC 总结
-
-先逐题回应，再向 AC 概括关键问题、证据与剩余分歧，准确引用已确认的评价。
-
-教学模板；【】填真实材料。
-
-- 追问接回原问题和证据，不重贴整份回复。
-- 写清剩余限制，不猜未回复审稿人的态度。
-- 不请求提分或接收，把判断留给审稿方。
-
-Regarding the follow-up on 【issue】, 【direct answer】; the supporting comparison is in 【location】.
-
-针对【问题】的追问，【直接答案】；支持这一答案的比较见【位置】。
-
-**第 1 句：**只写新增信息。
-
-The main concern was 【issue】. Our response provides 【evidence】, supporting 【bounded conclusion】.
-
-主要关切是【问题】。回复提供了【证据】，支持【限定结论】。
-
-**第 2 句：**明确说明问题、回复及其依据。
-
-## 绘图规则与图型
-
-先确定图的主要任务与对应贡献，再安排内容和布局。复杂图先删去重复信息，保留必要输入、操作与输出。
-
-- **每图明确一个主要任务：**mainfig 展示研究动机与观察，framework 说明设计如何对应问题，结果图提供验证证据。每图明确一个主要任务。
-
-Show where the existing pipeline fails and which step our method changes.
-
-画清旧流程在哪一步出问题，我们改了哪一步。
-
-- **绘图先于正文精修：**先完成可供合作者审核的框架图与实验图，再精修正文。图未能体现贡献时，先调整内容与布局，再修改配色。
-
-Panel (a) shows the observed gap; panel (b) tests the proposed repair.
-
-(a) 展示实际缺口；(b) 检验我们的修补。
-
-- **统计图使用真实数据：**统计图用 Python 从真实数据绘制；imagegen 用于动机、框架和案例图。缺数据就停，不补点、不编误差、不为平滑改曲线。
-
-Draw the recorded success rates with Python. Generate only the workflow illustration with imagegen.
-
-成功率用 Python 按记录画；imagegen 只生成流程示意。
-
-- **按最终尺寸检查字号：**按最终栏宽排字，字体与正文一致；所有图内字同一字号，介于正文与正文减 2 pt 之间，标题也不能更大。放不下先重排，不缩小规定字号。
-
-Use the paper’s column width and body font; remove repeated labels rather than shrinking text.
-
-用论文栏宽和正文字体；删重复标签，不缩小规定字号。
-
-- **箭头表示真实依赖：**同层成组并命名；先后、并行、汇合、反馈按真实依赖画。每条箭头说清传什么，起止明确，避免穿过文字与无必要的迂回。
-
-Retrieved passages enter the generator; the evaluator receives the generated answer.
-
-检索段落送给生成器；生成的回答交给评价器。
-
-- **区分输入与评价信息：**输入、输出、评价规则用三种边框区分，并给图例。只供评价的 rubric 不连到被测模型；不同模型收到不同材料，也要标清。
-
-Dashed boxes contain model inputs; solid boxes contain responses; dotted boxes contain evaluator-only criteria.
-
-虚线框是模型输入，实线框是回复，点线框是只供评价的判据。
-
-- **低饱和配色与清晰对比：**常规模块用中性灰，关键改动用统一强调色。低饱和配色须保持清晰对比。
-
-Blue circles denote the baseline; orange triangles denote our method in every panel.
-
-每个面板都用蓝圆点表示基线，橙三角表示我们的方法。
-
-- **对话按轮次与语义分段：**一轮一框，注明角色；同一轮长回复按语义分段，不伪装成多轮。高亮只标关键约束、证据或错误，颜色含义要能读懂。
-
-The left column contains evidence; the right column shows the model response and its evaluation.
-
-左栏放证据；右栏放模型回复和评价。
-
-- **同一案例仅完整呈现一次：**同一来源的案例在全文只完整呈现一次，其他位置交叉引用。改名、翻译、裁剪也算同一个；必要对照集中展示，单个案例不能证明总体效果。
-
-Figure 1 presents the case; Section 4 refers back to Figure 1 without repeating the dialogue.
-
-案例放图 1；第 4 节回引图 1，不再抄一遍对话。
-
-- **同类子图使用一致尺度：**围绕一个问题排现象、诊断、对照和稳健性；同条件同顺序、同配色，同类轴和色标保持可比。
-
-The first panel identifies the gap, the second locates it, and the third tests whether it persists.
-
-第一图找差距，第二图找发生位置，第三图检验差距是否仍在。
-
-- **准确呈现坐标与差异：**查单位、分母、方向、坐标起点和误差类型；截断坐标要明确标出。相对增益同时给绝对值，柱长和数值必须对应。
-
-Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.
-
-准确率从 60% 到 66%：增加 6 个百分点，相对提高 10%。
-
-- **Caption 说明读法与发现：**图注先说读法和发现，再点出与贡献的关系；图中的简称在 Caption 给全称。结论须有证据支持；“效果显著”须有对应统计检验。
-
-Error bars show 95% question-level bootstrap intervals; the horizontal line marks zero gain.
-
-误差条表示按题目重采样的 95% 区间；水平线表示零增益。
-
-- **编译后检查最终页面：**放回论文检查实际字号、字体嵌入、可选文字、裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后仍正确。
-
-Place the figure after its first mention and check all labels at normal reading size.
-
-按首次引用顺序排图，以正常阅读大小检查全部文字。
-
-- **明确模块输入与输出：**每个关键模块写清收到什么、做什么、交出什么，以及交给谁。模块名与 Method 一致，所有缩写就近解释。
-
-The checker receives evidence and returns supported constraints to the planner.
-
-核查器接收证据，把已支持的约束交给规划器。
-
-- **解释图中所有标记：**图标旁写对象名；新缩写、符号、边框、线型和数字就近解释。读者只看图与图注，应知道每个标记指什么。
-
-Label the robot as the planner and define dashed edges as feedback.
-
-机器人标为规划器，虚线箭头定义为反馈。
-
-- **Framework 展示操作与产物：**“结合 case 去绘制你的流程” 展示一个真实输入怎样变成中间产物和输出，旁边点出设计解决的困难。节点多不等于贡献多。
-
-Trace one task from the evidence input through checking to the final plan.
-
-用同一个任务走完证据输入、核查和最终计划。
-
-- **区分示意与实测：**估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，图形本身须准确，不能仅靠图注纠正。
-
-Keep illustrative module boxes equally sized; plot measured latency on a labeled axis.
-
-示意模块框不靠大小表示耗时；实测延迟另用带坐标的图展示。
-
-- **准确区分矢量与位图：**统计图导出矢量 PDF 并嵌入字体。生成底图上的标签另排原生、可见、可选的 PDF 文字；不留重叠字形，不加隐藏 OCR 层。混合 PDF 仍含位图。
-
-Export the plot as vector PDF and verify that its axis labels can be selected.
-
-统计图导出矢量 PDF，再实际选中坐标轴文字检查。
-
-- **保持修改范围：**只改配色就保留布局、文字、换行、字号、公式、照片和连线；重排须在约定范围内。保留数据、实验和合作者的图。
-
-Change panel fills while retaining every label, coordinate, and arrow endpoint.
-
-只换面板底色，保留所有标签、坐标和箭头端点。
-
-- **按模板宽度布局：**按实际栏宽起稿，不改页边距、正文字号或页面方向。正文通栏约 16:9、单栏约 4:3 是起点，附录可纵排；不进行非等比缩放。CS 默认用 [!t]，再按正文首次引用检查实际落点。
-
-Rearrange parallel branches within the column width; keep the paper template unchanged.
-
-在栏宽内重排并行分支，保留论文模板。
-
-- **表格用于结果与数据：**PaperBank 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
-
-Put success rates in a table and explain the checking procedure in the text.
-
-成功率放表格，核查流程写正文。
-
-- **重排文字与图形重叠处：**图例、标题、刻度和注释不能挡数据、箭头或边框。为文字保留空间，通过重排解决重叠，不能用遮盖隐藏问题。
-
-Move the legend outside the plotted curves while preserving the data and axes.
-
-把图例移出曲线区，保留数据和坐标轴。
-
-- **摘要图：**问题在哪、为什么现有解法不够、我们动哪一步。通常最多 5 个环节，必要对照并排。
-
-Show the problem, the existing limitation, and the changed step.
-
-展示问题、已有解法的缺口和我们改动的步骤。
-
-- **框架图：**输入是什么，经过哪几个模块，每步产物交给谁，输出是什么。旁边走一个可追踪例子。
-
-Given a query, retrieve passages, rank evidence, and generate an answer with cited support.
-
-输入问题，检索段落，筛选证据，再生成带来源的回答。
-
-- **案例图：**“不同highlight颜色表示不同类型的信息” 白底保留必要背景、需求、证据、动作与结果；输入、模型输出、judge 用可解释边框，位置表示真实层级。
-
-Separate the request, evidence, response, and evaluation.
-
-把请求、证据、回复和评价分开。
-
-- **主结果与消融：**少量方法用点图或柱图；完整方法与删组件版本同顺序、同配色。说明误差的统计单位和计算方法。
-
-Compare the complete model with variants that remove one component.
-
-完整方法与只删除一个组件的变体对照。
-
-- **配对增益：**同一样本的干预与对照，画差值和零线；写清收益方向与尺度。
-
-Each point shows the intervention-minus-control accuracy on matched questions.
-
-每个点表示同一批题目上干预相对对照的准确率差。
-
-- **训练或轮次动态：**折线只连有序变量；横轴写训练步数或轮次，不把无序方法连成趋势。
-
-Track success rate and penalty magnitude against the same training steps.
-
-用相同训练步数同时追踪成功率和惩罚强度。
-
-- **KDE：看分布形状：**横轴是变量，纵轴是密度；颜色跟组走，均值线补位置，交代样本量和带宽。峰高不是人数，也不是累计比例。
-
-Compare density shapes with a shared bandwidth; mark sample counts and mean values.
-
-统一带宽比较密度形状，并标样本量与均值。
-
-- **ECDF：看阈值以下有多少：**横轴取阈值，纵轴直接读累计比例；同一坐标比两组，阶梯从 0 到 1。低于某阈值的样本比例应从 ECDF 读取，KDE 峰值不能表示累计比例。
-
-At a threshold of 10, the ECDF gives the fraction of observations at or below 10.
-
-阈值取 10 时，ECDF 直接给出不超过 10 的样本比例。
-
-- **热图：**条件乘方法，统一色标；正负增益以零为中点，缺测留空并说明。
-
-Use one shared color scale for all conditions and mark missing cells.
-
-全部条件使用统一色标，缺测单元明确标记。
-
-- **PCA：把高维关系投到二维：**“利用空间位置关系绑定数据，更换不同的颜色呈现不同属性” 同时交代特征、标准化与解释方差。分得开不等于泛化好；PaCMAP、t-SNE 不叫 PCA。
-
-Project standardized features onto two principal components and report the variance explained by each axis.
-
-把标准化特征投到两个主成分，并报告每根轴的解释方差。
-
-- **雷达图：多指标逐轴读：**每轴一个指标，写尺度、归一化和好坏方向；颜色再配点形。不同量纲不能用面积直接比较，轴顺序也会改变面积。
-
-Compare normalized metrics spoke by spoke; polygon area is not an overall score.
-
-沿每根轴比较归一化指标；多边形面积不是综合分数。
-
-- **成本性能图：**每点是一个实际配置；在线与离线成本分开，写单位和好坏方向。连接前沿不意味着有中间配置。
-
-Plot measured accuracy against online cost; report one-time training cost separately.
-
-实测准确率对照在线成本；一次性训练成本另报。
-
-- **数据集分布：**先写清统计单位、样本量、类别与分母。同一图不能混用案例数、回复数与判据数；说明类别覆盖范围与占比。
-
-Count unique cases by domain; report response counts separately.
-
-按领域统计独立案例数；回复数量另报。
-
-- **置信带：**按实际重采样或模型计算区间，写清区间类型和置信水平。同一估计的嵌套区间才可比较覆盖范围；不同样本量、方差也会改变带宽。
-
-Nested bands show the estimated 68% and 95% intervals under the stated procedure.
-
-嵌套色带表示按所述方法估计的 68% 和 95% 区间。
-
-- **饼图、环图与圆环排名：**饼图只画互斥且组成整体的比例；圆环柱图可画排名，极值相邻只是环形排序，不是变量关系。要读精确差值，横向条图更方便。
-
-Use slices for a composition and ordered bars for a ranking.
-
-组成比例用扇区；排名用有顺序的柱条。
-
-- **二维增益与九宫格：**“可以用这种九宫格来分类，好处是可以看出两个渐进的变化” 两轴写指标、单位和好坏方向；差值图以零线分区，不为填满网格补造数据。
-
-With both gains defined as higher is better, the upper-right quadrant shows improvements on both metrics.
-
-两个增益都定义为越高越好时，右上象限表示两项指标都改善。
-
-原图与出处：[光速出美图](https://da1yuqin.github.io/PaperBank/#figure-gallery)。第三方图片不随 skill 分发。
 
 ---
 
