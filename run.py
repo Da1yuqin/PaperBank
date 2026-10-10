@@ -71,6 +71,17 @@ def render_opening(data):
  md+=['',data['simulation_context']]
  return rendered,md
 
+def render_preface(data):
+ e=html.escape
+ p=data['preface']
+ rendered=f'<figure class="accept-banner"><img src="{e(p["image"])}" alt="{e(p["image_alt"])}" width="1672" height="941" fetchpriority="high"></figure><section class="preface" id="preface"><h2>{e(p["title"])}</h2>'
+ rendered+=''.join(f'<p>{e(text)}</p>' for text in p['paragraphs'])
+ rendered+=f'<p>{e(p["homepage_text"])}<a href="{e(p["homepage_url"])}">{e(p["homepage_label"])}</a></p></section>'
+ md=['',f'![{p["image_alt"]}](../{p["image"]})','','## '+p['title'],'']
+ md+=sum(([text,''] for text in p['paragraphs']),[])
+ md+=[p['homepage_text']+f'[{p["homepage_label"]}]({p["homepage_url"]})','']
+ return rendered,md
+
 def render_quick_start(data):
  e=html.escape
  q=data['quick_start']
@@ -316,6 +327,7 @@ def build():
  def link(key):
   r=refs[key]
   return f'<a href="{e(r["url"])}">{e(r["title"])}</a>'
+ preface,preface_md=render_preface(data)
  quick_start,quick_md=render_quick_start(data)
  figures,figures_md=render_figures(data)
  opening,opening_md=render_opening(data)
@@ -393,16 +405,14 @@ def build():
  def extras(key,label):
   content=chapter_html[key].replace('<h3>','<h4>').replace('</h3>','</h4>')
   return f'<details class="chapter-extra"><summary>{label}</summary>{content}</details>'
- quick_start=quick_start[:-len('</section>')]+extras('workflow','起草与协作：补充清单与例子')+extras('ai','AI 辅助：补充清单与例子')+'</section>'
  map_start=opening.index('<section class="paper-map"')
  opening=opening[:map_start]+extras('revision','全文验收：补充清单与例子')+opening[map_start:]
  entries=''.join(chapter_html[s['id']] for s in sections if s.get('manuscript'))
  def extra_md(key,label):
   return ['','<details><summary>'+label+'</summary>','']+chapter_md[key]+['','</details>','']
- quick_md+=extra_md('workflow','起草与协作：补充清单与例子')+extra_md('ai','AI 辅助：补充清单与例子')
  map_md=opening_md.index('### 按论文顺序精修')-1
  opening_md[map_md:map_md]=extra_md('revision','全文验收：补充清单与例子')
- md=md[:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 古法精修','','先查全文，再逐节改。模板中的【】填自己的材料，段落按内容调整。','']+opening_md+['','### 本章目录','']
+ md=md[:1]+preface_md+md[1:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 古法精修','','先查全文，再逐节改。模板中的【】填自己的材料，段落按内容调整。','']+opening_md+['','### 本章目录','']
  md+=[f'- [{s["nav"]}](#{s["id"]})' for s in sections if s.get('manuscript')]
  for s in sections:
   if s.get('manuscript'):md+=chapter_md[s['id']]
@@ -414,7 +424,7 @@ def build():
  md+=tools_md
  reading=''.join(f'<li>{link(k)}<span> — {e(r["scope"])}</span></li>' for k,r in refs.items() if r.get('public'))
  t=(ROOT/'assets/template.html').read_text(encoding='utf-8')
- for k,v in {'NAV':nav,'DRAFT_NAV':draft_nav,'ENTRIES':entries,'TOOLS':tools,'REBUTTAL':rebuttal,'QUICK_START':quick_start,'FIGURES':figures,'OPENING':opening,'SKILL':skill,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':'5','EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
+ for k,v in {'PREFACE':preface,'NAV':nav,'DRAFT_NAV':draft_nav,'ENTRIES':entries,'TOOLS':tools,'REBUTTAL':rebuttal,'QUICK_START':quick_start,'FIGURES':figures,'OPENING':opening,'SKILL':skill,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':'5','EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
  (ROOT/'index.html').write_text(t,encoding='utf-8')
  (ROOT/'book').mkdir(exist_ok=True)
  md+=['','## 参考阅读','']+[f'- [{r["title"]}]({r["url"]})：{r["scope"]}' for r in refs.values() if r.get('public')]
