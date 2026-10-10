@@ -97,3 +97,5 @@
   html.dark .day-notes blockquote { background: #35301e; }
   textarea:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
   @media print { .day-notes, .day-annotation-toggle, .day-annotation-selection, .blog-footprints { display: none !important; } }
+
+.accept-banner{max-width:480px;margin:20px auto 24px}.accept-banner img{display:block;width:100%;height:auto;border-radius:8px}.preface{margin:24px 0}.preface h2{font-size:22px;line-height:1.5;margin:0 0 12px}.doc-head .preface p{font-size:15px;line-height:1.85;color:var(--text);margin:10px 0}.preface a{white-space:nowrap}@media(max-width:820px){.accept-banner{max-width:420px}.preface h2{font-size:21px}}
