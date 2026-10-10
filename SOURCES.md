@@ -142,3 +142,7 @@ Overleaf 本地 Git 同步的 Premium 权限与当前入口核对自 [Git integr
 第一章按填材料、定图、组织章节与实验、审核 Intro 四步整理。规则参考作者最新的 cs-paper-writing、paper-writing-clarity、cs-writing-skill 和 paper-visual-standards，重新表述为公开教学内容；不公开私人项目配置、提示词或数据。字号与比例是 PaperBank 的起排建议，会议官方格式优先。章节和中英句式为教学模板，需替换为实际研究。
 
 动机图和框架图沿用图例库已署名的 TCOD v3 图 1、InteractCS-RL v1 图 1，未改原图。LaTeX 表格和网页预览使用明确标注的假设数值，仅演示排版和标记。Overleaf Git 权限、同步限制及源文件 ZIP 说明于 2026-10-10 回查官方文档。
+
+## 公开绘图 skill
+
+`paperbank-figures` 将作者的通用图表规范、流程图规则与统计绘图要求整理为独立公开包：SKILL.md、22 条绘图铁律与 16 类图型的中英参考、CC BY 4.0 许可。它与网页使用同一份规则，不包含私人项目配置、本地路径、稿件、实验数据或第三方图片。图例只链接网页已有的署名与出处。CS 默认约定不作为所有学科、会议的硬性标准；当前稿件配置与官方要求优先。

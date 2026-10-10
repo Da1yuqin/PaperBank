@@ -2,13 +2,15 @@
 
 五章：粗稿、绘图、正文精修、Rebuttal、AI 工具。附中英例子、Related Work / Method Overview 完整模板和 Codex skill。
 
-[在线阅读](https://da1yuqin.github.io/PaperBank/) · [写作 skill](assets/paperbank-writing-skill.zip) · [Markdown 全文](book/guide.md) · [工具](https://da1yuqin.github.io/PaperBank/#tools) · [来源](SOURCES.md)
+[在线阅读](https://da1yuqin.github.io/PaperBank/) · [写作 skill](assets/paperbank-writing-skill.zip) · [绘图 skill](assets/paperbank-figures-skill.zip) · [Markdown 全文](book/guide.md) · [工具](https://da1yuqin.github.io/PaperBank/#tools) · [来源](SOURCES.md)
 
 主要面向实证型 CS / AI 论文。逐句示范混合真实短引与明确标注的教学例句，不把不同论文拼成一篇文章。PlanCraft、SAGE、GreenPlanner、EviNoteRAG、TCDiff、TCDiff++、WebFilter、CARD 共提供 56 处短引和双语拆解；另有 UrbanZero 公开介绍的教学改写。Rebuttal 保留逐点回应例子，工具附中英使用情境。
 
 ## 给 Codex 用
 
 [下载 skill ZIP](assets/paperbank-writing-skill.zip)，解压后让 Codex 读取整个 `paperbank-writing/` 文件夹，再说明当前文件、任务和允许修改的范围。包内只有原创规则、教学例子和许可，不含论文源稿或第三方摘录。
+
+画图先拿[绘图 skill ZIP](assets/paperbank-figures-skill.zip)：解压后让 Codex 读取 `paperbank-figures/SKILL.md`，附稿件、原始数据和参考图。包内有 mainfig / framework 区别、22 条绘图铁律、16 类图型及中英例子；图例链接回网页，不打包第三方原图。
 
 ## 使用与转载
 

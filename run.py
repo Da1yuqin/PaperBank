@@ -90,8 +90,14 @@ def render_quick_start(data, include_figures=True):
   rendered+=f'<p class="example-source">{e(q["example_note"])}</p>'
   md+=['',q['example_note']]
  for n,s in enumerate(q['steps'],1):
-  rendered+=f'<section class="draft-step" id="{s["id"]}"><h3>{e(s["title_zh"])}</h3><p>{e(s["text_zh"])}</p>'
-  md+=['','### '+s['title_zh'],'',s['text_zh']]
+  rendered+=f'<section class="draft-step" id="{s["id"]}"><h3>{e(s["title_zh"])}</h3>'
+  md+=['','### '+s['title_zh']]
+  if n==2:
+   skill=data['figure_chapter']['skill']
+   rendered+=f'<p class="skill-links"><a href="{e(skill["download"])}" download>先下载绘图 skill ZIP</a> · <a href="{REPO}/blob/main/{e(skill["source"])}">查看 SKILL.md</a> · <a href="#figure-rules">绘图铁律</a></p>'
+   md+=['',f'[先下载绘图 skill ZIP](../{skill["download"]}) · [查看 SKILL.md](../{skill["source"]}) · [绘图铁律](#figure-rules)']
+  rendered+=f'<p>{e(s["text_zh"])}</p>'
+  md+=['',s['text_zh']]
   for block in s.get('blocks',[]):
    rendered+=f'<div class="draft-block"><h4>{e(block["title"])}</h4>'
    md+=['','#### '+block['title']]
@@ -231,8 +237,14 @@ def render_figures(data):
  visuals={v['id']:v for v in f.get('visual_examples',[])}
  rendered=f'<section class="major-chapter figure-chapter" id="figures"><h2>2. {e(f["title"])}</h2><p>{e(f["lead"])}</p><p class="lesson-context">{e(f["scope_note"])}</p>'
  md=['','<a id="figures"></a>','## 2. '+f['title'],'',f['lead'],'',f['scope_note']]
- rendered+='<h3>先定规则，再画</h3>'
- rh,rm=render_short_rules(f['rules'],visuals);rendered+=rh;md+=['','### 先定规则，再画']+rm
+ skill=f['skill']
+ rendered+=f'<section id="figure-skill"><h3>先给 Codex 绘图 skill</h3><p class="skill-links"><a href="{e(skill["download"])}" download>下载绘图 skill ZIP</a> · <a href="{REPO}/blob/main/{e(skill["source"])}">查看 SKILL.md</a> · <a href="#figure-rules">绘图铁律</a></p><p>{e(skill["intro"])}</p>'
+ md+=['','<a id="figure-skill"></a>','### 先给 Codex 绘图 skill','',f'[下载绘图 skill ZIP](../{skill["download"]}) · [查看 SKILL.md](../{skill["source"]}) · [绘图铁律](#figure-rules)','',skill['intro']]
+ for k,label,lang in [('prompt_zh','复制给 Codex：开始画图','zh-CN'),('prompt_en','Figure prompt · English','en')]:
+  rendered+=f'<details class="prompt"><summary>{label}</summary><pre lang="{lang}">{e(f[k])}</pre><button class="copy js-only">复制提示词</button></details>'
+  md+=['','**'+label+'**','','```text',f[k],'```']
+ rendered+='</section><h3 id="figure-rules">绘图铁律：这些错别犯</h3>'
+ rh,rm=render_short_rules(f['rules'],visuals);rendered+=rh;md+=['','<a id="figure-rules"></a>','### 绘图铁律：这些错别犯']+rm
  rendered+='<h3>按图的任务选模板</h3><p class="lesson-context">下面均为教学句式；数值、误差和区间按实际记录填写。</p>'
  rh,rm=render_short_rules(f['types'],visuals);rendered+=rh;md+=['','### 按图的任务选模板']+rm
  if visuals:
@@ -277,9 +289,6 @@ def render_figures(data):
   if g.get('source'):md+=['',g['source']]
   if g.get('license'):md+=['',g['license']]
  rendered+='</details>'
- for k,label,lang in [('prompt_zh','让 Codex 开始画图','zh-CN'),('prompt_en','Figure prompt · English','en')]:
-  rendered+=f'<details class="prompt"><summary>{label}</summary><pre lang="{lang}">{e(f[k])}</pre><button class="copy js-only">复制提示词</button></details>'
-  md+=['','**'+label+'**','','```text',f[k],'```']
  return rendered+'</section>',md
 
 def render_skill(data):
@@ -323,6 +332,30 @@ def package_skill(data):
  with zipfile.ZipFile(ROOT/data['writing_skill']['download'],'w',zipfile.ZIP_DEFLATED) as z:
   for name in ['SKILL.md','references/checklist.md','LICENSE']:
    info=zipfile.ZipInfo('paperbank-writing/'+name,date_time=(2026,10,7,0,0,0))
+   info.compress_type=zipfile.ZIP_DEFLATED
+   info.external_attr=0o644<<16
+   z.writestr(info,(folder/name).read_bytes())
+
+def package_figure_skill(data):
+ """Publish generic drawing rules without private profiles or paper images."""
+ figures=data['figure_chapter'];skill=figures['skill']
+ folder=ROOT/Path(skill['source']).parent
+ (folder/'references').mkdir(parents=True,exist_ok=True)
+ (folder/'SKILL.md').write_text(skill['instructions'],encoding='utf-8')
+ md=['# PaperBank 绘图参考','','先查铁律，再按图型选模板。这里的中英句式是教学例子，数值和口径用自己的实际记录。','','## 绘图铁律']
+ for key,title in [('rules','绘图铁律'),('types','按图的任务选模板')]:
+  if key=='types':md+=['','## '+title]
+  for rule in figures[key]:
+   _,rm=render_short_rules([rule]);md+=rm
+   links=[f'[{v["title"]}](https://da1yuqin.github.io/PaperBank/#{v["id"]})' for v in figures['visual_examples'] if v['id'] in rule.get('visuals',[])]
+   if links:md+=['','图例与拆解：'+' · '.join(links)]
+ md+=['','---','','Da1yuqin / PaperBank，[原文](https://da1yuqin.github.io/PaperBank/#figures)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可；改编注明改动。第三方原图不随包分发。']
+ (folder/'references/rules.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
+ license_text=(ROOT/'skills/paperbank-writing/LICENSE').read_text(encoding='utf-8').replace('Writing Skill','Drawing Skill').replace('references/checklist.md','references/rules.md').replace('paperbank-writing','paperbank-figures')
+ (folder/'LICENSE').write_text(license_text,encoding='utf-8')
+ with zipfile.ZipFile(ROOT/skill['download'],'w',zipfile.ZIP_DEFLATED) as z:
+  for name in ['SKILL.md','references/rules.md','LICENSE']:
+   info=zipfile.ZipInfo('paperbank-figures/'+name,date_time=(2026,10,7,0,0,0))
    info.compress_type=zipfile.ZIP_DEFLATED
    info.external_attr=0o644<<16
    z.writestr(info,(folder/name).read_bytes())
@@ -432,6 +465,7 @@ def build():
  md+=['','## 参考阅读','']+[f'- [{r["title"]}]({r["url"]})：{r["scope"]}' for r in refs.values() if r.get('public')]
  (ROOT/'book/guide.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
  package_skill(data)
+ package_figure_skill(data)
  print(f'Built 5 chapters, {len(lessons)+len(data.get("refine_templates",[]))} paragraph lessons.')
 
 if __name__=='__main__':
