@@ -73,9 +73,11 @@ def render_preface(data):
  p=data['preface']
  rendered=f'<figure class="accept-banner"><img src="{e(p["image"])}" alt="{e(p["image_alt"])}" width="1672" height="941" fetchpriority="high"></figure><section class="preface" id="preface"><h2>{e(p["title"])}</h2>'
  rendered+=''.join(f'<p>{e(text)}</p>' for text in p['paragraphs'])
+ rendered+=f'<p class="preface-aside"><em>{e(p["aside"])}</em></p>'
  rendered+=f'<p>{e(p["homepage_text"])}<a href="{e(p["homepage_url"])}">{e(p["homepage_label"])}</a></p></section>'
  md=['',f'![{p["image_alt"]}](../{p["image"]})','','## '+p['title'],'']
  md+=sum(([text,''] for text in p['paragraphs']),[])
+ md+=['*'+p['aside']+'*','']
  md+=[p['homepage_text']+f'[{p["homepage_label"]}]({p["homepage_url"]})','']
  return rendered,md
 
