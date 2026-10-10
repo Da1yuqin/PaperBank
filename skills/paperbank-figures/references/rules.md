@@ -1,10 +1,12 @@
 # PaperBank 绘图参考
 
+“Less is more. 一个图画太久了一定是过于复杂了，先花时间简化” 先定这张图要突出哪项贡献，再画。
+
 先查铁律，再按图型选模板。这里的中英句式是教学例子，数值和口径用自己的实际记录。
 
 ## 绘图铁律
 
-- **别让一张图讲所有事：**mainfig 讲问题和改动，framework 讲真实流程，结果图讲比较。先写一句图的任务，再选内容；mainfig 默认不超过 5 个环节。
+- **别让一张图讲所有事：**“motivation + observation” mainfig 先让人看见问题与发现，framework 解释设计如何对应问题，结果图给证据。一张图一个主任务。
 
 Show where the existing pipeline fails and which step our method changes.
 
@@ -12,7 +14,7 @@ Show where the existing pipeline fails and which step our method changes.
 
 图例与拆解：[问题和解法放在同一张图](https://da1yuqin.github.io/PaperBank/#visual-tcod-fig-1)
 
-- **别等正文定稿才画图：**先用草图和真实结果定论证，给合作者审。图里问题、做法和证据对不上，正文也别急着精修。
+- **别等正文定稿才画图：**“这两个部分先写/润色，缺的话就补” 先让框架图和实验能被合作者审，再精修正文。看不出贡献，先改内容，别急着换色。
 
 Panel (a) shows the observed gap; panel (b) tests the proposed repair.
 
@@ -52,7 +54,7 @@ Dashed boxes contain model inputs; solid boxes contain responses; dotted boxes c
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/PaperBank/#visual-interactcs-fig-1)
 
-- **别把低饱和画成一层灰雾：**白底，面板接近白色，文字和刻度保持深色。同对象全篇同色，再配点形或线型；不用浓重底色、渐变、阴影救场。
+- **别把低饱和画成一层灰雾：**“自己的创新点要用彩色/亮眼的颜色突出，让人能一眼注意到。” 常规模块可用中性灰，关键改动用统一强调色；低饱和不等于满图灰雾。
 
 Blue circles denote the baseline; orange triangles denote our method in every panel.
 
@@ -92,7 +94,7 @@ Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.
 
 图例与拆解：[配对增益：同一任务，直接看差了多少](https://da1yuqin.github.io/PaperBank/#teaching-paired-gain)
 
-- **别把图注写成画法说明：**写比较对象、读法和实际发现；解释缩写、单位、分母、误差和必要标记。图内已写清的别再抄，尽量三行，必要定义不省。
+- **别把图注写成画法说明：**图注先说读法和发现，再点出与贡献的关系；图中的简称在 Caption 给全称。“让人留下印象” 靠有依据的结论，不靠“效果显著”四个字。
 
 Error bars show 95% question-level bootstrap intervals; the horizontal line marks zero gain.
 
@@ -124,7 +126,7 @@ Label the robot as the planner and define dashed edges as feedback.
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/PaperBank/#visual-interactcs-fig-1)
 
-- **别让 framework 变成模块名单：**从创新点组织少量子图，走一条能追踪的案例。保留必要背景、关键请求、证据、操作与输出；删内部编号和无关参数，不删关键文字。
+- **别让 framework 变成模块名单：**“结合 case 去绘制你的流程” 展示一个真实输入怎样变成中间产物和输出，旁边点出设计解决的困难。节点多不等于贡献多。
 
 Trace one task from the evidence input through checking to the final plan.
 
@@ -198,7 +200,7 @@ Given a query, retrieve passages, rank evidence, and generate an answer with cit
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/PaperBank/#visual-interactcs-fig-1)
 
-- **案例图：**必要背景、有效需求、关键证据、动作、结果、判据；同类信息同框。
+- **案例图：**“不同highlight颜色表示不同类型的信息” 白底保留必要背景、需求、证据、动作与结果；输入、模型输出、judge 用可解释边框，位置表示真实层级。
 
 Separate the request, evidence, response, and evaluation.
 
@@ -254,7 +256,7 @@ Use one shared color scale for all conditions and mark missing cells.
 
 图例与拆解：[热图：一个色标，缺测直接空出来](https://da1yuqin.github.io/PaperBank/#teaching-heatmap)
 
-- **PCA：把高维关系投到二维：**说明输入特征、标准化、每轴解释方差。颜色或轨迹分别代表什么写清；分得开不等于泛化好。PaCMAP、t-SNE 也别改名叫 PCA。
+- **PCA：把高维关系投到二维：**“利用空间位置关系绑定数据，更换不同的颜色呈现不同属性” 同时交代特征、标准化与解释方差。分得开不等于泛化好；PaCMAP、t-SNE 不叫 PCA。
 
 Project standardized features onto two principal components and report the variance explained by each axis.
 
@@ -302,7 +304,7 @@ Use slices for a composition and ordered bars for a ranking.
 
 图例与拆解：[环图：组成比例，先说总数](https://da1yuqin.github.io/PaperBank/#teaching-donut)
 
-- **二维增益与九宫格：**两轴分别写指标、单位和好坏方向；差值图以零线分区。九宫格用于两个有序因素的组合，别为凑九格补数据。
+- **二维增益与九宫格：**“可以用这种九宫格来分类，好处是可以看出两个渐进的变化” 两轴写指标、单位和好坏方向；差值图以零线分区，别为了九格补数据。
 
 With both gains defined as higher is better, the upper-right quadrant shows improvements on both metrics.
 
