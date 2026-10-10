@@ -47,8 +47,8 @@ def render_paragraph(lesson, refs, md_level=4):
 
 def render_opening(data):
  e=html.escape
- rendered='<section class="opening-rules" id="general-rules"><h3>全文先守这些要求</h3><p>下面管整篇文章；章节模板在后面。语言偏好是本指南的默认写法，不能替代会议规定。</p>'
- md=['','### 全文先守这些要求','','下面管整篇文章；章节模板在后面。语言偏好是本指南的默认写法，不能替代会议规定。']
+ rendered='<section class="opening-rules" id="general-rules"><h3>全文先守这些要求</h3><p>先检查全文，再按章节改。模板按内容调整，格式看会议要求。</p>'
+ md=['','### 全文先守这些要求','','先检查全文，再按章节改。模板按内容调整，格式看会议要求。']
  for group in data['refine_standard_groups']:
   rendered+=f'<h4>{e(group["title"])}</h4><ul class="compact-rules">';md+=['','#### '+group['title']]
   for rule in [r for r in data['refine_standards'] if r['group']==group['id']]:
@@ -60,8 +60,8 @@ def render_opening(data):
  for item in [i for i in data['items'] if i.get('iron_rule')]:
   rendered+=f'<li><a href="#{item["id"]}">{e(item["checklist"])}</a></li>'
  rendered+='</ul></details></section>'
- rendered+='<section class="paper-map" id="paper-order"><h3>按论文顺序精修</h3><p>摘要把全文缩成一段；引言提出问题，方法给出做法，实验检查做法，讨论说明边界，结论收尾。下面沿用实证型 CS / AI 论文的常见结构，章节安排按领域和投稿模板调整。</p><ol>'
- md+=['','### 按论文顺序精修','','摘要把全文缩成一段；引言提出问题，方法给出做法，实验检查做法，讨论说明边界，结论收尾。具体按领域和投稿模板调整。','']
+ rendered+='<section class="paper-map" id="paper-order"><h3>按论文顺序精修</h3><p>摘要概括全文，引言提问题，方法给做法，实验查效果，讨论讲范围，结论收尾。以下按实证型 CS / AI 论文组织。</p><ol>'
+ md+=['','### 按论文顺序精修','','摘要概括全文，引言提问题，方法给做法，实验查效果，讨论讲范围，结论收尾。','']
  for section in data['sections']:
   if section.get('manuscript',False):
    purpose=section.get('purpose',section['description'])
@@ -232,7 +232,7 @@ def render_skill(data):
  e=html.escape
  skill=data['writing_skill']
  rendered=f'<details class="writing-skill" id="writing-skill"><summary>给 Codex 用：下载 PaperBank 写作 skill</summary><p>{e(skill["intro"])}</p>'
- rendered+=f'<p class="skill-links"><a href="{e(skill["download"])}" download>下载写作 skill ZIP</a> · <a href="{REPO}/blob/main/{e(skill["source"])}">查看 SKILL.md</a> · <a href="#chapter-rules">写作规则索引</a></p><p>下载、解压，保留整个 <code>paperbank-writing/</code> 文件夹，把它交给 Codex 读取。下面提示词可直接用，再补上你的文件、任务和允许修改的范围。</p>'
+ rendered+=f'<p class="skill-links"><a href="{e(skill["download"])}" download>下载写作 skill ZIP</a> · <a href="{REPO}/blob/main/{e(skill["source"])}">查看 SKILL.md</a> · <a href="#chapter-rules">写作规则索引</a></p><p>解压后将整个 <code>paperbank-writing/</code> 文件夹交给 Codex。填文件、任务和修改范围即可。</p>'
  md=['','<a id="writing-skill"></a>','### PaperBank 写作 skill','',skill['intro'],'',f'[下载 ZIP](../{skill["download"]}) · [查看 SKILL.md](../{skill["source"]}) · [写作铁律](#rules)','','下载、解压，保留整个 paperbank-writing/ 文件夹，把它交给 Codex 读取；补上文件、任务和允许修改的范围。']
  for key,label,lang in [('prompt_zh','中文使用提示词','zh-CN'),('prompt_en','English usage prompt','en')]:
   rendered+=f'<details class="prompt"><summary>{label}</summary><pre lang="{lang}">{e(skill[key])}</pre><button class="copy js-only">复制提示词</button></details>'
@@ -275,7 +275,7 @@ def render_tools(data):
  """Render linked resources separately from manuscript checks."""
  e=html.escape
  groups=data.get('tools',[])
- intro='按用途挑一个先试。只核对公开说明，未逐项安装评测；例子是使用情境，许可和兼容版本看原项目。'
+ intro='按用途选。以下整理自公开文档，未逐项安装；版本和许可见原项目。'
  rendered=f'<section class="toolbox major-chapter" id="tools"><h2>5. 我推荐的 AI 工具</h2><p class="chapter-desc">{e(intro)}</p>'
  rendered+='<p class="tool-index">'+ ' · '.join(f'<a href="#tools-{e(g["id"])}">{e(g["title"])}</a>' for g in groups)+' · <a href="#code-release-prompt">开源整理提示词</a></p>'
  total=sum(len(g['items']) for g in groups)
@@ -301,7 +301,7 @@ def render_tools(data):
  for key,label,lang in [('zh','中文提示词','zh-CN'),('en','English prompt','en')]:
   rendered+=f'<details class="prompt"><summary>{label}</summary><pre lang="{lang}">{e(prompt[key])}</pre><button class="copy js-only">复制提示词</button></details>'
   md+=['','**'+label+'**','','```text',prompt[key],'```']
- rendered+=f'<p class="tool-checked">链接与文档核对日期：{e(data["tools_checked_at"])}。安装方法、兼容版本和许可可能变化，使用前再看项目原文。</p></section></section>'
+ rendered+=f'<p class="tool-checked">文档核对：{e(data["tools_checked_at"])}。安装、版本和许可见项目原文。</p></section></section>'
  return rendered,md
 
 def build():
@@ -329,7 +329,7 @@ def build():
   nav+=f'<a href="#chapter-{s["id"]}">3.{number} {e(s["nav"])}</a>'
  entries='';chapter_html={};chapter_md={}
  md=['# PaperBank · 论文少走弯路指南','','先用 Codex 拉草稿和图，再由你审逻辑、逐章精修。第四章写 Rebuttal，第五章收好用的工具。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎拿去给 Codex 做 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，改过请注明。Star 自愿，署名别失联。']
- md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. Refine：先审逻辑，再磨句子','','先改全文通用要求，再按论文顺序精修。模板中的【】填自己的研究；句子数量按内容调整。这里的写作规范来自作者的 skill，会议硬性格式以官方指南为准。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
+ md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. Refine：先审逻辑，再磨句子','','先查全文，再逐节改。模板中的【】填自己的材料，段落按内容调整。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
  md += [f'- [{section_label(s)}{s["title"]}](#{s["id"]})' for s in sections]
  md += ['- [好用工具与开源整理提示词](#tools)']
  for s in sections:
@@ -343,8 +343,8 @@ def build():
    lesson_html,lesson_md=render_paragraph(lesson,refs)
    entries+=lesson_html;md+=lesson_md
   if any(p['section']==s['id'] for p in lessons):
-   entries+='<details class="more-lessons"><summary>更多中英例子：真实论文短引与教学拆解</summary>'
-   md+=['','<details><summary>更多中英例子：真实论文短引与教学拆解</summary>','']
+   entries+='<details class="more-lessons"><summary>更多例子：论文原句与拆解</summary>'
+   md+=['','<details><summary>更多例子：论文原句与拆解</summary>','']
   for lesson in [p for p in lessons if p['section']==s['id']]:
    lesson_html,lesson_md=render_paragraph(lesson,refs)
    entries+=lesson_html
@@ -354,8 +354,8 @@ def build():
    md+=lesson_md
   if any(p['section']==s['id'] for p in lessons):
    entries+='</details>';md+=['','</details>','']
-  entries+=f'<details class="chapter-checks"><summary>检查清单和真实论文例子（{len(group)} 项）</summary>'
-  md+=['','<details>',f'<summary>检查清单和真实论文例子（{len(group)} 项）</summary>','']
+  entries+=f'<details class="chapter-checks"><summary>清单与例子（{len(group)} 项）</summary>'
+  md+=['','<details>',f'<summary>清单与例子（{len(group)} 项）</summary>','']
   for subgroup in dict.fromkeys(i['group'] for i in group):
    entries+=f'<div class="check-group"><h4 class="group-title">{e(subgroup)}</h4><ul class="checklist">'
    md+=['',f'**{subgroup}**','']
@@ -363,15 +363,15 @@ def build():
     num=int(i['id'][4:]); attrs=' '.join(f'data-{k}="{e(i[k])}"' for k in ['section','priority'])
     entries+=f'<li class="entry{ " entry-visual" if i.get("detail") else ""}" id="{i["id"]}" {attrs}><div class="check-row"><input class="task-check js-only" type="checkbox" id="check-{i["id"]}" data-id="{i["id"]}"><label class="check-text" for="check-{i["id"]}">{e(i["checklist"])}</label><a class="permalink" href="#{i["id"]}" aria-label="第 {num} 条">{num}</a></div>'
     md += [f'- [ ] **第 {num} 条：**{i["checklist"]}']
-    paragraph=i.get('paragraph') or i.get('action','')
+    paragraph=''
     entries+=f'<details class="explain"><summary>说明{ "、例子" if i.get("examples") else ""}与参考</summary><div class="explain-body">'
     if paragraph:
      entries+=f'<p>{e(paragraph)}</p>'
-    entries+=f'<p class="boundary"><strong>边界：</strong>{e(i["boundary"])}</p>'
+    entries+=f'<p class="boundary"><strong>适用条件：</strong>{e(i["boundary"])}</p>'
     md+=['',f'<a id="{i["id"]}"></a>','<details>','<summary>说明、例子与参考</summary>']
     if paragraph:
      md+=['',paragraph]
-    md+=['',f'**边界：**{i["boundary"]}']
+    md+=['',f'**适用条件：**{i["boundary"]}']
     for example in i.get('examples',[]):
      gallery=next((g for g in data['figure_chapter']['gallery'] if g['item']==i['id'] and example is i['examples'][g['example_index']]),None)
      if gallery:
@@ -384,8 +384,8 @@ def build():
      entries+=f'<details class="prompt"><summary>复制用的提示词</summary><pre>{e(i["prompt"])}</pre><button class="copy js-only">复制提示词</button></details>'
      md+=['','```text',i['prompt'],'```']
     sources=list(dict.fromkeys([i['source']]+i.get('refs',[])))
-    entries+='<p class="sources"><strong>来源与延伸阅读：</strong>'+'；'.join(link(k) for k in sources)+'</p></div></details></li>'
-    md+=['','来源与延伸阅读：'+'；'.join(f'[{refs[k]["title"]}]({refs[k]["url"]})' for k in sources),'','</details>','']
+    entries+='<p class="sources"><strong>参考：</strong>'+'；'.join(link(k) for k in sources)+'</p></div></details></li>'
+    md+=['','参考：'+'；'.join(f'[{refs[k]["title"]}]({refs[k]["url"]})' for k in sources),'','</details>','']
    entries+='</ul></div>'
   entries+='</details></section>'
   md+=['','</details>','']
@@ -402,12 +402,12 @@ def build():
  quick_md+=extra_md('workflow','起草与协作：补充清单与例子')+extra_md('ai','AI 辅助：补充清单与例子')
  map_md=opening_md.index('### 按论文顺序精修')-1
  opening_md[map_md:map_md]=extra_md('revision','全文验收：补充清单与例子')
- md=md[:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. Refine：先审逻辑，再磨句子','','先改全文通用要求，再按论文顺序精修。模板中的【】填自己的研究；句子数量按内容调整。这里的写作规范来自作者的 skill，会议硬性格式以官方指南为准。','']+opening_md+['','### 本章目录','']
+ md=md[:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. Refine：先审逻辑，再磨句子','','先查全文，再逐节改。模板中的【】填自己的材料，段落按内容调整。','']+opening_md+['','### 本章目录','']
  md+=[f'- [{s["nav"]}](#{s["id"]})' for s in sections if s.get('manuscript')]
  for s in sections:
   if s.get('manuscript'):md+=chapter_md[s['id']]
  examples=sum(len(i.get('examples',[])) for i in items)
- rebuttal='<section class="major-chapter" id="rebuttal">'+chapter_html['rebuttal'].replace('<h3>4. Rebuttal</h3>','<h2>4. Rebuttal：把问题答到点上</h2>')+'</section>'
+ rebuttal='<section class="major-chapter" id="rebuttal">'+chapter_html['rebuttal'].replace('<h3>4. Rebuttal</h3>','<h2>4. Rebuttal</h2>')+'</section>'
  rebuttal=rebuttal[:-len('</section>')]+ '<details class="prompt"><summary>复制给 Codex：Rebuttal + revise loop</summary><pre>'+html.escape('阅读论文【文件】、审稿原文【文件】、已验证结果【文件】和当轮会议规则【链接或文本】。先逐条拆出原问题，列出问题、回复位置、证据和缺口，再写英文回复并逐段附中文。每问第一句直接回答，随后给证据、解释和位置。完成后按原始问题逐条模拟追问，输出：原问题 → 回复位置 → 未解决疑问 → 最小改法 → 缺哪项证据。只修改不通过项，再查同一张问题清单；证据不足交给我判断，不编数字，不预测涨分。满足问题覆盖、证据对应和字数限制后停止，由我定稿。允许修改【文件范围】，不提交回复，不改其他项目。')+'</pre><button class="copy js-only">复制提示词</button></details></section>'
  md+=chapter_md['rebuttal']+['','```text','阅读论文【文件】、审稿原文【文件】、已验证结果【文件】和当轮会议规则【链接或文本】。先逐条拆出原问题，列出问题、回复位置、证据和缺口，再写英文回复并逐段附中文。每问第一句直接回答，随后给证据、解释和位置。完成后按原始问题逐条模拟追问，输出：原问题 → 回复位置 → 未解决疑问 → 最小改法 → 缺哪项证据。只修改不通过项，再查同一张问题清单；证据不足交给我判断，不编数字，不预测涨分。满足问题覆盖、证据对应和字数限制后停止，由我定稿。允许修改【文件范围】，不提交回复，不改其他项目。','```']
  tools,tools_md=render_tools(data)
