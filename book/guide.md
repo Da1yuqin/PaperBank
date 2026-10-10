@@ -1750,7 +1750,7 @@ Read my paper, figure instructions, and reference images. State one purpose for 
 ```
 
 <a id="refine"></a>
-## 3. Refine：先审逻辑，再磨句子
+## 3. 古法精修
 
 先查全文，再逐节改。模板中的【】填自己的材料，段落按内容调整。
 
