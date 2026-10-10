@@ -7991,5 +7991,17 @@
       "id": "evidence",
       "title": "主张：说到证据支持的地方"
     }
-  ]
+  ],
+  "preface": {
+    "title": "写在前头",
+    "paragraphs": [
+      "此文用于学术讨论。本人并非领域权威，只是一个本着为爱发电、为大家提供便利的善心，做了此教程网页的普通博士牲 ORZ。",
+      "内容可能有误，水平也有限，因此网页开源，也支持批注。欢迎纠错、探讨，我看到一定会改，不误人子弟。"
+    ],
+    "homepage_text": "另附本人个人网页，欢迎来玩（随机挂掉。毕竟我很内向，不想挂个人信息到网上，除非在求职）：",
+    "homepage_label": "【我的个人网页】",
+    "homepage_url": "https://da1yuqin.github.io/",
+    "image": "assets/paperbank-accept.png",
+    "image_alt": "大字 accept 下，边牧和比格收到论文录用邮件，开心举起爪子。"
+  }
 }
