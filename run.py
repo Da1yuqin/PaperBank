@@ -82,24 +82,69 @@ def render_preface(data):
  md+=[p['homepage_text']+f'[{p["homepage_label"]}]({p["homepage_url"]})','']
  return rendered,md
 
-def render_quick_start(data):
+def render_quick_start(data, include_figures=True):
  e=html.escape
  q=data['quick_start']
  rendered=f'<section class="quick-start major-chapter" id="quick-start"><h2>1. {e(q["title_zh"])}</h2><p>{e(q["lead_zh"])}</p>'
  md=['','<a id="quick-start"></a>','## 1. '+q['title_zh'],'',q['lead_zh']]
+ if q.get('example_note'):
+  rendered+=f'<p class="example-source">{e(q["example_note"])}</p>'
+  md+=['',q['example_note']]
  for n,s in enumerate(q['steps'],1):
   rendered+=f'<section class="draft-step" id="{s["id"]}"><h3>{e(s["title_zh"])}</h3><p>{e(s["text_zh"])}</p>'
   md+=['','### '+s['title_zh'],'',s['text_zh']]
-  if n==3: rendered+='<p><a href="#figures">第二章：光速出美图 ↗</a></p>'
+  for block in s.get('blocks',[]):
+   rendered+=f'<div class="draft-block"><h4>{e(block["title"])}</h4>'
+   md+=['','#### '+block['title']]
+   if block.get('rules'):
+    rendered+='<ul class="draft-rules">'
+    for rule in block['rules']:
+     rendered+=f'<li><strong>{e(rule["label"])}：</strong>{e(rule["text"])}<details class="short-example"><summary>中英例子</summary><p>{e(rule["example_zh"])}</p><p lang="en">{e(rule["example_en"])}</p></details></li>'
+     md+=['',f'- **{rule["label"]}：**{rule["text"]}','',rule['example_zh'],'',rule['example_en']]
+    rendered+='</ul>'
+   if block.get('figure_reference'):
+    v=next(v for v in data['figure_chapter']['visual_examples'] if v['id']==block['figure_reference'])
+    rendered+=f'<h5>{e(block["figure_title"])}</h5><p>{e(block["figure_zh"])}</p>'
+    if include_figures:
+     rendered+=f'<figure class="draft-figure"><a href="{e(v["asset"])}"><img src="{e(v["asset"])}" alt="{e(block["figure_title"])}" loading="lazy"></a><figcaption>{e(v["license"])} <a href="{e(v["source_url"])}">原论文</a> · <a href="{e(v["license_url"])}">许可</a></figcaption></figure>'
+     md+=['',f'![{block["figure_title"]}](../{v["asset"]})']
+    rendered+=f'<details class="short-example"><summary>English</summary><p lang="en">{e(block["figure_en"])}</p></details>'
+    md+=['',block['figure_zh'],'',block['figure_en'],'',v['license']+f' [原论文]({v["source_url"]}) · [许可]({v["license_url"]})']
+   if block.get('table'):
+    t=block['table']
+    rendered+=f'<div class="draft-table-wrap"><table class="draft-table"><caption>{e(t["caption"])}</caption><thead><tr>'+''.join(f'<th scope="col">{e(h)}</th>' for h in t['headers'])+'</tr></thead><tbody>'
+    md+=['',t['caption'],'','| '+' | '.join(t['headers'])+' |','| --- | --- | --- |']
+    for row in t['rows']:
+     rendered+=f'<tr><th scope="row">{e(row["method"])}</th>'
+     cells=[]
+     for cell in row['cells']:
+      mark=cell.get('mark','')
+      value=e(cell['value'])
+      if mark=='best': value=f'<strong>{value}</strong>'
+      elif mark=='second': value=f'<u>{value}</u>'
+      rendered+=f'<td class="{mark}">{value}<sup>±{e(cell["uncertainty"])}</sup></td>'
+      cells.append(cell['value']+' ±'+cell['uncertainty'])
+     rendered+='</tr>'
+     md+=['| '+row['method']+' | '+' | '.join(cells)+' |']
+    rendered+='</tbody></table></div>'
+   if block.get('code'):
+    rendered+=f'<details class="prompt"><summary>{e(block["code_title"])}</summary><pre>{e(block["code"])}</pre><button class="copy js-only" data-copy-label="复制模板">复制模板</button></details>'
+    md+=['','**'+block['code_title']+'**','','```'+block['code_language'],block['code'],'```']
+    if block.get('code_note'):
+     rendered+=f'<p class="example-source">{e(block["code_note"])}</p>'
+     md+=['',block['code_note']]
+   rendered+='</div>'
   rendered+=f'<details class="short-example"><summary>中英例子</summary><p>{e(s["example_zh"])}</p><p lang="en">{e(s["example_en"])}</p><p lang="en">{e(s["text_en"])}</p></details>'
   md+=['',s['example_zh'],'',s['example_en'],'',s['text_en']]
-  if n==2:
+  if n==1:
    rendered+=f'<p class="fill-hint"><strong>填什么：</strong>{e(q["fill_hint_zh"])}</p><p class="skill-links"><a href="{data["writing_skill"]["download"]}" download>下载 PaperBank 写作 skill</a> · <a href="#writing-skill">安装与用法</a></p>'
    for key,label,lang in [('prompt_zh','复制这个提示词，填空就能用','zh-CN'),('prompt_en','English prompt','en')]:
     rendered+=f'<details class="prompt"><summary>{label}</summary><pre lang="{lang}">{e(q[key])}</pre><button class="copy js-only">复制提示词</button></details>'
     md+=['','**'+label+'**','','```text',q[key],'```']
    rendered+=f'<p class="example-source">{e(s["note_zh"])} <a href="{q["sources"][0]["url"]}">Git 同步说明</a> · <a href="{q["sources"][1]["url"]}">ZIP 下载说明</a></p>'
    md+=['',s['note_zh'],'',' · '.join(f'[{r["title"]}]({r["url"]})' for r in q['sources'][:2])]
+  if n==2: rendered+='<p><a href="#figures">第二章：光速出美图，继续精修 ↗</a></p>'
+  if n==4: rendered+='<p><a href="#refine">第三章：古法精修，逐段查写法 ↗</a></p>'
   rendered+='</section>'
  return rendered+'</section>',md
 
@@ -261,7 +306,8 @@ def package_skill(data):
    md+=['',f'### 第 {i["id"][4:]} 条：{i["title"]}','',i['checklist'],'','适用边界：'+i['boundary']]
    _,example_md=render_example(i['examples'][0],data['references'])
    md+=example_md
- md+=['','## 起草顺序','','下载当前官方模板；有 Overleaf Git 权限就克隆本地项目，否则下载源文件 ZIP。先列提纲和页数分配、填粗稿，再定图。每节先译成中文让作者审核，确定全部正文标题，再整理英文、逐句精修。']
+ _,draft_md=render_quick_start(data,include_figures=False)
+ md+=draft_md
  md+=['','## 全文表达要求与中英改写']
  for rule in data['refine_standards']:
   _,rm=render_paragraph(rule,data['references']);md+=rm
