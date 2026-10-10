@@ -276,11 +276,11 @@ def render_tools(data):
  e=html.escape
  groups=data.get('tools',[])
  intro='按用途挑一个先试。只核对公开说明，未逐项安装评测；例子是使用情境，许可和兼容版本看原项目。'
- rendered=f'<section class="toolbox major-chapter" id="tools"><h2>4. 我推荐的 AI 工具</h2><p class="chapter-desc">{e(intro)}</p>'
+ rendered=f'<section class="toolbox major-chapter" id="tools"><h2>5. 我推荐的 AI 工具</h2><p class="chapter-desc">{e(intro)}</p>'
  rendered+='<p class="tool-index">'+ ' · '.join(f'<a href="#tools-{e(g["id"])}">{e(g["title"])}</a>' for g in groups)+' · <a href="#code-release-prompt">开源整理提示词</a></p>'
  total=sum(len(g['items']) for g in groups)
  rendered+=f'<div class="tool-search js-only"><label for="tool-search">搜索工具</label><input type="search" id="tool-search" placeholder="搜 Zotero、画图、引用……"><span id="tool-count" role="status" aria-live="polite">{total} 项资源</span></div>'
- md=['','<a id="tools"></a>','## 4. 我推荐的 AI 工具','',intro,'','核对日期：'+data['tools_checked_at']+'。']
+ md=['','<a id="tools"></a>','## 5. 我推荐的 AI 工具','',intro,'','核对日期：'+data['tools_checked_at']+'。']
  for group in groups:
   rendered+=f'<section class="tool-group" id="tools-{e(group["id"])}"><h3>{e(group["title"])}</h3><ul class="tool-list">'
   md+=['',f'### {group["title"]}','']
@@ -323,12 +323,12 @@ def build():
  draft_nav=''.join(f'<a href="#{e(s["id"])}">{e(s["title_zh"])}</a>' for s in data['quick_start']['steps'])
  nav='<a href="#refine">全文要求与验收</a>'
  for s in sections:
-  if not s.get('manuscript') and s['id']!='rebuttal':continue
+  if not s.get('manuscript'):continue
   group=[i for i in items if i['section']==s['id']]
   number=11 if s['id']=='rebuttal' else int(s['number'])
   nav+=f'<a href="#chapter-{s["id"]}">3.{number} {e(s["nav"])}</a>'
  entries='';chapter_html={};chapter_md={}
- md=['# PaperBank · 论文少走弯路指南','','先用 Codex 拉草稿和图，再由你审逻辑、逐章精修。第四章收好用的工具。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎拿去给 Codex 做 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，改过请注明。Star 自愿，署名别失联。']
+ md=['# PaperBank · 论文少走弯路指南','','先用 Codex 拉草稿和图，再由你审逻辑、逐章精修。第四章写 Rebuttal，第五章收好用的工具。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎拿去给 Codex 做 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，改过请注明。Star 自愿，署名别失联。']
  md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. Refine：先审逻辑，再磨句子','','先改全文通用要求，再按论文顺序精修。模板中的【】填自己的研究；句子数量按内容调整。这里的写作规范来自作者的 skill，会议硬性格式以官方指南为准。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
  md += [f'- [{section_label(s)}{s["title"]}](#{s["id"]})' for s in sections]
  md += ['- [好用工具与开源整理提示词](#tools)']
@@ -336,7 +336,7 @@ def build():
   html_start=len(entries);md_start=len(md)
   group=[i for i in items if i['section']==s['id']]
   purpose=s.get('purpose') or s.get('summary') or s['description']
-  prefix='3.11 ' if s['id']=='rebuttal' else ('3.'+str(int(s['number']))+' ' if s.get('manuscript') else '')
+  prefix='4. ' if s['id']=='rebuttal' else ('3.'+str(int(s['number']))+' ' if s.get('manuscript') else '')
   entries+=f'<section class="chapter" id="chapter-{s["id"]}"><div class="chapter-head"><h3>{prefix}{e(s["title"])}</h3><span class="shown">{len(group)} 条</span></div><p class="chapter-desc">{e(purpose)}</p>'
   md+=['',f'<a id="{s["id"]}"></a>',f'### {prefix}{s["title"]}','',purpose]
   for lesson in [p for p in data.get('refine_templates',[]) if p['section']==s['id']]:
@@ -396,28 +396,31 @@ def build():
  quick_start=quick_start[:-len('</section>')]+extras('workflow','起草与协作：补充清单与例子')+extras('ai','AI 辅助：补充清单与例子')+'</section>'
  map_start=opening.index('<section class="paper-map"')
  opening=opening[:map_start]+extras('revision','全文验收：补充清单与例子')+opening[map_start:]
- entries=''.join(chapter_html[s['id']] for s in sections if s.get('manuscript') or s['id']=='rebuttal')
+ entries=''.join(chapter_html[s['id']] for s in sections if s.get('manuscript'))
  def extra_md(key,label):
   return ['','<details><summary>'+label+'</summary>','']+chapter_md[key]+['','</details>','']
  quick_md+=extra_md('workflow','起草与协作：补充清单与例子')+extra_md('ai','AI 辅助：补充清单与例子')
  map_md=opening_md.index('### 按论文顺序精修')-1
  opening_md[map_md:map_md]=extra_md('revision','全文验收：补充清单与例子')
  md=md[:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. Refine：先审逻辑，再磨句子','','先改全文通用要求，再按论文顺序精修。模板中的【】填自己的研究；句子数量按内容调整。这里的写作规范来自作者的 skill，会议硬性格式以官方指南为准。','']+opening_md+['','### 本章目录','']
- md+=[f'- [{s["nav"]}](#{s["id"]})' for s in sections if s.get('manuscript') or s['id']=='rebuttal']
+ md+=[f'- [{s["nav"]}](#{s["id"]})' for s in sections if s.get('manuscript')]
  for s in sections:
-  if s.get('manuscript') or s['id']=='rebuttal':md+=chapter_md[s['id']]
+  if s.get('manuscript'):md+=chapter_md[s['id']]
  examples=sum(len(i.get('examples',[])) for i in items)
+ rebuttal='<section class="major-chapter" id="rebuttal">'+chapter_html['rebuttal'].replace('<h3>4. Rebuttal</h3>','<h2>4. Rebuttal：把问题答到点上</h2>')+'</section>'
+ rebuttal=rebuttal[:-len('</section>')]+ '<details class="prompt"><summary>复制给 Codex：Rebuttal + revise loop</summary><pre>'+html.escape('阅读论文【文件】、审稿原文【文件】、已验证结果【文件】和当轮会议规则【链接或文本】。先逐条拆出原问题，列出问题、回复位置、证据和缺口，再写英文回复并逐段附中文。每问第一句直接回答，随后给证据、解释和位置。完成后按原始问题逐条模拟追问，输出：原问题 → 回复位置 → 未解决疑问 → 最小改法 → 缺哪项证据。只修改不通过项，再查同一张问题清单；证据不足交给我判断，不编数字，不预测涨分。满足问题覆盖、证据对应和字数限制后停止，由我定稿。允许修改【文件范围】，不提交回复，不改其他项目。')+'</pre><button class="copy js-only">复制提示词</button></details></section>'
+ md+=chapter_md['rebuttal']+['','```text','阅读论文【文件】、审稿原文【文件】、已验证结果【文件】和当轮会议规则【链接或文本】。先逐条拆出原问题，列出问题、回复位置、证据和缺口，再写英文回复并逐段附中文。每问第一句直接回答，随后给证据、解释和位置。完成后按原始问题逐条模拟追问，输出：原问题 → 回复位置 → 未解决疑问 → 最小改法 → 缺哪项证据。只修改不通过项，再查同一张问题清单；证据不足交给我判断，不编数字，不预测涨分。满足问题覆盖、证据对应和字数限制后停止，由我定稿。允许修改【文件范围】，不提交回复，不改其他项目。','```']
  tools,tools_md=render_tools(data)
  md+=tools_md
  reading=''.join(f'<li>{link(k)}<span> — {e(r["scope"])}</span></li>' for k,r in refs.items() if r.get('public'))
  t=(ROOT/'assets/template.html').read_text(encoding='utf-8')
- for k,v in {'NAV':nav,'DRAFT_NAV':draft_nav,'ENTRIES':entries,'TOOLS':tools,'QUICK_START':quick_start,'FIGURES':figures,'OPENING':opening,'SKILL':skill,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':'4','EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
+ for k,v in {'NAV':nav,'DRAFT_NAV':draft_nav,'ENTRIES':entries,'TOOLS':tools,'REBUTTAL':rebuttal,'QUICK_START':quick_start,'FIGURES':figures,'OPENING':opening,'SKILL':skill,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':'5','EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
  (ROOT/'index.html').write_text(t,encoding='utf-8')
  (ROOT/'book').mkdir(exist_ok=True)
  md+=['','## 参考阅读','']+[f'- [{r["title"]}]({r["url"]})：{r["scope"]}' for r in refs.values() if r.get('public')]
  (ROOT/'book/guide.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
  package_skill(data)
- print(f'Built 4 chapters, {len(sections)} refinement topics, {len(items)} checks, {examples} examples.')
+ print(f'Built 5 chapters, {len(sections)} refinement topics, {len(items)} checks, {examples} examples.')
 
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__)
