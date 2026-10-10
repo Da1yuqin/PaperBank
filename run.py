@@ -48,7 +48,7 @@ def render_paragraph(lesson, refs, md_level=4):
 def render_opening(data):
  e=html.escape
  rendered='<section class="opening-rules" id="general-rules"><h3>全文先守这些要求</h3><p>先检查全文，再按章节改。模板按内容调整，格式看会议要求。</p>'
- md=['','### 全文先守这些要求','','先检查全文，再按章节改。模板按内容调整，格式看会议要求。']
+ md=['','<a id="general-rules"></a>','### 全文先守这些要求','','先检查全文，再按章节改。模板按内容调整，格式看会议要求。']
  for group in data['refine_standard_groups']:
   rendered+=f'<h4>{e(group["title"])}</h4><ul class="compact-rules">';md+=['','#### '+group['title']]
   for rule in [r for r in data['refine_standards'] if r['group']==group['id']]:
@@ -56,10 +56,7 @@ def render_opening(data):
    example=dict(rule);example['id']=rule['id']+'-example'
    rh,rm=render_paragraph(example,data['references'],5);rendered+=rh.replace('class="paragraph-lesson"','class="global-example"')+'</details></li>';md+=rm
   rendered+='</ul>'
- rendered+='<details id="chapter-rules" class="rule-index"><summary>检查清单索引：按当前问题查</summary><ul>'
- for item in [i for i in data['items'] if i.get('iron_rule')]:
-  rendered+=f'<li><a href="#{item["id"]}">{e(item["checklist"])}</a></li>'
- rendered+='</ul></details></section>'
+ rendered+='</section>'
  rendered+='<section class="paper-map" id="paper-order"><h3>按论文顺序精修</h3><p>摘要概括全文，引言提问题，方法给做法，实验查效果，讨论讲范围，结论收尾。以下按实证型 CS / AI 论文组织。</p><ol>'
  md+=['','### 按论文顺序精修','','摘要概括全文，引言提问题，方法给做法，实验查效果，讨论讲范围，结论收尾。','']
  for section in data['sections']:
@@ -288,8 +285,8 @@ def render_skill(data):
  e=html.escape
  skill=data['writing_skill']
  rendered=f'<details class="writing-skill" id="writing-skill"><summary>给 Codex 用：下载 PaperBank 写作 skill</summary><p>{e(skill["intro"])}</p>'
- rendered+=f'<p class="skill-links"><a href="{e(skill["download"])}" download>下载写作 skill ZIP</a> · <a href="{REPO}/blob/main/{e(skill["source"])}">查看 SKILL.md</a> · <a href="#chapter-rules">写作规则索引</a></p><p>解压后将整个 <code>paperbank-writing/</code> 文件夹交给 Codex。填文件、任务和修改范围即可。</p>'
- md=['','<a id="writing-skill"></a>','### PaperBank 写作 skill','',skill['intro'],'',f'[下载 ZIP](../{skill["download"]}) · [查看 SKILL.md](../{skill["source"]}) · [写作铁律](#rules)','','下载、解压，保留整个 paperbank-writing/ 文件夹，把它交给 Codex 读取；补上文件、任务和允许修改的范围。']
+ rendered+=f'<p class="skill-links"><a href="{e(skill["download"])}" download>下载写作 skill ZIP</a> · <a href="{REPO}/blob/main/{e(skill["source"])}">查看 SKILL.md</a> · <a href="#general-rules">写作规则索引</a></p><p>解压后将整个 <code>paperbank-writing/</code> 文件夹交给 Codex。填文件、任务和修改范围即可。</p>'
+ md=['','<a id="writing-skill"></a>','### PaperBank 写作 skill','',skill['intro'],'',f'[下载 ZIP](../{skill["download"]}) · [查看 SKILL.md](../{skill["source"]}) · [写作铁律](#general-rules)','','下载、解压，保留整个 paperbank-writing/ 文件夹，把它交给 Codex 读取；补上文件、任务和允许修改的范围。']
  for key,label,lang in [('prompt_zh','中文使用提示词','zh-CN'),('prompt_en','English usage prompt','en')]:
   rendered+=f'<details class="prompt"><summary>{label}</summary><pre lang="{lang}">{e(skill[key])}</pre><button class="copy js-only">复制提示词</button></details>'
   md+=['',f'**{label}**','','```text',skill[key],'```']
@@ -299,7 +296,7 @@ def package_skill(data):
  """Generate the skill reference from the same rules used by the website."""
  folder=ROOT/'skills/paperbank-writing'
  rules=data.get('skill_rules') or [i for i in data['items'] if i.get('iron_rule') or i['section']=='rules']
- md=['# PaperBank 写作检查参考','','按本次任务选规则。下面示例是假设情境，不是论文原文或实测；实际改稿先核对事实。','','网页：[写作铁律](https://da1yuqin.github.io/PaperBank/#chapter-rules) · [论文结构与逐句例子](https://da1yuqin.github.io/PaperBank/#paper-order) · [rebuttal](https://da1yuqin.github.io/PaperBank/#chapter-rebuttal)']
+ md=['# PaperBank 写作检查参考','','按本次任务选规则。下面示例是假设情境，不是论文原文或实测；实际改稿先核对事实。','','网页：[写作铁律](https://da1yuqin.github.io/PaperBank/#general-rules) · [论文结构与逐句例子](https://da1yuqin.github.io/PaperBank/#paper-order) · [rebuttal](https://da1yuqin.github.io/PaperBank/#chapter-rebuttal)']
  for group in dict.fromkeys(i['group'] for i in rules):
   md+=['','## '+group,'']
   for i in [x for x in rules if x['group']==group]:
@@ -395,7 +392,7 @@ def build():
   group=[i for i in items if i['section']==s['id']]
   purpose=s.get('purpose') or s.get('summary') or s['description']
   prefix='4. ' if s['id']=='rebuttal' else ('3.'+str(int(s['number']))+' ' if s.get('manuscript') else '')
-  entries+=f'<section class="chapter" id="chapter-{s["id"]}"><div class="chapter-head"><h3>{prefix}{e(s["title"])}</h3><span class="shown">{len(group)} 条</span></div><p class="chapter-desc">{e(purpose)}</p>'
+  entries+=f'<section class="chapter" id="chapter-{s["id"]}"><div class="chapter-head"><h3>{prefix}{e(s["title"])}</h3></div><p class="chapter-desc">{e(purpose)}</p>'
   md+=['',f'<a id="{s["id"]}"></a>',f'### {prefix}{s["title"]}','',purpose]
   for lesson in [p for p in data.get('refine_templates',[]) if p['section']==s['id']]:
    lesson_html,lesson_md=render_paragraph(lesson,refs)
@@ -412,52 +409,9 @@ def build():
    md+=lesson_md
   if any(p['section']==s['id'] for p in lessons):
    entries+='</details>';md+=['','</details>','']
-  entries+=f'<details class="chapter-checks"><summary>清单与例子（{len(group)} 项）</summary>'
-  md+=['','<details>',f'<summary>清单与例子（{len(group)} 项）</summary>','']
-  for subgroup in dict.fromkeys(i['group'] for i in group):
-   entries+=f'<div class="check-group"><h4 class="group-title">{e(subgroup)}</h4><ul class="checklist">'
-   md+=['',f'**{subgroup}**','']
-   for i in [x for x in group if x['group']==subgroup]:
-    num=int(i['id'][4:]); attrs=' '.join(f'data-{k}="{e(i[k])}"' for k in ['section','priority'])
-    entries+=f'<li class="entry{ " entry-visual" if i.get("detail") else ""}" id="{i["id"]}" {attrs}><div class="check-row"><input class="task-check js-only" type="checkbox" id="check-{i["id"]}" data-id="{i["id"]}"><label class="check-text" for="check-{i["id"]}">{e(i["checklist"])}</label><a class="permalink" href="#{i["id"]}" aria-label="第 {num} 条">{num}</a></div>'
-    md += [f'- [ ] **第 {num} 条：**{i["checklist"]}']
-    paragraph=''
-    entries+=f'<details class="explain"><summary>说明{ "、例子" if i.get("examples") else ""}与参考</summary><div class="explain-body">'
-    if paragraph:
-     entries+=f'<p>{e(paragraph)}</p>'
-    entries+=f'<p class="boundary"><strong>适用条件：</strong>{e(i["boundary"])}</p>'
-    md+=['',f'<a id="{i["id"]}"></a>','<details>','<summary>说明、例子与参考</summary>']
-    if paragraph:
-     md+=['',paragraph]
-    md+=['',f'**适用条件：**{i["boundary"]}']
-    for example in i.get('examples',[]):
-     gallery=next((g for g in data['figure_chapter']['gallery'] if g['item']==i['id'] and example is i['examples'][g['example_index']]),None)
-     if gallery:
-      entries+=f'<p><a href="#{gallery["figure_id"]}">第二章：原图、中英例子与拆解 ↗</a></p>'
-      md+=['',f'[第二章：原图、中英例子与拆解](#{gallery["figure_id"]})']
-      continue
-     example_html,example_md=render_example(example,refs)
-     entries+=example_html;md+=example_md
-    if i.get('prompt'):
-     entries+=f'<details class="prompt"><summary>复制用的提示词</summary><pre>{e(i["prompt"])}</pre><button class="copy js-only">复制提示词</button></details>'
-     md+=['','```text',i['prompt'],'```']
-    sources=list(dict.fromkeys([i['source']]+i.get('refs',[])))
-    entries+='<p class="sources"><strong>参考：</strong>'+'；'.join(link(k) for k in sources)+'</p></div></details></li>'
-    md+=['','参考：'+'；'.join(f'[{refs[k]["title"]}]({refs[k]["url"]})' for k in sources),'','</details>','']
-   entries+='</ul></div>'
-  entries+='</details></section>'
-  md+=['','</details>','']
+  entries+='</section>'
   chapter_html[s['id']]=entries[html_start:];chapter_md[s['id']]=md[md_start:]
- def extras(key,label):
-  content=chapter_html[key].replace('<h3>','<h4>').replace('</h3>','</h4>')
-  return f'<details class="chapter-extra"><summary>{label}</summary>{content}</details>'
- map_start=opening.index('<section class="paper-map"')
- opening=opening[:map_start]+extras('revision','全文验收：补充清单与例子')+opening[map_start:]
  entries=''.join(chapter_html[s['id']] for s in sections if s.get('manuscript'))
- def extra_md(key,label):
-  return ['','<details><summary>'+label+'</summary>','']+chapter_md[key]+['','</details>','']
- map_md=opening_md.index('### 按论文顺序精修')-1
- opening_md[map_md:map_md]=extra_md('revision','全文验收：补充清单与例子')
  md=md[:1]+preface_md+md[1:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 古法精修','','先查全文，再逐节改。模板中的【】填自己的材料，段落按内容调整。','']+opening_md+['','### 本章目录','']
  md+=[f'- [{s["nav"]}](#{s["id"]})' for s in sections if s.get('manuscript')]
  for s in sections:
@@ -476,7 +430,7 @@ def build():
  md+=['','## 参考阅读','']+[f'- [{r["title"]}]({r["url"]})：{r["scope"]}' for r in refs.values() if r.get('public')]
  (ROOT/'book/guide.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
  package_skill(data)
- print(f'Built 5 chapters, {len(sections)} refinement topics, {len(items)} checks, {examples} examples.')
+ print(f'Built 5 chapters, {len(lessons)+len(data.get("refine_templates",[]))} paragraph lessons.')
 
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__)
