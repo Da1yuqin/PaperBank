@@ -6079,23 +6079,23 @@
             "figure_en": "The figure separates interaction generation from policy optimization. A dialogue traces the left side; outcome utility, process credit, and cost signals organize the right. Groups explain responsibilities, arrows show information flow, and numbers order the steps."
           },
           {
-            "title": "三类图都要过的检查",
+            "title": "绘图铁律：这些错别犯",
             "rules": [
               {
                 "label": "配色",
-                "text": "白底，面板用极浅的低饱和色；文字保持深色。同一方法、角色、条件全篇同色，重要对照再配形状或线型，别让读者只靠分辨红绿。",
+                "text": "白底，面板接近白色，文字和刻度保持深色。同对象全篇同色，再配点形、线型或纹理；低饱和不是糊一层灰。",
                 "example_zh": "中：基线用灰色圆点，本文方法用灰蓝菱形；颜色变淡，文字不跟着变淡。",
                 "example_en": "EN: Use gray circles for the baseline and muted blue diamonds for the proposed method. Keep the text dark on pale backgrounds."
               },
               {
                 "label": "字号与字体",
-                "text": "字体与正文统一，按最终插入宽度检查 PDF。PaperBank 默认图内字与正文同大，最多小 2 pt；标题、轴、图例、注释也算。先减内容、重排，别靠整图缩放塞进一栏。统计图优先矢量 PDF；生成底图的文字另排成可选文字。",
+                "text": "按最终栏宽起稿，图内所有字同字号、同字体家族；范围为正文减 2 pt 至正文，标题、轴、图例、注释都算。以论文 PDF 的实测字号为准，放不下先重排，不缩字硬塞。",
                 "example_zh": "中：正文实际为 10 pt，图内字用 8–10 pt；在论文整页大小下读，不只看放大的 PNG。",
                 "example_en": "EN: With 10 pt body text, use 8–10 pt figure text and inspect it at its final size in the paper, not only in a magnified PNG."
               },
               {
                 "label": "布局",
-                "text": "一个主读序，同级框对齐，箭头不穿字。双栏图先按约 16:9、单栏图约 4:3 起排；同时看图注总占高。比例是起点，不拉扁图、不删关键证据。",
+                "text": "一个主读序，同层成组并命名；并行先汇合，反馈另走清楚的路径。通栏约 16:9、单栏约 4:3 起排，附录可纵排。连图注一起查占高，不拉扁图、不改论文模板。",
                 "example_zh": "中：两个并行输入先汇合再进入模型；长解释移到图注，关键输入保留在图里。",
                 "example_en": "EN: Merge parallel inputs before the model. Move long explanations to the caption while retaining the essential inputs in the figure."
               },
@@ -6110,11 +6110,47 @@
                 "text": "短句说明图在回答什么、怎么读、结果支持什么。简称给全称；必要的分母、范围、误差含义保留。方法图讲机制，结果图才讲实测发现。",
                 "example_zh": "中：该图比较同一测试集上的成功率与推理成本；点表示方法配置。",
                 "example_en": "EN: The figure compares success rate and inference cost on the same test set; each point represents a method configuration."
+              },
+              {
+                "label": "箭头与信息边界",
+                "text": "每条箭头都对应真实产物和接收者，别穿字、交叉或乱连。输入、输出、评价规则用三种边框；只供评价的 rubric 不接到模型。",
+                "example_zh": "中：核查结果交给规划器；评分规则只交给评价器。",
+                "example_en": "EN: Checked constraints go to the planner; scoring criteria go only to the evaluator."
+              },
+              {
+                "label": "标签与图标",
+                "text": "缩写、符号、颜色、边框和图标就近解释。图标旁写对象名；别让读者猜这个机器人到底是谁。",
+                "example_zh": "中：机器人标为 Planner；虚线箭头注明 Feedback。",
+                "example_en": "EN: Label the robot as Planner and dashed arrows as Feedback."
+              },
+              {
+                "label": "案例",
+                "text": "保留必要背景、关键请求、证据和输出，注明实测或作者示例。同一来源的案例只完整展示一次，改名、翻译或裁剪也算同一个。",
+                "example_zh": "中：图 1 展示案例，第 4 节回引图 1。",
+                "example_en": "EN: Present the case in Figure 1 and refer back to it in Section 4."
+              },
+              {
+                "label": "PDF 导出",
+                "text": "统计图导出矢量 PDF；生成底图的标签另排原生、可见、可选文字。截图装进 PDF 仍是位图，隐藏 OCR 层也不算排好字。",
+                "example_zh": "中：实际选中图内标签，核对字体和缩放后的字号。",
+                "example_en": "EN: Select the labels in the manuscript PDF and verify their font and final size."
+              },
+              {
+                "label": "改图范围",
+                "text": "只改颜色就保留文字、布局、照片、公式、字号和连线。原始数据、实验和合作者的图别顺手改。",
+                "example_zh": "中：只换底色，保留坐标与箭头端点。",
+                "example_en": "EN: Change only the fills; retain all coordinates and arrow endpoints."
+              },
+              {
+                "label": "最终验收",
+                "text": "编译后在正常阅读大小查字号、碰撞、裁切、图注和首次引用顺序。CS 默认 [!t]；源码顺序对了，还要看实际 PDF。",
+                "example_zh": "中：图 1 先引用，就检查它是否真的先出现在 PDF。",
+                "example_en": "EN: If Figure 1 is cited first, verify that it actually appears first in the PDF."
               }
             ],
             "code_title": "给 Codex 的绘图说明单",
             "code_language": "text",
-            "code": "图的用途：【mainfig／framework／结果图】\n要讲清的贡献或问题：【】\n输入、操作、输出及真实依赖：【】\n案例来源／原始数据／比较条件：【】\n必须保留的文字、变量、单位和图例：【】\n论文插入宽度／正文实际字号／已确认色板：【】\n先给布局，再出图；按最终 PDF 大小检查文字、连线与图注。结果图只从所附数据绘制。"
+            "code": "先读 paperbank-figures/SKILL.md，再填：\n图的用途：【mainfig／framework／结果图】\n要讲清的贡献或问题：【】\n输入、操作、输出及真实依赖：【】\n案例来源／原始数据／比较条件：【】\n必须保留的文字、变量、单位和图例：【】\n论文插入宽度／正文实际字号／已确认色板：【】\n先给布局，再出图；按最终 PDF 大小检查文字、连线与图注。结果图只从所附数据绘制。"
           }
         ]
       },
@@ -6367,11 +6403,11 @@
   "figure_chapter": {
     "title": "光速出美图",
     "lead": "先定图要说明什么，再画。统计图用真实数据，概念图先排流程。配色最后调，毕竟颜色救不了逻辑。",
-    "scope_note": "图例附出处和许可；教学图使用模拟数据。尺寸、字号按目标会议调整。",
+    "scope_note": "以下是 PaperBank 面向 CS 论文的默认约定，会议硬性要求和当前稿件已确认的配置优先。参考图用来学信息组织，不照搬它的字号、色板或数据。",
     "rules": [
       {
-        "title": "先定图的任务",
-        "zh": "动机图讲问题，方法图讲流程，结果图讲比较；无关元素删掉。",
+        "title": "别让一张图讲所有事",
+        "zh": "mainfig 讲问题和改动，framework 讲真实流程，结果图讲比较。先写一句图的任务，再选内容；mainfig 默认不超过 5 个环节。",
         "en": "Choose one message before choosing a layout.",
         "example_en": "Show where the existing pipeline fails and which step our method changes.",
         "example_zh": "画清旧流程在哪一步出问题，我们改了哪一步。",
@@ -6380,8 +6416,8 @@
         ]
       },
       {
-        "title": "先画图，再精修正文",
-        "zh": "用草图和真实数据定论证，先给合作者看。",
+        "title": "别等正文定稿才画图",
+        "zh": "先用草图和真实结果定论证，给合作者审。图里问题、做法和证据对不上，正文也别急着精修。",
         "en": "Use a rough figure to settle the argument before polishing prose.",
         "example_en": "Panel (a) shows the observed gap; panel (b) tests the proposed repair.",
         "example_zh": "(a) 展示实际缺口；(b) 检验我们的修补。",
@@ -6390,8 +6426,8 @@
         ]
       },
       {
-        "title": "统计图与概念图",
-        "zh": "统计图用 Python 读真实数据；框架、动机和案例图用 imagegen。",
+        "title": "别让 AI 编实验曲线",
+        "zh": "统计图用 Python 从真实数据绘制；imagegen 用于动机、框架和案例图。缺数据就停，不补点、不编误差、不为平滑改曲线。",
         "en": "Plot quantitative results from data; use imagegen for conceptual figures.",
         "example_en": "Draw the recorded success rates with Python. Generate only the workflow illustration with imagegen.",
         "example_zh": "成功率用 Python 按记录画；imagegen 只生成流程示意。",
@@ -6401,8 +6437,8 @@
         ]
       },
       {
-        "title": "按最终尺寸排字",
-        "zh": "按会议栏宽起稿，统一字体；图内字号为正文字号至小 2 pt。通栏约 16:9，单栏约 4:3，长图可纵排。",
+        "title": "别看放大 PNG 判断字号",
+        "zh": "按最终栏宽排字，字体与正文一致；所有图内字同一字号，介于正文与正文减 2 pt 之间，标题也不能更大。放不下先重排，不把字缩成蚂蚁。",
         "en": "Design at the final column width and readable type size.",
         "example_en": "Use the paper’s column width and body font; remove repeated labels rather than shrinking text.",
         "example_zh": "用论文栏宽和正文字体；删重复标签，不把字缩成蚂蚁。",
@@ -6411,8 +6447,8 @@
         ]
       },
       {
-        "title": "按阅读顺序布局",
-        "zh": "同层成组，主方向一致；并行、汇合、反馈按真实依赖画。箭头写清传什么。",
+        "title": "别用箭头改写真实流程",
+        "zh": "同层成组并命名；先后、并行、汇合、反馈按真实依赖画。每条箭头说清传什么，起止明确，不穿字、不绕远路。",
         "en": "Make position and arrows encode the actual information flow.",
         "example_en": "Retrieved passages enter the generator; the evaluator receives the generated answer.",
         "example_zh": "检索段落送给生成器；生成的回答交给评价器。",
@@ -6421,8 +6457,8 @@
         ]
       },
       {
-        "title": "输入、输出、评分分开",
-        "zh": "用边框或线型区分；仅供评价的分数不能画成模型输入。",
+        "title": "别把评分规则画成模型输入",
+        "zh": "输入、输出、评价规则用三种边框区分，并给图例。只供评价的 rubric 不连到被测模型；不同模型收到不同材料，也要标清。",
         "en": "Distinguish model inputs, model outputs, and evaluation rules.",
         "example_en": "Dashed boxes contain model inputs; solid boxes contain responses; dotted boxes contain evaluator-only criteria.",
         "example_zh": "虚线框是模型输入，实线框是回复，点线框是只供评价的判据。",
@@ -6431,8 +6467,8 @@
         ]
       },
       {
-        "title": "颜色表示类别",
-        "zh": "白底、低饱和、同类同色；再配文字、形状或纹理，黑白也能读。",
+        "title": "别把低饱和画成一层灰雾",
+        "zh": "白底，面板接近白色，文字和刻度保持深色。同对象全篇同色，再配点形或线型；不用浓重底色、渐变、阴影救场。",
         "en": "Use a light background and redundant visual encoding.",
         "example_en": "Blue circles denote the baseline; orange triangles denote our method in every panel.",
         "example_zh": "每个面板都用蓝圆点表示基线，橙三角表示我们的方法。",
@@ -6441,8 +6477,8 @@
         ]
       },
       {
-        "title": "文字分组，重点高亮",
-        "zh": "案例按背景、证据、动作、结果排；同类信息同框，图标旁写名称。",
+        "title": "别扔一整块对话让人读",
+        "zh": "一轮一框，注明角色；同一轮长回复按语义分段，不伪装成多轮。高亮只标关键约束、证据或错误，颜色含义要能读懂。",
         "en": "Group dense case text by role and function.",
         "example_en": "The left column contains evidence; the right column shows the model response and its evaluation.",
         "example_zh": "左栏放证据；右栏放模型回复和评价。",
@@ -6451,8 +6487,8 @@
         ]
       },
       {
-        "title": "案例不重复贴",
-        "zh": "同一案例在论文里只完整展示一次，其他位置交叉引用；案例讲流程，总体效果看实验。",
+        "title": "别把同一案例复制三遍",
+        "zh": "同一来源的案例在全文只完整呈现一次，其他位置交叉引用。改名、翻译、裁剪也算同一个；必要对照集中展示，别靠一个 case 证明总体效果。",
         "en": "Present each case once and cross-reference its unique location.",
         "example_en": "Figure 1 presents the case; Section 4 refers back to Figure 1 without repeating the dialogue.",
         "example_zh": "案例放图 1；第 4 节回引图 1，不再抄一遍对话。",
@@ -6461,8 +6497,8 @@
         ]
       },
       {
-        "title": "多子图合讲一个问题",
-        "zh": "按现象、诊断、对照、稳健性排列；同条件同顺序，相关横轴对齐。",
+        "title": "别每个子图换一套尺度",
+        "zh": "围绕一个问题排现象、诊断、对照和稳健性；同条件同顺序、同配色，同类轴和色标保持可比。",
         "en": "Make panels answer consecutive questions.",
         "example_en": "The first panel identifies the gap, the second locates it, and the third tests whether it persists.",
         "example_zh": "第一图找差距，第二图找发生位置，第三图检验差距是否仍在。",
@@ -6471,8 +6507,8 @@
         ]
       },
       {
-        "title": "图形对应数值",
-        "zh": "查分母、单位、方向、坐标起点和误差；相对增益给绝对值，显著性另看统计。",
+        "title": "别靠断轴制造胜利",
+        "zh": "查单位、分母、方向、坐标起点和误差类型；截断坐标要明确标出。相对增益同时给绝对值，柱长和数值必须对应。",
         "en": "Verify both labels and statistical geometry.",
         "example_en": "Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.",
         "example_zh": "准确率从 60% 到 66%：增加 6 个百分点，相对提高 10%。",
@@ -6481,8 +6517,8 @@
         ]
       },
       {
-        "title": "图注写读法和发现",
-        "zh": "主题句、子图含义、关键口径；解释缩写、误差和参考线。尽量三行，定义不能省。",
+        "title": "别把图注写成画法说明",
+        "zh": "写比较对象、读法和实际发现；解释缩写、单位、分母、误差和必要标记。图内已写清的别再抄，尽量三行，必要定义不省。",
         "en": "State the comparison, finding, and necessary reading keys.",
         "example_en": "Error bars show 95% question-level bootstrap intervals; the horizontal line marks zero gain.",
         "example_zh": "误差条表示按题目重采样的 95% 区间；水平线表示零增益。",
@@ -6491,13 +6527,95 @@
         ]
       },
       {
-        "title": "放回论文检查",
-        "zh": "统计图优先矢量 PDF；生成图可叠原生文字。检查字号、裁切、图注和引用顺序。",
+        "title": "别把编译通过当作图没问题",
+        "zh": "放回论文检查实际字号、字体嵌入、可选文字、裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后仍正确。",
         "en": "Inspect the figure inside the final paper PDF.",
         "example_en": "Place the figure after its first mention and check all labels at normal reading size.",
         "example_zh": "按首次引用顺序排图，以正常阅读大小检查全部文字。",
         "visuals": [
           "visual-tcod-fig-1"
+        ]
+      },
+      {
+        "title": "别省输入和输出",
+        "zh": "每个关键模块写清收到什么、做什么、交出什么，以及交给谁。模块名与 Method 一致，别让图成为缩写接龙。",
+        "example_en": "The checker receives evidence and returns supported constraints to the planner.",
+        "example_zh": "核查器接收证据，把已支持的约束交给规划器。",
+        "visuals": [
+          "visual-interactcs-fig-1"
+        ]
+      },
+      {
+        "title": "别只留图标、缩写和颜色",
+        "zh": "图标旁写对象名；新缩写、符号、边框、线型和数字就近解释。读者只看图与图注，应知道每个标记指什么。",
+        "example_en": "Label the robot as the planner and define dashed edges as feedback.",
+        "example_zh": "机器人标为规划器，虚线箭头定义为反馈。",
+        "visuals": [
+          "visual-interactcs-fig-1"
+        ]
+      },
+      {
+        "title": "别让 framework 变成模块名单",
+        "zh": "从创新点组织少量子图，走一条能追踪的案例。保留必要背景、关键请求、证据、操作与输出；删内部编号和无关参数，不删关键文字。",
+        "example_en": "Trace one task from the evidence input through checking to the final plan.",
+        "example_zh": "用同一个任务走完证据输入、核查和最终计划。",
+        "visuals": [
+          "fig-interactcs-case",
+          "visual-interactcs-fig-1"
+        ]
+      },
+      {
+        "title": "别把示意画成实测",
+        "zh": "估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，别指望图注替错误图形擦屁股。",
+        "example_en": "Keep illustrative module boxes equally sized; plot measured latency on a labeled axis.",
+        "example_zh": "示意模块框不靠大小表示耗时；实测延迟另用带坐标的图展示。",
+        "visuals": [
+          "teaching-cost"
+        ]
+      },
+      {
+        "title": "别拿截图 PDF 冒充矢量",
+        "zh": "统计图导出矢量 PDF 并嵌入字体。生成底图上的标签另排原生、可见、可选的 PDF 文字；不留重叠字形，不加隐藏 OCR 层。混合 PDF 仍含位图。",
+        "example_en": "Export the plot as vector PDF and verify that its axis labels can be selected.",
+        "example_zh": "统计图导出矢量 PDF，再实际选中坐标轴文字检查。",
+        "visuals": [
+          "visual-tcod-fig-3"
+        ]
+      },
+      {
+        "title": "别说只改色，顺手把内容改了",
+        "zh": "只改配色就保留布局、文字、换行、字号、公式、照片和连线；重排须在约定范围内。数据、实验和合作者的图也别顺手动。",
+        "example_en": "Change panel fills while retaining every label, coordinate, and arrow endpoint.",
+        "example_zh": "只换面板底色，保留所有标签、坐标和箭头端点。",
+        "visuals": [
+          "visual-interactcs-fig-2"
+        ]
+      },
+      {
+        "title": "别改论文模板给图腾地方",
+        "zh": "按实际栏宽起稿，不改页边距、正文字号或页面方向。正文通栏约 16:9、单栏约 4:3 是起点，附录可纵排；不拉扁图。CS 默认用 [!t]，再按正文首次引用检查实际落点。",
+        "example_en": "Rearrange parallel branches within the column width; keep the paper template unchanged.",
+        "example_zh": "在栏宽内重排并行分支，保留论文模板。",
+        "visuals": [
+          "visual-tcod-fig-1"
+        ]
+      },
+      {
+        "title": "别把说明文字塞进表格",
+        "zh": "PaperBank 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不截成图片绕过去；统计数字也不能把说明表变成实验结果。",
+        "example_en": "Put success rates in a table and explain the checking procedure in the text.",
+        "example_zh": "成功率放表格，核查流程写正文。",
+        "visuals": [
+          "visual-interactcs-fig-2"
+        ]
+      },
+      {
+        "title": "别拿白块盖住重叠",
+        "zh": "图例、标题、刻度和注释不能挡数据、箭头或边框。给文字留空间，重排碰撞处；不是盖住就算修好了。",
+        "example_en": "Move the legend outside the plotted curves while preserving the data and axes.",
+        "example_zh": "把图例移出曲线区，保留数据和坐标轴。",
+        "visuals": [
+          "teaching-kde"
         ]
       }
     ],
@@ -6647,7 +6765,7 @@
         ]
       }
     ],
-    "prompt_zh": "阅读我的论文、绘图 skill 和参考图。先为每张图写一句任务：它解释哪个问题、比较什么、支持哪项贡献。统计图用真实数据和 Python；概念图用 imagegen，先列清输入、模块、箭头、输出，再成图。按会议最终栏宽起稿，正文同族字体、正文至小 2 pt，白底低饱和，同对象同色，所有符号可解释。保持原数据、语义和拓扑，不改数值、不补误差。先给粗图和图注，核对后精修；统计图交付文字可选 PDF；概念图面叠加原生 PDF 文字，并放回论文检查。",
+    "prompt_zh": "读取 paperbank-figures/SKILL.md。图的用途：【mainfig／framework／结果图／案例图】；材料：【稿件、原始数据、参考图】；允许修改：【文件】；最终插入宽度：【mm】；正文实测字号：【pt】；已确认色板：【】。先写图要回答的问题，列清输入、操作、输出和每条箭头的真实依赖，再给布局。统计图只从所附数据绘制；概念图按环境使用 imagegen。按绘图铁律检查字号、配色、图例、图注和最终 PDF，修好再交图。",
     "gallery": [
       {
         "item": "tip-29",
@@ -6736,7 +6854,7 @@
         "license": "只链接正式论文页，不重托管原图。"
       }
     ],
-    "prompt_en": "Read my paper, figure instructions, and reference images. State one purpose for each figure: the question, comparison, and contribution. Use actual data and Python for quantitative plots; use imagegen for conceptual figures after identifying inputs, operations, arrows, and outputs. Work at the final venue column width, with the paper font and type no larger than body text and at most 2 pt smaller. Use a light background, consistent visual encoding, and explained symbols. Preserve the data and information flow. Show rough figures and captions before refinement, then deliver a PDF with selectable text and inspect the inserted figures in the paper.",
+    "prompt_en": "Read paperbank-figures/SKILL.md. Figure type: 【main figure / framework / quantitative chart / case】. Materials: 【manuscript, original data, references】. Editable files: 【】. Final width: 【mm】. Measured body font size: 【pt】. Approved palette: 【】. State the question first, then specify inputs, operations, outputs, and the real dependency behind every edge. Propose the layout before rendering. Plot quantitative results only from the supplied data. Check labels, fonts, colors, the caption, and the final manuscript PDF against the figure rules.",
     "visual_examples": [
       {
         "id": "visual-tcod-fig-1",
@@ -7105,7 +7223,14 @@
         "source_title": "可复现教学绘图代码",
         "source_url": "assets/generate-statistical-examples.py"
       }
-    ]
+    ],
+    "skill": {
+      "name": "paperbank-figures",
+      "source": "skills/paperbank-figures/SKILL.md",
+      "download": "assets/paperbank-figures-skill.zip",
+      "intro": "解压后把整个 paperbank-figures/ 文件夹交给 Codex，再附稿件、原始数据、参考图和允许修改的文件。先给材料，再给它发挥；空手也画不出你的实验。",
+      "instructions": "---\nname: paperbank-figures\ndescription: Create and refine CS paper main figures, framework diagrams, case illustrations, and quantitative charts from manuscripts and real data, with self-explanatory labels and final-size PDF checks.\n---\n\n# PaperBank 绘图 skill\n\n先讲清问题、输入、操作和输出，再画。配色救不了接错的箭头。\n\n## 先确认图的任务\n\n读取稿件对应段落、原始数据、已有图和作者允许修改的文件。确定图型、目标会议、最终插入宽度、正文实际字体与字号、已确认色板。缺关键材料先指出缺口，不编实验或流程。\n\n这是实证型 CS 论文的默认约定。作者当前要求和会议硬规则优先；Nature 系列使用其独立的写作与绘图体系，不强套本包的 CS 字号、浮动或案例配置。\n\n## 选图型与工具\n\n- **mainfig / Introduction 图**：讲具体问题、已有做法的缺口、本文改哪一步。默认不超过 5 个环节；保留理解贡献所需的输入、输出和必要对照。\n- **framework**：讲真实模块、输入、操作、输出及接收者。用一个能追踪的案例串起来，保持并行、汇合与反馈的真实关系；训练、推理和评价分开。\n- **案例图**：给必要背景、有效需求、证据、回复或决策及判据。标清实测输出或作者示例；同一案例只完整呈现一次，其他位置交叉引用。\n- **统计图**：用 Python 等专业绘图工具读取真实数据，保留坐标、数值、误差、分母和统计几何。按数据形态选图，不为美观改数据、补缺测、平滑曲线或重跑实验。\n- **概念图**：按当前环境用 imagegen。先确认真实语义和连线，再生成图面；不要让生成器猜模块关系或发明实验结果。\n\n详细铁律与中英例子见 [rules.md](references/rules.md)。先读“绘图铁律”，统计图再按需读“按图的任务选模板”。\n\n## 排字与配色\n\n按稿件最终栏宽起稿。图内所有文字同一字号，范围为正文减 2 pt 至正文，字体家族匹配；标题、轴、图例、注释都不能更大。以插入论文后的 PDF 实测为准，不看放大 PNG 猜字号。放不下就重排、删重复或拆图，不拉扁、不缩字硬塞。\n\n白底，面板近白，深色文字与刻度。同一对象全篇同色，再用点形、线型或纹理辅助；已有色板优先，不复制另一篇论文的配置。输入、输出、评价规则采用三种可解释的边框；仅供评价的规则不能画成模型输入。\n\n所有缩写、符号、箭头、颜色、图标和数值都可解释。图标旁写对象名，模块名与 Method 一致。对话一轮一框，长回复按语义分段；未评分的检查不画勾号。\n\n正文通栏先参考 16:9，单栏参考 4:3；这是起排约定。按内容重排并保留关键文字，附录可纵排。只改色时，保留布局、文字、照片、公式、字号和连线；不扩大改图范围或改论文模板。\n\n## Caption 与导出\n\nCaption 写比较对象、读法、实际发现和必要口径。解释单位、分母、误差、简称和未在图内解释的标记；不要重复图内文字，不用“画法说明”修补错误的数量或因果暗示。尽量三行，必要定义优先。\n\n统计图优先导出矢量 PDF 并嵌入字体。生成底图保留图像，用原生、可见、可选的 PDF 文字排标签；不叠两套字形，不用隐藏 OCR 文字层。混合 PDF 仍含位图，不能称全矢量。\n\nCS 图表默认使用 [!t]，按正文首次引用核对最终页内顺序。保留当前模板、数据、已有可靠图和合作者修改；图与 Caption 合计占高一起查。\n\n## 验收与交付\n\n把图插回论文、编译并查看受影响页面。逐项核对图形与源数据、真实依赖、实际字体字号、可选文字、字体嵌入、图例、裁切、碰撞和引用顺序。源码能编译不等于图已通过。\n\n保留生成或绘图源、真实数据来源、色板、最终提示词和导出文件。交付源文件、PDF 和预览图；只报告已完成的检查。远端同步、改实验或发布按原任务授权，不因本 skill 扩大权限。\n\n## 给 Codex 的提示词\n\n读取本 skill。图的用途：【】；材料：【稿件、原始数据、参考图】；允许修改：【文件】；最终插入宽度：【mm】；正文实测字号：【pt】；已确认色板：【】。先说明图的任务和布局，再出图，按铁律核对并放回论文检查。缺数据或依据直接指出，不编结果。\n\n## 来源与许可\n\nDa1yuqin / PaperBank，[网页](https://da1yuqin.github.io/PaperBank/#figures)。原创规则与教学例子采用 CC BY 4.0，详见 LICENSE。论文原图和第三方摘录不随本包分发；网页所链接材料保留各自许可。\n"
+    }
   },
   "refine_scope": "这里的“规范化要求”指 PaperBank 的统一写法，不是所有会议的强制格式。模板提供句子的职责与顺序，方括号填自己的事实；段数、贡献条数、章节位置服从论文类型和官方模板。",
   "refine_templates": [
