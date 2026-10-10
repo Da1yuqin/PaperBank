@@ -6024,8 +6024,8 @@
             ]
           }
         ],
-        "note_zh": "Overleaf Git 是 Premium 功能，取决于项目拥有者订阅或相应授权；源文件 ZIP 不含 PDF。Git 同步可能影响网页版批注和修订痕迹，协作时先约定使用方式。",
-        "note_en": "Overleaf Git access depends on the project owner’s subscription or granted access. A source ZIP excludes the compiled PDF. Git pushes can affect editor comments and tracked changes, so agree on the collaboration workflow."
+        "note_zh": "（Git 同步需要项目 owner 有会员或相应权限。没有就下载源文件 ZIP，在本地编译 LaTeX，或直接 skip 同步这步。可以及时求助有会员的老师或高产师兄师姐，请他们帮忙当 owner。）",
+        "note_en": "Git sync requires a project owner with a paid subscription or access to the feature. Otherwise, download the source ZIP and compile with local LaTeX, or skip the sync step. You can ask a supervisor or senior lab member with a subscription to become the project owner."
       },
       {
         "id": "draft-step-2",
