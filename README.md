@@ -26,6 +26,6 @@ Python 3 即可，无第三方依赖：
 python3 run.py --serve
 ```
 
-只重建用 `python3 run.py`。内容在 `data/guide.json`；模板、样式和交互在 `assets/`。网页、Markdown、skill 参考与 ZIP 从同一份数据生成，修改后一起重建。网页支持搜索、章节目录、本地勾选和深色模式。
+只重建用 `python3 run.py`。内容在 `data/guide.json`；模板、样式和交互在 `assets/`。网页、Markdown、skill 参考与 ZIP 从同一份数据生成，修改后一起重建。网页支持搜索、章节目录、本地勾选和深色模式；选中正文可留批注，公开批注显示高亮和侧栏，也可私密留言。
 
 GitHub Pages 选择 `main` 分支根目录。组织与表达受到 eternity4719 的[《高性价比人生指南》](https://eternity4719.github.io/HowToLiveBetter/)启发，正文与代码独立编写。欢迎在 [Issues](https://github.com/Da1yuqin/PaperBank/issues)补充具体问题和改法。
