@@ -14,6 +14,8 @@
 
 画图先拿[绘图 skill ZIP](assets/paperbank-figures-skill.zip)：解压后让 Codex 读取 `paperbank-figures/SKILL.md`，附稿件、原始数据和参考图。包内有 mainfig / framework 区别、22 条绘图铁律、16 类图型及中英例子；图例链接回网页，不打包第三方原图。
 
+包内的 `references/prompts.md` 可直接复制：按任务列明铁律和技能依据。提示词统一维护在 `data/guide.json` 的 `codex_prompts`，网页与下载包同步生成。
+
 ## 使用与转载
 
 欢迎使用、改写、转载，也欢迎拿去做 skill。原创正文采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)，代码采用 MIT；转载保留作者、原文链接和许可，改过请注明。论文摘录和原图保留各自版权，复用前查紧邻的出处与许可。

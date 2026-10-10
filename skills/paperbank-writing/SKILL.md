@@ -27,7 +27,7 @@ description: Draft and refine CS papers and rebuttals using section templates, e
 - 一句一个主要判断，一段一个任务。后句接前句的问题或产物，连接词符合真实关系。
 - 术语、缩写、符号首次出现就解释。Abstract、Introduction、Experiments 分别能读懂。
 - 同一对象用同一名称。符号写对象、来源、单位和下标，不用的定义删掉。
-- 代词清楚时保留，指代不清时换成对象名。
+- 正文不用 it／they 及其同族对象代词，换成简短对象名；we／our 和 this case 等带明确名词的结构可保留。原始提示词、模型回复和直接引用保持原文。
 - 有依据就用 de-identified、additional help、expert-confirmed、tailored prompt 等词突出贡献。一词换一词，不堆修饰语，也不为普通修饰词另建解释表。
 - 发现可取短名，优先四个英文词以内，紧接具体释义；名字不能增加未验证的能力。
 - 相近小节篇幅相称。超页先删重复文献配文和常规实现，次要细节移附录；别先砍支撑贡献的实验分析。不改模板字号、栏宽和间距。
@@ -77,4 +77,4 @@ description: Draft and refine CS papers and rebuttals using section templates, e
 
 ## 给 Codex 的提示词
 
-> 读取本 skill，任务：【】；材料：【稿件、结果、参考原文】；允许修改：【文件和范围】。先查主要问题和证据，再修改。每节附中文供我审逻辑，保留数据与实验设置，缺证据直接指出。最后说明改了什么、检查了什么。
+从 [prompts.md](references/prompts.md) 选择起草、精修、绘图、实验、Intro 或 rebuttal 提示词，填写【】。各提示词列出本任务的适用铁律与来源，和网页使用同一份内容。

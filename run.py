@@ -19,6 +19,29 @@ FIGURE_SECTIONS = [
  ('figure-references','更多参考图，带着问题看'),
 ]
 
+def render_codex_prompt(data, key, label_zh, label_en='English prompt'):
+ """Use one skill-grounded prompt for the page and portable references."""
+ e=html.escape;prompt=data['codex_prompts'][key]
+ rendered='';md=[]
+ for language,label,lang in [('zh',label_zh,'zh-CN'),('en',label_en,'en')]:
+  text=prompt[language]
+  rendered+=f'<details class="prompt" data-prompt-ref="{e(key)}" data-prompt-lang="{language}"><summary>{e(label)}</summary><pre lang="{lang}">{e(text)}</pre><button class="copy js-only">复制提示词</button></details>'
+  md+=['','**'+label+'**','','```text',text,'```']
+ source=f'{REPO}/blob/main/skills/paperbank-{prompt["skill"]}/references/prompts.md#{key}'
+ rendered+=f'<p class="example-source">依据：{e(" · ".join(prompt["sources"]))} · <a href="{e(source)}">对应铁律与完整提示词</a></p>'
+ md+=['','依据：'+' · '.join(prompt['sources'])+f' · [对应铁律与完整提示词]({source})']
+ return rendered,md
+
+def package_prompt_reference(data, folder, keys):
+ md=['# 给 Codex 的提示词','','填写【】后使用。以下采用本地技能中适用于实证型 CS 论文的通用规则；不套用某篇论文的固定宽度、色值、模型阵容或重复次数。Nature 系列使用独立体系。','']
+ for key in keys:
+  prompt=data['codex_prompts'][key]
+  md+=['',f'<a id="{key}"></a>','## '+prompt['title'],'','依据：'+' · '.join(prompt['sources'])+'。','', '对应规则：'+'；'.join(prompt['basis'])+'。']
+  for lang,label in [('zh','中文'),('en','English')]:
+   md+=['','### '+label,'','```text',prompt[lang],'```']
+ md+=['','---','','Da1yuqin / PaperBank，[原文](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。']
+ (folder/'references/prompts.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
+
 def section_label(section):
  return '先读 · ' if int(section['number'])==0 else str(int(section['number']))+'. '
 
@@ -148,7 +171,9 @@ def render_quick_start(data, include_figures=True):
      rendered+='</tr>'
      md+=['| '+row['method']+' | '+' | '.join(cells)+' |']
     rendered+='</tbody></table></div>'
-   if block.get('code'):
+   if block.get('prompt_ref'):
+    ph,pm=render_codex_prompt(data,block['prompt_ref'],block['code_title']);rendered+=ph;md+=pm
+   elif block.get('code'):
     rendered+=f'<details class="prompt"><summary>{e(block["code_title"])}</summary><pre>{e(block["code"])}</pre><button class="copy js-only" data-copy-label="复制模板">复制模板</button></details>'
     md+=['','**'+block['code_title']+'**','','```'+block['code_language'],block['code'],'```']
     if block.get('code_note'):
@@ -159,9 +184,7 @@ def render_quick_start(data, include_figures=True):
   md+=['',s['example_zh'],'',s['example_en'],'',s['text_en']]
   if n==1:
    rendered+=f'<p class="fill-hint"><strong>填什么：</strong>{e(q["fill_hint_zh"])}</p><p class="skill-links"><a href="{data["writing_skill"]["download"]}" download>下载 PaperBank 写作 skill</a> · <a href="#writing-skill">安装与用法</a></p>'
-   for key,label,lang in [('prompt_zh','复制这个提示词，填空就能用','zh-CN'),('prompt_en','English prompt','en')]:
-    rendered+=f'<details class="prompt"><summary>{label}</summary><pre lang="{lang}">{e(q[key])}</pre><button class="copy js-only">复制提示词</button></details>'
-    md+=['','**'+label+'**','','```text',q[key],'```']
+   ph,pm=render_codex_prompt(data,q['prompt_ref'],'复制这个提示词，填空就能用');rendered+=ph;md+=pm
    rendered+=f'<p class="example-source">{e(s["note_zh"])} <a href="{q["sources"][0]["url"]}">Git 同步说明</a> · <a href="{q["sources"][1]["url"]}">ZIP 下载说明</a></p>'
    md+=['',s['note_zh'],'',' · '.join(f'[{r["title"]}]({r["url"]})' for r in q['sources'][:2])]
   if n==2: rendered+='<p><a href="#figures">第二章：光速出美图，继续精修 ↗</a></p>'
@@ -257,9 +280,7 @@ def render_figures(data):
  skill=f['skill']
  rendered+=f'<section id="figure-skill"><h3>{e(titles["figure-skill"])}</h3><p class="skill-links"><a href="{e(skill["download"])}" download>下载绘图 skill ZIP</a> · <a href="{REPO}/blob/main/{e(skill["source"])}">查看 SKILL.md</a> · <a href="#figure-rules">绘图铁律</a></p><p>{e(skill["intro"])}</p>'
  md+=['','<a id="figure-skill"></a>','### '+titles['figure-skill'],'',f'[下载绘图 skill ZIP](../{skill["download"]}) · [查看 SKILL.md](../{skill["source"]}) · [绘图铁律](#figure-rules)','',skill['intro']]
- for k,label,lang in [('prompt_zh','复制给 Codex：开始画图','zh-CN'),('prompt_en','Figure prompt · English','en')]:
-  rendered+=f'<details class="prompt"><summary>{label}</summary><pre lang="{lang}">{e(f[k])}</pre><button class="copy js-only">复制提示词</button></details>'
-  md+=['','**'+label+'**','','```text',f[k],'```']
+ ph,pm=render_codex_prompt(data,f['prompt_ref'],'复制给 Codex：开始画图','Figure prompt · English');rendered+=ph;md+=pm
  rendered+=f'</section><h3 id="figure-rules">{e(titles["figure-rules"])}</h3>'
  rh,rm=render_short_rules(f['rules'],visuals);rendered+=rh;md+=['','<a id="figure-rules"></a>','### '+titles['figure-rules']]+rm
  rendered+=f'<h3 id="figure-types">{e(titles["figure-types"])}</h3><p class="lesson-context">下面均为教学句式；数值、误差和区间按实际记录填写。</p>'
@@ -315,9 +336,7 @@ def render_skill(data):
  rendered=f'<details class="writing-skill" id="writing-skill"><summary>给 Codex 用：下载 PaperBank 写作 skill</summary><p>{e(skill["intro"])}</p>'
  rendered+=f'<p class="skill-links"><a href="{e(skill["download"])}" download>下载写作 skill ZIP</a> · <a href="{REPO}/blob/main/{e(skill["source"])}">查看 SKILL.md</a> · <a href="#general-rules">写作规则索引</a></p><p>解压后将整个 <code>paperbank-writing/</code> 文件夹交给 Codex。填文件、任务和修改范围即可。</p>'
  md=['','<a id="writing-skill"></a>','### PaperBank 写作 skill','',skill['intro'],'',f'[下载 ZIP](../{skill["download"]}) · [查看 SKILL.md](../{skill["source"]}) · [写作铁律](#general-rules)','','下载、解压，保留整个 paperbank-writing/ 文件夹，把它交给 Codex 读取；补上文件、任务和允许修改的范围。']
- for key,label,lang in [('prompt_zh','中文使用提示词','zh-CN'),('prompt_en','English usage prompt','en')]:
-  rendered+=f'<details class="prompt"><summary>{label}</summary><pre lang="{lang}">{e(skill[key])}</pre><button class="copy js-only">复制提示词</button></details>'
-  md+=['',f'**{label}**','','```text',skill[key],'```']
+ ph,pm=render_codex_prompt(data,skill['prompt_ref'],'中文使用提示词','English usage prompt');rendered+=ph;md+=pm
  return rendered+'</details>',md
 
 def package_skill(data):
@@ -351,8 +370,9 @@ def package_skill(data):
  md+=['','---','','原创规则与教学示例：Da1yuqin / PaperBank，[原文](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处及许可，改编注明改动。']
  (folder/'references').mkdir(parents=True,exist_ok=True)
  (folder/'references/checklist.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
+ package_prompt_reference(data,folder,data['codex_prompts'])
  with zipfile.ZipFile(ROOT/data['writing_skill']['download'],'w',zipfile.ZIP_DEFLATED) as z:
-  for name in ['SKILL.md','references/checklist.md','LICENSE']:
+  for name in ['SKILL.md','references/checklist.md','references/prompts.md','LICENSE']:
    info=zipfile.ZipInfo('paperbank-writing/'+name,date_time=(2026,10,7,0,0,0))
    info.compress_type=zipfile.ZIP_DEFLATED
    info.external_attr=0o644<<16
@@ -373,10 +393,11 @@ def package_figure_skill(data):
    if links:md+=['','图例与拆解：'+' · '.join(links)]
  md+=['','---','','Da1yuqin / PaperBank，[原文](https://da1yuqin.github.io/PaperBank/#figures)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可；改编注明改动。第三方原图不随包分发。']
  (folder/'references/rules.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
+ package_prompt_reference(data,folder,['figures'])
  license_text=(ROOT/'skills/paperbank-writing/LICENSE').read_text(encoding='utf-8').replace('Writing Skill','Drawing Skill').replace('references/checklist.md','references/rules.md').replace('paperbank-writing','paperbank-figures')
  (folder/'LICENSE').write_text(license_text,encoding='utf-8')
  with zipfile.ZipFile(ROOT/skill['download'],'w',zipfile.ZIP_DEFLATED) as z:
-  for name in ['SKILL.md','references/rules.md','LICENSE']:
+  for name in ['SKILL.md','references/rules.md','references/prompts.md','LICENSE']:
    info=zipfile.ZipInfo('paperbank-figures/'+name,date_time=(2026,10,7,0,0,0))
    info.compress_type=zipfile.ZIP_DEFLATED
    info.external_attr=0o644<<16
@@ -406,13 +427,10 @@ def render_tools(data):
    md+=['','  </details>','']
   rendered+='</ul></section>'
  rendered+='<p class="boundary js-only" id="tool-empty" hidden>没有匹配的工具。换个短词试试。</p>'
- prompt=data['code_release_prompt']
  title=f'5.{len(groups)+1} 开源整理：翻译注释，清掉私货，保留行为'
  rendered+=f'<section class="release-prompt" id="code-release-prompt"><h3>{e(title)}</h3><p>先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。下面中英两版都可复制。</p>'
  md+=['','<a id="code-release-prompt"></a>','### '+title,'','先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。']
- for key,label,lang in [('zh','中文提示词','zh-CN'),('en','English prompt','en')]:
-  rendered+=f'<details class="prompt"><summary>{label}</summary><pre lang="{lang}">{e(prompt[key])}</pre><button class="copy js-only">复制提示词</button></details>'
-  md+=['','**'+label+'**','','```text',prompt[key],'```']
+ ph,pm=render_codex_prompt(data,data['code_release_prompt']['prompt_ref'],'中文提示词');rendered+=ph;md+=pm
  rendered+=f'<p class="tool-checked">文档核对：{e(data["tools_checked_at"])}。安装、版本和许可见项目原文。</p></section></section>'
  return rendered,md
 
@@ -486,8 +504,9 @@ def build():
   if s.get('manuscript'):md+=chapter_md[s['id']]
  examples=sum(len(i.get('examples',[])) for i in items)
  rebuttal='<section class="major-chapter" id="rebuttal">'+chapter_html['rebuttal']+'</section>'
- rebuttal=rebuttal[:-len('</section>')]+ '<details class="prompt"><summary>复制给 Codex：Rebuttal + revise loop</summary><pre>'+html.escape('阅读论文【文件】、审稿原文【文件】、已验证结果【文件】和当轮会议规则【链接或文本】。先逐条拆出原问题，列出问题、回复位置、证据和缺口，再写英文回复并逐段附中文。每问第一句直接回答，随后给证据、解释和位置。完成后按原始问题逐条模拟追问，输出：原问题 → 回复位置 → 未解决疑问 → 最小改法 → 缺哪项证据。只修改不通过项，再查同一张问题清单；证据不足交给我判断，不编数字，不预测涨分。满足问题覆盖、证据对应和字数限制后停止，由我定稿。允许修改【文件范围】，不提交回复，不改其他项目。')+'</pre><button class="copy js-only">复制提示词</button></details></section>'
- md+=chapter_md['rebuttal']+['','```text','阅读论文【文件】、审稿原文【文件】、已验证结果【文件】和当轮会议规则【链接或文本】。先逐条拆出原问题，列出问题、回复位置、证据和缺口，再写英文回复并逐段附中文。每问第一句直接回答，随后给证据、解释和位置。完成后按原始问题逐条模拟追问，输出：原问题 → 回复位置 → 未解决疑问 → 最小改法 → 缺哪项证据。只修改不通过项，再查同一张问题清单；证据不足交给我判断，不编数字，不预测涨分。满足问题覆盖、证据对应和字数限制后停止，由我定稿。允许修改【文件范围】，不提交回复，不改其他项目。','```']
+ ph,pm=render_codex_prompt(data,data['rebuttal_prompt']['prompt_ref'],'复制给 Codex：Rebuttal + revise loop','Rebuttal + revise loop · English')
+ rebuttal=rebuttal[:-len('</section>')]+ph+'</section>'
+ md+=chapter_md['rebuttal']+pm
  tools,tools_md=render_tools(data)
  md+=tools_md
  reading=''.join(f'<li>{link(k)}<span> — {e(r["scope"])}</span></li>' for k,r in refs.items() if r.get('public'))
