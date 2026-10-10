@@ -47,8 +47,9 @@ def render_paragraph(lesson, refs, md_level=4):
 
 def render_opening(data):
  e=html.escape
- rendered='<section class="opening-rules" id="general-rules"><h3>全文先守这些要求</h3><p>先检查全文，再按章节改。模板按内容调整，格式看会议要求。</p>'
- md=['','<a id="general-rules"></a>','### 全文先守这些要求','','先检查全文，再按章节改。模板按内容调整，格式看会议要求。']
+ lead=data['opening_lead']
+ rendered='<section class="opening-rules" id="general-rules"><h3>全文先守这些要求</h3><p>'+e(lead)+'</p>'
+ md=['','<a id="general-rules"></a>','### 全文先守这些要求','',lead]
  for group in data['refine_standard_groups']:
   rendered+=f'<h4>{e(group["title"])}</h4><ul class="compact-rules">';md+=['','#### '+group['title']]
   for rule in [r for r in data['refine_standards'] if r['group']==group['id']]:
@@ -316,13 +317,18 @@ def package_skill(data):
    md+=example_md
  _,draft_md=render_quick_start(data,include_figures=False)
  md+=draft_md
- md+=['','## 全文表达要求与中英改写']
+ md+=['','## 全文表达要求与中英改写','',data['opening_lead']]
  for rule in data['refine_standards']:
   _,rm=render_paragraph(rule,data['references']);md+=rm
+ md+=['','## 各章先回答什么']
+ for section in data['sections']:
+  if not section.get('manuscript') and section['id']!='rebuttal':continue
+  md+=['','### '+section['nav'],'',section['purpose']]
+  if section.get('principle'):md+=['',section['principle']]
  md+=['','## 各章完整句式模板']
  for lesson in data['refine_templates']:
   _,rm=render_paragraph(lesson,data['references']);md+=rm
- md+=['','## 绘图规则与图型']
+ md+=['','## 绘图规则与图型','',data['figure_chapter']['lead']]
  for key in ['rules','types']:
   _,rm=render_short_rules(data['figure_chapter'][key]);md+=rm
  md+=['','原图与出处：[光速出美图](https://da1yuqin.github.io/PaperBank/#figure-gallery)。第三方图片不随 skill 分发。']
@@ -342,7 +348,7 @@ def package_figure_skill(data):
  folder=ROOT/Path(skill['source']).parent
  (folder/'references').mkdir(parents=True,exist_ok=True)
  (folder/'SKILL.md').write_text(skill['instructions'],encoding='utf-8')
- md=['# PaperBank 绘图参考','','先查铁律，再按图型选模板。这里的中英句式是教学例子，数值和口径用自己的实际记录。','','## 绘图铁律']
+ md=['# PaperBank 绘图参考','',figures['lead'],'','先查铁律，再按图型选模板。这里的中英句式是教学例子，数值和口径用自己的实际记录。','','## 绘图铁律']
  for key,title in [('rules','绘图铁律'),('types','按图的任务选模板')]:
   if key=='types':md+=['','## '+title]
   for rule in figures[key]:
@@ -427,8 +433,11 @@ def build():
   group=[i for i in items if i['section']==s['id']]
   purpose=s.get('purpose') or s.get('summary') or s['description']
   prefix='4. ' if s['id']=='rebuttal' else ('3.'+str(int(s['number']))+' ' if s.get('manuscript') else '')
-  entries+=f'<section class="chapter" id="chapter-{s["id"]}"><div class="chapter-head"><h3>{prefix}{e(s["title"])}</h3></div><p class="chapter-desc">{e(purpose)}</p>'
+  entries+=f'<section class="chapter" id="chapter-{s["id"]}"><div class="chapter-head"><h3>{prefix}{e(s["title"])}</h3></div><p class="chapter-desc"><strong>{e(purpose)}</strong></p>'
   md+=['',f'<a id="{s["id"]}"></a>',f'### {prefix}{s["title"]}','',purpose]
+  if s.get('principle'):
+   entries+=f'<p class="chapter-principle">{e(s["principle"])}</p>'
+   md+=['',s['principle']]
   for lesson in [p for p in data.get('refine_templates',[]) if p['section']==s['id']]:
    lesson_html,lesson_md=render_paragraph(lesson,refs)
    entries+=lesson_html;md+=lesson_md

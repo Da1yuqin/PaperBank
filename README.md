@@ -2,6 +2,8 @@
 
 五章：粗稿、绘图、正文精修、Rebuttal、AI 工具。附中英例子、Related Work / Method Overview 完整模板和 Codex skill。
 
+每章先说为什么这样写，再逐句举例。作者笔记里的判断直接融进对应写法：Method 先讲设计为什么好，Experiments 解释发现，Intro 把问题、设计和证据串起来。英语可以慢慢磨，贡献得先看得见。
+
 [在线阅读](https://da1yuqin.github.io/PaperBank/) · [写作 skill](assets/paperbank-writing-skill.zip) · [绘图 skill](assets/paperbank-figures-skill.zip) · [Markdown 全文](book/guide.md) · [工具](https://da1yuqin.github.io/PaperBank/#tools) · [来源](SOURCES.md)
 
 主要面向实证型 CS / AI 论文。逐句示范混合真实短引与明确标注的教学例句，不把不同论文拼成一篇文章。PlanCraft、SAGE、GreenPlanner、EviNoteRAG、TCDiff、TCDiff++、WebFilter、CARD 共提供 56 处短引和双语拆解；另有 UrbanZero 公开介绍的教学改写。Rebuttal 保留逐点回应例子，工具附中英使用情境。

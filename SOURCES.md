@@ -4,6 +4,8 @@
 
 主体来自作者提供的论文写作笔记，以及绘图、引言进阶与审稿回复笔记。内容按论文成稿顺序重组；新增 RQ、结构与图表建议经公开原文核对。未发布私人 Notion 页面、原始粘贴材料或协作者信息。
 
+2026-10-10 回读作者的《一篇论文的写作流程-Vibe Writing版》《Intro 写作进阶》《参考绘图》《合作写论文》《高级的实验》与《rebuttal》。原句按章节目的融入正文，并配中英模板与拆解：例如“不要误解成 Preliminary”“不要读数字”“先看框架图和实验”与“第一句话就要回复他的问题”。引号中的片段保留原措辞；相邻解释为本指南整理，不公开私人页面全文、协作者评论或未发表案例。
+
 审稿回复按意见类型选择澄清、修正、补证据或解释范围，不推测审稿人身份和情绪，不预测涨分，不把投入的算力当论证。影响结论的负结果和未解决问题如实交代。
 
 个人经验不是录用公式。未保留无依据的录用率、固定引用数、万能篇幅比例或“37%规则”；不把可视化当理论证明，不用措辞替代真实实验。
@@ -20,6 +22,8 @@
 
 - [Mensh & Kording (2017) · Ten simple rules for structuring papers](https://doi.org/10.1371/journal.pcbi.1005619)：中心贡献、读者视角与文章/段落结构；写法需要按研究取舍。
 - [Rougier et al. (2014) · Ten Simple Rules for Better Figures](https://doi.org/10.1371/journal.pcbi.1003833)：根据读者与主要信息选择图型，检查布局、颜色及说明。
+- [pymoo · Basics and Challenges](https://pymoo.org/getting_started/preface.html)：多目标比较与支配关系。有限配置中找到非支配解，不等于证明全局 Pareto 最优。
+- [Callaway & Sant’Anna · Difference-in-Differences with Multiple Time Periods](https://arxiv.org/abs/1803.09015)：DID 比较设计与平行趋势等识别条件。正文的两组前后数值为虚构教学例子，不把普通算法消融当作 DID。
 - [Henderson & Chambers (2022) · Ten simple rules for writing a Registered Report](https://doi.org/10.1371/journal.pcbi.1010571)：研究问题、适用时的假设与预先规划；不要求所有论文写 RQ1/H1。
 - [NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)：主张、限制、设置、统计不确定性与复现；提交时以当年指南为准。
 - [ACL Rolling Review · Responsible NLP Research](https://aclrollingreview.org/responsibleNLPresearch/)：NLP 研究责任与披露要求；其他领域检查自己的投稿政策。
