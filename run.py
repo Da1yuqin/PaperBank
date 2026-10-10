@@ -464,7 +464,7 @@ def build():
   nav+=f'<a href="#chapter-{s["id"]}">3.{number} {e(s["nav"])}</a>'
  entries='';chapter_html={};chapter_md={}
  md=['# '+data['site_title'],'','先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为 Rebuttal，第五章为 AI 工具。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎给 Codex 用作 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，修改版本注明改动。如有帮助，欢迎 Star。']
- md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 古法精修','','先查全文，再逐节改。模板中的【】填自己的材料，段落按内容调整。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
+ md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 古法精修','','先检查全文规范，再按章节精修。模板中的【】填自己的材料，段落按内容调整。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
  md += [f'- [{section_label(s)}{s["title"]}](#{s["id"]})' for s in sections]
  md += ['- [好用工具与开源整理提示词](#tools)']
  for s in sections:
@@ -498,7 +498,7 @@ def build():
   entries+='</section>'
   chapter_html[s['id']]=entries[html_start:];chapter_md[s['id']]=md[md_start:]
  entries=''.join(chapter_html[s['id']] for s in sections if s.get('manuscript'))
- md=md[:1]+preface_md+md[1:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 古法精修','','先查全文，再逐节改。模板中的【】填自己的材料，段落按内容调整。','']+opening_md+['','### 本章目录','']
+ md=md[:1]+preface_md+md[1:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 古法精修','','先检查全文规范，再按章节精修。模板中的【】填自己的材料，段落按内容调整。','']+opening_md+['','### 本章目录','']
  md+=[f'- [3.{int(s["number"])+1} {s["nav"]}](#{s["id"]})' for s in sections if s.get('manuscript')]
  for s in sections:
   if s.get('manuscript'):md+=chapter_md[s['id']]

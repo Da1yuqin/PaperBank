@@ -6,7 +6,7 @@
 
 ## 绘图铁律
 
-- **每图明确一个主要任务：**“motivation + observation” mainfig 先让人看见问题与发现，framework 解释设计如何对应问题，结果图给证据。一张图一个主任务。
+- **每图明确一个主要任务：**mainfig 展示研究动机与观察，framework 说明设计如何对应问题，结果图提供验证证据。每图明确一个主要任务。
 
 Show where the existing pipeline fails and which step our method changes.
 
@@ -94,7 +94,7 @@ Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.
 
 图例与拆解：[配对增益：同一任务，直接看差了多少](https://da1yuqin.github.io/PaperBank/#teaching-paired-gain)
 
-- **Caption 说明读法与发现：**图注先说读法和发现，再点出与贡献的关系；图中的简称在 Caption 给全称。“让人留下印象” 靠有依据的结论，不靠“效果显著”四个字。
+- **Caption 说明读法与发现：**图注先说读法和发现，再点出与贡献的关系；图中的简称在 Caption 给全称。结论须有证据支持；“效果显著”须有对应统计检验。
 
 Error bars show 95% question-level bootstrap intervals; the horizontal line marks zero gain.
 
@@ -174,7 +174,7 @@ Put success rates in a table and explain the checking procedure in the text.
 
 图例与拆解：[消融：颜色分组，纹理分方法](https://da1yuqin.github.io/PaperBank/#visual-interactcs-fig-2)
 
-- **重排文字与图形重叠处：**图例、标题、刻度和注释不能挡数据、箭头或边框。给文字留空间，重排碰撞处；不是盖住就算修好了。
+- **重排文字与图形重叠处：**图例、标题、刻度和注释不能挡数据、箭头或边框。为文字保留空间，通过重排解决重叠，不能用遮盖隐藏问题。
 
 Move the legend outside the plotted curves while preserving the data and axes.
 

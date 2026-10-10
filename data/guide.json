@@ -1590,7 +1590,7 @@
           "caption_zh": "深色标题交代案例，浅底分栏列出评价和用户设定；完整对话接在后页。",
           "analysis_zh": [
             "作者笔记强调像UI一样整洁：相同信息放一起，同类信息用同样的框，颜色只强调重点。",
-            "左栏是三个评价结果，右栏是用户设定；标题、字段和值分层，不必为每个字段单独设置对话框。",
+            "左栏是三个评价结果，右栏是用户设定；标题、字段与数值分层，不必为每个字段单独设置对话框。",
             "字多时先分组、删重复、留白。放回双栏PDF后仍须检查字号；网页放大看清不等于论文里看清。"
           ],
           "provenance": {
@@ -6017,7 +6017,7 @@
             "rules": [
               {
                 "label": "贡献",
-                "text": "写清具体问题、对应设计、已有发现。方法名先放一边，先说你到底解决了什么。",
+                "text": "写清具体问题、对应设计、已有发现。先说明解决的问题，再给方法名称。",
                 "example_zh": "中：针对条件冲突时的约束遗漏，我们在生成计划前核查证据。",
                 "example_en": "EN: To address omitted constraints under conflicting conditions, we check the evidence before generating a plan."
               },
@@ -6072,7 +6072,7 @@
             ],
             "figure_reference": "visual-tcod-fig-1",
             "figure_title": "看图：TCOD 的动机图",
-            "figure_zh": "左侧先提出多轮误差问题，中间放大回复细节，右侧对齐训练范围。读序是“哪里出问题 → 改哪一段”，不是先背模块名。左侧曲线是示意；细节数值与颜色含义要结合原图注读。这里学习信息组织，不照搬原图的字号和配色。",
+            "figure_zh": "左侧先提出多轮误差问题，中间放大回复细节，右侧对齐训练范围。读序是“哪里出问题 → 改哪一段”，先说明问题与对应改动，再介绍模块。左侧曲线是示意；细节数值与颜色含义要结合原图注读。这里学习信息组织，不照搬原图的字号和配色。",
             "figure_en": "Read from the multi-turn error problem to response details and the compared training ranges. The left curve is schematic; consult the original caption for the numeric blocks and color meanings. This example illustrates information order, not a universal font or palette."
           },
           {
@@ -6149,7 +6149,7 @@
               },
               {
                 "label": "PDF 导出",
-                "text": "统计图导出矢量 PDF；生成底图的标签另排原生、可见、可选文字。截图装进 PDF 仍是位图，隐藏 OCR 层也不算排好字。",
+                "text": "统计图导出矢量 PDF；生成底图的标签另排原生、可见、可选文字。将截图封装为 PDF 仍是位图；隐藏 OCR 层不能替代可见的原生文字。",
                 "example_zh": "中：实际选中图内标签，核对字体和缩放后的字号。",
                 "example_en": "EN: Select the labels in the manuscript PDF and verify their font and final size."
               },
@@ -6176,7 +6176,7 @@
         "id": "draft-step-3",
         "title_zh": "1.3 整理章节、实验和表格",
         "title_en": "1.3 Organize the sections, experiments, and tables",
-        "text_zh": "“要做到光看章节名称能看懂你的论文” 同一级的信息放一起，下一节接上一节的产物。标题不是代码目录。",
+        "text_zh": "“要做到光看章节名称能看懂你的论文” 同一级的信息放一起，下一节接上一节的产物。章节标题应对应研究任务与步骤，不能直接复制代码目录。",
         "text_en": "Once the figures are settled, define the body outline. Each section has a purpose: motivation, prior work, the method, or evidence. Organize the argument before filling paragraphs.",
         "example_zh": "教学例：Intro 提出约束遗漏；Method 解释核查器如何保留约束；主实验比成功率，消融检验核查器，失败分析说明哪些约束仍会漏。",
         "example_en": "Teaching example: The Introduction identifies omitted constraints. The Method explains how the checker retains them. Main results compare success, ablations test the checker, and failure analysis identifies remaining omissions.",
@@ -6213,7 +6213,7 @@
             "rules": [
               {
                 "label": "问题与证据",
-                "text": "每项主张对应一个要检验的问题，再选对照、数据和图表。RQ 可以写，但不是给所有标题加一句问号。",
+                "text": "每项主张对应一个要检验的问题，再选对照、数据和图表。RQ 按研究需要设置，不要求每个实验标题使用疑问句。",
                 "example_zh": "中：主张“核查减少遗漏”，就比较同题、有核查与无核查的遗漏率，保持其他设置一致。",
                 "example_en": "EN: To test whether checking reduces omissions, compare omission rates with and without checking on the same tasks under otherwise matched settings."
               },
@@ -6231,7 +6231,7 @@
               },
               {
                 "label": "结果段",
-                "text": "一句结论开头，接关键对照，再解释含义和范围。不要把表格逐行朗读一遍；均值更高也不自动等于显著提升。",
+                "text": "一句结论开头，接关键对照，再解释含义和范围。不逐行重复表格数值；均值更高也不自动等于显著提升。",
                 "example_zh": "中：核查后的提升主要出现在冲突条件下。接着引用该分组的对照，解释它怎样回应 Intro 的遗漏问题。",
                 "example_en": "EN: The gains after checking are concentrated in conflicting conditions. Cite the subgroup comparison, then explain how it addresses the omission problem in the Introduction."
               }
@@ -6251,7 +6251,7 @@
               },
               {
                 "label": "标记",
-                "text": "可比组内逐列判断：最优加粗，次优加下划线；需要时用很浅的底色。性能和成本方向不同，并列共享标记。颜色不能替你证明显著性。",
+                "text": "可比组内逐列判断：最优加粗，次优加下划线；需要时用很浅的底色。性能和成本方向不同，并列共享标记。颜色标记不能证明统计显著性。",
                 "example_zh": "中：成功率越高越好，延迟越低越好；两列分别找最优，不把本文整行全部涂红。",
                 "example_en": "EN: Higher success and lower latency are better. Mark each column independently rather than highlighting the entire proposed-method row."
               },
@@ -6424,7 +6424,7 @@
     "rules": [
       {
         "title": "每图明确一个主要任务",
-        "zh": "“motivation + observation” mainfig 先让人看见问题与发现，framework 解释设计如何对应问题，结果图给证据。一张图一个主任务。",
+        "zh": "mainfig 展示研究动机与观察，framework 说明设计如何对应问题，结果图提供验证证据。每图明确一个主要任务。",
         "en": "Choose one message before choosing a layout.",
         "example_en": "Show where the existing pipeline fails and which step our method changes.",
         "example_zh": "画清旧流程在哪一步出问题，我们改了哪一步。",
@@ -6535,7 +6535,7 @@
       },
       {
         "title": "Caption 说明读法与发现",
-        "zh": "图注先说读法和发现，再点出与贡献的关系；图中的简称在 Caption 给全称。“让人留下印象” 靠有依据的结论，不靠“效果显著”四个字。",
+        "zh": "图注先说读法和发现，再点出与贡献的关系；图中的简称在 Caption 给全称。结论须有证据支持；“效果显著”须有对应统计检验。",
         "en": "State the comparison, finding, and necessary reading keys.",
         "example_en": "Error bars show 95% question-level bootstrap intervals; the horizontal line marks zero gain.",
         "example_zh": "误差条表示按题目重采样的 95% 区间；水平线表示零增益。",
@@ -6628,7 +6628,7 @@
       },
       {
         "title": "重排文字与图形重叠处",
-        "zh": "图例、标题、刻度和注释不能挡数据、箭头或边框。给文字留空间，重排碰撞处；不是盖住就算修好了。",
+        "zh": "图例、标题、刻度和注释不能挡数据、箭头或边框。为文字保留空间，通过重排解决重叠，不能用遮盖隐藏问题。",
         "example_en": "Move the legend outside the plotted curves while preserving the data and axes.",
         "example_zh": "把图例移出曲线区，保留数据和坐标轴。",
         "visuals": [
@@ -7319,8 +7319,8 @@
       "title": "先选主线：价值，还是发现",
       "purpose": "按主要贡献选择论证顺序。发现型工作可用“现象→质疑→诊断→方法→验证”；多个困难按类别逐项展开。",
       "rules": [
-        "“大领域回顾- limitation1-limitation2-method 点对点我们的方法 solve - contribution” 按真实困难分段，不强迫所有论文四段写完。",
-        "“使用比喻能够降低理解难度” 用熟悉动作解释核心思想，随后落到真实输入、操作与证据；比喻不能凭空加能力。"
+        "先概括领域与已有能力，再说明具体局限、对应设计与贡献。按真实困难分段，不固定为四段。",
+        "用具体对象与操作解释核心思想，写明输入、处理与证据，不能通过命名暗示未经验证的能力。"
       ],
       "label": "教学模板；【】填真实发现，不是论文原句或实测。",
       "sentences": [
@@ -7332,7 +7332,7 @@
         {
           "en": "To test whether [candidate explanation] accounts for this pattern, we [controlled comparison].",
           "zh": "为检验[候选解释]是否造成该现象，我们进行[控制比较]。",
-          "why_zh": "现象产生疑问，再用诊断排除解释；先给结果、后找理由容易带偏。"
+          "why_zh": "现象产生疑问，再用诊断排除解释；不能根据有利结果反向编写诊断理由。"
         },
         {
           "en": "Motivated by [supported diagnosis], we [matching design] and evaluate [targeted outcome].",
@@ -7433,7 +7433,7 @@
       "purpose": "按局限顺序说明改进、作用机制与输入输出，不能只列模块名称。",
       "rules": [
         "用 To address / To solve 接回具体困难；逐项说明设计为什么针对它。",
-        "Intro 讲巧思和作用，公式、冷门模型、实现参数留到 Method。",
+        "Introduction 说明设计思路与作用；公式、模型细节与实现参数放在 Method。",
         "关键词与 Related Work、Method、图、实验一致。预期作用与实测效果分开。"
       ],
       "label": "教学模板；【】填真实材料。",
@@ -7534,7 +7534,7 @@
         "结尾的对象、范围、关键词与 Intro 一致；各小节讲不同缺口。",
         "小节标题简短。短主题一段写完，复杂主题按问题分段。",
         "相近工作的差异提前讲清。引用准确完整，不因图相似或结果不利而漏引。",
-        "引用数量是经验建议，不是会议配额；删重复配文，不拿无关论文占两页。"
+        "引用数量不是会议配额；删除重复说明，不加入无关文献。"
       ],
       "label": "教学模板；【】填真实材料。",
       "sentences": [
@@ -7551,7 +7551,7 @@
         {
           "en": "More recent extensions [additional established capability] [citations].",
           "zh": "后续扩展进一步实现了[已有额外能力][引用]。",
-          "why_zh": "承接基本路线的扩展，不能为了显得新随便插文献。"
+          "why_zh": "承接基本路线的扩展，新增引用须与所述扩展直接相关。"
         },
         {
           "en": "However, these approaches do not establish [Intro challenge] under [specific scope].",
@@ -7561,7 +7561,7 @@
         {
           "en": "To address this limitation, we [matching design] to [specific purpose].",
           "zh": "为解决这个不足，我们通过[对应设计]实现[具体目的]。",
-          "why_zh": "方案与引言一致；这句写完就结束本小节，不再空泛 Next。"
+          "why_zh": "方案与引言一致；以对应方案结束本小节，不添加空泛的 Next 过渡句。"
         }
       ],
       "latex_template": "\\section{Related Work}\n\\subsection{[Short Topic A]}\n[Research line] addresses [shared task] by [shared mechanism]~\\cite{...}.\nOne group [mechanism A], whereas another group [mechanism B]~\\cite{...}.\nMore recent extensions [additional established capability]~\\cite{...}.\nHowever, these approaches do not establish [Intro challenge A] under [scope A].\nTo address this limitation, we [matching design A] to [purpose A].\n\n\\subsection{[Short Topic B]}\n[Research line B] evaluates [property] using [evaluation basis]~\\cite{...}.\nOther evaluations [substantive extension]~\\cite{...}.\nHowever, [Intro challenge B] remains unresolved under [scope B].\nTo address this limitation, we [matching design B] to [purpose B]."
@@ -7653,14 +7653,14 @@
         "粗体段首对应真实模块或步骤，名称与框架图一致。",
         "并行、循环、反馈单独说明；训练信号注明样本、阶段、指标和更新对象。",
         "自己的创新占主要篇幅，标准编码、调用与格式转换简写；不能把已有方法改名当创新。",
-        "每节结尾交给下一步，下一节从这个产物开头。重点是为什么值得做，复现所需细节仍要给全。"
+        "每节结尾说明输出与后续用途，下一节使用对应产物。重点是为什么值得做，复现所需细节仍要给全。"
       ],
       "label": "教学模板；【】填真实材料。",
       "sentences": [
         {
           "en": "To [specific purpose], [module] uses [previous output] to [key design].",
           "zh": "为实现[具体目的]，[模块]利用[上一步产物]进行[关键设计]。",
-          "why_zh": "目的顶在第一句，承接真实输入。句子短也要把设计说出来。"
+          "why_zh": "首句说明目的、真实输入与关键设计。"
         },
         {
           "en": "This design addresses [Intro limitation] by [reason the design targets it].",
@@ -7730,7 +7730,7 @@
         {
           "en": "We evaluate [unit] from [dataset version], using [split or selection rule].",
           "zh": "我们从[数据版本]中按[划分或选择规则]评价[样本单位]。",
-          "why_zh": "先定义谁进入比较，不能结果出来后悄悄换分母。"
+          "why_zh": "先定义比较对象与分母，不根据结果更换统计范围。"
         },
         {
           "en": "Metrics. We measure [property] using [metric definition]; [direction] is better.",
@@ -7985,7 +7985,7 @@
       "purpose": "逐条核对原文、版本及其对引用处主张的支持范围。",
       "rules": [
         "同一论文不同版本去重；模型和工具引原始报告或官方文档。",
-        "按相关性选引用，引用按相关性选择。"
+        "按相关性选择引用，不按年份或数量设配额。"
       ],
       "label": "教学模板；【】填真实材料。",
       "sentences": [
@@ -7997,7 +7997,7 @@
         {
           "en": "We use [model or tool version] [original report or official documentation].",
           "zh": "我们使用[模型或工具版本][原始报告或官方文档]。",
-          "why_zh": "记录实际使用版本，不能用后发布的模型文档装饰早期实验。"
+          "why_zh": "记录实际使用版本，引用版本须对应实际实验，不用后发布版本说明早期设置。"
         }
       ]
     },
@@ -8031,7 +8031,7 @@
       "title": "4.1 拆审稿意见",
       "purpose": "读取完整 review：Summary 核对理解，Strengths 记录认可点，Weaknesses 与 Questions 提取待回应关切。",
       "rules": [
-        "保留原问题与顺序，一句话有多问就拆开。不要把“为何有效”偷换成“有没有做”。",
+        "保留原问题与顺序，一句话有多问就拆开。区分机制解释与实施情况，分别回应。",
         "区分描述不清、缺对照和机制未证实；分别给案例、比较和针对性检验。",
         "从原意见判断阅读关注点，不凭 confidence 猜身份或保证提分；查当轮回复规则。"
       ],
@@ -8045,7 +8045,7 @@
         {
           "en": "We compare the two generators using the same retrieved passages.",
           "zh": "我们使用相同的检索段落比较两个生成器。",
-          "why_zh": "对照必须扣住问题：固定检索，改变生成器。"
+          "why_zh": "对照须对应原问题：固定检索，改变生成器。"
         }
       ]
     },
@@ -8154,7 +8154,7 @@
         {
           "en": "Concern: 【verbatim concern】. Response location: 【paragraph/table】. Remaining gap: 【specific gap】.",
           "zh": "原问题：【审稿原话】。回复位置：【段落/表】。剩余缺口：【具体缺口】。",
-          "why_zh": "每条批评必须定位，不接受“还不够有说服力”这种空话。"
+          "why_zh": "每条批评必须定位，不能仅给“还不够有说服力”等笼统评价。"
         },
         {
           "en": "Minimal fix: 【edit】. Required evidence: 【existing result or experiment needed】.",
@@ -8556,15 +8556,15 @@
     },
     {
       "id": "language",
-      "title": "语言：短句也得有内容"
+      "title": "语言：完整判断与句长"
     },
     {
       "id": "terms",
-      "title": "术语：第一次见，就让人看懂"
+      "title": "术语：首次定义与名称一致"
     },
     {
       "id": "evidence",
-      "title": "主张：说到证据支持的地方"
+      "title": "主张：证据与适用范围"
     }
   ],
   "preface": {
