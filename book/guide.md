@@ -1,6 +1,6 @@
 # PaperBank · 论文少走弯路指南
 
-先用 Codex 拉草稿和图，再由你审逻辑、逐章精修。第四章收好用的工具。
+先用 Codex 拉草稿和图，再由你审逻辑、逐章精修。第四章写 Rebuttal，第五章收好用的工具。
 
 主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。
 
@@ -2447,7 +2447,6 @@ Teaching rewrite: Verify each best and second-best mark against the metric direc
 - [结论](#conclusion)
 - [参考文献](#references)
 - [附录](#appendix)
-- [Rebuttal](#rebuttal)
 
 <a id="title"></a>
 ### 3.1 标题
@@ -6700,9 +6699,161 @@ Teaching rewrite: Report the stopping metric, evaluation split, and search range
 
 
 <a id="rebuttal"></a>
-### 3.11 Rebuttal
+### 4. Rebuttal
 
 按原问题逐点给答案、证据、修改位置和完成状态。
+
+#### 4.1 先拆问题，别急着写英语
+
+把每条意见拆成独立问题：问什么、缺什么证据、用哪项结果回答。先处理会改变结论的问题。
+
+教学模板：【】填真实材料；不是论文原文或实测结果。
+
+- 保留审稿人原话；一个问题一行，附原稿位置和证据位置。
+- 把“缺基线”和“机制不清”分开；补一个强基线不一定解释机制。
+- 先核对当轮字数、补实验、链接和修订稿规则；别套另一场会议的规定。
+
+The reviewer asks whether the gain comes from retrieval quality or answer generation.
+
+审稿人问的是：收益来自检索质量，还是答案生成。
+
+**第 1 句：**先说清真正的问题；这里要区分两种解释。
+
+We compare the two generators using the same retrieved passages.
+
+我们使用相同的检索段落比较两个生成器。
+
+**第 2 句：**对照必须扣住问题：固定检索，改变生成器。
+
+#### 4.2 每个问题：答案 → 证据 → 解释 → 位置
+
+先把答案放出来。感谢一句够了，别让审稿人翻三段才找到回复。
+
+教学模板：【】填真实材料；不是论文原文或实测结果。
+
+- 问题标题沿用原意；第一句给结论或具体值。
+- 随后给比较设置、绝对数值和指标方向；适合表格就用表格，格式以会议规定为准。
+- 最后解释结果为什么回答了这个问题，附表、节或行号。
+
+The gain persists when retrieval is held fixed.
+
+固定检索后，收益仍然存在。
+
+**第 1 句：**首句直接回答；只有相应对照支持时才能用。
+
+With identical passages and decoding settings, 【method】 scores 【A】 versus 【B】 for 【baseline】 on 【metric】 (higher is better; Table 【R1】).
+
+使用相同段落和解码设置时，【方法】在【指标】上为【A】，而【基线】为【B】（越高越好；表【R1】）。
+
+**第 2 句：**给协议、对照、绝对值和位置，别只报“提升显著”。
+
+This comparison isolates the generator change under the tested retrieval setting.
+
+这一比较在所测试的检索设置下隔离了生成器改动。
+
+**第 3 句：**收束到已检验的范围，不顺手扩大到所有场景。
+
+#### 4.3 审稿人提出另一种解释
+
+先复述对方解释，再设计能区分两种解释的对照。设计动机不是实验结果。
+
+教学模板：【】填真实材料；不是论文原文或实测结果。
+
+- 用一句话写出竞争解释；不要把对方的问题改成容易回答的问题。
+- 列出两种解释各自预测什么，再找能把预测分开的实验。
+- 无法区分就缩小机制主张；别把一个收益数字当成机制证明。
+
+A plausible alternative is that the improvement comes from longer outputs.
+
+一种合理的替代解释是：收益来自更长的输出。
+
+**第 1 句：**准确点出竞争解释，不评价审稿人的水平。
+
+We therefore match the output-token budget and compare 【A】 with 【B】 under the same evaluation protocol.
+
+因此，我们匹配输出 token 预算，并在相同评测协议下比较【A】和【B】。
+
+**第 2 句：**控制对方指出的混淆因素。
+
+The difference is 【result】; this supports 【bounded conclusion】 but does not establish 【untested mechanism】.
+
+差异为【结果】；它支持【限定结论】，但尚不能确立【未经检验的机制】。
+
+**第 3 句：**结果支持到哪里，就写到哪里。
+
+#### 4.4 对方没看懂：补一个走得通的例子
+
+把输入、操作、输出摆出来，再指出原文位置。别写“你误读了”。
+
+教学模板：【】填真实材料；不是论文原文或实测结果。
+
+- 术语不清，给定义；流程不清，给最小案例；效果不清，给对照。
+- 用例子降低阅读成本，不用“显然”“众所周知”压过去。
+- 确有错误就修正；合理不同意就给依据。
+
+Here, 【term】 denotes 【concrete definition】.
+
+这里，【术语】指【具体定义】。
+
+**第 1 句：**定义先落到对象，不绕回抽象名词。
+
+For input 【x】, the module performs 【operation】 and returns 【y】 to 【next module】.
+
+输入【x】后，该模块执行【操作】，将【y】交给【下一模块】。
+
+**第 2 句：**一条样例走完整条路径。
+
+Section 【N】 specifies this interface; we clarify 【ambiguous phrase】 in 【permitted revision location】.
+
+第【N】节说明了这一接口；我们在【允许的修订位置】澄清【歧义表述】。
+
+**第 3 句：**位置要真实存在；会议不允许改稿时，只在回复中澄清。
+
+#### 4.5 Revise loop：按原问题回查，不按自己的回复自夸
+
+粗写 → 模拟审稿人追问 → 只修不通过项 → 回查原问题 → 人工定稿。别无限循环磨感谢语。
+
+教学模板：【】填真实材料；不是论文原文或实测结果。
+
+- 把论文、原始 review、证据和回复同时交给 Codex。
+- 逐条输出：原问题 → 回复位置 → 还没解答什么 → 最小改法 → 缺哪项证据。
+- 先查漏答、证据错配和逻辑跳步，再压篇幅、改语气。修改后重新查同一张问题清单。
+- 没有漏答、无依据主张和逻辑缺口，且满足篇幅时停；缺实验交给人决定，不让模型补数字。
+- 模拟反馈用于查漏洞，不能当录用或涨分预测。
+
+Concern: 【verbatim concern】. Response location: 【paragraph/table】. Remaining gap: 【specific gap】.
+
+原问题：【审稿原话】。回复位置：【段落/表】。剩余缺口：【具体缺口】。
+
+**第 1 句：**每条批评必须定位，不接受“还不够有说服力”这种空话。
+
+Minimal fix: 【edit】. Required evidence: 【existing result or experiment needed】.
+
+最小修改：【改法】。所需证据：【已有结果或需要的实验】。
+
+**第 2 句：**把改文字和补证据分开，便于作者判断。
+
+#### 4.6 第二轮与 AC 总结
+
+第二轮只答新增疑问。给 AC 写问题、回应、证据，别替 AC 判审稿人谁对谁错。
+
+教学模板：【】填真实材料；不是论文原文或实测结果。
+
+- 追问接回原问题和原证据，别重复整份 rebuttal。
+- AC 总结每个关键问题用了什么证据、还剩什么边界；不猜未回复审稿人的态度。
+- 不用“请提分”“请接收”收尾，把判断留给审稿方。
+
+Regarding the follow-up on 【issue】, 【direct answer】; the supporting comparison is in 【location】.
+
+针对【问题】的追问，【直接答案】；支持这一答案的比较见【位置】。
+
+**第 1 句：**只写新增信息。
+
+The main concern was 【issue】. Our response provides 【evidence】, supporting 【bounded conclusion】.
+
+主要关切是【问题】。回复提供了【证据】，支持【限定结论】。
+
+**第 2 句：**AC 扫一眼能知道问题怎么被回答。
 
 <details>
 <summary>检查清单和真实论文例子（16 项）</summary>
@@ -7393,29 +7544,16 @@ Reopen the actual system files and comments before claiming that a change has be
 </details>
 
 
+```text
+阅读论文【文件】、审稿原文【文件】、已验证结果【文件】和当轮会议规则【链接或文本】。先逐条拆出原问题，列出问题、回复位置、证据和缺口，再写英文回复并逐段附中文。每问第一句直接回答，随后给证据、解释和位置。完成后按原始问题逐条模拟追问，输出：原问题 → 回复位置 → 未解决疑问 → 最小改法 → 缺哪项证据。只修改不通过项，再查同一张问题清单；证据不足交给我判断，不编数字，不预测涨分。满足问题覆盖、证据对应和字数限制后停止，由我定稿。允许修改【文件范围】，不提交回复，不改其他项目。
+```
+
 <a id="tools"></a>
-## 4. 我推荐的 AI 工具
+## 5. 我推荐的 AI 工具
 
 按用途挑一个先试。只核对公开说明，未逐项安装评测；例子是使用情境，许可和兼容版本看原项目。
 
 核对日期：2026-10-07。
-
-### 任务助手
-
-- **[OpenClaw](https://docs.openclaw.ai/start/getting-started)：**把任务交给可调用工具的助手，在聊天或浏览器控制台中协作。
-
-  <details><summary>中英例子与使用边界</summary>
-
-  **例子：**先让助手只读整理三篇公开论文的题名、方法和出处；确认后再安排后续任务。
-
-  **Example:** Start with a read-only task: list the titles, methods, and sources of three public papers, then decide what to do next.
-
-  **注意：**工具权限与任务范围先配清楚；“只读”提示还应配合实际权限限制。不要把密钥贴进公开对话。
-
-  [官方安全说明](https://docs.openclaw.ai/gateway/security)
-
-  </details>
-
 
 ### 找文献与读原文
 
