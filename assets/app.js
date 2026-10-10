@@ -61,7 +61,7 @@ document.addEventListener('paperbank:annotation-focus',event=>{
  const target=event.detail;
  if(target instanceof Element&&target.closest('[data-annotatable]'))revealTarget(target,false);
 });
-$$('.copy').forEach(b=>b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(b.previousElementSibling.textContent);b.textContent='已复制';setTimeout(()=>b.textContent='复制提示词',2000);}catch{b.textContent='请选中文字复制';}}));
+$$('.copy').forEach(b=>b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(b.previousElementSibling.textContent);b.textContent='已复制';setTimeout(()=>b.textContent=b.dataset.copyLabel||'复制提示词',2000);}catch{b.textContent='请选中文字复制';}}));
 sync();themeState();if(location.hash)requestAnimationFrame(reveal);
 
 if($('#tool-search')){
