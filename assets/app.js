@@ -44,6 +44,9 @@ $('#theme-toggle').addEventListener('click',()=>{const dark=document.documentEle
 document.addEventListener('keydown',e=>{if(e.key==='/'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)&&!e.ctrlKey&&!e.metaKey&&!e.altKey){e.preventDefault();$('#search').focus();}if(e.key==='Escape'){closeMenu();if(document.activeElement===$('#search')){$('#search').value='';sync();}}});
 function revealTarget(target,scroll=true){
  if(!target)return;
+ if(target.closest('.tool-item[hidden]')&&$('#tool-search')){
+  $('#tool-search').value='';$('#tool-search').dispatchEvent(new Event('input'));
+ }
  if(target.closest('[hidden]'))reset();
  const entry=target.closest('.entry');
  if(entry)entry.querySelector('.explain').open=true;
@@ -53,6 +56,11 @@ function revealTarget(target,scroll=true){
 function reveal(){let id;try{id=decodeURIComponent(location.hash.slice(1));}catch{return;}revealTarget(document.getElementById(id));}
 $$('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{let id;try{id=decodeURIComponent(a.hash.slice(1));}catch{return;}revealTarget(document.getElementById(id),false);closeMenu();}));
 window.addEventListener('hashchange',reveal);
+document.addEventListener('paperbank:notes-open',closeMenu);
+document.addEventListener('paperbank:annotation-focus',event=>{
+ const target=event.detail;
+ if(target instanceof Element&&target.closest('[data-annotatable]'))revealTarget(target,false);
+});
 $$('.copy').forEach(b=>b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(b.previousElementSibling.textContent);b.textContent='已复制';setTimeout(()=>b.textContent='复制提示词',2000);}catch{b.textContent='请选中文字复制';}}));
 sync();themeState();if(location.hash)requestAnimationFrame(reveal);
 
