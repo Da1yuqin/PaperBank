@@ -1,6 +1,6 @@
 # PaperBank · 论文少走弯路指南
 
-![大字 accept 下，边牧和比格收到论文录用邮件，开心举起爪子。](../assets/paperbank-accept.png)
+![大字红色 accept 和庆祝彩带下，边牧和比格收到论文录用邮件，开心举起爪子。](../assets/paperbank-accept-red.png)
 
 ## 写在前头
 
