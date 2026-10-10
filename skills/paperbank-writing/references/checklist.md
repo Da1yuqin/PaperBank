@@ -995,9 +995,406 @@ We added a comparison under a fixed budget; results are in Table R2. The cross-d
 
 审稿人应能直接定位回应的依据，并区分证据与承诺。
 
-## 起草顺序
+<a id="quick-start"></a>
+## 1. 一天拉完草稿：Codex 快速成型
 
-下载当前官方模板；有 Overleaf Git 权限就克隆本地项目，否则下载源文件 ZIP。先列提纲和页数分配、填粗稿，再定图。每节先译成中文让作者审核，确定全部正文标题，再整理英文、逐句精修。
+一天拉完的是草稿，不是实验。先填材料，再定图、排章节、整理实验，最后理顺 Intro。英语先够用就行，第一天别和一个形容词决斗。
+
+本章中英句子均为教学示例，不是论文原句或实测结论；两张论文图另附原文与许可。
+
+### 1.1 填材料，准备模板和本地项目
+
+把下面的提示词填好，再让 Codex 动笔。只说“帮我写篇顶会论文”，它也只能先给你写篇顶会味的。
+
+#### 材料先给齐
+
+- **贡献：**写清具体问题、对应设计、已有发现。方法名先放一边，先说你到底解决了什么。
+
+中：针对条件冲突时的约束遗漏，我们在生成计划前核查证据。
+
+EN: To address omitted constraints under conflicting conditions, we check the evidence before generating a plan.
+
+- **方法：**给任务定义、输入、每步操作、输出和实现依据。上一阶段产物交给谁，也写上。
+
+中：输入是任务和可用证据；核查器输出已支持的约束；规划器据此生成计划。
+
+EN: The inputs are a task and available evidence. The checker returns supported constraints, which the planner uses to generate a plan.
+
+- **实验：**附原始结果、指标定义、基线配置、数据划分和重复次数。参考文献附可核对的原文，图附来源。
+
+中：附 results.csv；说明每行对应哪个方法、测试集和运行，以及成功率的分母。
+
+EN: Attach results.csv and identify the method, test set, and run for each row, including the denominator of the success rate.
+
+- **模板与同步：**下载当年的官方模板，查页数，先编译。Overleaf 有 Git 权限就从 Integrations → Git 拉到本地；没有就下载源文件 ZIP。写明允许改哪些文件，同步前先合入合作者的更新。
+
+中：只改 main.tex、sections/ 和 figures/；保留官方模板。先拉最新版本，检查差异再同步。
+
+EN: Edit only main.tex, sections/, and figures/. Preserve the official template, pull the latest version, and inspect the changes before syncing.
+
+教学例：我们研究带约束的规划。已有方法能生成计划，但在条件冲突时容易遗漏约束；我们先核查证据，再生成计划。是否有效，交给同题对照和组件消融检验。
+
+Teaching example: We study planning under constraints. Existing methods generate plans but may omit constraints when conditions conflict. We check the evidence before generating a plan, and test the design with matched comparisons and component ablations.
+
+Fill in the prompt before asking Codex to draft. A venue name alone does not supply a contribution, a method, or evidence.
+
+**复制这个提示词，填空就能用**
+
+```text
+请使用 paperbank-writing skill，按下面的材料先拉一稿，再由我审核中文逻辑。
+
+会议／官方模板／页数：【】
+具体问题与原文依据：【】
+一句话贡献：【针对什么，用什么设计，已有发现是什么】
+方法：【任务、输入、每步操作、输出及真实依赖】
+实验：【数据与划分、指标定义、基线与预算、真实结果、消融】
+参考段落／图片及出处：【】
+本地项目／允许改的文件：【】
+
+顺序：核对模板并同步最新项目；先定 mainfig、framework 和关键结果图；列全部章节标题、职责、图表和篇幅；整理实验设置、主结果、消融和必要分析；最后理顺 Intro，填正文。
+图中输入、输出、评价规则分清；白底、低饱和、统一颜色；按论文实际宽度排字，图字与正文同大或最多小 2 pt。结果图只读真实数据，表格按本页模板整理。
+Intro 按背景与已有能力、具体问题、对应设计、主要发现、贡献列表展开。每次给我一节中文，确认后再整理英文。缺证据单列问题，不编结果和引用。保留模板，超页先删重复。
+```
+
+**English prompt**
+
+```text
+Use the paperbank-writing skill to draft from the following material and let me review the reasoning in Chinese.
+
+Venue / official template / page limit: [ ]
+Concrete problem and original evidence: [ ]
+Contribution: [Problem, design, and available finding]
+Method: [Task, inputs, operations, outputs, and actual dependencies]
+Experiments: [Data and splits, metric definitions, baselines and budgets, actual results, ablations]
+Reference passages / figures with sources: [ ]
+Local project / files you may edit: [ ]
+
+Check the template and sync the latest project. Settle the main figure, framework, and key result plots. List all section titles, purposes, figures, tables, and space allocations. Organize the experimental setup, main results, ablations, and necessary analyses. Then build the Introduction and fill the body.
+Separate inputs, outputs, and evaluation criteria in figures. Use white backgrounds, muted colors, and consistent encodings. Lay out text at the final paper width, using the body font size or at most 2 pt smaller. Plot actual data and follow the table template on this page.
+Organize the Introduction as background and existing capabilities, specific problems, matched designs, main findings, and contributions. Show one section in Chinese for review before writing the English. List evidence gaps without inventing results or citations. Preserve the official template and remove repetition before reducing content. Use independent Nature writing skills for Nature-family journals.
+```
+
+Overleaf Git 是 Premium 功能，取决于项目拥有者订阅或相应授权；源文件 ZIP 不含 PDF。Git 同步可能影响网页版批注和修订痕迹，协作时先约定使用方式。
+
+[Overleaf: Git integration](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/git-integration) · [Overleaf: Downloading a project](https://docs.overleaf.com/managing-projects-and-files/downloading-a-project)
+
+### 1.2 先定图：mainfig、framework 和结果图
+
+图先给合作者看。看完能说清为什么做、怎么做、发现了什么，再填正文。流程讲不通，换个配色也救不了。
+
+#### mainfig：读者先看懂为什么做
+
+- **信息：**用一个具体问题串起现有做法、失败点和本文改动。保留读懂案例所需的输入与输出，通常不超过 5 个环节。
+
+中：任务要求同时满足 A、B；旧计划遗漏 B；本文在生成前核查 B。
+
+EN: The task requires both A and B. The existing plan omits B; our design checks B before generation.
+
+- **取舍：**突出最关键的差别，少放模块、logo 和工程细节。示意趋势标明示意，实测结果给出对应来源。
+
+中：只画“遗漏约束”和“核查后保留约束”的对照，不把所有训练参数塞进首图。
+
+EN: Contrast an omitted constraint with its retention after checking; leave training parameters out of the main figure.
+
+左侧先提出多轮误差问题，中间放大回复细节，右侧对齐训练范围。读序是“哪里出问题 → 改哪一段”，不是先背模块名。左侧曲线是示意；细节数值与颜色含义要结合原图注读。这里学习信息组织，不照搬原图的字号和配色。
+
+Read from the multi-turn error problem to response details and the compared training ranges. The left curve is schematic; consult the original caption for the numeric blocks and color meanings. This example illustrates information order, not a universal font or palette.
+
+Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。 [原论文](https://arxiv.org/abs/2604.24005v3) · [许可](https://creativecommons.org/licenses/by/4.0/)
+
+#### framework：读者看懂怎么做
+
+- **真实流程：**画清每步的输入、操作、输出，箭头连到实际接收者。并行就并行，反馈就反馈；模块名与正文一致。
+
+中：任务与证据进入核查器；核查结果进入规划器；生成的计划再交给评价器。
+
+EN: The task and evidence enter the checker. The checked constraints enter the planner, and the generated plan goes to the evaluator.
+
+- **信息边界：**输入、输出、评价规则分组并区分边框。仅供评价的 rubric 不画进被测模型。用必要案例解释关键操作；同一案例只在论文里完整展示一次。
+
+中：蓝色虚线框是模型可见输入，灰绿实线框是输出；评价器另收冻结的评分规则。
+
+EN: Blue dashed boxes denote model-visible inputs and green-gray solid boxes denote outputs. The evaluator separately receives the frozen scoring criteria.
+
+这张图先分交互生成和策略优化两块：左侧用对话走流程，右侧分结果效用、过程信用和成本信号。大框讲职责，箭头讲数据去向，编号讲步骤。自己的图先写清每个框收到什么、交出什么，再加图标。
+
+The figure separates interaction generation from policy optimization. A dialogue traces the left side; outcome utility, process credit, and cost signals organize the right. Groups explain responsibilities, arrows show information flow, and numbers order the steps.
+
+Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。 [原论文](https://arxiv.org/abs/2602.22697v1) · [许可](https://creativecommons.org/licenses/by/4.0/)
+
+#### 三类图都要过的检查
+
+- **配色：**白底，面板用极浅的低饱和色；文字保持深色。同一方法、角色、条件全篇同色，重要对照再配形状或线型，别让读者只靠分辨红绿。
+
+中：基线用灰色圆点，本文方法用灰蓝菱形；颜色变淡，文字不跟着变淡。
+
+EN: Use gray circles for the baseline and muted blue diamonds for the proposed method. Keep the text dark on pale backgrounds.
+
+- **字号与字体：**字体与正文统一，按最终插入宽度检查 PDF。PaperBank 默认图内字与正文同大，最多小 2 pt；标题、轴、图例、注释也算。先减内容、重排，别靠整图缩放塞进一栏。统计图优先矢量 PDF；生成底图的文字另排成可选文字。
+
+中：正文实际为 10 pt，图内字用 8–10 pt；在论文整页大小下读，不只看放大的 PNG。
+
+EN: With 10 pt body text, use 8–10 pt figure text and inspect it at its final size in the paper, not only in a magnified PNG.
+
+- **布局：**一个主读序，同级框对齐，箭头不穿字。双栏图先按约 16:9、单栏图约 4:3 起排；同时看图注总占高。比例是起点，不拉扁图、不删关键证据。
+
+中：两个并行输入先汇合再进入模型；长解释移到图注，关键输入保留在图里。
+
+EN: Merge parallel inputs before the model. Move long explanations to the caption while retaining the essential inputs in the figure.
+
+- **结果图：**从真实数据绘制。轴写变量和单位，图例解释颜色与线型，误差条写 SD、SE 或 CI 及计算单位；同类图共用尺度。
+
+中：纵轴写成功率（%）；误差条若是跨运行标准差，就别写成 95% 置信区间。
+
+EN: Label the y-axis as success rate (%). If error bars show standard deviations across runs, do not label them as 95% confidence intervals.
+
+- **图注：**短句说明图在回答什么、怎么读、结果支持什么。简称给全称；必要的分母、范围、误差含义保留。方法图讲机制，结果图才讲实测发现。
+
+中：该图比较同一测试集上的成功率与推理成本；点表示方法配置。
+
+EN: The figure compares success rate and inference cost on the same test set; each point represents a method configuration.
+
+**给 Codex 的绘图说明单**
+
+```text
+图的用途：【mainfig／framework／结果图】
+要讲清的贡献或问题：【】
+输入、操作、输出及真实依赖：【】
+案例来源／原始数据／比较条件：【】
+必须保留的文字、变量、单位和图例：【】
+论文插入宽度／正文实际字号／已确认色板：【】
+先给布局，再出图；按最终 PDF 大小检查文字、连线与图注。结果图只从所附数据绘制。
+```
+
+教学例：mainfig 用一个约束冲突说明动机；framework 用另一个案例走完证据核查与计划生成；结果图比较同一批任务的成功率和成本。
+
+Teaching example: The main figure motivates the work with a constraint conflict. The framework traces evidence checking and plan generation on a different case. Result plots compare success and cost on the same tasks.
+
+Review the figures with coauthors before polishing the body. They should explain the motivation, the method, and the findings. Styling cannot repair an unclear workflow.
+
+### 1.3 整理章节、实验和表格
+
+图定了，就定正文骨架。每节只负责一个问题：为什么做、前人做到哪、我们怎么做、证据是什么。先排逻辑，再让 Codex 填段落。
+
+#### 章节顺序与承接
+
+- **先列职责：**列全部 section 标题、每节目的、所需图表和预计篇幅。Related Work 按主题归类；Method 按真实处理依赖；Experiments 按要检验的问题。
+
+中：Related Work 的“约束规划”小节归纳已有能力，再落到 Intro 中的约束遗漏。
+
+EN: A Related Work subsection on constrained planning summarizes existing capabilities, then returns to the omission problem stated in the Introduction.
+
+- **Method overview：**开头承接 Intro 的困难，串起输入、操作、输出和对应小节；最后引用 framework。章节名是阅读位置，别把章节标题写成执行模块。
+
+中：为减少约束遗漏，我们先检索证据（证据检索节），再用检索结果核查约束（约束核查节），最后据此生成计划（计划生成节）。
+
+EN: To reduce omitted constraints, we first retrieve evidence (Evidence Retrieval), use it to check constraints (Constraint Checking), and generate a plan from the checked constraints (Plan Generation).
+
+- **篇幅：**按页数和贡献分配正文。同级小节任务量相近，篇幅也应接近；明显长的一节先查职责混杂和重复。复现细节放附录，关键比较条件留正文。
+
+中：Method 某节讲了核查、训练和评估三件事，先拆职责，不靠缩字号解决。
+
+EN: If a Method subsection mixes checking, training, and evaluation, separate its responsibilities instead of shrinking the font.
+
+**正文骨架与 overview 句式**
+
+```latex
+\section{Introduction}
+\section{Related Work}
+\subsection{[Theme linked to challenge A]}
+\subsection{[Theme linked to challenge B]}
+\section{Method}
+To address [the specific challenge], we [operation] in
+[First Section] (\S\ref{sec:first}), producing [output].
+Using [that output], we [next operation] in
+[Second Section] (\S\ref{sec:second}), producing [next output].
+Figure~\ref{fig:framework} summarizes the workflow.
+\subsection{[First Section]}\label{sec:first}
+\subsection{[Second Section]}\label{sec:second}
+\section{Experiments}
+\subsection{Experimental Setup}
+\subsection{Main Results}
+\subsection{Ablation Studies}
+\subsection{[Analysis of the remaining research question]}
+\section{Conclusion}
+```
+
+这是起排骨架，按实际工作增删小节。方括号全部换成真实内容；framework 标签须对应实际图片。
+
+#### 实验先整理成论证
+
+- **问题与证据：**每项主张对应一个要检验的问题，再选对照、数据和图表。RQ 可以写，但不是给所有标题加一句问号。
+
+中：主张“核查减少遗漏”，就比较同题、有核查与无核查的遗漏率，保持其他设置一致。
+
+EN: To test whether checking reduces omissions, compare omission rates with and without checking on the same tasks under otherwise matched settings.
+
+- **实验设置：**先说明数据与划分，再分别写 Metrics、Baselines 和 Implementation Details。指标给定义、方向和分母；基线给来源与配置；训练、推理预算和重复次数讲清。
+
+中：成功率是满足全部任务约束的计划比例；基线与本文方法用同一测试集，分别说明推理预算。
+
+EN: Success rate is the fraction of plans satisfying all task constraints. Evaluate the baseline and proposed method on the same test set and report their inference budgets.
+
+- **实验顺序：**主结果回答整体是否有效；消融回答哪项设计有用；再按贡献安排成本、稳健性、迁移或失败分析。没有对应主张的实验，不必为了凑齐套餐硬加。
+
+中：若声称更省计算，就同时报告成功率和成本；若只验证同域效果，就不写跨域泛化。
+
+EN: A computational-efficiency claim requires both success and cost measurements. In-domain evidence alone does not establish cross-domain generalization.
+
+- **结果段：**一句结论开头，接关键对照，再解释含义和范围。不要把表格逐行朗读一遍；均值更高也不自动等于显著提升。
+
+中：核查后的提升主要出现在冲突条件下。接着引用该分组的对照，解释它怎样回应 Intro 的遗漏问题。
+
+EN: The gains after checking are concentrated in conflicting conditions. Cite the subgroup comparison, then explain how it addresses the omission problem in the Introduction.
+
+**给 Codex 的实验整理提示词**
+
+```text
+读取我的真实结果和 Intro 主张，按“研究问题 → 比较对象与固定条件 → 指标 → 图表 → 可支持的结论”整理。
+先写 Experimental Setup，再排 Main Results、Ablation Studies 和必要分析。设置按 Metrics、Baselines、Implementation Details 分段。
+每个结果段先给一句有证据的结论，再解释关键对照与范围。缺对照就说明还需什么，不补造结果，不用一个个案代替整体结论。
+```
+
+#### 表格：先让人看清比较
+
+- **结构：**表承载实测结果和数据。模型按实际类型分组；列写指标、单位与好坏方向。三线表，少网格，同一指标保持精度一致。
+
+中：方法名一列，成功率（%）一列，延迟（ms）一列；不同测试集分组，不混算平均。
+
+EN: Use columns for method, success rate (%), and latency (ms). Separate test sets into groups rather than averaging incompatible results.
+
+- **标记：**可比组内逐列判断：最优加粗，次优加下划线；需要时用很浅的底色。性能和成本方向不同，并列共享标记。颜色不能替你证明显著性。
+
+中：成功率越高越好，延迟越低越好；两列分别找最优，不把本文整行全部涂红。
+
+EN: Higher success and lower latency are better. Mark each column independently rather than highlighting the entire proposed-method row.
+
+- **统计与排版：**均值与不确定性放同一行，表注写清重复次数及 SD、SE 或 CI。缺失用破折号并解释；长表先拆列或跨栏，不整表 resizebox。
+
+中：70.0 上标 ±2.0 表示均值及标准差；“—”表示未测，不是 0。
+
+EN: A mean of 70.0 with superscript ±2.0 denotes a mean and standard deviation. A dash denotes an unmeasured value, not zero.
+
+排版示例：以下数值均为假设，不是论文结果。上标演示均值旁的标准差；浅红为最优，浅蓝为次优。
+
+| Method | Success (%) ↑ | Latency (ms) ↓ |
+| --- | --- | --- |
+| Baseline A | 70.0 ±2.0 | 120 ±4 |
+| Baseline B | 73.0 ±1.0 | 130 ±4 |
+| Proposed method | 76.0 ±1.0 | 125 ±3 |
+
+**可复制的 LaTeX 表格模板**
+
+```latex
+% Add these packages to the preamble if the venue permits them.
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\definecolor{bestcell}{HTML}{F2EBEA}
+\definecolor{secondcell}{HTML}{EDF0F4}
+
+% Insert this environment in the body.
+\begin{table}[!t]
+\centering
+\caption{Illustrative values only. Success rate is in percent;
+latency is in milliseconds. Superscripts illustrate standard deviations.
+Best values are bold; second-best values are underlined.}
+\label{tab:main-results}
+\begin{tabular}{lcc}
+\toprule
+Method & Success ($\uparrow$) & Latency ($\downarrow$) \\
+\midrule
+Baseline A & 70.0\textsuperscript{\(\pm2.0\)}
+ & \cellcolor{bestcell}\textbf{120}\textsuperscript{\(\pm4\)} \\
+Baseline B & \cellcolor{secondcell}\underline{73.0}\textsuperscript{\(\pm1.0\)}
+ & 130\textsuperscript{\(\pm4\)} \\
+Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
+ & \cellcolor{secondcell}\underline{125}\textsuperscript{\(\pm3\)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+```
+
+包声明放导言区，table 环境放正文；先确认会议模板允许这些包。正式表替换真实数据，并在表注写清统计单位、重复次数、实际可比范围及主要发现。跨栏时用 table*，不改模板栏宽。
+
+教学例：Intro 提出约束遗漏；Method 解释核查器如何保留约束；主实验比成功率，消融检验核查器，失败分析说明哪些约束仍会漏。
+
+Teaching example: The Introduction identifies omitted constraints. The Method explains how the checker retains them. Main results compare success, ablations test the checker, and failure analysis identifies remaining omissions.
+
+Once the figures are settled, define the body outline. Each section has a purpose: motivation, prior work, the method, or evidence. Organize the argument before filling paragraphs.
+
+### 1.4 理顺 Intro，中文审核后填正文
+
+Intro 是全文的逻辑压缩包。先用中文把“问题 → 设计 → 证据”讲通，再写英文；别让漂亮句子替你绕过逻辑。
+
+#### Intro 先按这条线排
+
+- **第一段：背景与已有能力：**第一句进入研究方向，紧接实际价值，再概括现有路线及已做到的事。别从宇宙大爆炸写到你的模型。
+
+中：约束规划将任务要求转成可执行计划。现有方法能生成候选方案，并通过搜索或反馈改进。
+
+EN: Constrained planning turns task requirements into executable plans. Existing methods generate candidates and refine them through search or feedback.
+
+- **第二段：具体问题：**说在哪种条件下、哪个对象出了什么问题，为什么已有做法还不够。用文献或动机实验支撑，别把前人写成什么都没做。
+
+中：然而，在要求彼此冲突时，计划仍可能遗漏关键约束，使后续步骤不可执行。
+
+EN: However, under conflicting requirements, plans may still omit critical constraints, leaving later steps infeasible.
+
+- **第三段：对应设计：**逐个回应上一段的问题。用“为解决 X，我们做 Y，因此得到 Z”串起来；关键术语就近解释，别只报模块名。
+
+中：为减少遗漏，我们在规划前核查每项约束的证据，并把已核实的约束交给规划器。
+
+EN: To reduce omissions, we check the evidence for each constraint before planning and pass the verified constraints to the planner.
+
+- **接着：主要发现：**设计后紧接关键实验发现：和谁比、在什么条件下、支持哪项贡献。只写真实结果，别把“我们做了大量实验”当发现。
+
+中：若实际结果支持：在相同测试任务下，核查减少了约束遗漏；消融说明这项收益来自核查环节。
+
+EN: If supported by the actual results: On the same test tasks, checking reduces constraint omissions; the ablation attributes this gain to the checking step.
+
+- **最后：贡献列表：**以 “In summary, our contributions are:” 收尾。每项一件主要贡献，长度接近；概括工作、关键设计、验证和发现，按实质内容写，不凑条数。
+
+中：我们设计一个规划前证据核查步骤，在生成前识别缺少支持的约束。
+
+EN: We design a pre-planning evidence check that identifies unsupported constraints before generation.
+
+**Intro 中文提纲提示词**
+
+```text
+根据我的真实材料，先只写中文 Introduction 提纲。
+第一段：研究方向、实际价值、现有路线与能力。
+第二段：具体条件下的不足及依据。每个问题都必须有后文设计回应。
+第三段：对应设计；解释输入、操作、产物及为什么能回应问题。
+接着：实际主要发现和比较范围；没有结果就不要写结果句。
+最后：贡献列表，平行、简短，不把普通工程步骤包装成创新。
+逐句检查前一句是否为后一句提供了对象或前提；把问题、设计与实验逐项对应。先让我看中文，再写英文。
+```
+
+#### 人工审核，再填全文
+
+- **审顺序：**每次给你一节中文，先查问题有没有回答、操作能不能复现、证据够不够。定下全部 section 标题后，再组织英文写回去。
+
+中：先看 Method 的中文流程；确认核查输出确实进入规划器，再润色英语。
+
+EN: Review the Method workflow in Chinese first. Confirm that the checked constraints actually enter the planner before polishing the English.
+
+- **审一致：**Intro 的问题、Related Work 的不足、Method 的设计、实验的结论用同一套对象和名称。摘要随后压缩这条线，别另讲一个故事。
+
+中：全文都说“约束遗漏”；不要到实验突然换成“综合智能不足”。
+
+EN: Use “constraint omission” consistently instead of switching to an unrelated “lack of general intelligence” claim in the experiments.
+
+- **审篇幅与图表：**编译看真实页数、图字、表格溢出和首次引用顺序。超页先删重复和无关细节，保留比较条件；逐句精修再去第三章。
+
+中：结果段重复了整张成绩表，就删逐行报分，保留关键差异及其含义。
+
+EN: If the result paragraph repeats the entire score table, remove the row-by-row narration and retain the key difference and its meaning.
+
+教学例：计划要同时满足多个条件；已有方法能生成计划，但冲突条件下会遗漏约束；因此先核查证据，再规划；随后用主结果与消融检验这项设计。
+
+Teaching example: Plans must satisfy multiple conditions. Existing methods generate plans but can omit constraints when conditions conflict. We therefore check evidence before planning, and test this design with main comparisons and ablations.
+
+The Introduction compresses the argument of the paper. Make the problem, design, and evidence clear in Chinese before drafting the English.
 
 ## 全文表达要求与中英改写
 
@@ -1478,13 +1875,13 @@ This finding supports [specific value] under [necessary condition].
 
 #### 引言第一段：方向与任务
 
-方向一句，价值一句，再落到具体任务。
+方向、价值和任务紧凑交代，接着概括已有能力。
 
 按论证顺序选用，段落可合并或拆分。
 
 教学模板；【】填真实材料。
 
-- 背景只留理解问题所需的信息；已有方法放下一段。
+- 背景只留理解问题所需的信息；接下面的已有方法句式，共同组织首段。
 
 PaperBank 推荐骨架
 
@@ -1504,9 +1901,9 @@ In this setting, [input] must be converted into [output] while satisfying [const
 
 在这一场景下，需要将[输入]转为[输出]，同时满足[约束]。
 
-**第 3 句：**把大方向落到具体任务；下一段才能讨论已有解法做到哪一步。
+**第 3 句：**把大方向落到具体任务，接着概括已有解法做到哪一步。
 
-#### 引言第二段：已有方法
+#### 引言首段后半：已有方法
 
 概括已有路线和已解决的问题，引用跟着主张走。
 
@@ -1529,7 +1926,7 @@ Another line uses [different mechanism] to support [additional capability] [cita
 
 **第 2 句：**只保留有实质差别的第二类方法；没有这类研究就删掉此句。
 
-#### 引言第三段：局限
+#### 引言第二段：局限
 
 写清哪种方法、在哪些条件下、还有什么问题。
 
@@ -1560,7 +1957,7 @@ For example, [concrete input or situation] requires [specific behavior], which [
 
 **第 3 句：**例子显示缺口怎样发生，是否未检验仍需核对实际来源。
 
-#### 引言第四段：设计
+#### 引言第三段：设计
 
 按局限的顺序介绍方案，讲清每个设计改哪一步、为什么有用。
 
@@ -1590,7 +1987,7 @@ To address [challenge B], we [design B].
 
 **第 3 句：**第二项方案处理另一项真实问题；没有就删除，不凑模块。
 
-#### 引言第五段：主要发现
+#### 引言第四段：主要发现
 
 设计之后写最重要的发现，再列贡献。
 
@@ -2345,7 +2742,7 @@ The left column contains evidence; the right column shows the model response and
 
 左栏放证据；右栏放模型回复和评价。
 
-- **案例不重复贴：**同一案例复用时只补新分析；案例讲流程，总体效果看实验。
+- **案例不重复贴：**同一案例在论文里只完整展示一次，其他位置交叉引用；案例讲流程，总体效果看实验。
 
 Figure 1 presents the case; Section 4 refers back to Figure 1 without repeating the dialogue.
 
