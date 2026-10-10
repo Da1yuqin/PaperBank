@@ -2,7 +2,7 @@
 
 按本次任务选规则。下面示例是假设情境，不是论文原文或实测；实际改稿先核对事实。
 
-网页：[写作铁律](https://da1yuqin.github.io/PaperBank/#chapter-rules) · [论文结构与逐句例子](https://da1yuqin.github.io/PaperBank/#paper-order) · [rebuttal](https://da1yuqin.github.io/PaperBank/#chapter-rebuttal)
+网页：[写作铁律](https://da1yuqin.github.io/PaperBank/#general-rules) · [论文结构与逐句例子](https://da1yuqin.github.io/PaperBank/#paper-order) · [rebuttal](https://da1yuqin.github.io/PaperBank/#chapter-rebuttal)
 
 ## 对象与贡献
 
