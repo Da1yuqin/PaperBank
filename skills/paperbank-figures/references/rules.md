@@ -1,12 +1,12 @@
 # PaperBank 绘图参考
 
-“Less is more. 一个图画太久了一定是过于复杂了，先花时间简化” 先定这张图要突出哪项贡献，再画。
+先确定图的主要任务与对应贡献，再安排内容和布局。复杂图先删去重复信息，保留必要输入、操作与输出。
 
 先查铁律，再按图型选模板。这里的中英句式是教学例子，数值和口径用自己的实际记录。
 
 ## 绘图铁律
 
-- **别让一张图讲所有事：**“motivation + observation” mainfig 先让人看见问题与发现，framework 解释设计如何对应问题，结果图给证据。一张图一个主任务。
+- **每图明确一个主要任务：**“motivation + observation” mainfig 先让人看见问题与发现，framework 解释设计如何对应问题，结果图给证据。一张图一个主任务。
 
 Show where the existing pipeline fails and which step our method changes.
 
@@ -14,7 +14,7 @@ Show where the existing pipeline fails and which step our method changes.
 
 图例与拆解：[问题和解法放在同一张图](https://da1yuqin.github.io/PaperBank/#visual-tcod-fig-1)
 
-- **别等正文定稿才画图：**“这两个部分先写/润色，缺的话就补” 先让框架图和实验能被合作者审，再精修正文。看不出贡献，先改内容，别急着换色。
+- **绘图先于正文精修：**先完成可供合作者审核的框架图与实验图，再精修正文。图未能体现贡献时，先调整内容与布局，再修改配色。
 
 Panel (a) shows the observed gap; panel (b) tests the proposed repair.
 
@@ -22,7 +22,7 @@ Panel (a) shows the observed gap; panel (b) tests the proposed repair.
 
 图例与拆解：[对照图要对齐改动](https://da1yuqin.github.io/PaperBank/#visual-tcod-fig-3)
 
-- **别让 AI 编实验曲线：**统计图用 Python 从真实数据绘制；imagegen 用于动机、框架和案例图。缺数据就停，不补点、不编误差、不为平滑改曲线。
+- **统计图使用真实数据：**统计图用 Python 从真实数据绘制；imagegen 用于动机、框架和案例图。缺数据就停，不补点、不编误差、不为平滑改曲线。
 
 Draw the recorded success rates with Python. Generate only the workflow illustration with imagegen.
 
@@ -30,15 +30,15 @@ Draw the recorded success rates with Python. Generate only the workflow illustra
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/PaperBank/#visual-interactcs-fig-1) · [KDE：看哪里密集，不是已经累计了多少](https://da1yuqin.github.io/PaperBank/#teaching-kde)
 
-- **别看放大 PNG 判断字号：**按最终栏宽排字，字体与正文一致；所有图内字同一字号，介于正文与正文减 2 pt 之间，标题也不能更大。放不下先重排，不把字缩成蚂蚁。
+- **按最终尺寸检查字号：**按最终栏宽排字，字体与正文一致；所有图内字同一字号，介于正文与正文减 2 pt 之间，标题也不能更大。放不下先重排，不缩小规定字号。
 
 Use the paper’s column width and body font; remove repeated labels rather than shrinking text.
 
-用论文栏宽和正文字体；删重复标签，不把字缩成蚂蚁。
+用论文栏宽和正文字体；删重复标签，不缩小规定字号。
 
 图例与拆解：[对照图要对齐改动](https://da1yuqin.github.io/PaperBank/#visual-tcod-fig-3)
 
-- **别用箭头改写真实流程：**同层成组并命名；先后、并行、汇合、反馈按真实依赖画。每条箭头说清传什么，起止明确，不穿字、不绕远路。
+- **箭头表示真实依赖：**同层成组并命名；先后、并行、汇合、反馈按真实依赖画。每条箭头说清传什么，起止明确，避免穿过文字与无必要的迂回。
 
 Retrieved passages enter the generator; the evaluator receives the generated answer.
 
@@ -46,7 +46,7 @@ Retrieved passages enter the generator; the evaluator receives the generated ans
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/PaperBank/#visual-interactcs-fig-1)
 
-- **别把评分规则画成模型输入：**输入、输出、评价规则用三种边框区分，并给图例。只供评价的 rubric 不连到被测模型；不同模型收到不同材料，也要标清。
+- **区分输入与评价信息：**输入、输出、评价规则用三种边框区分，并给图例。只供评价的 rubric 不连到被测模型；不同模型收到不同材料，也要标清。
 
 Dashed boxes contain model inputs; solid boxes contain responses; dotted boxes contain evaluator-only criteria.
 
@@ -54,7 +54,7 @@ Dashed boxes contain model inputs; solid boxes contain responses; dotted boxes c
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/PaperBank/#visual-interactcs-fig-1)
 
-- **别把低饱和画成一层灰雾：**“自己的创新点要用彩色/亮眼的颜色突出，让人能一眼注意到。” 常规模块可用中性灰，关键改动用统一强调色；低饱和不等于满图灰雾。
+- **低饱和配色与清晰对比：**常规模块用中性灰，关键改动用统一强调色。低饱和配色须保持清晰对比。
 
 Blue circles denote the baseline; orange triangles denote our method in every panel.
 
@@ -62,7 +62,7 @@ Blue circles denote the baseline; orange triangles denote our method in every pa
 
 图例与拆解：[消融：颜色分组，纹理分方法](https://da1yuqin.github.io/PaperBank/#visual-interactcs-fig-2)
 
-- **别扔一整块对话让人读：**一轮一框，注明角色；同一轮长回复按语义分段，不伪装成多轮。高亮只标关键约束、证据或错误，颜色含义要能读懂。
+- **对话按轮次与语义分段：**一轮一框，注明角色；同一轮长回复按语义分段，不伪装成多轮。高亮只标关键约束、证据或错误，颜色含义要能读懂。
 
 The left column contains evidence; the right column shows the model response and its evaluation.
 
@@ -70,7 +70,7 @@ The left column contains evidence; the right column shows the model response and
 
 图例与拆解：[案例：相同信息同框](https://da1yuqin.github.io/PaperBank/#fig-interactcs-case)
 
-- **别把同一案例复制三遍：**同一来源的案例在全文只完整呈现一次，其他位置交叉引用。改名、翻译、裁剪也算同一个；必要对照集中展示，别靠一个 case 证明总体效果。
+- **同一案例仅完整呈现一次：**同一来源的案例在全文只完整呈现一次，其他位置交叉引用。改名、翻译、裁剪也算同一个；必要对照集中展示，单个案例不能证明总体效果。
 
 Figure 1 presents the case; Section 4 refers back to Figure 1 without repeating the dialogue.
 
@@ -78,7 +78,7 @@ Figure 1 presents the case; Section 4 refers back to Figure 1 without repeating 
 
 图例与拆解：[案例：相同信息同框](https://da1yuqin.github.io/PaperBank/#fig-interactcs-case)
 
-- **别每个子图换一套尺度：**围绕一个问题排现象、诊断、对照和稳健性；同条件同顺序、同配色，同类轴和色标保持可比。
+- **同类子图使用一致尺度：**围绕一个问题排现象、诊断、对照和稳健性；同条件同顺序、同配色，同类轴和色标保持可比。
 
 The first panel identifies the gap, the second locates it, and the third tests whether it persists.
 
@@ -86,7 +86,7 @@ The first panel identifies the gap, the second locates it, and the third tests w
 
 图例与拆解：[TCOD：四幅图围着一个诊断](https://da1yuqin.github.io/PaperBank/#visual-tcod-fig-2)
 
-- **别靠断轴制造胜利：**查单位、分母、方向、坐标起点和误差类型；截断坐标要明确标出。相对增益同时给绝对值，柱长和数值必须对应。
+- **准确呈现坐标与差异：**查单位、分母、方向、坐标起点和误差类型；截断坐标要明确标出。相对增益同时给绝对值，柱长和数值必须对应。
 
 Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.
 
@@ -94,7 +94,7 @@ Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.
 
 图例与拆解：[配对增益：同一任务，直接看差了多少](https://da1yuqin.github.io/PaperBank/#teaching-paired-gain)
 
-- **别把图注写成画法说明：**图注先说读法和发现，再点出与贡献的关系；图中的简称在 Caption 给全称。“让人留下印象” 靠有依据的结论，不靠“效果显著”四个字。
+- **Caption 说明读法与发现：**图注先说读法和发现，再点出与贡献的关系；图中的简称在 Caption 给全称。“让人留下印象” 靠有依据的结论，不靠“效果显著”四个字。
 
 Error bars show 95% question-level bootstrap intervals; the horizontal line marks zero gain.
 
@@ -102,7 +102,7 @@ Error bars show 95% question-level bootstrap intervals; the horizontal line mark
 
 图例与拆解：[置信带：先认统计单位，再认内外两层](https://da1yuqin.github.io/PaperBank/#teaching-confidence)
 
-- **别把编译通过当作图没问题：**放回论文检查实际字号、字体嵌入、可选文字、裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后仍正确。
+- **编译后检查最终页面：**放回论文检查实际字号、字体嵌入、可选文字、裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后仍正确。
 
 Place the figure after its first mention and check all labels at normal reading size.
 
@@ -110,7 +110,7 @@ Place the figure after its first mention and check all labels at normal reading 
 
 图例与拆解：[问题和解法放在同一张图](https://da1yuqin.github.io/PaperBank/#visual-tcod-fig-1)
 
-- **别省输入和输出：**每个关键模块写清收到什么、做什么、交出什么，以及交给谁。模块名与 Method 一致，别让图成为缩写接龙。
+- **明确模块输入与输出：**每个关键模块写清收到什么、做什么、交出什么，以及交给谁。模块名与 Method 一致，所有缩写就近解释。
 
 The checker receives evidence and returns supported constraints to the planner.
 
@@ -118,7 +118,7 @@ The checker receives evidence and returns supported constraints to the planner.
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/PaperBank/#visual-interactcs-fig-1)
 
-- **别只留图标、缩写和颜色：**图标旁写对象名；新缩写、符号、边框、线型和数字就近解释。读者只看图与图注，应知道每个标记指什么。
+- **解释图中所有标记：**图标旁写对象名；新缩写、符号、边框、线型和数字就近解释。读者只看图与图注，应知道每个标记指什么。
 
 Label the robot as the planner and define dashed edges as feedback.
 
@@ -126,7 +126,7 @@ Label the robot as the planner and define dashed edges as feedback.
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/PaperBank/#visual-interactcs-fig-1)
 
-- **别让 framework 变成模块名单：**“结合 case 去绘制你的流程” 展示一个真实输入怎样变成中间产物和输出，旁边点出设计解决的困难。节点多不等于贡献多。
+- **Framework 展示操作与产物：**“结合 case 去绘制你的流程” 展示一个真实输入怎样变成中间产物和输出，旁边点出设计解决的困难。节点多不等于贡献多。
 
 Trace one task from the evidence input through checking to the final plan.
 
@@ -134,7 +134,7 @@ Trace one task from the evidence input through checking to the final plan.
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/PaperBank/#visual-interactcs-fig-1) · [案例：相同信息同框](https://da1yuqin.github.io/PaperBank/#fig-interactcs-case)
 
-- **别把示意画成实测：**估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，别指望图注替错误图形擦屁股。
+- **区分示意与实测：**估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，图形本身须准确，不能仅靠图注纠正。
 
 Keep illustrative module boxes equally sized; plot measured latency on a labeled axis.
 
@@ -142,7 +142,7 @@ Keep illustrative module boxes equally sized; plot measured latency on a labeled
 
 图例与拆解：[成本性能：每个点对应一项明确配置](https://da1yuqin.github.io/PaperBank/#teaching-cost)
 
-- **别拿截图 PDF 冒充矢量：**统计图导出矢量 PDF 并嵌入字体。生成底图上的标签另排原生、可见、可选的 PDF 文字；不留重叠字形，不加隐藏 OCR 层。混合 PDF 仍含位图。
+- **准确区分矢量与位图：**统计图导出矢量 PDF 并嵌入字体。生成底图上的标签另排原生、可见、可选的 PDF 文字；不留重叠字形，不加隐藏 OCR 层。混合 PDF 仍含位图。
 
 Export the plot as vector PDF and verify that its axis labels can be selected.
 
@@ -150,7 +150,7 @@ Export the plot as vector PDF and verify that its axis labels can be selected.
 
 图例与拆解：[对照图要对齐改动](https://da1yuqin.github.io/PaperBank/#visual-tcod-fig-3)
 
-- **别说只改色，顺手把内容改了：**只改配色就保留布局、文字、换行、字号、公式、照片和连线；重排须在约定范围内。数据、实验和合作者的图也别顺手动。
+- **保持修改范围：**只改配色就保留布局、文字、换行、字号、公式、照片和连线；重排须在约定范围内。保留数据、实验和合作者的图。
 
 Change panel fills while retaining every label, coordinate, and arrow endpoint.
 
@@ -158,7 +158,7 @@ Change panel fills while retaining every label, coordinate, and arrow endpoint.
 
 图例与拆解：[消融：颜色分组，纹理分方法](https://da1yuqin.github.io/PaperBank/#visual-interactcs-fig-2)
 
-- **别改论文模板给图腾地方：**按实际栏宽起稿，不改页边距、正文字号或页面方向。正文通栏约 16:9、单栏约 4:3 是起点，附录可纵排；不拉扁图。CS 默认用 [!t]，再按正文首次引用检查实际落点。
+- **按模板宽度布局：**按实际栏宽起稿，不改页边距、正文字号或页面方向。正文通栏约 16:9、单栏约 4:3 是起点，附录可纵排；不进行非等比缩放。CS 默认用 [!t]，再按正文首次引用检查实际落点。
 
 Rearrange parallel branches within the column width; keep the paper template unchanged.
 
@@ -166,7 +166,7 @@ Rearrange parallel branches within the column width; keep the paper template unc
 
 图例与拆解：[问题和解法放在同一张图](https://da1yuqin.github.io/PaperBank/#visual-tcod-fig-1)
 
-- **别把说明文字塞进表格：**PaperBank 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不截成图片绕过去；统计数字也不能把说明表变成实验结果。
+- **表格用于结果与数据：**PaperBank 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
 
 Put success rates in a table and explain the checking procedure in the text.
 
@@ -174,7 +174,7 @@ Put success rates in a table and explain the checking procedure in the text.
 
 图例与拆解：[消融：颜色分组，纹理分方法](https://da1yuqin.github.io/PaperBank/#visual-interactcs-fig-2)
 
-- **别拿白块盖住重叠：**图例、标题、刻度和注释不能挡数据、箭头或边框。给文字留空间，重排碰撞处；不是盖住就算修好了。
+- **重排文字与图形重叠处：**图例、标题、刻度和注释不能挡数据、箭头或边框。给文字留空间，重排碰撞处；不是盖住就算修好了。
 
 Move the legend outside the plotted curves while preserving the data and axes.
 
@@ -240,7 +240,7 @@ Compare density shapes with a shared bandwidth; mark sample counts and mean valu
 
 图例与拆解：[KDE：看哪里密集，不是已经累计了多少](https://da1yuqin.github.io/PaperBank/#teaching-kde)
 
-- **ECDF：看阈值以下有多少：**横轴取阈值，纵轴直接读累计比例；同一坐标比两组，阶梯从 0 到 1。想读“多少样本低于 10”，别去量 KDE 的峰。
+- **ECDF：看阈值以下有多少：**横轴取阈值，纵轴直接读累计比例；同一坐标比两组，阶梯从 0 到 1。低于某阈值的样本比例应从 ECDF 读取，KDE 峰值不能表示累计比例。
 
 At a threshold of 10, the ECDF gives the fraction of observations at or below 10.
 
@@ -264,13 +264,13 @@ Project standardized features onto two principal components and report the varia
 
 图例与拆解：[PCA：先定义输入，再看二维投影](https://da1yuqin.github.io/PaperBank/#teaching-pca)
 
-- **雷达图：多指标逐轴读：**每轴一个指标，写尺度、归一化和好坏方向；颜色再配点形。量纲不同别比面积，轴换个顺序，面积也会换。
+- **雷达图：多指标逐轴读：**每轴一个指标，写尺度、归一化和好坏方向；颜色再配点形。不同量纲不能用面积直接比较，轴顺序也会改变面积。
 
 Compare normalized metrics spoke by spoke; polygon area is not an overall score.
 
 沿每根轴比较归一化指标；多边形面积不是综合分数。
 
-图例与拆解：[雷达：看各项轮廓，别拿面积当总分](https://da1yuqin.github.io/PaperBank/#teaching-radar)
+图例与拆解：[雷达：比较各指标，面积不代表总分](https://da1yuqin.github.io/PaperBank/#teaching-radar)
 
 - **成本性能图：**每点是一个实际配置；在线与离线成本分开，写单位和好坏方向。连接前沿不意味着有中间配置。
 
@@ -280,7 +280,7 @@ Plot measured accuracy against online cost; report one-time training cost separa
 
 图例与拆解：[成本性能：每个点对应一项明确配置](https://da1yuqin.github.io/PaperBank/#teaching-cost)
 
-- **数据集分布：**统计单位、样本量、类别和分母先写清；同一图别混案例数、回复数和判据数。重点是覆盖了什么，不是圆画得多圆。
+- **数据集分布：**先写清统计单位、样本量、类别与分母。同一图不能混用案例数、回复数与判据数；说明类别覆盖范围与占比。
 
 Count unique cases by domain; report response counts separately.
 
@@ -304,7 +304,7 @@ Use slices for a composition and ordered bars for a ranking.
 
 图例与拆解：[环图：组成比例，先说总数](https://da1yuqin.github.io/PaperBank/#teaching-donut)
 
-- **二维增益与九宫格：**“可以用这种九宫格来分类，好处是可以看出两个渐进的变化” 两轴写指标、单位和好坏方向；差值图以零线分区，别为了九格补数据。
+- **二维增益与九宫格：**“可以用这种九宫格来分类，好处是可以看出两个渐进的变化” 两轴写指标、单位和好坏方向；差值图以零线分区，不为填满网格补造数据。
 
 With both gains defined as higher is better, the upper-right quadrant shows improvements on both metrics.
 

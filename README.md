@@ -1,8 +1,8 @@
 # PaperBank: 存入你的时间（Star🌟），取出你的 Accept
 
-五章：粗稿、绘图、正文精修、Rebuttal、AI 工具。附中英例子、Related Work / Method Overview 完整模板和 Codex skill。
+五章：起草、绘图、正文精修、Rebuttal、AI 工具。附中英例子、Related Work / Method Overview 完整模板和 Codex skill。
 
-每章先说为什么这样写，再逐句举例。作者笔记里的判断直接融进对应写法：Method 先讲设计为什么好，Experiments 解释发现，Intro 把问题、设计和证据串起来。英语可以慢慢磨，贡献得先看得见。
+每章说明写作要求，再逐句拆解例子。Method 先解释设计为何针对困难，Experiments 分析发现，Introduction 对应问题、设计与证据。先审核论证，再精修语言。
 
 [在线阅读](https://da1yuqin.github.io/PaperBank/) · [写作 skill](assets/paperbank-writing-skill.zip) · [绘图 skill](assets/paperbank-figures-skill.zip) · [Markdown 全文](book/guide.md) · [工具](https://da1yuqin.github.io/PaperBank/#tools) · [来源](SOURCES.md)
 
@@ -12,7 +12,7 @@
 
 [下载 skill ZIP](assets/paperbank-writing-skill.zip)，解压后让 Codex 读取整个 `paperbank-writing/` 文件夹，再说明当前文件、任务和允许修改的范围。包内只有原创规则、教学例子和许可，不含论文源稿或第三方摘录。
 
-画图先拿[绘图 skill ZIP](assets/paperbank-figures-skill.zip)：解压后让 Codex 读取 `paperbank-figures/SKILL.md`，附稿件、原始数据和参考图。包内有 mainfig / framework 区别、22 条绘图铁律、16 类图型及中英例子；图例链接回网页，不打包第三方原图。
+绘图使用[绘图 skill ZIP](assets/paperbank-figures-skill.zip)：解压后让 Codex 读取 `paperbank-figures/SKILL.md`，附稿件、原始数据和参考图。包内有 mainfig / framework 区别、22 条绘图铁律、16 类图型及中英例子；图例链接回网页，不打包第三方原图。
 
 包内的 `references/prompts.md` 可直接复制：按任务列明铁律和技能依据。提示词统一维护在 `data/guide.json` 的 `codex_prompts`，网页与下载包同步生成。
 
@@ -20,7 +20,7 @@
 
 欢迎使用、改写、转载，也欢迎拿去做 skill。原创正文采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)，代码采用 MIT；转载保留作者、原文链接和许可，改过请注明。论文摘录和原图保留各自版权，复用前查紧邻的出处与许可。
 
-知识可以搬家，门牌别摘。觉得省了点力，欢迎 Star；本银行只收星，不收版面费。
+如有帮助，欢迎 Star。
 
 > 来源：Da1yuqin，《PaperBank: 存入你的时间（Star🌟），取出你的 Accept》，https://da1yuqin.github.io/PaperBank/ ，CC BY 4.0。本文有修改。
 

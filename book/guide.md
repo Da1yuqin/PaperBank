@@ -4,31 +4,31 @@
 
 ## 写在前头
 
-此文用于学术讨论。本人并非领域权威，只是一个本着为爱发电、为大家提供便利的善心，做了此教程网页的普通博士牲 ORZ。
+本指南用于学术讨论，整理本人在论文写作与修改中的经验，供研究者参考。本人并非领域权威，内容可能有误。
 
-内容可能有误，水平也有限，因此网页开源，也支持批注。欢迎纠错、探讨，我看到一定会改，不误人子弟。
+网页开源并支持批注。欢迎指出错误、讨论具体写法，我会根据反馈修订。
 
-*小声嘀咕：为了减少各种麻烦，大部分网页的例子都来自鄙人或鄙人参与的论文，或熟人的论文，少数挑选了看了令人眼前一亮的有名的论文。（大家觉得论文不错可以多多 citation，万分感谢！）*
+*多数例子来自本人、本人参与或熟人的论文，另选少量具有参考价值的公开论文。各例均附出处；如用于研究，请引用对应原论文。*
 
-另附本人个人网页，欢迎来玩（随机挂掉。毕竟我很内向，不想挂个人信息到网上，除非在求职）：[【我的个人网页】](https://da1yuqin.github.io/)
+个人网页：[【我的个人网页】](https://da1yuqin.github.io/)
 
 
-先用 Codex 拉草稿和图，再由你审逻辑、逐章精修。第四章写 Rebuttal，第五章收好用的工具。
+先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为 Rebuttal，第五章为 AI 工具。
 
 主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。
 
-欢迎使用、改写、转载，也欢迎拿去给 Codex 做 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，改过请注明。Star 自愿，署名别失联。
+欢迎使用、改写、转载，也欢迎给 Codex 用作 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，修改版本注明改动。如有帮助，欢迎 Star。
 
 <a id="quick-start"></a>
 ## 1. 一天拉完草稿：Codex 快速成型
 
-先填问题、设计和真实结果，让 Codex 拉粗稿。先定图和故事，再由人逐节审逻辑、精挑语言。第一天先有一篇能讨论的论文。
+填入研究问题、方法设计和真实结果，让 Codex 形成初稿。先完成关键图与章节结构，再由作者逐节审核逻辑、精修语言。
 
 本章中英句子均为教学示例，不是论文原句或实测结论；两张论文图另附原文与许可。
 
 ### 1.1 填材料，准备模板和本地项目
 
-“一个亮点（标题，摘要，关键词），附赠一堆为了实现亮点而产生的贡献。” 先填最重要的价值或发现，再填为它服务的设计与证据；不要只给模型一串模块名。
+先填核心贡献与主要发现，再提供对应设计和证据。输入材料须说明各模块的作用与关系。
 
 **材料先给齐**
 
@@ -65,7 +65,7 @@ Fill in the prompt before asking Codex to draft. A venue name alone does not sup
 **复制这个提示词，填空就能用**
 
 ```text
-读取 paperbank-writing/SKILL.md、references/checklist.md；绘图同时读 paperbank-figures/SKILL.md。先拉粗稿，再由我审中文逻辑。本提示词用于实证型 CS 论文，Nature 系列另用独立体系。
+读取 paperbank-writing/SKILL.md、references/checklist.md；绘图同时读 paperbank-figures/SKILL.md。先形成初稿，再由我审中文逻辑。本提示词用于实证型 CS 论文，Nature 系列另用独立体系。
 会议、当年官方模板、页数与附录规则：【】
 问题与依据：【已有做法能做什么，在哪个条件下不足】
 一句话贡献：【新对象／设计、对应缺口、与最近工作的区别】
@@ -79,10 +79,11 @@ Fill in the prompt before asking Codex to draft. A venue name alone does not sup
 2. 先定 mainfig、framework 与关键结果图。mainfig 默认至多 5 环节，突出问题与改动；framework 解释设计为何有效，再讲输入、操作、产物。箭头必须是真依赖，训练、推理、评价分开，输入／输出／评价规则用可解释的边框。
 3. 图按最终栏宽绘制。所有图字同一字号，正文减 2 pt 至正文；白底、低饱和、同对象同色，配形状或线型。结果图只读真实数据；同一案例全文只呈现一次。Caption 本条展开简称，写实际发现，尽量三行；图表用 [!t]，核对实际首次引用顺序。
 4. 列全部 section、subsection 的标题、任务、承接、图表和篇幅，再填正文。Method Overview 先讲针对困难的关键设计，再写目的、操作与产物；章节名作为位置，每个标题与引用出现一次，后句接前句产物，末句引用 framework。
-5. 按 Intro 主张整理实验。Setup 写清数据与划分，按 Metrics、Baselines、Implementation Details 说明指标口径、比较路线和真实设置。Main Results 先给有证据的结论，再讲关键对照与范围；消融固定其他条件，不逐行念表。
-6. 表格用 booktabs，列宽、精度与单位一致。真实可比组内最优加粗浅红，第二个不同显示值下划线浅蓝，并列共享标记；不把排名当显著性。有真实重复才写均值与不确定性，说明次数、SD／SE／CI 和有效子集。不用 resizebox 硬塞。
+5. 按 Intro 主张整理实验。Setup 写清数据与划分，按 Metrics、Baselines、Implementation Details 说明指标口径、比较路线和真实设置。Main Results 先给有证据的结论，再讲关键对照与范围；消融固定其他条件，不逐行重复表格数值。
+6. 表格用 booktabs，列宽、精度与单位一致。真实可比组内最优加粗浅红，第二个不同显示值下划线浅蓝，并列共享标记；不把排名当显著性。有真实重复才写均值与不确定性，说明次数、SD／SE／CI 和有效子集。不用 resizebox 整体缩放表格。
 7. 最后组织 Intro：已有能力→具体不足→对应设计→实际发现→平行贡献。写清真正新增了什么，设计为什么回应不足；不把普通工程步骤包装成创新。不够的证据单列给我，不编结果、引用或 first／unique。
-8. 每次给我一节中文提纲与真实证据，确认后再写英文。一句一个完整判断，一段一个任务；定义术语、符号和信号来源，同对象同名称，正文不用 it／they 及同族代词。贡献形容词须有依据，一词换一词，不堆修饰。超页先删重复，不缩模板字号或间距。交付实际编译与 PDF 检查结果，远端同步单独说明。
+8. 每次给我一节中文提纲与真实证据，确认后再写英文。一句一个完整判断，一段一个任务；定义术语、符号和信号来源，同对象同名称，正文不用 it／they 及同族代词。贡献形容词须有依据，一词换一词，避免重复修饰。超页先删重复，不缩模板字号或间距。交付实际编译与 PDF 检查结果，远端同步单独说明。
+语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
 ```
 
 **English prompt**
@@ -106,6 +107,7 @@ Order and hard rules:
 6. Use booktabs and consistent widths, precision, and units. Within genuinely comparable groups, mark the best value in bold on pale red and the second distinct displayed value underlined on pale blue; share markings for ties. Rankings are not significance tests. Report means and uncertainty only for actual repeats, defining counts, SD / SE / CI, and valid subsets. Do not squeeze tables with resizebox.
 7. Build the Introduction last: existing capabilities → specific limitation → matched design → actual finding → parallel contributions. State what is new and why each design responds to a limitation. Do not relabel routine engineering as innovation. List evidence gaps separately; invent no results, citations, or first / unique claims.
 8. Show one Chinese section outline and its evidence for approval before English prose. Use one complete main judgment per sentence and one task per paragraph. Define terms, notation, and signal sources; name objects consistently and avoid it / they and related object pronouns in author prose. Use evidence-supported contribution modifiers as concise word replacements. Remove repetition before cutting supporting evidence; preserve template fonts and spacing. Report actual compilation and PDF checks separately from remote synchronization.
+Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
 ```
 
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-writing/references/prompts.md#draft)
@@ -118,7 +120,7 @@ Order and hard rules:
 
 [先下载绘图 skill ZIP](../assets/paperbank-figures-skill.zip) · [查看 SKILL.md](../skills/paperbank-figures/SKILL.md) · [绘图铁律](#figure-rules)
 
-“先看框架图和实验，理解贡献和方法” 图先给合作者看。先确认为什么值得做、关键差别和实验发现，再逐句磨正文。
+先完成框架图与主要实验图，供合作者审核。确认研究价值、设计差异和实验发现后，再精修正文。
 
 #### 1.2.a mainfig：读者先看懂为什么做
 
@@ -130,7 +132,7 @@ EN: The task requires both A and B. The existing plan omits B; our design checks
 
 - **取舍：**突出最关键的差别，少放模块、logo 和工程细节。示意趋势标明示意，实测结果给出对应来源。
 
-中：只画“遗漏约束”和“核查后保留约束”的对照，不把所有训练参数塞进首图。
+中：只画“遗漏约束”和“核查后保留约束”的对照，首图不列全部训练参数。
 
 EN: Contrast an omitted constraint with its retention after checking; leave training parameters out of the main figure.
 
@@ -164,21 +166,21 @@ The figure separates interaction generation from policy optimization. A dialogue
 
 Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。 [原论文](https://arxiv.org/abs/2602.22697v1) · [许可](https://creativecommons.org/licenses/by/4.0/)
 
-#### 1.2.c 绘图铁律：这些错别犯
+#### 1.2.c 绘图铁律
 
-- **配色：**白底，面板接近白色，文字和刻度保持深色。同对象全篇同色，再配点形、线型或纹理；低饱和不是糊一层灰。
+- **配色：**白底，面板接近白色，文字和刻度保持深色。同对象全篇同色，再配点形、线型或纹理；低饱和配色仍须保持文字、标记与背景的清晰对比。
 
 中：基线用灰色圆点，本文方法用灰蓝菱形；颜色变淡，文字不跟着变淡。
 
 EN: Use gray circles for the baseline and muted blue diamonds for the proposed method. Keep the text dark on pale backgrounds.
 
-- **字号与字体：**按最终栏宽起稿，图内所有字同字号、同字体家族；范围为正文减 2 pt 至正文，标题、轴、图例、注释都算。以论文 PDF 的实测字号为准，放不下先重排，不缩字硬塞。
+- **字号与字体：**按最终栏宽起稿，图内所有字同字号、同字体家族；范围为正文减 2 pt 至正文，标题、轴、图例、注释都算。以论文 PDF 的实测字号为准，放不下先重排，不通过缩小字号解决空间不足。
 
 中：正文实际为 10 pt，图内字用 8–10 pt；在论文整页大小下读，不只看放大的 PNG。
 
 EN: With 10 pt body text, use 8–10 pt figure text and inspect it at its final size in the paper, not only in a magnified PNG.
 
-- **布局：**一个主读序，同层成组并命名；并行先汇合，反馈另走清楚的路径。通栏约 16:9、单栏约 4:3 起排，附录可纵排。连图注一起查占高，不拉扁图、不改论文模板。
+- **布局：**一个主读序，同层成组并命名；并行先汇合，反馈另走清楚的路径。通栏约 16:9、单栏约 4:3 布局，附录可纵排。连图注一起查占高，不进行非等比缩放、不改论文模板。
 
 中：两个并行输入先汇合再进入模型；长解释移到图注，关键输入保留在图里。
 
@@ -186,7 +188,7 @@ EN: Merge parallel inputs before the model. Move long explanations to the captio
 
 - **结果图：**从真实数据绘制。轴写变量和单位，图例解释颜色与线型，误差条写 SD、SE 或 CI 及计算单位；同类图共用尺度。
 
-中：纵轴写成功率（%）；误差条若是跨运行标准差，就别写成 95% 置信区间。
+中：纵轴写成功率（%）；误差条若是跨运行标准差，不能标作 95% 置信区间。
 
 EN: Label the y-axis as success rate (%). If error bars show standard deviations across runs, do not label them as 95% confidence intervals.
 
@@ -196,13 +198,13 @@ EN: Label the y-axis as success rate (%). If error bars show standard deviations
 
 EN: The figure compares success rate and inference cost on the same test set; each point represents a method configuration.
 
-- **箭头与信息边界：**每条箭头都对应真实产物和接收者，别穿字、交叉或乱连。输入、输出、评价规则用三种边框；只供评价的 rubric 不接到模型。
+- **箭头与信息边界：**每条箭头对应真实产物和接收者，避免穿过文字、交叉或错误连接。输入、输出、评价规则用三种边框；只供评价的 rubric 不接到模型。
 
 中：核查结果交给规划器；评分规则只交给评价器。
 
 EN: Checked constraints go to the planner; scoring criteria go only to the evaluator.
 
-- **标签与图标：**缩写、符号、颜色、边框和图标就近解释。图标旁写对象名；别让读者猜这个机器人到底是谁。
+- **标签与图标：**缩写、符号、颜色、边框和图标就近解释。图标旁标明对象名，明确角色与模块。
 
 中：机器人标为 Planner；虚线箭头注明 Feedback。
 
@@ -220,7 +222,7 @@ EN: Present the case in Figure 1 and refer back to it in Section 4.
 
 EN: Select the labels in the manuscript PDF and verify their font and final size.
 
-- **改图范围：**只改颜色就保留文字、布局、照片、公式、字号和连线。原始数据、实验和合作者的图别顺手改。
+- **改图范围：**只改颜色就保留文字、布局、照片、公式、字号和连线。保留原始数据、实验和合作者的图。
 
 中：只换底色，保留坐标与箭头端点。
 
@@ -244,13 +246,13 @@ EN: If Figure 1 is cited first, verify that it actually appears first in the PDF
 正文 PDF 实测字体与字号：【字体，pt】；本篇已确认色板：【】
 
 铁律：
-1. mainfig 讲问题、已有缺口与关键改动，默认不超过 5 个环节；framework 先让人看懂设计为什么好，再画完整输入、操作与产物。两张图别画成同一张。
+1. mainfig 讲问题、已有缺口与关键改动，默认不超过 5 个环节；framework 先让人看懂设计为什么好，再画完整输入、操作与产物。两图分别承担不同叙述任务。
 2. 每条箭头对应真实依赖，不穿文字。保留并行与反馈；训练、推理、评价分开。输入、输出、评价规则用三种边框并给图例；仅供评价的信息不能画成模型输入。
-3. 按最终宽度起稿。所有标题、坐标、刻度、图例、数字、注释用同一字号，正文减 2 pt ≤ 图字 ≤ 正文，字体家族匹配。放不下就重排或拆图，不缩字、拉扁或改论文模板。
+3. 按最终宽度起稿。所有标题、坐标、刻度、图例、数字、注释用同一字号，正文减 2 pt ≤ 图字 ≤ 正文，字体家族匹配。放不下就重排或拆图，不缩小规定字号、不进行非等比缩放、不修改论文模板。
 4. 白底、近白面板、深色文字、低饱和配色。同一对象全篇同色，用形状或线型辅助区分；不加渐变、阴影和装饰光效。通栏先参考 16:9，单栏参考 4:3，内容与可读性优先。
 5. 模块名与正文一致。缩写、变量、单位、图标、颜色和线型都能解释；图标旁写对象名。标签用自然语言，不用符号拼句。
 6. 同一案例全文只呈现一次，翻译、裁剪或改名仍算同一个。先按来源核对使用位置，其他位置交叉引用。对话一轮一框；作者示例与实测回复分清，没有评分不画勾。
-7. 统计图用 Python 等专业工具读取所附数据，保留数值、坐标几何、分母、单位与 SD／SE／CI 定义；同类比较统一尺度。不为美观补缺测、改数据或平滑曲线，不重跑实验；KDE 等估计图说明样本量、方法和带宽。概念图按当前环境使用 imagegen，不让生成器猜流程或造结果。
+7. 统计图用 Python 等专业工具读取所附数据，保留数值、坐标几何、分母、单位与 SD／SE／CI 定义；同类比较统一尺度。不为美观补缺测、改数据或平滑曲线，不重跑实验；KDE 等估计图说明样本量、方法和带宽。概念图按当前环境使用 imagegen，生成内容须依据已确认流程，不生成虚构结果。
 8. Caption 说明读法、比较、必要口径与实际发现，简称在本条 Caption 写全称。方法图说明机制，不编实验结论。尽量三行，必要定义与事实边界优先。
 9. PDF 文字可见、可选，字体嵌入；不叠两套字形或隐藏 OCR。统计图优先矢量 PDF，含位图的 PDF 不称全矢量。CS 图表默认 [!t]，实际位置跟随正文首次引用，保留附录归属。
 10. 先给问题、布局和缺口，再绘制。插回论文编译，看最终页面的字号、图例、裁切、碰撞和引用顺序。交付源文件、PDF、预览及实际检查结果。只改色时保留原布局、文字、连线与图片；保留他人修改，不扩大范围。
@@ -300,19 +302,19 @@ Review the figures with coauthors before polishing the body. They should explain
 
 EN: A Related Work subsection on constrained planning summarizes existing capabilities, then returns to the omission problem stated in the Introduction.
 
-- **Method overview：**开头承接 Intro 的困难，串起输入、操作、输出和对应小节；最后引用 framework。章节名是阅读位置，别把章节标题写成执行模块。
+- **Method overview：**开头承接 Intro 的困难，串起输入、操作、输出和对应小节；最后引用 framework。章节名用于定位内容，不能作为执行模块。
 
 中：为减少约束遗漏，我们先检索证据（证据检索节），再用检索结果核查约束（约束核查节），最后据此生成计划（计划生成节）。
 
 EN: To reduce omitted constraints, we first retrieve evidence (Evidence Retrieval), use it to check constraints (Constraint Checking), and generate a plan from the checked constraints (Plan Generation).
 
-- **篇幅：**按页数和贡献分配正文。同级小节任务量相近，篇幅也应接近；明显长的一节先查职责混杂和重复。复现细节放附录，关键比较条件留正文。超页先删重复文献配文和常规实现，别先砍最有说服力的实验分析。
+- **篇幅：**按页数和贡献分配正文。同级小节任务量相近，篇幅也应接近；明显长的一节先查职责混杂和重复。复现细节放附录，关键比较条件留正文。超页先删重复文献配文和常规实现，保留支撑核心贡献的实验分析。
 
 中：Method 某节讲了核查、训练和评估三件事，先拆职责，不靠缩字号解决。
 
 EN: If a Method subsection mixes checking, training, and evaluation, separate its responsibilities instead of shrinking the font.
 
-**正文骨架与 overview 句式**
+**正文结构模板与 overview 句式**
 
 ```latex
 \section{Introduction}
@@ -337,7 +339,7 @@ Figure~\ref{fig:framework} summarizes the workflow.
 \section{Conclusion}
 ```
 
-这是起排骨架，按实际工作增删小节。方括号全部换成真实内容；framework 标签须对应实际图片。
+这是章节结构模板，按实际工作增删小节。方括号全部换成真实内容；framework 标签须对应实际图片。
 
 #### 1.3.b 实验先整理成论证
 
@@ -353,7 +355,7 @@ EN: To test whether checking reduces omissions, compare omission rates with and 
 
 EN: Success rate is the fraction of plans satisfying all task constraints. Evaluate the baseline and proposed method on the same test set and report their inference budgets.
 
-- **实验顺序：**主结果回答整体是否有效；消融回答哪项设计有用；再按贡献安排成本、稳健性、迁移或失败分析。没有对应主张的实验，不必为了凑齐套餐硬加。
+- **实验顺序：**主结果回答整体是否有效；消融回答哪项设计有用；再按贡献安排成本、稳健性、迁移或失败分析。实验须对应具体主张，不要求每篇论文包含所有分析类型。
 
 中：若声称更省计算，就同时报告成功率和成本；若只验证同域效果，就不写跨域泛化。
 
@@ -372,9 +374,9 @@ EN: The gains after checking are concentrated in conflicting conditions. Cite th
 材料：【Intro 主张、真实结果文件、数据划分、基线配置、预算、重复记录】
 允许修改：【实验正文、表格及相关文件】；不得改动：【原始结果与实验协议】
 
-1. 按“Intro 主张／研究问题→比较对象与固定条件→指标→图表→能支持的结论”整理。RQ 有需要再用，不给每个图硬凑一个。
+1. 按“Intro 主张／研究问题→比较对象与固定条件→指标→图表→能支持的结论”整理。RQ 有需要再用，不要求每张图单独设置 RQ。
 2. 先写 Experimental Setup：数据来源与划分；Metrics 定义方向、分母、聚合；Baselines 按路线分组，注明来源与版本；Implementation Details 写真实训练／推理预算、硬件、超参数和重复次数。没有记录就列缺口，不猜默认值。
-3. 再排 Main Results、Ablation Studies 与必要分析。每段首句给有证据的结论，随后讲关键对照、条件和范围；一个独立发现一段，不逐行念数。消融只改待检因素，保留其他条件，未排除的解释不能写成因果。
+3. 再排 Main Results、Ablation Studies 与必要分析。每段首句给有证据的结论，随后讲关键对照、条件和范围；一个独立发现一段，不逐行重复数值。消融只改待检因素，保留其他条件，未排除的解释不能写成因果。
 4. 表格用 booktabs；同类表统一列宽、组名、精度和单位。最优加粗浅红，第二个不同显示值下划线浅蓝，并列共享标记，限真实可比组。均值与不确定性同行，整段 ± 及误差可上标；写清真实重复次数、SD／SE／CI 和共同有效子集，不用排名替代显著性，不用 resizebox 缩整表。
 5. Caption 写比较、实际发现与必要口径，每条展开简称，尽量三行。图表用 [!t]，核对最终首次引用顺序。百分比与百分点、记录与独立样本、整体与子集分开，保留影响结论的负结果。
 6. 先给中文逻辑让我审，再写英文；只根据所附记录绘图制表，不补结果、重跑基线或改统计口径。编译检查实际页数、数值、标记、字体和溢出，报告证据缺口与已做检查。
@@ -466,35 +468,35 @@ Once the figures are settled, define the body outline. Each section has a purpos
 
 ### 1.4 理顺 Intro，中文审核后填正文
 
-“针对这些问题，本方法做出了哪些改进，为什么这些改进能解决这些问题” 先把这条线用中文讲通，再整理英文；漂亮句子留到逻辑过关以后。
+先用中文说明现有问题、对应改进及作用机制，审核通过后再组织英文。
 
 #### 1.4.a Intro 先按这条线排
 
-- **第一段：背景与已有能力：**第一句进入研究方向，紧接实际价值，再概括现有路线及已做到的事。别从宇宙大爆炸写到你的模型。
+- **第一段：背景与已有能力：**第一句进入研究方向，紧接实际价值，再概括现有路线及已做到的事。删除与具体研究问题无关的泛化背景。
 
 中：约束规划将任务要求转成可执行计划。现有方法能生成候选方案，并通过搜索或反馈改进。
 
 EN: Constrained planning turns task requirements into executable plans. Existing methods generate candidates and refine them through search or feedback.
 
-- **第二段：具体问题：**说在哪种条件下、哪个对象出了什么问题，为什么已有做法还不够。用文献或动机实验支撑，别把前人写成什么都没做。
+- **第二段：具体问题：**说在哪种条件下、哪个对象出了什么问题，为什么已有做法还不够。用文献或动机实验支撑，准确说明已有工作的能力与适用条件。
 
 中：然而，在要求彼此冲突时，计划仍可能遗漏关键约束，使后续步骤不可执行。
 
 EN: However, under conflicting requirements, plans may still omit critical constraints, leaving later steps infeasible.
 
-- **第三段：对应设计：**逐个回应上一段的问题。用“为解决 X，我们做 Y，因此得到 Z”串起来；关键术语就近解释，别只报模块名。
+- **第三段：对应设计：**逐个回应上一段的问题。用“为解决 X，我们做 Y，因此得到 Z”串起来；关键术语就近解释，不要只报模块名。
 
 中：为减少遗漏，我们在规划前核查每项约束的证据，并把已核实的约束交给规划器。
 
 EN: To reduce omissions, we check the evidence for each constraint before planning and pass the verified constraints to the planner.
 
-- **接着：主要发现：**设计后紧接关键实验发现：和谁比、在什么条件下、支持哪项贡献。只写真实结果，别把“我们做了大量实验”当发现。
+- **接着：主要发现：**设计后紧接关键实验发现：和谁比、在什么条件下、支持哪项贡献。只写真实结果，实验数量不能替代具体发现。
 
 中：若实际结果支持：在相同测试任务下，核查减少了约束遗漏；消融说明这项收益来自核查环节。
 
 EN: If supported by the actual results: On the same test tasks, checking reduces constraint omissions; the ablation attributes this gain to the checking step.
 
-- **最后：贡献列表：**“一般第一句话是宏观贡献（解决了什么核心问题）” 随后写关键设计和亮眼发现。一条一个贡献，别把自己的流程复制三遍。 按真实贡献增删，长度接近。
+- **最后：贡献列表：**首项概括解决的核心问题，随后分别写关键设计与主要发现。每项说明一个独立贡献，避免重复列举流程。 按真实贡献增删，长度接近。
 
 中：我们设计一个规划前证据核查步骤，在生成前识别缺少支持的约束。
 
@@ -508,12 +510,12 @@ EN: We design a pre-planning evidence check that identifies unsupported constrai
 任务：先写中文提纲；允许修改：【文件与范围】。
 
 1. 先写“具体不足→对应设计→实际证据”映射，缺证据单列，不补造。
-2. 背景段：说清研究方向与价值，紧接已有路线怎么做、已经能做什么。用必要原文引用，不从“随着技术发展”开始绕圈。
+2. 背景段：说清研究方向与价值，紧接已有路线怎么做、已经能做什么。用必要原文引用，删除与具体问题无关的泛化背景。
 3. 问题段：指出哪个条件下，已有做法不能证明或处理什么，并给依据。每个问题须有后文设计回应，不把已有能力写成没人做过。
-4. 方案段：明确本文新增的对象或设计，与最近工作区别在哪里；先解释为什么针对该困难，再写输入、操作、产物。不要只报模块名或排流水线。
+4. 方案段：明确本文新增的对象或设计，与最近工作区别在哪里；先解释为什么针对该困难，再写输入、操作、产物。解释设计机制，不能仅列模块名称与步骤。
 5. 发现段：只写实际主要发现、关键比较和适用范围。没有结果不写结果句，诊断不冒充因果，有限测试不推广全部场景。
-6. 贡献用原生 itemize，平行、简短、长度相近，项数按真实工作调整。一项一个主要贡献，普通实现不凑创新。de-identified、expert-confirmed、tailored 等词须有对应事实，一词换一词，不堆夸奖；不用无依据的 first／unique。
-7. 逐句查前句是否提供后句的对象或前提，问题、机制与实验名称是否一致。定义必要术语，用具体对象替代 it／they；不为套段数破坏逻辑。先让我审中文，再组织英文。研究事实有实质调整才同步改摘要，保留原始结果、引文和并发修改。
+6. 贡献用原生 itemize，平行、简短、长度相近，项数按真实工作调整。一项一个主要贡献，常规实现不单独列为创新。de-identified、expert-confirmed、tailored 等词须有对应事实，一词换一词，不使用空泛评价；不用无依据的 first／unique。
+7. 逐句查前句是否提供后句的对象或前提，问题、机制与实验名称是否一致。定义必要术语，用具体对象替代 it／they；段落数量服从实际论证。先让我审中文，再组织英文。研究事实有实质调整才同步改摘要，保留原始结果、引文和并发修改。
 ```
 
 **English prompt**
@@ -542,7 +544,7 @@ Task: write a Chinese outline first; editable files and scope: [ ].
 
 EN: Review the Method workflow in Chinese first. Confirm that the checked constraints actually enter the planner before polishing the English.
 
-- **审一致：**Intro 的问题、Related Work 的不足、Method 的设计、实验的结论用同一套对象和名称。摘要随后压缩这条线，别另讲一个故事。
+- **审一致：**Intro 的问题、Related Work 的不足、Method 的设计、实验的结论用同一套对象和名称。摘要概括同一组问题、设计与发现。
 
 中：全文都说“约束遗漏”；不要到实验突然换成“综合智能不足”。
 
@@ -578,11 +580,12 @@ The Introduction compresses the argument of the paper. Make the problem, design,
 
 铁律：
 1. 先查“具体不足→新增设计→实际证据”。Abstract、Intro 贡献和 Method Overview 明说新对象或设计及其价值，与最近工作比较；全篇困难、模块和发现名称一致。不猜技术设定，不编引用、数字或优先权。
-2. 一句一个完整判断，一段一个任务，后句接前句对象、问题或产物。正文不用 it／they 及同族代词，we／our 和 this + 明确名词可保留。用短对象名，不拼符号、堆形容词；有依据的贡献词一词换一词。
+2. 一句一个完整判断，一段一个任务，后句接前句对象、问题或产物。正文不用 it／they 及同族代词，we／our 和 this + 明确名词可保留。用短对象名，不以符号替代句子，不使用重复修饰；有依据的贡献词一词换一词。
 3. 缩写、符号首次出现定义对象、来源、单位与下标；摘要、引言、实验各自能读懂。按最终 PDF 检查句长，双栏一句默认最多三行、单栏一句默认一行半，完整语义优先；不用缩字、改栏宽或硬换行凑行数。
-4. Related Work 按主题写已有路线、能力、具体不足和本文方案；However 与 To address 的对象、关键词对齐 Intro，不逐篇点名或凑引用。Method Overview 先讲设计为什么回应困难，再写目的、操作、产物；用 in [准确章节名] (ref) 定位，每个章节名与引用出现一次，保留并行关系，末句引 framework。
+4. Related Work 按主题写已有路线、能力、具体不足和本文方案；However 与 To address 的对象、关键词对齐 Intro，按类别概括文献，仅引用直接相关的工作。Method Overview 先讲设计为什么回应困难，再写目的、操作、产物；用 in [准确章节名] (ref) 定位，每个章节名与引用出现一次，保留并行关系，末句引 framework。
 5. 实验段先给有证据的结论，再讲比较条件、关键对照与含义；消融固定其他条件。指标说明方向、分母和不确定性，区分记录与独立样本、百分比与百分点、观察与因果；保留影响解释的负结果。RQ 按需要使用。
-6. 数据、公式含义、实验设置、引文、原始 prompt 和模型回复不因润色改变；保留他人修改。先给中文逻辑与最小改法，确认后改英文。缺证据单列给我，不塞进论文；只读任务不写文件。最后说明实际改动和检查，编译与最终 PDF 目检分别确认。
+6. 数据、公式含义、实验设置、引文、原始 prompt 和模型回复不因润色改变；保留他人修改。先给中文逻辑与最小改法，确认后改英文。缺证据单列给我，不写入论文正文；只读任务不写文件。最后说明实际改动和检查，编译与最终 PDF 目检分别确认。
+语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
 ```
 
 **English usage prompt**
@@ -599,6 +602,7 @@ Hard rules:
 4. Organize Related Work by topic: existing approach, capability, specific limitation, and the paper's response. Match However / To address objects and keywords to the Introduction; do not list papers or pad citations. The Method Overview explains why the design addresses the challenge before its purpose, operations, and products. Locate actions with in [exact section title] (ref), citing each title once; preserve parallel paths and cite the framework last.
 5. Start result paragraphs with evidenced conclusions, then conditions, key comparisons, and implications. Hold other conditions fixed in ablations. Define metric direction, denominators, and uncertainty. Distinguish records from independent samples, percentages from percentage points, and observations from causal findings. Retain negative results that affect interpretation. Use RQs when useful.
 6. Preserve data, formula meanings, settings, citations, original prompts, model outputs, and concurrent edits. Show Chinese reasoning and minimal fixes before revising English. Keep evidence gaps outside the paper; do not write files for read-only tasks. Report actual changes and checks, distinguishing compilation from visual inspection of the final PDF.
+Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
 ```
 
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-writing/references/prompts.md#writing)
@@ -606,7 +610,7 @@ Hard rules:
 <a id="figures"></a>
 ## 2. 光速出美图
 
-“Less is more. 一个图画太久了一定是过于复杂了，先花时间简化” 先定这张图要突出哪项贡献，再画。
+先确定图的主要任务与对应贡献，再安排内容和布局。复杂图先删去重复信息，保留必要输入、操作与输出。
 
 以下是 PaperBank 面向 CS 论文的默认约定，会议硬性要求和当前稿件已确认的配置优先。参考图用来学信息组织，不照搬它的字号、色板或数据。
 
@@ -615,7 +619,7 @@ Hard rules:
 
 [下载绘图 skill ZIP](../assets/paperbank-figures-skill.zip) · [查看 SKILL.md](../skills/paperbank-figures/SKILL.md) · [绘图铁律](#figure-rules)
 
-解压后把整个 paperbank-figures/ 文件夹交给 Codex，再附稿件、原始数据、参考图和允许修改的文件。先给材料，再给它发挥；空手也画不出你的实验。
+解压后让 Codex 读取整个 paperbank-figures/ 文件夹，并提供稿件、原始数据、参考图及允许修改的文件。
 
 **复制给 Codex：开始画图**
 
@@ -629,13 +633,13 @@ Hard rules:
 正文 PDF 实测字体与字号：【字体，pt】；本篇已确认色板：【】
 
 铁律：
-1. mainfig 讲问题、已有缺口与关键改动，默认不超过 5 个环节；framework 先让人看懂设计为什么好，再画完整输入、操作与产物。两张图别画成同一张。
+1. mainfig 讲问题、已有缺口与关键改动，默认不超过 5 个环节；framework 先让人看懂设计为什么好，再画完整输入、操作与产物。两图分别承担不同叙述任务。
 2. 每条箭头对应真实依赖，不穿文字。保留并行与反馈；训练、推理、评价分开。输入、输出、评价规则用三种边框并给图例；仅供评价的信息不能画成模型输入。
-3. 按最终宽度起稿。所有标题、坐标、刻度、图例、数字、注释用同一字号，正文减 2 pt ≤ 图字 ≤ 正文，字体家族匹配。放不下就重排或拆图，不缩字、拉扁或改论文模板。
+3. 按最终宽度起稿。所有标题、坐标、刻度、图例、数字、注释用同一字号，正文减 2 pt ≤ 图字 ≤ 正文，字体家族匹配。放不下就重排或拆图，不缩小规定字号、不进行非等比缩放、不修改论文模板。
 4. 白底、近白面板、深色文字、低饱和配色。同一对象全篇同色，用形状或线型辅助区分；不加渐变、阴影和装饰光效。通栏先参考 16:9，单栏参考 4:3，内容与可读性优先。
 5. 模块名与正文一致。缩写、变量、单位、图标、颜色和线型都能解释；图标旁写对象名。标签用自然语言，不用符号拼句。
 6. 同一案例全文只呈现一次，翻译、裁剪或改名仍算同一个。先按来源核对使用位置，其他位置交叉引用。对话一轮一框；作者示例与实测回复分清，没有评分不画勾。
-7. 统计图用 Python 等专业工具读取所附数据，保留数值、坐标几何、分母、单位与 SD／SE／CI 定义；同类比较统一尺度。不为美观补缺测、改数据或平滑曲线，不重跑实验；KDE 等估计图说明样本量、方法和带宽。概念图按当前环境使用 imagegen，不让生成器猜流程或造结果。
+7. 统计图用 Python 等专业工具读取所附数据，保留数值、坐标几何、分母、单位与 SD／SE／CI 定义；同类比较统一尺度。不为美观补缺测、改数据或平滑曲线，不重跑实验；KDE 等估计图说明样本量、方法和带宽。概念图按当前环境使用 imagegen，生成内容须依据已确认流程，不生成虚构结果。
 8. Caption 说明读法、比较、必要口径与实际发现，简称在本条 Caption 写全称。方法图说明机制，不编实验结论。尽量三行，必要定义与事实边界优先。
 9. PDF 文字可见、可选，字体嵌入；不叠两套字形或隐藏 OCR。统计图优先矢量 PDF，含位图的 PDF 不称全矢量。CS 图表默认 [!t]，实际位置跟随正文首次引用，保留附录归属。
 10. 先给问题、布局和缺口，再绘制。插回论文编译，看最终页面的字号、图例、裁切、碰撞和引用顺序。交付源文件、PDF、预览及实际检查结果。只改色时保留原布局、文字、连线与图片；保留他人修改，不扩大范围。
@@ -668,9 +672,9 @@ Hard rules:
 依据：paper-visual-standards · academic-plotting · clean-flow-figures · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-figures/references/prompts.md#figures)
 
 <a id="figure-rules"></a>
-### 2.2 绘图铁律：这些错别犯
+### 2.2 绘图铁律
 
-- **别让一张图讲所有事：**“motivation + observation” mainfig 先让人看见问题与发现，framework 解释设计如何对应问题，结果图给证据。一张图一个主任务。
+- **每图明确一个主要任务：**“motivation + observation” mainfig 先让人看见问题与发现，framework 解释设计如何对应问题，结果图给证据。一张图一个主任务。
 
 Show where the existing pipeline fails and which step our method changes.
 
@@ -679,7 +683,7 @@ Show where the existing pipeline fails and which step our method changes.
 ![问题和解法放在同一张图](../assets/paper-tcod-fig-1.png)
 [原图与拆解](#visual-tcod-fig-1)
 
-- **别等正文定稿才画图：**“这两个部分先写/润色，缺的话就补” 先让框架图和实验能被合作者审，再精修正文。看不出贡献，先改内容，别急着换色。
+- **绘图先于正文精修：**先完成可供合作者审核的框架图与实验图，再精修正文。图未能体现贡献时，先调整内容与布局，再修改配色。
 
 Panel (a) shows the observed gap; panel (b) tests the proposed repair.
 
@@ -688,7 +692,7 @@ Panel (a) shows the observed gap; panel (b) tests the proposed repair.
 ![对照图要对齐改动](../assets/paper-tcod-fig-3.png)
 [原图与拆解](#visual-tcod-fig-3)
 
-- **别让 AI 编实验曲线：**统计图用 Python 从真实数据绘制；imagegen 用于动机、框架和案例图。缺数据就停，不补点、不编误差、不为平滑改曲线。
+- **统计图使用真实数据：**统计图用 Python 从真实数据绘制；imagegen 用于动机、框架和案例图。缺数据就停，不补点、不编误差、不为平滑改曲线。
 
 Draw the recorded success rates with Python. Generate only the workflow illustration with imagegen.
 
@@ -700,16 +704,16 @@ Draw the recorded success rates with Python. Generate only the workflow illustra
 ![KDE：看哪里密集，不是已经累计了多少](../assets/kde.svg)
 [原图与拆解](#teaching-kde)
 
-- **别看放大 PNG 判断字号：**按最终栏宽排字，字体与正文一致；所有图内字同一字号，介于正文与正文减 2 pt 之间，标题也不能更大。放不下先重排，不把字缩成蚂蚁。
+- **按最终尺寸检查字号：**按最终栏宽排字，字体与正文一致；所有图内字同一字号，介于正文与正文减 2 pt 之间，标题也不能更大。放不下先重排，不缩小规定字号。
 
 Use the paper’s column width and body font; remove repeated labels rather than shrinking text.
 
-用论文栏宽和正文字体；删重复标签，不把字缩成蚂蚁。
+用论文栏宽和正文字体；删重复标签，不缩小规定字号。
 
 ![对照图要对齐改动](../assets/paper-tcod-fig-3.png)
 [原图与拆解](#visual-tcod-fig-3)
 
-- **别用箭头改写真实流程：**同层成组并命名；先后、并行、汇合、反馈按真实依赖画。每条箭头说清传什么，起止明确，不穿字、不绕远路。
+- **箭头表示真实依赖：**同层成组并命名；先后、并行、汇合、反馈按真实依赖画。每条箭头说清传什么，起止明确，避免穿过文字与无必要的迂回。
 
 Retrieved passages enter the generator; the evaluator receives the generated answer.
 
@@ -718,7 +722,7 @@ Retrieved passages enter the generator; the evaluator receives the generated ans
 ![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
 [原图与拆解](#visual-interactcs-fig-1)
 
-- **别把评分规则画成模型输入：**输入、输出、评价规则用三种边框区分，并给图例。只供评价的 rubric 不连到被测模型；不同模型收到不同材料，也要标清。
+- **区分输入与评价信息：**输入、输出、评价规则用三种边框区分，并给图例。只供评价的 rubric 不连到被测模型；不同模型收到不同材料，也要标清。
 
 Dashed boxes contain model inputs; solid boxes contain responses; dotted boxes contain evaluator-only criteria.
 
@@ -727,7 +731,7 @@ Dashed boxes contain model inputs; solid boxes contain responses; dotted boxes c
 ![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
 [原图与拆解](#visual-interactcs-fig-1)
 
-- **别把低饱和画成一层灰雾：**“自己的创新点要用彩色/亮眼的颜色突出，让人能一眼注意到。” 常规模块可用中性灰，关键改动用统一强调色；低饱和不等于满图灰雾。
+- **低饱和配色与清晰对比：**常规模块用中性灰，关键改动用统一强调色。低饱和配色须保持清晰对比。
 
 Blue circles denote the baseline; orange triangles denote our method in every panel.
 
@@ -736,7 +740,7 @@ Blue circles denote the baseline; orange triangles denote our method in every pa
 ![消融：颜色分组，纹理分方法](../assets/paper-interactcs-fig2.png)
 [原图与拆解](#visual-interactcs-fig-2)
 
-- **别扔一整块对话让人读：**一轮一框，注明角色；同一轮长回复按语义分段，不伪装成多轮。高亮只标关键约束、证据或错误，颜色含义要能读懂。
+- **对话按轮次与语义分段：**一轮一框，注明角色；同一轮长回复按语义分段，不伪装成多轮。高亮只标关键约束、证据或错误，颜色含义要能读懂。
 
 The left column contains evidence; the right column shows the model response and its evaluation.
 
@@ -745,7 +749,7 @@ The left column contains evidence; the right column shows the model response and
 ![案例：相同信息同框](../assets/paper-interactcs-case-summary.png)
 [原图与拆解](#fig-interactcs-case)
 
-- **别把同一案例复制三遍：**同一来源的案例在全文只完整呈现一次，其他位置交叉引用。改名、翻译、裁剪也算同一个；必要对照集中展示，别靠一个 case 证明总体效果。
+- **同一案例仅完整呈现一次：**同一来源的案例在全文只完整呈现一次，其他位置交叉引用。改名、翻译、裁剪也算同一个；必要对照集中展示，单个案例不能证明总体效果。
 
 Figure 1 presents the case; Section 4 refers back to Figure 1 without repeating the dialogue.
 
@@ -754,7 +758,7 @@ Figure 1 presents the case; Section 4 refers back to Figure 1 without repeating 
 ![案例：相同信息同框](../assets/paper-interactcs-case-summary.png)
 [原图与拆解](#fig-interactcs-case)
 
-- **别每个子图换一套尺度：**围绕一个问题排现象、诊断、对照和稳健性；同条件同顺序、同配色，同类轴和色标保持可比。
+- **同类子图使用一致尺度：**围绕一个问题排现象、诊断、对照和稳健性；同条件同顺序、同配色，同类轴和色标保持可比。
 
 The first panel identifies the gap, the second locates it, and the third tests whether it persists.
 
@@ -763,7 +767,7 @@ The first panel identifies the gap, the second locates it, and the third tests w
 ![TCOD：四幅图围着一个诊断](../assets/paper-tcod-fig2.png)
 [原图与拆解](#visual-tcod-fig-2)
 
-- **别靠断轴制造胜利：**查单位、分母、方向、坐标起点和误差类型；截断坐标要明确标出。相对增益同时给绝对值，柱长和数值必须对应。
+- **准确呈现坐标与差异：**查单位、分母、方向、坐标起点和误差类型；截断坐标要明确标出。相对增益同时给绝对值，柱长和数值必须对应。
 
 Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.
 
@@ -772,7 +776,7 @@ Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.
 ![配对增益：同一任务，直接看差了多少](../assets/paired-gain.svg)
 [原图与拆解](#teaching-paired-gain)
 
-- **别把图注写成画法说明：**图注先说读法和发现，再点出与贡献的关系；图中的简称在 Caption 给全称。“让人留下印象” 靠有依据的结论，不靠“效果显著”四个字。
+- **Caption 说明读法与发现：**图注先说读法和发现，再点出与贡献的关系；图中的简称在 Caption 给全称。“让人留下印象” 靠有依据的结论，不靠“效果显著”四个字。
 
 Error bars show 95% question-level bootstrap intervals; the horizontal line marks zero gain.
 
@@ -781,7 +785,7 @@ Error bars show 95% question-level bootstrap intervals; the horizontal line mark
 ![置信带：先认统计单位，再认内外两层](../assets/confidence.svg)
 [原图与拆解](#teaching-confidence)
 
-- **别把编译通过当作图没问题：**放回论文检查实际字号、字体嵌入、可选文字、裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后仍正确。
+- **编译后检查最终页面：**放回论文检查实际字号、字体嵌入、可选文字、裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后仍正确。
 
 Place the figure after its first mention and check all labels at normal reading size.
 
@@ -790,7 +794,7 @@ Place the figure after its first mention and check all labels at normal reading 
 ![问题和解法放在同一张图](../assets/paper-tcod-fig-1.png)
 [原图与拆解](#visual-tcod-fig-1)
 
-- **别省输入和输出：**每个关键模块写清收到什么、做什么、交出什么，以及交给谁。模块名与 Method 一致，别让图成为缩写接龙。
+- **明确模块输入与输出：**每个关键模块写清收到什么、做什么、交出什么，以及交给谁。模块名与 Method 一致，所有缩写就近解释。
 
 The checker receives evidence and returns supported constraints to the planner.
 
@@ -799,7 +803,7 @@ The checker receives evidence and returns supported constraints to the planner.
 ![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
 [原图与拆解](#visual-interactcs-fig-1)
 
-- **别只留图标、缩写和颜色：**图标旁写对象名；新缩写、符号、边框、线型和数字就近解释。读者只看图与图注，应知道每个标记指什么。
+- **解释图中所有标记：**图标旁写对象名；新缩写、符号、边框、线型和数字就近解释。读者只看图与图注，应知道每个标记指什么。
 
 Label the robot as the planner and define dashed edges as feedback.
 
@@ -808,7 +812,7 @@ Label the robot as the planner and define dashed edges as feedback.
 ![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
 [原图与拆解](#visual-interactcs-fig-1)
 
-- **别让 framework 变成模块名单：**“结合 case 去绘制你的流程” 展示一个真实输入怎样变成中间产物和输出，旁边点出设计解决的困难。节点多不等于贡献多。
+- **Framework 展示操作与产物：**“结合 case 去绘制你的流程” 展示一个真实输入怎样变成中间产物和输出，旁边点出设计解决的困难。节点多不等于贡献多。
 
 Trace one task from the evidence input through checking to the final plan.
 
@@ -820,7 +824,7 @@ Trace one task from the evidence input through checking to the final plan.
 ![大框先分两块，小框再编号](../assets/paper-interactcs-fig-1.png)
 [原图与拆解](#visual-interactcs-fig-1)
 
-- **别把示意画成实测：**估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，别指望图注替错误图形擦屁股。
+- **区分示意与实测：**估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，图形本身须准确，不能仅靠图注纠正。
 
 Keep illustrative module boxes equally sized; plot measured latency on a labeled axis.
 
@@ -829,7 +833,7 @@ Keep illustrative module boxes equally sized; plot measured latency on a labeled
 ![成本性能：每个点对应一项明确配置](../assets/cost.svg)
 [原图与拆解](#teaching-cost)
 
-- **别拿截图 PDF 冒充矢量：**统计图导出矢量 PDF 并嵌入字体。生成底图上的标签另排原生、可见、可选的 PDF 文字；不留重叠字形，不加隐藏 OCR 层。混合 PDF 仍含位图。
+- **准确区分矢量与位图：**统计图导出矢量 PDF 并嵌入字体。生成底图上的标签另排原生、可见、可选的 PDF 文字；不留重叠字形，不加隐藏 OCR 层。混合 PDF 仍含位图。
 
 Export the plot as vector PDF and verify that its axis labels can be selected.
 
@@ -838,7 +842,7 @@ Export the plot as vector PDF and verify that its axis labels can be selected.
 ![对照图要对齐改动](../assets/paper-tcod-fig-3.png)
 [原图与拆解](#visual-tcod-fig-3)
 
-- **别说只改色，顺手把内容改了：**只改配色就保留布局、文字、换行、字号、公式、照片和连线；重排须在约定范围内。数据、实验和合作者的图也别顺手动。
+- **保持修改范围：**只改配色就保留布局、文字、换行、字号、公式、照片和连线；重排须在约定范围内。保留数据、实验和合作者的图。
 
 Change panel fills while retaining every label, coordinate, and arrow endpoint.
 
@@ -847,7 +851,7 @@ Change panel fills while retaining every label, coordinate, and arrow endpoint.
 ![消融：颜色分组，纹理分方法](../assets/paper-interactcs-fig2.png)
 [原图与拆解](#visual-interactcs-fig-2)
 
-- **别改论文模板给图腾地方：**按实际栏宽起稿，不改页边距、正文字号或页面方向。正文通栏约 16:9、单栏约 4:3 是起点，附录可纵排；不拉扁图。CS 默认用 [!t]，再按正文首次引用检查实际落点。
+- **按模板宽度布局：**按实际栏宽起稿，不改页边距、正文字号或页面方向。正文通栏约 16:9、单栏约 4:3 是起点，附录可纵排；不进行非等比缩放。CS 默认用 [!t]，再按正文首次引用检查实际落点。
 
 Rearrange parallel branches within the column width; keep the paper template unchanged.
 
@@ -856,7 +860,7 @@ Rearrange parallel branches within the column width; keep the paper template unc
 ![问题和解法放在同一张图](../assets/paper-tcod-fig-1.png)
 [原图与拆解](#visual-tcod-fig-1)
 
-- **别把说明文字塞进表格：**PaperBank 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不截成图片绕过去；统计数字也不能把说明表变成实验结果。
+- **表格用于结果与数据：**PaperBank 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
 
 Put success rates in a table and explain the checking procedure in the text.
 
@@ -865,7 +869,7 @@ Put success rates in a table and explain the checking procedure in the text.
 ![消融：颜色分组，纹理分方法](../assets/paper-interactcs-fig2.png)
 [原图与拆解](#visual-interactcs-fig-2)
 
-- **别拿白块盖住重叠：**图例、标题、刻度和注释不能挡数据、箭头或边框。给文字留空间，重排碰撞处；不是盖住就算修好了。
+- **重排文字与图形重叠处：**图例、标题、刻度和注释不能挡数据、箭头或边框。给文字留空间，重排碰撞处；不是盖住就算修好了。
 
 Move the legend outside the plotted curves while preserving the data and axes.
 
@@ -940,7 +944,7 @@ Compare density shapes with a shared bandwidth; mark sample counts and mean valu
 ![KDE：看哪里密集，不是已经累计了多少](../assets/kde.svg)
 [原图与拆解](#teaching-kde)
 
-- **ECDF：看阈值以下有多少：**横轴取阈值，纵轴直接读累计比例；同一坐标比两组，阶梯从 0 到 1。想读“多少样本低于 10”，别去量 KDE 的峰。
+- **ECDF：看阈值以下有多少：**横轴取阈值，纵轴直接读累计比例；同一坐标比两组，阶梯从 0 到 1。低于某阈值的样本比例应从 ECDF 读取，KDE 峰值不能表示累计比例。
 
 At a threshold of 10, the ECDF gives the fraction of observations at or below 10.
 
@@ -967,13 +971,13 @@ Project standardized features onto two principal components and report the varia
 ![PCA：先定义输入，再看二维投影](../assets/pca.svg)
 [原图与拆解](#teaching-pca)
 
-- **雷达图：多指标逐轴读：**每轴一个指标，写尺度、归一化和好坏方向；颜色再配点形。量纲不同别比面积，轴换个顺序，面积也会换。
+- **雷达图：多指标逐轴读：**每轴一个指标，写尺度、归一化和好坏方向；颜色再配点形。不同量纲不能用面积直接比较，轴顺序也会改变面积。
 
 Compare normalized metrics spoke by spoke; polygon area is not an overall score.
 
 沿每根轴比较归一化指标；多边形面积不是综合分数。
 
-![雷达：看各项轮廓，别拿面积当总分](../assets/radar.svg)
+![雷达：比较各指标，面积不代表总分](../assets/radar.svg)
 [原图与拆解](#teaching-radar)
 
 - **成本性能图：**每点是一个实际配置；在线与离线成本分开，写单位和好坏方向。连接前沿不意味着有中间配置。
@@ -985,7 +989,7 @@ Plot measured accuracy against online cost; report one-time training cost separa
 ![成本性能：每个点对应一项明确配置](../assets/cost.svg)
 [原图与拆解](#teaching-cost)
 
-- **数据集分布：**统计单位、样本量、类别和分母先写清；同一图别混案例数、回复数和判据数。重点是覆盖了什么，不是圆画得多圆。
+- **数据集分布：**先写清统计单位、样本量、类别与分母。同一图不能混用案例数、回复数与判据数；说明类别覆盖范围与占比。
 
 Count unique cases by domain; report response counts separately.
 
@@ -1012,7 +1016,7 @@ Use slices for a composition and ordered bars for a ranking.
 ![环图：组成比例，先说总数](../assets/donut.svg)
 [原图与拆解](#teaching-donut)
 
-- **二维增益与九宫格：**“可以用这种九宫格来分类，好处是可以看出两个渐进的变化” 两轴写指标、单位和好坏方向；差值图以零线分区，别为了九格补数据。
+- **二维增益与九宫格：**“可以用这种九宫格来分类，好处是可以看出两个渐进的变化” 两轴写指标、单位和好坏方向；差值图以零线分区，不为填满网格补造数据。
 
 With both gains defined as higher is better, the upper-right quadrant shows improvements on both metrics.
 
@@ -1703,11 +1707,11 @@ Three standardized features from two synthetic groups are projected onto the fir
 
 
 <a id="teaching-radar"></a>
-**雷达：看各项轮廓，别拿面积当总分**
+**雷达：比较各指标，面积不代表总分**
 
 每根轴都是越高越好的0到1模拟分数，颜色贯穿点和线；逐项比较，比比较整块面积更有意义。
 
-![雷达：看各项轮廓，别拿面积当总分](../assets/radar.svg)
+![雷达：比较各指标，面积不代表总分](../assets/radar.svg)
 
 PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
@@ -1774,7 +1778,7 @@ Each point is the intervention-minus-baseline difference for a synthetic matched
 <a id="teaching-heatmap"></a>
 **热图：一个色标，缺测直接空出来**
 
-模型与任务交叉排，颜色和格内数值用同一尺度；缺测格单独写Missing，别伪装成零分。
+模型与任务交叉排，颜色和格内数值用同一尺度；缺测格单独写Missing，不能记作零分。
 
 ![热图：一个色标，缺测直接空出来](../assets/heatmap.svg)
 
@@ -1863,7 +1867,7 @@ Accuracy gains improve to the right and latency reduction improves upward; zero 
 <a id="figure-gallery"></a>
 ### 2.5 私藏图：好在哪里，怎么借鉴
 
-先看原图，再看点评。借信息组织，不照搬别人的结果。
+参考原图的内容组织与布局，结果仍使用自己的数据。
 
 <a id="fig-interactcs-case"></a>
 像 UI 一样分组；相同信息同框，避免每个字段都开气泡。
@@ -1882,7 +1886,7 @@ The header names the case; two columns separate evaluation scores from the simul
 **逐句拆解**
 
 1. 作者笔记强调像UI一样整洁：相同信息放一起，同类信息用同样的框，颜色只强调重点。
-2. 左栏是三个评价结果，右栏是用户设定；标题、字段和值分层，不必把每个字段塞进独立气泡。
+2. 左栏是三个评价结果，右栏是用户设定；标题、字段和值分层，不必为每个字段单独设置对话框。
 3. 字多时先分组、删重复、留白。放回双栏PDF后仍须检查字号；网页放大看清不等于论文里看清。
 
 **摘录出处：**[Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)；Appendix B.1，PDF 第13页；仅截取案例摘要框；公开 arXiv 版本；图与原 PDF 核对；公开预印本；不以项目笔记中的会议标记认定录用
@@ -1976,7 +1980,7 @@ OneRec Team, OneReason Technical Report, arXiv:2606.06260v1, PDF p. 19
 
 Stacked bars retain the five rating proportions, and the radar chart summarizes the five mean scores: distribution first, profile second.
 
-两 面 板 用 同 一 组 维 度 对 应 。 雷 达 上 的 数 值 标 签 减 少 估 读 ， 堆 叠 条 避 免 均 值 掩 盖 不 同 评 分 构 成 ； 不 要 用 雷 达 面 积 代 替 具 体 分 数 。
+两面板使用同一组维度。雷达的数值标签便于准确读取，堆叠条显示不同评分构成；雷达面积不能替代具体分数。
 
 OneRec Team, OneReason Technical Report, arXiv:2606.06260v1, PDF p. 29
 
@@ -2003,13 +2007,13 @@ ShoppingBench: A Real-World Intent-Grounded Shopping Benchmark for LLM-based Age
 <a id="general-rules"></a>
 ### 3.1 全文规范
 
-“解释清楚为什么我们的工作应该被接收（贡献）” 先让贡献看得见，再磨英语。读者不负责替你把线索拼起来。
+全文围绕核心贡献组织：现有问题是什么，本文新增什么，为什么这样设计，证据支持什么。先明确论证，再精修语言。
 
-#### 3.1.a 逻辑：每句话接住一个具体对象
+#### 3.1.a 逻辑：句子承接与对象一致
 
 **先说为什么值得做**
 
-每项设计都要回答：原来卡在哪，我们改了什么，为什么有用，哪项证据支持。
+每项设计都要回答：已有做法在哪种条件下不足，本文改了什么，为什么有用，哪项证据支持。
 
 教学改写：假设已有对应设计或比较，非论文原文与实测结果。
 
@@ -2029,9 +2033,9 @@ To check whether retrieved evidence actually supports an answer, we verify each 
 
 **第 1 句：**相同几个模块，现在说出了具体困难、设计目的和改动位置。实际效果另给对照证据。
 
-**句子前后接上**
+**句子之间有逻辑关系**
 
-后句处理前句的问题或产物，Then 和 Therefore 不能补逻辑。
+后句处理前句的问题或产物，Then 和 Therefore 须符合实际关系。
 
 教学改写：假设已有对应设计或比较，非论文原文与实测结果。
 
@@ -2055,7 +2059,7 @@ We therefore link each evidence note to the relevant active constraints.
 
 因此，我们将每条证据笔记与相关的有效约束关联。
 
-**第 2 句：**方案真正接住约束冲突，Therefore 才有前提。
+**第 2 句：**方案须能处理上述约束冲突，Therefore 才有成立前提。
 
 **连接词用对**
 
@@ -2081,7 +2085,7 @@ Both systems use the same model and evidence-context budget.
 
 **章节按流程衔接**
 
-开头接输入，结尾交代输出如何进入下一步。
+开头说明输入，结尾说明输出及其在下一步的用途。
 
 教学改写：假设已有对应设计或比较，非论文原文与实测结果。
 
@@ -2137,7 +2141,7 @@ The experiment evaluates evidence recall and citation support, together with inf
 
 #### 3.1.b 语言：短句也得有内容
 
-**少夸，写做法**
+**用具体操作替代空泛评价**
 
 用具体操作替换 powerful、comprehensive 等空评价。
 
@@ -2185,13 +2189,13 @@ We organize these passages into evidence notes.
 
 我们将这些片段组织成证据笔记。
 
-**第 2 句：**these passages 接住上一句的具体产物。
+**第 2 句：**these passages 指向上一句的具体产物。
 
 The generator uses the notes to produce an answer with citations.
 
 生成器使用这些笔记，产生带引用的回答。
 
-**第 3 句：**继续接住笔记，落到最终输出。
+**第 3 句：**随后说明笔记如何用于生成最终输出。
 
 **正文写完整句子**
 
@@ -2315,9 +2319,9 @@ The generator uses the evidence notes.
 
 **第 2 句：**读者不必猜到底是片段、笔记还是两者。
 
-**好词有事实支撑**
+**贡献词有事实依据**
 
-tailored、expert-confirmed、de-identified 能突出真实贡献。有依据就用，一词换一词，不堆形容词。
+tailored、expert-confirmed、de-identified 能突出真实贡献。有依据就用，一词换一词，避免重复或无依据的形容词。
 
 教学改写：假设已有对应设计或比较，非论文原文与实测结果。
 
@@ -2343,7 +2347,7 @@ We use tailored prompts for each role.
 
 教学改写：假设已有对应设计或比较，非论文原文与实测结果。
 
-PaperBank 命名与粗斜体偏好；不为了凑贡献创造标签
+PaperBank 命名与粗斜体偏好；标签须对应真实发现
 
 **改前**
 
@@ -2387,7 +2391,7 @@ On the tested English-manual questions, the method improves citation support.
 
 在已测试的英语手册问题上，该方法提高引用支持率。
 
-**第 1 句：**只描述实际测过的对象和指标，不能替未测语言盖章。
+**第 1 句：**只描述实际测过的对象和指标，不能推广到未经测试的语言。
 
 **观察与原因分开**
 
@@ -2452,13 +2456,13 @@ Table 1 reports the matched comparison with and without those constraints.
 - 3.2 标题：先把最值得记住的发现放进标题。
 - 3.3 摘要：让人用一段话看懂为什么这项工作值得做。
 - 3.4 引言：让读者认同问题，并记住你的解法为什么有用。
-- 3.5 相关工作：把前人的路线和本文的区别讲清，给同一条贡献主线铺路。
+- 3.5 相关工作：说明已有路线、本文差异及其与核心贡献的关系。
 - 3.6 方法：铁律：告诉读者为什么你的方法好，比解释清楚方法更重要。
-- 3.7 实验：用对照证明贡献，把数字变成读者带得走的发现。
+- 3.7 实验：用对照检验贡献，解释主要差异与发现。
 - 3.8 讨论与局限：解释发现，写清适用范围和局限。
 - 3.9 结论：回答开头的问题，概括贡献和发现。
 - 3.10 参考文献：引用回查原文，信息和版本对齐。
-- 3.11 附录：让想核查的人找得到、看得懂。
+- 3.11 附录：提供可定位、可复核的设置与补充材料。
 
 逐句示范有论文原文短引，也有明确标注的模拟段落。原文例子来自不同论文，不拼接成同一篇完整论文；模拟部分用同一个假设任务串联。
 
@@ -2480,18 +2484,18 @@ Table 1 reports the matched comparison with and without those constraints.
 
 先把最值得记住的发现放进标题。
 
-“一个亮点（标题，摘要，关键词），附赠一堆为了实现亮点而产生的贡献。” 标题围着这个亮点写，不把所有模块挤上去。
+标题突出核心贡献，不列举全部模块。
 
 **标题：对象、任务、改动**
 
-“多使用实验性的结论，让人一目了然” 有实测发现就用发现组织标题；问号只留给正文真正回答的问题。
+标题写研究对象与核心贡献；有实测发现时可突出发现，疑问式标题须由正文回答。
 
 教学模板；【】填真实材料。
 
-- 标题围着最重要的一项贡献写；专业词是为了准确，不是为了吓人。
+- 标题围着最重要的一项贡献写；专业术语仅用于准确描述研究对象与贡献。
 - 发现型、问题型、方法型都可用。名称新不等于方法新。
 
-推荐骨架
+推荐结构模板
 
 [Method Name]: [Key Design] for [Task under the Specific Difficulty]
 
@@ -2532,18 +2536,18 @@ Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools
 
 让人用一段话看懂为什么这项工作值得做。
 
-“弱化实现细节，强调的是你要突出的方面。” 写问题、改动和发现；API 名称、参数先让路。
+突出问题、关键改动与主要发现，仅保留理解贡献所需的实现细节。
 
 **摘要：问题到结果**
 
-“不要用太多专业词汇！不要拉高理解门槛，用平铺直叙，高中生都看得懂的词汇去写” 先突出为什么值得做和新增了什么，再给最关键的结果。
+摘要先说明研究价值与新增内容，再给主要结果。使用准确、常见的词，仅保留必要术语。
 
 教学模板；【】填真实材料。
 
 - 首次出现的术语就近解释；摘要主张必须有正文支持。
 - 保留关键发现、比较对象和必要数字，不逐项报分。
 
-推荐骨架；长度按投稿要求
+推荐结构模板；长度按投稿要求
 
 [Task] requires [specific capability] in [setting].
 
@@ -2573,7 +2577,7 @@ This finding supports [specific value] under [necessary condition].
 
 这个发现说明，在[必要条件]下，[具体价值]成立。
 
-**第 5 句：**收束意义及范围；若与上一句重复就合并，不机械凑五句。
+**第 5 句：**收束意义及范围；若与上一句重复就合并，不固定为五句。
 
 <details><summary>更多例子：论文原句与拆解</summary>
 
@@ -2596,7 +2600,7 @@ With the spatial contract established, PlanCraft-Agent then furnishes the scene 
 
 有了这份空间约束，PlanCraft-Agent 随后在明确的房间边界内为场景布置家具。
 
-**第 2 句：**随后接住上一句的房间边界，再说家具装配；两个模块由产物连起来。
+**第 2 句：**随后使用上一句产出的房间边界，再说家具装配；两个模块由产物连起来。
 
 [Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3) · Abstract，PlanCraft-Diff 与 PlanCraft-Agent 两句；PDF 第 1 页；arXiv:2607.23491v3，2026-09-05；短引对照作者源稿及公开 v3 正文
 
@@ -2608,11 +2612,11 @@ With the spatial contract established, PlanCraft-Agent then furnishes the scene 
 
 让读者认同问题，并记住你的解法为什么有用。
 
-“最体现作者水平的章节。” 先讲出有启发的困难，再让设计逐点回应；不是把摘要拉长。
+具体说明已有困难、对应设计与验证依据，不仅扩写摘要。
 
 #### 3.4.a 先选主线：价值，还是发现
 
-“现象→质疑→诊断→方法→验证” 方法创新不突出、发现亮眼时，先把现象讲透。冷门领域有多个困难，就逐点展开。
+按主要贡献选择论证顺序。发现型工作可用“现象→质疑→诊断→方法→验证”；多个困难按类别逐项展开。
 
 教学模板；【】填真实发现，不是论文原句或实测。
 
@@ -2639,7 +2643,7 @@ Motivated by [supported diagnosis], we [matching design] and evaluate [targeted 
 
 #### 3.4.b 引言第一段：方向与任务
 
-“由大到小。” 从方向落到任务，背景只留理解后文问题所需的部分。
+从研究方向进入具体任务，背景仅保留理解后文问题所需的信息。
 
 按论证顺序选用，段落可合并或拆分。
 
@@ -2647,7 +2651,7 @@ Motivated by [supported diagnosis], we [matching design] and evaluate [targeted 
 
 - 背景只留理解问题所需的信息；接下面的已有方法句式，共同组织首段。
 
-PaperBank 推荐骨架
+PaperBank 推荐结构模板
 
 [Research direction] aims to [clear task objective] [citations].
 
@@ -2659,7 +2663,7 @@ In [application], this capability matters because [evidence-supported value].
 
 在[应用]中，这种能力影响[有依据的实际价值]。
 
-**第 2 句：**用一句说明值得做，未经评估别写提高商业收益。
+**第 2 句：**用一句说明值得做，未经评估不能声称提高商业收益。
 
 In this setting, [input] must be converted into [output] while satisfying [constraint].
 
@@ -2669,7 +2673,7 @@ In this setting, [input] must be converted into [output] while satisfying [const
 
 #### 3.4.c 引言首段后半：已有方法
 
-“为下一个自然段-局限性-埋下伏笔” 讲清已有路线靠什么工作，后面的困难才有来处。
+概括已有路线的操作与能力，为下一段具体局限提供依据。
 
 教学模板；【】填真实材料。
 
@@ -2692,14 +2696,14 @@ Another line uses [different mechanism] to support [additional capability] [cita
 
 #### 3.4.d 引言第二段：局限
 
-“讲清楚现有方法存在的问题 + 为什么存在这些问题” 困难要具体、有启发，不能只写 expensive、limited、inefficient。
+写清现有方法在何种条件下不足，以及问题产生的原因。不能只用 expensive、limited、inefficient 概括。
 
 按论证顺序选用，段落可合并或拆分。
 
 教学模板；【】填真实材料。
 
-- 用 However 承接上一段真实能力；先讲问题，不提前塞方案。
-- 给 2～3 个词的自明短名，首次就解释；困难数量按真实贡献，不硬凑。
+- 用 However 承接上一段真实能力；先讲问题，本段仅说明局限，方案在下一段展开。
+- 给 2～3 个词的自明短名，首次就解释；困难数量按真实贡献，按实际内容确定。
 - 每个困难都能指向后文设计与实验；命名新不等于发现新。
 
 PaperBank 规范化写法
@@ -2724,7 +2728,7 @@ For example, [concrete input or situation] requires [specific behavior], which [
 
 #### 3.4.e 引言第三段：设计
 
-“针对这些问题，本方法做出了哪些改进，为什么这些改进能解决这些问题” 按局限的顺序写。不是报完三个模块名，就把推理交给读者。
+按局限顺序说明改进、作用机制与输入输出，不能只列模块名称。
 
 按论证顺序选用，段落可合并或拆分。
 
@@ -2752,11 +2756,11 @@ To address [challenge B], we [design B].
 
 为解决[困难 B]，我们采用[B 方案]。
 
-**第 3 句：**第二项方案处理另一项真实问题；没有就删除，不凑模块。
+**第 3 句：**第二项方案处理另一项真实问题；没有就删除，不添加无必要的模块。
 
 #### 3.4.f 引言第四段：主要发现
 
-“谁会不希望读完一篇论文就有新的灵感/排除一个大方向呢” 把最有启发的发现写出来；不必每次都把“又涨了几点”当唯一卖点。
+设计之后写主要发现与启示，并给关键比较、条件及范围，不局限于分数提升。
 
 按论证顺序选用，段落可合并或拆分。
 
@@ -2777,11 +2781,11 @@ This finding indicates [what is supported], while [remaining limitation] remains
 
 该发现支持[已证实的认识]，但[剩余局限]仍未解决。
 
-**第 2 句：**解释贡献及边界，不顺手扩大主张。
+**第 2 句：**解释贡献及边界，不扩大主张。
 
 #### 3.4.g 引言最后：贡献列表
 
-“一般第一句话是宏观贡献（解决了什么核心问题）” 随后写关键设计和亮眼发现。一条一个贡献，别把自己的流程复制三遍。
+首项概括解决的核心问题，随后分别写关键设计与主要发现。每项说明一个独立贡献，避免重复流程。
 
 按论证顺序选用，段落可合并或拆分。
 
@@ -2790,7 +2794,7 @@ This finding indicates [what is supported], while [remaining limitation] remains
 - 核心工作 → 关键设计 → 实验发现，是常用组织；独立评价创新可另列。按真实贡献增删，不固定四项。
 - 每项说新增了什么、解决什么或发现什么；长度接近，不重复前文段落。
 
-PaperBank 规范化写法；不强凑条数
+PaperBank 规范化写法；项数按真实贡献确定
 
 In summary, our contributions are:
 
@@ -2820,9 +2824,9 @@ Experiments across [scope] reveal [specific finding].
 
 跨[实测范围]的实验揭示[具体发现]。
 
-**第 5 句：**发现用真实结果写，不用 extensive experiments demonstrate effectiveness 糊弄。
+**第 5 句：**写出真实发现及比较条件，不能只写 extensive experiments demonstrate effectiveness。
 
-**完整 LaTeX 骨架**
+**完整 LaTeX 结构模板**
 
 ```latex
 In summary, our contributions are:
@@ -2857,7 +2861,7 @@ A useful answer must satisfy earlier constraints and identify its supporting pas
 
 **引言·示范自然段2：领域回顾**
 
-按路线概括已有进展，为下一段具体局限埋下伏笔。
+按路线概括已有进展，为下一段具体局限提供背景依据。
 
 EviNoteRAG 研究检索后的证据使用，下面摘录引言里回顾已有 RAG 路线的一句。
 
@@ -2903,7 +2907,7 @@ To mitigate collisions, we introduce a Dance-Trajectory Navigator that generates
 
 为减少碰撞，我们引入舞蹈轨迹导航器，为多名舞者生成无碰撞轨迹，并利用距离一致性损失维持合适间距。
 
-**第 1 句：**To mitigate collisions 接住碰撞问题；轨迹导航器给出操作，距离一致性损失说明怎样维持舞者间距。
+**第 1 句：**To mitigate collisions 明确对应碰撞问题；轨迹导航器给出操作，距离一致性损失说明怎样维持舞者间距。
 
 [Yuqin Dai et al. (AAAI 2025) · Harmonious Music-driven Group Choreography with Trajectory-Controllable Diffusion](https://ojs.aaai.org/index.php/AAAI/article/view/32268) · Abstract, PDF p.1 / p.2645；Table1, PDF p.6 / p.2650；正式发表论文
 
@@ -2939,9 +2943,9 @@ We identify two overlooked structural insights, design is progressive and the fl
 
 [Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3) · Introduction，贡献列表第 1 项；PDF 第 2 页；arXiv:2607.23491v3，2026-09-05；短引对照作者源稿及公开 v3 正文
 
-**贡献措辞：给读者几个记得住的词**
+**贡献措辞：用具体词体现设计特点**
 
-有事实依据就直接写。换掉没信息的修饰词，别给每个名词戴三顶帽子。
+使用有事实依据、能体现具体贡献的修饰词，删除空泛或重复修饰。
 
 教学例句，非论文原文。
 
@@ -2975,13 +2979,13 @@ A tailored prompt guides each role in checking the evidence.
 <a id="related"></a>
 ### 3.5 相关工作
 
-把前人的路线和本文的区别讲清，给同一条贡献主线铺路。
+说明已有路线、本文差异及其与核心贡献的关系。
 
-“Related Work However 部分的挑战要和intro完全对齐啊” 后面的解决方式也对齐；不要在这里突然发明一个新问题。
+局限与对应方案须对齐 Introduction 的对象和关键词，不新增无关问题。
 
 **Related Work：完整模板**
 
-“所有可以比的论文，都要同步出现在 baseline” 按共同机制归类；能直接比较就准备对应实验，不能直接比较就解释真实设置差异。
+按共同机制归类。可直接比较的工作安排对应基线；不能直接比较时说明设置差异。
 
 教学模板；【】填真实材料。
 
@@ -3024,7 +3028,7 @@ To address this limitation, we [matching design] to [specific purpose].
 
 **第 5 句：**方案与引言一致；这句写完就结束本小节，不再空泛 Next。
 
-**完整 LaTeX 骨架**
+**完整 LaTeX 结构模板**
 
 ```latex
 \section{Related Work}
@@ -3089,18 +3093,18 @@ Our study examines whether keeping earlier constraints helps across dialogue tur
 
 铁律：告诉读者为什么你的方法好，比解释清楚方法更重要。
 
-“不要误解成 Preliminary. 写自己的内容！不要一眼看过去全是别人的公式/方法” 让自己的设计占主导；每个选择都接回 Intro 的具体困难。
+围绕本文设计组织内容，每个关键选择对应 Introduction 的具体困难。既有方法简要说明，不将 Method 写成 Preliminary。
 
 #### 3.6.a Method Overview：完整模板
 
-“overview 中的设计意图也要和 intro 对应。” 第一句说清核心改动为什么针对这个困难，再按真实依赖串起各节。
+首句说明关键设计为何针对 Introduction 的困难，随后按真实依赖说明各步骤与章节位置。
 
 教学模板；【】填真实材料。
 
 - 先写核心设计相对已有做法的最有用区别，再介绍各节如何实现它；只列目录没有贡献。
 - Overview、章节标题、framework 中的模块名称对应；章节名是阅读位置，不是执行动作的主体。
 - 每步说目的、输入、操作与输出，用准确章节引用定位一次；后句接前句产物，并行关系照实写。
-- 末句引用框架图；已有章首总览不再单开重复 Overview。纯格式转换不硬凑创新模块。
+- 末句引用框架图；已有章首总览不再单开重复 Overview。格式转换不单独列为创新模块。
 
 PaperBank 规范化写法；按真实依赖替换或删除阶段
 
@@ -3140,7 +3144,7 @@ Figure [ref] summarizes this workflow.
 
 **第 6 句：**收束到框架图，读者此时能把每个节点与正文对应。
 
-**完整 LaTeX 骨架**
+**完整 LaTeX 结构模板**
 
 ```latex
 To address [Intro challenge], we [key design] rather than [verified prior approach]
@@ -3158,7 +3162,7 @@ Figure~\ref{fig:framework} summarizes this workflow.
 
 #### 3.6.b Problem Formulation：任务定义
 
-“学会抽象你的建模” 用最少对象、输入、输出和约束定义任务；别先摆一桌符号再找用途。
+用必要对象、输入、输出与约束定义任务，符号随实际计算引入。
 
 教学模板；【】填真实材料。
 
@@ -3187,7 +3191,7 @@ At inference time, [executor] receives [visible information]; [reference informa
 
 #### 3.6.c Method 小节：为什么这样做，再写怎么做
 
-“围绕创新点来封装模块” 小节按要解决的困难组织。先讲为何这样设计，再给必要实现和产物。
+小节按创新点与对应困难组织，先写设计目的与依据，再写必要实现及产物。
 
 教学模板；【】填真实材料。
 
@@ -3250,7 +3254,7 @@ The output is an answer with citations; reference answers are used only for eval
 
 **第 2 句：**把生成输入与评估参照分开，避免图与文字造成答案泄漏。
 
-**输入输出接力：局部句式**
+**输入输出衔接：局部句式**
 
 只拆输入、处理、输出的衔接。完整 Method Overview 还要按上面的模板补章节定位、目的和框架图引用。
 
@@ -3266,7 +3270,7 @@ The note builder then links source quotes to the constraints from earlier turns.
 
 笔记构建器随后将来源摘句与前文约束关联。
 
-**第 2 句：**then 接住检索产物；来源与约束怎样组合，就是这一模块的作用。
+**第 2 句：**then 引出对检索产物的处理；来源与约束怎样组合，就是这一模块的作用。
 
 The generator uses these notes to produce an answer with source citations.
 
@@ -3276,7 +3280,7 @@ The generator uses these notes to produce an answer with source citations.
 
 **方法总览：最后一句收束流程**
 
-前面讲清组件怎样接力，最后再概括整条流程。
+先说明组件间的输入输出关系，最后概括完整流程。
 
 GreenPlanner 生成满足约束的规划，下面摘录框架图图注里的流程收束句，不是完整方法总览。
 
@@ -3330,20 +3334,20 @@ The generator returns an answer with links to the quoted sources.
 <a id="experiments"></a>
 ### 3.7 实验
 
-用对照证明贡献，把数字变成读者带得走的发现。
+用对照检验贡献，解释主要差异与发现。
 
-“还原 Introduction 中的结论怎么来的.” 每个核心观点都要有证据，实验分析讲它为何成立。
+每项核心主张须有对应证据，分析解释结果如何支持或限制该主张。
 
 #### 3.7.a Experiments：先列要验证的问题
 
-“Intro 提到的所有点都要有实验验证” 先列观点和判据，再安排主结果、消融与补充分析。不是先跑一堆表，再替它们找故事。
+先列 Introduction 的主张与检验标准，再安排主结果、消融及补充分析。
 
 教学模板；【】填真实材料。
 
 - RQ 可用于组织，不必每表一个编号；标题写 Main Results、Ablation Studies 或具体目的。
 - 按论文贡献选实验，不照搬另一类研究的实验清单。
 
-通用要求；推荐骨架
+通用要求；推荐结构模板
 
 After constructing [method or benchmark], we evaluate [actual target] on [scope].
 
@@ -3355,7 +3359,7 @@ We first test whether [design] improves [goal] under [fixed conditions].
 
 我们先检验，在[固定条件]下，[设计]能否改善[目标]。
 
-**第 2 句：**主结果回应 Intro 的问题，而不是临时找个漂亮指标。
+**第 2 句：**主结果使用能检验 Introduction 主张的指标，不根据有利结果临时更换指标。
 
 We then isolate [component] and examine [robustness, efficiency, or transfer question].
 
@@ -3365,7 +3369,7 @@ We then isolate [component] and examine [robustness, efficiency, or transfer que
 
 #### 3.7.b Experimental Setup：比较设置
 
-“这里的作用是给审稿人的“所有metric相关的解释”的字典” 指标定义、方向、分母和简称都在这里找得到；新指标单独说明贡献。
+集中定义指标、方向、分母、简称与实验设置，新增指标说明用途与贡献。
 
 教学模板；【】填真实材料。
 
@@ -3408,7 +3412,7 @@ Implementation Details. We select [parameters] on [development data] and fix the
 
 #### 3.7.c Main Results：先写发现
 
-“不要读数字，这些都是看表格就能知道的信息，写在正文是信息冗余。” 解释数字说明什么、现象为何出现、支持哪项设计。正文不是表格播报员。
+解释主要差异、可能原因及对应设计，不逐行重复表格数值。
 
 教学模板；【】填真实材料。
 
@@ -3438,7 +3442,7 @@ This contrast supports [Intro contribution], while [observed trade-off] limits [
 
 #### 3.7.d Ablation：改一项，查一个作用
 
-“围绕 Introduction 提出的观点进行论证，形成闭环” 每次去掉或替换一项，固定其他条件，检查对应问题是否回来。
+消融每次去掉或替换一个因素，固定其他条件，检验对应设计的作用。
 
 教学模板；【】填真实材料。
 
@@ -3467,7 +3471,7 @@ Figure [ref] shows [observed change], supporting [limited component role] in [te
 
 #### 3.7.e 扩展实验：稳定性、效率、迁移
 
-“重点就是保存自己的实验结果，失败的也可以，然后呈现有意义的结论在论文中就行” 失败尝试可能排除一种解释。先保留记录，再筛对贡献有启发的结论。
+按主张选择稳健性、效率或迁移分析。保留失败记录，报告有助于判断贡献的负结果。
 
 教学模板；【】填真实材料。
 
@@ -3475,7 +3479,7 @@ Figure [ref] shows [observed change], supporting [limited component role] in [te
 - 每组先说为什么测、改什么、固定什么，再说发现和范围。
 - 哪些条件有效、哪条路走不通，都是有信息的结果；不能只挑最好一次，或把失败全藏起来。
 
-按贡献选用，不是必做套餐
+按贡献选择必要分析
 
 To test [stability or transfer claim], we vary [factor] while holding [controls] fixed.
 
@@ -3497,7 +3501,7 @@ These comparisons support [scope-limited finding], but do not establish [broader
 
 #### 3.7.f 进阶：性能与成本一起比
 
-“帕累托前沿” 适合多个目标互相牵制的实验。某个配置更省但更弱，就讲取舍，不硬说全面胜出。
+多目标实验同时报告收益与代价，按帕累托前沿讨论取舍，不将单项优势写成全面最优。
 
 教学例子；假设质量越高越好、成本越低越好。
 
@@ -3519,7 +3523,7 @@ We report the non-dominated configurations among the tested settings.
 
 #### 3.7.g 进阶：同时做两个差
 
-“直接比较上线前后不行，因为可能同期发生了别的事” 同期对照也有变化时，比较两组各自的前后变化。别把普通算法消融改名叫 DID。
+同期因素可能影响上线前后比较。适用条件下，可比较处理组与对照组各自的前后变化；普通算法消融不等于 DID。
 
 假设教学例子；分数为虚构，不对应任何论文实验。
 
@@ -3541,7 +3545,7 @@ The difference between these changes is 10 points, rather than the treated group
 
 #### 3.7.h Case Study：走一遍流程
 
-“需要放上自己的生成结果，以一个 case 来展示流程图是怎么运行的” NLP 看真实输入和回复，CV 看图与中间产物；案例解释机制，整体效果仍靠统计。
+用明确来源的输入与输出展示流程及判断依据，案例不能替代总体统计。
 
 教学模板；【】填真实材料。
 
@@ -3554,7 +3558,7 @@ In [a recorded case or a stated constructed example], [input] requires [specific
 
 在[有来源的真实案例或明示构造案例]中，[输入]要求[具体行为]。
 
-**第 1 句：**先给来源类型与任务，不能让虚构案例穿上实测外套。
+**第 1 句：**先给来源类型与任务，明确区分教学示例与实测案例。
 
 [Stage] uses [evidence] to produce [intermediate output].
 
@@ -3685,7 +3689,7 @@ If support decreases, this comparison indicates the value of retained constraint
 
 **实验·示范自然段6：稳健性与复测**
 
-按主张补重复或分组检验，别只保留最好一次。
+按主张补重复或分组检验，不要只保留最好一次。
 
 教学例句，非论文原文或实测结果。
 
@@ -3703,7 +3707,7 @@ We also compare short and long dialogue histories using the same scoring rule.
 
 **实验·示范自然段7：案例分析**
 
-用一个明确来源的案例解释流程与失败，别以案例代替总体证据。
+用一个明确来源的案例解释流程与失败，案例不能替代总体证据。
 
 教学例句，非论文原文或实测结果。
 
@@ -3729,7 +3733,7 @@ The case shows where the constraint enters the note, but it does not establish o
 
 **Discussion / Limitations：意义与局限**
 
-“传达自己实验过程中发现的心得体会，和知识，和发现” 解释发现改变了什么认识，哪些情况仍然失效。经验归经验，机制证据另说。
+解释发现的意义、可能原因与失效条件，区分经验解释与有对照支持的机制判断。
 
 教学模板；【】填真实材料。
 
@@ -3805,13 +3809,13 @@ Cross-language questions and frequently updated documents remain untested.
 
 **Conclusion：回答开头的问题**
 
-“一个亮点（标题，摘要，关键词），附赠一堆为了实现亮点而产生的贡献。” 回到这个亮点，收束做了什么、发现了什么；别把整个流程再背一遍。
+回到研究问题，概括核心贡献、主要发现与范围，不重复完整方法流程。
 
 教学模板；【】填真实材料。
 
 - 未来工作接已说明的局限；计划不能写成能力。
 
-通用要求；推荐骨架
+通用要求；推荐结构模板
 
 We studied [research problem] by [core design].
 
@@ -3829,7 +3833,7 @@ The evaluation establishes [supported finding] under [conditions].
 
 [具体局限]说明，后续需要在[相关设置]继续检验。
 
-**第 3 句：**实际需要未来工作才写，不能机械凑末句。
+**第 3 句：**实际需要未来工作才写，不要求固定末句。
 
 <details><summary>更多例子：论文原句与拆解</summary>
 
@@ -3862,12 +3866,12 @@ The illustrative evaluation shows higher citation support with extra latency; br
 
 **References：回查原文**
 
-“不要引用错误的论文” 逐条回查原文、版本与支持关系。参考文献数量不替你证明读过。
+逐条核对原文、版本及其对引用处主张的支持范围。
 
 教学模板；【】填真实材料。
 
 - 同一论文不同版本去重；模型和工具引原始报告或官方文档。
-- 按相关性选引用，不为年份或数量凑文献。
+- 按相关性选引用，引用按相关性选择。
 
 通用要求
 
@@ -3910,13 +3914,13 @@ A source evaluated only on single-turn retrieval cannot support a claim about mu
 <a id="appendix"></a>
 ### 3.11 附录
 
-让想核查的人找得到、看得懂。
+提供可定位、可复核的设置与补充材料。
 
-“确保在正文中被有效引用” 详细设置、补充实验和完整案例各有入口，不把附录当杂物间。
+详细设置、补充实验与完整案例分类组织，并从正文引用具体位置。
 
 **Appendix：实现与补充实验**
 
-“千万不要为了节省篇幅去缩减实验结论。先缩 related work, 然后缩方法” 先删重复，次要细节移附录；支撑核心贡献的比较和分析留在正文。
+先删除重复内容，再将次要细节移至附录。支撑核心贡献的比较与分析留在正文。
 
 教学模板；【】填真实材料。
 
@@ -3974,7 +3978,7 @@ We freeze this choice before evaluating the test questions.
 
 我们在评价测试问题前冻结这个选择。
 
-**第 2 句：**把开发与测试边界写清，不能根据最终涨分倒选参数。
+**第 2 句：**把开发与测试边界写清，不能根据最终性能提升倒选参数。
 
 </details>
 
@@ -3982,13 +3986,13 @@ We freeze this choice before evaluating the test questions.
 <a id="rebuttal"></a>
 ## 4. Rebuttal
 
-让审稿人愿意看，并用证据回答真正的疑问。
+用明确证据回答审稿人的具体关切。
 
-“尊重你的审稿人，让他感到快乐的基础上回复他” 感谢一句就够。先答题，再给证据；礼貌不替你证明结论。
+首句回答原问题，再给证据、解释与位置；感谢简短，保持礼貌。
 
 ### 4.1 拆审稿意见
 
-“不要只看 weakness 栏目！” Summary 查是否理解准确，Strengths 查已认可的亮点，Weaknesses 查真正缺什么证据。
+读取完整 review：Summary 核对理解，Strengths 记录认可点，Weaknesses 与 Questions 提取待回应关切。
 
 教学模板；【】填真实材料。
 
@@ -4010,7 +4014,7 @@ We compare the two generators using the same retrieved passages.
 
 ### 4.2 逐题回复
 
-“第一句话就要回复他的问题！” Yes/No 直接答，参数直接给，流程用 case。再给证据、解释和具体位置。
+首句直接回答问题，再给证据、解释与位置；流程问题用明确来源的案例展示。
 
 教学模板；【】填真实材料。
 
@@ -4031,17 +4035,17 @@ With identical passages and decoding settings, 【method】 scores 【A】 versu
 
 使用相同段落和解码设置时，【方法】在【指标】上为【A】，而【基线】为【B】（越高越好；表【R1】）。
 
-**第 2 句：**给协议、对照、绝对值和位置，别只报“提升显著”。
+**第 2 句：**给协议、对照、绝对值和位置，不要只报“提升显著”。
 
 This comparison isolates the generator change under the tested retrieval setting.
 
 这一比较在所测试的检索设置下隔离了生成器改动。
 
-**第 3 句：**收束到已检验的范围，不顺手扩大到所有场景。
+**第 3 句：**收束到已检验的范围，不扩大到所有场景。
 
 ### 4.3 区分两种解释
 
-“然后拆解他的第一步逻辑链，证明错误，进而结论错误” 先复述对方的推理，再用针对性对照检验关键前提。不是先给人扣“误解”的帽子。
+准确复述审稿人的推理，用针对性对照检验争议前提，并说明证据支持的结论。
 
 教学模板；【】填真实材料。
 
@@ -4068,12 +4072,12 @@ The difference is 【result】; this supports 【bounded conclusion】 but does 
 
 ### 4.4 澄清：定义、流程、例子
 
-“流程都用case来展示。” 拿一个真实输入走完步骤，指出被问到的那一步。公式多不等于澄清得好。
+说明定义、真实输入与各步产物，定位争议环节；公式数量不能替代解释。
 
 教学模板；【】填真实材料。
 
 - 术语不清给定义，流程不清给案例，效果不清给对照。
-- 确有错误就改；不同意就给依据。别写“你误读了”。
+- 确有错误就改；不同意就给依据。不以“你误读了”替代澄清与证据。
 
 Here, 【term】 denotes 【concrete definition】.
 
@@ -4095,7 +4099,7 @@ Section 【N】 specifies this interface; we clarify 【ambiguous phrase】 in �
 
 ### 4.5 Revise loop
 
-“审稿人真的在问这个问题吗？还是我在回答我自己想回答的问题？” 每轮按原问题查漏答和证据，只改没过的回复；再压长度和语气。
+按原问题逐轮检查覆盖、证据与逻辑，仅修改未通过的回复，再压缩文字并调整语气。
 
 教学模板；【】填真实材料。
 
@@ -4103,7 +4107,7 @@ Section 【N】 specifies this interface; we clarify 【ambiguous phrase】 in �
 - 逐题输出：原问题、回复位置、剩余缺口、改法、所需证据。
 - 先查漏答、证据和逻辑，再缩文字、调语气。改完重查同一张问题清单。
 - 每问有答、证据对应、逻辑通顺、篇幅合规就停；缺实验交给人决定。
-- 模拟用于查漏洞，不预测涨分或录用。
+- 模拟用于查漏洞，不预测评分变化或录用。
 
 Concern: 【verbatim concern】. Response location: 【paragraph/table】. Remaining gap: 【specific gap】.
 
@@ -4119,7 +4123,7 @@ Minimal fix: 【edit】. Required evidence: 【existing result or experiment nee
 
 ### 4.6 第二轮与 AC 总结
 
-“回复完所有审稿人写。” 先逐题回应，再给 AC 压缩总结。准确引用已确认的评价，保留仍有争议的边界。
+先逐题回应，再向 AC 概括关键问题、证据与剩余分歧，准确引用已确认的评价。
 
 教学模板；【】填真实材料。
 
@@ -4137,7 +4141,7 @@ The main concern was 【issue】. Our response provides 【evidence】, supporti
 
 主要关切是【问题】。回复提供了【证据】，支持【限定结论】。
 
-**第 2 句：**AC 扫一眼能知道问题怎么被回答。
+**第 2 句：**明确说明问题、回复及其依据。
 
 **复制给 Codex：Rebuttal + revise loop**
 
@@ -4151,7 +4155,7 @@ The main concern was 【issue】. Our response provides 【evidence】, supporti
 2. 每问首句直接回答，随后给证据、解释和位置；问题标题忠于原意，感谢简短。数据、对照或成本适合表格就用紧凑表格，保留必要比较条件、数值口径与范围，不用文字重复每格。
 3. 每个事实回到论文、原 review、真实结果或已确认推导。合理批评就承认并改，争议就查前提与证据；不隐藏影响比较的条件。补实验的承诺不能替代结果；缺结果交给我决定，不编数字、不把 future work 写成已完成，不自动跑实验或提交回复。
 4. 执行 revise loop：按原问题清单查“原问题→回复位置→是否回答→证据是否匹配→剩余疑问→最小改法→还缺什么”。先修漏答、证据与逻辑，再压文字、调语气。只改不通过项，改后重查同一张清单，不盲目重跑全部基线。
-5. 所有问题明确覆盖、事实与证据对应、逻辑通顺、长度和当轮政策合规后停止，由我定稿。证据不足就交回缺口，不通过模拟预测涨分或录用。
+5. 所有问题明确覆盖、事实与证据对应、逻辑通顺、长度和当轮政策合规后停止，由我定稿。证据不足就交回缺口，不通过模拟预测评分变化或录用。
 6. 追问轮只答新增关切；AC 总结写关键问题、回应、证据与限制，不请求提分或接收。英文回复逐段附中文供我审，内部检查和缺口不混入提交文本。
 ```
 
@@ -4484,7 +4488,7 @@ Stage: [initial / follow-up]; editable response files and scope: [ ].
 
 
 <a id="code-release-prompt"></a>
-### 5.8 开源整理：翻译注释，清掉私货，保留行为
+### 5.8 开源整理：翻译、去秘与行为保留
 
 先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。
 

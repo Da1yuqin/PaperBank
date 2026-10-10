@@ -22,13 +22,13 @@
 正文 PDF 实测字体与字号：【字体，pt】；本篇已确认色板：【】
 
 铁律：
-1. mainfig 讲问题、已有缺口与关键改动，默认不超过 5 个环节；framework 先让人看懂设计为什么好，再画完整输入、操作与产物。两张图别画成同一张。
+1. mainfig 讲问题、已有缺口与关键改动，默认不超过 5 个环节；framework 先让人看懂设计为什么好，再画完整输入、操作与产物。两图分别承担不同叙述任务。
 2. 每条箭头对应真实依赖，不穿文字。保留并行与反馈；训练、推理、评价分开。输入、输出、评价规则用三种边框并给图例；仅供评价的信息不能画成模型输入。
-3. 按最终宽度起稿。所有标题、坐标、刻度、图例、数字、注释用同一字号，正文减 2 pt ≤ 图字 ≤ 正文，字体家族匹配。放不下就重排或拆图，不缩字、拉扁或改论文模板。
+3. 按最终宽度起稿。所有标题、坐标、刻度、图例、数字、注释用同一字号，正文减 2 pt ≤ 图字 ≤ 正文，字体家族匹配。放不下就重排或拆图，不缩小规定字号、不进行非等比缩放、不修改论文模板。
 4. 白底、近白面板、深色文字、低饱和配色。同一对象全篇同色，用形状或线型辅助区分；不加渐变、阴影和装饰光效。通栏先参考 16:9，单栏参考 4:3，内容与可读性优先。
 5. 模块名与正文一致。缩写、变量、单位、图标、颜色和线型都能解释；图标旁写对象名。标签用自然语言，不用符号拼句。
 6. 同一案例全文只呈现一次，翻译、裁剪或改名仍算同一个。先按来源核对使用位置，其他位置交叉引用。对话一轮一框；作者示例与实测回复分清，没有评分不画勾。
-7. 统计图用 Python 等专业工具读取所附数据，保留数值、坐标几何、分母、单位与 SD／SE／CI 定义；同类比较统一尺度。不为美观补缺测、改数据或平滑曲线，不重跑实验；KDE 等估计图说明样本量、方法和带宽。概念图按当前环境使用 imagegen，不让生成器猜流程或造结果。
+7. 统计图用 Python 等专业工具读取所附数据，保留数值、坐标几何、分母、单位与 SD／SE／CI 定义；同类比较统一尺度。不为美观补缺测、改数据或平滑曲线，不重跑实验；KDE 等估计图说明样本量、方法和带宽。概念图按当前环境使用 imagegen，生成内容须依据已确认流程，不生成虚构结果。
 8. Caption 说明读法、比较、必要口径与实际发现，简称在本条 Caption 写全称。方法图说明机制，不编实验结论。尽量三行，必要定义与事实边界优先。
 9. PDF 文字可见、可选，字体嵌入；不叠两套字形或隐藏 OCR。统计图优先矢量 PDF，含位图的 PDF 不称全矢量。CS 图表默认 [!t]，实际位置跟随正文首次引用，保留附录归属。
 10. 先给问题、布局和缺口，再绘制。插回论文编译，看最终页面的字号、图例、裁切、碰撞和引用顺序。交付源文件、PDF、预览及实际检查结果。只改色时保留原布局、文字、连线与图片；保留他人修改，不扩大范围。
@@ -63,12 +63,12 @@ Hard rules:
 
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · paper-visual-standards。
 
-对应规则：贡献可见性与问题—设计—证据对应；章节与 Overview 逻辑；先粗写再人工审核；最终字号、成绩表与引用顺序。
+对应规则：贡献可见性与问题—设计—证据对应；章节与 Overview 逻辑；先起草再人工审核；最终字号、成绩表与引用顺序。
 
 ### 中文
 
 ```text
-读取 paperbank-writing/SKILL.md、references/checklist.md；绘图同时读 paperbank-figures/SKILL.md。先拉粗稿，再由我审中文逻辑。本提示词用于实证型 CS 论文，Nature 系列另用独立体系。
+读取 paperbank-writing/SKILL.md、references/checklist.md；绘图同时读 paperbank-figures/SKILL.md。先形成初稿，再由我审中文逻辑。本提示词用于实证型 CS 论文，Nature 系列另用独立体系。
 会议、当年官方模板、页数与附录规则：【】
 问题与依据：【已有做法能做什么，在哪个条件下不足】
 一句话贡献：【新对象／设计、对应缺口、与最近工作的区别】
@@ -82,10 +82,11 @@ Hard rules:
 2. 先定 mainfig、framework 与关键结果图。mainfig 默认至多 5 环节，突出问题与改动；framework 解释设计为何有效，再讲输入、操作、产物。箭头必须是真依赖，训练、推理、评价分开，输入／输出／评价规则用可解释的边框。
 3. 图按最终栏宽绘制。所有图字同一字号，正文减 2 pt 至正文；白底、低饱和、同对象同色，配形状或线型。结果图只读真实数据；同一案例全文只呈现一次。Caption 本条展开简称，写实际发现，尽量三行；图表用 [!t]，核对实际首次引用顺序。
 4. 列全部 section、subsection 的标题、任务、承接、图表和篇幅，再填正文。Method Overview 先讲针对困难的关键设计，再写目的、操作与产物；章节名作为位置，每个标题与引用出现一次，后句接前句产物，末句引用 framework。
-5. 按 Intro 主张整理实验。Setup 写清数据与划分，按 Metrics、Baselines、Implementation Details 说明指标口径、比较路线和真实设置。Main Results 先给有证据的结论，再讲关键对照与范围；消融固定其他条件，不逐行念表。
-6. 表格用 booktabs，列宽、精度与单位一致。真实可比组内最优加粗浅红，第二个不同显示值下划线浅蓝，并列共享标记；不把排名当显著性。有真实重复才写均值与不确定性，说明次数、SD／SE／CI 和有效子集。不用 resizebox 硬塞。
+5. 按 Intro 主张整理实验。Setup 写清数据与划分，按 Metrics、Baselines、Implementation Details 说明指标口径、比较路线和真实设置。Main Results 先给有证据的结论，再讲关键对照与范围；消融固定其他条件，不逐行重复表格数值。
+6. 表格用 booktabs，列宽、精度与单位一致。真实可比组内最优加粗浅红，第二个不同显示值下划线浅蓝，并列共享标记；不把排名当显著性。有真实重复才写均值与不确定性，说明次数、SD／SE／CI 和有效子集。不用 resizebox 整体缩放表格。
 7. 最后组织 Intro：已有能力→具体不足→对应设计→实际发现→平行贡献。写清真正新增了什么，设计为什么回应不足；不把普通工程步骤包装成创新。不够的证据单列给我，不编结果、引用或 first／unique。
-8. 每次给我一节中文提纲与真实证据，确认后再写英文。一句一个完整判断，一段一个任务；定义术语、符号和信号来源，同对象同名称，正文不用 it／they 及同族代词。贡献形容词须有依据，一词换一词，不堆修饰。超页先删重复，不缩模板字号或间距。交付实际编译与 PDF 检查结果，远端同步单独说明。
+8. 每次给我一节中文提纲与真实证据，确认后再写英文。一句一个完整判断，一段一个任务；定义术语、符号和信号来源，同对象同名称，正文不用 it／they 及同族代词。贡献形容词须有依据，一词换一词，避免重复修饰。超页先删重复，不缩模板字号或间距。交付实际编译与 PDF 检查结果，远端同步单独说明。
+语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
 ```
 
 ### English
@@ -109,6 +110,7 @@ Order and hard rules:
 6. Use booktabs and consistent widths, precision, and units. Within genuinely comparable groups, mark the best value in bold on pale red and the second distinct displayed value underlined on pale blue; share markings for ties. Rankings are not significance tests. Report means and uncertainty only for actual repeats, defining counts, SD / SE / CI, and valid subsets. Do not squeeze tables with resizebox.
 7. Build the Introduction last: existing capabilities → specific limitation → matched design → actual finding → parallel contributions. State what is new and why each design responds to a limitation. Do not relabel routine engineering as innovation. List evidence gaps separately; invent no results, citations, or first / unique claims.
 8. Show one Chinese section outline and its evidence for approval before English prose. Use one complete main judgment per sentence and one task per paragraph. Define terms, notation, and signal sources; name objects consistently and avoid it / they and related object pronouns in author prose. Use evidence-supported contribution modifiers as concise word replacements. Remove repetition before cutting supporting evidence; preserve template fonts and spacing. Report actual compilation and PDF checks separately from remote synchronization.
+Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
 ```
 
 <a id="writing"></a>
@@ -127,11 +129,12 @@ Order and hard rules:
 
 铁律：
 1. 先查“具体不足→新增设计→实际证据”。Abstract、Intro 贡献和 Method Overview 明说新对象或设计及其价值，与最近工作比较；全篇困难、模块和发现名称一致。不猜技术设定，不编引用、数字或优先权。
-2. 一句一个完整判断，一段一个任务，后句接前句对象、问题或产物。正文不用 it／they 及同族代词，we／our 和 this + 明确名词可保留。用短对象名，不拼符号、堆形容词；有依据的贡献词一词换一词。
+2. 一句一个完整判断，一段一个任务，后句接前句对象、问题或产物。正文不用 it／they 及同族代词，we／our 和 this + 明确名词可保留。用短对象名，不以符号替代句子，不使用重复修饰；有依据的贡献词一词换一词。
 3. 缩写、符号首次出现定义对象、来源、单位与下标；摘要、引言、实验各自能读懂。按最终 PDF 检查句长，双栏一句默认最多三行、单栏一句默认一行半，完整语义优先；不用缩字、改栏宽或硬换行凑行数。
-4. Related Work 按主题写已有路线、能力、具体不足和本文方案；However 与 To address 的对象、关键词对齐 Intro，不逐篇点名或凑引用。Method Overview 先讲设计为什么回应困难，再写目的、操作、产物；用 in [准确章节名] (ref) 定位，每个章节名与引用出现一次，保留并行关系，末句引 framework。
+4. Related Work 按主题写已有路线、能力、具体不足和本文方案；However 与 To address 的对象、关键词对齐 Intro，按类别概括文献，仅引用直接相关的工作。Method Overview 先讲设计为什么回应困难，再写目的、操作、产物；用 in [准确章节名] (ref) 定位，每个章节名与引用出现一次，保留并行关系，末句引 framework。
 5. 实验段先给有证据的结论，再讲比较条件、关键对照与含义；消融固定其他条件。指标说明方向、分母和不确定性，区分记录与独立样本、百分比与百分点、观察与因果；保留影响解释的负结果。RQ 按需要使用。
-6. 数据、公式含义、实验设置、引文、原始 prompt 和模型回复不因润色改变；保留他人修改。先给中文逻辑与最小改法，确认后改英文。缺证据单列给我，不塞进论文；只读任务不写文件。最后说明实际改动和检查，编译与最终 PDF 目检分别确认。
+6. 数据、公式含义、实验设置、引文、原始 prompt 和模型回复不因润色改变；保留他人修改。先给中文逻辑与最小改法，确认后改英文。缺证据单列给我，不写入论文正文；只读任务不写文件。最后说明实际改动和检查，编译与最终 PDF 目检分别确认。
+语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
 ```
 
 ### English
@@ -148,6 +151,7 @@ Hard rules:
 4. Organize Related Work by topic: existing approach, capability, specific limitation, and the paper's response. Match However / To address objects and keywords to the Introduction; do not list papers or pad citations. The Method Overview explains why the design addresses the challenge before its purpose, operations, and products. Locate actions with in [exact section title] (ref), citing each title once; preserve parallel paths and cite the framework last.
 5. Start result paragraphs with evidenced conclusions, then conditions, key comparisons, and implications. Hold other conditions fixed in ablations. Define metric direction, denominators, and uncertainty. Distinguish records from independent samples, percentages from percentage points, and observations from causal findings. Retain negative results that affect interpretation. Use RQs when useful.
 6. Preserve data, formula meanings, settings, citations, original prompts, model outputs, and concurrent edits. Show Chinese reasoning and minimal fixes before revising English. Keep evidence gaps outside the paper; do not write files for read-only tasks. Report actual changes and checks, distinguishing compilation from visual inspection of the final PDF.
+Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
 ```
 
 <a id="experiments"></a>
@@ -164,9 +168,9 @@ Hard rules:
 材料：【Intro 主张、真实结果文件、数据划分、基线配置、预算、重复记录】
 允许修改：【实验正文、表格及相关文件】；不得改动：【原始结果与实验协议】
 
-1. 按“Intro 主张／研究问题→比较对象与固定条件→指标→图表→能支持的结论”整理。RQ 有需要再用，不给每个图硬凑一个。
+1. 按“Intro 主张／研究问题→比较对象与固定条件→指标→图表→能支持的结论”整理。RQ 有需要再用，不要求每张图单独设置 RQ。
 2. 先写 Experimental Setup：数据来源与划分；Metrics 定义方向、分母、聚合；Baselines 按路线分组，注明来源与版本；Implementation Details 写真实训练／推理预算、硬件、超参数和重复次数。没有记录就列缺口，不猜默认值。
-3. 再排 Main Results、Ablation Studies 与必要分析。每段首句给有证据的结论，随后讲关键对照、条件和范围；一个独立发现一段，不逐行念数。消融只改待检因素，保留其他条件，未排除的解释不能写成因果。
+3. 再排 Main Results、Ablation Studies 与必要分析。每段首句给有证据的结论，随后讲关键对照、条件和范围；一个独立发现一段，不逐行重复数值。消融只改待检因素，保留其他条件，未排除的解释不能写成因果。
 4. 表格用 booktabs；同类表统一列宽、组名、精度和单位。最优加粗浅红，第二个不同显示值下划线浅蓝，并列共享标记，限真实可比组。均值与不确定性同行，整段 ± 及误差可上标；写清真实重复次数、SD／SE／CI 和共同有效子集，不用排名替代显著性，不用 resizebox 缩整表。
 5. Caption 写比较、实际发现与必要口径，每条展开简称，尽量三行。图表用 [!t]，核对最终首次引用顺序。百分比与百分点、记录与独立样本、整体与子集分开，保留影响结论的负结果。
 6. 先给中文逻辑让我审，再写英文；只根据所附记录绘图制表，不补结果、重跑基线或改统计口径。编译检查实际页数、数值、标记、字体和溢出，报告证据缺口与已做检查。
@@ -202,12 +206,12 @@ Editable files: [experiment prose, tables, related files]; preserve: [original r
 任务：先写中文提纲；允许修改：【文件与范围】。
 
 1. 先写“具体不足→对应设计→实际证据”映射，缺证据单列，不补造。
-2. 背景段：说清研究方向与价值，紧接已有路线怎么做、已经能做什么。用必要原文引用，不从“随着技术发展”开始绕圈。
+2. 背景段：说清研究方向与价值，紧接已有路线怎么做、已经能做什么。用必要原文引用，删除与具体问题无关的泛化背景。
 3. 问题段：指出哪个条件下，已有做法不能证明或处理什么，并给依据。每个问题须有后文设计回应，不把已有能力写成没人做过。
-4. 方案段：明确本文新增的对象或设计，与最近工作区别在哪里；先解释为什么针对该困难，再写输入、操作、产物。不要只报模块名或排流水线。
+4. 方案段：明确本文新增的对象或设计，与最近工作区别在哪里；先解释为什么针对该困难，再写输入、操作、产物。解释设计机制，不能仅列模块名称与步骤。
 5. 发现段：只写实际主要发现、关键比较和适用范围。没有结果不写结果句，诊断不冒充因果，有限测试不推广全部场景。
-6. 贡献用原生 itemize，平行、简短、长度相近，项数按真实工作调整。一项一个主要贡献，普通实现不凑创新。de-identified、expert-confirmed、tailored 等词须有对应事实，一词换一词，不堆夸奖；不用无依据的 first／unique。
-7. 逐句查前句是否提供后句的对象或前提，问题、机制与实验名称是否一致。定义必要术语，用具体对象替代 it／they；不为套段数破坏逻辑。先让我审中文，再组织英文。研究事实有实质调整才同步改摘要，保留原始结果、引文和并发修改。
+6. 贡献用原生 itemize，平行、简短、长度相近，项数按真实工作调整。一项一个主要贡献，常规实现不单独列为创新。de-identified、expert-confirmed、tailored 等词须有对应事实，一词换一词，不使用空泛评价；不用无依据的 first／unique。
+7. 逐句查前句是否提供后句的对象或前提，问题、机制与实验名称是否一致。定义必要术语，用具体对象替代 it／they；段落数量服从实际论证。先让我审中文，再组织英文。研究事实有实质调整才同步改摘要，保留原始结果、引文和并发修改。
 ```
 
 ### English
@@ -245,7 +249,7 @@ Task: write a Chinese outline first; editable files and scope: [ ].
 2. 每问首句直接回答，随后给证据、解释和位置；问题标题忠于原意，感谢简短。数据、对照或成本适合表格就用紧凑表格，保留必要比较条件、数值口径与范围，不用文字重复每格。
 3. 每个事实回到论文、原 review、真实结果或已确认推导。合理批评就承认并改，争议就查前提与证据；不隐藏影响比较的条件。补实验的承诺不能替代结果；缺结果交给我决定，不编数字、不把 future work 写成已完成，不自动跑实验或提交回复。
 4. 执行 revise loop：按原问题清单查“原问题→回复位置→是否回答→证据是否匹配→剩余疑问→最小改法→还缺什么”。先修漏答、证据与逻辑，再压文字、调语气。只改不通过项，改后重查同一张清单，不盲目重跑全部基线。
-5. 所有问题明确覆盖、事实与证据对应、逻辑通顺、长度和当轮政策合规后停止，由我定稿。证据不足就交回缺口，不通过模拟预测涨分或录用。
+5. 所有问题明确覆盖、事实与证据对应、逻辑通顺、长度和当轮政策合规后停止，由我定稿。证据不足就交回缺口，不通过模拟预测评分变化或录用。
 6. 追问轮只答新增关切；AC 总结写关键问题、回应、证据与限制，不请求提分或接收。英文回复逐段附中文供我审，内部检查和缺口不混入提交文本。
 ```
 

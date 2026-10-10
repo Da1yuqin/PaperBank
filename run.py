@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parent
 REPO = 'https://github.com/Da1yuqin/PaperBank'
 FIGURE_SECTIONS = [
  ('figure-skill','先给 Codex 绘图 skill'),
- ('figure-rules','绘图铁律：这些错别犯'),
+ ('figure-rules','绘图铁律'),
  ('figure-types','按图的任务选模板'),
  ('notion-gallery','图例库：原图与逐图拆解'),
  ('figure-gallery','私藏图：好在哪里，怎么借鉴'),
@@ -74,8 +74,8 @@ def render_paragraph(lesson, refs, md_level=4, number=None, heading=True):
   rendered+=f'<p class="example-source"><a href="{e(r["url"])}">{e(r["title"])}</a> · {e(lesson.get("location",""))}</p>'
   md+=['',f'[{r["title"]}]({r["url"]}) · {lesson.get("location","")}']
  if lesson.get('latex_template'):
-  rendered+=f'<details class="prompt full-template"><summary>完整 LaTeX 骨架</summary><pre>{e(lesson["latex_template"])}</pre><button class="copy js-only">复制提示词</button></details>'
-  md+=['','**完整 LaTeX 骨架**','','```latex',lesson['latex_template'],'```']
+  rendered+=f'<details class="prompt full-template"><summary>完整 LaTeX 结构模板</summary><pre>{e(lesson["latex_template"])}</pre><button class="copy js-only">复制提示词</button></details>'
+  md+=['','**完整 LaTeX 结构模板**','','```latex',lesson['latex_template'],'```']
  return rendered+'</section>',md
 
 def render_opening(data):
@@ -305,8 +305,8 @@ def render_figures(data):
     if v.get('license_url'):md+=['',f'[图片许可]({v["license_url"]})']
     rendered+='</section>'
    rendered+='</details>';md+=['','</details>','']
- rendered+=f'<h3 id="figure-gallery">{e(titles["figure-gallery"])}</h3><p>先看原图，再看点评。借信息组织，不照搬别人的结果。</p>'
- md+=['','<a id="figure-gallery"></a>','### '+titles['figure-gallery'],'','先看原图，再看点评。借信息组织，不照搬别人的结果。']
+ rendered+=f'<h3 id="figure-gallery">{e(titles["figure-gallery"])}</h3><p>参考原图的内容组织与布局，结果仍使用自己的数据。</p>'
+ md+=['','<a id="figure-gallery"></a>','### '+titles['figure-gallery'],'','参考原图的内容组织与布局，结果仍使用自己的数据。']
  items={i['id']:i for i in data['items']}
  for g in f['gallery']:
   ex=items[g['item']]['examples'][g['example_index']]
@@ -427,7 +427,7 @@ def render_tools(data):
    md+=['','  </details>','']
   rendered+='</ul></section>'
  rendered+='<p class="boundary js-only" id="tool-empty" hidden>没有匹配的工具。换个短词试试。</p>'
- title=f'5.{len(groups)+1} 开源整理：翻译注释，清掉私货，保留行为'
+ title=f'5.{len(groups)+1} 开源整理：翻译、去秘与行为保留'
  rendered+=f'<section class="release-prompt" id="code-release-prompt"><h3>{e(title)}</h3><p>先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。下面中英两版都可复制。</p>'
  md+=['','<a id="code-release-prompt"></a>','### '+title,'','先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。']
  ph,pm=render_codex_prompt(data,data['code_release_prompt']['prompt_ref'],'中文提示词');rendered+=ph;md+=pm
@@ -463,7 +463,7 @@ def build():
   number=int(s['number'])+1
   nav+=f'<a href="#chapter-{s["id"]}">3.{number} {e(s["nav"])}</a>'
  entries='';chapter_html={};chapter_md={}
- md=['# '+data['site_title'],'','先用 Codex 拉草稿和图，再由你审逻辑、逐章精修。第四章写 Rebuttal，第五章收好用的工具。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎拿去给 Codex 做 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，改过请注明。Star 自愿，署名别失联。']
+ md=['# '+data['site_title'],'','先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为 Rebuttal，第五章为 AI 工具。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎给 Codex 用作 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，修改版本注明改动。如有帮助，欢迎 Star。']
  md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 古法精修','','先查全文，再逐节改。模板中的【】填自己的材料，段落按内容调整。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
  md += [f'- [{section_label(s)}{s["title"]}](#{s["id"]})' for s in sections]
  md += ['- [好用工具与开源整理提示词](#tools)']
