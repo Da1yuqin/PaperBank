@@ -48,9 +48,24 @@ function alignArgumentArrows(){
   const start=center('.argument-abstract .argument-mark'),end=center('.argument-intro .argument-mark');
   pair.querySelector('.argument-link').setAttribute('d',`M 5 ${start} C 35 ${start}, 65 ${end}, 93 ${end}`);
  }
+ for(const row of $$('.intro-body-row')){
+  if(!row.getClientRects().length)continue;
+  const box=row.querySelector('svg').getBoundingClientRect();
+  if(!box.height)continue;
+  const center=mark=>{
+   const rect=mark.getClientRects()[0];
+   return ((rect.top+rect.height/2-box.top)/box.height*100).toFixed(2);
+  };
+  const start=center(row.querySelector('.intro-map-source .argument-mark'));
+  const targets=[...row.querySelectorAll('.intro-map-target .argument-mark')];
+  row.querySelectorAll('.intro-body-link').forEach((path,n)=>{
+   const end=center(targets[n]);
+   path.setAttribute('d',`M 4 ${start} C 35 ${start}, 65 ${end}, 95 ${end}`);
+  });
+ }
 }
 const argumentObserver=new ResizeObserver(alignArgumentArrows);
-$$('.argument-pair').forEach(pair=>argumentObserver.observe(pair));
+$$('.argument-pair,.intro-body-row').forEach(pair=>argumentObserver.observe(pair));
 window.addEventListener('resize',alignArgumentArrows);
 requestAnimationFrame(alignArgumentArrows);
 const lessons=$$('.paragraph-lesson');

@@ -31,19 +31,7 @@
 <a id="draft-step-1"></a>
 ### 1.1 研究材料与模板
 
-<a id="draft-materials-annotated"></a>
-
-**流程说明**
-
 先整理研究问题、已有局限、对应设计和真实结果，附上可核对的文献、图与数据。下载目标会议当年的官方模板，确认页数并编译。使用 Overleaf 时，将最新源文件同步到本地；Git 同步需要项目 owner 有会员或相应权限，没有则下载源文件 ZIP、本地编译，或跳过同步。写明允许修改的文件，再把材料填入提示词，让 Codex 先形成提纲和初稿。
-
-
-**高亮与旁批**
-
-1. **先整理研究问题、已有局限、对应设计和真实结果**：研究材料。材料按“问题—设计—证据”整理；模块关系、实验设置和原始结果随材料提供。
-2. **下载目标会议当年的官方模板，确认页数并编译**：官方模板。先确认页数与编译环境，避免填完正文再处理模板问题。
-3. **Git 同步需要项目 owner 有会员或相应权限，没有则下载源文件 ZIP、本地编译，或跳过同步**：本地项目。没有会员也能改稿。可请有会员的老师或师兄师姐担任 owner；同步前先合入合作者更新。
-4. **写明允许修改的文件，再把材料填入提示词**：初稿输入。约定修改范围后再填提示词；Codex 依据材料形成初稿，不能代替缺失的实验结果。
 
 **填写研究材料，生成初稿**
 
@@ -76,19 +64,7 @@ Intro 结构：前两个自然段可调整顺序和分工，交代领域背景�
 <a id="draft-step-2"></a>
 ### 1.2 关键图绘制
 
-<a id="draft-figures-annotated"></a>
-
-**流程说明**
-
 先完成关键图，供合作者审核研究思路。mainfig 用一个问题或发现说明研究价值；framework 展示真实流程，每步写清输入、操作、输出，箭头连到实际接收者，仅供评价的规则不进入被测模型。结果图从真实数据绘制，轴、单位、比较条件和误差含义齐全。全篇名称、配色和字体统一；按最终栏宽设计，图内字控制在正文减 2 pt 至正文之间，放不下就重排。编译后按正常阅读大小检查，不用放大的截图验收。
-
-
-**高亮与旁批**
-
-1. **mainfig 用一个问题或发现说明研究价值**：首图的任务。首图回答为什么做。方法型突出已有做法的失败点与本文改动；发现型突出关键观察。
-2. **framework 展示真实流程，每步写清输入、操作、输出**：框架图的任务。框架图回答怎么做。模块收到什么、产出什么，以及产物交给谁，都要可追踪。
-3. **结果图从真实数据绘制，轴、单位、比较条件和误差含义齐全**：结果图的任务。结果图回答设计是否有效；颜色、线型和误差条须在图或图注中解释。
-4. **全篇名称、配色和字体统一；按最终栏宽设计，图内字控制在正文减 2 pt 至正文之间**：可读性。同一对象使用同一名称和颜色，并配线型或点形。按论文 PDF 的最终字号验收，不靠缩小文字塞内容。
 
 <a id="visual-lost-middle-fig-1"></a>
 #### 单栏首图：研究动机
@@ -129,19 +105,66 @@ Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig.
 <a id="draft-step-3"></a>
 ### 1.3 正文结构与实验
 
-<a id="draft-structure-annotated"></a>
+- 先列全部章节标题、每节目的、所需图表及预计篇幅；按任务归类同级内容。
+- Method 按实际依赖组织。Overview 概括完整流程，各小节写清输入、操作、输出和交接。
+- 实验按待检验主张组织：主结果看整体表现，消融查设计作用，分析解释差异与失败。
+- 各章开头接回前文的问题；结果段先给具体发现，再说明它怎样回应引言的动机。
+- 表格按可比条件分组，写清指标方向和不确定性；逐列标最优、次优，长表先拆列或跨栏。
 
-**流程说明**
+<a id="draft-paper-outline"></a>
+#### 论文大纲与章节衔接
 
-先列全部章节标题、每节目的、所需图表和预计篇幅。Related Work 按研究主题归类；Method 按实际依赖组织，overview 串起目的、输入、操作和输出，并对应各小节与框架图。实验按需要检验的主张组织：主结果比较整体效果，消融检验关键设计，分析解释差异与失败。表格按可比设置分组，注明指标方向和不确定性；逐列标最优与次优，长表先拆列或跨栏，不通过缩小整表解决。
+教学大纲，示例任务是评价对话回复怎样处理变化的需求与未决条件。章节名称和数量按实际研究调整；箭头说明承接关系。
 
+Abstract 概括同一组问题、局限、设计与发现；正文结果确定后再压缩。
 
-**高亮与旁批**
+**1 Introduction**
 
-1. **先列全部章节标题、每节目的、所需图表和预计篇幅**：正文结构。章节标题要能看出研究任务；同级内容放在一起，篇幅按贡献和工作量分配。
-2. **overview 串起目的、输入、操作和输出，并对应各小节与框架图**：方法概述。先建立方法的整体路径，再进入组件细节；上一阶段的输出承接下一阶段的输入。
-3. **实验按需要检验的主张组织**：实验论证。先确定每项实验要验证什么，再选数据、对照和指标。RQ 按研究需要设置，不强制每节使用疑问句。
-4. **表格按可比设置分组，注明指标方向和不确定性**：表格组织。可比组内逐列判断最优与次优；表注说明重复次数及 SD、SE 或 CI。颜色不能代替显著性检验。
+交代已有能力与研究问题；指出需求时效和未知保留的评价缺口，再给对应设计与主要发现。
+
+↓ 这些缺口的比较依据是什么？
+
+**2 Related Work**
+
+按任务或机制比较已有路线。末尾用 However 点名同一缺口，紧接本文的对应解法。
+
+↓ 为评价这两个问题，方法需要哪些输入与判据？
+
+**3 Method**
+
+Overview 先概括全章：整理保留需求变化的对话案例，再制定逐案例判据，最后运行模型并评价回复。
+
+↓ 概括各小节的职责与交接
+
+3.1 Task Formulation：定义输入、回复与评价单位；区分给模型的案例和只给评价器的判据。
+
+- **3.2 Case Construction**：对话记录与时间信息 → 筛选并保留需求变化和未决条件 → 可评价的对话案例
+
+- **3.3 Criterion Construction**：对话案例与对应材料 → 定义回复需满足的条件及应保留的未知 → 逐案例评价判据
+
+- **3.4 Evaluation Protocol**：案例、模型回复与评价判据 → 模型按案例作答；评价器按判据评分 → 可比较的分数与错误记录
+
+案例 → 被测模型 → 回复；回复 + 评价判据 → 评价器 → 分数与错误。判据只用于评分。
+
+↓ 这些设计是否回答了引言提出的问题？
+
+**4 Experiments**
+
+4.1 Setup 定义比较条件和指标；4.2 Main Results 回答研究问题；4.3 Ablation 检验设计作用；4.4 Analysis 解释差异并回扣原局限。
+
+↓ 这些结果能说明什么，还不能说明什么？
+
+**5 Discussion and Limitations**
+
+解释发现与剩余限制；区分前人不足和本文未覆盖的范围。
+
+↓ 在已测试范围内，开头的问题得到什么答案？
+
+**6 Conclusion**
+
+概括已验证的产物与发现，回答研究问题；不新增设计、结果或适用范围。
+
+References 为比较与判断提供依据；Appendix 放可复核设置、完整判据和补充实验。
 
 排版示例：以下数值均为假设，不是论文结果。上标演示均值旁的标准差；浅红为最优，浅蓝为次优。
 
@@ -184,23 +207,6 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 包声明放导言区，table 环境放正文；先确认会议模板允许这些包。正式表替换真实数据，并在表注写清统计单位、重复次数、实际可比范围及主要发现。跨栏时用 table*，不改模板栏宽。
 
-<a id="draft-step-4"></a>
-### 1.4 引言与逻辑审核
-
-<a id="draft-intro-annotated"></a>
-
-**流程说明**
-
-先用中文写清引言的论证：领域与已有能力、具体局限、对应设计、主要发现。前两个自然段可以合并或调整顺序，只要完成领域回顾与相关工作比较。每段首句接回上一段的问题，设计逐项回应局限，发现说明哪些结果支持贡献；摘要概括同一组问题、设计和发现。定下章节标题后，让 Codex 逐节给出中文，作者先审逻辑、操作与证据，再写回英文。最后编译，检查实际页数、图表与引用顺序。
-
-
-**高亮与旁批**
-
-1. **领域与已有能力、具体局限、对应设计、主要发现**：引言论证。背景只保留理解问题所需的内容；设计与发现分别回答如何解决、凭什么成立。
-2. **每段首句接回上一段的问题**：段落承接。首句给读者定位：这段是在解释困难、介绍设计，还是报告发现；避免突然列出无关步骤。
-3. **摘要概括同一组问题、设计和发现**：跨章节一致。对象、术语和贡献保持一致；摘要压缩引言的论证，不能换一套主张。
-4. **作者先审逻辑、操作与证据，再写回英文**：人工审核。先确认问题是否回答、流程能否复现、结论有无证据，再精修英文。
-
 <a id="writing-skill"></a>
 ### 三个独立 skill
 
@@ -238,7 +244,7 @@ Intro 结构：前两个自然段可调整顺序和分工，交代领域背景�
 <a id="figures"></a>
 ## 2. 论文绘图
 
-按图的任务选择结构；规则集中查，原图与批注集中看。
+按图的任务选择结构，结合原图理解绘图规范。
 
 <a id="figure-skill"></a>
 ### 2.1 绘图准备
@@ -438,7 +444,7 @@ Intro 结构：前两个自然段可调整顺序和分工，交代领域背景�
 
 <a id="notion-gallery"></a>
 <a id="figure-gallery"></a>
-### 2.4 图例与批注
+### 2.4 图例与说明
 
 首图与框架图的入门案例见 [1.2 关键图绘制](#draft-step-2)。
 
@@ -985,6 +991,7 @@ PaperBank · 教学改写
 - [3.11 附录](#appendix)
 
 <a id="title"></a>
+<a id="chapter-title"></a>
 ### 3.2 标题
 
 先把最值得记住的发现放进标题。
@@ -1024,6 +1031,7 @@ Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools
 ©2026 AAAI. All rights reserved. 独立保留原论文版权；未授予PaperBank整篇或原图再许可。
 
 <a id="abstract"></a>
+<a id="chapter-abstract"></a>
 ### 3.3 摘要
 
 让人用一段话看懂为什么这项工作值得做。
@@ -1066,6 +1074,7 @@ PaperBank · 教学改写
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
 <a id="intro"></a>
+<a id="chapter-intro"></a>
 ### 3.4 引言
 
 让读者认同问题，并记住你的解法为什么有用。
@@ -1078,6 +1087,8 @@ PaperBank · 教学改写
 - 贡献对象与动作尽早出现。expert-confirmed、manually selected、tailored 等词要对应实际工作；写清选择依据，不用“高质量”代替依据。
 - 方法段逐点解决前面的困难，只讲设计思路；公式与实现留给 Method。图句说明图里哪个例子或对比支持这项设计。
 - 结果段先用钩子接回研究问题，再给主要发现。贡献、术语和发现与 Abstract 对应；不逐字复述，也不把排名当作分析。
+- 给每个局限沿用同一名称和定义；Related Work 给比较依据，Method 写对应设计，实验检验这项设计并接回该局限。
+- 结果概述对应正文实际结论。若实验只支持某些任务或条件，摘要、引言、讨论和结论都限定到相同范围。
 
 <a id="intro-hooks"></a>
 #### 段落承接
@@ -1111,6 +1122,122 @@ PaperBank · 教学改写
 
 **Intro**：To answer this question, we evaluate [models]. Replies exhibit Product Evidence Overreach through unsupported claims and Shopping Uncertainty Collapse by treating unknown needs as settled; further analysis examines [specific finding].
  · [修改 case](#annotated-intro-findings)
+
+<a id="intro-body-map"></a>
+#### 引言如何贯穿全文
+
+引言提出什么问题，正文就检验什么问题。给同一局限、设计和实验沿用同一个名称；每个段首用具体对象接回前文。实验得出什么、只支持到哪里，再回写摘要、引言和结论。
+
+教学结构示意。方括号替换为已核验材料；按论证组织句子和段落，不固定句数或段数。
+
+- **Q / M / E · 问题、设计、检验：**编号相同表示同一条局限 → 设计 → 实验链。
+
+- **L · 已有方法局限：**已有路线在某种任务、输入或评价范围内的不足。
+
+- **D · 研究实施困难：**建立本文数据、方法或评价时需要克服的困难。
+
+- **B · 本文剩余局限：**本文证据尚未覆盖的范围；不能冒充已解决的问题。
+
+**A · 已有能力**
+
+[已有方法]已能完成[任务]；这些能力支持对话助手理解用户需求。
+
+句首钩子：`These capabilities support ...`
+
+- [相关工作](#chapter-related) · 说明已有路线：按任务或机制归类，说明[已有方法]实际具有什么能力。
+- [方法](#chapter-method) · 交代起点：说明本文使用了哪些已有能力，新增设计解决什么问题。
+
+先承认已有能力，再指出不足；不能把前人已有的功能写成本文首次提供。
+
+**Q · 研究问题**
+
+然而，需求可能变化，也有条件仍未明确。对话助手能否同时处理变化的需求与未决条件？
+
+句首钩子：`However, these needs can change or remain unresolved, ...`
+
+- [方法 · 任务定义](#chapter-method) · 定义评价对象：定义“变化的需求”与“未决条件”，写清模型收到什么、回复须保留什么。
+- [实验 · 研究问题](#chapter-experiments) · 转成可检验问题：To answer this question, we evaluate [对象] under [条件]，用对应判据检验需求处理与未知保留。
+- [结论](#chapter-conclusion) · 回答开头：据实际结果回答对话助手能否处理变化的需求与未决条件。
+
+任务定义、模型输入、评分对象和结论都回答同一问题，不从“回复评价”跳成“真实执行成功”。
+
+**L1 → M1 → E1 · 局限一：需求时效**
+
+[比较表]显示，[所比较基准]未报告需求时效所需的时间信息；据其公开说明，无法确认评价是否区分仍有效与已失效的历史需求。
+
+句首钩子：`However, the compared benchmarks do not explicitly report [时间输入].`
+
+- [相关工作 · 对比表](#chapter-related) · 给出 L1 依据：However, [L1 的具体不足]. To address this limitation, we [M1 的对应设计]，并引用核验后的输入比较。
+- [方法 · M1](#chapter-method) · 说明设计作用：To assess whether earlier needs still apply, [M1]保留需求变化及时间信息，说明这些输入怎样影响判断。
+- [实验 · E1](#chapter-experiments) · 检验原动机：To test this role of temporal information, [E1]比较对应条件，检验历史需求是否仍适用的判断。
+
+L1 在引言、However 句、方法动机和实验解释中指同一不足。“未报告”不能改成“没有”；未做输入对照就不能宣称时间信息导致提升。
+
+**L2 → M2 → E2 · 局限二：未知保留**
+
+[已有评价]未明确检验回复是否保留关键未知，因而难以识别把未决条件当成确定事实的错误。
+
+句首钩子：`To detect whether unresolved conditions are treated as settled, ...`
+
+- [相关工作 · 评价比较](#chapter-related) · 给出 L2 依据：However, [已核验的评价不足]. To address this limitation, we [M2]，比较的是未知保留判据，不是有无模糊案例。
+- [方法 · M2](#chapter-method) · 落实评价要求：For each case, [M2]明确哪些条件仍未知、回复不能擅自确定什么。
+- [实验 · E2](#chapter-experiments) · 检验原动机：To evaluate uncertainty preservation, [E2]报告对应错误，解释模型是否把未决条件当成确定事实。
+
+同一个未知条件须贯穿输入、判据、回复错误和结果解释；不能将“没有明确奖励保留未知”写成“前人完全没有模糊场景”。
+
+**D1 / D2 · 实施困难**
+
+建立这类评价还面临[材料获取困难 D1]与[逐案例标准困难 D2]；这些困难妨碍对需求变化与关键未知的精确评价。
+
+句首钩子：`However, establishing this evaluation faces [具体困难].`
+
+- [方法 · 数据与判据](#chapter-method) · 说明怎样克服困难：To address [D1/D2], [实际操作]形成[数据或判据]，交代来源、选择依据和产物用途。
+- [附录](#chapter-appendix) · 提供可复核细节：给出对应的材料说明、判据定义与实际执行设置。
+
+先解释困难怎样阻碍研究目标，再给解法。D 是本文实施难点，不是前人方法 L，也不是本文剩余局限 B。
+
+**M1 / M2 · 对应设计**
+
+为检验上述问题，[本文产物]结合可解释的需求变化输入与逐案例判据，分别支持需求时效判断和未知保留评价。
+
+句首钩子：`To evaluate these two aspects, [本文产物] ...`
+
+- [方法 · Overview](#chapter-method) · 展开实际流程：先说 M1 怎样处理 L1、M2 怎样处理 L2，再交代各部分的输入、操作、产物和依赖。
+- [关键图与图注](#chapter-method) · 显示同一设计：图内名称与正文相同，箭头说明输入流向；评价判据不能画成模型已接收的输入。
+- [实验 · 对照设置](#chapter-experiments) · 说明怎样检验：With [比较条件] held fixed, [E1/E2]检验对应设计的作用；输入、预算与判分条件按实际设置交代。
+
+每项设计须能接回具体问题；图、Overview 和实验使用同一对象，不把整套方法的效果归给一个未单独检验的模块。
+
+**E1 / E2 → Q · 实验发现**
+
+为回答这一问题，[实验]发现[需求时效判断的真实结果]与[未知保留的真实结果]，说明模型在[实际测试范围]内有哪些能力或不足。
+
+句首钩子：`To answer this question, we evaluate [对象] ...`
+
+- [实验 · 主结果与分析](#chapter-experiments) · 先结论，再证据：To examine [L1/L2], 先给[具体发现]，再用关键对照、图表位置和评分口径解释发现如何得到。
+- [实验 · 回扣动机](#chapter-experiments) · 解释结果回答了什么：This comparison shows [实际关系]，说明需求时效判断或未知保留是否达到研究目标。
+- [摘要与引言](#chapter-abstract) · 回写主要发现：摘要压缩同一发现，引言展开含义；名称、对象、比较范围与实验一致。
+- [讨论](#chapter-discussion) · 限定解释：区分观察到的差异、可能原因与已验证机制，不把回复错误扩大为真实执行失败。
+
+结果必须回答开头的研究问题及方法动机。只有总体对比时不能补写模块因果；只有个例时不能写全体发生率。
+
+**C / B · 贡献与结论范围**
+
+本文提供[实际新增产物]并揭示[证据支持的发现]；结论限于[已测试任务与条件]，尚未覆盖[剩余范围 B]。
+
+句首钩子：`Within these evaluated conditions, [受证据支持的结论] ...`
+
+- [讨论与局限](#chapter-discussion) · 说明 B 与影响：说明未覆盖的条件怎样限制结论；未测试不等于已经失败。
+- [结论](#chapter-conclusion) · 闭合研究问题：回答 Q，概括已验证的贡献与发现，并保留同一已测试任务与条件。
+- [摘要与引言](#chapter-abstract) · 反向缩小主张：若实验只支持[某种范围]，摘要、引言和贡献句都缩至该范围，不留“全面解决”的旧句。
+
+前人局限 L 可以被本文设计处理；本文剩余局限 B 则限定处理到哪里。二者不是同一标签，更不能把 B 写成已解决贡献。
+
+L1 → M1 → E1 → Q：需求时效缺口 → 保留对应输入 → 检验需求有效性判断 → 回答需求变化问题。
+
+L2 → M2 → E2 → Q：未知保留缺口 → 明确逐案例判据 → 检验擅自确定的错误 → 回答未决条件问题。
+
+**结果回写**：实际实验结果与范围 → 摘要、引言的贡献与发现 → 讨论、结论。证据改变，前面的主张一起改。
 
 <a id="annotated-intro-obstacles"></a>
 
@@ -1273,6 +1400,7 @@ In summary, our contributions are:
 
 
 <a id="related"></a>
+<a id="chapter-related"></a>
 ### 3.5 相关工作
 
 说明已有路线、本文差异及其与核心贡献的关系。
@@ -1369,6 +1497,7 @@ To address this limitation, we [matching design B] to [purpose B].
 
 
 <a id="method"></a>
+<a id="chapter-method"></a>
 ### 3.6 方法
 
 铁律：告诉读者为什么你的方法好，比解释清楚方法更重要。
@@ -1381,6 +1510,7 @@ To address this limitation, we [matching design B] to [purpose B].
 - 模块首句用 To + 具体目的。随后解释设计依据、关键操作与必要公式，末句交代产物给谁用。
 - 自己的设计占主要篇幅。标准编码、格式转换简写；参数、长 prompt 和部署细节放可定位的附录。
 - 公式说明对象、单位、下标、信号来源与更新对象；并行、循环、反馈不能硬写成顺序流水线。
+- Overview 先接回 Intro 的具体局限，再概括各阶段怎样交接；每个小节开头说明本步目的，结尾交代输出怎样供下一步使用。
 
 <a id="annotated-method-task"></a>
 
@@ -1524,6 +1654,7 @@ Figure~\ref{fig:framework} summarizes this workflow.
 
 
 <a id="experiments"></a>
+<a id="chapter-experiments"></a>
 ### 3.7 实验
 
 用对照检验贡献，解释主要差异与发现。
@@ -1536,6 +1667,8 @@ Figure~\ref{fig:framework} summarizes this workflow.
 - 结果段先加粗一句具体发现，再给关键对照与意义。不要逐行读表；收益、代价和负结果都要解释。
 - 消融一次删除或替换一个因素，固定其他条件。多项一起改，只能评价整套改动，不能把收益归给其中一项。
 - 扩展实验围绕实际主张选取；效率算端到端成本，稳定性报告重复变化。个例解释过程，不能代替总体证据。
+- 段首先接回 Intro 的研究问题或 Method 的设计动机，再报告发现、关键对照及图表依据；分析最后说明原问题回答到了哪一步。
+- Intro 中的每项核心设计都应能找到对应检验。只得到整套方法的结果时，不把收益单独归给未经检验的模块。
 
 <a id="annotated-experiments-metrics"></a>
 
@@ -1657,6 +1790,7 @@ We highlight the importance of natural footwork in enhancing visual aesthetics (
 作者教学复用；原论文英文短引与原图不受 PaperBank 原创内容 CC BY 授权覆盖。本文不转授第三方转载原论文材料的权利。
 
 <a id="discussion"></a>
+<a id="chapter-discussion"></a>
 ### 3.8 讨论与局限
 
 解释发现，写清适用范围和局限。
@@ -1699,6 +1833,7 @@ PaperBank · 教学改写
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
 <a id="conclusion"></a>
+<a id="chapter-conclusion"></a>
 ### 3.9 结论
 
 回答开头的问题，概括贡献和发现。
@@ -1738,6 +1873,7 @@ We present EviNote-RAG, a framework that introduces a note-taking step to extrac
 公开 arXiv v3 采用 non-exclusive distribution，原文版权由权利人保留。作者教学短引，不随本指南转授全文再版许可；中文翻译与分析为本指南新增。
 
 <a id="references"></a>
+<a id="chapter-references"></a>
 ### 3.10 参考文献
 
 引用回查原文，信息和版本对齐。
@@ -1779,6 +1915,7 @@ PaperBank · 教学改写
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
 <a id="appendix"></a>
+<a id="chapter-appendix"></a>
 ### 3.11 附录
 
 提供可定位、可复核的设置与补充材料。
@@ -1820,187 +1957,72 @@ PaperBank · 教学改写
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
 <a id="rebuttal"></a>
+<a id="chapter-rebuttal"></a>
 ## 4. 审稿回复
 
-
 [下载 rebuttal skill ZIP](../assets/rebuttal-skill.zip) · [SKILL.md](../skills/rebuttal/SKILL.md)：逐题回应、证据核对、revise loop 与 AC 总结。
+
 用明确证据回答审稿人的具体关切。
 
 首句回答原问题，再给证据、解释与位置；感谢简短，保持礼貌。
 
 <a id="rebuttal-prepare"></a>
-
 ### 4.1 意见整理
 
-教学模板；非真实审稿记录。【】替换为真实内容。
+读取完整 review：Summary 核对理解，Strengths 记录认可点，Weaknesses 与 Questions 提取待回应关切。
 
-**English 教学改写**
-
-The review raises two separate questions: whether retrieval quality explains the gain and whether the generator receives the scoring criteria. We address the first with 【a matched comparison】 that fixes the retrieved passages and changes only the generator. We address the second by tracing 【the model input】 and 【the evaluator input】 in 【the relevant section or figure】. These questions require different evidence, so we organize the response under the original questions rather than giving one general defense.
-
-
-**中文译文**
-
-这条意见包含两个问题：收益是否来自检索质量，以及生成器是否接收评分规则。第一问用【同条件对照】回答：固定检索段落，只改变生成器。第二问在【对应章节或图片】中追踪【模型输入】和【评价器输入】。两问需要不同证据，因此回复沿用原问题组织，不用一段笼统解释同时回答。
-
-
-**高亮与旁批**
-
-1. **two separate questions / 两个问题**：拆分关切。效果来源与输入边界是不同问题，应分别回答，避免只回应容易解释的一问。
-2. **fixes the retrieved passages and changes only the generator / 固定检索段落，只改变生成器**：对应对照。对照直接检验收益来源；先查已有实验能否回答，再决定是否补实验。
-3. **tracing 【the model input】 and 【the evaluator input】 / 追踪【模型输入】和【评价器输入】**：对应澄清。输入问题需要实际接口、流程或案例；效果数字不能证明信息边界。
-4. **under the original questions / 沿用原问题组织**：回复顺序。保留问题的可定位性，让审稿人快速找到各问的答案。
-
-PaperBank · 教学改写
-
-依据回复任务组织完整段落；未填写的数值和位置均为占位，不代表已完成实验或改稿。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+- 先查当轮 AI 与保密规定；确认材料可在所选工具中使用后，再提供稿件和 review。
+- 保留原问题与顺序，一句话有多问就拆开。区分机制解释与实施情况，分别回应。
+- 区分描述不清、缺对照和机制未证实；分别给案例、比较和针对性检验。
+- 从原意见判断阅读关注点，不凭 confidence 猜身份或保证提分；查当轮回复规则。
 
 <a id="rebuttal-answer"></a>
-
 ### 4.2 回复结构
 
-教学模板；非真实审稿记录。【】替换为真实内容。
+首句直接回答问题，再给证据、解释与位置；流程问题用明确来源的案例展示。
 
-**English 教学改写**
-
-With retrieval held fixed, the difference in 【metric】 is 【A − B】. Using identical passages, decoding settings, and evaluation cases, 【method】 scores 【A】 and 【baseline】 scores 【B】; 【metric direction】 (Table 【R1】). This comparison isolates the generator change under 【the tested setting】 and supports 【the bounded conclusion】. We report the comparison protocol and its scope in 【the permitted revision location】.
-
-
-**中文译文**
-
-固定检索后，【指标】的差异为【A − B】。使用相同段落、解码设置和评测案例时，【方法】得分为【A】，【基线】为【B】；【指标方向】（表【R1】）。这一对照在【所测试的设置】下隔离了生成器改动，支持【限定结论】。对照协议和适用范围见【允许的修订位置】。
-
-
-**高亮与旁批**
-
-1. **the difference in 【metric】 is 【A − B】 / 【指标】的差异为【A − B】**：直接回答。首句先给问题的答案；按真实差异填写，不能预设收益存在。
-2. **identical passages, decoding settings, and evaluation cases / 相同段落、解码设置和评测案例**：比较条件。列出固定条件和绝对值，让读者判断差异是否可归因于待检验改动。
-3. **under 【the tested setting】 and supports 【the bounded conclusion】 / 在【所测试的设置】下隔离了生成器改动，支持【限定结论】**：证据解释。说明结果如何回答问题，并限定到已测试条件。
-4. **【the permitted revision location】 / 【允许的修订位置】**：定位内容。只填写真实存在、当轮规则允许的修订位置；不允许改稿时在回复中澄清。
-
-PaperBank · 教学改写
-
-依据回复任务组织完整段落；未填写的数值和位置均为占位，不代表已完成实验或改稿。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+- 标题沿用原问题；首句给结论或具体值。
+- 给设置、对照、绝对值和指标方向；数据适合表格就用表格。
+- 说明证据如何回答问题，附表号、节号或行号。
+- 已有实验能回答就整理出来；缺关键证据时做能隔离争议的最小对照，不盲目把全部基线重跑。
+- 感谢具体、简短。说明已经补出的内容，不用一句“我们将补充”代替答案。
+- 一个段落回一个小点。表格写结果与必要设置差异，分析接回贡献；没有标准条件支持时不能把落后全归咎于不公平。
 
 <a id="rebuttal-alternative"></a>
-
 ### 4.3 争议检验
 
-教学模板；非真实审稿记录。【】替换为真实内容。
+准确复述审稿人的推理，用针对性对照检验争议前提，并说明证据支持的结论。
 
-**English 教学改写**
-
-A plausible alternative is that longer outputs account for the improvement. To distinguish output length from 【the proposed mechanism】, we match the output-token budget and compare 【A】 with 【B】 under the same evaluation protocol. The difference is 【result】, supporting 【the bounded conclusion】. This test does not establish 【the untested mechanism】; we therefore restrict the claim to 【the evidence-supported scope】.
-
-
-**中文译文**
-
-一种合理的替代解释是：收益来自更长的输出。为区分输出长度与【本文提出的机制】，我们匹配输出 token 预算，并在相同评测协议下比较【A】和【B】。差异为【结果】，支持【限定结论】。这项检验尚不能确立【未经检验的机制】，因此我们将主张限定为【证据支持的范围】。
-
-
-**高亮与旁批**
-
-1. **longer outputs account for the improvement / 收益来自更长的输出**：竞争解释。先准确复述争议，不以设计动机或对审稿人的评价代替回应。
-2. **match the output-token budget / 匹配输出 token 预算**：区分解释。固定竞争解释指出的因素，再改变目标因素；明确两种解释如何被区分。
-3. **The difference is 【result】, supporting 【the bounded conclusion】 / 差异为【结果】，支持【限定结论】**：报告判据。填实际结果并说明支持哪项主张；结果不支持时调整解释。
-4. **restrict the claim to 【the evidence-supported scope】 / 将主张限定为【证据支持的范围】**：调整主张。无法证明的机制不写成结论；不能区分时缩小主张，而非加强语气。
-
-PaperBank · 教学改写
-
-依据回复任务组织完整段落；未填写的数值和位置均为占位，不代表已完成实验或改稿。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+- 两种解释各预测什么？用什么实验分开？
+- 无法区分就缩小机制主张；设计动机不能代替结果。
 
 <a id="rebuttal-clarify"></a>
-
 ### 4.4 方法澄清
 
-教学模板；非真实审稿记录。【】替换为真实内容。
+说明定义、真实输入与各步产物，定位争议环节；公式数量不能替代解释。
 
-**English 教学改写**
-
-Here, 【term】 denotes 【a concrete object or operation】. For input 【x】, 【module】 performs 【operation】 and returns 【y】 to 【the next module】. In 【a labeled illustrative case】, this means 【the specific transformation】, rather than 【the interpretation being questioned】. Section 【N】 specifies the interface; we clarify 【the ambiguous phrase】 in 【the permitted revision location】.
-
-
-**中文译文**
-
-这里，【术语】指【具体对象或操作】。输入【x】后，【模块】执行【操作】，将【y】交给【下一模块】。在【明确标注的示例】中，这一步对应【具体变换】，而非【受到质疑的解释】。第【N】节说明这一接口；我们在【允许的修订位置】澄清【歧义表述】。
-
-
-**高亮与旁批**
-
-1. **denotes 【a concrete object or operation】 / 指【具体对象或操作】**：先给定义。把术语落实到具体对象，避免用另一个抽象名词解释它。
-2. **returns 【y】 to 【the next module】 / 将【y】交给【下一模块】**：连通流程。操作、产物和接收者写全；确认描述与实际实现一致。
-3. **【a labeled illustrative case】 / 【明确标注的示例】**：用案例澄清。示例用于走通争议步骤；注明实测案例或教学示例，不冒充实验结果。
-4. **we clarify 【the ambiguous phrase】 / 澄清【歧义表述】**：定位修订。指出具体歧义和实际修改位置；确有错误就修正，不只归因于误读。
-
-PaperBank · 教学改写
-
-依据回复任务组织完整段落；未填写的数值和位置均为占位，不代表已完成实验或改稿。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+- 术语不清给定义，流程不清给案例，效果不清给对照。
+- 确有错误就改；不同意就给依据。不以“你误读了”替代澄清与证据。
 
 <a id="rebuttal-loop"></a>
-
 ### 4.5 迭代审核
 
-教学模板；非真实审稿记录。【】替换为真实内容。
+按原问题逐轮检查覆盖、证据与逻辑，仅修改未通过的回复，再压缩文字并调整语气。
 
-**English 教学改写**
-
-The concern 【original question】 is addressed in 【response location】, but 【the specific gap】 remains. The minimal revision is 【the targeted edit】, which requires 【an existing result or a new comparison】. We revise this point and check it against the original question before shortening the response and adjusting the tone. The loop ends when each question has a corresponding answer and evidence, the logic is consistent, and the response meets the length limit; unresolved evidence needs return to the authors.
-
-
-**中文译文**
-
-原问题【原始问题】的回复位于【回复位置】，仍缺【具体缺口】。最小修改是【针对性改法】，需要【已有结果或新增对照】。我们只修改这一点，按原问题重查，再压缩文字、调整语气。每问有对应答案与证据、逻辑一致且篇幅合规时停止；尚缺的证据交回作者判断。
-
-
-**高亮与旁批**
-
-1. **【response location】, but 【the specific gap】 remains / 【回复位置】，仍缺【具体缺口】**：定位缺口。审核应指出哪问、哪段、哪里不足，不能只说“不够有说服力”。
-2. **【the targeted edit】, which requires 【an existing result or a new comparison】 / 【针对性改法】，需要【已有结果或新增对照】**：区分修改与证据。分别列出文字改法和证据需求，作者才能判断能否完成。
-3. **check it against the original question before shortening the response / 按原问题重查，再压缩文字**：迭代顺序。先查漏答、证据和逻辑，修改后重查同一组问题，再处理篇幅与语气。
-4. **The loop ends when each question has a corresponding answer and evidence / 每问有对应答案与证据**：停止条件。以问题覆盖与合规为准；模拟审稿用于查漏洞，不预测评分变化或录用。
-
-PaperBank · 教学改写
-
-依据回复任务组织完整段落；未填写的数值和位置均为占位，不代表已完成实验或改稿。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+- 确认材料可在所选工具中使用后，再给 Codex 论文、原始 review、证据和回复。
+- 逐题输出：原问题、回复位置、剩余缺口、改法、所需证据。
+- 先查漏答、证据和逻辑，再缩文字、调语气。改完重查同一张问题清单。
+- 每问有答、证据对应、逻辑通顺、篇幅合规就停；缺实验交给人决定。
+- 模拟用于查漏洞，不预测评分变化或录用。
 
 <a id="rebuttal-followup"></a>
-
 ### 4.6 后续回复与总结
 
-教学模板；非真实审稿记录。【】替换为真实内容。
+先逐题回应，再向 AC 概括关键问题、证据与剩余分歧，准确引用已确认的评价。
 
-**English 教学改写**
-
-Regarding the follow-up on 【issue】, 【direct answer】; the supporting comparison is in 【location】. The remaining disagreement concerns 【the precisely stated point】, while the evidence supports 【the bounded conclusion】. For the area chair, the main concern was 【issue】 and our response provides 【evidence】. The remaining limitation is 【limitation】; we leave the final assessment to the reviewers and area chair.
-
-
-**中文译文**
-
-针对【问题】的追问，【直接答案】；支持这一答案的比较见【位置】。剩余分歧是【明确的问题】，现有证据支持【限定结论】。向领域主席总结时，主要关切是【问题】，回复提供了【证据】。仍有【局限】；最终判断交给审稿人与领域主席。
-
-
-**高亮与旁批**
-
-1. **Regarding the follow-up on 【issue】, 【direct answer】 / 针对【问题】的追问，【直接答案】**：回答新增问题。追问接回原问题和证据，只补新增信息，不重贴整份回复。
-2. **The remaining disagreement concerns 【the precisely stated point】 / 剩余分歧是【明确的问题】**：明确分歧。准确说明尚未解决的争议，不猜未回复审稿人的态度。
-3. **the main concern was 【issue】 and our response provides 【evidence】 / 主要关切是【问题】，回复提供了【证据】**：概括依据。向 AC 总结问题和相应证据；引用评价时只用已确认内容。
-4. **The remaining limitation is 【limitation】 / 仍有【局限】**：保留限制。写清证据仍缺什么；不请求提分或接收。
-
-PaperBank · 教学改写
-
-依据回复任务组织完整段落；未填写的数值和位置均为占位，不代表已完成实验或改稿。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+- 追问接回原问题和证据，不重贴整份回复。
+- 写清剩余限制，不猜未回复审稿人的态度。
+- 不请求提分或接收，把判断留给审稿方。
 
 **复制给 Codex：Rebuttal + revise loop**
 

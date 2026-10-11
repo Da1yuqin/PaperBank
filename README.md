@@ -4,13 +4,13 @@
 
 这里有三个可以直接使用的 skill：[cs-paper-writing](assets/cs-paper-writing-skill.zip)、[绘图](assets/paperbank-figures-skill.zip)、[rebuttal](assets/rebuttal-skill.zip)。按任务下载，解压后让 Codex 读取对应的 `SKILL.md`，填入材料、任务和允许修改的范围。
 
-五章：初稿准备、论文绘图、正文精修、审稿回复、辅助工具。先读本节原则，再看完整段落或原图与对应旁注；可复制模板集中放在后面。
+五章：初稿准备、论文绘图、正文精修、审稿回复、辅助工具。正文精修先读本节原则，再看整段批注；其他章节集中给操作要求、图例和模板。
 
-初稿准备按材料、关键图、正文与实验、引言审核四步组织。正文精修按论文顺序讲解；Related Work 用 However 说明局限，紧接对应解法。引言与摘要用箭头对应同一组问题、设计和发现。
+初稿准备分为材料与项目、关键图、正文结构与实验三步。大纲图展示章节目的、方法的输入输出和 Overview；正文精修按论文顺序讲解。Related Work 用 However 说明局限，紧接对应解法。引言对应图将问题、局限、设计、发现和适用范围连到正文，再由实验结果回写摘要与引言。
 
 [在线阅读](https://da1yuqin.github.io/PaperBank/) · [cs-paper-writing](assets/cs-paper-writing-skill.zip) · [绘图 skill](assets/paperbank-figures-skill.zip) · [rebuttal skill](assets/rebuttal-skill.zip) · [Markdown 全文](book/guide.md) · [来源](SOURCES.md)
 
-主要面向实证型 CS / AI 论文。整段原文附出处；教学改写与审稿回复模板另行标注。原图保留数据、标签及许可，旁注解释坐标、对照、流程和结论范围。
+主要面向实证型 CS / AI 论文。整段原文附出处；教学改写与审稿回复模板另行标注。原图保留数据、标签及许可，说明集中解释坐标、对照、流程和结论范围。
 
 ## 给 Codex 用
 
@@ -40,6 +40,6 @@ Python 3 即可，无第三方依赖：
 python3 run.py --serve
 ```
 
-只重建用 `python3 run.py`。内容在 `data/guide.json`；模板、样式和交互在 `assets/`。网页与 Markdown 使用 `tutorial_layout` 集中组织案例；公共 skill 使用既有通用规则。本次排版调整不改三个下载包。修改后运行构建。网页支持搜索、章节目录和深色模式；选中正文可留批注，公开批注显示高亮和侧栏，也可私密留言。
+只重建用 `python3 run.py`。内容在 `data/guide.json`；模板、样式和交互在 `assets/`。网页与 Markdown 使用 `tutorial_layout` 集中组织案例；公共 skill 使用既有通用规则。三个下载包保留原有内容。修改后运行构建。网页支持搜索、章节目录和深色模式；选中正文可留批注，公开批注显示高亮和侧栏，也可私密留言。
 
 GitHub Pages 选择 `main` 分支根目录。组织与表达受到 eternity4719 的[《高性价比人生指南》](https://eternity4719.github.io/HowToLiveBetter/)启发，正文与代码独立编写。欢迎在 [Issues](https://github.com/Da1yuqin/PaperBank/issues)补充具体问题和改法。
