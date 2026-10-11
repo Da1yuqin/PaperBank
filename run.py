@@ -22,6 +22,11 @@ FIGURE_SECTIONS = [
  ('figure-references','补充参考'),
 ]
 
+def rule_html(text):
+ """Render explicit rule labels; do not infer hard rules from prose."""
+ label='【铁律】'
+ return ('<span class="iron-law">铁律</span> '+html.escape(text[len(label):]) if text.startswith(label) else html.escape(text))
+
 def render_codex_prompt(data, key, label_zh, label_en='English prompt'):
  """Use one skill-grounded prompt for the page and portable references."""
  e=html.escape;prompt=data['codex_prompts'][key]
@@ -64,7 +69,7 @@ def render_writing_templates(content, section):
    display=e(re.sub(r'(Table|Figure)~\\ref\{(\[[^\]]+\])\}',r'\1 \2',text))
    display=re.sub(r'\\textbf\{([^{}]*)\}',r'<strong>\1</strong>',display)
    tag='pre' if paragraph.get('format')=='latex' else 'p'
-   rendered+=f'<div class="template-paragraph"><h5>{e(paragraph["heading"])}</h5><{tag} lang="en" class="template-text" data-template-raw="{e(text,quote=True)}">{display}</{tag}><p class="template-guidance">{e(paragraph["note"])}</p></div>'
+   rendered+=f'<div class="template-paragraph"><h5>{e(paragraph["heading"])}</h5><{tag} lang="en" class="template-text" data-template-raw="{e(text,quote=True)}">{display}</{tag}><p class="template-guidance">{rule_html(paragraph["note"])}</p></div>'
    md+=['','**'+paragraph['heading']+'**','']+(['```latex',text,'```'] if tag=='pre' else [text])+['',paragraph['note']]
   rendered+='<button type="button" class="copy js-only" data-copy-writing-template data-copy-label="复制完整模板">复制完整模板</button></div></details>'
   md+=['','</details>']
@@ -164,7 +169,7 @@ def render_annotated_paragraph(example, refs, number=None, heading_level=4, work
    for i,note in enumerate(example['annotations'],1):
     if note['paragraph']!=n:continue
     note_key=f'{key}-{lang}-{i}'
-    rendered+=f'<div class="paragraph-note tone-{(i-1)%5}" id="{e(note_key)}" data-note-key="{e(note_key)}" tabindex="0"><p class="note-title"><span>{i}</span>{e(note["title"])}</p><p>{e(note["body"])}</p></div>'
+    rendered+=f'<div class="paragraph-note tone-{(i-1)%5}" id="{e(note_key)}" data-note-key="{e(note_key)}" tabindex="0"><p class="note-title"><span>{i}</span>{rule_html(note["title"])}</p><p>{e(note["body"])}</p></div>'
    rendered+='</aside></div>'
   rendered+='</div>'
  md+=['','**高亮与旁批**','']
@@ -230,7 +235,7 @@ def render_opening(data):
   title=group['title']
   rendered+=f'<h4>{e(title)}</h4><ul class="compact-rules">';md+=['','#### '+title]
   for rule in [r for r in data['refine_standards'] if r['group']==group['id']]:
-   rendered+=f'<li id="{rule["id"]}"><strong>{e(rule["title"])}：</strong>{e(rule["purpose"])}</li>'
+   rendered+=f'<li id="{rule["id"]}"><strong>{rule_html(rule["title"])}：</strong>{e(rule["purpose"])}</li>'
    md+=['',f'- **{rule["title"]}：**{rule["purpose"]}']
   rendered+='</ul>'
  for example in data.get('refine_global_cases',[]):
@@ -339,7 +344,7 @@ def render_organization_templates(content):
  rendered+=f'<p class="outline-variants">{e(content["variant_note"])}</p><h4 id="draft-contribution-format">{e(content["contributions"]["title"])}</h4>'
  md+=['',content['variant_note'],'','<a id="draft-contribution-format"></a>','#### '+content['contributions']['title']]
  for rule in content['contributions']['rules']:
-  rendered+=f'<p>{e(rule)}</p>';md+=['',rule]
+  rendered+=f'<p>{rule_html(rule)}</p>';md+=['',rule]
  rendered+=f'<details class="prompt"><summary>贡献列表：LaTeX 格式</summary><pre>{e(content["contributions"]["code"])}</pre><button class="copy js-only" data-copy-label="复制格式">复制格式</button></details><p><a href="#intro-writing-templates">引言段落模板与精修要求 →</a></p>'
  md+=['','```latex',content['contributions']['code'],'```','','[引言段落模板与精修要求](#intro-writing-templates)']
  return rendered,md
@@ -575,7 +580,7 @@ def render_short_rules(rules, visuals=None, compact=False):
  visuals=visuals or {}
  rendered='<ul class="compact-rules">';md=[]
  for r in rules:
-  rendered+=f'<li><strong>{e(r["title"])}：</strong>{e(r["zh"])}'
+  rendered+=f'<li><strong>{rule_html(r["title"])}：</strong>{e(r["zh"])}'
   md+=['','- **'+r['title']+'：**'+r['zh']]
   if r.get('example_en') and not compact:
    rendered+=f'<details class="short-example"><summary>中英例子</summary><p lang="en">{e(r["example_en"])}</p><p>{e(r["example_zh"])}</p></details>'
@@ -627,6 +632,7 @@ def package_skill(data):
   if not section.get('manuscript'):continue
   md+=['','### '+section['nav'],'',section['purpose']]
   if section.get('principle'):md+=['',section['principle']]
+  if data['refine_section_principles'].get(section['id']):md+=['']+['- '+rule for rule in data['refine_section_principles'][section['id']]]
  md+=['','## 各章完整句式模板']
  for lesson in data['refine_templates']:
   if lesson['section']=='rebuttal':continue
@@ -659,14 +665,14 @@ def build_response():
  for section in data['sections']:
   key=section['id'];title=section['title']
   nav+=f'<a href="#{e(key)}">{e(title)}</a>'
-  chapters+=f'<section class="major-chapter chapter" id="{e(key)}"><h2>{e(title)}</h2><div class="paragraph-lesson"><p>{e(section["lead"])}</p><ul class="template-rules">'+''.join(f'<li>{e(rule)}</li>' for rule in section['rules'])+'</ul></div>'
+  chapters+=f'<section class="major-chapter chapter" id="{e(key)}"><h2>{e(title)}</h2><div class="paragraph-lesson"><p>{e(section["lead"])}</p><ul class="template-rules">'+''.join(f'<li>{rule_html(rule)}</li>' for rule in section['rules'])+'</ul></div>'
   rules_md+=['',f'<a id="{key}"></a>','## '+title,'',section['lead'],'']+['- '+rule for rule in section['rules']]
   templates=([section['template']] if section.get('template') else [])+section.get('templates',[])
   for n,template in enumerate(templates,1):
    template_html,template_md=render_response_template(template,key+'-template-'+str(n),key=='response-format')
    chapters+=template_html;rules_md+=template_md
   for n,example in enumerate(section.get('examples',[]),1):
-   annotated={'id':key+'-example-'+str(n),'section':key,'title':example['title'],'label':'教学模板：把方括号换成自己的真实证据。','paragraphs':[{'en':example['paragraph']}],'annotations':[{'paragraph':0,'en':quote['text'],'title':label,'body':quote['note']} for quote,label in zip(example['quotes'],['先答问题','交代对照','限定结论','给出位置'])],'processing':'原创教学模板，不是真实审稿回复。','source_label':'StrongResponse · 原创教学模板'}
+   annotated={'id':key+'-example-'+str(n),'section':key,'title':example['title'],'label':'教学模板：把方括号换成自己的真实证据。','paragraphs':[{'en':example['paragraph']}],'annotations':[{'paragraph':0,'en':quote['text'],'title':'【铁律】'+label,'body':quote['note'].removeprefix('【铁律】')} for quote,label in zip(example['quotes'],['先答问题','交代对照','限定结论','给出位置'])],'processing':'原创教学模板，不是真实审稿回复。','source_label':'StrongResponse · 原创教学模板'}
    example_html,example_md=render_annotated_paragraph(annotated,{},heading_level=3)
    chapters+=example_html;rules_md+=example_md
   chapters+='</section>'
@@ -804,7 +810,7 @@ def build():
   md+=['',f'<a id="{s["id"]}"></a>',f'<a id="chapter-{s["id"]}"></a>',f'{"#"*heading_level} {prefix}{s["title"]}','',purpose]
   principles=data.get('refine_section_principles',{}).get(s['id'])
   if principles:
-   entries+='<div class="section-principles"><h4>本节原则</h4><ul>'+''.join(f'<li>{e(rule)}</li>' for rule in principles)+'</ul></div>'
+   entries+='<div class="section-principles"><h4>本节原则</h4><ul>'+''.join(f'<li>{rule_html(rule)}</li>' for rule in principles)+'</ul></div>'
    md+=['','#### 本节原则','']+['- '+rule for rule in principles]
   elif s.get('principle'):
    entries+=f'<p class="chapter-principle">{e(s["principle"])}</p>'

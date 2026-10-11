@@ -123,3 +123,5 @@
 @media print{.paper-outline,.intro-body-row{break-inside:avoid}.method-main-group{border-color:#3451b2}.intro-body-map .argument-mark{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
 
 .site-switch{font-size:14px;line-height:1.8;margin:12px 0 16px}.response-template pre{white-space:pre-wrap;overflow-wrap:anywhere}.response-template .lesson-context{font-size:13px;color:var(--muted)}
+
+.iron-law{display:inline-block;vertical-align:baseline;margin-right:3px;padding:0 6px;border:1px solid #d1b467;border-radius:4px;background:#faf0cf;color:#70530b;font-size:11px;font-weight:650;line-height:1.6;white-space:nowrap}html.dark .iron-law{background:#3c321c;color:#f1d689;border-color:#9b803b}

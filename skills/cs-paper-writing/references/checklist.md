@@ -820,14 +820,15 @@ Fill in the prompt before asking Codex to draft. A venue name alone does not sup
 执行顺序与铁律：
 1. 核对官方模板，读取最新文件，先编译；保留并发修改、实验输入与记录，不改其他项目。
 2. 先定 mainfig、framework 与关键结果图。mainfig 默认至多 5 环节，突出问题与改动；framework 解释设计为何有效，再讲输入、操作、产物。箭头必须是真依赖，训练、推理、评价分开，输入／输出／评价规则用可解释的边框。
-3. 图按最终栏宽绘制。所有图字同一字号，正文减 2 pt 至正文；白底、低饱和、同对象同色，配形状或线型。结果图只读真实数据；同一案例全文只呈现一次。Caption 本条展开简称，写实际发现，尽量三行；图表用 [!t]，核对实际首次引用顺序。
+3. 图按最终栏宽绘制。所有图字同一字号，正文减 2 pt 至正文；白底、低饱和、同对象同色，配形状或线型。结果图只读真实数据；同一案例全文只呈现一次。Caption 先说图是什么，解释必要标记和简称，再按面板读序讲解，最后写有依据的发现与贡献；必要定义优先于三行目标。图表用 [!t]，核对实际首次引用顺序。
 4. 列全部 section、subsection 的标题、任务、承接、图表和篇幅，再填正文。Method Overview 先讲针对困难的关键设计，再写目的、操作与产物；章节名作为位置，每个标题与引用出现一次，后句接前句产物，末句引用 framework。
 5. 按 Intro 主张整理实验。Setup 写清数据与划分，按 Metrics、Baselines、Implementation Details 说明指标口径、比较路线和真实设置。Main Results 先给有证据的结论，再讲关键对照与范围；消融固定其他条件，不逐行重复表格数值。
 6. 表格用 booktabs，列宽、精度与单位一致。真实可比组内最优加粗浅红，第二个不同显示值下划线浅蓝，并列共享标记；不把排名当显著性。有真实重复才写均值与不确定性，说明次数、SD／SE／CI 和有效子集。不用 resizebox 整体缩放表格。
 7. 最后组织 Intro：已有能力→具体不足→对应设计→实际发现→平行贡献。写清真正新增了什么，设计为什么回应不足；不把普通工程步骤包装成创新。不够的证据单列给我，不编结果、引用或 first／unique。
-8. 每次给我一节中文提纲与真实证据，确认后再写英文。一句一个完整判断，一段一个任务；定义术语、符号和信号来源，同对象同名称，正文不用 it／they 及同族代词。贡献形容词须有依据，一词换一词，避免重复修饰。超页先删重复，不缩模板字号或间距。交付实际编译与 PDF 检查结果，远端同步单独说明。
+8. 每次给我一节中文提纲与真实证据，确认后再写英文。一句一个完整判断，一段一个任务；定义术语、符号和信号来源，同对象同名称，代词须唯一、明确且就近，含混时换成短对象名。贡献形容词须有依据，一词换一词，避免重复修饰。超页先删重复，不缩模板字号或间距。交付实际编译与 PDF 检查结果，远端同步单独说明。
 语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
 Intro 结构：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。
+贡献列表【铁律】：原生 itemize 固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个 For [挑战], we [解法]；不造贡献凑数。
 ```
 
 **English prompt**
@@ -846,14 +847,15 @@ Local project and editable files: [ ]
 Order and hard rules:
 1. Check the official template, read current files, and compile first. Preserve concurrent edits, experimental inputs, and records; stay within the project and scope.
 2. Settle the main figure, framework, and key result plots first. Give the main figure at most five stages by default to show the problem and change. Explain why the framework addresses the challenge before its inputs, operations, and products. Arrows must represent real dependencies; separate training, inference, and evaluation and explain border encodings for inputs, outputs, and criteria.
-3. Draw at final column width. Use one figure-text size between body size minus 2 pt and body size, white backgrounds, muted consistent colors, and auxiliary shapes or line styles. Plot actual data; present each case once across the paper. Expand abbreviations in each caption, state actual findings, and aim for three lines. Use [!t] and check actual order against first body citations.
+3. Draw at final column width. Use one figure-text size between body size minus 2 pt and body size, white backgrounds, muted consistent colors, and auxiliary shapes or line styles. Plot actual data; present each case once across the paper. Identify the figure, expand necessary abbreviations and marks, guide readers through panel order, and state evidenced findings and contribution. Necessary definitions take priority over the three-line target. Use [!t] and check actual order against first body citations.
 4. List every section and subsection with its title, purpose, connection, figures, tables, and space budget before drafting. The Method Overview first explains the design's response to the challenge, then its purpose, operations, and products. Treat section names as locations, cite each title once, connect successive products, and cite the framework last.
 5. Organize experiments around Introduction claims. The setup specifies data and splits, Metrics, Baselines, and Implementation Details with actual definitions, comparison groups, and settings. Start Main Results with an evidenced finding, then the key comparison and scope. Hold other conditions fixed in ablations; do not recite tables.
 6. Use booktabs and consistent widths, precision, and units. Within genuinely comparable groups, mark the best value in bold on pale red and the second distinct displayed value underlined on pale blue; share markings for ties. Rankings are not significance tests. Report means and uncertainty only for actual repeats, defining counts, SD / SE / CI, and valid subsets. Do not squeeze tables with resizebox.
 7. Build the Introduction last: existing capabilities → specific limitation → matched design → actual finding → parallel contributions. State what is new and why each design responds to a limitation. Do not relabel routine engineering as innovation. List evidence gaps separately; invent no results, citations, or first / unique claims.
-8. Show one Chinese section outline and its evidence for approval before English prose. Use one complete main judgment per sentence and one task per paragraph. Define terms, notation, and signal sources; name objects consistently and avoid it / they and related object pronouns in author prose. Use evidence-supported contribution modifiers as concise word replacements. Remove repetition before cutting supporting evidence; preserve template fonts and spacing. Report actual compilation and PDF checks separately from remote synchronization.
+8. Show one Chinese section outline and its evidence for approval before English prose. Use one complete main judgment per sentence and one task per paragraph. Define terms, notation, and signal sources; name objects consistently and retain clear, unique, nearby pronouns and replace ambiguous references with short object names. Use evidence-supported contribution modifiers as concise word replacements. Remove repetition before cutting supporting evidence; preserve template fonts and spacing. Report actual compilation and PDF checks separately from remote synchronization.
 Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
 Introduction structure: Adapt the order and division of the first two paragraphs. Include field context, a review of existing approaches, and evidence-based comparisons of their capabilities, differences, and limitations. Combine or split these functions as needed; do not fix paragraph one as background and paragraph two as limitations.
+Contribution-list hard rule: use native itemize with three items: overview, challenge-specific solutions, and experimental findings. In item two, use For [challenge], we [solution] for each actual challenge. Invent no contribution.
 ```
 
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#draft)
@@ -1076,7 +1078,7 @@ EN: To reduce omissions, we check the evidence for each constraint before planni
 
 EN: If supported by the actual results: On the same test tasks, checking reduces constraint omissions; the ablation attributes this gain to the checking step.
 
-- **最后：贡献列表：**首项概括解决的核心问题，随后分别写关键设计与主要发现。每项说明一个独立贡献，避免重复列举流程。 按真实贡献增删，长度接近。
+- **最后：贡献列表：**【铁律】贡献固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个用 For [挑战], we [解法]；不为凑数造贡献。
 
 中：我们设计一个规划前证据核查步骤，在生成前识别缺少支持的约束。
 
@@ -1095,8 +1097,11 @@ EN: We design a pre-planning evidence check that identifies unsupported constrai
 3. 比较与问题：指出哪个条件下，已有做法不能证明或处理什么，并给依据。每个问题须有后文设计回应，不把已有能力写成没人做过。
 4. 方案段：明确本文新增的对象或设计，与最近工作区别在哪里；先解释为什么针对该困难，再写输入、操作、产物。解释设计机制，不能仅列模块名称与步骤。
 5. 发现段：只写实际主要发现、关键比较和适用范围。没有结果不写结果句，诊断不冒充因果，有限测试不推广全部场景。
-6. 贡献用原生 itemize，平行、简短、长度相近，项数按真实工作调整。一项一个主要贡献，常规实现不单独列为创新。de-identified、expert-confirmed、tailored 等词须有对应事实，一词换一词，不使用空泛评价；不用无依据的 first／unique。
-7. 逐句查前句是否提供后句的对象或前提，问题、机制与实验名称是否一致。定义必要术语，用具体对象替代 it／they；段落数量服从实际论证。先让我审中文，再组织英文。研究事实有实质调整才同步改摘要，保留原始结果、引文和并发修改。
+6. 贡献用原生 itemize，平行、简短、长度相近，固定三项：工作概述、挑战与解法、实验发现。第二项逐个用 For [挑战], we [解法]，不为凑数造贡献，常规实现不单独列为创新。manually selected、expert-confirmed、tailored 等词须有对应事实，一词换一词，不使用空泛评价；不用无依据的 first／unique。
+7. 逐句查前句是否提供后句的对象或前提，问题、机制与实验名称是否一致。定义必要术语，用具体对象替代含混的 it／they，保留清楚、就近的指代；段落数量服从实际论证。先让我审中文，再组织英文。每次改动后回读摘要，按同一问题、设计、结果与范围同步，保留原始结果、引文和并发修改。
+
+【铁律】摘要按背景、limitation、解法与实验亮点组织，解法用 For [具体 limitation], we ...；引言方法总述用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].，逐点解法用 To solve [同名 limitation], we ...。挑战名须直接显示困难。每次修改后回读摘要与引言，核对对象、术语、数字、范围与因果方向。
+贡献列表【铁律】：固定三项：工作概述、挑战与对应解法、实验发现。第二项每个挑战用 For [挑战], we [解法]，是引言 To solve 的明确例外；不编造贡献。
 ```
 
 **English prompt**
@@ -1112,8 +1117,11 @@ Task: write a Chinese outline first; editable files and scope: [ ].
 3. Comparisons and problems: identify the condition where an existing approach cannot handle or establish something, with evidence. Match every problem to a later design; acknowledge existing capabilities.
 4. Response: state the new object or design and its difference from the closest work. Explain why the design addresses the limitation before inputs, operations, and products. A module list or pipeline alone is insufficient.
 5. Findings: report actual main findings, key comparisons, and scope only. Omit result sentences without results. Distinguish diagnosis from causality and bounded tests from universal claims.
-6. Use native itemize for parallel, concise contributions of similar length; let the actual work determine the count. Give each item one main contribution; routine implementation is not novelty. Use de-identified, expert-confirmed, tailored, or similar modifiers only when supported, as concise word replacements. Avoid unsupported first / unique claims.
-7. Check that each sentence supplies the next sentence's object or premise and that problem, mechanism, and experiment names agree. Define necessary terms and replace it / they with concrete objects. Adapt paragraph count to the argument. Let me review Chinese before English; update the Abstract only when research facts materially change. Preserve original results, citations, and concurrent edits.
+6. Use native itemize with exactly three concise items: overview, challenge-specific solutions, and experimental findings. In the second item, use For [challenge], we [solution] for each actual challenge. Do not invent contributions; routine implementation is not novelty. Use manually selected, expert-confirmed, tailored, or similar modifiers only when supported, as concise word replacements. Avoid unsupported first / unique claims.
+7. Check that each sentence supplies the next sentence's object or premise and that problem, mechanism, and experiment names agree. Define necessary terms; replace ambiguous it / they with concrete objects and retain clear, nearby references. Adapt paragraph count to the argument. Let me review Chinese before English; re-read and align the Abstract after each change, preserving the same problem, design, results, and scope. Preserve original results, citations, and concurrent edits.
+
+Hard rules: retain background, a specific limitation, corresponding design, and experimental findings in the Abstract. Name each limitation with "For [specific limitation], we ..." in the Abstract and "To solve [the same limitation], we ..." in the Introduction. Start the Introduction method paragraph with "Therefore, to address these obstacles, we introduce [name], a [core feature and purpose]." Name challenges as concrete difficulties. Re-read both sections after either changes and align objects, terminology, numbers, scope, and causal direction.
+Contribution-list hard rule: use exactly three items: overview, challenge-specific solutions, and experimental findings. In item two, use For [challenge], we [solution] for each actual challenge, as an explicit exception to Introduction To solve hooks. Invent no contribution.
 ```
 
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#intro)
@@ -1148,7 +1156,7 @@ The Introduction compresses the argument of the paper. Make the problem, design,
 
 全文围绕核心贡献组织：现有问题是什么，本文新增什么，为什么这样设计，证据支持什么。先明确论证，再精修语言。
 
-#### 先说为什么值得做
+#### 【铁律】先说为什么值得做
 
 每项设计都要回答：已有做法在哪种条件下不足，本文改了什么，为什么有用，哪项证据支持。
 
@@ -1170,7 +1178,7 @@ To check whether retrieved evidence actually supports an answer, we verify each 
 
 **第 1 句：**相同几个模块，现在说出了具体困难、设计目的和改动位置。实际效果另给对照证据。
 
-#### 用具体操作替代空泛评价
+#### 【铁律】用具体操作替代空泛评价
 
 用具体操作替换 powerful、comprehensive 等空评价。
 
@@ -1192,13 +1200,13 @@ The method links source quotes to constraints from earlier dialogue turns.
 
 **第 1 句：**具体操作直接告诉读者改了什么。
 
-#### 短句，完整动作
+#### 【铁律】短句，完整动作
 
-长句按步骤拆，后句接前句产物；主语、动作和条件写全。
+按最终 PDF 检查：常用双栏窄栏句子最多 3 行，单栏约 1.5 行；本稿另有明确要求时按本稿执行。保留完整动作、条件与承接，不缩字体或改模板。
 
 教学改写：假设已有对应设计或比较，非论文原文与实测结果。
 
-PaperBank 短句偏好；实际行长按最终 PDF 检查
+本套 CS 写作约定；按本稿确认版式与实际行长验收
 
 **改前**
 
@@ -1226,7 +1234,7 @@ The generator uses the notes to produce an answer with citations.
 
 **第 3 句：**随后说明笔记如何用于生成最终输出。
 
-#### 正文写完整句子
+#### 【铁律】正文写完整句子
 
 加号、箭头不能代替文字关系；公式、代码和图中照常使用。
 
@@ -1254,7 +1262,7 @@ We test whether retaining these constraints improves citation support.
 
 **第 2 句：**把想验证的作用写成问题，不能让箭头替你证明因果。
 
-#### 术语首次解释
+#### 【铁律】术语首次解释
 
 写清对象和用途，不让读者到后文找定义。
 
@@ -1276,7 +1284,7 @@ We construct evidence notes that link source quotes to active dialogue constrain
 
 **第 1 句：**读完这一句就知道笔记里面是什么、为什么要构建。
 
-#### 符号首次定义
+#### 【铁律】符号首次定义
 
 写对象、来源、算法、用途和下标；不用的符号删掉。
 
@@ -1304,13 +1312,13 @@ We use this score as the terminal reward for the sampled answer.
 
 **第 2 句：**说明信号在哪个阶段作用于哪个对象；真实算法另有条件时补上。
 
-#### 同一对象同一称呼
+#### 【铁律】同一对象同一称呼
 
-同一对象同一名称；正文不用 it／they 及同族代词，换成简短对象名。
+同一对象同一名称；代词的对象须唯一、明确且就近。含混时换成短对象名，清楚的代词保留。
 
 教学改写：假设已有对应设计或比较，非论文原文与实测结果。
 
-本套 CS 写作约定：we／our、this case 等带明确名词的结构可保留；原始提示词、模型回复和直接引用不因润色改写。
+原始提示词、模型回复和直接引用不因润色改写。
 
 **改前**
 
@@ -1332,9 +1340,9 @@ The generator uses the evidence notes.
 
 **第 2 句：**读者不必猜到底是片段、笔记还是两者。
 
-#### 贡献词有事实依据
+#### 【铁律】贡献词有事实依据
 
-tailored、expert-confirmed、de-identified 能突出真实贡献。有依据就用，一词换一词，避免重复或无依据的形容词。
+tailored、expert-confirmed、manually selected 等修饰须对应可核查工作。贡献对象与动作前置，修饰词不能代替贡献。
 
 教学改写：假设已有对应设计或比较，非论文原文与实测结果。
 
@@ -1382,7 +1390,7 @@ Answers cite sources, but some answer claims are unsupported by those sources.
 
 **第 2 句：**立即说明差距的两端，不把缺乏支持误写成真实断言必然为假。
 
-#### 句子之间有逻辑关系
+#### 【铁律】句子之间有逻辑关系
 
 后句处理前句的问题或产物，Then 和 Therefore 须符合实际关系。
 
@@ -1410,7 +1418,7 @@ We therefore link each evidence note to the relevant active constraints.
 
 **第 2 句：**方案须能处理上述约束冲突，Therefore 才有成立前提。
 
-#### 连接词用对
+#### 【铁律】连接词用对
 
 转折用 However，有因果依据才用 Therefore；并列直接写。
 
@@ -1432,7 +1440,7 @@ Both systems use the same model and evidence-context budget.
 
 **第 1 句：**两个共同条件可以直接并列，However 在这里没有转折。
 
-#### 章节按流程衔接
+#### 【铁律】章节按流程衔接
 
 开头说明输入，结尾说明输出及其在下一步的用途。
 
@@ -1454,7 +1462,7 @@ We next organize the selected source quotes into evidence notes.
 
 **第 1 句：**读者知道下一步针对什么、将产生什么。
 
-#### 问题、设计、实验对应
+#### 【铁律】问题、设计、实验对应
 
 引言提出的问题，方法处理，实验检验。
 
@@ -1488,7 +1496,7 @@ The experiment evaluates evidence recall and citation support, together with inf
 
 **第 3 句：**效果与代价共同回应贡献。
 
-#### 保留结论条件
+#### 【铁律】保留结论条件
 
 任务、模型、范围和分母写清；有限测试不推广所有场景。
 
@@ -1510,7 +1518,7 @@ On the tested English-manual questions, the method improves citation support.
 
 **第 1 句：**只描述实际测过的对象和指标，不能推广到未经测试的语言。
 
-#### 观察与原因分开
+#### 【铁律】观察与原因分开
 
 先报告现象，再讲可能原因；匹配对照支持后才归因。
 
@@ -1566,7 +1574,7 @@ Table 1 reports the matched comparison with and without those constraints.
 
 **第 2 句：**给出证据入口与比较对象，不逐行念分。
 
-#### 同级小节篇幅相称
+#### 【铁律】同级小节篇幅相称
 
 任务相近，篇幅尽量接近；太长先查重复，复杂内容分段。
 
@@ -1580,6 +1588,10 @@ We separate evidence selection from answer generation because the two stages use
 
 **第 1 句：**按真实职责分段，复杂才多写；不用统一字数删除必要解释。
 
+#### 【铁律】近距离用词去重
+
+检查同句、相邻句和短段中的实义词、词根与起句重复。删冗余，不靠换同义词掩盖重复，也不删必要术语。
+
 ## 各章先回答什么
 
 ### 标题
@@ -1588,11 +1600,22 @@ We separate evidence selection from answer generation because the two stages use
 
 标题突出核心贡献，不列举全部模块。
 
+- 围绕最重要的贡献写标题，让人看出研究对象、任务或关键发现。
+- 方法名只是名字，后半句要交代实际做了什么。发现型论文直接写发现，不必包装成方法论文。
+- 记忆点应准确、好懂。避开需要正文解释才能理解的缩写和自我评价。
+
 ### 摘要
 
 让人用一段话看懂为什么这项工作值得做。
 
 突出问题、关键改动与主要发现，仅保留理解贡献所需的实现细节。
+
+- 【铁律】摘要按背景、具体 limitation、对应方法与亮点、实验亮点组织，至少半句背景；长度按会议要求，能单独读懂。
+- 【铁律】贡献对象和动作尽早出现。关键改动要回应前句的不足，不先堆流程和数量。
+- 【铁律】每句接住上句的对象，再增加信息。术语首次解释，缩写展开；通常不放引文，投稿规定优先。
+- 【铁律】结果优先保留有信息增量的发现及比较范围；不逐项报分，不机械以最大数字结尾。
+- 【铁律】摘要解法逐点写 For [具体 limitation], we [实际动作与贡献].，点名前文同一限制。
+- 【铁律】改动摘要或引言后，回读另一节；问题、设计、命名、数字、模型范围和因果方向持续对应，不逐字照抄。
 
 ### 引言
 
@@ -1600,11 +1623,31 @@ We separate evidence selection from answer generation because the two stages use
 
 前两段不固定分工：交代领域回顾，比较已有能力和不足，再引出本文设计。背景与比较可穿插、合并或拆分。
 
+- 【铁律】段首用钩子接回前文的具体问题、困难或产物，再推进一层；However 写转折，To solve 点名所解决的困难。
+- 【铁律】前两段可穿插、合并或拆分，但要有领域回顾与已有方法比较。回顾给局限铺路：后面批评什么，前面先说明已有方法怎样处理它。
+- 【铁律】挑战名称本身就要显示困难：什么缺失、什么难以完成、什么阻碍目标。随后解释原因和影响，中性任务属性不能直接当挑战名。
+- 【铁律】贡献对象与动作尽早出现。expert-confirmed、manually selected、tailored 等词要对应实际工作；写清选择依据，不用“高质量”代替依据。
+- 【铁律】方法介绍段首用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].；随后 To solve 逐点给解法。引言讲设计思路，公式与实现留给 Method。
+- 【铁律】结果段先接回研究问题，再概述发现。改动摘要或引言后回读另一节，核对问题、设计、命名、数字与范围；不逐字重复，不把排名当分析。
+- 【铁律】给每个局限沿用同一名称和定义；Related Work 给比较依据，Method 写对应设计，实验检验这项设计并接回该局限。
+- 【铁律】结果概述对应正文实际结论。若实验只支持某些任务或条件，摘要、引言、讨论和结论都限定到相同范围。
+- 【铁律】引言解法逐点写 To solve [具体 limitation], we [实际动作与贡献].，点名前文同一限制；方法总述不能代替逐点解法。贡献列表第 2 项改用 For [挑战], we [解法]。
+- 【铁律】引言只引用属于本节的图表；不提前指向后文方法、实验、附录的图表、公式或章节，也不写“见后文”。文献 citation 与有依据的结论保留。
+- 【铁律】引言中的正式命名对象每次出现用斜体，强调性加粗对同一对象全节最多一次；贡献列表不重置次数，普通专业词不机械斜体。
+- 【铁律】普通正文 In summary, our contributions are: 后接原生 itemize，固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个用 For [挑战], we [解法]；列表后直接下一节，不造贡献凑数。
+
 ### 相关工作
 
 说明已有路线、本文差异及其与核心贡献的关系。
 
 局限与对应方案须对齐 Introduction 的对象和关键词，不新增无关问题。
+
+- 【铁律】使用原生 section / subsection；主题标题独占一行，在最终 PDF 最多一行，不以 paragraph 或行内粗体代替。
+- 按共同任务或机制分组，解释各路线怎样工作。先承认已有能力，再比较真正相近的工作。
+- 【铁律】每个主题小节都这样收尾：However, [与引言对应的具体不足]. To solve this [problem], we [实际改进]. 两句紧接，包括第一个小节。
+- 【铁律】However 的问题名称、对象与范围对齐 Intro，To solve 对齐同一方案；不同主题承担不同缺口。
+- 【铁律】不足要能回查原论文。未报告不等于没有；仅测单轮，不等于多轮一定失败。客观限定范围，不夸大缺陷。
+- 【铁律】引用按相关性选，不设篇数配额，也不因方法相似而漏引。可直接比较的近邻安排基线；设置不同就讲清差异。
 
 ### 方法
 
@@ -1612,29 +1655,65 @@ We separate evidence selection from answer generation because the two stages use
 
 围绕本文设计组织内容，每个关键选择对应 Introduction 的具体困难。既有方法简要说明，不将 Method 写成 Preliminary。
 
+- 【铁律】为什么你的方法好，比解释清楚方法更重要。每项关键设计接回 Intro 的具体困难，再讲怎样实现。
+- 【铁律】任务定义写清实际输入、要求输出和约束；训练、推理、评价能看到的信息分开，符号随计算引入。
+- 【铁律】Overview 先讲设计为何针对引言困难，再按真实输入输出衔接。用 in [章节名] (ref) 定位，每个章节名与引用只出现一次；实际执行者作主语，末句引用 framework。
+- 【铁律】模块首句用 To [具体目的], [实际主语] ...；随后给设计依据、操作和必要公式，末句交代产物给谁用。
+- 自己的设计占主要篇幅。标准编码、格式转换简写；参数、长 prompt 和部署细节放可定位的附录。
+- 【铁律】公式说明对象、单位、下标、信号来源与更新对象；并行、循环、反馈不能硬写成顺序流水线。
+- 【铁律】Overview 先接回 Intro 的具体局限，再概括各阶段怎样交接；每个小节开头说明本步目的，结尾交代输出怎样供下一步使用。
+
 ### 实验
 
 用对照检验贡献，解释主要差异与发现。
 
 每项核心主张须有对应证据，分析解释结果如何支持或限制该主张。
 
+- 【铁律】先把 Intro 的核心主张变成可检验的问题，再安排主结果、消融和必要的扩展实验。RQ 是组织工具，不必每表编号。
+- 【铁律】设置按 Metrics、Baselines、Implementation Details 分组。指标写定义、方向、分母、汇总与无效输出处理；基线按路线介绍。
+- 【铁律】对齐会改变结果的条件。写清数据版本与划分、训练和推理预算、参数选择、重复单位，以及人工或模型 judge 的核验方式。
+- 【铁律】结果段先加粗一句具体发现，再给关键对照与意义。不要逐行读表；收益、代价和负结果都要解释。
+- 【铁律】消融一次删除或替换一个因素，固定其他条件。多项一起改，只能评价整套改动，不能把收益归给其中一项。
+- 【铁律】扩展实验围绕实际主张选取；效率算端到端成本，稳定性报告重复变化。个例解释过程，不能代替总体证据。
+- 【铁律】段首先接回 Intro 的研究问题或 Method 的设计动机，再报告发现、关键对照及图表依据；分析最后说明原问题回答到了哪一步。
+- 【铁律】Intro 中的每项核心设计都应能找到对应检验。只得到整套方法的结果时，不把收益单独归给未经检验的模块。
+
 ### 讨论与局限
 
 解释发现，写清适用范围和局限。
+
+- 【铁律】解释结果改变了什么认识，不再复述成绩表。结论保留实际测试范围。
+- 【铁律】解释与机制分开。没有单独控制某项设计，就不能把效果全部归因于它。
+- 【铁律】局限写具体条件：哪些数据、语言、信息或预算尚未覆盖。未测试不等于已失败。
+- 未来工作接当前局限，说明补哪项验证，不空写更多数据、更大模型。
 
 ### 结论
 
 回答开头的问题，概括贡献和发现。
 
+- 先回答引言的问题，再概括最重要的设计与发现。
+- 【铁律】只收束正文已经建立的认识，不新增结果、对照或能力。
+- 【铁律】保留关键取舍和适用范围。未来方向接实际局限，不重复整套方法流程。
+
 ### 参考文献
 
 引用回查原文，信息和版本对齐。
+
+- 【铁律】引用支持附近的具体判断，先回查原文，不把搜索摘要或能编译的 BibTeX 当核验。
+- 【铁律】模型、数据、工具和外部方法在可独立阅读的章节首次实质出现时，就近引原始报告或官方文档。
+- 【铁律】条目与实际版本对应，核对题名、作者、年份和来源；同一论文的重复版本去重。
+- 【铁律】来源没测过的条件，不能用它支撑该条件下的结论。没有真实来源就缩小或删除说法。
 
 ### 附录
 
 提供可定位、可复核的设置与补充材料。
 
 详细设置、补充实验与完整案例分类组织，并从正文引用具体位置。
+
+- 【铁律】先删重复，再移次要细节。核心设计、关键证据和决定结论的限制留正文。
+- 按技术细节、实验设置、补充结果等职责分组，不把所有剩余内容堆在一起。
+- 【铁律】正文在对应主张后指向具体节、图或表；附录每节先说补什么、服务哪项主张。
+- 【铁律】设置、符号、版本和统计范围与正文一致。补充结果改变主结论，正文同步说明。
 
 ## 各章完整句式模板
 
@@ -1684,11 +1763,11 @@ Existing approaches [established capability], but [specific limitation].
 
 **第 2 句：**先承认已有能力，再限定本研究的缺口。
 
-To address this limitation, we propose [method] that [key operation].
+For [specific limitation], we propose [method] that [key operation].
 
-为解决这个问题，我们提出[方法]，通过[关键操作]实现改进。
+针对[具体限制]，我们提出[方法]，通过[关键操作]实现改进。
 
-**第 3 句：**方法对应上一句的不足，不突然转向另一件事。
+**第 3 句：**【铁律】摘要解法用 For 点名前文同一 limitation，再给实际动作。
 
 Experiments on [tested scope] show [main finding] compared with [comparison].
 
@@ -1824,29 +1903,35 @@ For example, [concrete input or situation] requires [specific behavior], which [
 
 教学模板；【】填真实材料。
 
-- 用 To address / To solve 接回具体困难；逐项说明设计为什么针对它。
+- 【铁律】方法总述保留 Therefore 与方法名后的亮点同位语；逐点解法用 To solve 点名前文同一困难。
 - Introduction 说明设计思路与作用；公式、模型细节与实现参数放在 Method。
 - 关键词与 Related Work、Method、图、实验一致。预期作用与实测效果分开。
 
 PaperBank 规范化写法
 
-To address [challenge A], we [design A] using [actual input or signal].
+Therefore, to address these obstacles, we introduce [name], a [core feature and purpose].
+
+因此，为解决这些障碍，我们提出[名称]，一个具有[核心亮点与用途]的[产物]。
+
+**第 1 句：**【铁律】方法名后立即说明亮点与用途；总述后仍须逐点接回具体困难。
+
+To solve [challenge A], we [design A] using [actual input or signal].
 
 为解决[困难 A]，我们利用[实际输入或信号]设计[A 方案]。
 
-**第 1 句：**一对一接回上一段的困难。
+**第 2 句：**一对一接回上一段的困难。
 
 This design [specific operation], allowing [specific intended capability].
 
 该设计通过[具体操作]，支持[明确的目标能力]。
 
-**第 2 句：**解释如何发生，不只把方案换个词再说一遍。
+**第 3 句：**解释如何发生，不只把方案换个词再说一遍。
 
-To address [challenge B], we [design B].
+To solve [challenge B], we [design B].
 
 为解决[困难 B]，我们采用[B 方案]。
 
-**第 3 句：**第二项方案处理另一项真实问题；没有就删除，不添加无必要的模块。
+**第 4 句：**第二项方案处理另一项真实问题；没有就删除，不添加无必要的模块。
 
 #### 引言收束：主要发现
 
@@ -1875,56 +1960,49 @@ This finding indicates [what is supported], while [remaining limitation] remains
 
 #### 引言最后：贡献列表
 
-首项概括解决的核心问题，随后分别写关键设计与主要发现。每项说明一个独立贡献，避免重复流程。
+依次概括本文工作、挑战与对应解法、实验发现。
 
 按论证顺序选用，段落可合并或拆分。
 
 教学模板；【】填真实材料。
 
-- 核心工作 → 关键设计 → 实验发现，是常用组织；独立评价创新可另列。按真实贡献增删，不固定四项。
-- 每项说新增了什么、解决什么或发现什么；长度接近，不重复前文段落。
+- 【铁律】普通正文引导句后接原生 itemize，固定 3 个 item；列表后直接下一节。
+- 【铁律】第 2 项逐个用 For [挑战], we [解法]；多个实际挑战放在同一项，不造贡献凑数。
 
-PaperBank 规范化写法；项数按真实贡献确定
+本套 CS 写作约定：固定三项，不是所有会议的官方要求
 
 In summary, our contributions are:
 
 概括而言，我们的贡献如下：
 
-**第 1 句：**用清楚的引导句收尾，不再另起论文目录预告。
+**第 1 句：**普通正文引导句，后接原生 itemize。
 
-We propose [core contribution] to [research objective].
+We introduce [research object], a [verified distinguishing feature] for [task and purpose].
 
-我们提出[核心贡献]，用于[研究目标]。
+我们提出[研究对象]，以[已核验的核心特点]服务[任务与目的]。
 
-**第 2 句：**第一项说新增研究对象或核心方法。
+**第 2 句：**第一项 Overview：先概括做了什么，不塞流程细账或排名。
 
-We design [mechanism] that [specific operation].
+For [challenge A], we [matched solution A]. For [challenge B, if present], we [matched solution B].
 
-我们设计[机制]，通过[具体操作]实现[作用]。
+针对[挑战 A]，我们采用[对应解法 A]。针对[确实存在的挑战 B]，我们采用[对应解法 B]。
 
-**第 3 句：**第二项解释关键设计，不重复第一项。
+**第 3 句：**【铁律】第二项逐个对应真实困难与解法，用 For；没有第二个困难就删去相应句。
 
-We introduce [evaluation or verification] for [what it checks].
+Experiments within [tested scope] reveal [verified main finding and necessary conditions].
 
-我们引入[评价或验证方式]，检验[具体性质]。
+在[实测范围]内，实验揭示[已核验的主要发现及必要条件]。
 
-**第 4 句：**只有它本身构成实际贡献时单独列项。
-
-Experiments across [scope] reveal [specific finding].
-
-跨[实测范围]的实验揭示[具体发现]。
-
-**第 5 句：**写出真实发现及比较条件，不能只写 extensive experiments demonstrate effectiveness。
+**第 4 句：**第三项概括发现，保持真实范围，不把常规实现另列为创新。
 
 **完整 LaTeX 结构模板**
 
 ```latex
 In summary, our contributions are:
 \begin{itemize}
-    \item We propose [core contribution] to [research objective].
-    \item We design [mechanism] that [specific operation].
-    \item We introduce [evaluation] for [what it checks].
-    \item Experiments across [scope] reveal [specific finding].
+    \item We introduce [research object], a [distinguishing feature] for [task and purpose].
+    \item For [challenge A], we [solution A]. For [challenge B, if present], we [solution B].
+    \item Experiments within [tested scope] reveal [verified finding and necessary conditions].
 \end{itemize}
 ```
 
@@ -1935,7 +2013,7 @@ In summary, our contributions are:
 教学模板；【】填真实材料。
 
 - 每个主题：路线概括 → 机制分组 → 已有扩展 → 缺口 → 本文方案。引用跟着类别走。
-- 每个小节都收尾：However 讲不足，To address / To solve 讲对应方案。
+- 【铁律】每个主题小节都收尾：However 讲对应不足，To solve this [problem] 紧接实际改进。
 - 结尾的对象、范围、关键词与 Intro 一致；各小节讲不同缺口。
 - 小节标题简短。短主题一段写完，复杂主题按问题分段。
 - 相近工作的差异提前讲清。引用准确完整，不因图相似或结果不利而漏引。
@@ -1967,11 +2045,11 @@ However, these approaches do not establish [Intro challenge] under [specific sco
 
 **第 4 句：**不足直接复用引言关键词，并限定到原文支持的边界。
 
-To address this limitation, we [matching design] to [specific purpose].
+To solve this [problem], we [matching design] to [specific purpose].
 
 为解决这个不足，我们通过[对应设计]实现[具体目的]。
 
-**第 5 句：**方案与引言一致；以对应方案结束本小节，不添加空泛的 Next 过渡句。
+**第 5 句：**【铁律】However 后紧接对应方案，问题与 Intro 同名同范围；每个主题小节都检查。
 
 **完整 LaTeX 结构模板**
 
@@ -1982,13 +2060,13 @@ To address this limitation, we [matching design] to [specific purpose].
 One group [mechanism A], whereas another group [mechanism B]~\cite{...}.
 More recent extensions [additional established capability]~\cite{...}.
 However, these approaches do not establish [Intro challenge A] under [scope A].
-To address this limitation, we [matching design A] to [purpose A].
+To solve this [problem], we [matching design A] to [purpose A].
 
 \subsection{[Short Topic B]}
 [Research line B] evaluates [property] using [evaluation basis]~\cite{...}.
 Other evaluations [substantive extension]~\cite{...}.
 However, [Intro challenge B] remains unresolved under [scope B].
-To address this limitation, we [matching design B] to [purpose B].
+To solve this [problem], we [matching design B] to [purpose B].
 ```
 
 #### Method Overview：完整模板

@@ -50,14 +50,15 @@
 执行顺序与铁律：
 1. 核对官方模板，读取最新文件，先编译；保留并发修改、实验输入与记录，不改其他项目。
 2. 先定 mainfig、framework 与关键结果图。mainfig 默认至多 5 环节，突出问题与改动；framework 解释设计为何有效，再讲输入、操作、产物。箭头必须是真依赖，训练、推理、评价分开，输入／输出／评价规则用可解释的边框。
-3. 图按最终栏宽绘制。所有图字同一字号，正文减 2 pt 至正文；白底、低饱和、同对象同色，配形状或线型。结果图只读真实数据；同一案例全文只呈现一次。Caption 本条展开简称，写实际发现，尽量三行；图表用 [!t]，核对实际首次引用顺序。
+3. 图按最终栏宽绘制。所有图字同一字号，正文减 2 pt 至正文；白底、低饱和、同对象同色，配形状或线型。结果图只读真实数据；同一案例全文只呈现一次。Caption 先说图是什么，解释必要标记和简称，再按面板读序讲解，最后写有依据的发现与贡献；必要定义优先于三行目标。图表用 [!t]，核对实际首次引用顺序。
 4. 列全部 section、subsection 的标题、任务、承接、图表和篇幅，再填正文。Method Overview 先讲针对困难的关键设计，再写目的、操作与产物；章节名作为位置，每个标题与引用出现一次，后句接前句产物，末句引用 framework。
 5. 按 Intro 主张整理实验。Setup 写清数据与划分，按 Metrics、Baselines、Implementation Details 说明指标口径、比较路线和真实设置。Main Results 先给有证据的结论，再讲关键对照与范围；消融固定其他条件，不逐行重复表格数值。
 6. 表格用 booktabs，列宽、精度与单位一致。真实可比组内最优加粗浅红，第二个不同显示值下划线浅蓝，并列共享标记；不把排名当显著性。有真实重复才写均值与不确定性，说明次数、SD／SE／CI 和有效子集。不用 resizebox 整体缩放表格。
 7. 最后组织 Intro：已有能力→具体不足→对应设计→实际发现→平行贡献。写清真正新增了什么，设计为什么回应不足；不把普通工程步骤包装成创新。不够的证据单列给我，不编结果、引用或 first／unique。
-8. 每次给我一节中文提纲与真实证据，确认后再写英文。一句一个完整判断，一段一个任务；定义术语、符号和信号来源，同对象同名称，正文不用 it／they 及同族代词。贡献形容词须有依据，一词换一词，避免重复修饰。超页先删重复，不缩模板字号或间距。交付实际编译与 PDF 检查结果，远端同步单独说明。
+8. 每次给我一节中文提纲与真实证据，确认后再写英文。一句一个完整判断，一段一个任务；定义术语、符号和信号来源，同对象同名称，代词须唯一、明确且就近，含混时换成短对象名。贡献形容词须有依据，一词换一词，避免重复修饰。超页先删重复，不缩模板字号或间距。交付实际编译与 PDF 检查结果，远端同步单独说明。
 语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
 Intro 结构：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。
+贡献列表【铁律】：原生 itemize 固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个 For [挑战], we [解法]；不造贡献凑数。
 ```
 
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#draft)
@@ -347,18 +348,18 @@ References 支撑已有工作、定义与外部事实。Appendix 提供完整设
 
 先用连贯段落讲清核心工作、设计为何对应局限，以及实验发现。方法名后的同位语立即交代亮点与用途；不要让读者读完一串流程才知道贡献。
 
-最后一个自然段用普通正文 In summary, our contributions are:，随后接原生 itemize；不把引导句改成加粗标题，不在列表后追加目录预告、链接或新结果。
+【铁律】普通正文 In summary, our contributions are: 后接原生 itemize；固定三项，列表后直接下一节，不追加目录预告、链接或新结果。
 
-方法型通常概括核心工作、关键设计、验证创新与发现；基准型概括数据、评价设计与发现；诊断型概括诊断发现、对应设计与改进验证。每项一个独立贡献，亮点前置，项数按实际贡献，不为凑数拆开同一件事。
+【铁律】三项依次写工作概述、挑战与对应解法、实验发现。第 2 项逐个用 For [挑战], we [解法]，不造贡献凑数。
 
-这是本教程推荐保留的默认写法。只有确实受篇幅限制，或能用更清楚的组织达到同等信息量时再改；先删重复背景和次要流程。固定的是贡献可见与论证职责，不是所有论文都必须写相同数量的段落或条目。
+三项是本套 CS 写作约定，不是所有会议的官方要求。论文类型与当轮要求优先；先删重复背景和次要流程，不用改模板规避篇幅限制。
 
 ```latex
 In summary, our contributions are:
 \begin{itemize}
-    \item [Core contribution with its distinguishing feature and purpose].
-    \item [Independent design or evaluation contribution and its role].
-    \item [Verified finding and its tested scope].
+    \item [Research object, distinguishing feature, and purpose].
+    \item For [challenge A], we [solution A]. For [challenge B, if present], we [solution B].
+    \item [Verified finding and necessary scope or conditions].
 \end{itemize}
 ```
 
@@ -430,13 +431,16 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 铁律：
 1. 先查“具体不足→新增设计→实际证据”。Abstract、Intro 贡献和 Method Overview 明说新对象或设计及其价值，与最近工作比较；全篇困难、模块和发现名称一致。不猜技术设定，不编引用、数字或优先权。
-2. 一句一个完整判断，一段一个任务，后句接前句对象、问题或产物。正文不用 it／they 及同族代词，we／our 和 this + 明确名词可保留。用短对象名，不以符号替代句子，不使用重复修饰；有依据的贡献词一词换一词。
+2. 一句一个完整判断，一段一个任务，后句接前句对象、问题或产物。代词须唯一、明确且就近；含混的 it／they 换成短对象名，清楚的代词保留，不以符号替代句子，不使用重复修饰；有依据的贡献词一词换一词。
 3. 缩写、符号首次出现定义对象、来源、单位与下标；摘要、引言、实验各自能读懂。按最终 PDF 检查句长，双栏一句默认最多三行、单栏一句默认一行半，完整语义优先；不用缩字、改栏宽或硬换行凑行数。
 4. Related Work 按主题写已有路线、能力、具体不足和本文方案；However 与 To address 的对象、关键词对齐 Intro，按类别概括文献，仅引用直接相关的工作。Method Overview 先讲设计为什么回应困难，再写目的、操作、产物；用 in [准确章节名] (ref) 定位，每个章节名与引用出现一次，保留并行关系，末句引 framework。
 5. 实验段先给有证据的结论，再讲比较条件、关键对照与含义；消融固定其他条件。指标说明方向、分母和不确定性，区分记录与独立样本、百分比与百分点、观察与因果；保留影响解释的负结果。RQ 按需要使用。
 6. 数据、公式含义、实验设置、引文、原始 prompt 和模型回复不因润色改变；保留他人修改。先给中文逻辑与最小改法，确认后改英文。缺证据单列给我，不写入论文正文；只读任务不写文件。最后说明实际改动和检查，编译与最终 PDF 目检分别确认。
 语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
 Intro 结构：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。
+
+【铁律】摘要按背景、limitation、解法与实验亮点组织，解法用 For [具体 limitation], we ...；引言方法总述用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].，逐点解法用 To solve [同名 limitation], we ...。挑战名须直接显示困难。每次修改后回读摘要与引言，核对对象、术语、数字、范围与因果方向。
+贡献列表【铁律】：固定三项：工作概述、挑战与对应解法、实验发现。第二项每个挑战用 For [挑战], we [解法]，是引言 To solve 的明确例外；不编造贡献。
 ```
 
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#writing)
@@ -558,7 +562,7 @@ Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 3. CC BY 4.0. 从原页裁切�
 5. 模块名与正文一致。缩写、变量、单位、图标、颜色和线型都能解释；图标旁写对象名。标签用自然语言，不用符号拼句。
 6. 同一案例全文只呈现一次，翻译、裁剪或改名仍算同一个。先按来源核对使用位置，其他位置交叉引用。对话一轮一框；作者示例与实测回复分清，没有评分不画勾。
 7. 统计图用 Python 等专业工具读取所附数据，保留数值、坐标几何、分母、单位与 SD／SE／CI 定义；同类比较统一尺度。不为美观补缺测、改数据或平滑曲线，不重跑实验；KDE 等估计图说明样本量、方法和带宽。概念图按当前环境使用 imagegen，生成内容须依据已确认流程，不生成虚构结果。
-8. Caption 说明读法、比较、必要口径与实际发现，简称在本条 Caption 写全称。方法图说明机制，不编实验结论。尽量三行，必要定义与事实边界优先。
+8. Caption 先说明图是什么，再解释必要标记和术语，按实际面板或上下左右读序带读，最后给有证据的发现与贡献意义；简称在本条 Caption 写全称。方法图说明机制，不编实验结论。尽量三行，必要定义与事实边界优先。
 9. PDF 文字可见、可选，字体嵌入；不叠两套字形或隐藏 OCR。统计图优先矢量 PDF，含位图的 PDF 不称全矢量。CS 图表默认 [!t]，实际位置跟随正文首次引用，保留附录归属。
 10. 先给问题、布局和缺口，再绘制。插回论文编译，看最终页面的字号、图例、裁切、碰撞和引用顺序。交付源文件、PDF、预览及实际检查结果。只改色时保留原布局、文字、连线与图片；保留他人修改，不扩大范围。
 ```
@@ -568,95 +572,95 @@ Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 3. CC BY 4.0. 从原页裁切�
 <a id="figure-rules"></a>
 ### 2.4 绘图规范
 
-- **每图明确一个主要任务：**mainfig 展示研究动机与观察，framework 说明设计如何对应问题，结果图提供验证证据。每图明确一个主要任务。
+- **【铁律】每图明确一个主要任务：**mainfig 展示研究动机与观察，framework 说明设计如何对应问题，结果图提供验证证据。每图明确一个主要任务。
 
 [图例与批注：单栏首图：研究动机](#visual-lost-middle-fig-1)
 
-- **绘图先于正文精修：**先完成可供合作者审核的框架图与实验图，再精修正文。图未能体现贡献时，先调整内容与布局，再修改配色。
+- **【铁律】绘图先于正文精修：**先完成可供合作者审核的框架图与实验图，再精修正文。图未能体现贡献时，先调整内容与布局，再修改配色。
 
 [图例与批注：训练范围对照](#visual-tcod-fig-3)
 
-- **统计图使用真实数据：**统计图用 Python 从真实数据绘制；imagegen 用于动机、框架和案例图。缺数据就停，不补点、不编误差、不为平滑改曲线。
+- **【铁律】统计图使用真实数据：**统计图用 Python 从真实数据绘制；imagegen 用于动机、框架和案例图。缺数据就停，不补点、不编误差、不为平滑改曲线。
 
 [图例与批注：框架层级与模块编号](#visual-interactcs-fig-1)
 
 [图例与批注：KDE 密度分布](#teaching-kde)
 
-- **按最终尺寸检查字号：**按最终栏宽排字，字体与正文一致；所有图内字同一字号，介于正文与正文减 2 pt 之间，标题也不能更大。放不下先重排，不缩小规定字号。
+- **【铁律】按最终尺寸检查字号：**按最终栏宽排字，字体与正文一致；所有图内字同一字号，介于正文与正文减 2 pt 之间，标题也不能更大。放不下先重排，不缩小规定字号。
 
 [图例与批注：训练范围对照](#visual-tcod-fig-3)
 
-- **箭头表示真实依赖：**同层成组并命名；先后、并行、汇合、反馈按真实依赖画。每条箭头说清传什么，起止明确，避免穿过文字与无必要的迂回。
+- **【铁律】箭头表示真实依赖：**同层成组并命名；先后、并行、汇合、反馈按真实依赖画。每条箭头说清传什么，起止明确，避免穿过文字与无必要的迂回。
 
 [图例与批注：框架层级与模块编号](#visual-interactcs-fig-1)
 
-- **区分输入与评价信息：**输入、输出、评价规则用三种边框区分，并给图例。只供评价的 rubric 不连到被测模型；不同模型收到不同材料，也要标清。
+- **【铁律】区分输入与评价信息：**输入、输出、评价规则用三种边框区分，并给图例。只供评价的 rubric 不连到被测模型；不同模型收到不同材料，也要标清。
 
 [图例与批注：框架层级与模块编号](#visual-interactcs-fig-1)
 
-- **低饱和配色与清晰对比：**常规模块用中性灰，关键改动用统一强调色。低饱和配色须保持清晰对比。
+- **【铁律】低饱和配色与清晰对比：**常规模块用中性灰，关键改动用统一强调色。低饱和配色须保持清晰对比。
 
 [图例与批注：消融结果](#visual-interactcs-fig-2)
 
-- **对话按轮次与语义分段：**一轮一框，注明角色；同一轮长回复按语义分段，不伪装成多轮。高亮只标关键约束、证据或错误，颜色含义要能读懂。
+- **【铁律】对话按轮次与语义分段：**一轮一框，注明角色；同一轮长回复按语义分段，不伪装成多轮。高亮只标关键约束、证据或错误，颜色含义要能读懂。
 
 [图例与批注：交互案例](#fig-interactcs-case)
 
-- **同一案例仅完整呈现一次：**同一来源的案例在全文只完整呈现一次，其他位置交叉引用。改名、翻译、裁剪也算同一个；必要对照集中展示，单个案例不能证明总体效果。
+- **【铁律】同一案例仅完整呈现一次：**同一来源的案例在全文只完整呈现一次，其他位置交叉引用。改名、翻译、裁剪也算同一个；必要对照集中展示，单个案例不能证明总体效果。
 
 [图例与批注：交互案例](#fig-interactcs-case)
 
-- **同类子图使用一致尺度：**围绕一个问题排现象、诊断、对照和稳健性；同条件同顺序、同配色，同类轴和色标保持可比。
+- **【铁律】同类子图使用一致尺度：**围绕一个问题排现象、诊断、对照和稳健性；同条件同顺序、同配色，同类轴和色标保持可比。
 
 [图例与批注：多面板诊断](#visual-tcod-fig-2)
 
-- **准确呈现坐标与差异：**查单位、分母、方向、坐标起点和误差类型；截断坐标要明确标出。相对增益同时给绝对值，柱长和数值必须对应。
+- **【铁律】准确呈现坐标与差异：**查单位、分母、方向、坐标起点和误差类型；截断坐标要明确标出。相对增益同时给绝对值，柱长和数值必须对应。
 
 [图例与批注：配对增益](#teaching-paired-gain)
 
-- **Caption 说明读法与发现：**图注先说读法和发现，再点出与贡献的关系；图中的简称在 Caption 给全称。结论须有证据支持；“效果显著”须有对应统计检验。
+- **【铁律】Caption 按图的读序讲解：**先说明图是什么，再解释必要标记、简称和术语，按实际面板或上下左右顺序带读，最后给有证据的发现与贡献意义。必要单位、分母和边界不省；“显著”须有对应统计检验。
 
 [图例与批注：置信区间与误差带](#teaching-confidence)
 
-- **编译后检查最终页面：**放回论文检查实际字号、字体嵌入、可选文字、裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后仍正确。
+- **【铁律】编译后检查最终页面：**放回论文检查实际字号、字体嵌入、可选文字、裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后仍正确。
 
 [图例与批注：问题与解法对照](#visual-tcod-fig-1)
 
-- **明确模块输入与输出：**每个关键模块写清收到什么、做什么、交出什么，以及交给谁。模块名与 Method 一致，所有缩写就近解释。
+- **【铁律】明确模块输入与输出：**每个关键模块写清收到什么、做什么、交出什么，以及交给谁。模块名与 Method 一致，所有缩写就近解释。
 
 [图例与批注：框架层级与模块编号](#visual-interactcs-fig-1)
 
-- **解释图中所有标记：**图标旁写对象名；新缩写、符号、边框、线型和数字就近解释。读者只看图与图注，应知道每个标记指什么。
+- **【铁律】解释图中所有标记：**图标旁写对象名；新缩写、符号、边框、线型和数字就近解释。读者只看图与图注，应知道每个标记指什么。
 
 [图例与批注：框架层级与模块编号](#visual-interactcs-fig-1)
 
-- **Framework 展示操作与产物：**“结合 case 去绘制你的流程” 展示一个真实输入怎样变成中间产物和输出，旁边点出设计解决的困难。节点多不等于贡献多。
+- **【铁律】Framework 展示操作与产物：**“结合 case 去绘制你的流程” 展示一个真实输入怎样变成中间产物和输出，旁边点出设计解决的困难。节点多不等于贡献多。
 
 [图例与批注：交互案例](#fig-interactcs-case)
 
 [图例与批注：框架层级与模块编号](#visual-interactcs-fig-1)
 
-- **区分示意与实测：**估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，图形本身须准确，不能仅靠图注纠正。
+- **【铁律】区分示意与实测：**估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，图形本身须准确，不能仅靠图注纠正。
 
 [图例与批注：成本与性能](#teaching-cost)
 
-- **准确区分矢量与位图：**统计图导出矢量 PDF 并嵌入字体。生成底图上的标签另排原生、可见、可选的 PDF 文字；不留重叠字形，不加隐藏 OCR 层。混合 PDF 仍含位图。
+- **【铁律】准确区分矢量与位图：**统计图导出矢量 PDF 并嵌入字体。生成底图上的标签另排原生、可见、可选的 PDF 文字；不留重叠字形，不加隐藏 OCR 层。混合 PDF 仍含位图。
 
 [图例与批注：训练范围对照](#visual-tcod-fig-3)
 
-- **保持修改范围：**只改配色就保留布局、文字、换行、字号、公式、照片和连线；重排须在约定范围内。保留数据、实验和合作者的图。
+- **【铁律】保持修改范围：**只改配色就保留布局、文字、换行、字号、公式、照片和连线；重排须在约定范围内。保留数据、实验和合作者的图。
 
 [图例与批注：消融结果](#visual-interactcs-fig-2)
 
-- **按模板宽度布局：**按实际栏宽起稿，不改页边距、正文字号或页面方向。正文通栏约 16:9、单栏约 4:3 是起点，附录可纵排；不进行非等比缩放。CS 默认用 [!t]，再按正文首次引用检查实际落点。
+- **【铁律】按模板宽度布局：**按实际栏宽起稿，不改页边距、正文字号或页面方向。正文通栏约 16:9、单栏约 4:3 是起点，附录可纵排；不进行非等比缩放。CS 默认用 [!t]，再按正文首次引用检查实际落点。
 
 [图例与批注：问题与解法对照](#visual-tcod-fig-1)
 
-- **表格用于结果与数据：**PaperBank 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
+- **【铁律】表格用于结果与数据：**PaperBank 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
 
 [图例与批注：消融结果](#visual-interactcs-fig-2)
 
-- **重排文字与图形重叠处：**图例、标题、刻度和注释不能挡数据、箭头或边框。为文字保留空间，通过重排解决重叠，不能用遮盖隐藏问题。
+- **【铁律】重排文字与图形重叠处：**图例、标题、刻度和注释不能挡数据、箭头或边框。为文字保留空间，通过重排解决重叠，不能用遮盖隐藏问题。
 
 [图例与批注：KDE 密度分布](#teaching-kde)
 
@@ -1128,47 +1132,49 @@ ShoppingBench: A Real-World Intent-Grounded Shopping Benchmark for LLM-based Age
 <a id="general-rules"></a>
 ### 3.1 全文规范
 
-一篇论文围绕一个主要亮点。标题、摘要、引言、方法和实验讲同一件事；先审论证，再磨语言。模块多，不等于贡献多。
+铁律是本套 CS 写作约定，适用范围按论文类型和当轮官方要求确定。普通建议按内容选择。先查全文要求，再按章节精修。
 
 #### 逻辑：句子承接与对象一致
 
-- **先说为什么值得做：**每项设计都要回答：已有做法在哪种条件下不足，本文改了什么，为什么有用，哪项证据支持。
+- **【铁律】先说为什么值得做：**每项设计都要回答：已有做法在哪种条件下不足，本文改了什么，为什么有用，哪项证据支持。
 
-- **句子之间有逻辑关系：**后句处理前句的问题或产物，Then 和 Therefore 须符合实际关系。
+- **【铁律】句子之间有逻辑关系：**后句处理前句的问题或产物，Then 和 Therefore 须符合实际关系。
 
-- **连接词用对：**转折用 However，有因果依据才用 Therefore；并列直接写。
+- **【铁律】连接词用对：**转折用 However，有因果依据才用 Therefore；并列直接写。
 
-- **章节按流程衔接：**开头说明输入，结尾说明输出及其在下一步的用途。
+- **【铁律】章节按流程衔接：**开头说明输入，结尾说明输出及其在下一步的用途。
 
-- **问题、设计、实验对应：**引言提出的问题，方法处理，实验检验。
+- **【铁律】问题、设计、实验对应：**引言提出的问题，方法处理，实验检验。
 
 #### 语言：完整判断与句长
 
-- **用具体操作替代空泛评价：**用具体操作替换 powerful、comprehensive 等空评价。
+- **【铁律】用具体操作替代空泛评价：**用具体操作替换 powerful、comprehensive 等空评价。
 
-- **短句，完整动作：**长句按步骤拆，后句接前句产物；主语、动作和条件写全。
+- **【铁律】短句，完整动作：**按最终 PDF 检查：常用双栏窄栏句子最多 3 行，单栏约 1.5 行；本稿另有明确要求时按本稿执行。保留完整动作、条件与承接，不缩字体或改模板。
 
-- **正文写完整句子：**加号、箭头不能代替文字关系；公式、代码和图中照常使用。
+- **【铁律】正文写完整句子：**加号、箭头不能代替文字关系；公式、代码和图中照常使用。
 
-- **同级小节篇幅相称：**任务相近，篇幅尽量接近；太长先查重复，复杂内容分段。
+- **【铁律】同级小节篇幅相称：**任务相近，篇幅尽量接近；太长先查重复，复杂内容分段。
+
+- **【铁律】近距离用词去重：**检查同句、相邻句和短段中的实义词、词根与起句重复。删冗余，不靠换同义词掩盖重复，也不删必要术语。
 
 #### 术语：首次定义与名称一致
 
-- **术语首次解释：**写清对象和用途，不让读者到后文找定义。
+- **【铁律】术语首次解释：**写清对象和用途，不让读者到后文找定义。
 
-- **符号首次定义：**写对象、来源、算法、用途和下标；不用的符号删掉。
+- **【铁律】符号首次定义：**写对象、来源、算法、用途和下标；不用的符号删掉。
 
-- **同一对象同一称呼：**同一对象同一名称；正文不用 it／they 及同族代词，换成简短对象名。
+- **【铁律】同一对象同一称呼：**同一对象同一名称；代词的对象须唯一、明确且就近。含混时换成短对象名，清楚的代词保留。
 
-- **贡献词有事实依据：**tailored、expert-confirmed、de-identified 能突出真实贡献。有依据就用，一词换一词，避免重复或无依据的形容词。
+- **【铁律】贡献词有事实依据：**tailored、expert-confirmed、manually selected 等修饰须对应可核查工作。贡献对象与动作前置，修饰词不能代替贡献。
 
 - **发现可取短名：**短名后立即解释具体发现；优先四个英文词以内。
 
 #### 主张：证据与适用范围
 
-- **保留结论条件：**任务、模型、范围和分母写清；有限测试不推广所有场景。
+- **【铁律】保留结论条件：**任务、模型、范围和分母写清；有限测试不推广所有场景。
 
-- **观察与原因分开：**先报告现象，再讲可能原因；匹配对照支持后才归因。
+- **【铁律】观察与原因分开：**先报告现象，再讲可能原因；匹配对照支持后才归因。
 
 - **首句写发现：**随后给图表、关键比较和意义，不复述表头。
 
@@ -1191,9 +1197,9 @@ To make answers traceable to source evidence, [Method] records each retrieved qu
 **高亮与旁批**
 
 1. **records each retrieved quote with the corresponding manual location and relevant dialogue constraints / 记录每个检索摘句、对应的手册位置与相关对话约束**：写动作和对象。记录什么，直接说出来：摘句、位置、约束。“建立可靠证据框架”没有这些信息。
-2. **These records form evidence notes / 这些记录构成证据笔记**：钩子接产物。These records 接前句的三类记录，再说明产物是证据笔记。不是突然换个模块。
-3. **With the inputs and inference budget held fixed / 在固定输入与推理预算后**：比较条件写在近处。说明固定什么，后面的差别才可解释；只写“公平比较”不够。
-4. **improves citation support by [support gain] but adds [latency cost] under [tested conditions] / 使引用支持率提高[提升幅度]，但增加[延迟开销]**：发现保留收益、代价与范围。引用支持率、延迟是两项不同结果。报告已测条件下的取舍，不一句话扩大成“全面提升问答性能”。
+2. **These records form evidence notes / 这些记录构成证据笔记**：【铁律】钩子接产物。These records 接前句的三类记录，再说明产物是证据笔记。不是突然换个模块。
+3. **With the inputs and inference budget held fixed / 在固定输入与推理预算后**：【铁律】比较条件写在近处。说明固定什么，后面的差别才可解释；只写“公平比较”不够。
+4. **improves citation support by [support gain] but adds [latency cost] under [tested conditions] / 使引用支持率提高[提升幅度]，但增加[延迟开销]**：【铁律】发现保留收益、代价与范围。引用支持率、延迟是两项不同结果。报告已测条件下的取舍，不一句话扩大成“全面提升问答性能”。
 
 PaperBank · 教学改写
 
@@ -1279,11 +1285,12 @@ Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools
 
 #### 本节原则
 
-- 一段讲清问题、已有不足、核心贡献、主要发现。摘要能单独读懂，长度按会议要求。
-- 贡献对象和动作尽早出现。关键改动要回应前句的不足，不先堆流程和数量。
-- 每句接住上句的对象，再增加信息。术语首次解释，缩写展开；通常不放引文，投稿规定优先。
-- 结果优先保留有信息增量的发现及比较范围；不逐项报分，不机械以最大数字结尾。
-- 摘要与引言的对应解法都点名：To solve [局限正式名称], we [具体动作与贡献]. 名称与前文一致，泛指 these obstacles 不能代替；方法总述可保留 Therefore。
+- 【铁律】摘要按背景、具体 limitation、对应方法与亮点、实验亮点组织，至少半句背景；长度按会议要求，能单独读懂。
+- 【铁律】贡献对象和动作尽早出现。关键改动要回应前句的不足，不先堆流程和数量。
+- 【铁律】每句接住上句的对象，再增加信息。术语首次解释，缩写展开；通常不放引文，投稿规定优先。
+- 【铁律】结果优先保留有信息增量的发现及比较范围；不逐项报分，不机械以最大数字结尾。
+- 【铁律】摘要解法逐点写 For [具体 limitation], we [实际动作与贡献].，点名前文同一限制。
+- 【铁律】改动摘要或引言后，回读另一节；问题、设计、命名、数字、模型范围和因果方向持续对应，不逐字照抄。
 
 <a id="annotated-abstract"></a>
 
@@ -1293,21 +1300,21 @@ Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools
 
 **English 教学改写**
 
-Document-based dialogue requires answers that respect both source evidence and evolving user constraints. Passage-only generation supplies relevant text without explicitly recording which dialogue constraints the source quotes support. Structured evidence notes pair source quotes with the corresponding manual locations and active dialogue constraints. These notes let the generator cite sources and explain how the evidence relates to each constraint. In our comparison on static English manuals, notes increase citation support relative to direct generation but add latency. The comparison evaluates source support; the support scores do not establish that every user constraint is satisfied.
+Document-based dialogue requires answers that respect both source evidence and evolving user constraints. Passage-only generation supplies relevant text without explicitly recording which dialogue constraints the source quotes support. For this missing evidence-to-constraint link, we introduce structured evidence notes that pair source quotes with manual locations and active dialogue constraints. These notes let the generator cite sources and explain how the evidence relates to each constraint. In our comparison on static English manuals, notes increase citation support relative to direct generation but add latency. The comparison evaluates source support; the support scores do not establish that every user constraint is satisfied.
 
 
 **中文译文**
 
-基于文档的对话要求答案同时符合来源证据与不断变化的用户约束。只使用片段的生成方式提供相关文本，却不明确记录来源摘句支持哪些对话约束。结构化证据笔记将来源摘句与对应的手册位置及当前有效的对话约束配对。这些笔记帮助生成器引用来源，并说明证据与各项约束的关系。在针对静态英语手册的比较中，相比直接生成，笔记提高了引用支持率，但增加了延迟。这个比较评价的是来源支持，不能据此认定每项用户约束都得到满足。
+基于文档的对话要求答案同时符合来源证据与不断变化的用户约束。只使用片段的生成方式提供相关文本，却不明确记录来源摘句支持哪些对话约束。针对证据与约束之间缺少对应记录的问题，我们提出结构化证据笔记，将来源摘句与手册位置及当前有效的对话约束配对。这些笔记帮助生成器引用来源，并说明证据与各项约束的关系。在针对静态英语手册的比较中，相比直接生成，笔记提高了引用支持率，但增加了延迟。这个比较评价的是来源支持，不能据此认定每项用户约束都得到满足。
 
 
 **高亮与旁批**
 
 1. **both source evidence and evolving user constraints / 来源证据与不断变化的用户约束**：任务需求写具体。证据与用户约束是两类要求。先建立它们，下一句的不足与后面的设计才有对象。
-2. **without explicitly recording which dialogue constraints the source quotes support / 却不明确记录来源摘句支持哪些对话约束**：把缺口缩到本文负责的部分。承认片段提供了相关文本，再限定缺口：没有显式记录证据与约束的对应。对应设计也必须处理这个缺口。
-3. **Structured evidence notes pair source quotes with the corresponding manual locations and active dialogue constraints. / 结构化证据笔记将来源摘句与对应的手册位置及当前有效的对话约束配对。**：贡献对象与动作前置。句首先报新增产物，pair 说具体改动：摘句、位置、约束配对。不是先报流程，最后才揭晓贡献。
+2. **without explicitly recording which dialogue constraints the source quotes support / 却不明确记录来源摘句支持哪些对话约束**：【铁律】把缺口缩到本文负责的部分。承认片段提供了相关文本，再限定缺口：没有显式记录证据与约束的对应。对应设计也必须处理这个缺口。
+3. **For this missing evidence-to-constraint link, we introduce structured evidence notes that pair source quotes with manual locations and active dialogue constraints. / 针对证据与约束之间缺少对应记录的问题，我们提出结构化证据笔记，将来源摘句与手册位置及当前有效的对话约束配对。**：【铁律】For 点名缺口，紧跟产物与动作。For 接回上一句缺少的证据与约束对应记录；we introduce 立即报新产物，再用 pair 说明摘句、位置和约束怎样配对。
 4. **notes increase citation support relative to direct generation but add latency / 相比直接生成，笔记提高了引用支持率，但增加了延迟**：发现与取舍一起交代。这个假设案例保留引用支持率和延迟的取舍。真实论文换成核验过的结果，不逐项罗列排名。
-5. **the support scores do not establish that every user constraint is satisfied / 不能据此认定每项用户约束都得到满足**：别让指标越界。引用支持率测来源支持，不能代替约束满足率。实际摘要只保留会影响结论理解的边界。
+5. **the support scores do not establish that every user constraint is satisfied / 不能据此认定每项用户约束都得到满足**：【铁律】别让指标越界。引用支持率测来源支持，不能代替约束满足率。实际摘要只保留会影响结论理解的边界。
 
 PaperBank · 教学改写
 
@@ -1323,15 +1330,18 @@ PaperBank · 教学改写
 
 #### 本节原则
 
-- 段首加钩子：接回刚提出的问题、困难或产物，再推进一层。However 写转折，To address 写解法；对象必须接得上。
-- 前两段可穿插、合并或拆分，但要有领域回顾与已有方法比较。回顾给局限铺路：后面批评什么，前面先说明已有方法怎样处理它。
-- 局限要具体：问题是什么、为什么存在、阻碍了什么。必要时用简短名称，后文沿用；不只列几个困难就开始报方法。
-- 贡献对象与动作尽早出现。expert-confirmed、manually selected、tailored 等词要对应实际工作；写清选择依据，不用“高质量”代替依据。
-- 方法段逐点解决前面的困难，只讲设计思路；公式与实现留给 Method。图句说明图里哪个例子或对比支持这项设计。
-- 结果段先用钩子接回研究问题，再给主要发现。贡献、术语和发现与 Abstract 对应；不逐字复述，也不把排名当作分析。
-- 给每个局限沿用同一名称和定义；Related Work 给比较依据，Method 写对应设计，实验检验这项设计并接回该局限。
-- 结果概述对应正文实际结论。若实验只支持某些任务或条件，摘要、引言、讨论和结论都限定到相同范围。
-- 摘要与引言的对应解法都点名：To solve [局限正式名称], we [具体动作与贡献]. 名称与前文一致，泛指 these obstacles 不能代替；方法总述可保留 Therefore。
+- 【铁律】段首用钩子接回前文的具体问题、困难或产物，再推进一层；However 写转折，To solve 点名所解决的困难。
+- 【铁律】前两段可穿插、合并或拆分，但要有领域回顾与已有方法比较。回顾给局限铺路：后面批评什么，前面先说明已有方法怎样处理它。
+- 【铁律】挑战名称本身就要显示困难：什么缺失、什么难以完成、什么阻碍目标。随后解释原因和影响，中性任务属性不能直接当挑战名。
+- 【铁律】贡献对象与动作尽早出现。expert-confirmed、manually selected、tailored 等词要对应实际工作；写清选择依据，不用“高质量”代替依据。
+- 【铁律】方法介绍段首用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].；随后 To solve 逐点给解法。引言讲设计思路，公式与实现留给 Method。
+- 【铁律】结果段先接回研究问题，再概述发现。改动摘要或引言后回读另一节，核对问题、设计、命名、数字与范围；不逐字重复，不把排名当分析。
+- 【铁律】给每个局限沿用同一名称和定义；Related Work 给比较依据，Method 写对应设计，实验检验这项设计并接回该局限。
+- 【铁律】结果概述对应正文实际结论。若实验只支持某些任务或条件，摘要、引言、讨论和结论都限定到相同范围。
+- 【铁律】引言解法逐点写 To solve [具体 limitation], we [实际动作与贡献].，点名前文同一限制；方法总述不能代替逐点解法。贡献列表第 2 项改用 For [挑战], we [解法]。
+- 【铁律】引言只引用属于本节的图表；不提前指向后文方法、实验、附录的图表、公式或章节，也不写“见后文”。文献 citation 与有依据的结论保留。
+- 【铁律】引言中的正式命名对象每次出现用斜体，强调性加粗对同一对象全节最多一次；贡献列表不重置次数，普通专业词不机械斜体。
+- 【铁律】普通正文 In summary, our contributions are: 后接原生 itemize，固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个用 For [挑战], we [解法]；列表后直接下一节，不造贡献凑数。
 
 <a id="intro-writing-templates"></a>
 #### 引言写作模板
@@ -1359,7 +1369,7 @@ Existing [approach family A] uses [input A] to [supported operation A] [citation
 
 Therefore, to address these obstacles, we introduce [method name], a [verified distinguishing design and purpose]. To solve [specific limitation], we [concrete design action and contribution] to meet [corresponding design requirement]. It takes [input] and produces [output] through [high-level mechanism]. To solve [another established limitation, if present], we [next design action] using [preceding output] to [corresponding purpose]. Together, these designs enable [supported capability] under [stated conditions].
 
-方法名后立即交代亮点和用途；To solve 点名前文同一个局限并给对应动作。每项设计有依据，正面修饰能从来源、操作或结果中核查。
+【铁律】方法名后立即交代亮点和用途；To solve 点名前文同一个局限并给对应动作。每项设计有依据，正面修饰能从来源、操作或结果中核查。
 
 **实验概述与结论边界**
 
@@ -1372,13 +1382,13 @@ To answer [research question], we compare [method name] with [appropriate baseli
 ```latex
 In summary, our contributions are:
 \begin{itemize}
-    \item [Core method with its distinguishing feature and purpose].
-    \item [Independent design contribution and the limitation it addresses].
-    \item [Verified main finding and evidence about the design within the tested scope].
+    \item [Research object, distinguishing feature, and purpose].
+    \item For [challenge A], we [matching solution A]. For [challenge B, if present], we [matching solution B].
+    \item [Verified main finding and necessary scope or conditions].
 \end{itemize}
 ```
 
-普通正文引导句后接原生 itemize；每项一个独立贡献，列表后直接下一节。这里演示三项，按真实贡献增删，不为凑数拆分或编造；贡献亮点与作用前置。
+【铁律】固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个用 For 点名真实挑战；不造贡献凑数，列表后直接下一节。
 
 </details>
 
@@ -1409,7 +1419,7 @@ However, establishing [required evaluation] faces [self-explanatory construction
 
 Therefore, to address these obstacles, we introduce [artifact name], a [verified source or distinguishing design] for [evaluation purpose]. To solve [data construction obstacle], we construct [data contribution] from [verified source] using [documented selection or collection rule]. To solve [specific evaluation limitation], we [evaluation contribution and action] to measure [capability linked to the earlier gap]. The tested system receives [task input], while [evaluation evidence or criteria] is used by [evaluator] to assess [system output]. These components support [supported evaluation capability] within [coverage boundary].
 
-先突出产物，再写可执行的来源与构建依据；To solve 复用评价局限名称。受测系统输入与评分材料分开，数据与判据分别接回对应困难。
+【铁律】先突出产物，再写可执行的来源与构建依据；To solve 复用评价局限名称。受测系统输入与评分材料分开，数据与判据分别接回对应困难。
 
 **基准结果与研究发现**
 
@@ -1422,13 +1432,13 @@ To answer [research question], we evaluate [systems or model families] using [sh
 ```latex
 In summary, our contributions are:
 \begin{itemize}
-    \item [Data contribution with its source or distinguishing design and coverage].
-    \item [Evaluation contribution and the behavior it distinguishes].
-    \item [Verified evaluation finding and its tested scope].
+    \item [Research object, distinguishing feature, and purpose].
+    \item For [challenge A], we [matching solution A]. For [challenge B, if present], we [matching solution B].
+    \item [Verified main finding and necessary scope or conditions].
 \end{itemize}
 ```
 
-普通正文引导句后接原生 itemize；每项一个独立贡献，列表后直接下一节。这里演示三项，按真实贡献增删，不为凑数拆分或编造；贡献亮点与作用前置。
+【铁律】固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个用 For 点名真实挑战；不造贡献凑数，列表后直接下一节。
 
 </details>
 
@@ -1466,13 +1476,13 @@ To answer [original capability question], we evaluate [method] on [main task] an
 ```latex
 In summary, our contributions are:
 \begin{itemize}
-    \item [Diagnostic contribution and the supported bottleneck finding].
-    \item [Method contribution that addresses the diagnosed bottleneck].
-    \item [Verified findings on the main task and under the diagnostic conditions].
+    \item [Research object, distinguishing feature, and purpose].
+    \item For [challenge A], we [matching solution A]. For [challenge B, if present], we [matching solution B].
+    \item [Verified main finding and necessary scope or conditions].
 \end{itemize}
 ```
 
-普通正文引导句后接原生 itemize；每项一个独立贡献，列表后直接下一节。这里演示三项，按真实贡献增删，不为凑数拆分或编造；贡献亮点与作用前置。
+【铁律】固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个用 For 点名真实挑战；不造贡献凑数，列表后直接下一节。
 
 </details>
 
@@ -1497,7 +1507,7 @@ Existing studies examine [relationship or behavior] using [reported design] [cit
 
 Therefore, to address these obstacles, we introduce [study or analysis], a [verified distinguishing design] for testing [research question]. To solve [specific evidence limitation], we [core comparison or measurement]. We compare [groups or conditions] that differ in [examined factor], using [documented control or adjustment] to examine [alternative explanation]. [measurement or analysis contribution] measures [observable outcome] using [verified data or procedure]. This design estimates [precise quantity or relationship] within [study population and conditions].
 
-To solve 点名证据缺口，贡献落到可复核的比较或测量。受控实验交代改变因素；观察研究交代自然差异、调整及估计对象，不把调整写成排除所有解释。
+【铁律】To solve 点名证据缺口，贡献落到可复核的比较或测量。受控实验交代改变因素；观察研究交代自然差异、调整及估计对象，不把调整写成排除所有解释。
 
 **主要发现与解释范围**
 
@@ -1510,20 +1520,20 @@ To answer [research question], we analyze [evidence] under [reported study condi
 ```latex
 In summary, our contributions are:
 \begin{itemize}
-    \item [Study design or measurement contribution and the question it tests].
-    \item [Verified empirical finding and its study conditions].
-    \item [Independent analysis contribution, if present, and its supported interpretation].
+    \item [Research object, distinguishing feature, and purpose].
+    \item For [challenge A], we [matching solution A]. For [challenge B, if present], we [matching solution B].
+    \item [Verified main finding and necessary scope or conditions].
 \end{itemize}
 ```
 
-普通正文引导句后接原生 itemize；每项一个独立贡献，列表后直接下一节。这里演示三项，按真实贡献增删，不为凑数拆分或编造；贡献亮点与作用前置。
+【铁律】固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个用 For 点名真实挑战；不造贡献凑数，列表后直接下一节。
 
 </details>
 
 <a id="intro-hooks"></a>
 #### 段落承接
 
-句首钩子点名要处理的问题或沿用前文产物。摘要与引言的对应解法用 To solve [同名局限], we [具体动作与贡献]；方法总述可先保留 Therefore。全文沿用同一对象和术语。
+句首钩子点名前文的问题或产物。摘要解法用 For [具体 limitation], we ...，引言用 To solve [同名 limitation], we ...；方法总述保留 Therefore 与亮点同位语。
 
 
 <a id="abstract-intro-map"></a>
@@ -1541,7 +1551,7 @@ In summary, our contributions are:
 
 **贡献 · 同一贡献，展开设计作用**
 
-**Abstract**：To solve [specific limitation], we introduce [name], which uses [core design] to [purpose].
+**Abstract**：For [specific limitation], we introduce [name], which uses [core design] to [purpose].
 
 **Intro**：Therefore, to address these obstacles, we introduce [name], a [key feature and purpose]. To solve [specific limitation], we use [core design] to [concrete action and role].
  · [查看对应关系](#intro-map-design)
@@ -1687,10 +1697,10 @@ However, answering this question faces two obstacles. First, data scarcity limit
 
 **高亮与旁批**
 
-1. **However, answering this question faces two obstacles. / 然而，回答这个问题有两个困难。**：段首先加钩子。this question 接回上段的问题。先让读者知道这段为什么出现，再讲困难；只放一个 However 不够。
+1. **However, answering this question faces two obstacles. / 然而，回答这个问题有两个困难。**：【铁律】段首先加钩子。this question 接回上段的问题。先让读者知道这段为什么出现，再讲困难；只放一个 However 不够。
 2. **data scarcity limits access to real commercial conversations, and identifying complex or ambiguous needs requires costly expert annotation / 数据稀缺使真实商业对话难以获取，识别复杂或模糊的需求还需要成本较高的专家标注**：数据与标准是两类困难。数据难拿、标注成本高，是数据问题；标准随情境变化，是评价问题。别把后者写成“进一步阻碍数据获取”。
 3. **Even within one category, requirements and risks vary across cases. / 即使是同类商品，不同案例的需求与风险也会变化。**：category 和 case 别直接互换。服装与手机说明品类差异。这句再交代同类商品也有不同需求与风险，才接得上 case-dependent。
-4. **Together, these obstacles hinder accurate evaluation of LLMs on complex, ambiguous, and time-sensitive shopping requests. / 这两类困难共同妨碍了对 LLM 处理复杂、模糊且有时效性的购物请求进行准确评价。**：加一句铺垫，再提解法。点明困难妨碍的是准确评价。下一段的数据与按例标准就有了来由，不要从困难直接跳到 We introduce。
+4. **Together, these obstacles hinder accurate evaluation of LLMs on complex, ambiguous, and time-sensitive shopping requests. / 这两类困难共同妨碍了对 LLM 处理复杂、模糊且有时效性的购物请求进行准确评价。**：【铁律】加一句铺垫，再提解法。点明困难妨碍的是准确评价。下一段的数据与按例标准就有了来由，不要从困难直接跳到 We introduce。
 
 PaperBank · 教学改写
 
@@ -1706,19 +1716,19 @@ PaperBank · 教学改写
 
 **English 教学改写**
 
-To address these obstacles, we introduce [Benchmark]. Business experts screen cases in de-identified shopping conversations. Each case retains timestamped dialogue, including changed needs and unanswered questions. Experts distill Ideal Response Principles from excellent replies manually selected from completed transactions. These principles guide case-specific criteria across Core, Excellence, and Safety and inform a tailored reasoning prompt. The tiers assess required completion, added value, and risk avoidance, respectively. Our example (Figure [X]) illustrates how elapsed time and unresolved information affect the advice a case requires.
+Therefore, to address these obstacles, we introduce [Benchmark], an evaluation resource that preserves changing needs and unresolved conditions. Business experts screen cases in de-identified shopping conversations. Each case retains timestamped dialogue, including changed needs and unanswered questions. Experts distill Ideal Response Principles from excellent replies manually selected from completed transactions. These principles guide case-specific criteria across Core, Excellence, and Safety and inform a tailored reasoning prompt. The tiers assess required completion, added value, and risk avoidance, respectively. Our example (Figure [X]) illustrates how elapsed time and unresolved information affect the advice a case requires.
 
 
 **中文译文**
 
-为处理这些困难，我们提出【Benchmark】。业务专家从去标识化的购物对话中筛选案例。每个案例保留带时间戳的对话，包括发生变化的需求和未得到回答的问题。专家提炼出理想回复原则，依据的是从成功交易中手工筛选出的优秀回复。这些原则指导针对每个案例制定 Core、Excellence 和 Safety 三层标准，并用于设计专门的推理提示词。三层分别评价必要要求的完成、额外价值和风险规避。我们的例子（图【X】）说明时间推移和未决信息如何影响一个案例所需的建议。
+因此，为处理这些困难，我们提出【Benchmark】，一个保留变化需求与未决条件的评价资源。业务专家从去标识化的购物对话中筛选案例。每个案例保留带时间戳的对话，包括发生变化的需求和未得到回答的问题。专家提炼出理想回复原则，依据的是从成功交易中手工筛选出的优秀回复。这些原则指导针对每个案例制定 Core、Excellence 和 Safety 三层标准，并用于设计专门的推理提示词。三层分别评价必要要求的完成、额外价值和风险规避。我们的例子（图【X】）说明时间推移和未决信息如何影响一个案例所需的建议。
 
 
 **高亮与旁批**
 
-1. **Experts distill Ideal Response Principles / 专家提炼出理想回复原则**：专家的产物放前面。先说谁做了什么、产出了什么，再交代来源。不要读到句尾才知道核心贡献是提炼原则。
+1. **Experts distill Ideal Response Principles / 专家提炼出理想回复原则**：【铁律】专家的产物放前面。先说谁做了什么、产出了什么，再交代来源。不要读到句尾才知道核心贡献是提炼原则。
 2. **excellent replies manually selected from completed transactions / 从成功交易中手工筛选出的优秀回复**：手工、优秀、成单都要交代。manually 写出手工；excellent 写出质量；成单写出来源。成单可筛选，但不自动证明回复好，还需给实际质量标准。
-3. **These principles guide case-specific criteria across Core, Excellence, and Safety / 这些原则指导针对每个案例制定 Core、Excellence 和 Safety 三层标准**：这句接回前文的评价要求。These principles 接上专家的产物；case-specific 回应标准随案例变化。三层名称全文一致，分别说明检查什么。
+3. **These principles guide case-specific criteria across Core, Excellence, and Safety / 这些原则指导针对每个案例制定 Core、Excellence 和 Safety 三层标准**：【铁律】这句接回前文的评价要求。These principles 接上专家的产物；case-specific 回应标准随案例变化。三层名称全文一致，分别说明检查什么。
 4. **Our example (Figure [X]) illustrates how elapsed time and unresolved information affect the advice a case requires. / 我们的例子（图【X】）说明时间推移和未决信息如何影响一个案例所需的建议。**：图要接回刚才的输入。图中要能看到时间、需求变化与未决条件。若再比较别人缺少什么输入，逐项核对对比表；别凭方法名称推断。
 
 PaperBank · 教学改写
@@ -1745,8 +1755,8 @@ To answer this question, we evaluate [commercial models] and [open-weight models
 
 **高亮与旁批**
 
-1. **To answer this question / 为回答这个问题**：尤其是段首，要接回问题。先接前文的研究问题，再报模型范围。否则这段像突然开始列名单，读者不知道实验在回答什么。
-2. **Across these models, we observe Product Evidence Overreach, where replies add unsupported product claims, and Shopping Uncertainty Collapse, where unresolved needs are treated as settled. / 在这些模型的回复中，我们观察到两类失败：Product Evidence Overreach，即回复添加了缺少证据支持的商品声明；Shopping Uncertainty Collapse，即将尚未确定的需求视为已经明确。**：先 overview，名称要对应。先用一句总览两类失败，再展开。与摘要和前文保留同一名称，解释可以转述；模型数量与分数不能代替发现。
+1. **To answer this question / 为回答这个问题**：【铁律】尤其是段首，要接回问题。先接前文的研究问题，再报模型范围。否则这段像突然开始列名单，读者不知道实验在回答什么。
+2. **Across these models, we observe Product Evidence Overreach, where replies add unsupported product claims, and Shopping Uncertainty Collapse, where unresolved needs are treated as settled. / 在这些模型的回复中，我们观察到两类失败：Product Evidence Overreach，即回复添加了缺少证据支持的商品声明；Shopping Uncertainty Collapse，即将尚未确定的需求视为已经明确。**：【铁律】先 overview，名称要对应。先用一句总览两类失败，再展开。与摘要和前文保留同一名称，解释可以转述；模型数量与分数不能代替发现。
 3. **Further analysis links these failures to changing requirements and unresolved information. / 进一步分析将这些失败与需求变化和未决信息联系起来。**：这里还可以展开一个结论。links 还没说具体发现。补实际条件、对照与结果，说明哪类失败何时更明显；关联不能直接写成因果。
 
 PaperBank · 教学改写
@@ -1819,10 +1829,9 @@ To enable automation, prior works have employed conditioned generators [22, 31, 
 ```latex
 In summary, our contributions are:
 \begin{itemize}
-    \item We propose [core contribution] to [research objective].
-    \item We design [mechanism] that [specific operation].
-    \item We introduce [evaluation] for [what it checks].
-    \item Experiments across [scope] reveal [specific finding].
+    \item We introduce [research object], a [distinguishing feature] for [task and purpose].
+    \item For [challenge A], we [solution A]. For [challenge B, if present], we [solution B].
+    \item Experiments within [tested scope] reveal [verified finding and necessary conditions].
 \end{itemize}
 ```
 
@@ -1837,11 +1846,12 @@ In summary, our contributions are:
 
 #### 本节原则
 
+- 【铁律】使用原生 section / subsection；主题标题独占一行，在最终 PDF 最多一行，不以 paragraph 或行内粗体代替。
 - 按共同任务或机制分组，解释各路线怎样工作。先承认已有能力，再比较真正相近的工作。
-- 每个小节的末尾固定这样写：However, [现有方法在具体范围内的局限]. To solve this [problem], we [对应设计及作用]. 两句紧接，不夹一句空泛总结。
-- However 的问题名称、对象与范围直接对齐 Intro；解决句也对齐 Intro 的方案。不同小节负责不同缺口。
-- 不足要能回查原论文。未报告不等于没有；仅测单轮，不等于多轮一定失败。客观限定范围，不夸大缺陷。
-- 引用按相关性选，不设篇数配额，也不因方法相似而漏引。可直接比较的近邻安排基线；设置不同就讲清差异。
+- 【铁律】每个主题小节都这样收尾：However, [与引言对应的具体不足]. To solve this [problem], we [实际改进]. 两句紧接，包括第一个小节。
+- 【铁律】However 的问题名称、对象与范围对齐 Intro，To solve 对齐同一方案；不同主题承担不同缺口。
+- 【铁律】不足要能回查原论文。未报告不等于没有；仅测单轮，不等于多轮一定失败。客观限定范围，不夸大缺陷。
+- 【铁律】引用按相关性选，不设篇数配额，也不因方法相似而漏引。可直接比较的近邻安排基线；设置不同就讲清差异。
 
 <a id="annotated-related-closure"></a>
 
@@ -1851,20 +1861,20 @@ In summary, our contributions are:
 
 **English 教学改写**
 
-Evidence-grounded dialogue systems select supporting text before generating an answer. [A] retrieves passages for the current question, whereas [B] links retrieved passages to answer claims [citations]. These claim links make support easier to inspect, but [B] is evaluated only on isolated questions. However, these comparisons do not establish whether earlier constraints remain satisfied across dialogue turns. To address this limitation, we attach dialogue constraints to evidence notes and test their retention across turns.
+Evidence-grounded dialogue systems select supporting text before generating an answer. [A] retrieves passages for the current question, whereas [B] links retrieved passages to answer claims [citations]. These claim links make support easier to inspect, but [B] is evaluated only on isolated questions. However, these comparisons do not establish whether earlier constraints remain satisfied across dialogue turns. To solve this constraint-retention problem, we attach dialogue constraints to evidence notes and test their retention across turns.
 
 
 **中文译文**
 
-基于证据的对话系统先筛选支持文本，再生成答案。[A] 为当前问题检索片段，[B] 则把检索片段与答案主张关联[引用]。这些主张关联便于检查依据，但 [B] 的评价仅覆盖独立问题。然而，这些比较尚未说明前文约束能否在多轮对话中持续得到满足。为解决这个不足，我们把对话约束绑定到证据笔记，并检验约束在多轮中的保留情况。
+基于证据的对话系统先筛选支持文本，再生成答案。[A] 为当前问题检索片段，[B] 则把检索片段与答案主张关联[引用]。这些主张关联便于检查依据，但 [B] 的评价仅覆盖独立问题。然而，这些比较尚未说明前文约束能否在多轮对话中持续得到满足。为解决这个约束保留问题，我们把对话约束绑定到证据笔记，并检验约束在多轮中的保留情况。
 
 
 **高亮与旁批**
 
 1. **retrieves passages for the current question, whereas [B] links retrieved passages to answer claims / 为当前问题检索片段，[B] 则把检索片段与答案主张关联**：分类有共同尺度。比较支持文本怎样组织：只检索片段，还是关联到主张。不是每句换一个作者名字。
 2. **These claim links make support easier to inspect / 这些主张关联便于检查依据**：先承认已有能力。说明关联主张带来的用途。后面的不足限定在跨轮评价，不否定这一已有能力。
-3. **However, these comparisons do not establish whether earlier constraints remain satisfied across dialogue turns. / 然而，这些比较尚未说明前文约束能否在多轮对话中持续得到满足。**：However：说清哪项问题没被回答。接回上一句的独立问题评价，限定为未检验跨轮约束。不能偷换成“这些方法无法处理多轮”。
-4. **To address this limitation, we attach dialogue constraints to evidence notes and test their retention across turns. / 为解决这个不足，我们把对话约束绑定到证据笔记，并检验约束在多轮中的保留情况。**：紧跟解法：同一个缺口，同一个对象。跨轮约束缺少检验→绑定约束并检验保留情况。这一设计也必须出现在 Intro、Method 和实验中。
+3. **However, these comparisons do not establish whether earlier constraints remain satisfied across dialogue turns. / 然而，这些比较尚未说明前文约束能否在多轮对话中持续得到满足。**：【铁律】However：说清哪项问题没被回答。接回上一句的独立问题评价，限定为未检验跨轮约束。不能偷换成“这些方法无法处理多轮”。
+4. **To solve this constraint-retention problem, we attach dialogue constraints to evidence notes and test their retention across turns. / 为解决这个约束保留问题，我们把对话约束绑定到证据笔记，并检验约束在多轮中的保留情况。**：【铁律】紧跟解法：同一个缺口，同一个对象。跨轮约束缺少检验→绑定约束并检验保留情况。这一设计也必须出现在 Intro、Method 和实验中。
 
 PaperBank · 教学改写
 
@@ -1914,13 +1924,13 @@ Multi-dancer generation is an emerging area currently in its nascent stage. To t
 One group [mechanism A], whereas another group [mechanism B]~\cite{...}.
 More recent extensions [additional established capability]~\cite{...}.
 However, these approaches do not establish [Intro challenge A] under [scope A].
-To address this limitation, we [matching design A] to [purpose A].
+To solve this [problem], we [matching design A] to [purpose A].
 
 \subsection{[Short Topic B]}
 [Research line B] evaluates [property] using [evaluation basis]~\cite{...}.
 Other evaluations [substantive extension]~\cite{...}.
 However, [Intro challenge B] remains unresolved under [scope B].
-To address this limitation, we [matching design B] to [purpose B].
+To solve this [problem], we [matching design B] to [purpose B].
 ```
 
 </details>
@@ -1934,13 +1944,13 @@ To address this limitation, we [matching design B] to [purpose B].
 
 #### 本节原则
 
-- 铁律：为什么你的方法好，比解释清楚方法更重要。每项关键设计接回 Intro 的具体困难，再讲怎样实现。
-- 任务定义写清实际输入、要求输出和约束；训练、推理、评价能看到的信息分开，符号随计算引入。
-- Overview 先讲核心思路，再按真实依赖说明各节作用、输入和产物。章节名是阅读位置，不是处理者；每个章节名与节号只出现一次，框架图对应实际操作。
-- 模块首句用 To + 具体目的。随后解释设计依据、关键操作与必要公式，末句交代产物给谁用。
+- 【铁律】为什么你的方法好，比解释清楚方法更重要。每项关键设计接回 Intro 的具体困难，再讲怎样实现。
+- 【铁律】任务定义写清实际输入、要求输出和约束；训练、推理、评价能看到的信息分开，符号随计算引入。
+- 【铁律】Overview 先讲设计为何针对引言困难，再按真实输入输出衔接。用 in [章节名] (ref) 定位，每个章节名与引用只出现一次；实际执行者作主语，末句引用 framework。
+- 【铁律】模块首句用 To [具体目的], [实际主语] ...；随后给设计依据、操作和必要公式，末句交代产物给谁用。
 - 自己的设计占主要篇幅。标准编码、格式转换简写；参数、长 prompt 和部署细节放可定位的附录。
-- 公式说明对象、单位、下标、信号来源与更新对象；并行、循环、反馈不能硬写成顺序流水线。
-- Overview 先接回 Intro 的具体局限，再概括各阶段怎样交接；每个小节开头说明本步目的，结尾交代输出怎样供下一步使用。
+- 【铁律】公式说明对象、单位、下标、信号来源与更新对象；并行、循环、反馈不能硬写成顺序流水线。
+- 【铁律】Overview 先接回 Intro 的具体局限，再概括各阶段怎样交接；每个小节开头说明本步目的，结尾交代输出怎样供下一步使用。
 
 <a id="annotated-method-task"></a>
 
@@ -1960,9 +1970,9 @@ Given a question, the dialogue history, and a collection of English manuals, the
 
 **高亮与旁批**
 
-1. **Given a question, the dialogue history, and a collection of English manuals / 给定一个问题、它的对话历史和一组英语手册**：输入先落到对象。问题、历史和手册是不同输入。读者先知道系统拿到了什么，再看符号。
-2. **respects earlier constraints and cites supporting passages / 遵守前文约束、附有支持片段引用**：输出不只报名字。回答要满足哪两项要求，直接在任务定义里说。后面的指标也应检验这两件事。
-3. **no reference answer / 不接收参考答案**：划清可见信息。评价参照不等于推理输入。图中也不能把参考答案连进生成器。
+1. **Given a question, the dialogue history, and a collection of English manuals / 给定一个问题、它的对话历史和一组英语手册**：【铁律】输入先落到对象。问题、历史和手册是不同输入。读者先知道系统拿到了什么，再看符号。
+2. **respects earlier constraints and cites supporting passages / 遵守前文约束、附有支持片段引用**：【铁律】输出不只报名字。回答要满足哪两项要求，直接在任务定义里说。后面的指标也应检验这两件事。
+3. **no reference answer / 不接收参考答案**：【铁律】划清可见信息。评价参照不等于推理输入。图中也不能把参考答案连进生成器。
 4. **unless the user explicitly changes it / 除非用户明确更改**：边界说具体。旧约束何时有效，给出规则；不要让模型或读者自行猜。
 
 PaperBank · 教学改写
@@ -1989,11 +1999,11 @@ To retain earlier constraints during answering, we connect quoted evidence to th
 
 **高亮与旁批**
 
-1. **To retain earlier constraints during answering / 为在回答中保留前文约束**：先讲为什么。接回 Intro 的约束丢失问题。读者先知道设计目的，再看章节位置。
-2. **In History-aware Retrieval (Sec. [retrieval]), we select / 在历史感知检索（第[retrieval]节）中，我们筛选**：章节负责导航，we 执行操作。小节名与节号只出现一次。不是“这个章节检索了文本”；实际处理者是系统或作者。
-3. **Using these passages / 使用这些片段**：接住上一节的产物。检索出的片段进入笔记构建。串行、并行或反馈按实际依赖写，不能为了顺口编先后。
-4. **the generator uses the resulting notes / 生成器使用所得笔记**：再把笔记交给生成器。当前产物成为下一步输入。“先 A 再 B”还不够，要说明 B 使用 A 的什么。
-5. **Figure [framework] shows these dependencies. / 图[framework]展示这些依赖关系。**：图与正文对上。填真实图号；框架图画出片段→笔记→答案的依赖，不只排三个模块名。
+1. **To retain earlier constraints during answering / 为在回答中保留前文约束**：【铁律】先讲为什么。接回 Intro 的约束丢失问题。读者先知道设计目的，再看章节位置。
+2. **In History-aware Retrieval (Sec. [retrieval]), we select / 在历史感知检索（第[retrieval]节）中，我们筛选**：【铁律】章节负责导航，we 执行操作。小节名与节号只出现一次。不是“这个章节检索了文本”；实际处理者是系统或作者。
+3. **Using these passages / 使用这些片段**：【铁律】接住上一节的产物。检索出的片段进入笔记构建。串行、并行或反馈按实际依赖写，不能为了顺口编先后。
+4. **the generator uses the resulting notes / 生成器使用所得笔记**：【铁律】再把笔记交给生成器。当前产物成为下一步输入。“先 A 再 B”还不够，要说明 B 使用 A 的什么。
+5. **Figure [framework] shows these dependencies. / 图[framework]展示这些依赖关系。**：【铁律】图与正文对上。填真实图号；框架图画出片段→笔记→答案的依赖，不只排三个模块名。
 
 PaperBank · 教学改写
 
@@ -2019,11 +2029,11 @@ To keep earlier requirements available during answering, the note builder links 
 
 **高亮与旁批**
 
-1. **To keep earlier requirements available during answering / 为让回答阶段仍能使用前文要求**：目的顶在第一句。To 后写具体目的，主句给执行者与关键设计。别先讲半段背景。
+1. **To keep earlier requirements available during answering / 为让回答阶段仍能使用前文要求**：【铁律】目的顶在第一句。To 后写具体目的，主句给执行者与关键设计。别先讲半段背景。
 2. **unsuitable for an offline-only request / 不适用于仅限离线的请求**：解释为什么要这样做。“事实正确”不等于“符合需求”。矛盾明确，设计才有必要性。
 3. **the manual location and the constraint supported or contradicted by the quote / 它在手册中的位置，以及它支持或违背的约束**：操作落实到字段。谁处理什么、保留哪些信息写清楚，后面的表示或公式才有内容。
 4. **an unverified relation is left unresolved / 尚未核验的关系保留为未确定**：处理边界情况。不知道的关系不能自动写成支持或冲突；需要有明确处理规则。
-5. **receives these notes together with the current question / 接收这些笔记和当前问题**：末句交给下一步。写明产物、接收者和用途；这里是目标能力，不能伪装成实测提升。
+5. **receives these notes together with the current question / 接收这些笔记和当前问题**：【铁律】末句交给下一步。写明产物、接收者和用途；这里是目标能力，不能伪装成实测提升。
 
 PaperBank · 教学改写
 
@@ -2091,14 +2101,14 @@ Figure~\ref{fig:framework} summarizes this workflow.
 
 #### 本节原则
 
-- 先把 Intro 的核心主张变成可检验的问题，再安排主结果、消融和必要的扩展实验。RQ 是组织工具，不必每表编号。
-- 设置按 Metrics、Baselines、Implementation Details 分组。指标写定义、方向、分母、汇总与无效输出处理；基线按路线介绍。
-- 对齐会改变结果的条件。写清数据版本与划分、训练和推理预算、参数选择、重复单位，以及人工或模型 judge 的核验方式。
-- 结果段先加粗一句具体发现，再给关键对照与意义。不要逐行读表；收益、代价和负结果都要解释。
-- 消融一次删除或替换一个因素，固定其他条件。多项一起改，只能评价整套改动，不能把收益归给其中一项。
-- 扩展实验围绕实际主张选取；效率算端到端成本，稳定性报告重复变化。个例解释过程，不能代替总体证据。
-- 段首先接回 Intro 的研究问题或 Method 的设计动机，再报告发现、关键对照及图表依据；分析最后说明原问题回答到了哪一步。
-- Intro 中的每项核心设计都应能找到对应检验。只得到整套方法的结果时，不把收益单独归给未经检验的模块。
+- 【铁律】先把 Intro 的核心主张变成可检验的问题，再安排主结果、消融和必要的扩展实验。RQ 是组织工具，不必每表编号。
+- 【铁律】设置按 Metrics、Baselines、Implementation Details 分组。指标写定义、方向、分母、汇总与无效输出处理；基线按路线介绍。
+- 【铁律】对齐会改变结果的条件。写清数据版本与划分、训练和推理预算、参数选择、重复单位，以及人工或模型 judge 的核验方式。
+- 【铁律】结果段先加粗一句具体发现，再给关键对照与意义。不要逐行读表；收益、代价和负结果都要解释。
+- 【铁律】消融一次删除或替换一个因素，固定其他条件。多项一起改，只能评价整套改动，不能把收益归给其中一项。
+- 【铁律】扩展实验围绕实际主张选取；效率算端到端成本，稳定性报告重复变化。个例解释过程，不能代替总体证据。
+- 【铁律】段首先接回 Intro 的研究问题或 Method 的设计动机，再报告发现、关键对照及图表依据；分析最后说明原问题回答到了哪一步。
+- 【铁律】Intro 中的每项核心设计都应能找到对应检验。只得到整套方法的结果时，不把收益单独归给未经检验的模块。
 
 <a id="experiments-writing-templates"></a>
 #### 实验写作模板
@@ -2346,9 +2356,9 @@ We highlight the importance of natural footwork in enhancing visual aesthetics (
 
 #### 本节原则
 
-- 解释结果改变了什么认识，不再复述成绩表。结论保留实际测试范围。
-- 解释与机制分开。没有单独控制某项设计，就不能把效果全部归因于它。
-- 局限写具体条件：哪些数据、语言、信息或预算尚未覆盖。未测试不等于已失败。
+- 【铁律】解释结果改变了什么认识，不再复述成绩表。结论保留实际测试范围。
+- 【铁律】解释与机制分开。没有单独控制某项设计，就不能把效果全部归因于它。
+- 【铁律】局限写具体条件：哪些数据、语言、信息或预算尚未覆盖。未测试不等于已失败。
 - 未来工作接当前局限，说明补哪项验证，不空写更多数据、更大模型。
 
 <a id="annotated-discussion"></a>
@@ -2390,8 +2400,8 @@ PaperBank · 教学改写
 #### 本节原则
 
 - 先回答引言的问题，再概括最重要的设计与发现。
-- 只收束正文已经建立的认识，不新增结果、对照或能力。
-- 保留关键取舍和适用范围。未来方向接实际局限，不重复整套方法流程。
+- 【铁律】只收束正文已经建立的认识，不新增结果、对照或能力。
+- 【铁律】保留关键取舍和适用范围。未来方向接实际局限，不重复整套方法流程。
 
 <a id="annotated-conclusion"></a>
 
@@ -2429,10 +2439,10 @@ We present EviNote-RAG, a framework that introduces a note-taking step to extrac
 
 #### 本节原则
 
-- 引用支持附近的具体判断，先回查原文，不把搜索摘要或能编译的 BibTeX 当核验。
-- 模型、数据、工具和外部方法在可独立阅读的章节首次实质出现时，就近引原始报告或官方文档。
-- 条目与实际版本对应，核对题名、作者、年份和来源；同一论文的重复版本去重。
-- 来源没测过的条件，不能用它支撑该条件下的结论。没有真实来源就缩小或删除说法。
+- 【铁律】引用支持附近的具体判断，先回查原文，不把搜索摘要或能编译的 BibTeX 当核验。
+- 【铁律】模型、数据、工具和外部方法在可独立阅读的章节首次实质出现时，就近引原始报告或官方文档。
+- 【铁律】条目与实际版本对应，核对题名、作者、年份和来源；同一论文的重复版本去重。
+- 【铁律】来源没测过的条件，不能用它支撑该条件下的结论。没有真实来源就缩小或删除说法。
 
 <a id="annotated-references"></a>
 
@@ -2471,10 +2481,10 @@ PaperBank · 教学改写
 
 #### 本节原则
 
-- 先删重复，再移次要细节。核心设计、关键证据和决定结论的限制留正文。
+- 【铁律】先删重复，再移次要细节。核心设计、关键证据和决定结论的限制留正文。
 - 按技术细节、实验设置、补充结果等职责分组，不把所有剩余内容堆在一起。
-- 正文在对应主张后指向具体节、图或表；附录每节先说补什么、服务哪项主张。
-- 设置、符号、版本和统计范围与正文一致。补充结果改变主结论，正文同步说明。
+- 【铁律】正文在对应主张后指向具体节、图或表；附录每节先说补什么、服务哪项主张。
+- 【铁律】设置、符号、版本和统计范围与正文一致。补充结果改变主结论，正文同步说明。
 
 <a id="annotated-appendix"></a>
 
