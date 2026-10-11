@@ -64,66 +64,89 @@ Intro 结构：前两个自然段可调整顺序和分工，交代领域背景�
 <a id="draft-step-3"></a>
 ### 1.2 正文结构与实验
 
-- 先列全部章节标题、每节目的、所需图表及预计篇幅；按任务归类同级内容。
-- Method 按实际依赖组织。Overview 概括完整流程，各小节写清输入、操作、输出和交接。
-- 实验按待检验主张组织：主结果看整体表现，消融查设计作用，分析解释差异与失败。
-- 各章开头接回前文的问题；结果段先给具体发现，再说明它怎样回应引言的动机。
-- 表格按可比条件分组，写清指标方向和不确定性；逐列标最优、次优，长表先拆列或跨栏。
+- 先列章节标题、核心问题、需要的证据与篇幅。每个实验对应一项引言主张，同级内容按任务归类。
+- 引言串起研究问题、已有局限、对应设计和主要发现；相关工作给比较依据，方法解释设计怎样处理局限，实验检验这些主张。
+- Method 的 Overview 先讲核心思路及设计作用，再概括后文各节的输入、操作、输出和依赖；基础格式转换不要单独占一节。
+- 实验先固定数据划分、指标口径、对照条件和参数选择，再报告主结果。消融、稳健性、效率或错误分析按主张选，不为凑章节全做一遍。
+- 结果段先给具体发现，再给决定结论的比较与图表，最后接回原动机。讨论解释证据边界，结论回答同一研究问题。
+- 表格标清单位、指标方向和不确定性。只在同指标、同条件的可比结果中标最优、次优；引用分数与重跑分数分组。
 
 <a id="draft-paper-outline"></a>
 #### 论文大纲与章节衔接
 
-教学大纲，示例任务是评价对话回复怎样处理变化的需求与未决条件。章节名称和数量按实际研究调整；箭头说明承接关系。
+实证型 CS 论文的通用大纲。方括号填本研究内容；编号仅示意，可按贡献类型调整。Method 圈内演示串行依赖，实际并行或反馈应另画对应箭头。
 
-Abstract 概括同一组问题、局限、设计与发现；正文结果确定后再压缩。
+Abstract：压缩研究问题、已有缺口、本文贡献和主要发现；对象、数值与适用范围和正文一致。通常在主要结果确定后定稿。
 
 **1 Introduction**
 
-交代已有能力与研究问题；指出需求时效和未知保留的评价缺口，再给对应设计与主要发现。
+为什么要研究[问题]？已有路线哪里不足？本文怎样处理？实验发现什么？
 
-↓ 这些缺口的比较依据是什么？
+- **背景与回顾**：交代具体任务、已有能力和研究问题，不固定前两段的顺序。
+
+- **局限与贡献**：给[局限]的依据与后果，紧接[对应设计]及作用。
+
+- **结果概述**：先说主要发现，再概括关键检验；贡献句落到新增方法、数据或证据。
+
+↓ 已有局限的比较依据在哪里？
 
 **2 Related Work**
 
-按任务或机制比较已有路线。末尾用 However 点名同一缺口，紧接本文的对应解法。
+按共同任务或机制分组，说明真正相关的路线怎样工作。
 
-↓ 为评价这两个问题，方法需要哪些输入与判据？
+- **每个主题收尾**：However, [具体范围内的局限]. To solve this [problem], we [对应设计及作用]. 两句紧接，问题名称与 Intro 一致。
+
+↓ 哪些设计处理这些局限，为什么这样设计？
 
 **3 Method**
 
-Overview 先概括全章：整理保留需求变化的对话案例，再制定逐案例判据，最后运行模型并评价回复。
+Overview：核心思想是[设计思路]。To solve [局限一], we [设计 A 的关键动作]，产生[中间产物 a]；[设计 B]用它处理[局限二]并产生[b]；[执行流程]将这些设计落实为[最终输出]。按实际节名和节号介绍对应作用。
 
 ↓ 概括各小节的职责与交接
 
-3.1 Task Formulation：定义输入、回复与评价单位；区分给模型的案例和只给评价器的判据。
+3.1 Problem Formulation：定义任务输入、要求输出、目标与约束。训练、推理和评价各能看到哪些信息分开说明；已有定义较长时可另设 Preliminaries。
 
-- **3.2 Case Construction**：对话记录与时间信息 → 筛选并保留需求变化和未决条件 → 可评价的对话案例
+- **3.2 [设计 A 的具体名称]**：[任务输入 x] → To address [局限一], [关键操作与依据]. → [中间产物 a]
 
-- **3.3 Criterion Construction**：对话案例与对应材料 → 定义回复需满足的条件及应保留的未知 → 逐案例评价判据
+- **3.3 [设计 B 的具体名称]**：[a] + [必要附加信息] → To address [局限二], [关键操作与依据]. → [中间产物 b]
 
-- **3.4 Evaluation Protocol**：案例、模型回复与评价判据 → 模型按案例作答；评价器按判据评分 → 可比较的分数与错误记录
+- **3.4 [训练、推理或评价流程]**：[b] + [执行所需材料] → 说明实际优化目标、运行步骤或评分协议；按论文类型选择。 → [最终输出 y]
 
-案例 → 被测模型 → 回复；回复 + 评价判据 → 评价器 → 分数与错误。判据只用于评分。
+串行示意：x → A → a → B → b → 执行流程 → y。箭头传递实际对象；并非每篇论文都需要两个模块或训练过程。
 
-↓ 这些设计是否回答了引言提出的问题？
+↓ 怎样检验整体目标与各项设计的作用？
+
+按贡献类型调整：方法论文写核心设计与训练／推理；基准论文可写数据构建、判据与评价协议；实证发现论文写研究设计、测量与分析。理论结果另交代假设、命题和证明。
 
 **4 Experiments**
 
-4.1 Setup 定义比较条件和指标；4.2 Main Results 回答研究问题；4.3 Ablation 检验设计作用；4.4 Analysis 解释差异并回扣原局限。
+按研究问题组织证据；先交代设置，再给主结果和针对性检验。
 
-↓ 这些结果能说明什么，还不能说明什么？
+- **4.1 Experimental Setup**：数据版本与划分；Metrics 的定义、方向、分母和汇总；Baselines 的来源及可比条件；Implementation 的训练／推理、调参、预算与重复设置。说明误差条或区间的含义；人工或模型评分另交代协议与核验。
+
+- **4.2 Main Results**：回答整体研究问题：实际结论 → 关键对照与图表 → 证据支持的含义及范围。
+
+- **4.3 Design Validation（按需）**：围绕[设计为何处理局限]安排受控删除、替换或其他对照；说明变化因素、保留条件与耦合差异。基准论文可检验数据、判据或评分协议的有效性。
+
+- **4.4 Further Analysis（按需）**：按主张选择泛化、敏感性、资源代价、错误分析或解释检验；每节回答一个具体问题。个例展示过程，频率结论仍需总体统计。
+
+↓ 结果支持了什么，哪些解释和范围仍未得到验证？
 
 **5 Discussion and Limitations**
 
-解释发现与剩余限制；区分前人不足和本文未覆盖的范围。
+解释发现与已有研究的关系，区分观察、可能解释和已验证机制；说明本文假设、覆盖范围、失败条件及影响。
 
-↓ 在已测试范围内，开头的问题得到什么答案？
+- **按实际内容与投稿要求**：讨论可与分析合并；Limitations 可独立成节。数据授权、人类参与、隐私或风险等问题在适用时说明。
+
+↓ 在实际证据范围内，开头的问题得到什么答案？
 
 **6 Conclusion**
 
-概括已验证的产物与发现，回答研究问题；不新增设计、结果或适用范围。
+简短回答研究问题，概括已验证的贡献与发现；保留同一证据范围，不新增结果或设计。
 
-References 为比较与判断提供依据；Appendix 放可复核设置、完整判据和补充实验。
+References：支持文献比较、定义和外部事实。Appendix：放完整设置、算法／提示词、证明、补充结果和必要材料；支撑主要主张的核心证据应在正文中可理解。
+
+[NeurIPS Paper Checklist](https://neurips.cc/public/guides/PaperChecklist) · 实验设置、可复核性、不确定性与结论范围可对照核查；上图的节名和顺序是写作模板。
 
 排版示例：以下数值均为假设，不是论文结果。上标演示均值旁的标准差；浅红为最优，浅蓝为次优。
 
@@ -1042,6 +1065,7 @@ Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools
 - 贡献对象和动作尽早出现。关键改动要回应前句的不足，不先堆流程和数量。
 - 每句接住上句的对象，再增加信息。术语首次解释，缩写展开；通常不放引文，投稿规定优先。
 - 结果优先保留有信息增量的发现及比较范围；不逐项报分，不机械以最大数字结尾。
+- 摘要与引言的对应解法都点名：To solve [局限正式名称], we [具体动作与贡献]. 名称与前文一致，泛指 these obstacles 不能代替；方法总述可保留 Therefore。
 
 <a id="annotated-abstract"></a>
 
@@ -1089,155 +1113,260 @@ PaperBank · 教学改写
 - 结果段先用钩子接回研究问题，再给主要发现。贡献、术语和发现与 Abstract 对应；不逐字复述，也不把排名当作分析。
 - 给每个局限沿用同一名称和定义；Related Work 给比较依据，Method 写对应设计，实验检验这项设计并接回该局限。
 - 结果概述对应正文实际结论。若实验只支持某些任务或条件，摘要、引言、讨论和结论都限定到相同范围。
+- 摘要与引言的对应解法都点名：To solve [局限正式名称], we [具体动作与贡献]. 名称与前文一致，泛指 these obstacles 不能代替；方法总述可保留 Therefore。
+
+<a id="intro-writing-templates"></a>
+#### 引言写作模板
+
+按贡献类型选模板，方括号填自己的材料。前两段完成领域回顾和相关比较，顺序与段数可调整；后文依次接局限、对应设计和主要发现。模板给论证结构，不预设实验胜出。
+
+<a id="intro-template-method"></a>
+<details><summary>方法型引言</summary>
+
+核心贡献是新方法或新的系统设计。
+
+**领域与研究问题**
+
+[research area] aims to [goal] by mapping [input] to [output]. Recent [approach family] can [supported capability] [citations]. These capabilities support [application], where [task requirement] matters for [practical objective]. This requirement motivates [research question].
+
+先说研究对象、已有能力和实际要求，再让研究问题从这些要求中自然出现；背景与下一段的回顾可穿插。
+
+**比较依据与局限**
+
+Existing [approach family A] uses [input A] to [supported operation A] [citations], whereas [approach family B] relies on [input B] to [supported operation B] [citations]. However, [specific limitation] restricts [required capability] because [documented cause or operating assumption]. Under [relevant condition], this restriction leads to [observable consequence]. Addressing it requires [corresponding design requirement].
+
+比较同一维度，用 However 点出自明的局限，再说它为什么妨碍目标；紧接下一段的解法，不插入无关回顾。
+
+**对应设计与贡献**
+
+Therefore, to address these obstacles, we introduce [method name], a [verified distinguishing design and purpose]. To solve [specific limitation], we [concrete design action and contribution] to meet [corresponding design requirement]. It takes [input] and produces [output] through [high-level mechanism]. [next design, if needed] uses [preceding output] to [purpose tied to another established limitation]. Together, these designs enable [supported capability] under [stated conditions].
+
+方法名后立即交代亮点和用途；To solve 点名前文同一个局限并给对应动作。每项设计有依据，正面修饰能从来源、操作或结果中核查。
+
+**实验概述与结论边界**
+
+To answer [research question], we compare [method name] with [appropriate baselines] under [shared evaluation conditions]. Experiments show [verified main finding] on [metric or measured outcome] within [tested scope]. To examine [design motivation], [ablation or controlled comparison] tests [specific design choice] and shows [verified design finding]. Further analysis identifies [supported pattern or remaining limitation], indicating [bounded answer to the original question].
+
+先概述发现，再展开设计检验和分析；与摘要、实验、结论使用同一发现和范围，不自动填写最优、显著提升或因果收益。
+
+</details>
+
+<a id="intro-template-benchmark"></a>
+<details><summary>基准与数据集型引言</summary>
+
+核心贡献是新的数据集、基准或评价协议。
+
+**能力与评价问题**
+
+Progress in [research area] enables [supported capability] [citations]. These capabilities support [application], where [condition relevant to the task] affects [required behavior]. Evaluating this behavior requires [observable input or evaluation property]. This requirement raises [research question].
+
+先说明为什么需要评价这个具体能力，研究问题须落到可观察的输入、行为或结果。
+
+**已有基准与评价缺口**
+
+Existing [benchmark family A] measures [evaluation target A] using [reported inputs and criteria] [citations]. [benchmark family B] instead evaluates [evaluation target B] under [reported setting] [citations]. However, [specific evaluation limitation] limits evaluation of [specific required capability], as shown by [evidence-bounded comparison]. [required input or criterion] is needed to distinguish [behavior of interest] from [alternative behavior], so [corresponding evaluation design] is necessary.
+
+按输入、判据和目标对应比较，缺失、未报告、未公开分开写；明确这个缺口让哪一种行为无法被区分。
+
+**建设障碍与设计要求**
+
+However, establishing [required evaluation] faces [self-explanatory construction obstacle]. [documented source or annotation constraint] makes [required construction step] difficult. In addition, [another independent obstacle, if present] limits [another necessary step] because [documented reason]. Addressing these obstacles is necessary to obtain [usable evaluation artifact] for [research question].
+
+建设困难不同于前人的评价缺口；每个困难写清受阻步骤和后果。没有独立的第二项就删去对应句，必要时与前段合并。
+
+**数据、判据与核心贡献**
+
+Therefore, to address these obstacles, we introduce [artifact name], a [verified source or distinguishing design] for [evaluation purpose]. [data contribution] is constructed from [verified source] using [documented selection or collection rule]. To solve [specific evaluation limitation], we [evaluation contribution and action] to measure [capability linked to the earlier gap]. The tested system receives [task input], while [evaluation evidence or criteria] is used by [evaluator] to assess [system output]. These components support [supported evaluation capability] within [coverage boundary].
+
+先突出产物，再写可执行的来源与构建依据；To solve 复用评价局限名称。受测系统输入与评分材料分开，数据与判据分别接回对应困难。
+
+**基准结果与研究发现**
+
+To answer [research question], we evaluate [systems or model families] using [shared protocol]. Results reveal [verified main finding] within [tested scope]. Specifically, [named finding, if useful] describes [observed behavior or result contrast]. To examine [observed limitation], [diagnostic analysis] shows [supported diagnostic finding]. These results indicate [bounded implication] and leave [remaining question] unresolved.
+
+结果段先给实际发现，不从模型名单或指标层级开讲；命名现象紧接含义，诊断回扣原问题且不扩大为未经检验的机制。
+
+</details>
+
+<a id="intro-template-empirical"></a>
+<details><summary>实证发现型引言</summary>
+
+核心贡献是新的经验规律、系统比较或对既有解释的检验。
+
+**现象与研究问题**
+
+Understanding [research phenomenon] matters for [scientific or practical objective]. Prior [research route] establishes [supported finding] within [previously studied scope] [citations]. This evidence motivates [specific question about the phenomenon]. Answering this question requires distinguishing [competing possibilities] under [relevant condition].
+
+把已知事实和未回答的问题分开，提前说明需要区分什么；与下一段的文献回顾可灵活合并。
+
+**已有证据与检验缺口**
+
+Existing studies examine [relationship or behavior] using [reported design] [citations]. They provide evidence for [supported interpretation] under [documented assumptions or scope]. However, [specific evidence limitation] prevents these results from resolving [research question]. A comparison that [required contrast or measurement] is needed to distinguish [explanation A] from [explanation B].
+
+点出证据还不能回答的问题，紧接需要怎样检验；别把没测过写成失败，也别把相关性写成原因。
+
+**研究设计与可检验贡献**
+
+Therefore, to address these obstacles, we introduce [study or analysis], a [verified distinguishing design] for testing [research question]. To solve [specific evidence limitation], we [core comparison or measurement]. We compare [groups or conditions] that differ in [examined factor], using [documented control or adjustment] to examine [alternative explanation]. [measurement or analysis contribution] measures [observable outcome] using [verified data or procedure]. This design estimates [precise quantity or relationship] within [study population and conditions].
+
+To solve 点名证据缺口，贡献落到可复核的比较或测量。受控实验交代改变因素；观察研究交代自然差异、调整及估计对象，不把调整写成排除所有解释。
+
+**主要发现与解释范围**
+
+To answer [research question], we analyze [evidence] under [reported study conditions]. The results show [verified main relationship or contrast]. Further [robustness check or independent analysis] examines [specific alternative explanation] and yields [verified result]. These findings support [evidence-bounded interpretation] within [tested scope], while [unresolved limitation] restricts [claim or generalization].
+
+先陈述发现，再说检验排除了什么、仍未排除什么；主结果和稳健性检查各有对象，最后回到同一研究问题与边界。
+
+</details>
 
 <a id="intro-hooks"></a>
 #### 段落承接
 
-钩子把新段接回前文的具体问题，让读者知道这段在回答什么。常放句首；However、Therefore 后也要有明确对象。
+句首钩子点名要处理的问题或沿用前文产物。摘要与引言的对应解法用 To solve [同名局限], we [具体动作与贡献]；方法总述可先保留 Therefore。全文沿用同一对象和术语。
 
 
 <a id="abstract-intro-map"></a>
 #### 摘要与引言：主张对应
 
-教学对照。方括号填自己的材料；箭头连接对应内容，不规定段数。点击引言一侧可跳到修改 case。
+填空对应图。摘要压缩问题、贡献与发现，引言展开依据与作用；箭头连接同一主张，不规定段数。
 
 
-**问题 · 同一问题，展开困难**
+**问题 · 同一问题，展开背景与局限**
 
-**Abstract**：We ask whether LLMs can handle changing needs and unresolved conditions in shopping conversations.
+**Abstract**：[research area] concerns [task or phenomenon]. Existing evidence leaves [specific limitation], motivating [research question].
 
-**Intro**：How well can LLMs handle changing needs and unresolved conditions? Answering this question faces data scarcity and case-dependent evaluation standards.
- · [修改 case](#annotated-intro-obstacles)
+**Intro**：[prior work] establishes [known finding] in [scope]. However, [specific limitation] leaves [research question] unresolved under [condition].
+ · [查看对应关系](#intro-map-question)
 
-**贡献 · 同一产物，交代来源与作用**
+**贡献 · 同一贡献，展开设计作用**
 
-**Abstract**：We introduce [Benchmark], pairing timestamped dialogue with case-specific evaluation criteria.
+**Abstract**：To solve [specific limitation], we introduce [name], which uses [core design] to [purpose].
 
-**Intro**：To address these obstacles, [Benchmark] retains timestamped dialogue. Experts distill Ideal Response Principles from manually selected replies to define case-specific evaluation criteria.
- · [修改 case](#annotated-intro-design)
+**Intro**：Therefore, to address these obstacles, we introduce [name], a [key feature and purpose]. To solve [specific limitation], we use [core design] to [concrete action and role].
+ · [查看对应关系](#intro-map-design)
 
-**发现 · 名称一致，展开含义与分析**
+**发现 · 同一发现，展开证据与含义**
 
-**Abstract**：Models exhibit Product Evidence Overreach and Shopping Uncertainty Collapse.
+**Abstract**：Experiments show [verified main finding] within [tested scope].
 
-**Intro**：To answer this question, we evaluate [models]. Replies exhibit Product Evidence Overreach through unsupported claims and Shopping Uncertainty Collapse by treating unknown needs as settled; further analysis examines [specific finding].
- · [修改 case](#annotated-intro-findings)
+**Intro**：To answer [research question], we evaluate [objects] under [conditions]. The results show [verified main finding]; [further analysis] examines [corresponding design motivation].
+ · [查看对应关系](#intro-map-findings)
 
 <a id="intro-body-map"></a>
 #### 引言如何贯穿全文
 
-引言提出什么问题，正文就检验什么问题。给同一局限、设计和实验沿用同一个名称；每个段首用具体对象接回前文。实验得出什么、只支持到哪里，再回写摘要、引言和结论。
+引言列出全文要回答的问题。相关工作给依据，方法给设计，实验给检验，讨论与结论收束解释和范围。
 
-教学结构示意。方括号替换为已核验材料；按论证组织句子和段落，不固定句数或段数。
+这是可填空的功能对应图，不规定句数、段数或局限数量。方括号填同一组对象；同色高亮与箭头表示哪些内容必须相互对应。
 
-- **Q / M / E · 问题、设计、检验：**编号相同表示同一条局限 → 设计 → 实验链。
+- **Q · 研究问题：**全文回答同一个具体问题。
 
-- **L · 已有方法局限：**已有路线在某种任务、输入或评价范围内的不足。
+- **L → M → E · 局限、设计与检验：**前人的哪项不足，由哪项设计处理，用什么证据检验。
 
-- **D · 研究实施困难：**建立本文数据、方法或评价时需要克服的困难。
+- **D · 实施困难：**完成本文研究时遇到的困难；有必要才单独展开。
 
-- **B · 本文剩余局限：**本文证据尚未覆盖的范围；不能冒充已解决的问题。
+- **B · 本文剩余局限：**限定本文已经解决到哪里，和前人局限 L 分开。
 
-**A · 已有能力**
+**A · 背景与已有研究**
 
-[已有方法]已能完成[任务]；这些能力支持对话助手理解用户需求。
+[已有研究]已经说明[已知能力或发现]，这些结果支持[应用目标或进一步研究]。
 
-句首钩子：`These capabilities support ...`
+句首钩子：`These findings motivate [the research question].`
 
-- [相关工作](#chapter-related) · 说明已有路线：按任务或机制归类，说明[已有方法]实际具有什么能力。
-- [方法](#chapter-method) · 交代起点：说明本文使用了哪些已有能力，新增设计解决什么问题。
+- [相关工作](#chapter-related) · 核实已有起点：说明[已有路线]的实际能力、输入和适用条件，并给原论文依据。
+- [方法](#chapter-method) · 区分已有与新增：说明哪些能力来自已有方法，本文新增了什么设计。
 
-先承认已有能力，再指出不足；不能把前人已有的功能写成本文首次提供。
+背景不占用本文贡献；前人已经提供的能力须承认并引用。
 
 **Q · 研究问题**
 
-然而，需求可能变化，也有条件仍未明确。对话助手能否同时处理变化的需求与未决条件？
+[研究背景或实践需求]提出[具体研究问题 Q]。
 
-句首钩子：`However, these needs can change or remain unresolved, ...`
+句首钩子：`To answer [the specific research question], we ...`
 
-- [方法 · 任务定义](#chapter-method) · 定义评价对象：定义“变化的需求”与“未决条件”，写清模型收到什么、回复须保留什么。
-- [实验 · 研究问题](#chapter-experiments) · 转成可检验问题：To answer this question, we evaluate [对象] under [条件]，用对应判据检验需求处理与未知保留。
-- [结论](#chapter-conclusion) · 回答开头：据实际结果回答对话助手能否处理变化的需求与未决条件。
+- [方法 · 任务定义](#chapter-method) · 定义对象与目标：将 Q 对应到[研究对象]、[任务定义或变量关系]和[可观测量]；系统任务再写输入、输出与约束。
+- [实验 · 研究问题](#chapter-experiments) · 给出检验方式：用[数据与比较条件]和[对应指标]检验 Q。
+- [结论](#chapter-conclusion) · 回答开头：依据实际结果，在[已研究条件]内回答 Q。
 
-任务定义、模型输入、评分对象和结论都回答同一问题，不从“回复评价”跳成“真实执行成功”。
+任务、指标与结论测的是同一对象和能力；代理指标的改善不能直接写成未测过的真实应用收益。
 
-**L1 → M1 → E1 · 局限一：需求时效**
+**L1 → M1 → E1 · 已有局限与对应解法**
 
-[比较表]显示，[所比较基准]未报告需求时效所需的时间信息；据其公开说明，无法确认评价是否区分仍有效与已失效的历史需求。
+However, [已有路线]在[具体范围]存在[局限 L1]，因而妨碍[目标 Q]。To solve [局限 L1], we [设计 M1 的具体动作].
 
-句首钩子：`However, the compared benchmarks do not explicitly report [时间输入].`
+句首钩子：`To solve [limitation L1], we [specific design action].`
 
-- [相关工作 · 对比表](#chapter-related) · 给出 L1 依据：However, [L1 的具体不足]. To address this limitation, we [M1 的对应设计]，并引用核验后的输入比较。
-- [方法 · M1](#chapter-method) · 说明设计作用：To assess whether earlier needs still apply, [M1]保留需求变化及时间信息，说明这些输入怎样影响判断。
-- [实验 · E1](#chapter-experiments) · 检验原动机：To test this role of temporal information, [E1]比较对应条件，检验历史需求是否仍适用的判断。
+- [相关工作 · 主题收尾](#chapter-related) · 给 L1 比较依据：However, [L1]. To solve this [problem], we [M1]. 局限的对象、范围和依据与引言一致。
+- [方法 · M1](#chapter-method) · 解释为什么这样设计：[M1]针对 L1 的哪项原因采取什么操作，产生什么结果供后续使用。
+- [实验 · E1](#chapter-experiments) · 检验原动机：用[能检验 M1 作用的对照 E1]检查[与 L1 对应的指标或行为]。
 
-L1 在引言、However 句、方法动机和实验解释中指同一不足。“未报告”不能改成“没有”；未做输入对照就不能宣称时间信息导致提升。
+三处沿用同一个局限名称和比较范围。“未报告”不写成“没有”；只有整套系统对比时，不能宣称单个设计造成了收益。
 
-**L2 → M2 → E2 · 局限二：未知保留**
+**L2 → M2 → E2 · 另一项独立局限（按需）**
 
-[已有评价]未明确检验回复是否保留关键未知，因而难以识别把未决条件当成确定事实的错误。
+此外，[独立局限 L2]影响[另一必要能力]。To solve [独立局限 L2], we [设计 M2 的具体动作].
 
-句首钩子：`To detect whether unresolved conditions are treated as settled, ...`
+句首钩子：`To solve [limitation L2], we [specific design action].`
 
-- [相关工作 · 评价比较](#chapter-related) · 给出 L2 依据：However, [已核验的评价不足]. To address this limitation, we [M2]，比较的是未知保留判据，不是有无模糊案例。
-- [方法 · M2](#chapter-method) · 落实评价要求：For each case, [M2]明确哪些条件仍未知、回复不能擅自确定什么。
-- [实验 · E2](#chapter-experiments) · 检验原动机：To evaluate uncertainty preservation, [E2]报告对应错误，解释模型是否把未决条件当成确定事实。
+- [相关工作 · 另一主题](#chapter-related) · 说明 L2 有何不同：给 L2 的比较依据，紧接 M2；不要换词重复 L1。
+- [方法 · M2](#chapter-method) · 交代独立作用：说明 M2 使用什么输入，怎样满足[与 L2 对应的要求]。
+- [实验 · E2](#chapter-experiments) · 给对应检验：E2 检验[与 L2 对应的能力]，结果段沿用同一问题并解释实际发现。
 
-同一个未知条件须贯穿输入、判据、回复错误和结果解释；不能将“没有明确奖励保留未知”写成“前人完全没有模糊场景”。
+有独立不足才增加这条链；不为凑“两项局限”重复同一问题。
 
-**D1 / D2 · 实施困难**
+**D · 实施困难（按需）**
 
-建立这类评价还面临[材料获取困难 D1]与[逐案例标准困难 D2]；这些困难妨碍对需求变化与关键未知的精确评价。
+完成[研究任务]还受到[实施困难 D]约束；这会阻碍[必要步骤]。
 
-句首钩子：`However, establishing this evaluation faces [具体困难].`
+句首钩子：`Establishing [the required artifact] requires [specific step].`
 
-- [方法 · 数据与判据](#chapter-method) · 说明怎样克服困难：To address [D1/D2], [实际操作]形成[数据或判据]，交代来源、选择依据和产物用途。
-- [附录](#chapter-appendix) · 提供可复核细节：给出对应的材料说明、判据定义与实际执行设置。
+- [方法 · 构建或研究设计](#chapter-method) · 给可执行解法：说明实际来源、选择规则、操作与产物怎样处理 D。
+- [附录](#chapter-appendix) · 补可复核材料：提供[与 D 的解法对应的协议、配置或材料]，并从正文定位。
 
-先解释困难怎样阻碍研究目标，再给解法。D 是本文实施难点，不是前人方法 L，也不是本文剩余局限 B。
+D 是本研究怎样完成的困难，不等于前人局限 L；来源或权限问题须按实际交代，不能省略会影响判断的信息。
 
-**M1 / M2 · 对应设计**
+**M · 核心设计与贡献**
 
-为检验上述问题，[本文产物]结合可解释的需求变化输入与逐案例判据，分别支持需求时效判断和未知保留评价。
+Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途]。To solve [同名局限], we [核心设计的具体动作].
 
-句首钩子：`To evaluate these two aspects, [本文产物] ...`
+句首钩子：`To solve [named limitation], we [concrete contribution].`
 
-- [方法 · Overview](#chapter-method) · 展开实际流程：先说 M1 怎样处理 L1、M2 怎样处理 L2，再交代各部分的输入、操作、产物和依赖。
-- [关键图与图注](#chapter-method) · 显示同一设计：图内名称与正文相同，箭头说明输入流向；评价判据不能画成模型已接收的输入。
-- [实验 · 对照设置](#chapter-experiments) · 说明怎样检验：With [比较条件] held fixed, [E1/E2]检验对应设计的作用；输入、预算与判分条件按实际设置交代。
+- [方法 · Overview](#chapter-method) · 展开贡献与依赖：先解释核心思想和每项设计的作用，再概括各节的输入、操作与输出。
+- [框架图与图注](#figure-framework) · 显示同一操作关系：图中对象、名称和方向与正文一致；按实际画串行、并行或反馈。
+- [实验 · 设置与设计检验](#chapter-experiments) · 固定能判断作用的条件：比较条件与[要检验的设计作用]对应；说明固定项及无法完全对齐的差异。
 
-每项设计须能接回具体问题；图、Overview 和实验使用同一对象，不把整套方法的效果归给一个未单独检验的模块。
+引言交代亮点与用途，方法给实现依据，实验给检验；产物介绍、流程说明和效果证据各有职责。
 
-**E1 / E2 → Q · 实验发现**
+**E → Q · 主要发现**
 
-为回答这一问题，[实验]发现[需求时效判断的真实结果]与[未知保留的真实结果]，说明模型在[实际测试范围]内有哪些能力或不足。
+To answer [Q], we evaluate [研究对象] under [条件]。实验发现[主要结论 E]，回答了[Q 的哪一部分]。
 
-句首钩子：`To answer this question, we evaluate [对象] ...`
+句首钩子：`To examine [the motivated capability], we compare [objects].`
 
-- [实验 · 主结果与分析](#chapter-experiments) · 先结论，再证据：To examine [L1/L2], 先给[具体发现]，再用关键对照、图表位置和评分口径解释发现如何得到。
-- [实验 · 回扣动机](#chapter-experiments) · 解释结果回答了什么：This comparison shows [实际关系]，说明需求时效判断或未知保留是否达到研究目标。
-- [摘要与引言](#chapter-abstract) · 回写主要发现：摘要压缩同一发现，引言展开含义；名称、对象、比较范围与实验一致。
-- [讨论](#chapter-discussion) · 限定解释：区分观察到的差异、可能原因与已验证机制，不把回复错误扩大为真实执行失败。
+- [实验 · 主结果与分析](#chapter-experiments) · 先结论，再证据：报告 E 对应的关键比较、图表、指标口径和不确定性。
+- [实验 · 回扣动机](#chapter-experiments) · 解释回答了什么：说明 E 是否支持[原设计目标]；改善、无支持或失败都对应同一个问题。
+- [摘要与引言](#chapter-abstract) · 压缩同一发现：摘要压缩 E，引言概述 E；名称、数值、对象和范围与实验一致。
+- [讨论](#chapter-discussion) · 限定解释：区分观察到的差异、可能原因与已验证机制。
 
-结果必须回答开头的研究问题及方法动机。只有总体对比时不能补写模块因果；只有个例时不能写全体发生率。
+实验结论必须回到最初动机；缺少受控检验时不补因果解释，案例展示也不能代替总体频率。
 
 **C / B · 贡献与结论范围**
 
-本文提供[实际新增产物]并揭示[证据支持的发现]；结论限于[已测试任务与条件]，尚未覆盖[剩余范围 B]。
+本文提供[新增贡献 C]并揭示[实际发现]；结论限于[已验证范围]，仍受[本文剩余局限 B]约束。
 
-句首钩子：`Within these evaluated conditions, [受证据支持的结论] ...`
+句首钩子：`Within [the evaluated conditions], [supported conclusion].`
 
-- [讨论与局限](#chapter-discussion) · 说明 B 与影响：说明未覆盖的条件怎样限制结论；未测试不等于已经失败。
-- [结论](#chapter-conclusion) · 闭合研究问题：回答 Q，概括已验证的贡献与发现，并保留同一已测试任务与条件。
-- [摘要与引言](#chapter-abstract) · 反向缩小主张：若实验只支持[某种范围]，摘要、引言和贡献句都缩至该范围，不留“全面解决”的旧句。
+- [讨论与局限](#chapter-discussion) · 解释 B 的影响：说明[未覆盖条件或假设 B]怎样限制结论；未测试不等于已失败。
+- [结论](#chapter-conclusion) · 闭合 Q：回答 Q，概括已验证的贡献与发现，保留同一范围。
+- [摘要与引言](#chapter-abstract) · 反向校准主张：若证据只支持[有限范围]，摘要、引言和贡献句都缩至该范围。
 
-前人局限 L 可以被本文设计处理；本文剩余局限 B 则限定处理到哪里。二者不是同一标签，更不能把 B 写成已解决贡献。
+L 是前人的不足，B 是本文解决到哪里。真正限制核心主张的 B 须体现在相应主张中，不要求把所有局限都塞进引言。
 
-L1 → M1 → E1 → Q：需求时效缺口 → 保留对应输入 → 检验需求有效性判断 → 回答需求变化问题。
+L1 → M1 → E1 → Q：[具体局限] → [针对它的设计] → [能检验设计作用的比较] → [对研究问题的实际回答]。
 
-L2 → M2 → E2 → Q：未知保留缺口 → 明确逐案例判据 → 检验擅自确定的错误 → 回答未决条件问题。
+其他主张：数据质量、效率、泛化或机制主张同样需要对应证据；按实际贡献增加，不能只靠同一句钩子。
 
-**结果回写**：实际实验结果与范围 → 摘要、引言的贡献与发现 → 讨论、结论。证据改变，前面的主张一起改。
+**结果回写**：实际发现及范围 → 摘要、引言的贡献与发现 → 讨论与结论。结果或证据范围变了，对应主张一起改。
 
 <a id="annotated-intro-obstacles"></a>
 
@@ -1408,7 +1537,7 @@ In summary, our contributions are:
 #### 本节原则
 
 - 按共同任务或机制分组，解释各路线怎样工作。先承认已有能力，再比较真正相近的工作。
-- 每个小节的末尾固定这样写：However, [现有方法在具体范围内的局限]. To address this limitation, we [对应设计及作用]. 两句紧接，不夹一句空泛总结。
+- 每个小节的末尾固定这样写：However, [现有方法在具体范围内的局限]. To solve this [problem], we [对应设计及作用]. 两句紧接，不夹一句空泛总结。
 - However 的问题名称、对象与范围直接对齐 Intro；解决句也对齐 Intro 的方案。不同小节负责不同缺口。
 - 不足要能回查原论文。未报告不等于没有；仅测单轮，不等于多轮一定失败。客观限定范围，不夸大缺陷。
 - 引用按相关性选，不设篇数配额，也不因方法相似而漏引。可直接比较的近邻安排基线；设置不同就讲清差异。
@@ -1669,6 +1798,125 @@ Figure~\ref{fig:framework} summarizes this workflow.
 - 扩展实验围绕实际主张选取；效率算端到端成本，稳定性报告重复变化。个例解释过程，不能代替总体证据。
 - 段首先接回 Intro 的研究问题或 Method 的设计动机，再报告发现、关键对照及图表依据；分析最后说明原问题回答到了哪一步。
 - Intro 中的每项核心设计都应能找到对应检验。只得到整套方法的结果时，不把收益单独归给未经检验的模块。
+
+<a id="experiments-writing-templates"></a>
+#### 实验写作模板
+
+按实验目的选模板，删去不适用段落。设置说明怎样比较；结果先给实际发现，再给关键对照、图表证据、解释与范围。每个模板接回引言中的同一个问题。
+
+<a id="experiment-overview-template"></a>
+<details><summary>实验章概述</summary>
+
+实验章开头需要说明研究问题和证据安排时。正文已经清楚时，不再加空泛总领段。
+
+**问题与证据安排**
+
+To answer [引言中的研究问题], we evaluate [研究对象] under [关键比较条件]. The main comparison tests [整体能力或主要主张]. Controlled variants examine [核心设计的作用], while [分析类型] investigates [需要解释的现象]. Together, these tests assess [本文要回答的具体问题] within [实际测试范围].
+
+概述检验任务与顺序，不预告尚未成立的优势。只保留本论文实际开展的主结果、对照和分析；小节名称与后文一致。
+
+</details>
+
+<a id="experiment-setup-template"></a>
+<details><summary>实验设置</summary>
+
+读者需要复现比较，或判断结果是否可比时。训练、人工评估等条件只在适用时填写。
+
+**Data and splits.**
+
+We evaluate [研究对象] on [数据与版本], using [训练、开发和测试划分，或无训练任务的评测集合]. Splits are separated by [划分单位], and [重复记录或泄漏控制] prevents [具体泄漏路径]. The evaluation includes [样本数量及统计单位], with [排除规则、缺失情况和有效子集] reported in [位置].
+
+没有训练就删掉训练划分，不创造数据分割。说明划分是按样本、用户、场景、时间还是其他单位；独立验证与开发集比较分开。
+
+**Metrics.**
+
+We measure [评价目标] using [指标全称及来源], where [指标定义与方向]. Scores are aggregated over [统计单位] using [平均、加权或其他汇总规则]. For [比例指标], the denominator is [分母及有效条件]. We report [实际重复次数与不确定性方法] over [种子、案例、用户或其他变动来源].
+
+区分案例、回答、判据和用户等统计单位。区间与标准差必须说明对应的重复或重采样单位；只有单次结果时如实写，不能填假误差条。
+
+**Baselines.**
+
+We compare [本文方法或被测对象] with [最相关对照及引用], using [官方实现、复现或引用结果及版本]. All directly comparable runs share [输入信息、数据划分、评价协议与资源条件]. [必要适配] converts [输出形式] to [评价形式]. Results from [不同协议或原论文] are reported separately because [可比性差异].
+
+只有实际相同时才填共享条件。被测模型得分高不等于基准设计更好；引用分数与重跑结果分开，接口版本和必要适配不能省略。
+
+**Implementation.**
+
+We implement [方法或运行流程] with [代码、模型与软件版本]. [训练或调参方法] uses [开发数据与选择规则], with [关键超参数、搜索范围及最终设置] fixed before [测试阶段]. Runs use [硬件或API配置], [推理、采样及重试规则], and [资源预算]. [完整配置、提示词或复现细节] are provided in [位置].
+
+填会改变结果的真实设置，包括优化器、学习率、解码、调用预算和重试；不适用项删除。不能把测试集用于选参后仍称独立测试。
+
+**Human or model-based evaluation.**
+
+For [需要人工或模型判断的指标], [评估者及资质，或judge模型及版本] evaluate [评估样本及统计单位] using [评分规则]. We use [盲评、随机化或其他偏差控制] and aggregate ratings by [汇总规则]. [实际一致性核验] covers [核验子集及抽样方式]; this check supports [已核验的范围].
+
+这段仅在有主观评估时使用。披露judge是否与被测模型相同、人工核验子集与分母；子集一致性不能当作全部评测准确率。
+
+</details>
+
+<a id="experiment-main-results-template"></a>
+<details><summary>主结果</summary>
+
+报告整体能力、方法差异或主要研究发现。结论可为改善、差异、无明确支持或失败，不预设胜出。
+
+**结论、关键比较与范围**
+
+\textbf{For [引言中的研究目标或测试条件], [一条自明的实际结论].} Table~\ref{[主结果表]} compares [关键对象] under [可比条件] using [对应指标]. [决定结论的比较或差异] supports this finding, with [必要数值、统计单位或不确定性]. This pattern indicates [证据支持的含义] for [引言中的具体问题], while [尚未检验的条件或不同结果] limits the conclusion to [实际范围].
+
+一段绑定一张主要图表，不逐格读表。只保留影响结论的数字；没有检验不写显著，没有对应对照不写原因，没有部署研究不写已提升部署可靠性。
+
+</details>
+
+<a id="experiment-ablation-template"></a>
+<details><summary>设计检验与消融</summary>
+
+需要判断某项设计是否发挥作用，而不是只比较整套系统。替换、删除、增加或其他受控变体都可使用。
+
+**受控变体与设计作用**
+
+\textbf{Under [固定条件], [设计或变体] shows [关于原动机的一条实际结果].} To test whether [具体设计] addresses [引言中的同名局限], we compare [完整配置] with [明确删除、替换或改变的配置]. Both variants retain [其他输入、训练、评价与预算条件]. Table~\ref{[消融表]} shows [关键变化及不确定性], supporting [该对照能支持的设计作用]. [仍有耦合因素或未覆盖条件] leaves [不能区分的问题] unresolved.
+
+写清改了什么、其余保留什么、结果怎样、能说明什么。删除模块同时改变参数量或预算时披露差异；整套系统更好不能自动归功于单一模块。
+
+</details>
+
+<a id="experiment-sensitivity-template"></a>
+<details><summary>敏感性与资源预算</summary>
+
+主张依赖阈值、输入规模或资源投入，或需要说明效果与成本的关系时。只选实际做过的段落。
+
+**参数或条件敏感性**
+
+\textbf{For [对应研究目标], [指标] shows [实际趋势或不稳定现象] as [参数或条件] varies.} Figure~\ref{[敏感性图]} varies [唯一改变因素及范围] while holding [其余条件] fixed. [关键区间或变化] identifies [观察到的适用范围], with [重复方式与不确定性] reported for each setting. This result supports [原设计动机中已检验的部分], but does not establish [测试范围外的性质].
+
+不是所有参数都要扫一遍。说明选参数据与测试数据；试过的区间不能外推为普遍鲁棒，趋势也不等于机制。
+
+**效果与资源代价**
+
+\textbf{At [共同预算或比较口径], [实际效果与代价关系].} Table~\ref{[资源表]} reports [质量指标] alongside [耗时、内存、调用量、token或其他成本], measured on [硬件、API或运行条件] over [统计单位与重复方式]. [关键比较] characterizes the trade-off between [收益] and [代价]. The measured cost covers [计入环节], excluding [未计入但相关的环节].
+
+比较端到端耗时还是单步耗时须写清；训练、调参、离线处理和在线推理分别核算。API价格只说明实测时间与计费条件，不把局部加速写成端到端节省。
+
+</details>
+
+<a id="experiment-analysis-template"></a>
+<details><summary>错误分析与解释检验</summary>
+
+需要说明错误集中在哪里、可能怎样产生，或区分竞争解释时。描述性分析和解释检验分开。
+
+**错误分布与研究问题**
+
+\textbf{Within [统计范围], [错误或差异] concentrates in [实际条件].} To examine [引言中的具体困难], Figure~\ref{[分析图]} groups [统计单位] by [分组标准] and reports [错误定义、分母与实际差异]. [代表性现象或关键分组对照] indicates [观察支持的含义]. This association is consistent with [可能解释], but [未控制因素或覆盖限制] prevents attributing the pattern solely to [候选原因].
+
+分组口径与Intro问题一致；展示成功和失败的选择规则不能藏。定性例子说明现象，频率结论仍需分母，相关不写因果。
+
+**区分竞争解释**
+
+\textbf{Under [受控检验条件], [候选解释之间可判断的实际结论].} To distinguish [解释A] from [解释B], we change [可区分预测的干预或对照] while preserving [必要控制条件]. Table~\ref{[解释检验表]} shows [关键证据], which supports [该检验支持的解释范围]. [仍无法排除的解释或适用条件] limits what this test establishes about [原动机对应的机制].
+
+只有真的做过可区分检验才用这段；没有时保留上一段的可能解释，不造机制实验。
+
+</details>
 
 <a id="annotated-experiments-metrics"></a>
 

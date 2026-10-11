@@ -3,6 +3,7 @@
 import argparse
 import html
 import json
+import re
 import zipfile
 from copy import deepcopy
 from functools import partial
@@ -50,6 +51,24 @@ def package_prompt_reference(data, folder, keys):
 def section_label(section):
  return '先读 · ' if int(section['number'])==0 else str(int(section['number']))+'. '
 
+def render_writing_templates(content, section):
+ """Keep reusable fill-in paragraphs together, separate from paper excerpts."""
+ e=html.escape;key=section+'-writing-templates'
+ rendered=f'<section class="writing-templates" id="{key}"><h4>{e(content["title"])}</h4><p>{e(content["lead"])}</p>'
+ md=['',f'<a id="{key}"></a>','#### '+content['title'],'',content['lead']]
+ for template in content['templates']:
+  rendered+=f'<details class="chapter-templates writing-template" id="{e(template["id"])}"><summary>{e(template["title"])}</summary><div class="paragraph-lesson writing-template-body" data-section="{section}"><p class="template-purpose">{e(template["when"])}</p>'
+  md+=['',f'<a id="{template["id"]}"></a>',f'<details><summary>{template["title"]}</summary>','',template['when']]
+  for paragraph in template['paragraphs']:
+   text=paragraph['text']
+   display=e(re.sub(r'(Table|Figure)~\\ref\{(\[[^\]]+\])\}',r'\1 \2',text))
+   display=re.sub(r'\\textbf\{([^{}]*)\}',r'<strong>\1</strong>',display)
+   rendered+=f'<div class="template-paragraph"><h5>{e(paragraph["heading"])}</h5><p lang="en" class="template-text" data-template-raw="{e(text,quote=True)}">{display}</p><p class="template-guidance">{e(paragraph["note"])}</p></div>'
+   md+=['','**'+paragraph['heading']+'**','',text,'',paragraph['note']]
+  rendered+='<button type="button" class="copy js-only" data-copy-writing-template data-copy-label="复制完整模板">复制完整模板</button></div></details>'
+  md+=['','</details>']
+ return rendered+'</section>',md
+
 def render_intro_connections(data):
  """Show concrete paragraph hooks and aligned Abstract–Introduction claims."""
  content=data['intro_connections'];e=html.escape
@@ -69,7 +88,7 @@ def render_intro_connections(data):
    if side=='abstract':
     rendered+=f'<div class="argument-arrow" data-annotation-exclude><span class="argument-relation">{e(pair["relation"])}</span><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="{key}-tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor"/></marker></defs><path class="argument-link" d="M 5 55 C 35 55, 65 55, 93 55" fill="none" stroke="currentColor" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#{key}-tip)"/></svg></div>'
   rendered+='</div>'
-  md+=['','**'+pair['label']+' · '+pair['relation']+'**','', '**Abstract**：'+pair['abstract'],'','**Intro**：'+pair['intro'],f' · [修改 case](#{pair["link"]})']
+  md+=['','**'+pair['label']+' · '+pair['relation']+'**','', '**Abstract**：'+pair['abstract'],'','**Intro**：'+pair['intro'],f' · [查看对应关系](#{pair["link"]})']
  rendered+='</figure>'
  body_html,body_md=render_intro_body_map(data['tutorial_layout']['intro_body_map'])
  return rendered+body_html+'</section>',md+body_md
@@ -268,8 +287,15 @@ def render_paper_outline(content):
  rendered=f'<figure class="paper-outline" id="draft-paper-outline"><figcaption>{e(content["title"])}</figcaption><p class="lesson-context">{e(content["caption"])}</p><p class="outline-abstract">{e(content["abstract"])}</p>'
  md=['','<a id="draft-paper-outline"></a>','#### '+content['title'],'',content['caption'],'',content['abstract']]
  def chapter(node):
-  block=f'<div class="outline-section"><p><strong><a href="#{e(node["link"])}">{e(node["title"])}</a></strong></p><p>{e(node["summary"])}</p></div>'
+  block=f'<div class="outline-section"><p><strong><a href="#{e(node["link"])}">{e(node["title"])}</a></strong></p><p>{e(node["summary"])}</p>'
   lines=['','**'+node['title']+'**','',node['summary']]
+  if node.get('parts'):
+   block+='<ul class="outline-parts">'
+   for part in node['parts']:
+    block+=f'<li><strong>{e(part["title"])}</strong>：{e(part["text"])}</li>'
+    lines+=['','- **'+part['title']+'**：'+part['text']]
+   block+='</ul>'
+  block+='</div>'
   if node['bridge']:
    block+=f'<p class="outline-bridge"><span aria-hidden="true">↓</span>{e(node["bridge"])}</p>';lines+=['','↓ '+node['bridge']]
   return block,lines
@@ -279,14 +305,20 @@ def render_paper_outline(content):
  rendered+=f'<div class="outline-method"><p><strong><a href="#chapter-method">{e(method["title"])}</a></strong></p><div class="overview-node"><p>{e(method["overview"])}</p></div><div class="overview-arrow" aria-hidden="true"><span>概括圈内各小节的职责与交接</span><svg viewBox="0 0 100 48"><defs><marker id="overview-flow-tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor"/></marker></defs><path d="M50 2 L50 43" stroke="currentColor" stroke-width="1.5" fill="none" marker-end="url(#overview-flow-tip)"/></svg></div><div class="method-main-group"><p class="method-formulation"><strong>{e(method["formulation"]["title"])}</strong> · {e(method["formulation"]["summary"])}</p><div class="method-stages">'
  md+=['','**'+method['title']+'**','',method['overview'],'','↓ 概括各小节的职责与交接','',method['formulation']['title']+'：'+method['formulation']['summary']]
  for n,stage in enumerate(method['stages']):
-  if n:rendered+='<span class="method-stage-arrow"><span aria-hidden="true">→</span><small>'+('案例' if n==1 else '评分判据')+'</small></span>'
+  if n:rendered+='<span class="method-stage-arrow"><span aria-hidden="true">→</span><small>'+e(stage['handoff'])+'</small></span>'
   rendered+=f'<div class="method-stage"><p><strong>{e(stage["title"])}</strong></p><p><span>输入</span> {e(stage["input"])}</p><p>{e(stage["operation"])}</p><p><span>输出</span> {e(stage["output"])}</p></div>'
   md+=['','- **'+stage['title']+'**：'+stage['input']+' → '+stage['operation']+' → '+stage['output']]
  rendered+=f'</div><p class="method-input-route">{e(method["routing"])}</p></div></div><p class="outline-bridge"><span aria-hidden="true">↓</span>{e(method["bridge"])}</p>';md+=['',method['routing'],'','↓ '+method['bridge']]
+ if method.get('variants'):
+  rendered+='<p class="outline-variants">'+e(method['variants'])+'</p>';md+=['',method['variants']]
  for node in content['after_method']:
   h,m=chapter(node);rendered+=h;md+=m
- rendered+=f'<p class="outline-supplements">{e(content["supplements"])}</p></figure>';md+=['',content['supplements']]
- return rendered,md
+ rendered+=f'<p class="outline-supplements">{e(content["supplements"])}</p>';md+=['',content['supplements']]
+ if content.get('source'):
+  source=content['source']
+  rendered+=f'<p class="example-source"><a href="{e(source["url"])}">{e(source["title"])}</a> · {e(source["note"])}</p>'
+  md+=['',f'[{source["title"]}]({source["url"]}) · {source["note"]}']
+ return rendered+'</figure>',md
 
 def render_draft_chapter(data):
  e=html.escape;q=data['quick_start'];layout=data['tutorial_layout']
@@ -658,6 +690,9 @@ def build():
  source_data=json.loads((ROOT/'data/guide.json').read_text(encoding='utf-8'))
  data=deepcopy(source_data)
  data['_tutorial_layout']=True
+ for update in data['tutorial_layout'].get('principle_updates',[]):
+  rules=data['refine_section_principles'][update['section']]
+  rules[rules.index(update['before'])]=update['after']
  for section,rules in data['tutorial_layout']['section_additions'].items():
   data['refine_section_principles'][section]+=rules
  for section in data['sections']:
@@ -669,6 +704,7 @@ def build():
  data['refine_global_cases'][0]['title']='贡献与句间衔接'
  data['intro_connections']['title']='段落承接'
  data['intro_connections']['map_title']='摘要与引言：主张对应'
+ data['intro_connections'].update(data['tutorial_layout']['abstract_intro_template'])
  for group,title in zip(data['tools'],['文献检索与阅读','写作与排版','论文绘图','引用核验','代码阅读','论文发布与维护','其他资源']):group['title']=title
  sections,items,refs=data['sections'],data['items'],data['references']
  lessons=data.get('manuscript_paragraphs',[])
@@ -719,6 +755,9 @@ def build():
   elif s.get('principle'):
    entries+=f'<p class="chapter-principle">{e(s["principle"])}</p>'
    md+=['',s['principle']]
+  if s['id'] in data['tutorial_layout'].get('writing_templates',{}):
+   templates_html,templates_md=render_writing_templates(data['tutorial_layout']['writing_templates'][s['id']],s['id'])
+   entries+=templates_html;md+=templates_md
   if s['id']=='intro' and data.get('intro_connections'):
    connections_html,connections_md=render_intro_connections(data)
    entries+=connections_html;md+=connections_md
