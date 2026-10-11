@@ -43,6 +43,7 @@ description: Draft and refine empirical CS conference papers with section templa
 
 - **Abstract**：问题、缺口、方法、结果与范围。
 - **Introduction**：背景、已有方法、局限、对应设计、主要发现、贡献。贡献用原生 itemize，每项一个主要动作，长度接近，项数按真实贡献调整。
+- **Introduction 前两段**：结构可调整。先交代领域背景与回顾，比较相关工作的能力、差异和不足，再引出本文设计。背景与比较可以穿插、合并或拆分，不固定“第一段背景、第二段局限”，也不强制四段式。每段有清楚的任务，句间承接真实。
 - **Introduction 进阶**：发现突出时，可用“现象→质疑→诊断→方法→验证”；领域有多个困难时，逐点展开局限，再逐点给方案。背景提供理解困难所需的信息，设计解释为何针对困难。
 - **Related Work**：主标题后进主题 subsection。每组写路线、机制、扩展、缺口和本文方案；结尾用 However、To address / To solve，对齐 Intro 的对象和关键词。不同主题处理不同缺口，按类别概括文献，仅引用直接相关的工作。
 - **Method Overview**：先解释设计为何有效，再说明做法。首句写核心设计如何针对 Intro 的困难，后面写目的、输入、操作、输出。用 in [Section] (ref) 定位，每个章节名和引用出现一次；后句接前句产物，保留并行关系，末句引用 framework。主语用 we、模型或模块。
@@ -53,6 +54,10 @@ description: Draft and refine empirical CS conference papers with section templa
 - **References / Appendix**：引用回查原文；实现与补充实验放附录，正文给入口。
 
 模板按实际内容增删。段数、配色和句式是写作默认，会议硬性要求看当年官方说明。
+
+## 讲解例子
+
+Introduction、Related Work 和 Method 开头先给连贯的整段例子，再高亮关键短语，在旁边说明写法及作用。保留段落顺序和句间关系，中文译文与英文逐项对应。原文、翻译、教学改写和批注分别标注；借鉴论证结构，不移植他人的研究事实或特色措辞。句式与 LaTeX 模板作为补充，不把段落拆成孤立句子。
 
 ## 证据
 

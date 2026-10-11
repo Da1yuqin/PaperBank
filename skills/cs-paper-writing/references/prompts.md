@@ -33,6 +33,7 @@
 7. 最后组织 Intro：已有能力→具体不足→对应设计→实际发现→平行贡献。写清真正新增了什么，设计为什么回应不足；不把普通工程步骤包装成创新。不够的证据单列给我，不编结果、引用或 first／unique。
 8. 每次给我一节中文提纲与真实证据，确认后再写英文。一句一个完整判断，一段一个任务；定义术语、符号和信号来源，同对象同名称，正文不用 it／they 及同族代词。贡献形容词须有依据，一词换一词，避免重复修饰。超页先删重复，不缩模板字号或间距。交付实际编译与 PDF 检查结果，远端同步单独说明。
 语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
+Intro 结构：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。
 ```
 
 ### English
@@ -58,6 +59,7 @@ Order and hard rules:
 7. Build the Introduction last: existing capabilities → specific limitation → matched design → actual finding → parallel contributions. State what is new and why each design responds to a limitation. Do not relabel routine engineering as innovation. List evidence gaps separately; invent no results, citations, or first / unique claims.
 8. Show one Chinese section outline and its evidence for approval before English prose. Use one complete main judgment per sentence and one task per paragraph. Define terms, notation, and signal sources; name objects consistently and avoid it / they and related object pronouns in author prose. Use evidence-supported contribution modifiers as concise word replacements. Remove repetition before cutting supporting evidence; preserve template fonts and spacing. Report actual compilation and PDF checks separately from remote synchronization.
 Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
+Introduction structure: Adapt the order and division of the first two paragraphs. Include field context, a review of existing approaches, and evidence-based comparisons of their capabilities, differences, and limitations. Combine or split these functions as needed; do not fix paragraph one as background and paragraph two as limitations.
 ```
 
 <a id="writing"></a>
@@ -83,6 +85,7 @@ Language: use professional, concise, direct wording; omit jokes, metaphors, and 
 5. 实验段先给有证据的结论，再讲比较条件、关键对照与含义；消融固定其他条件。指标说明方向、分母和不确定性，区分记录与独立样本、百分比与百分点、观察与因果；保留影响解释的负结果。RQ 按需要使用。
 6. 数据、公式含义、实验设置、引文、原始 prompt 和模型回复不因润色改变；保留他人修改。先给中文逻辑与最小改法，确认后改英文。缺证据单列给我，不写入论文正文；只读任务不写文件。最后说明实际改动和检查，编译与最终 PDF 目检分别确认。
 语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
+Intro 结构：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。
 ```
 
 ### English
@@ -101,6 +104,7 @@ Hard rules:
 5. Start result paragraphs with evidenced conclusions, then conditions, key comparisons, and implications. Hold other conditions fixed in ablations. Define metric direction, denominators, and uncertainty. Distinguish records from independent samples, percentages from percentage points, and observations from causal findings. Retain negative results that affect interpretation. Use RQs when useful.
 6. Preserve data, formula meanings, settings, citations, original prompts, model outputs, and concurrent edits. Show Chinese reasoning and minimal fixes before revising English. Keep evidence gaps outside the paper; do not write files for read-only tasks. Report actual changes and checks, distinguishing compilation from visual inspection of the final PDF.
 Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
+Introduction structure: Adapt the order and division of the first two paragraphs. Include field context, a review of existing approaches, and evidence-based comparisons of their capabilities, differences, and limitations. Combine or split these functions as needed; do not fix paragraph one as background and paragraph two as limitations.
 ```
 
 <a id="experiments"></a>
@@ -147,7 +151,7 @@ Editable files: [experiment prose, tables, related files]; preserve: [original r
 
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill。
 
-对应规则：贡献可见性与有依据的贡献形容词；背景—困难—对应方案；引言句间承接与平行贡献；摘要与引言一致。
+对应规则：贡献可见性与有依据的贡献形容词；背景—困难—对应方案；引言句间承接与平行贡献；摘要与引言一致；引言前两段结构可调整，领域回顾与比较完整。
 
 ### 中文
 
@@ -158,8 +162,8 @@ Editable files: [experiment prose, tables, related files]; preserve: [original r
 任务：先写中文提纲；允许修改：【文件与范围】。
 
 1. 先写“具体不足→对应设计→实际证据”映射，缺证据单列，不补造。
-2. 背景段：说清研究方向与价值，紧接已有路线怎么做、已经能做什么。用必要原文引用，删除与具体问题无关的泛化背景。
-3. 问题段：指出哪个条件下，已有做法不能证明或处理什么，并给依据。每个问题须有后文设计回应，不把已有能力写成没人做过。
+2. 开头前两段：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。 说清研究方向与价值，紧接已有路线怎么做、已经能做什么。用必要原文引用，删除与具体问题无关的泛化背景。
+3. 比较与问题：指出哪个条件下，已有做法不能证明或处理什么，并给依据。每个问题须有后文设计回应，不把已有能力写成没人做过。
 4. 方案段：明确本文新增的对象或设计，与最近工作区别在哪里；先解释为什么针对该困难，再写输入、操作、产物。解释设计机制，不能仅列模块名称与步骤。
 5. 发现段：只写实际主要发现、关键比较和适用范围。没有结果不写结果句，诊断不冒充因果，有限测试不推广全部场景。
 6. 贡献用原生 itemize，平行、简短、长度相近，项数按真实工作调整。一项一个主要贡献，常规实现不单独列为创新。de-identified、expert-confirmed、tailored 等词须有对应事实，一词换一词，不使用空泛评价；不用无依据的 first／unique。
@@ -175,8 +179,8 @@ Materials: [problem evidence, closest work, actual designs, verified findings an
 Task: write a Chinese outline first; editable files and scope: [ ].
 
 1. Map specific limitations to matched designs and actual evidence. List gaps separately without inventing support.
-2. Background: explain the field and its value, then how existing approaches work and what they already achieve. Cite necessary original sources; skip generic technological-progress openings.
-3. Problems: identify the condition where an existing approach cannot handle or establish something, with evidence. Match every problem to a later design; acknowledge existing capabilities.
+2. Opening paragraphs: Adapt the order and division of the first two paragraphs. Include field context, a review of existing approaches, and evidence-based comparisons of their capabilities, differences, and limitations. Combine or split these functions as needed; do not fix paragraph one as background and paragraph two as limitations.  explain the field and its value, then how existing approaches work and what they already achieve. Cite necessary original sources; skip generic technological-progress openings.
+3. Comparisons and problems: identify the condition where an existing approach cannot handle or establish something, with evidence. Match every problem to a later design; acknowledge existing capabilities.
 4. Response: state the new object or design and its difference from the closest work. Explain why the design addresses the limitation before inputs, operations, and products. A module list or pipeline alone is insufficient.
 5. Findings: report actual main findings, key comparisons, and scope only. Omit result sentences without results. Distinguish diagnosis from causality and bounded tests from universal claims.
 6. Use native itemize for parallel, concise contributions of similar length; let the actual work determine the count. Give each item one main contribution; routine implementation is not novelty. Use de-identified, expert-confirmed, tailored, or similar modifiers only when supported, as concise word replacements. Avoid unsupported first / unique claims.

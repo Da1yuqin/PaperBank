@@ -6,7 +6,7 @@
 
 五章：起草、绘图、正文精修、Rebuttal、AI 工具。附中英例子、Related Work / Method Overview 完整模板和 Codex skill。
 
-每章说明写作要求，再逐句拆解例子。Method 先解释设计为何针对困难，Experiments 分析发现，Introduction 对应问题、设计与证据。先审核论证，再精修语言。
+Intro、Related Work 与 Method 开头先读完整论文段落，高亮与旁批解释各处写法和作用，可切换中文；句式与 LaTeX 模板保留在下方。Method 先解释设计为何针对困难，Experiments 分析发现，Introduction 对应问题、设计与证据。先审核论证，再精修语言。
 
 [在线阅读](https://da1yuqin.github.io/PaperBank/) · [cs-paper-writing](assets/cs-paper-writing-skill.zip) · [绘图 skill](assets/paperbank-figures-skill.zip) · [rebuttal skill](assets/rebuttal-skill.zip) · [Markdown 全文](book/guide.md) · [来源](SOURCES.md)
 

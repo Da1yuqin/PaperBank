@@ -827,6 +827,7 @@ Fill in the prompt before asking Codex to draft. A venue name alone does not sup
 7. 最后组织 Intro：已有能力→具体不足→对应设计→实际发现→平行贡献。写清真正新增了什么，设计为什么回应不足；不把普通工程步骤包装成创新。不够的证据单列给我，不编结果、引用或 first／unique。
 8. 每次给我一节中文提纲与真实证据，确认后再写英文。一句一个完整判断，一段一个任务；定义术语、符号和信号来源，同对象同名称，正文不用 it／they 及同族代词。贡献形容词须有依据，一词换一词，避免重复修饰。超页先删重复，不缩模板字号或间距。交付实际编译与 PDF 检查结果，远端同步单独说明。
 语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
+Intro 结构：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。
 ```
 
 **English prompt**
@@ -852,6 +853,7 @@ Order and hard rules:
 7. Build the Introduction last: existing capabilities → specific limitation → matched design → actual finding → parallel contributions. State what is new and why each design responds to a limitation. Do not relabel routine engineering as innovation. List evidence gaps separately; invent no results, citations, or first / unique claims.
 8. Show one Chinese section outline and its evidence for approval before English prose. Use one complete main judgment per sentence and one task per paragraph. Define terms, notation, and signal sources; name objects consistently and avoid it / they and related object pronouns in author prose. Use evidence-supported contribution modifiers as concise word replacements. Remove repetition before cutting supporting evidence; preserve template fonts and spacing. Report actual compilation and PDF checks separately from remote synchronization.
 Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
+Introduction structure: Adapt the order and division of the first two paragraphs. Include field context, a review of existing approaches, and evidence-based comparisons of their capabilities, differences, and limitations. Combine or split these functions as needed; do not fix paragraph one as background and paragraph two as limitations.
 ```
 
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#draft)
@@ -1048,21 +1050,21 @@ Once the figures are settled, define the body outline. Each section has a purpos
 
 先用中文说明现有问题、对应改进及作用机制，审核通过后再组织英文。
 
-#### 1.4.a Intro 先按这条线排
+#### 1.4.a Intro 先把这几件事讲全
 
-- **第一段：背景与已有能力：**第一句进入研究方向，紧接实际价值，再概括现有路线及已做到的事。删除与具体研究问题无关的泛化背景。
+- **开头：领域回顾与已有能力：**前两个自然段结构可调整。交代研究领域，概括已有路线及能力；背景与相关工作比较可穿插、合并或拆分。只留理解具体问题所需的信息。
 
 中：约束规划将任务要求转成可执行计划。现有方法能生成候选方案，并通过搜索或反馈改进。
 
 EN: Constrained planning turns task requirements into executable plans. Existing methods generate candidates and refine them through search or feedback.
 
-- **第二段：具体问题：**说在哪种条件下、哪个对象出了什么问题，为什么已有做法还不够。用文献或动机实验支撑，准确说明已有工作的能力与适用条件。
+- **比较：具体问题与边界：**有依据地比较相关工作的能力、差异与不足，说清在哪种条件下还缺什么。可接在回顾段内，也可另起一段；不要把段落位置当成规范。
 
 中：然而，在要求彼此冲突时，计划仍可能遗漏关键约束，使后续步骤不可执行。
 
 EN: However, under conflicting requirements, plans may still omit critical constraints, leaving later steps infeasible.
 
-- **第三段：对应设计：**逐个回应上一段的问题。用“为解决 X，我们做 Y，因此得到 Z”串起来；关键术语就近解释，不要只报模块名。
+- **对应设计：**逐个回应上一段的问题。用“为解决 X，我们做 Y，因此得到 Z”串起来；关键术语就近解释，不要只报模块名。
 
 中：为减少遗漏，我们在规划前核查每项约束的证据，并把已核实的约束交给规划器。
 
@@ -1089,8 +1091,8 @@ EN: We design a pre-planning evidence check that identifies unsupported constrai
 任务：先写中文提纲；允许修改：【文件与范围】。
 
 1. 先写“具体不足→对应设计→实际证据”映射，缺证据单列，不补造。
-2. 背景段：说清研究方向与价值，紧接已有路线怎么做、已经能做什么。用必要原文引用，删除与具体问题无关的泛化背景。
-3. 问题段：指出哪个条件下，已有做法不能证明或处理什么，并给依据。每个问题须有后文设计回应，不把已有能力写成没人做过。
+2. 开头前两段：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。 说清研究方向与价值，紧接已有路线怎么做、已经能做什么。用必要原文引用，删除与具体问题无关的泛化背景。
+3. 比较与问题：指出哪个条件下，已有做法不能证明或处理什么，并给依据。每个问题须有后文设计回应，不把已有能力写成没人做过。
 4. 方案段：明确本文新增的对象或设计，与最近工作区别在哪里；先解释为什么针对该困难，再写输入、操作、产物。解释设计机制，不能仅列模块名称与步骤。
 5. 发现段：只写实际主要发现、关键比较和适用范围。没有结果不写结果句，诊断不冒充因果，有限测试不推广全部场景。
 6. 贡献用原生 itemize，平行、简短、长度相近，项数按真实工作调整。一项一个主要贡献，常规实现不单独列为创新。de-identified、expert-confirmed、tailored 等词须有对应事实，一词换一词，不使用空泛评价；不用无依据的 first／unique。
@@ -1106,8 +1108,8 @@ Materials: [problem evidence, closest work, actual designs, verified findings an
 Task: write a Chinese outline first; editable files and scope: [ ].
 
 1. Map specific limitations to matched designs and actual evidence. List gaps separately without inventing support.
-2. Background: explain the field and its value, then how existing approaches work and what they already achieve. Cite necessary original sources; skip generic technological-progress openings.
-3. Problems: identify the condition where an existing approach cannot handle or establish something, with evidence. Match every problem to a later design; acknowledge existing capabilities.
+2. Opening paragraphs: Adapt the order and division of the first two paragraphs. Include field context, a review of existing approaches, and evidence-based comparisons of their capabilities, differences, and limitations. Combine or split these functions as needed; do not fix paragraph one as background and paragraph two as limitations.  explain the field and its value, then how existing approaches work and what they already achieve. Cite necessary original sources; skip generic technological-progress openings.
+3. Comparisons and problems: identify the condition where an existing approach cannot handle or establish something, with evidence. Match every problem to a later design; acknowledge existing capabilities.
 4. Response: state the new object or design and its difference from the closest work. Explain why the design addresses the limitation before inputs, operations, and products. A module list or pipeline alone is insufficient.
 5. Findings: report actual main findings, key comparisons, and scope only. Omit result sentences without results. Distinguish diagnosis from causality and bounded tests from universal claims.
 6. Use native itemize for parallel, concise contributions of similar length; let the actual work determine the count. Give each item one main contribution; routine implementation is not novelty. Use de-identified, expert-confirmed, tailored, or similar modifiers only when supported, as concise word replacements. Avoid unsupported first / unique claims.
@@ -1596,7 +1598,7 @@ We separate evidence selection from answer generation because the two stages use
 
 让读者认同问题，并记住你的解法为什么有用。
 
-具体说明已有困难、对应设计与验证依据，不仅扩写摘要。
+前两段不固定分工：交代领域回顾，比较已有能力和不足，再引出本文设计。背景与比较可穿插、合并或拆分。
 
 ### 相关工作
 
@@ -1727,7 +1729,7 @@ Motivated by [supported diagnosis], we [matching design] and evaluate [targeted 
 
 **第 3 句：**诊断接方法，验证接贡献；不把相关现象直接写成原因。
 
-#### 引言第一段：方向与任务
+#### 引言开头：方向与任务
 
 从研究方向进入具体任务，背景仅保留理解后文问题所需的信息。
 
@@ -1735,7 +1737,8 @@ Motivated by [supported diagnosis], we [matching design] and evaluate [targeted 
 
 教学模板；【】填真实材料。
 
-- 背景只留理解问题所需的信息；接下面的已有方法句式，共同组织首段。
+- 前两段可以先讲领域与进展，也可以从具体问题进入，再回顾和比较已有路线；段落顺序服务于论证。
+- 领域背景、相关工作与比较都要交代；背景只留理解问题所需的信息，不固定“第一段背景、第二段局限”。
 
 PaperBank 推荐结构模板
 
@@ -1757,14 +1760,15 @@ In this setting, [input] must be converted into [output] while satisfying [const
 
 **第 3 句：**把大方向落到具体任务，接着概括已有解法做到哪一步。
 
-#### 引言首段后半：已有方法
+#### 引言开头：领域回顾与比较
 
-概括已有路线的操作与能力，为下一段具体局限提供依据。
+概括已有路线的机制与能力，比较相关工作的差异和边界；可与背景或局限放在同一自然段。
 
 教学模板；【】填真实材料。
 
 - 按任务、机制或评价目标分组，不逐篇点名。
 - 引言与 Related Work 的分类、对象和关键词一致；机制细节放后者。
+- 与背景的先后和段落分工可调整；开头要有领域回顾和有依据的比较，不能只有泛化背景。
 
 PaperBank 规范化写法；段数按内容调整
 
@@ -1780,7 +1784,7 @@ Another line uses [different mechanism] to support [additional capability] [cita
 
 **第 2 句：**只保留有实质差别的第二类方法；没有这类研究就删掉此句。
 
-#### 引言第二段：局限
+#### 引言承接：具体局限
 
 写清现有方法在何种条件下不足，以及问题产生的原因。不能只用 expensive、limited、inefficient 概括。
 
@@ -1788,7 +1792,7 @@ Another line uses [different mechanism] to support [additional capability] [cita
 
 教学模板；【】填真实材料。
 
-- 用 However 承接上一段真实能力；先讲问题，本段仅说明局限，方案在下一段展开。
+- 用符合真实关系的转折承接已有能力；具体局限可与领域回顾放在同一段，也可另起一段，再进入对应设计。
 - 给 2～3 个词的自明短名，首次就解释；困难数量按真实贡献，按实际内容确定。
 - 每个困难都能指向后文设计与实验；命名新不等于发现新。
 
@@ -1812,7 +1816,7 @@ For example, [concrete input or situation] requires [specific behavior], which [
 
 **第 3 句：**例子显示缺口怎样发生，是否未检验仍需核对实际来源。
 
-#### 引言第三段：设计
+#### 引言主体：对应设计
 
 按局限顺序说明改进、作用机制与输入输出，不能只列模块名称。
 
@@ -1844,7 +1848,7 @@ To address [challenge B], we [design B].
 
 **第 3 句：**第二项方案处理另一项真实问题；没有就删除，不添加无必要的模块。
 
-#### 引言第四段：主要发现
+#### 引言收束：主要发现
 
 设计之后写主要发现与启示，并给关键比较、条件及范围，不局限于分数提升。
 

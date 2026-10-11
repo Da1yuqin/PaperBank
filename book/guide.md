@@ -89,6 +89,7 @@ Fill in the prompt before asking Codex to draft. A venue name alone does not sup
 7. 最后组织 Intro：已有能力→具体不足→对应设计→实际发现→平行贡献。写清真正新增了什么，设计为什么回应不足；不把普通工程步骤包装成创新。不够的证据单列给我，不编结果、引用或 first／unique。
 8. 每次给我一节中文提纲与真实证据，确认后再写英文。一句一个完整判断，一段一个任务；定义术语、符号和信号来源，同对象同名称，正文不用 it／they 及同族代词。贡献形容词须有依据，一词换一词，避免重复修饰。超页先删重复，不缩模板字号或间距。交付实际编译与 PDF 检查结果，远端同步单独说明。
 语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
+Intro 结构：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。
 ```
 
 **English prompt**
@@ -114,6 +115,7 @@ Order and hard rules:
 7. Build the Introduction last: existing capabilities → specific limitation → matched design → actual finding → parallel contributions. State what is new and why each design responds to a limitation. Do not relabel routine engineering as innovation. List evidence gaps separately; invent no results, citations, or first / unique claims.
 8. Show one Chinese section outline and its evidence for approval before English prose. Use one complete main judgment per sentence and one task per paragraph. Define terms, notation, and signal sources; name objects consistently and avoid it / they and related object pronouns in author prose. Use evidence-supported contribution modifiers as concise word replacements. Remove repetition before cutting supporting evidence; preserve template fonts and spacing. Report actual compilation and PDF checks separately from remote synchronization.
 Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
+Introduction structure: Adapt the order and division of the first two paragraphs. Include field context, a review of existing approaches, and evidence-based comparisons of their capabilities, differences, and limitations. Combine or split these functions as needed; do not fix paragraph one as background and paragraph two as limitations.
 ```
 
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#draft)
@@ -480,21 +482,21 @@ Once the figures are settled, define the body outline. Each section has a purpos
 
 先用中文说明现有问题、对应改进及作用机制，审核通过后再组织英文。
 
-#### 1.4.a Intro 先按这条线排
+#### 1.4.a Intro 先把这几件事讲全
 
-- **第一段：背景与已有能力：**第一句进入研究方向，紧接实际价值，再概括现有路线及已做到的事。删除与具体研究问题无关的泛化背景。
+- **开头：领域回顾与已有能力：**前两个自然段结构可调整。交代研究领域，概括已有路线及能力；背景与相关工作比较可穿插、合并或拆分。只留理解具体问题所需的信息。
 
 中：约束规划将任务要求转成可执行计划。现有方法能生成候选方案，并通过搜索或反馈改进。
 
 EN: Constrained planning turns task requirements into executable plans. Existing methods generate candidates and refine them through search or feedback.
 
-- **第二段：具体问题：**说在哪种条件下、哪个对象出了什么问题，为什么已有做法还不够。用文献或动机实验支撑，准确说明已有工作的能力与适用条件。
+- **比较：具体问题与边界：**有依据地比较相关工作的能力、差异与不足，说清在哪种条件下还缺什么。可接在回顾段内，也可另起一段；不要把段落位置当成规范。
 
 中：然而，在要求彼此冲突时，计划仍可能遗漏关键约束，使后续步骤不可执行。
 
 EN: However, under conflicting requirements, plans may still omit critical constraints, leaving later steps infeasible.
 
-- **第三段：对应设计：**逐个回应上一段的问题。用“为解决 X，我们做 Y，因此得到 Z”串起来；关键术语就近解释，不要只报模块名。
+- **对应设计：**逐个回应上一段的问题。用“为解决 X，我们做 Y，因此得到 Z”串起来；关键术语就近解释，不要只报模块名。
 
 中：为减少遗漏，我们在规划前核查每项约束的证据，并把已核实的约束交给规划器。
 
@@ -521,8 +523,8 @@ EN: We design a pre-planning evidence check that identifies unsupported constrai
 任务：先写中文提纲；允许修改：【文件与范围】。
 
 1. 先写“具体不足→对应设计→实际证据”映射，缺证据单列，不补造。
-2. 背景段：说清研究方向与价值，紧接已有路线怎么做、已经能做什么。用必要原文引用，删除与具体问题无关的泛化背景。
-3. 问题段：指出哪个条件下，已有做法不能证明或处理什么，并给依据。每个问题须有后文设计回应，不把已有能力写成没人做过。
+2. 开头前两段：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。 说清研究方向与价值，紧接已有路线怎么做、已经能做什么。用必要原文引用，删除与具体问题无关的泛化背景。
+3. 比较与问题：指出哪个条件下，已有做法不能证明或处理什么，并给依据。每个问题须有后文设计回应，不把已有能力写成没人做过。
 4. 方案段：明确本文新增的对象或设计，与最近工作区别在哪里；先解释为什么针对该困难，再写输入、操作、产物。解释设计机制，不能仅列模块名称与步骤。
 5. 发现段：只写实际主要发现、关键比较和适用范围。没有结果不写结果句，诊断不冒充因果，有限测试不推广全部场景。
 6. 贡献用原生 itemize，平行、简短、长度相近，项数按真实工作调整。一项一个主要贡献，常规实现不单独列为创新。de-identified、expert-confirmed、tailored 等词须有对应事实，一词换一词，不使用空泛评价；不用无依据的 first／unique。
@@ -538,8 +540,8 @@ Materials: [problem evidence, closest work, actual designs, verified findings an
 Task: write a Chinese outline first; editable files and scope: [ ].
 
 1. Map specific limitations to matched designs and actual evidence. List gaps separately without inventing support.
-2. Background: explain the field and its value, then how existing approaches work and what they already achieve. Cite necessary original sources; skip generic technological-progress openings.
-3. Problems: identify the condition where an existing approach cannot handle or establish something, with evidence. Match every problem to a later design; acknowledge existing capabilities.
+2. Opening paragraphs: Adapt the order and division of the first two paragraphs. Include field context, a review of existing approaches, and evidence-based comparisons of their capabilities, differences, and limitations. Combine or split these functions as needed; do not fix paragraph one as background and paragraph two as limitations.  explain the field and its value, then how existing approaches work and what they already achieve. Cite necessary original sources; skip generic technological-progress openings.
+3. Comparisons and problems: identify the condition where an existing approach cannot handle or establish something, with evidence. Match every problem to a later design; acknowledge existing capabilities.
 4. Response: state the new object or design and its difference from the closest work. Explain why the design addresses the limitation before inputs, operations, and products. A module list or pipeline alone is insufficient.
 5. Findings: report actual main findings, key comparisons, and scope only. Omit result sentences without results. Distinguish diagnosis from causality and bounded tests from universal claims.
 6. Use native itemize for parallel, concise contributions of similar length; let the actual work determine the count. Give each item one main contribution; routine implementation is not novelty. Use de-identified, expert-confirmed, tailored, or similar modifiers only when supported, as concise word replacements. Avoid unsupported first / unique claims.
@@ -603,6 +605,7 @@ The Introduction compresses the argument of the paper. Make the problem, design,
 5. 实验段先给有证据的结论，再讲比较条件、关键对照与含义；消融固定其他条件。指标说明方向、分母和不确定性，区分记录与独立样本、百分比与百分点、观察与因果；保留影响解释的负结果。RQ 按需要使用。
 6. 数据、公式含义、实验设置、引文、原始 prompt 和模型回复不因润色改变；保留他人修改。先给中文逻辑与最小改法，确认后改英文。缺证据单列给我，不写入论文正文；只读任务不写文件。最后说明实际改动和检查，编译与最终 PDF 目检分别确认。
 语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
+Intro 结构：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。
 ```
 
 **English usage prompt**
@@ -621,6 +624,7 @@ Hard rules:
 5. Start result paragraphs with evidenced conclusions, then conditions, key comparisons, and implications. Hold other conditions fixed in ablations. Define metric direction, denominators, and uncertainty. Distinguish records from independent samples, percentages from percentage points, and observations from causal findings. Retain negative results that affect interpretation. Use RQs when useful.
 6. Preserve data, formula meanings, settings, citations, original prompts, model outputs, and concurrent edits. Show Chinese reasoning and minimal fixes before revising English. Keep evidence gaps outside the paper; do not write files for read-only tasks. Report actual changes and checks, distinguishing compilation from visual inspection of the final PDF.
 Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
+Introduction structure: Adapt the order and division of the first two paragraphs. Include field context, a review of existing approaches, and evidence-based comparisons of their capabilities, differences, and limitations. Combine or split these functions as needed; do not fix paragraph one as background and paragraph two as limitations.
 ```
 
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#writing)
@@ -2655,7 +2659,45 @@ With the spatial contract established, PlanCraft-Agent then furnishes the scene 
 
 让读者认同问题，并记住你的解法为什么有用。
 
-具体说明已有困难、对应设计与验证依据，不仅扩写摘要。
+前两段不固定分工：交代领域回顾，比较已有能力和不足，再引出本文设计。背景与比较可穿插、合并或拆分。
+
+#### 整段示例：领域回顾怎样引出具体问题
+
+先读完整段落。相同颜色和编号对应右侧批注；可切换中文译文。
+
+**English 原文**
+
+Humans spend nearly 90% of their time indoors [12], and the built environment contributes a substantial share of global carbon emissions [34, 65, 66]. Thus, building design sits at the nexus of daily life and sustainability. Traditional design relies heavily on expert knowledge and extensive manual iteration [2, 14, 20], often taking days to months to reach viable solutions. Recent advances in generative models on controllable [5, 32, 47] and multimodal generation [7, 24, 50] pave the way for automated building design generation.
+
+To enable automation, prior works have employed conditioned generators [22, 31, 37, 38, 44, 48, 49, 59, 60, 63, 64] that translate coarse user requirements into concrete floorplan layouts. However, existing methods rely solely on user-specified conditions and thus often violate unspecified real-world design constraints. This neglect results in over 60% of samples in existing datasets [48] being practically unusable due to excessive energy use and flawed spatial-functional design. Some methods [38, 44] even fail to generate essential structural components such as windows, leading to unrealistic energy evaluations. Therefore, enforcing design constraints in generative models remains a major bottleneck for practical deployment.
+
+
+**中文译文**
+
+人们近 90% 的时间在室内度过 [12]，建筑环境也占全球碳排放的相当大一部分 [34, 65, 66]。因此，建筑设计连接着日常生活与可持续性。传统设计高度依赖专家知识和大量人工迭代 [2, 14, 20]，往往需要数天至数月才能得到可行方案。近期，可控生成 [5, 32, 47] 和多模态生成 [7, 24, 50] 的进展，为建筑设计的自动生成铺平了道路。
+
+为实现自动化，已有工作采用条件生成器 [22, 31, 37, 38, 44, 48, 49, 59, 60, 63, 64]，将用户的粗略需求转为具体平面布局。然而，现有方法仅依赖用户明确给出的条件，因此往往违反未被明确提出的现实设计约束。这种忽视使现有数据集 [48] 中超过 60% 的样本因能耗过高、空间与功能设计不合理而无法实际使用。一些方法 [38, 44] 甚至无法生成窗户等必要结构，导致能耗评估不符合现实。因此，在生成模型中落实设计约束，仍是实际部署的主要瓶颈。
+
+
+**高亮与旁批**
+
+1. **at the nexus of daily life and sustainability / 连接着日常生活与可持续性**：说明研究价值。室内生活与碳排放收束为研究价值，背景直接服务任务。
+2. **expert knowledge and extensive manual iteration / 专家知识和大量人工迭代**：已有做法与实际代价。先写专家与人工迭代的依赖，再引出自动化的必要性。
+3. **pave the way for automated building design generation / 为建筑设计的自动生成铺平了道路**：把领域进展接到本文任务。领域进展落到建筑设计；下一段继续讲“自动化”。
+4. **translate coarse user requirements into concrete floorplan layouts / 将用户的粗略需求转为具体平面布局**：先承认已有能力。先说输入和输出，承认已有能力，后面才有比较对象。
+5. **violate unspecified real-world design constraints / 违反未被明确提出的现实设计约束**：指出漏掉的条件。缺口落在未明确提出的约束，后两句补实际后果。
+6. **enforcing design constraints in generative models / 在生成模型中落实设计约束**：把比较收束为研究问题。Therefore 回扣具体缺口，明确后文要处理的问题。
+
+[GreenPlanner · CVPR Findings 2026](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html) · §1 Introduction，前两自然段，p.8596
+
+前两段没有固定分工。这一例先写领域与进展，再在下一段比较已有能力和实际缺口；领域回顾也可以与比较合在一段。这里的 60% 仅指原论文所述数据集，不能改成所有生成结果。
+
+英文保持原文段落，仅合并换行、还原排版断词与字体连字，规范引文括号空白；高亮和批注为本指南添加。中文为本指南翻译，不是作者原文。 保留两段顺序和全部引文编号；不包含插入两栏间的图注、作者脚注或出版水印。
+
+原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
+
+<details><summary>展开句式与 LaTeX 模板</summary>
+
 
 #### 3.4.a 先选主线：价值，还是发现
 
@@ -2684,7 +2726,7 @@ Motivated by [supported diagnosis], we [matching design] and evaluate [targeted 
 
 **第 3 句：**诊断接方法，验证接贡献；不把相关现象直接写成原因。
 
-#### 3.4.b 引言第一段：方向与任务
+#### 3.4.b 引言开头：方向与任务
 
 从研究方向进入具体任务，背景仅保留理解后文问题所需的信息。
 
@@ -2692,7 +2734,8 @@ Motivated by [supported diagnosis], we [matching design] and evaluate [targeted 
 
 教学模板；【】填真实材料。
 
-- 背景只留理解问题所需的信息；接下面的已有方法句式，共同组织首段。
+- 前两段可以先讲领域与进展，也可以从具体问题进入，再回顾和比较已有路线；段落顺序服务于论证。
+- 领域背景、相关工作与比较都要交代；背景只留理解问题所需的信息，不固定“第一段背景、第二段局限”。
 
 PaperBank 推荐结构模板
 
@@ -2714,14 +2757,15 @@ In this setting, [input] must be converted into [output] while satisfying [const
 
 **第 3 句：**把大方向落到具体任务，接着概括已有解法做到哪一步。
 
-#### 3.4.c 引言首段后半：已有方法
+#### 3.4.c 引言开头：领域回顾与比较
 
-概括已有路线的操作与能力，为下一段具体局限提供依据。
+概括已有路线的机制与能力，比较相关工作的差异和边界；可与背景或局限放在同一自然段。
 
 教学模板；【】填真实材料。
 
 - 按任务、机制或评价目标分组，不逐篇点名。
 - 引言与 Related Work 的分类、对象和关键词一致；机制细节放后者。
+- 与背景的先后和段落分工可调整；开头要有领域回顾和有依据的比较，不能只有泛化背景。
 
 PaperBank 规范化写法；段数按内容调整
 
@@ -2737,7 +2781,7 @@ Another line uses [different mechanism] to support [additional capability] [cita
 
 **第 2 句：**只保留有实质差别的第二类方法；没有这类研究就删掉此句。
 
-#### 3.4.d 引言第二段：局限
+#### 3.4.d 引言承接：具体局限
 
 写清现有方法在何种条件下不足，以及问题产生的原因。不能只用 expensive、limited、inefficient 概括。
 
@@ -2745,7 +2789,7 @@ Another line uses [different mechanism] to support [additional capability] [cita
 
 教学模板；【】填真实材料。
 
-- 用 However 承接上一段真实能力；先讲问题，本段仅说明局限，方案在下一段展开。
+- 用符合真实关系的转折承接已有能力；具体局限可与领域回顾放在同一段，也可另起一段，再进入对应设计。
 - 给 2～3 个词的自明短名，首次就解释；困难数量按真实贡献，按实际内容确定。
 - 每个困难都能指向后文设计与实验；命名新不等于发现新。
 
@@ -2769,7 +2813,7 @@ For example, [concrete input or situation] requires [specific behavior], which [
 
 **第 3 句：**例子显示缺口怎样发生，是否未检验仍需核对实际来源。
 
-#### 3.4.e 引言第三段：设计
+#### 3.4.e 引言主体：对应设计
 
 按局限顺序说明改进、作用机制与输入输出，不能只列模块名称。
 
@@ -2801,7 +2845,7 @@ To address [challenge B], we [design B].
 
 **第 3 句：**第二项方案处理另一项真实问题；没有就删除，不添加无必要的模块。
 
-#### 3.4.f 引言第四段：主要发现
+#### 3.4.f 引言收束：主要发现
 
 设计之后写主要发现与启示，并给关键比较、条件及范围，不局限于分数提升。
 
@@ -2880,6 +2924,9 @@ In summary, our contributions are:
     \item Experiments across [scope] reveal [specific finding].
 \end{itemize}
 ```
+
+</details>
+
 
 <details><summary>更多例子：论文原句与拆解</summary>
 
@@ -3026,6 +3073,39 @@ A tailored prompt guides each role in checking the evidence.
 
 局限与对应方案须对齐 Introduction 的对象和关键词，不新增无关问题。
 
+#### 整段示例：比较机制，再说明本文差异
+
+英文原文整段；右侧说明归类、比较与收尾各自的作用。
+
+**English 原文**
+
+Multi-dancer generation is an emerging area currently in its nascent stage. To the best of our knowledge, only a handful of studies (Yao et al. 2023; Le et al. 2023b,a; Yang et al. 2024) have focused on generating scenarios for more than two dancers. Among these, GDanceR (Le et al. 2023b) and GCD (Le et al. 2023a) utilize no special structures to avoid the imbalance issue in motion representation, resulting in a tendency for dancer ambiguity. CoDancers (Yang et al. 2024) splits group motions into single-person motions, preventing the occurrence of dancer ambiguity. However, completely isolating individual features results in incomplete group information, which leads to disharmony generation results. Therefore, a more optimal feature separation strategy is necessary. In this work, we introduce TCDiff, a method that first generates dancers’ trajectories and then produces logical movements. Together with our proposed effective plugin, Fusion Projection, this approach significantly reduces dancer ambiguity.
+
+
+**中文译文**
+
+多舞者生成是一个仍处于早期的新兴方向。据我们所知，只有少量研究（Yao et al. 2023; Le et al. 2023b,a; Yang et al. 2024）关注超过两名舞者的场景。其中，GDanceR（Le et al. 2023b）和 GCD（Le et al. 2023a）没有采用专门结构来避免运动表示的不平衡，因而容易出现舞者混淆。CoDancers（Yang et al. 2024）将群体动作拆成单人动作，避免了舞者混淆。然而，完全隔离个体特征会造成群体信息不完整，进而导致生成结果不协调。因此，需要更合适的特征分离策略。本文提出 TCDiff，先生成舞者轨迹，再生成合乎逻辑的动作。该做法结合我们提出的有效插件 Fusion Projection，显著减少了舞者混淆。
+
+
+**高亮与旁批**
+
+1. **avoid the imbalance issue in motion representation / 避免运动表示的不平衡**：给出比较维度。把两项相近工作放在同一机制下比较，说明为什么会难以区分舞者。
+2. **splits group motions into single-person motions / 将群体动作拆成单人动作**：承认另一条路线的进展。这里指出一个不同的操作，并承认它处理了前述问题。
+3. **completely isolating individual features results in incomplete group information / 完全隔离个体特征会造成群体信息不完整**：However 指出代价。不足接着前一句的操作出现；解释为什么会丢信息，再写不协调的后果。
+4. **a more optimal feature separation strategy is necessary / 需要更合适的特征分离策略**：把对比变成设计需求。已有路线各有代价，因此需要什么策略；下一句顺势介绍本文。
+5. **first generates dancers’ trajectories and then produces logical movements / 先生成舞者轨迹，再生成合乎逻辑的动作**：用明确动作说明区别。收尾写本文的处理顺序，回应前面的表示与分离问题，不只报方法名。
+
+[TCDiff · AAAI 2025](https://ojs.aaai.org/index.php/AAAI/article/view/32268) · Related Work / Music-driven Multi-dancer Generation，p.2646
+
+比较的重点是机制与后果：混合表示难以区分舞者，完全拆开又丢失群体信息。本文方案接回这两个问题。领域范围与效果判断限原论文发表时的研究和实验，不照搬成今天的现状。
+
+英文保持原文段落，仅合并换行、还原排版断词与字体连字，规范引文括号空白；高亮和批注为本指南添加。中文为本指南翻译，不是作者原文。 保留原文全部作者年份引文。
+
+作者教学复用；原论文英文短引与原图不受 PaperBank 原创内容 CC BY 授权覆盖。本文不转授第三方转载原论文材料的权利。
+
+<details><summary>展开句式与 LaTeX 模板</summary>
+
+
 **Related Work：完整模板**
 
 按共同机制归类。可直接比较的工作安排对应基线；不能直接比较时说明设置差异。
@@ -3089,6 +3169,9 @@ However, [Intro challenge B] remains unresolved under [scope B].
 To address this limitation, we [matching design B] to [purpose B].
 ```
 
+</details>
+
+
 <details><summary>更多例子：论文原句与拆解</summary>
 
 
@@ -3137,6 +3220,39 @@ Our study examines whether keeping earlier constraints helps across dialogue tur
 铁律：告诉读者为什么你的方法好，比解释清楚方法更重要。
 
 围绕本文设计组织内容，每个关键选择对应 Introduction 的具体困难。既有方法简要说明，不将 Method 写成 Preliminary。
+
+#### 整段示例：Method 开头怎样连接各组件
+
+英文原文整段；重点看数据、预测器与生成器如何相接。
+
+**English 原文**
+
+We propose GreenPlanner, an energy- and functionality-aware generative framework for residential design (Fig. 2). It integrates four components: (1) Design Feasibility Dataset (DesignFD), a dataset built from RPLAN [48] via expert-verified energy and functional evaluations; (2) Practical Design Evaluator (PDE), a predictor trained on DesignFD for fast simulation of energy and functional feasibility; (3) Green Plan Dataset (GreenPD), a PDE-guided dataset pairing user requirements with regulation-compliant layouts; and (4) GreenFlow, a generator trained on GreenPD with PDE feedback for controllable, constraint-grounded layout generation. We next describe each component of the framework in detail.
+
+
+**中文译文**
+
+我们提出 GreenPlanner，一套同时考虑能耗与功能的住宅设计生成框架（图 2）。该框架集成四个组件：（1）设计可行性数据集（DesignFD），由 RPLAN [48] 经专家核验的能耗与功能评估构建；（2）实用设计评估器（PDE），在 DesignFD 上训练，用于快速模拟能耗与功能可行性；（3）绿色规划数据集（GreenPD），由 PDE 引导，将用户需求与符合规范的布局配对；（4）GreenFlow，在 GreenPD 上训练并使用 PDE 反馈，生成可控且以约束为依据的布局。下面将详细介绍框架的各个组件。
+
+
+**高亮与旁批**
+
+1. **an energy- and functionality-aware generative framework for residential design / 一套同时考虑能耗与功能的住宅设计生成框架**：首句说任务与设计特点。住宅设计是任务，能耗和功能是关键考虑；先让读者知道框架的用途。
+2. **expert-verified energy and functional evaluations / 经专家核验的能耗与功能评估**：说明监督信息的来源与质量。expert-verified 点出真实核验工作。DesignFD 随后成为预测器的训练数据。
+3. **a predictor trained on DesignFD / 在 DesignFD 上训练**：接上前一个产物。数据集不是孤立组件：预测器在它上面训练，得到快速评估能力。
+4. **a PDE-guided dataset pairing user requirements with regulation-compliant layouts / 由 PDE 引导，将用户需求与符合规范的布局配对**：交代预测器的下一步用途。PDE 用于引导配对数据构建；需求与布局也把生成任务的输入输出说清。
+5. **a generator trained on GreenPD with PDE feedback / 在 GreenPD 上训练并使用 PDE 反馈**：收束到最终生成器。GreenPD 提供训练数据，PDE 提供反馈。复用前文产物，四个组件形成实际依赖。
+
+[GreenPlanner · CVPR Findings 2026](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html) · §3 Method，开头自然段，p.8597
+
+这段适合看输入输出与组件依赖。写自己的 Overview，还要补关键设计为什么针对 Intro 的困难，以及真实章节引用；末句的目录预告不必照抄。
+
+英文保持原文段落，仅合并换行、还原排版断词与字体连字，规范引文括号空白；高亮和批注为本指南添加。中文为本指南翻译，不是作者原文。 保留原文组件编号、Fig.2 与引文 [48]，仅清理 PDF 提取产生的标点空白。
+
+原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
+
+<details><summary>展开句式与 LaTeX 模板</summary>
+
 
 #### 3.6.a Method Overview：完整模板
 
@@ -3275,6 +3391,9 @@ The resulting [output] is passed to [next step] for [purpose].
 生成的[产物]交给[下一步]，用于[目的]。
 
 **第 5 句：**末句启下；不存在这项依赖就如实改写。
+
+</details>
+
 
 <details><summary>更多例子：论文原句与拆解</summary>
 

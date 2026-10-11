@@ -46,6 +46,46 @@ def package_prompt_reference(data, folder, keys):
 def section_label(section):
  return '先读 · ' if int(section['number'])==0 else str(int(section['number']))+'. '
 
+def render_annotated_paragraph(example, refs):
+ """Keep source paragraphs intact and place matched comments beside them."""
+ e=html.escape;key=example['id']
+ rendered=f'<section class="paragraph-lesson annotated-example" id="{e(key)}" data-section="{e(example["section"])}"><h4>{e(example["title"])}</h4><p class="lesson-context">{e(example["label"])}</p>'
+ rendered+='<div class="paragraph-language js-only" role="group" aria-label="例子语言" data-annotation-exclude>'
+ for lang,label in [('en','English 原文'),('zh','中文译文')]:
+  rendered+=f'<button type="button" data-paragraph-language="{lang}" aria-pressed="{str(lang=="en").lower()}" aria-controls="{e(key)}-{lang}">{label}</button>'
+ rendered+='</div>'
+ md=['','#### '+example['title'],'',example['label']]
+ for lang,language in [('en','en'),('zh','zh-CN')]:
+  rendered+=f'<div class="annotated-panel" id="{e(key)}-{lang}" data-paragraph-panel="{lang}">'
+  md+=['','**'+('English 原文' if lang=='en' else '中文译文')+'**','']
+  for n,paragraph in enumerate(example['paragraphs']):
+   rendered+=f'<div class="annotated-row"><div class="annotated-text" lang="{language}">'
+   text=paragraph[lang];marks=[]
+   for i,note in enumerate(example['annotations'],1):
+    if note['paragraph']!=n:continue
+    quote=note[lang];assert text.count(quote)==1,(key,lang,quote)
+    start=text.index(quote);marks.append((start,start+len(quote),i))
+   marked='';end=0
+   for start,stop,i in sorted(marks):
+    assert start>=end,(key,'overlapping highlights')
+    note_key=f'{key}-{lang}-{i}'
+    marked+=e(text[end:start])+f'<mark class="paragraph-highlight tone-{(i-1)%5}" tabindex="0" data-note-key="{e(note_key)}" aria-describedby="{e(note_key)}">{e(text[start:stop])}<sup data-annotation-exclude>{i}</sup></mark>'
+    end=stop
+   rendered+='<p>'+marked+e(text[end:])+'</p></div><aside class="paragraph-notes" aria-label="段落写法批注" data-annotation-exclude>';md+=[text,'']
+   for i,note in enumerate(example['annotations'],1):
+    if note['paragraph']!=n:continue
+    note_key=f'{key}-{lang}-{i}'
+    rendered+=f'<div class="paragraph-note tone-{(i-1)%5}" id="{e(note_key)}" data-note-key="{e(note_key)}" tabindex="0"><p class="note-title"><span>{i}</span>{e(note["title"])}</p><p>{e(note["body"])}</p></div>'
+   rendered+='</aside></div>'
+  rendered+='</div>'
+ md+=['','**高亮与旁批**','']
+ for i,note in enumerate(example['annotations'],1):
+  md+=[f'{i}. **{note["en"]} / {note["zh"]}**：{note["title"]}。{note["body"]}']
+ r=refs[example['source']]
+ rendered+=f'<p class="example-source"><a href="{e(r["url"])}">{e(example["paper_label"])}</a> · {e(example["location"])}</p><p class="annotation-takeaway">{e(example["takeaway"])}</p><details class="annotation-rights"><summary>出处与复用范围</summary><p>{e(example["processing"])}</p><p>{e(r["license"])}</p></details></section>'
+ md+=['',f'[{example["paper_label"]}]({r["url"]}) · {example["location"]}','',example['takeaway'],'',example['processing'],'',r['license']]
+ return rendered,md
+
 def render_paragraph(lesson, refs, md_level=4, number=None, heading=True):
  """Show the paragraph's job before explaining its sentences."""
  e=html.escape
@@ -464,10 +504,13 @@ def build():
  data=json.loads((ROOT/'data/guide.json').read_text(encoding='utf-8'))
  sections,items,refs=data['sections'],data['items'],data['references']
  lessons=data.get('manuscript_paragraphs',[])
+ annotated=data.get('annotated_paragraphs',[])
  assert len({i['id'] for i in items})==len(items)
  assert all(i['section'] in {s['id'] for s in sections} for i in items)
  assert len({p['id'] for p in lessons})==len(lessons)
  assert all(p['section'] in {s['id'] for s in sections} for p in lessons)
+ assert len({p['id'] for p in annotated})==len(annotated)
+ assert all(p['section'] in {s['id'] for s in sections} for p in annotated)
  e=html.escape
  def link(key):
   r=refs[key]
@@ -504,11 +547,19 @@ def build():
   if s.get('principle'):
    entries+=f'<p class="chapter-principle">{e(s["principle"])}</p>'
    md+=['',s['principle']]
+  for example in [p for p in annotated if p['section']==s['id']]:
+   example_html,example_md=render_annotated_paragraph(example,refs)
+   entries+=example_html;md+=example_md
   templates=[p for p in data.get('refine_templates',[]) if p['section']==s['id']]
+  if any(p['section']==s['id'] for p in annotated):
+   entries+='<details class="chapter-templates"><summary>展开句式与 LaTeX 模板</summary>'
+   md+=['','<details><summary>展开句式与 LaTeX 模板</summary>','']
   for n,lesson in enumerate(templates):
    number=f'{prefix.strip()}.{chr(97+n)}' if s.get('manuscript') and len(templates)>1 else None
    lesson_html,lesson_md=render_paragraph(lesson,refs,md_level=3 if s['id']=='rebuttal' else 4,number=number,heading=len(templates)>1 or s['id']=='rebuttal')
    entries+=lesson_html;md+=lesson_md
+  if any(p['section']==s['id'] for p in annotated):
+   entries+='</details>';md+=['','</details>','']
   if any(p['section']==s['id'] for p in lessons):
    entries+='<details class="more-lessons"><summary>更多例子：论文原句与拆解</summary>'
    md+=['','<details><summary>更多例子：论文原句与拆解</summary>','']
@@ -549,7 +600,7 @@ def build():
  package_skill(data)
  package_figure_skill(data)
  package_rebuttal_skill(data)
- print(f'Built 5 chapters, {len(lessons)+len(data.get("refine_templates",[]))} paragraph lessons.')
+ print(f'Built 5 chapters, {len(lessons)+len(data.get("refine_templates",[]))+len(annotated)} paragraph lessons.')
 
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__)

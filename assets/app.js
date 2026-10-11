@@ -1,16 +1,61 @@
 'use strict';
 document.documentElement.classList.add('js');
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+function alignParagraphNotes(panel){
+ if(panel.hidden||!panel.getClientRects().length)return;
+ const notes=[...panel.querySelectorAll('.paragraph-note')];
+ notes.forEach(note=>note.style.marginTop='0px');
+ if(matchMedia('(max-width:820px)').matches)return;
+ for(const note of notes){
+  const mark=panel.querySelector(`.paragraph-highlight[data-note-key="${note.dataset.noteKey}"]`);
+  if(!mark)continue;
+  const offset=mark.getClientRects()[0].top-note.getBoundingClientRect().top;
+  note.style.marginTop=Math.max(0,offset)+'px';
+ }
+}
+for(const example of $$('.annotated-example')){
+ const panels=[...example.querySelectorAll('[data-paragraph-panel]')];
+ const buttons=[...example.querySelectorAll('[data-paragraph-language]')];
+ function chooseLanguage(language){
+  panels.forEach(panel=>panel.hidden=panel.dataset.paragraphPanel!==language);
+  buttons.forEach(button=>button.setAttribute('aria-pressed',button.dataset.paragraphLanguage===language));
+  requestAnimationFrame(()=>panels.forEach(alignParagraphNotes));
+ }
+ buttons.forEach(button=>button.addEventListener('click',()=>chooseLanguage(button.dataset.paragraphLanguage)));
+ chooseLanguage('en');
+ for(const panel of panels){
+  for(const node of panel.querySelectorAll('[data-note-key]')){
+   const matching=[...panel.querySelectorAll('[data-note-key]')].filter(other=>other.dataset.noteKey===node.dataset.noteKey);
+   const focus=active=>matching.forEach(other=>other.classList.toggle('is-focused',active));
+   node.addEventListener('mouseenter',()=>focus(true));node.addEventListener('mouseleave',()=>focus(false));
+   node.addEventListener('focus',()=>focus(true));node.addEventListener('blur',()=>focus(false));
+  }
+  const observer=new ResizeObserver(()=>alignParagraphNotes(panel));
+  panel.querySelectorAll('.annotated-text').forEach(text=>observer.observe(text));
+ }
+}
+window.addEventListener('resize',()=>$$('.annotated-panel').forEach(alignParagraphNotes));
 const lessons=$$('.paragraph-lesson');
 try{if(localStorage.getItem('paperbank-theme')==='dark')document.documentElement.classList.add('dark');}catch{}
 function sync(){
  const words=$('#search').value.trim().toLowerCase().split(/\s+/).filter(Boolean);
  const filtering=words.length>0;
  let count=0;
- for(const lesson of lessons){lesson.hidden=!words.every(w=>lesson.textContent.toLowerCase().includes(w));if(!lesson.hidden)count++;}
+ for(const lesson of lessons){
+  lesson.hidden=!words.every(w=>lesson.textContent.toLowerCase().includes(w));if(!lesson.hidden)count++;
+  if(filtering&&!lesson.hidden&&lesson.matches('.annotated-example')){
+   const panels=[...lesson.querySelectorAll('[data-paragraph-panel]')];
+   const visible=panels.find(panel=>!panel.hidden);
+   const matches=panel=>words.every(word=>panel.textContent.toLowerCase().includes(word));
+   if(visible&&!matches(visible)){
+    const matching=panels.find(matches);
+    if(matching)lesson.querySelector(`[data-paragraph-language="${matching.dataset.paragraphPanel}"]`).click();
+   }
+  }
+ }
  $$('.chapter').forEach(chapter=>{
   chapter.hidden=!chapter.querySelector('.paragraph-lesson:not([hidden])');
-  chapter.querySelectorAll('.more-lessons').forEach(detail=>{
+  chapter.querySelectorAll('.more-lessons,.chapter-templates').forEach(detail=>{
    const matches=detail.querySelector('.paragraph-lesson:not([hidden])');detail.hidden=!matches;
    if(filtering&&matches&&!detail.open){detail.dataset.filterOpened='true';detail.open=true;}
    else if(!filtering&&detail.dataset.filterOpened){detail.open=false;delete detail.dataset.filterOpened;}
