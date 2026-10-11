@@ -71,17 +71,18 @@ def render_intro_connections(data):
   md+=['','**'+pair['label']+' · '+pair['relation']+'**','', '**Abstract**：'+pair['abstract'],'','**Intro**：'+pair['intro'],f' · [修改 case](#{pair["link"]})']
  return rendered+'</figure></section>',md
 
-def render_annotated_paragraph(example, refs):
+def render_annotated_paragraph(example, refs, number=None):
  """Keep source paragraphs intact and place matched comments beside them."""
  e=html.escape;key=example['id']
  assert len(example['paragraphs'])==1,(key,'one natural paragraph per case')
  english_label='English 原文' if example.get('source') else 'English 教学改写'
- rendered=f'<section class="paragraph-lesson annotated-example" id="{e(key)}" data-section="{e(example["section"])}"><h4>{e(example["title"])}</h4><p class="lesson-context">{e(example["label"])}</p>'
+ title=(number+' ' if number else '')+example['title']
+ rendered=f'<section class="paragraph-lesson annotated-example" id="{e(key)}" data-section="{e(example["section"])}"><h4>{e(title)}</h4><p class="lesson-context">{e(example["label"])}</p>'
  rendered+='<div class="paragraph-language js-only" role="group" aria-label="例子语言" data-annotation-exclude>'
  for lang,label in [('en',english_label),('zh','中文译文')]:
   rendered+=f'<button type="button" data-paragraph-language="{lang}" aria-pressed="{str(lang=="en").lower()}" aria-controls="{e(key)}-{lang}">{label}</button>'
  rendered+='</div>'
- md=['','#### '+example['title'],'',example['label']]
+ md=['','#### '+title,'',example['label']]
  for lang,language in [('en','en'),('zh','zh-CN')]:
   rendered+=f'<div class="annotated-panel" id="{e(key)}-{lang}" data-paragraph-panel="{lang}">'
   md+=['','**'+(english_label if lang=='en' else '中文译文')+'**','']
@@ -155,7 +156,7 @@ def render_paragraph(lesson, refs, md_level=4, number=None, heading=True):
 
 def render_opening(data):
  e=html.escape
- lead=data['opening_lead']
+ lead=data.get('refine_global_lead',data['opening_lead'])
  rendered='<section class="opening-rules" id="general-rules"><h3>3.1 全文规范</h3><p>'+e(lead)+'</p>'
  md=['','<a id="general-rules"></a>','### 3.1 全文规范','',lead]
  for n,group in enumerate(data['refine_standard_groups']):
@@ -166,6 +167,9 @@ def render_opening(data):
    example=dict(rule);example['id']=rule['id']+'-example'
    rh,rm=render_paragraph(example,data['references'],heading=False);rendered+=rh.replace('class="paragraph-lesson"','class="global-example"')+'</details></li>';md+=rm
   rendered+='</ul>'
+ for example in data.get('refine_global_cases',[]):
+  case_html,case_md=render_annotated_paragraph(example,data['references'])
+  rendered+=case_html;md+=case_md
  rendered+='</section>'
  rendered+='<section class="paper-map" id="paper-order"><p class="outline-label"><strong>按论文顺序精修</strong></p><p>摘要概括全文，引言提问题，方法给做法，实验查效果，讨论讲范围，结论收尾。以下按实证型 CS / AI 论文组织。</p><ol>'
  md+=['','**按论文顺序精修**','','摘要概括全文，引言提问题，方法给做法，实验查效果，讨论讲范围，结论收尾。','']
@@ -578,21 +582,26 @@ def build():
   heading_level=2 if s['id']=='rebuttal' else 3
   entries+=f'<section class="chapter" id="chapter-{s["id"]}"><div class="chapter-head"><h{heading_level}>{prefix}{e(s["title"])}</h{heading_level}></div><p class="chapter-desc"><strong>{e(purpose)}</strong></p>'
   md+=['',f'<a id="{s["id"]}"></a>',f'{"#"*heading_level} {prefix}{s["title"]}','',purpose]
-  if s.get('principle'):
+  principles=data.get('refine_section_principles',{}).get(s['id'])
+  if principles:
+   entries+='<div class="section-principles"><h4>本节原则</h4><ul>'+''.join(f'<li>{e(rule)}</li>' for rule in principles)+'</ul></div>'
+   md+=['','#### 本节原则','']+['- '+rule for rule in principles]
+  elif s.get('principle'):
    entries+=f'<p class="chapter-principle">{e(s["principle"])}</p>'
    md+=['',s['principle']]
   if s['id']=='intro' and data.get('intro_connections'):
    connections_html,connections_md=render_intro_connections(data)
    entries+=connections_html;md+=connections_md
-  for example in [p for p in annotated if p['section']==s['id']]:
-   example_html,example_md=render_annotated_paragraph(example,refs)
+  for n,example in enumerate([p for p in annotated if p['section']==s['id']]):
+   number=f'{prefix.strip()}.{chr(97+n)}' if s.get('manuscript') else None
+   example_html,example_md=render_annotated_paragraph(example,refs,number)
    entries+=example_html;md+=example_md
   templates=[p for p in data.get('refine_templates',[]) if p['section']==s['id']]
   if any(p['section']==s['id'] for p in annotated):
    entries+='<details class="chapter-templates"><summary>展开句式与 LaTeX 模板</summary>'
    md+=['','<details><summary>展开句式与 LaTeX 模板</summary>','']
   for n,lesson in enumerate(templates):
-   number=f'{prefix.strip()}.{chr(97+n)}' if s.get('manuscript') and len(templates)>1 else None
+   number=None if any(p['section']==s['id'] for p in annotated) else (f'{prefix.strip()}.{chr(97+n)}' if s.get('manuscript') and len(templates)>1 else None)
    lesson_html,lesson_md=render_paragraph(lesson,refs,md_level=3 if s['id']=='rebuttal' else 4,number=number,heading=len(templates)>1 or s['id']=='rebuttal')
    entries+=lesson_html;md+=lesson_md
   if any(p['section']==s['id'] for p in annotated):

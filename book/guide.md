@@ -2054,7 +2054,7 @@ ShoppingBench: A Real-World Intent-Grounded Shopping Benchmark for LLM-based Age
 <a id="general-rules"></a>
 ### 3.1 全文规范
 
-全文围绕核心贡献组织：现有问题是什么，本文新增什么，为什么这样设计，证据支持什么。先明确论证，再精修语言。
+一篇论文围绕一个主要亮点。标题、摘要、引言、方法和实验讲同一件事；先审论证，再磨语言。模块多，不等于贡献多。
 
 #### 3.1.a 逻辑：句子承接与对象一致
 
@@ -2496,6 +2496,35 @@ Table 1 reports the matched comparison with and without those constraints.
 
 **第 2 句：**给出证据入口与比较对象，不逐行念分。
 
+#### 整段示例：句子怎样接，贡献怎样落到具体工作
+
+假设的文档问答任务；只演示句间承接与证据范围，不是论文原文或实测结果。
+
+**English 教学改写**
+
+To make answers traceable to source evidence, [Method] records each retrieved quote with the corresponding manual location and relevant dialogue constraints. These records form evidence notes that guide answer generation together with the current question and retained constraints. With the inputs and inference budget held fixed, we compare note-guided generation with passage-only generation. Note-guided generation improves citation support by [support gain] but adds [latency cost] under [tested conditions], revealing a trade-off between traceable answers and response time.
+
+
+**中文译文**
+
+为让答案依据可追溯，[方法] 记录每个检索摘句、对应的手册位置与相关对话约束。这些记录构成证据笔记，与当前问题及保留的约束共同指导答案生成。在固定输入与推理预算后，我们比较笔记引导的生成与只使用片段的生成。在[实测条件]下，笔记引导的生成使引用支持率提高[提升幅度]，但增加[延迟开销]，说明答案可追溯性与响应时间存在取舍。
+
+
+**高亮与旁批**
+
+1. **records each retrieved quote with the corresponding manual location and relevant dialogue constraints / 记录每个检索摘句、对应的手册位置与相关对话约束**：写动作和对象。记录什么，直接说出来：摘句、位置、约束。“建立可靠证据框架”没有这些信息。
+2. **These records form evidence notes / 这些记录构成证据笔记**：钩子接产物。These records 接前句的三类记录，再说明产物是证据笔记。不是突然换个模块。
+3. **With the inputs and inference budget held fixed / 在固定输入与推理预算后**：比较条件写在近处。说明固定什么，后面的差别才可解释；只写“公平比较”不够。
+4. **improves citation support by [support gain] but adds [latency cost] under [tested conditions] / 使引用支持率提高[提升幅度]，但增加[延迟开销]**：发现保留收益、代价与范围。引用支持率、延迟是两项不同结果。报告已测条件下的取舍，不一句话扩大成“全面提升问答性能”。
+
+PaperBank · 教学改写
+
+每句接前句的产物：摘句与位置记录→证据笔记→受控比较→收益与代价。连接词有用，前提是内容接得上。
+
+本段是原创教学示范。[support gain]、[latency cost] 与 [tested conditions] 必须由真实实验替换。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
 **按论文顺序精修**
 
 摘要概括全文，引言提问题，方法给做法，实验查效果，讨论讲范围，结论收尾。
@@ -2531,7 +2560,42 @@ Table 1 reports the matched comparison with and without those constraints.
 
 先把最值得记住的发现放进标题。
 
-标题突出核心贡献，不列举全部模块。
+#### 本节原则
+
+- 围绕最重要的贡献写标题，让人看出研究对象、任务或关键发现。
+- 方法名只是名字，后半句要交代实际做了什么。发现型论文直接写发现，不必包装成方法论文。
+- 记忆点应准确、好懂。避开需要正文解释才能理解的缩写和自我评价。
+
+#### 3.2.a WebFilter：整个标题怎么分工
+
+论文原文短引 · 中文为本指南翻译
+
+**English 原文**
+
+Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools with Reinforcement Learning
+
+
+**中文译文**
+
+谨慎查询，可信结果：通过强化学习教会 RAG 模型使用高级网页搜索工具。
+
+
+**高亮与旁批**
+
+1. **Careful Queries, Credible Results / 谨慎查询，可信结果**：先给记忆点。查询要谨慎，结果要可信。前半句让读者记住工作追求的价值，不列模块清单。
+2. **Teaching RAG Models Advanced Web Search Tools / 教会 RAG 模型使用高级网页搜索工具**：交代对象与任务。后半句立即说清教谁、学会什么。仅有一句口号，读者还不知道论文做了什么。
+3. **with Reinforcement Learning / 通过强化学习**：给出关键手段。强化学习解释任务怎样实现。标题保留关键手段，不必把训练流程全塞进来。
+
+[WebFilter · AAAI 2026](https://ojs.aaai.org/index.php/AAAI/article/view/40299) · Title，PDF第1页（刊页30458）；AAAI 2026 camera-ready；2026-03-14正式发表
+
+记忆点负责让人记住，研究对象与改动负责让人看懂。
+
+去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。
+
+©2026 AAAI. All rights reserved. 独立保留原论文版权；未授予PaperBank整篇或原图再许可。
+
+<details><summary>展开句式与 LaTeX 模板</summary>
+
 
 **标题：对象、任务、改动**
 
@@ -2555,6 +2619,9 @@ Table 1 reports the matched comparison with and without those constraints.
 [研究场景]中的[具体发现]。
 
 **第 2 句：**发现或 benchmark 论文也能用结果组织标题，不必伪装成方法论文。
+
+</details>
+
 
 <details><summary>更多例子：论文原句与拆解</summary>
 
@@ -2583,7 +2650,45 @@ Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools
 
 让人用一段话看懂为什么这项工作值得做。
 
-突出问题、关键改动与主要发现，仅保留理解贡献所需的实现细节。
+#### 本节原则
+
+- 一段讲清问题、已有不足、核心贡献、主要发现。摘要能单独读懂，长度按会议要求。
+- 贡献对象和动作尽早出现。关键改动要回应前句的不足，不先堆流程和数量。
+- 每句接住上句的对象，再增加信息。术语首次解释，缩写展开；通常不放引文，投稿规定优先。
+- 结果优先保留有信息增量的发现及比较范围；不逐项报分，不机械以最大数字结尾。
+
+#### 3.3.a 摘要：问题、解法、发现要连成一段
+
+假设教学段落，非论文原文或实测结果。
+
+**English 教学改写**
+
+Document-based dialogue requires answers that respect both source evidence and evolving user constraints. Passage-only generation supplies relevant text without explicitly recording which dialogue constraints the source quotes support. Structured evidence notes pair source quotes with the corresponding manual locations and active dialogue constraints. These notes let the generator cite sources and explain how the evidence relates to each constraint. In our comparison on static English manuals, notes increase citation support relative to direct generation but add latency. The comparison evaluates source support; the support scores do not establish that every user constraint is satisfied.
+
+
+**中文译文**
+
+基于文档的对话要求答案同时符合来源证据与不断变化的用户约束。只使用片段的生成方式提供相关文本，却不明确记录来源摘句支持哪些对话约束。结构化证据笔记将来源摘句与对应的手册位置及当前有效的对话约束配对。这些笔记帮助生成器引用来源，并说明证据与各项约束的关系。在针对静态英语手册的比较中，相比直接生成，笔记提高了引用支持率，但增加了延迟。这个比较评价的是来源支持，不能据此认定每项用户约束都得到满足。
+
+
+**高亮与旁批**
+
+1. **both source evidence and evolving user constraints / 来源证据与不断变化的用户约束**：任务需求写具体。证据与用户约束是两类要求。先建立它们，下一句的不足与后面的设计才有对象。
+2. **without explicitly recording which dialogue constraints the source quotes support / 却不明确记录来源摘句支持哪些对话约束**：把缺口缩到本文负责的部分。承认片段提供了相关文本，再限定缺口：没有显式记录证据与约束的对应。对应设计也必须处理这个缺口。
+3. **Structured evidence notes pair source quotes with the corresponding manual locations and active dialogue constraints. / 结构化证据笔记将来源摘句与对应的手册位置及当前有效的对话约束配对。**：贡献对象与动作前置。句首先报新增产物，pair 说具体改动：摘句、位置、约束配对。不是先报流程，最后才揭晓贡献。
+4. **notes increase citation support relative to direct generation but add latency / 相比直接生成，笔记提高了引用支持率，但增加了延迟**：发现与取舍一起交代。这个假设案例保留引用支持率和延迟的取舍。真实论文换成核验过的结果，不逐项罗列排名。
+5. **the support scores do not establish that every user constraint is satisfied / 不能据此认定每项用户约束都得到满足**：别让指标越界。引用支持率测来源支持，不能代替约束满足率。实际摘要只保留会影响结论理解的边界。
+
+PaperBank · 教学改写
+
+摘要不是目录。前一句建立对象，后一句增加不足、设计或证据。
+
+沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
+<details><summary>展开句式与 LaTeX 模板</summary>
+
 
 **摘要：问题到结果**
 
@@ -2626,6 +2731,9 @@ This finding supports [specific value] under [necessary condition].
 
 **第 5 句：**收束意义及范围；若与上一句重复就合并，不固定为五句。
 
+</details>
+
+
 <details><summary>更多例子：论文原句与拆解</summary>
 
 
@@ -2659,7 +2767,14 @@ With the spatial contract established, PlanCraft-Agent then furnishes the scene 
 
 让读者认同问题，并记住你的解法为什么有用。
 
-前两段不固定分工：交代领域回顾，比较已有能力和不足，再引出本文设计。背景与比较可穿插、合并或拆分。
+#### 本节原则
+
+- 段首加钩子：接回刚提出的问题、困难或产物，再推进一层。However 写转折，To address 写解法；对象必须接得上。
+- 前两段可穿插、合并或拆分，但要有领域回顾与已有方法比较。回顾给局限铺路：后面批评什么，前面先说明已有方法怎样处理它。
+- 局限要具体：问题是什么、为什么存在、阻碍了什么。必要时用简短名称，后文沿用；不只列几个困难就开始报方法。
+- 贡献对象与动作尽早出现。expert-confirmed、manually selected、tailored 等词要对应实际工作；写清选择依据，不用“高质量”代替依据。
+- 方法段逐点解决前面的困难，只讲设计思路；公式与实现留给 Method。图句说明图里哪个例子或对比支持这项设计。
+- 结果段先用钩子接回研究问题，再给主要发现。贡献、术语和发现与 Abstract 对应；不逐字复述，也不把排名当作分析。
 
 <a id="intro-hooks"></a>
 #### 段首先加钩子
@@ -2697,7 +2812,7 @@ With the spatial contract established, PlanCraft-Agent then furnishes the scene 
 **Intro**：To answer this question, we evaluate [models]. Replies exhibit Product Evidence Overreach through unsupported claims and Shopping Uncertainty Collapse by treating unknown needs as settled; further analysis examines [specific finding].
  · [修改 case](#annotated-intro-findings)
 
-#### 修改 case：困难要接到评价目标
+#### 3.4.a 修改 case：困难要接到评价目标
 
 教学改写，非论文原文或实测结果；方括号替换自己的材料。
 
@@ -2726,7 +2841,7 @@ PaperBank · 教学改写
 
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
-#### 修改 case：先说专家产出了什么
+#### 3.4.b 修改 case：先说专家产出了什么
 
 教学改写，非论文原文或实测结果；方括号替换自己的材料。
 
@@ -2755,7 +2870,7 @@ PaperBank · 教学改写
 
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
-#### 修改 case：先给发现总览，再展开分析
+#### 3.4.c 修改 case：先给发现总览，再展开分析
 
 教学改写，非论文原文或实测结果；方括号替换自己的材料。
 
@@ -2783,7 +2898,7 @@ PaperBank · 教学改写
 
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
-#### 整段示例：领域回顾怎样接到任务
+#### 3.4.d 整段示例：领域回顾怎样接到任务
 
 高亮与旁批按颜色和编号对应；点击切换中英。
 
@@ -2811,7 +2926,7 @@ Humans spend nearly 90% of their time indoors [12], and the built environment co
 
 原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
 
-#### 整段示例：已有能力怎样接到缺口
+#### 3.4.e 整段示例：已有能力怎样接到缺口
 
 高亮与旁批按颜色和编号对应；点击切换中英。
 
@@ -2842,7 +2957,7 @@ To enable automation, prior works have employed conditioned generators [22, 31, 
 <details><summary>展开句式与 LaTeX 模板</summary>
 
 
-#### 3.4.a 先选主线：价值，还是发现
+#### 先选主线：价值，还是发现
 
 按主要贡献选择论证顺序。发现型工作可用“现象→质疑→诊断→方法→验证”；多个困难按类别逐项展开。
 
@@ -2869,7 +2984,7 @@ Motivated by [supported diagnosis], we [matching design] and evaluate [targeted 
 
 **第 3 句：**诊断接方法，验证接贡献；不把相关现象直接写成原因。
 
-#### 3.4.b 引言开头：方向与任务
+#### 引言开头：方向与任务
 
 从研究方向进入具体任务，背景仅保留理解后文问题所需的信息。
 
@@ -2900,7 +3015,7 @@ In this setting, [input] must be converted into [output] while satisfying [const
 
 **第 3 句：**把大方向落到具体任务，接着概括已有解法做到哪一步。
 
-#### 3.4.c 引言开头：领域回顾与比较
+#### 引言开头：领域回顾与比较
 
 概括已有路线的机制与能力，比较相关工作的差异和边界；可与背景或局限放在同一自然段。
 
@@ -2924,7 +3039,7 @@ Another line uses [different mechanism] to support [additional capability] [cita
 
 **第 2 句：**只保留有实质差别的第二类方法；没有这类研究就删掉此句。
 
-#### 3.4.d 引言承接：具体局限
+#### 引言承接：具体局限
 
 写清现有方法在何种条件下不足，以及问题产生的原因。不能只用 expensive、limited、inefficient 概括。
 
@@ -2956,7 +3071,7 @@ For example, [concrete input or situation] requires [specific behavior], which [
 
 **第 3 句：**例子显示缺口怎样发生，是否未检验仍需核对实际来源。
 
-#### 3.4.e 引言主体：对应设计
+#### 引言主体：对应设计
 
 按局限顺序说明改进、作用机制与输入输出，不能只列模块名称。
 
@@ -2988,7 +3103,7 @@ To address [challenge B], we [design B].
 
 **第 3 句：**第二项方案处理另一项真实问题；没有就删除，不添加无必要的模块。
 
-#### 3.4.f 引言收束：主要发现
+#### 引言收束：主要发现
 
 设计之后写主要发现与启示，并给关键比较、条件及范围，不局限于分数提升。
 
@@ -3013,7 +3128,7 @@ This finding indicates [what is supported], while [remaining limitation] remains
 
 **第 2 句：**解释贡献及边界，不扩大主张。
 
-#### 3.4.g 引言最后：贡献列表
+#### 引言最后：贡献列表
 
 首项概括解决的核心问题，随后分别写关键设计与主要发现。每项说明一个独立贡献，避免重复流程。
 
@@ -3214,9 +3329,44 @@ A tailored prompt guides each role in checking the evidence.
 
 说明已有路线、本文差异及其与核心贡献的关系。
 
-局限与对应方案须对齐 Introduction 的对象和关键词，不新增无关问题。
+#### 本节原则
 
-#### 整段示例：比较机制，再说明本文差异
+- 按共同任务或机制分组，解释各路线怎样工作。先承认已有能力，再比较真正相近的工作。
+- 每个小节的末尾固定这样写：However, [现有方法在具体范围内的局限]. To address this limitation, we [对应设计及作用]. 两句紧接，不夹一句空泛总结。
+- However 的问题名称、对象与范围直接对齐 Intro；解决句也对齐 Intro 的方案。不同小节负责不同缺口。
+- 不足要能回查原论文。未报告不等于没有；仅测单轮，不等于多轮一定失败。客观限定范围，不夸大缺陷。
+- 引用按相关性选，不设篇数配额，也不因方法相似而漏引。可直接比较的近邻安排基线；设置不同就讲清差异。
+
+#### 3.5.a 整段示例：However 后面紧跟对应解法
+
+教学示范；[A]、[B] 及其评价范围均是假设。正式写作先核验原论文，再替换路线、范围与引用。
+
+**English 教学改写**
+
+Evidence-grounded dialogue systems select supporting text before generating an answer. [A] retrieves passages for the current question, whereas [B] links retrieved passages to answer claims [citations]. These claim links make support easier to inspect, but [B] is evaluated only on isolated questions. However, these comparisons do not establish whether earlier constraints remain satisfied across dialogue turns. To address this limitation, we attach dialogue constraints to evidence notes and test their retention across turns.
+
+
+**中文译文**
+
+基于证据的对话系统先筛选支持文本，再生成答案。[A] 为当前问题检索片段，[B] 则把检索片段与答案主张关联[引用]。这些主张关联便于检查依据，但 [B] 的评价仅覆盖独立问题。然而，这些比较尚未说明前文约束能否在多轮对话中持续得到满足。为解决这个不足，我们把对话约束绑定到证据笔记，并检验约束在多轮中的保留情况。
+
+
+**高亮与旁批**
+
+1. **retrieves passages for the current question, whereas [B] links retrieved passages to answer claims / 为当前问题检索片段，[B] 则把检索片段与答案主张关联**：分类有共同尺度。比较支持文本怎样组织：只检索片段，还是关联到主张。不是每句换一个作者名字。
+2. **These claim links make support easier to inspect / 这些主张关联便于检查依据**：先承认已有能力。说明关联主张带来的用途。后面的不足限定在跨轮评价，不否定这一已有能力。
+3. **However, these comparisons do not establish whether earlier constraints remain satisfied across dialogue turns. / 然而，这些比较尚未说明前文约束能否在多轮对话中持续得到满足。**：However：说清哪项问题没被回答。接回上一句的独立问题评价，限定为未检验跨轮约束。不能偷换成“这些方法无法处理多轮”。
+4. **To address this limitation, we attach dialogue constraints to evidence notes and test their retention across turns. / 为解决这个不足，我们把对话约束绑定到证据笔记，并检验约束在多轮中的保留情况。**：紧跟解法：同一个缺口，同一个对象。跨轮约束缺少检验→绑定约束并检验保留情况。这一设计也必须出现在 Intro、Method 和实验中。
+
+PaperBank · 教学改写
+
+收尾两句说同一个问题：已有比较未检验跨轮约束，本文就保留并检验跨轮约束。不能 However 说多轮，下一句却开始讲检索速度。
+
+本段为 PaperBank 原创教学示范。路线、评价范围与方法均为假设，不能直接当作文献综述使用。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
+#### 3.5.b 整段示例：比较机制，再说明本文差异
 
 高亮与旁批按颜色和编号对应；点击切换中英。
 
@@ -3362,9 +3512,105 @@ Our study examines whether keeping earlier constraints helps across dialogue tur
 
 铁律：告诉读者为什么你的方法好，比解释清楚方法更重要。
 
-围绕本文设计组织内容，每个关键选择对应 Introduction 的具体困难。既有方法简要说明，不将 Method 写成 Preliminary。
+#### 本节原则
 
-#### 整段示例：Method 开头怎样连接各组件
+- 铁律：为什么你的方法好，比解释清楚方法更重要。每项关键设计接回 Intro 的具体困难，再讲怎样实现。
+- 任务定义写清实际输入、要求输出和约束；训练、推理、评价能看到的信息分开，符号随计算引入。
+- Overview 先讲核心思路，再按真实依赖说明各节作用、输入和产物。章节名是阅读位置，不是处理者；每个章节名与节号只出现一次，框架图对应实际操作。
+- 模块首句用 To + 具体目的。随后解释设计依据、关键操作与必要公式，末句交代产物给谁用。
+- 自己的设计占主要篇幅。标准编码、格式转换简写；参数、长 prompt 和部署细节放可定位的附录。
+- 公式说明对象、单位、下标、信号来源与更新对象；并行、循环、反馈不能硬写成顺序流水线。
+
+#### 3.6.a 任务定义：先把输入和输出说清
+
+教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。
+
+**English 教学改写**
+
+Given a question, the dialogue history, and a collection of English manuals, the task is to generate an answer that respects earlier constraints and cites supporting passages. At inference time, the system receives these inputs but no reference answer. We use reference answers only for evaluation. A prior requirement such as offline operation remains part of the task unless the user explicitly changes it.
+
+
+**中文译文**
+
+给定一个问题、它的对话历史和一组英语手册，任务是生成遵守前文约束、附有支持片段引用的回答。推理时，系统接收这些输入，但不接收参考答案。参考答案仅用于评价。离线操作等前文要求仍属于当前任务，除非用户明确更改。
+
+
+**高亮与旁批**
+
+1. **Given a question, the dialogue history, and a collection of English manuals / 给定一个问题、它的对话历史和一组英语手册**：输入先落到对象。问题、历史和手册是不同输入。读者先知道系统拿到了什么，再看符号。
+2. **respects earlier constraints and cites supporting passages / 遵守前文约束、附有支持片段引用**：输出不只报名字。回答要满足哪两项要求，直接在任务定义里说。后面的指标也应检验这两件事。
+3. **no reference answer / 不接收参考答案**：划清可见信息。评价参照不等于推理输入。图中也不能把参考答案连进生成器。
+4. **unless the user explicitly changes it / 除非用户明确更改**：边界说具体。旧约束何时有效，给出规则；不要让模型或读者自行猜。
+
+PaperBank · 教学改写
+
+任务定义交代输入、输出和判断边界，不提前堆算法与符号。
+
+独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
+#### 3.6.b Overview：贡献与交接一起写
+
+教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。
+
+**English 教学改写**
+
+To retain earlier constraints during answering, we connect quoted evidence to the dialogue history before generating an answer. In History-aware Retrieval (Sec. [retrieval]), we select manual passages relevant to the current question and earlier requirements. Using these passages, in Constraint-linked Notes (Sec. [notes]), we attach the requirements to source quotes and retain their manual locations. Finally, in Grounded Answering (Sec. [answering]), the generator uses the resulting notes to produce an answer with source citations. Figure [framework] shows these dependencies.
+
+
+**中文译文**
+
+为在回答中保留前文约束，我们先把摘录证据与对话历史关联，再生成答案。在历史感知检索（第[retrieval]节）中，我们筛选与当前问题及前文需求相关的手册片段。使用这些片段，我们在约束关联笔记（第[notes]节）中将需求绑定到来源摘句，并保留手册位置。最后，在基于证据的回答（第[answering]节）中，生成器使用所得笔记生成带来源引用的答案。图[framework]展示这些依赖关系。
+
+
+**高亮与旁批**
+
+1. **To retain earlier constraints during answering / 为在回答中保留前文约束**：先讲为什么。接回 Intro 的约束丢失问题。读者先知道设计目的，再看章节位置。
+2. **In History-aware Retrieval (Sec. [retrieval]), we select / 在历史感知检索（第[retrieval]节）中，我们筛选**：章节负责导航，we 执行操作。小节名与节号只出现一次。不是“这个章节检索了文本”；实际处理者是系统或作者。
+3. **Using these passages / 使用这些片段**：接住上一节的产物。检索出的片段进入笔记构建。串行、并行或反馈按实际依赖写，不能为了顺口编先后。
+4. **the generator uses the resulting notes / 生成器使用所得笔记**：再把笔记交给生成器。当前产物成为下一步输入。“先 A 再 B”还不够，要说明 B 使用 A 的什么。
+5. **Figure [framework] shows these dependencies. / 图[framework]展示这些依赖关系。**：图与正文对上。填真实图号；框架图画出片段→笔记→答案的依赖，不只排三个模块名。
+
+PaperBank · 教学改写
+
+Overview 是方法地图：目的、组件贡献、产物交接和阅读位置同时清楚。
+
+独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
+#### 3.6.c 模块小节：目的、操作、交接
+
+教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。
+
+**English 教学改写**
+
+To keep earlier requirements available during answering, the note builder links each retrieved quote to the relevant dialogue constraint. A retrieved passage may describe a feature correctly yet be unsuitable for an offline-only request. For each quote, we record the manual location and the constraint supported or contradicted by the quote; an unverified relation is left unresolved. The generator then receives these notes together with the current question, so the answer can cite the source and explain whether the requirement is met.
+
+
+**中文译文**
+
+为让回答阶段仍能使用前文要求，笔记构建器将每条检索摘句与相关对话约束关联。一个片段可能准确描述功能，却不适用于仅限离线的请求。对每条摘句，我们记录它在手册中的位置，以及它支持或违背的约束；尚未核验的关系保留为未确定。生成器随后接收这些笔记和当前问题，以便回答引用来源，并解释要求是否满足。
+
+
+**高亮与旁批**
+
+1. **To keep earlier requirements available during answering / 为让回答阶段仍能使用前文要求**：目的顶在第一句。To 后写具体目的，主句给执行者与关键设计。别先讲半段背景。
+2. **unsuitable for an offline-only request / 不适用于仅限离线的请求**：解释为什么要这样做。“事实正确”不等于“符合需求”。矛盾明确，设计才有必要性。
+3. **the manual location and the constraint supported or contradicted by the quote / 它在手册中的位置，以及它支持或违背的约束**：操作落实到字段。谁处理什么、保留哪些信息写清楚，后面的表示或公式才有内容。
+4. **an unverified relation is left unresolved / 尚未核验的关系保留为未确定**：处理边界情况。不知道的关系不能自动写成支持或冲突；需要有明确处理规则。
+5. **receives these notes together with the current question / 接收这些笔记和当前问题**：末句交给下一步。写明产物、接收者和用途；这里是目标能力，不能伪装成实测提升。
+
+PaperBank · 教学改写
+
+目的 → 必要性 → 具体操作 → 边界 → 下一步。每句推进一次，不反复说“我们提出”。
+
+独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
+#### 3.6.d 整段示例：Method 开头怎样连接各组件
 
 高亮与旁批按颜色和编号对应；点击切换中英。
 
@@ -3397,7 +3643,7 @@ We propose GreenPlanner, an energy- and functionality-aware generative framework
 <details><summary>展开句式与 LaTeX 模板</summary>
 
 
-#### 3.6.a Method Overview：完整模板
+#### Method Overview：完整模板
 
 首句说明关键设计为何针对 Introduction 的困难，随后按真实依赖说明各步骤与章节位置。
 
@@ -3462,7 +3708,7 @@ Given [intermediate output], in \textbf{[Output Generation]}
 Figure~\ref{fig:framework} summarizes this workflow.
 ```
 
-#### 3.6.b Problem Formulation：任务定义
+#### Problem Formulation：任务定义
 
 用必要对象、输入、输出与约束定义任务，符号随实际计算引入。
 
@@ -3491,7 +3737,7 @@ At inference time, [executor] receives [visible information]; [reference informa
 
 **第 3 句：**明确信息边界。实际方法确实使用额外信息时如实写，不照抄示例。
 
-#### 3.6.c Method 小节：为什么这样做，再写怎么做
+#### Method 小节：为什么这样做，再写怎么做
 
 小节按创新点与对应困难组织，先写设计目的与依据，再写必要实现及产物。
 
@@ -3641,9 +3887,138 @@ The generator returns an answer with links to the quoted sources.
 
 用对照检验贡献，解释主要差异与发现。
 
-每项核心主张须有对应证据，分析解释结果如何支持或限制该主张。
+#### 本节原则
 
-#### 3.7.a Experiments：先列要验证的问题
+- 先把 Intro 的核心主张变成可检验的问题，再安排主结果、消融和必要的扩展实验。RQ 是组织工具，不必每表编号。
+- 设置按 Metrics、Baselines、Implementation Details 分组。指标写定义、方向、分母、汇总与无效输出处理；基线按路线介绍。
+- 对齐会改变结果的条件。写清数据版本与划分、训练和推理预算、参数选择、重复单位，以及人工或模型 judge 的核验方式。
+- 结果段先加粗一句具体发现，再给关键对照与意义。不要逐行读表；收益、代价和负结果都要解释。
+- 消融一次删除或替换一个因素，固定其他条件。多项一起改，只能评价整套改动，不能把收益归给其中一项。
+- 扩展实验围绕实际主张选取；效率算端到端成本，稳定性报告重复变化。个例解释过程，不能代替总体证据。
+
+#### 3.7.a 设置：指标的分母和汇总要说全
+
+教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。
+
+**English 教学改写**
+
+To test whether evidence notes improve citation support, we evaluate multi-turn questions about static English manuals. Human raters check each factual answer sentence against its cited passage using a shared rule. A sentence without a citation counts as unsupported. For each question, citation support is the fraction of factual sentences supported by their cited evidence; higher is better. We average these per-question fractions rather than pooling sentences across questions. Answers with no factual sentences are reported separately as not applicable, together with their count.
+
+
+**中文译文**
+
+为检验证据笔记能否提高引用支持率，我们评价针对静态英语手册的多轮问题。指标。人工按同一规则检查每句事实能否由所引片段支持。没有引用的句子按不支持计。对每个问题，引用支持率是获所引证据支持的事实句比例，越高越好。我们对各问题的比例取平均，不把所有问题的事实句混在一起计算。没有事实句的回答单列为不适用，并报告数量。
+
+
+**高亮与旁批**
+
+1. **To test whether evidence notes improve citation support / 为检验证据笔记能否提高引用支持率**：问题接回方法作用。先说这组评价要检验什么，不能从设备型号开始。
+2. **Human raters check each factual answer sentence / 人工按同一规则检查每句事实**：谁判什么。人工、判定单位与证据对象都可定位。完整说明和一致性核验另给实际记录。
+3. **A sentence without a citation counts as unsupported. / 没有引用的句子按不支持计。**：缺失也进入口径。缺引用不能从分母中静默排除，否则少给引用反而可能得高分。
+4. **We average these per-question fractions rather than pooling sentences across questions. / 我们对各问题的比例取平均，不把所有问题的事实句混在一起计算。**：说明怎样汇总。先按问题计算再平均，与把所有句子合并计算不同；长回答不会只因句子多而权重更大。
+5. **reported separately as not applicable / 单列为不适用**：定义不能评分的情形。没有事实句时，比例无定义。不能自动算零或算满分，还要报告数量。
+
+PaperBank · 教学改写
+
+不是只列一个缩写：判定单位、分母、方向、汇总和例外一起决定指标含义。
+
+独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
+#### 3.7.b 主结果：先给发现，再解释比较
+
+假设主结果段；比较与结果方向仅用于教学，实际须填核验后的差值、表号及统计范围。
+
+**English 教学改写**
+
+Evidence notes improve citation support under a fixed evidence-context budget. In the comparison in Table [main], the note-based system has higher support than direct passage retrieval when the language model, decoding settings, and evidence-context token budget are held fixed. The contrast supports note-guided generation as a whole; separate ablations are needed to distinguish quote organization from constraint retention. However, the note builder adds processing time, so the quality gain must be considered together with end-to-end latency.
+
+
+**中文译文**
+
+在证据上下文预算固定时，证据笔记提高了引用支持率。在表[主结果]所示的对照中，固定语言模型、解码设置和证据上下文词元预算后，笔记系统的支持率高于直接片段检索。这一对照支持该设置下的笔记引导生成整体；区分摘句组织与约束保留的作用，还需要分别消融。不过，笔记构建增加了处理时间，因此质量收益需要与端到端延迟一起考虑。
+
+
+**高亮与旁批**
+
+1. **Evidence notes improve citation support under a fixed evidence-context budget. / 在证据上下文预算固定时，证据笔记提高了引用支持率。**：段首先给一个发现。可加粗；对象、比较关系和条件明确。“实验效果很好”没有信息。
+2. **the language model, decoding settings, and evidence-context token budget are held fixed / 固定语言模型、解码设置和证据上下文词元预算后**：关键对照撑起结论。模型、解码和上下文预算对齐。预算上限相同，不等于实际长度或信息完全相同；组件归因还需匹配消融。
+3. **supports note-guided generation as a whole / 支持该设置下的笔记引导生成整体**：解释证据的意义。主结果比较整套系统；只对齐预算，不能宣称已经隔离某个组件或信息类型的作用。
+4. **the note builder adds processing time / 笔记构建增加了处理时间**：代价跟收益一起说。效率不是只算生成器；端到端延迟应计入检索、笔记构建与生成。
+
+PaperBank · 教学改写
+
+这是结构示例，方向与代价为假设。正式论文只能写真实对照支持的发现。
+
+独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
+#### 3.7.c 消融：只动一个因素，才知道谁有用
+
+教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。
+
+**English 教学改写**
+
+To examine the role of retained dialogue constraints, we remove those constraints from the notes while keeping source quotes unchanged. Both variants use the same language model, test questions, decoding settings, and maximum evidence-context budget. If constraint satisfaction decreases after this single change, the comparison supports retaining constraints in the tested setting. The comparison does not isolate the benefit of the entire note-building pipeline, because source selection and quotation remain active in both variants.
+
+
+**中文译文**
+
+为检验保留对话约束的作用，我们从笔记中移除这些约束，保留来源摘句。两种设置使用相同的语言模型、测试问题、解码设置和证据上下文预算上限。若这项单一改动后约束满足率下降，该比较支持在实测设置中保留约束有用。它不能单独确定整套笔记构建流程的收益，因为两种设置都仍在进行来源选择和摘句。
+
+
+**高亮与旁批**
+
+1. **To examine the role of retained dialogue constraints / 为检验保留对话约束的作用**：对准一项设计。消融目的应对应 Method 声称的作用，不是列一排 w/o 标签。
+2. **remove those constraints from the notes while keeping source quotes unchanged / 从笔记中移除这些约束，保留来源摘句**：只改待检验因素。去掉约束，来源摘句保留。若同时改检索器或模型，就不能把差异归给约束。
+3. **the same language model, test questions, decoding settings, and maximum evidence-context budget / 相同的语言模型、测试问题、解码设置和证据上下文预算上限**：其余条件给清楚。预算上限相同不代表实际词元数相同；正式实验仍要核对长度是否构成替代解释。
+4. **If constraint satisfaction decreases after this single change / 若这项单一改动后约束满足率下降**：没有结果就不编发现。这里是条件句教学。正式结果段应替换为真实差异及统计范围。
+5. **does not isolate the benefit of the entire note-building pipeline / 不能单独确定整套笔记构建流程的收益**：归因范围与改动一致。当前比较只检验保留约束，未单独识别检索、摘句等其他步骤的作用。
+
+PaperBank · 教学改写
+
+去掉的是对话约束，就检验约束满足率；指标要直接对应待检验作用。正式段落换成真实结果，不能把条件句当已完成实验。
+
+独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
+#### 3.7.d 真实消融段：对照要能对应组件作用
+
+论文原文整段 · 中文为本指南翻译；高亮与旁批按颜色和编号对应。
+
+**English 原文**
+
+We highlight the importance of natural footwork in enhancing visual aesthetics (Tseng, Castellon, and Liu 2023). As shown in Table 3, our Footwork Adaptor markedly enhances the model’s PFC value. Moreover, when utilized independently, it boosts the model’s GMC, underscoring the FA’s dual benefits: preventing foot slipping and augmenting dance coherence.
+
+
+**中文译文**
+
+我们强调自然脚步对提升视觉美感的重要性（Tseng、Castellon 与 Liu，2023）。如表 3 所示，Footwork Adaptor 明显改善了模型的 PFC 指标。此外，单独使用该模块时，它也提高了模型的 GMC，体现出 FA 的双重作用：减少脚部滑动，并增强舞蹈协调性。
+
+
+**高亮与旁批**
+
+1. **natural footwork in enhancing visual aesthetics / 自然脚步对提升视觉美感**：动机说明为何要测。自然脚步对应本文的脚部滑动问题。按现行结果写法，可先给主发现，再用这句解释其意义。
+2. **As shown in Table 3 / 如表 3 所示**：证据位置直接给出。表中有 w/o FA、w/o FP 和组合消融；说明模块作用前，先找能只改变 FA 的匹配对照。
+3. **enhances the model’s PFC value / 改善了模型的 PFC 指标**：指标先知道方向。PFC 是脚部接触相关指标，表中越低越好。改善不能误译为数值提高。
+4. **when utilized independently / 单独使用该模块时**：单独作用要有对应行。对应 w/o FA and FP 与 w/o FP 的比较；两行都没有 FP，只增减 FA。不能拿多项同时变化的两行归因。
+5. **preventing foot slipping and augmenting dance coherence / 减少脚部滑动，并增强舞蹈协调性**：两项作用分别给证据。PFC 对应脚步，GMC 对应群体协调。若篇幅允许，按一段一个核心发现分开分析。
+
+[TCDiff · AAAI 2025](https://ojs.aaai.org/index.php/AAAI/article/view/32268) · §Ablation Study，Effectiveness of Footwork Adaptor，自然段；PDF p.7，proceedings p.2651；Table 3
+
+这段给出动机、表格和两项作用。按现行规范，可先给主要发现，再用匹配对照解释组件作用。
+
+英文保持原文，仅合并换行、还原排版断词，并移除粗体段标题；中文为本指南翻译。英文原文包含 PFC 与 GMC 的两项作用，教学批注明确各自的指标和对照，不改原句。
+
+作者教学复用；原论文英文短引与原图不受 PaperBank 原创内容 CC BY 授权覆盖。本文不转授第三方转载原论文材料的权利。
+
+<details><summary>展开句式与 LaTeX 模板</summary>
+
+
+#### Experiments：先列要验证的问题
 
 先列 Introduction 的主张与检验标准，再安排主结果、消融及补充分析。
 
@@ -3672,7 +4047,7 @@ We then isolate [component] and examine [robustness, efficiency, or transfer que
 
 **第 3 句：**只预告实际存在的分析，不能为了补齐模板虚构实验。
 
-#### 3.7.b Experimental Setup：比较设置
+#### Experimental Setup：比较设置
 
 集中定义指标、方向、分母、简称与实验设置，新增指标说明用途与贡献。
 
@@ -3715,7 +4090,7 @@ Implementation Details. We select [parameters] on [development data] and fix the
 
 **第 5 句：**明确选择边界；具体值与来源按真实记录填。
 
-#### 3.7.c Main Results：先写发现
+#### Main Results：先写发现
 
 解释主要差异、可能原因及对应设计，不逐行重复表格数值。
 
@@ -3745,7 +4120,7 @@ This contrast supports [Intro contribution], while [observed trade-off] limits [
 
 **第 3 句：**解释结果意味着什么，同时保留真实取舍。
 
-#### 3.7.d Ablation：改一项，查一个作用
+#### Ablation：改一项，查一个作用
 
 消融每次去掉或替换一个因素，固定其他条件，检验对应设计的作用。
 
@@ -3774,7 +4149,7 @@ Figure [ref] shows [observed change], supporting [limited component role] in [te
 
 **第 3 句：**作用不超过实际控制的因素与范围。
 
-#### 3.7.e 扩展实验：稳定性、效率、迁移
+#### 扩展实验：稳定性、效率、迁移
 
 按主张选择稳健性、效率或迁移分析。保留失败记录，报告有助于判断贡献的负结果。
 
@@ -3804,7 +4179,7 @@ These comparisons support [scope-limited finding], but do not establish [broader
 
 **第 3 句：**范围边界具体写；不是在每段末尾机械加免责声明。
 
-#### 3.7.f 进阶：性能与成本一起比
+#### 进阶：性能与成本一起比
 
 多目标实验同时报告收益与代价，按帕累托前沿讨论取舍，不将单项优势写成全面最优。
 
@@ -3826,7 +4201,7 @@ We report the non-dominated configurations among the tested settings.
 
 [pymoo · Pareto dominance](https://pymoo.org/getting_started/preface.html) · Pareto dominance 定义；本文例句为独立教学改写
 
-#### 3.7.g 进阶：同时做两个差
+#### 进阶：同时做两个差
 
 同期因素可能影响上线前后比较。适用条件下，可比较处理组与对照组各自的前后变化；普通算法消融不等于 DID。
 
@@ -3848,7 +4223,7 @@ The difference between these changes is 10 points, rather than the treated group
 
 [Callaway & Sant’Anna · Difference-in-Differences with Multiple Time Periods](https://arxiv.org/abs/1803.09015) · 比较设计与识别条件；数值为独立教学示例
 
-#### 3.7.h Case Study：走一遍流程
+#### Case Study：走一遍流程
 
 用明确来源的输入与输出展示流程及判断依据，案例不能替代总体统计。
 
@@ -3876,6 +4251,9 @@ The final output [meets or violates requirement] because [observable evidence].
 最终输出[满足或违反要求]，依据是[可见证据]。
 
 **第 3 句：**判定与证据直接连接，不只写一个勾叉。
+
+</details>
+
 
 <details><summary>更多例子：论文原句与拆解</summary>
 
@@ -4036,6 +4414,46 @@ The case shows where the constraint enters the note, but it does not establish o
 
 解释发现，写清适用范围和局限。
 
+#### 本节原则
+
+- 解释结果改变了什么认识，不再复述成绩表。结论保留实际测试范围。
+- 解释与机制分开。没有单独控制某项设计，就不能把效果全部归因于它。
+- 局限写具体条件：哪些数据、语言、信息或预算尚未覆盖。未测试不等于已失败。
+- 未来工作接当前局限，说明补哪项验证，不空写更多数据、更大模型。
+
+#### 3.8.a 讨论：解释收益，也说明还不能解释什么
+
+假设教学段落，非论文原文或实测结果。
+
+**English 教学改写**
+
+Higher citation support is consistent with more explicit use of document evidence. However, the current comparison changes both quote organization and the amount of constraint information provided to the generator. The comparison therefore cannot identify which change accounts for the gain. Our evaluation covers static English manuals; cross-language questions and frequently updated documents remain untested. Separate evaluations are needed because language and document updates can change which quoted evidence supports an answer.
+
+
+**中文译文**
+
+引用支持率提高，与更明确地使用文档证据这一解释相符。然而，当前比较同时改变了摘句的组织方式和提供给生成器的约束信息量。因此，这个比较不能判断哪项改变带来了收益。当前评价覆盖静态英语手册；跨语言问题与频繁更新的文档尚未检验。这些设置需要另行评价，因为语言与文档更新可能改变哪些摘句能够支持答案。
+
+
+**高亮与旁批**
+
+1. **is consistent with more explicit use of document evidence / 与更明确地使用文档证据这一解释相符**：先说结果的意义。consistent with 表示解释与观察相符，尚未声称已证明机制。意义仍限于来源支持。
+2. **changes both quote organization and the amount of constraint information provided to the generator / 同时改变了摘句的组织方式和提供给生成器的约束信息量**：写清替代解释。两项条件同时变化，就不能只把提升归给笔记组织。局限应指出实际没区分什么。
+3. **The comparison therefore cannot identify which change accounts for the gain. / 因此，这个比较不能判断哪项改变带来了收益。**：However 之后要得出真实限制。前句说明两项条件同时变化，这句限定归因范围。Therefore 接住原因，不是只在句首加一个词。
+4. **cross-language questions and frequently updated documents remain untested / 跨语言问题与频繁更新的文档尚未检验**：范围要具体。语言变化和文档更新是两个尚未测的设置。写出来，比一句 limited generalizability 有用。
+5. **because language and document updates can change which quoted evidence supports an answer / 因为语言与文档更新可能改变哪些摘句能够支持答案**：未来工作说明为什么必要。下一步不是随手扩大任务，而是检查证据支持关系是否仍成立。
+
+PaperBank · 教学改写
+
+讨论要增加解释与范围信息，不再抄一遍结果表。
+
+沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
+<details><summary>展开句式与 LaTeX 模板</summary>
+
+
 **Discussion / Limitations：意义与局限**
 
 解释发现的意义、可能原因与失效条件，区分经验解释与有对照支持的机制判断。
@@ -4064,6 +4482,9 @@ Our evaluation covers [range], while [different condition] remains untested.
 当前评价覆盖[范围]，[不同条件]尚未检验。
 
 **第 3 句：**边界具体，能自然指导下一步研究。
+
+</details>
+
 
 <details><summary>更多例子：论文原句与拆解</summary>
 
@@ -4112,6 +4533,43 @@ Cross-language questions and frequently updated documents remain untested.
 
 回答开头的问题，概括贡献和发现。
 
+#### 本节原则
+
+- 先回答引言的问题，再概括最重要的设计与发现。
+- 只收束正文已经建立的认识，不新增结果、对照或能力。
+- 保留关键取舍和适用范围。未来方向接实际局限，不重复整套方法流程。
+
+#### 3.9.a EviNote-RAG：用贡献、证据收束结论
+
+公开预印本原文段落 · 中文为本指南翻译
+
+**English 原文**
+
+We present EviNote-RAG, a framework that introduces a note-taking step to extract answer-supportive evidence before answering. By training LLMs to produce Supportive-Evidence Notes (SENs) and guiding them via a tailored entailment-based reward, our approach improves answer accuracy. Extensive experiments demonstrate that EviNote-RAG achieves state-of-the-art performance while enhancing training stability.
+
+
+**中文译文**
+
+我们提出 EviNote-RAG，在回答前加入笔记步骤，提取能够支持答案的证据。通过训练 LLM 生成能够支持答案的证据笔记（SENs），并用专门设计的蕴含奖励引导模型，方法提高了答案准确率。大量实验表明，EviNote-RAG 达到当前最优表现，同时改善了训练稳定性。
+
+
+**高亮与旁批**
+
+1. **a framework that introduces a note-taking step to extract answer-supportive evidence before answering / 在回答前加入笔记步骤，提取能够支持答案的证据**：先收束核心设计。一句话说清新增步骤、处理对象和目的，不重新展开完整流程。
+2. **By training LLMs to produce Supportive-Evidence Notes (SENs) and guiding them via a tailored entailment-based reward / 通过训练 LLM 生成能够支持答案的证据笔记（SENs），并用专门设计的蕴含奖励引导模型**：说明设计怎样发挥作用。笔记明确训练目标，奖励引导模型形成这类笔记。这里概括共同作用，不把两个设计写成未经核验的执行先后。
+3. **achieves state-of-the-art performance while enhancing training stability / 达到当前最优表现，同时改善了训练稳定性**：结尾回到已有证据。原文用性能与训练稳定性收束。state-of-the-art 只对应发表时的比较；自己的论文要核对基线与条件，不能照搬这个评价。
+
+[EviNote-RAG · arXiv v3 公开预印本](https://arxiv.org/html/2509.00877v3#S5) · § 5 Conclusion，第一自然段（三句）；arXiv:2509.00877v3，2025-10-16；公开 HTML #S5。
+
+结论用最重要的设计与正文证据收束。借鉴信息分工，不照搬别人的最优表现主张。
+
+摘录公开 arXiv v3 的 Conclusion 第一自然段，英文词句未改；中文翻译、高亮与旁批为本指南添加。
+
+公开 arXiv v3 采用 non-exclusive distribution，原文版权由权利人保留。作者教学短引，不随本指南转授全文再版许可；中文翻译与分析为本指南新增。
+
+<details><summary>展开句式与 LaTeX 模板</summary>
+
+
 **Conclusion：回答开头的问题**
 
 回到研究问题，概括核心贡献、主要发现与范围，不重复完整方法流程。
@@ -4139,6 +4597,9 @@ The evaluation establishes [supported finding] under [conditions].
 [具体局限]说明，后续需要在[相关设置]继续检验。
 
 **第 3 句：**实际需要未来工作才写，不要求固定末句。
+
+</details>
+
 
 <details><summary>更多例子：论文原句与拆解</summary>
 
@@ -4169,6 +4630,45 @@ The illustrative evaluation shows higher citation support with extra latency; br
 
 引用回查原文，信息和版本对齐。
 
+#### 本节原则
+
+- 引用支持附近的具体判断，先回查原文，不把搜索摘要或能编译的 BibTeX 当核验。
+- 模型、数据、工具和外部方法在可独立阅读的章节首次实质出现时，就近引原始报告或官方文档。
+- 条目与实际版本对应，核对题名、作者、年份和来源；同一论文的重复版本去重。
+- 来源没测过的条件，不能用它支撑该条件下的结论。没有真实来源就缩小或删除说法。
+
+#### 3.10.a 引文段落：来源支持到哪里，话就说到哪里
+
+教学段落；方括号为来源与版本占位，不是假造文献条目。
+
+**English 教学改写**
+
+Retrieval-augmented generation combines retrieved passages with answer generation [primary method paper]. A study evaluated only on single-turn questions cannot establish performance on changing multi-turn constraints. We use [retriever and version] [official documentation for that version] to retrieve candidate passages. The method citation supports the approach; the version-specific documentation identifies the tool actually used.
+
+
+**中文译文**
+
+检索增强生成将检索到的段落与答案生成结合起来[原始方法论文]。只在单轮问题上评价的研究，不能证明方法能够处理多轮对话中变化的约束。我们使用[检索器与版本][该版本的官方文档]检索候选段落。方法引用说明采用哪条路线；对应版本的文档说明实际使用什么工具。
+
+
+**高亮与旁批**
+
+1. **[primary method paper] / [原始方法论文]**：方法回到原始来源。方括号是教学占位。填写核验过的原论文，不把博客、搜索摘要或转述当原始出处。
+2. **A study evaluated only on single-turn questions cannot establish performance on changing multi-turn constraints. / 只在单轮问题上评价的研究，不能证明方法能够处理多轮对话中变化的约束。**：来源范围限制主张范围。一个来源真实存在，不等于它支持你附近写的每句话。任务条件也要对应。
+3. **[retriever and version] [official documentation for that version] / [检索器与版本][该版本的官方文档]**：名称、版本、来源对应。工具或模型没有论文时，可以引用真实官方文档。不要用另一版本的报告补当前版本出处。
+4. **The method citation supports the approach; the version-specific documentation identifies the tool actually used. / 方法引用说明采用哪条路线；对应版本的文档说明实际使用什么工具。**：别混淆引用的职责。方法来源与实际工具版本是两件事。引用准确后，还要核对运行记录是否采用这个版本。
+
+PaperBank · 教学改写
+
+引用服务具体判断。书目真实、版本正确、支持关系成立，缺一项都不算核验。
+
+用占位展示正文主张与真实来源的对应，不提供虚构作者、年份、题名或 DOI。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
+<details><summary>展开句式与 LaTeX 模板</summary>
+
+
 **References：回查原文**
 
 逐条核对原文、版本及其对引用处主张的支持范围。
@@ -4191,6 +4691,9 @@ We use [model or tool version] [original report or official documentation].
 我们使用[模型或工具版本][原始报告或官方文档]。
 
 **第 2 句：**记录实际使用版本，引用版本须对应实际实验，不用后发布版本说明早期设置。
+
+</details>
+
 
 <details><summary>更多例子：论文原句与拆解</summary>
 
@@ -4221,7 +4724,44 @@ A source evaluated only on single-turn retrieval cannot support a claim about mu
 
 提供可定位、可复核的设置与补充材料。
 
-详细设置、补充实验与完整案例分类组织，并从正文引用具体位置。
+#### 本节原则
+
+- 先删重复，再移次要细节。核心设计、关键证据和决定结论的限制留正文。
+- 按技术细节、实验设置、补充结果等职责分组，不把所有剩余内容堆在一起。
+- 正文在对应主张后指向具体节、图或表；附录每节先说补什么、服务哪项主张。
+- 设置、符号、版本和统计范围与正文一致。补充结果改变主结论，正文同步说明。
+
+#### 3.11.a 附录：让正文的比较能被定位和复核
+
+假设教学段落，非论文原文或实测结果。
+
+**English 教学改写**
+
+To reproduce the citation-support comparison in Section [X], this appendix records the prompts, document versions, retrieval settings, and scoring rules for both systems. Each run is linked to the corresponding configuration and retains failed outputs. We select the maximum note length using development questions and freeze it before evaluating the test questions. Per-run scores and uncertainty estimates are reported in Table [Y], so the aggregate in the main text can be traced to the same runs.
+
+
+**中文译文**
+
+为复现第[X]节的引用支持率比较，本附录记录两个系统的提示词、文档版本、检索设置与评分规则。每次运行都关联对应配置，并保留失败输出。我们用开发集问题选择笔记最大长度，在评价测试问题前冻结这个选择。表[Y]报告各次运行得分与不确定性估计，使正文的汇总结果能追溯到同一批运行。
+
+
+**高亮与旁批**
+
+1. **To reproduce the citation-support comparison in Section [X] / 为复现第[X]节的引用支持率比较**：开头说明补什么。先点名服务哪个比较，读者不必回翻猜本节用途。正文也要指向这个具体附录节。
+2. **for both systems / 两个系统的**：设置覆盖全部对照。只写自己的配置，不能复现比较。共享条件与不同条件要分别交代。
+3. **using development questions and freeze it before evaluating the test questions / 用开发集问题选择笔记最大长度，在评价测试问题前冻结这个选择**：参数选择与测试分开。给出选择数据和冻结时点，说明参数如何确定。不能用最终测试结果倒选参数。
+4. **so the aggregate in the main text can be traced to the same runs / 使正文的汇总结果能追溯到同一批运行**：附录与正文口径一致。补充表应对应正文统计，配置、运行与失败处理不能换一套范围。
+
+PaperBank · 教学改写
+
+附录有自己的论证职责，也要写清输入、操作和证据入口。
+
+沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
+<details><summary>展开句式与 LaTeX 模板</summary>
+
 
 **Appendix：实现与补充实验**
 
@@ -4245,6 +4785,9 @@ This section tests [main-text claim] while controlling [alternative explanation]
 本节在控制[替代解释]的条件下检验[正文主张]。
 
 **第 2 句：**附录开头重建本节作用，读者不必回翻数页猜。
+
+</details>
+
 
 <details><summary>更多例子：论文原句与拆解</summary>
 
@@ -4854,3 +5397,4 @@ Deliver the diff, the types of content handled, unresolved items, and the checks
 - [Bruno et al. (2024) · A universal framework for inclusive 15-minute cities](https://arxiv.org/html/2408.03794v1)：地图、累计分布、多维气泡与设施迁移排名。原图只链接，点评为本指南整理；颜色和大小按原图注解释。
 - [pymoo · Pareto dominance](https://pymoo.org/getting_started/preface.html)：多目标比较与非支配解的定义
 - [Callaway & Sant’Anna · Difference-in-Differences with Multiple Time Periods](https://arxiv.org/abs/1803.09015)：DID 的比较设计与平行趋势识别条件
+- [Yuqin Dai et al. · EviNote-RAG: Enhancing RAG Models via Answer-Supportive Evidence Notes](https://arxiv.org/html/2509.00877v3#S5)：Conclusion 第一自然段：核心设计、作用与结果如何收束；表现判断只对应该版本的比较。

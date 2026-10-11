@@ -4033,6 +4033,19 @@
       "url": "https://arxiv.org/abs/1803.09015",
       "scope": "DID 的比较设计与平行趋势识别条件",
       "public": true
+    },
+    "paper_evinoterag_v3": {
+      "title": "Yuqin Dai et al. · EviNote-RAG: Enhancing RAG Models via Answer-Supportive Evidence Notes",
+      "authors": "Yuqin Dai et al.",
+      "url": "https://arxiv.org/html/2509.00877v3#S5",
+      "pdf_url": "https://arxiv.org/pdf/2509.00877v3",
+      "venue": "公开预印本",
+      "version": "arXiv:2509.00877v3，2025-10-16",
+      "scope": "Conclusion 第一自然段：核心设计、作用与结果如何收束；表现判断只对应该版本的比较。",
+      "license": "公开 arXiv v3 采用 non-exclusive distribution，原文版权由权利人保留。作者教学短引，不随本指南转授全文再版许可；中文翻译与分析为本指南新增。",
+      "rights_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/license.html",
+      "reuse_note": "保留原文、作者与版本；预印本与后续版本区分。",
+      "public": true
     }
   },
   "tools": [
@@ -8941,6 +8954,50 @@
       ]
     },
     {
+      "id": "annotated-related-closure",
+      "section": "related",
+      "title": "整段示例：However 后面紧跟对应解法",
+      "label": "教学示范；[A]、[B] 及其评价范围均是假设。正式写作先核验原论文，再替换路线、范围与引用。",
+      "processing": "本段为 PaperBank 原创教学示范。路线、评价范围与方法均为假设，不能直接当作文献综述使用。",
+      "takeaway": "收尾两句说同一个问题：已有比较未检验跨轮约束，本文就保留并检验跨轮约束。不能 However 说多轮，下一句却开始讲检索速度。",
+      "paragraphs": [
+        {
+          "en": "Evidence-grounded dialogue systems select supporting text before generating an answer. [A] retrieves passages for the current question, whereas [B] links retrieved passages to answer claims [citations]. These claim links make support easier to inspect, but [B] is evaluated only on isolated questions. However, these comparisons do not establish whether earlier constraints remain satisfied across dialogue turns. To address this limitation, we attach dialogue constraints to evidence notes and test their retention across turns.",
+          "zh": "基于证据的对话系统先筛选支持文本，再生成答案。[A] 为当前问题检索片段，[B] 则把检索片段与答案主张关联[引用]。这些主张关联便于检查依据，但 [B] 的评价仅覆盖独立问题。然而，这些比较尚未说明前文约束能否在多轮对话中持续得到满足。为解决这个不足，我们把对话约束绑定到证据笔记，并检验约束在多轮中的保留情况。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "retrieves passages for the current question, whereas [B] links retrieved passages to answer claims",
+          "zh": "为当前问题检索片段，[B] 则把检索片段与答案主张关联",
+          "title": "分类有共同尺度",
+          "body": "比较支持文本怎样组织：只检索片段，还是关联到主张。不是每句换一个作者名字。"
+        },
+        {
+          "paragraph": 0,
+          "en": "These claim links make support easier to inspect",
+          "zh": "这些主张关联便于检查依据",
+          "title": "先承认已有能力",
+          "body": "说明关联主张带来的用途。后面的不足限定在跨轮评价，不否定这一已有能力。"
+        },
+        {
+          "paragraph": 0,
+          "en": "However, these comparisons do not establish whether earlier constraints remain satisfied across dialogue turns.",
+          "zh": "然而，这些比较尚未说明前文约束能否在多轮对话中持续得到满足。",
+          "title": "However：说清哪项问题没被回答",
+          "body": "接回上一句的独立问题评价，限定为未检验跨轮约束。不能偷换成“这些方法无法处理多轮”。"
+        },
+        {
+          "paragraph": 0,
+          "en": "To address this limitation, we attach dialogue constraints to evidence notes and test their retention across turns.",
+          "zh": "为解决这个不足，我们把对话约束绑定到证据笔记，并检验约束在多轮中的保留情况。",
+          "title": "紧跟解法：同一个缺口，同一个对象",
+          "body": "跨轮约束缺少检验→绑定约束并检验保留情况。这一设计也必须出现在 Intro、Method 和实验中。"
+        }
+      ]
+    },
+    {
       "id": "annotated-related",
       "section": "related",
       "title": "整段示例：比较机制，再说明本文差异",
@@ -8995,6 +9052,152 @@
       ]
     },
     {
+      "id": "annotated-method-task",
+      "section": "method",
+      "title": "任务定义：先把输入和输出说清",
+      "label": "教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。",
+      "processing": "独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。",
+      "takeaway": "任务定义交代输入、输出和判断边界，不提前堆算法与符号。",
+      "paragraphs": [
+        {
+          "en": "Given a question, the dialogue history, and a collection of English manuals, the task is to generate an answer that respects earlier constraints and cites supporting passages. At inference time, the system receives these inputs but no reference answer. We use reference answers only for evaluation. A prior requirement such as offline operation remains part of the task unless the user explicitly changes it.",
+          "zh": "给定一个问题、它的对话历史和一组英语手册，任务是生成遵守前文约束、附有支持片段引用的回答。推理时，系统接收这些输入，但不接收参考答案。参考答案仅用于评价。离线操作等前文要求仍属于当前任务，除非用户明确更改。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "Given a question, the dialogue history, and a collection of English manuals",
+          "zh": "给定一个问题、它的对话历史和一组英语手册",
+          "title": "输入先落到对象",
+          "body": "问题、历史和手册是不同输入。读者先知道系统拿到了什么，再看符号。"
+        },
+        {
+          "paragraph": 0,
+          "en": "respects earlier constraints and cites supporting passages",
+          "zh": "遵守前文约束、附有支持片段引用",
+          "title": "输出不只报名字",
+          "body": "回答要满足哪两项要求，直接在任务定义里说。后面的指标也应检验这两件事。"
+        },
+        {
+          "paragraph": 0,
+          "en": "no reference answer",
+          "zh": "不接收参考答案",
+          "title": "划清可见信息",
+          "body": "评价参照不等于推理输入。图中也不能把参考答案连进生成器。"
+        },
+        {
+          "paragraph": 0,
+          "en": "unless the user explicitly changes it",
+          "zh": "除非用户明确更改",
+          "title": "边界说具体",
+          "body": "旧约束何时有效，给出规则；不要让模型或读者自行猜。"
+        }
+      ]
+    },
+    {
+      "id": "annotated-method-overview-teaching",
+      "section": "method",
+      "title": "Overview：贡献与交接一起写",
+      "label": "教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。",
+      "processing": "独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。",
+      "takeaway": "Overview 是方法地图：目的、组件贡献、产物交接和阅读位置同时清楚。",
+      "paragraphs": [
+        {
+          "en": "To retain earlier constraints during answering, we connect quoted evidence to the dialogue history before generating an answer. In History-aware Retrieval (Sec. [retrieval]), we select manual passages relevant to the current question and earlier requirements. Using these passages, in Constraint-linked Notes (Sec. [notes]), we attach the requirements to source quotes and retain their manual locations. Finally, in Grounded Answering (Sec. [answering]), the generator uses the resulting notes to produce an answer with source citations. Figure [framework] shows these dependencies.",
+          "zh": "为在回答中保留前文约束，我们先把摘录证据与对话历史关联，再生成答案。在历史感知检索（第[retrieval]节）中，我们筛选与当前问题及前文需求相关的手册片段。使用这些片段，我们在约束关联笔记（第[notes]节）中将需求绑定到来源摘句，并保留手册位置。最后，在基于证据的回答（第[answering]节）中，生成器使用所得笔记生成带来源引用的答案。图[framework]展示这些依赖关系。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "To retain earlier constraints during answering",
+          "zh": "为在回答中保留前文约束",
+          "title": "先讲为什么",
+          "body": "接回 Intro 的约束丢失问题。读者先知道设计目的，再看章节位置。"
+        },
+        {
+          "paragraph": 0,
+          "en": "In History-aware Retrieval (Sec. [retrieval]), we select",
+          "zh": "在历史感知检索（第[retrieval]节）中，我们筛选",
+          "title": "章节负责导航，we 执行操作",
+          "body": "小节名与节号只出现一次。不是“这个章节检索了文本”；实际处理者是系统或作者。"
+        },
+        {
+          "paragraph": 0,
+          "en": "Using these passages",
+          "zh": "使用这些片段",
+          "title": "接住上一节的产物",
+          "body": "检索出的片段进入笔记构建。串行、并行或反馈按实际依赖写，不能为了顺口编先后。"
+        },
+        {
+          "paragraph": 0,
+          "en": "the generator uses the resulting notes",
+          "zh": "生成器使用所得笔记",
+          "title": "再把笔记交给生成器",
+          "body": "当前产物成为下一步输入。“先 A 再 B”还不够，要说明 B 使用 A 的什么。"
+        },
+        {
+          "paragraph": 0,
+          "en": "Figure [framework] shows these dependencies.",
+          "zh": "图[framework]展示这些依赖关系。",
+          "title": "图与正文对上",
+          "body": "填真实图号；框架图画出片段→笔记→答案的依赖，不只排三个模块名。"
+        }
+      ]
+    },
+    {
+      "id": "annotated-method-module",
+      "section": "method",
+      "title": "模块小节：目的、操作、交接",
+      "label": "教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。",
+      "processing": "独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。",
+      "takeaway": "目的 → 必要性 → 具体操作 → 边界 → 下一步。每句推进一次，不反复说“我们提出”。",
+      "paragraphs": [
+        {
+          "en": "To keep earlier requirements available during answering, the note builder links each retrieved quote to the relevant dialogue constraint. A retrieved passage may describe a feature correctly yet be unsuitable for an offline-only request. For each quote, we record the manual location and the constraint supported or contradicted by the quote; an unverified relation is left unresolved. The generator then receives these notes together with the current question, so the answer can cite the source and explain whether the requirement is met.",
+          "zh": "为让回答阶段仍能使用前文要求，笔记构建器将每条检索摘句与相关对话约束关联。一个片段可能准确描述功能，却不适用于仅限离线的请求。对每条摘句，我们记录它在手册中的位置，以及它支持或违背的约束；尚未核验的关系保留为未确定。生成器随后接收这些笔记和当前问题，以便回答引用来源，并解释要求是否满足。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "To keep earlier requirements available during answering",
+          "zh": "为让回答阶段仍能使用前文要求",
+          "title": "目的顶在第一句",
+          "body": "To 后写具体目的，主句给执行者与关键设计。别先讲半段背景。"
+        },
+        {
+          "paragraph": 0,
+          "en": "unsuitable for an offline-only request",
+          "zh": "不适用于仅限离线的请求",
+          "title": "解释为什么要这样做",
+          "body": "“事实正确”不等于“符合需求”。矛盾明确，设计才有必要性。"
+        },
+        {
+          "paragraph": 0,
+          "en": "the manual location and the constraint supported or contradicted by the quote",
+          "zh": "它在手册中的位置，以及它支持或违背的约束",
+          "title": "操作落实到字段",
+          "body": "谁处理什么、保留哪些信息写清楚，后面的表示或公式才有内容。"
+        },
+        {
+          "paragraph": 0,
+          "en": "an unverified relation is left unresolved",
+          "zh": "尚未核验的关系保留为未确定",
+          "title": "处理边界情况",
+          "body": "不知道的关系不能自动写成支持或冲突；需要有明确处理规则。"
+        },
+        {
+          "paragraph": 0,
+          "en": "receives these notes together with the current question",
+          "zh": "接收这些笔记和当前问题",
+          "title": "末句交给下一步",
+          "body": "写明产物、接收者和用途；这里是目标能力，不能伪装成实测提升。"
+        }
+      ]
+    },
+    {
       "id": "annotated-method",
       "section": "method",
       "title": "整段示例：Method 开头怎样连接各组件",
@@ -9045,6 +9248,476 @@
           "zh": "在 GreenPD 上训练并使用 PDE 反馈",
           "title": "这两条路径也要画出来",
           "body": "GreenPD 提供训练数据，PDE 提供反馈。对照 Fig. 2 检查两条路径，不能正文有反馈、图里没有。"
+        }
+      ]
+    },
+    {
+      "id": "annotated-experiments-metrics",
+      "section": "experiments",
+      "title": "设置：指标的分母和汇总要说全",
+      "label": "教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。",
+      "processing": "独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。",
+      "takeaway": "不是只列一个缩写：判定单位、分母、方向、汇总和例外一起决定指标含义。",
+      "paragraphs": [
+        {
+          "en": "To test whether evidence notes improve citation support, we evaluate multi-turn questions about static English manuals. Human raters check each factual answer sentence against its cited passage using a shared rule. A sentence without a citation counts as unsupported. For each question, citation support is the fraction of factual sentences supported by their cited evidence; higher is better. We average these per-question fractions rather than pooling sentences across questions. Answers with no factual sentences are reported separately as not applicable, together with their count.",
+          "zh": "为检验证据笔记能否提高引用支持率，我们评价针对静态英语手册的多轮问题。指标。人工按同一规则检查每句事实能否由所引片段支持。没有引用的句子按不支持计。对每个问题，引用支持率是获所引证据支持的事实句比例，越高越好。我们对各问题的比例取平均，不把所有问题的事实句混在一起计算。没有事实句的回答单列为不适用，并报告数量。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "To test whether evidence notes improve citation support",
+          "zh": "为检验证据笔记能否提高引用支持率",
+          "title": "问题接回方法作用",
+          "body": "先说这组评价要检验什么，不能从设备型号开始。"
+        },
+        {
+          "paragraph": 0,
+          "en": "Human raters check each factual answer sentence",
+          "zh": "人工按同一规则检查每句事实",
+          "title": "谁判什么",
+          "body": "人工、判定单位与证据对象都可定位。完整说明和一致性核验另给实际记录。"
+        },
+        {
+          "paragraph": 0,
+          "en": "A sentence without a citation counts as unsupported.",
+          "zh": "没有引用的句子按不支持计。",
+          "title": "缺失也进入口径",
+          "body": "缺引用不能从分母中静默排除，否则少给引用反而可能得高分。"
+        },
+        {
+          "paragraph": 0,
+          "en": "We average these per-question fractions rather than pooling sentences across questions.",
+          "zh": "我们对各问题的比例取平均，不把所有问题的事实句混在一起计算。",
+          "title": "说明怎样汇总",
+          "body": "先按问题计算再平均，与把所有句子合并计算不同；长回答不会只因句子多而权重更大。"
+        },
+        {
+          "paragraph": 0,
+          "en": "reported separately as not applicable",
+          "zh": "单列为不适用",
+          "title": "定义不能评分的情形",
+          "body": "没有事实句时，比例无定义。不能自动算零或算满分，还要报告数量。"
+        }
+      ]
+    },
+    {
+      "id": "annotated-experiments-main-teaching",
+      "section": "experiments",
+      "title": "主结果：先给发现，再解释比较",
+      "label": "假设主结果段；比较与结果方向仅用于教学，实际须填核验后的差值、表号及统计范围。",
+      "processing": "独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。",
+      "takeaway": "这是结构示例，方向与代价为假设。正式论文只能写真实对照支持的发现。",
+      "paragraphs": [
+        {
+          "en": "Evidence notes improve citation support under a fixed evidence-context budget. In the comparison in Table [main], the note-based system has higher support than direct passage retrieval when the language model, decoding settings, and evidence-context token budget are held fixed. The contrast supports note-guided generation as a whole; separate ablations are needed to distinguish quote organization from constraint retention. However, the note builder adds processing time, so the quality gain must be considered together with end-to-end latency.",
+          "zh": "在证据上下文预算固定时，证据笔记提高了引用支持率。在表[主结果]所示的对照中，固定语言模型、解码设置和证据上下文词元预算后，笔记系统的支持率高于直接片段检索。这一对照支持该设置下的笔记引导生成整体；区分摘句组织与约束保留的作用，还需要分别消融。不过，笔记构建增加了处理时间，因此质量收益需要与端到端延迟一起考虑。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "Evidence notes improve citation support under a fixed evidence-context budget.",
+          "zh": "在证据上下文预算固定时，证据笔记提高了引用支持率。",
+          "title": "段首先给一个发现",
+          "body": "可加粗；对象、比较关系和条件明确。“实验效果很好”没有信息。"
+        },
+        {
+          "paragraph": 0,
+          "en": "the language model, decoding settings, and evidence-context token budget are held fixed",
+          "zh": "固定语言模型、解码设置和证据上下文词元预算后",
+          "title": "关键对照撑起结论",
+          "body": "模型、解码和上下文预算对齐。预算上限相同，不等于实际长度或信息完全相同；组件归因还需匹配消融。"
+        },
+        {
+          "paragraph": 0,
+          "en": "supports note-guided generation as a whole",
+          "zh": "支持该设置下的笔记引导生成整体",
+          "title": "解释证据的意义",
+          "body": "主结果比较整套系统；只对齐预算，不能宣称已经隔离某个组件或信息类型的作用。"
+        },
+        {
+          "paragraph": 0,
+          "en": "the note builder adds processing time",
+          "zh": "笔记构建增加了处理时间",
+          "title": "代价跟收益一起说",
+          "body": "效率不是只算生成器；端到端延迟应计入检索、笔记构建与生成。"
+        }
+      ]
+    },
+    {
+      "id": "annotated-experiments-ablation",
+      "section": "experiments",
+      "title": "消融：只动一个因素，才知道谁有用",
+      "label": "教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。",
+      "processing": "独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。",
+      "takeaway": "去掉的是对话约束，就检验约束满足率；指标要直接对应待检验作用。正式段落换成真实结果，不能把条件句当已完成实验。",
+      "paragraphs": [
+        {
+          "en": "To examine the role of retained dialogue constraints, we remove those constraints from the notes while keeping source quotes unchanged. Both variants use the same language model, test questions, decoding settings, and maximum evidence-context budget. If constraint satisfaction decreases after this single change, the comparison supports retaining constraints in the tested setting. The comparison does not isolate the benefit of the entire note-building pipeline, because source selection and quotation remain active in both variants.",
+          "zh": "为检验保留对话约束的作用，我们从笔记中移除这些约束，保留来源摘句。两种设置使用相同的语言模型、测试问题、解码设置和证据上下文预算上限。若这项单一改动后约束满足率下降，该比较支持在实测设置中保留约束有用。它不能单独确定整套笔记构建流程的收益，因为两种设置都仍在进行来源选择和摘句。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "To examine the role of retained dialogue constraints",
+          "zh": "为检验保留对话约束的作用",
+          "title": "对准一项设计",
+          "body": "消融目的应对应 Method 声称的作用，不是列一排 w/o 标签。"
+        },
+        {
+          "paragraph": 0,
+          "en": "remove those constraints from the notes while keeping source quotes unchanged",
+          "zh": "从笔记中移除这些约束，保留来源摘句",
+          "title": "只改待检验因素",
+          "body": "去掉约束，来源摘句保留。若同时改检索器或模型，就不能把差异归给约束。"
+        },
+        {
+          "paragraph": 0,
+          "en": "the same language model, test questions, decoding settings, and maximum evidence-context budget",
+          "zh": "相同的语言模型、测试问题、解码设置和证据上下文预算上限",
+          "title": "其余条件给清楚",
+          "body": "预算上限相同不代表实际词元数相同；正式实验仍要核对长度是否构成替代解释。"
+        },
+        {
+          "paragraph": 0,
+          "en": "If constraint satisfaction decreases after this single change",
+          "zh": "若这项单一改动后约束满足率下降",
+          "title": "没有结果就不编发现",
+          "body": "这里是条件句教学。正式结果段应替换为真实差异及统计范围。"
+        },
+        {
+          "paragraph": 0,
+          "en": "does not isolate the benefit of the entire note-building pipeline",
+          "zh": "不能单独确定整套笔记构建流程的收益",
+          "title": "归因范围与改动一致",
+          "body": "当前比较只检验保留约束，未单独识别检索、摘句等其他步骤的作用。"
+        }
+      ]
+    },
+    {
+      "id": "annotated-experiments-ablation-source",
+      "section": "experiments",
+      "title": "真实消融段：对照要能对应组件作用",
+      "label": "论文原文整段 · 中文为本指南翻译；高亮与旁批按颜色和编号对应。",
+      "source": "paper_tcdiff",
+      "paper_label": "TCDiff · AAAI 2025",
+      "location": "§Ablation Study，Effectiveness of Footwork Adaptor，自然段；PDF p.7，proceedings p.2651；Table 3",
+      "processing": "英文保持原文，仅合并换行、还原排版断词，并移除粗体段标题；中文为本指南翻译。英文原文包含 PFC 与 GMC 的两项作用，教学批注明确各自的指标和对照，不改原句。",
+      "takeaway": "这段给出动机、表格和两项作用。按现行规范，可先给主要发现，再用匹配对照解释组件作用。",
+      "paragraphs": [
+        {
+          "en": "We highlight the importance of natural footwork in enhancing visual aesthetics (Tseng, Castellon, and Liu 2023). As shown in Table 3, our Footwork Adaptor markedly enhances the model’s PFC value. Moreover, when utilized independently, it boosts the model’s GMC, underscoring the FA’s dual benefits: preventing foot slipping and augmenting dance coherence.",
+          "zh": "我们强调自然脚步对提升视觉美感的重要性（Tseng、Castellon 与 Liu，2023）。如表 3 所示，Footwork Adaptor 明显改善了模型的 PFC 指标。此外，单独使用该模块时，它也提高了模型的 GMC，体现出 FA 的双重作用：减少脚部滑动，并增强舞蹈协调性。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "natural footwork in enhancing visual aesthetics",
+          "zh": "自然脚步对提升视觉美感",
+          "title": "动机说明为何要测",
+          "body": "自然脚步对应本文的脚部滑动问题。按现行结果写法，可先给主发现，再用这句解释其意义。"
+        },
+        {
+          "paragraph": 0,
+          "en": "As shown in Table 3",
+          "zh": "如表 3 所示",
+          "title": "证据位置直接给出",
+          "body": "表中有 w/o FA、w/o FP 和组合消融；说明模块作用前，先找能只改变 FA 的匹配对照。"
+        },
+        {
+          "paragraph": 0,
+          "en": "enhances the model’s PFC value",
+          "zh": "改善了模型的 PFC 指标",
+          "title": "指标先知道方向",
+          "body": "PFC 是脚部接触相关指标，表中越低越好。改善不能误译为数值提高。"
+        },
+        {
+          "paragraph": 0,
+          "en": "when utilized independently",
+          "zh": "单独使用该模块时",
+          "title": "单独作用要有对应行",
+          "body": "对应 w/o FA and FP 与 w/o FP 的比较；两行都没有 FP，只增减 FA。不能拿多项同时变化的两行归因。"
+        },
+        {
+          "paragraph": 0,
+          "en": "preventing foot slipping and augmenting dance coherence",
+          "zh": "减少脚部滑动，并增强舞蹈协调性",
+          "title": "两项作用分别给证据",
+          "body": "PFC 对应脚步，GMC 对应群体协调。若篇幅允许，按一段一个核心发现分开分析。"
+        }
+      ]
+    },
+    {
+      "id": "annotated-title",
+      "section": "title",
+      "title": "WebFilter：整个标题怎么分工",
+      "label": "论文原文短引 · 中文为本指南翻译",
+      "processing": "去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。",
+      "takeaway": "记忆点负责让人记住，研究对象与改动负责让人看懂。",
+      "paragraphs": [
+        {
+          "en": "Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools with Reinforcement Learning",
+          "zh": "谨慎查询，可信结果：通过强化学习教会 RAG 模型使用高级网页搜索工具。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "Careful Queries, Credible Results",
+          "zh": "谨慎查询，可信结果",
+          "title": "先给记忆点",
+          "body": "查询要谨慎，结果要可信。前半句让读者记住工作追求的价值，不列模块清单。"
+        },
+        {
+          "paragraph": 0,
+          "en": "Teaching RAG Models Advanced Web Search Tools",
+          "zh": "教会 RAG 模型使用高级网页搜索工具",
+          "title": "交代对象与任务",
+          "body": "后半句立即说清教谁、学会什么。仅有一句口号，读者还不知道论文做了什么。"
+        },
+        {
+          "paragraph": 0,
+          "en": "with Reinforcement Learning",
+          "zh": "通过强化学习",
+          "title": "给出关键手段",
+          "body": "强化学习解释任务怎样实现。标题保留关键手段，不必把训练流程全塞进来。"
+        }
+      ],
+      "source": "paper_webfilter",
+      "location": "Title，PDF第1页（刊页30458）；AAAI 2026 camera-ready；2026-03-14正式发表",
+      "paper_label": "WebFilter · AAAI 2026"
+    },
+    {
+      "id": "annotated-abstract",
+      "section": "abstract",
+      "title": "摘要：问题、解法、发现要连成一段",
+      "label": "假设教学段落，非论文原文或实测结果。",
+      "processing": "沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。",
+      "takeaway": "摘要不是目录。前一句建立对象，后一句增加不足、设计或证据。",
+      "paragraphs": [
+        {
+          "en": "Document-based dialogue requires answers that respect both source evidence and evolving user constraints. Passage-only generation supplies relevant text without explicitly recording which dialogue constraints the source quotes support. Structured evidence notes pair source quotes with the corresponding manual locations and active dialogue constraints. These notes let the generator cite sources and explain how the evidence relates to each constraint. In our comparison on static English manuals, notes increase citation support relative to direct generation but add latency. The comparison evaluates source support; the support scores do not establish that every user constraint is satisfied.",
+          "zh": "基于文档的对话要求答案同时符合来源证据与不断变化的用户约束。只使用片段的生成方式提供相关文本，却不明确记录来源摘句支持哪些对话约束。结构化证据笔记将来源摘句与对应的手册位置及当前有效的对话约束配对。这些笔记帮助生成器引用来源，并说明证据与各项约束的关系。在针对静态英语手册的比较中，相比直接生成，笔记提高了引用支持率，但增加了延迟。这个比较评价的是来源支持，不能据此认定每项用户约束都得到满足。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "both source evidence and evolving user constraints",
+          "zh": "来源证据与不断变化的用户约束",
+          "title": "任务需求写具体",
+          "body": "证据与用户约束是两类要求。先建立它们，下一句的不足与后面的设计才有对象。"
+        },
+        {
+          "paragraph": 0,
+          "en": "without explicitly recording which dialogue constraints the source quotes support",
+          "zh": "却不明确记录来源摘句支持哪些对话约束",
+          "title": "把缺口缩到本文负责的部分",
+          "body": "承认片段提供了相关文本，再限定缺口：没有显式记录证据与约束的对应。对应设计也必须处理这个缺口。"
+        },
+        {
+          "paragraph": 0,
+          "en": "Structured evidence notes pair source quotes with the corresponding manual locations and active dialogue constraints.",
+          "zh": "结构化证据笔记将来源摘句与对应的手册位置及当前有效的对话约束配对。",
+          "title": "贡献对象与动作前置",
+          "body": "句首先报新增产物，pair 说具体改动：摘句、位置、约束配对。不是先报流程，最后才揭晓贡献。"
+        },
+        {
+          "paragraph": 0,
+          "en": "notes increase citation support relative to direct generation but add latency",
+          "zh": "相比直接生成，笔记提高了引用支持率，但增加了延迟",
+          "title": "发现与取舍一起交代",
+          "body": "这个假设案例保留引用支持率和延迟的取舍。真实论文换成核验过的结果，不逐项罗列排名。"
+        },
+        {
+          "paragraph": 0,
+          "en": "the support scores do not establish that every user constraint is satisfied",
+          "zh": "不能据此认定每项用户约束都得到满足",
+          "title": "别让指标越界",
+          "body": "引用支持率测来源支持，不能代替约束满足率。实际摘要只保留会影响结论理解的边界。"
+        }
+      ]
+    },
+    {
+      "id": "annotated-discussion",
+      "section": "discussion",
+      "title": "讨论：解释收益，也说明还不能解释什么",
+      "label": "假设教学段落，非论文原文或实测结果。",
+      "processing": "沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。",
+      "takeaway": "讨论要增加解释与范围信息，不再抄一遍结果表。",
+      "paragraphs": [
+        {
+          "en": "Higher citation support is consistent with more explicit use of document evidence. However, the current comparison changes both quote organization and the amount of constraint information provided to the generator. The comparison therefore cannot identify which change accounts for the gain. Our evaluation covers static English manuals; cross-language questions and frequently updated documents remain untested. Separate evaluations are needed because language and document updates can change which quoted evidence supports an answer.",
+          "zh": "引用支持率提高，与更明确地使用文档证据这一解释相符。然而，当前比较同时改变了摘句的组织方式和提供给生成器的约束信息量。因此，这个比较不能判断哪项改变带来了收益。当前评价覆盖静态英语手册；跨语言问题与频繁更新的文档尚未检验。这些设置需要另行评价，因为语言与文档更新可能改变哪些摘句能够支持答案。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "is consistent with more explicit use of document evidence",
+          "zh": "与更明确地使用文档证据这一解释相符",
+          "title": "先说结果的意义",
+          "body": "consistent with 表示解释与观察相符，尚未声称已证明机制。意义仍限于来源支持。"
+        },
+        {
+          "paragraph": 0,
+          "en": "changes both quote organization and the amount of constraint information provided to the generator",
+          "zh": "同时改变了摘句的组织方式和提供给生成器的约束信息量",
+          "title": "写清替代解释",
+          "body": "两项条件同时变化，就不能只把提升归给笔记组织。局限应指出实际没区分什么。"
+        },
+        {
+          "paragraph": 0,
+          "en": "The comparison therefore cannot identify which change accounts for the gain.",
+          "zh": "因此，这个比较不能判断哪项改变带来了收益。",
+          "title": "However 之后要得出真实限制",
+          "body": "前句说明两项条件同时变化，这句限定归因范围。Therefore 接住原因，不是只在句首加一个词。"
+        },
+        {
+          "paragraph": 0,
+          "en": "cross-language questions and frequently updated documents remain untested",
+          "zh": "跨语言问题与频繁更新的文档尚未检验",
+          "title": "范围要具体",
+          "body": "语言变化和文档更新是两个尚未测的设置。写出来，比一句 limited generalizability 有用。"
+        },
+        {
+          "paragraph": 0,
+          "en": "because language and document updates can change which quoted evidence supports an answer",
+          "zh": "因为语言与文档更新可能改变哪些摘句能够支持答案",
+          "title": "未来工作说明为什么必要",
+          "body": "下一步不是随手扩大任务，而是检查证据支持关系是否仍成立。"
+        }
+      ]
+    },
+    {
+      "id": "annotated-conclusion",
+      "section": "conclusion",
+      "title": "EviNote-RAG：用贡献、证据收束结论",
+      "label": "公开预印本原文段落 · 中文为本指南翻译",
+      "processing": "摘录公开 arXiv v3 的 Conclusion 第一自然段，英文词句未改；中文翻译、高亮与旁批为本指南添加。",
+      "takeaway": "结论用最重要的设计与正文证据收束。借鉴信息分工，不照搬别人的最优表现主张。",
+      "paragraphs": [
+        {
+          "en": "We present EviNote-RAG, a framework that introduces a note-taking step to extract answer-supportive evidence before answering. By training LLMs to produce Supportive-Evidence Notes (SENs) and guiding them via a tailored entailment-based reward, our approach improves answer accuracy. Extensive experiments demonstrate that EviNote-RAG achieves state-of-the-art performance while enhancing training stability.",
+          "zh": "我们提出 EviNote-RAG，在回答前加入笔记步骤，提取能够支持答案的证据。通过训练 LLM 生成能够支持答案的证据笔记（SENs），并用专门设计的蕴含奖励引导模型，方法提高了答案准确率。大量实验表明，EviNote-RAG 达到当前最优表现，同时改善了训练稳定性。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "a framework that introduces a note-taking step to extract answer-supportive evidence before answering",
+          "zh": "在回答前加入笔记步骤，提取能够支持答案的证据",
+          "title": "先收束核心设计",
+          "body": "一句话说清新增步骤、处理对象和目的，不重新展开完整流程。"
+        },
+        {
+          "paragraph": 0,
+          "en": "By training LLMs to produce Supportive-Evidence Notes (SENs) and guiding them via a tailored entailment-based reward",
+          "zh": "通过训练 LLM 生成能够支持答案的证据笔记（SENs），并用专门设计的蕴含奖励引导模型",
+          "title": "说明设计怎样发挥作用",
+          "body": "笔记明确训练目标，奖励引导模型形成这类笔记。这里概括共同作用，不把两个设计写成未经核验的执行先后。"
+        },
+        {
+          "paragraph": 0,
+          "en": "achieves state-of-the-art performance while enhancing training stability",
+          "zh": "达到当前最优表现，同时改善了训练稳定性",
+          "title": "结尾回到已有证据",
+          "body": "原文用性能与训练稳定性收束。state-of-the-art 只对应发表时的比较；自己的论文要核对基线与条件，不能照搬这个评价。"
+        }
+      ],
+      "source": "paper_evinoterag_v3",
+      "paper_label": "EviNote-RAG · arXiv v3 公开预印本",
+      "location": "§ 5 Conclusion，第一自然段（三句）；arXiv:2509.00877v3，2025-10-16；公开 HTML #S5。"
+    },
+    {
+      "id": "annotated-references",
+      "section": "references",
+      "title": "引文段落：来源支持到哪里，话就说到哪里",
+      "label": "教学段落；方括号为来源与版本占位，不是假造文献条目。",
+      "processing": "用占位展示正文主张与真实来源的对应，不提供虚构作者、年份、题名或 DOI。",
+      "takeaway": "引用服务具体判断。书目真实、版本正确、支持关系成立，缺一项都不算核验。",
+      "paragraphs": [
+        {
+          "en": "Retrieval-augmented generation combines retrieved passages with answer generation [primary method paper]. A study evaluated only on single-turn questions cannot establish performance on changing multi-turn constraints. We use [retriever and version] [official documentation for that version] to retrieve candidate passages. The method citation supports the approach; the version-specific documentation identifies the tool actually used.",
+          "zh": "检索增强生成将检索到的段落与答案生成结合起来[原始方法论文]。只在单轮问题上评价的研究，不能证明方法能够处理多轮对话中变化的约束。我们使用[检索器与版本][该版本的官方文档]检索候选段落。方法引用说明采用哪条路线；对应版本的文档说明实际使用什么工具。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "[primary method paper]",
+          "zh": "[原始方法论文]",
+          "title": "方法回到原始来源",
+          "body": "方括号是教学占位。填写核验过的原论文，不把博客、搜索摘要或转述当原始出处。"
+        },
+        {
+          "paragraph": 0,
+          "en": "A study evaluated only on single-turn questions cannot establish performance on changing multi-turn constraints.",
+          "zh": "只在单轮问题上评价的研究，不能证明方法能够处理多轮对话中变化的约束。",
+          "title": "来源范围限制主张范围",
+          "body": "一个来源真实存在，不等于它支持你附近写的每句话。任务条件也要对应。"
+        },
+        {
+          "paragraph": 0,
+          "en": "[retriever and version] [official documentation for that version]",
+          "zh": "[检索器与版本][该版本的官方文档]",
+          "title": "名称、版本、来源对应",
+          "body": "工具或模型没有论文时，可以引用真实官方文档。不要用另一版本的报告补当前版本出处。"
+        },
+        {
+          "paragraph": 0,
+          "en": "The method citation supports the approach; the version-specific documentation identifies the tool actually used.",
+          "zh": "方法引用说明采用哪条路线；对应版本的文档说明实际使用什么工具。",
+          "title": "别混淆引用的职责",
+          "body": "方法来源与实际工具版本是两件事。引用准确后，还要核对运行记录是否采用这个版本。"
+        }
+      ]
+    },
+    {
+      "id": "annotated-appendix",
+      "section": "appendix",
+      "title": "附录：让正文的比较能被定位和复核",
+      "label": "假设教学段落，非论文原文或实测结果。",
+      "processing": "沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。",
+      "takeaway": "附录有自己的论证职责，也要写清输入、操作和证据入口。",
+      "paragraphs": [
+        {
+          "en": "To reproduce the citation-support comparison in Section [X], this appendix records the prompts, document versions, retrieval settings, and scoring rules for both systems. Each run is linked to the corresponding configuration and retains failed outputs. We select the maximum note length using development questions and freeze it before evaluating the test questions. Per-run scores and uncertainty estimates are reported in Table [Y], so the aggregate in the main text can be traced to the same runs.",
+          "zh": "为复现第[X]节的引用支持率比较，本附录记录两个系统的提示词、文档版本、检索设置与评分规则。每次运行都关联对应配置，并保留失败输出。我们用开发集问题选择笔记最大长度，在评价测试问题前冻结这个选择。表[Y]报告各次运行得分与不确定性估计，使正文的汇总结果能追溯到同一批运行。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "To reproduce the citation-support comparison in Section [X]",
+          "zh": "为复现第[X]节的引用支持率比较",
+          "title": "开头说明补什么",
+          "body": "先点名服务哪个比较，读者不必回翻猜本节用途。正文也要指向这个具体附录节。"
+        },
+        {
+          "paragraph": 0,
+          "en": "for both systems",
+          "zh": "两个系统的",
+          "title": "设置覆盖全部对照",
+          "body": "只写自己的配置，不能复现比较。共享条件与不同条件要分别交代。"
+        },
+        {
+          "paragraph": 0,
+          "en": "using development questions and freeze it before evaluating the test questions",
+          "zh": "用开发集问题选择笔记最大长度，在评价测试问题前冻结这个选择",
+          "title": "参数选择与测试分开",
+          "body": "给出选择数据和冻结时点，说明参数如何确定。不能用最终测试结果倒选参数。"
+        },
+        {
+          "paragraph": 0,
+          "en": "so the aggregate in the main text can be traced to the same runs",
+          "zh": "使正文的汇总结果能追溯到同一批运行",
+          "title": "附录与正文口径一致",
+          "body": "补充表应对应正文统计，配置、运行与失败处理不能换一套范围。"
         }
       ]
     }
@@ -9103,5 +9776,119 @@
         "intro_mark": "Product Evidence Overreach through unsupported claims and Shopping Uncertainty Collapse by treating unknown needs as settled"
       }
     ]
-  }
+  },
+  "refine_global_lead": "一篇论文围绕一个主要亮点。标题、摘要、引言、方法和实验讲同一件事；先审论证，再磨语言。模块多，不等于贡献多。",
+  "refine_section_principles": {
+    "intro": [
+      "段首加钩子：接回刚提出的问题、困难或产物，再推进一层。However 写转折，To address 写解法；对象必须接得上。",
+      "前两段可穿插、合并或拆分，但要有领域回顾与已有方法比较。回顾给局限铺路：后面批评什么，前面先说明已有方法怎样处理它。",
+      "局限要具体：问题是什么、为什么存在、阻碍了什么。必要时用简短名称，后文沿用；不只列几个困难就开始报方法。",
+      "贡献对象与动作尽早出现。expert-confirmed、manually selected、tailored 等词要对应实际工作；写清选择依据，不用“高质量”代替依据。",
+      "方法段逐点解决前面的困难，只讲设计思路；公式与实现留给 Method。图句说明图里哪个例子或对比支持这项设计。",
+      "结果段先用钩子接回研究问题，再给主要发现。贡献、术语和发现与 Abstract 对应；不逐字复述，也不把排名当作分析。"
+    ],
+    "related": [
+      "按共同任务或机制分组，解释各路线怎样工作。先承认已有能力，再比较真正相近的工作。",
+      "每个小节的末尾固定这样写：However, [现有方法在具体范围内的局限]. To address this limitation, we [对应设计及作用]. 两句紧接，不夹一句空泛总结。",
+      "However 的问题名称、对象与范围直接对齐 Intro；解决句也对齐 Intro 的方案。不同小节负责不同缺口。",
+      "不足要能回查原论文。未报告不等于没有；仅测单轮，不等于多轮一定失败。客观限定范围，不夸大缺陷。",
+      "引用按相关性选，不设篇数配额，也不因方法相似而漏引。可直接比较的近邻安排基线；设置不同就讲清差异。"
+    ],
+    "method": [
+      "铁律：为什么你的方法好，比解释清楚方法更重要。每项关键设计接回 Intro 的具体困难，再讲怎样实现。",
+      "任务定义写清实际输入、要求输出和约束；训练、推理、评价能看到的信息分开，符号随计算引入。",
+      "Overview 先讲核心思路，再按真实依赖说明各节作用、输入和产物。章节名是阅读位置，不是处理者；每个章节名与节号只出现一次，框架图对应实际操作。",
+      "模块首句用 To + 具体目的。随后解释设计依据、关键操作与必要公式，末句交代产物给谁用。",
+      "自己的设计占主要篇幅。标准编码、格式转换简写；参数、长 prompt 和部署细节放可定位的附录。",
+      "公式说明对象、单位、下标、信号来源与更新对象；并行、循环、反馈不能硬写成顺序流水线。"
+    ],
+    "experiments": [
+      "先把 Intro 的核心主张变成可检验的问题，再安排主结果、消融和必要的扩展实验。RQ 是组织工具，不必每表编号。",
+      "设置按 Metrics、Baselines、Implementation Details 分组。指标写定义、方向、分母、汇总与无效输出处理；基线按路线介绍。",
+      "对齐会改变结果的条件。写清数据版本与划分、训练和推理预算、参数选择、重复单位，以及人工或模型 judge 的核验方式。",
+      "结果段先加粗一句具体发现，再给关键对照与意义。不要逐行读表；收益、代价和负结果都要解释。",
+      "消融一次删除或替换一个因素，固定其他条件。多项一起改，只能评价整套改动，不能把收益归给其中一项。",
+      "扩展实验围绕实际主张选取；效率算端到端成本，稳定性报告重复变化。个例解释过程，不能代替总体证据。"
+    ],
+    "title": [
+      "围绕最重要的贡献写标题，让人看出研究对象、任务或关键发现。",
+      "方法名只是名字，后半句要交代实际做了什么。发现型论文直接写发现，不必包装成方法论文。",
+      "记忆点应准确、好懂。避开需要正文解释才能理解的缩写和自我评价。"
+    ],
+    "abstract": [
+      "一段讲清问题、已有不足、核心贡献、主要发现。摘要能单独读懂，长度按会议要求。",
+      "贡献对象和动作尽早出现。关键改动要回应前句的不足，不先堆流程和数量。",
+      "每句接住上句的对象，再增加信息。术语首次解释，缩写展开；通常不放引文，投稿规定优先。",
+      "结果优先保留有信息增量的发现及比较范围；不逐项报分，不机械以最大数字结尾。"
+    ],
+    "discussion": [
+      "解释结果改变了什么认识，不再复述成绩表。结论保留实际测试范围。",
+      "解释与机制分开。没有单独控制某项设计，就不能把效果全部归因于它。",
+      "局限写具体条件：哪些数据、语言、信息或预算尚未覆盖。未测试不等于已失败。",
+      "未来工作接当前局限，说明补哪项验证，不空写更多数据、更大模型。"
+    ],
+    "conclusion": [
+      "先回答引言的问题，再概括最重要的设计与发现。",
+      "只收束正文已经建立的认识，不新增结果、对照或能力。",
+      "保留关键取舍和适用范围。未来方向接实际局限，不重复整套方法流程。"
+    ],
+    "references": [
+      "引用支持附近的具体判断，先回查原文，不把搜索摘要或能编译的 BibTeX 当核验。",
+      "模型、数据、工具和外部方法在可独立阅读的章节首次实质出现时，就近引原始报告或官方文档。",
+      "条目与实际版本对应，核对题名、作者、年份和来源；同一论文的重复版本去重。",
+      "来源没测过的条件，不能用它支撑该条件下的结论。没有真实来源就缩小或删除说法。"
+    ],
+    "appendix": [
+      "先删重复，再移次要细节。核心设计、关键证据和决定结论的限制留正文。",
+      "按技术细节、实验设置、补充结果等职责分组，不把所有剩余内容堆在一起。",
+      "正文在对应主张后指向具体节、图或表；附录每节先说补什么、服务哪项主张。",
+      "设置、符号、版本和统计范围与正文一致。补充结果改变主结论，正文同步说明。"
+    ]
+  },
+  "refine_global_cases": [
+    {
+      "id": "annotated-global-flow",
+      "section": "abstract",
+      "title": "整段示例：句子怎样接，贡献怎样落到具体工作",
+      "label": "假设的文档问答任务；只演示句间承接与证据范围，不是论文原文或实测结果。",
+      "processing": "本段是原创教学示范。[support gain]、[latency cost] 与 [tested conditions] 必须由真实实验替换。",
+      "takeaway": "每句接前句的产物：摘句与位置记录→证据笔记→受控比较→收益与代价。连接词有用，前提是内容接得上。",
+      "paragraphs": [
+        {
+          "en": "To make answers traceable to source evidence, [Method] records each retrieved quote with the corresponding manual location and relevant dialogue constraints. These records form evidence notes that guide answer generation together with the current question and retained constraints. With the inputs and inference budget held fixed, we compare note-guided generation with passage-only generation. Note-guided generation improves citation support by [support gain] but adds [latency cost] under [tested conditions], revealing a trade-off between traceable answers and response time.",
+          "zh": "为让答案依据可追溯，[方法] 记录每个检索摘句、对应的手册位置与相关对话约束。这些记录构成证据笔记，与当前问题及保留的约束共同指导答案生成。在固定输入与推理预算后，我们比较笔记引导的生成与只使用片段的生成。在[实测条件]下，笔记引导的生成使引用支持率提高[提升幅度]，但增加[延迟开销]，说明答案可追溯性与响应时间存在取舍。"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "records each retrieved quote with the corresponding manual location and relevant dialogue constraints",
+          "zh": "记录每个检索摘句、对应的手册位置与相关对话约束",
+          "title": "写动作和对象",
+          "body": "记录什么，直接说出来：摘句、位置、约束。“建立可靠证据框架”没有这些信息。"
+        },
+        {
+          "paragraph": 0,
+          "en": "These records form evidence notes",
+          "zh": "这些记录构成证据笔记",
+          "title": "钩子接产物",
+          "body": "These records 接前句的三类记录，再说明产物是证据笔记。不是突然换个模块。"
+        },
+        {
+          "paragraph": 0,
+          "en": "With the inputs and inference budget held fixed",
+          "zh": "在固定输入与推理预算后",
+          "title": "比较条件写在近处",
+          "body": "说明固定什么，后面的差别才可解释；只写“公平比较”不够。"
+        },
+        {
+          "paragraph": 0,
+          "en": "improves citation support by [support gain] but adds [latency cost] under [tested conditions]",
+          "zh": "使引用支持率提高[提升幅度]，但增加[延迟开销]",
+          "title": "发现保留收益、代价与范围",
+          "body": "引用支持率、延迟是两项不同结果。报告已测条件下的取舍，不一句话扩大成“全面提升问答性能”。"
+        }
+      ]
+    }
+  ]
 }
