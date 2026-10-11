@@ -26,7 +26,7 @@
 <a id="quick-start"></a>
 ## 1. 初稿准备
 
-整理材料，先做关键图，再组织正文与实验。用中文审核逻辑后，精修英文。
+准备材料后，先到[论文绘图](#figure-mainfig)完成 mainfig 和 framework，再组织正文与实验。
 
 <a id="draft-step-1"></a>
 ### 1.1 研究材料与模板
@@ -61,49 +61,8 @@ Intro 结构：前两个自然段可调整顺序和分工，交代领域背景�
 
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#draft)
 
-<a id="draft-step-2"></a>
-### 1.2 关键图绘制
-
-先完成关键图，供合作者审核研究思路。mainfig 用一个问题或发现说明研究价值；framework 展示真实流程，每步写清输入、操作、输出，箭头连到实际接收者，仅供评价的规则不进入被测模型。结果图从真实数据绘制，轴、单位、比较条件和误差含义齐全。全篇名称、配色和字体统一；按最终栏宽设计，图内字控制在正文减 2 pt 至正文之间，放不下就重排。编译后按正常阅读大小检查，不用放大的截图验收。
-
-<a id="visual-lost-middle-fig-1"></a>
-#### 单栏首图：研究动机
-
-![单栏首图：研究动机](../assets/paper-lost-middle-fig-1.png)
-
-这张单栏图只问一件事：答案所在文档的位置，会不会影响问答准确率？横轴是答案文档在 20 篇输入文档中的位置，纵轴是 GPT-3.5-Turbo 的准确率。紫线是带文档问答，红虚线是同一模型不读文档时的准确率。中间位置更低，开头和结尾更高；读者先记住这个发现，再去正文看实验。
-
-1. **横轴与纵轴：**横轴是答案文档在20篇输入文档中的位置，纵轴是问答准确率；两个量足以提出一个研究问题。
-
-2. **紫线与红虚线：**紫线显示带文档问答，红虚线给出同一模型的无文档基准；对照说明中间位置的低谷为什么值得研究。
-
-3. **图例与结论范围：**图例写明模型和条件。结论限于该模型与20文档设置；纵轴未从零开始，不能按曲线高度比较倍数。
-
-[Liu et al. · Lost in the Middle (TACL 2024), Fig. 1, p. 158 / PDF p. 2](https://aclanthology.org/2024.tacl-1.9/)
-
-Nelson F. Liu et al., Lost in the Middle: How Language Models Use Long Contexts, TACL 12 (2024), Fig. 1, p. 158. CC BY 4.0. 从正式 PDF 提取图面；图形、坐标、文字和图例未改。
-
-<a id="visual-interactcs-fig-1"></a>
-#### 框架层级与模块编号
-
-![框架层级与模块编号](../assets/paper-interactcs-fig-1.png)
-
-先分交互生成和策略优化两块，再编号结果、过程、成本三种信号；旁边的对话走一遍流程。
-
-1. **左侧输入分组：**用户特征、外部需求与业务场景先分组，读者知道交互由什么输入产生。
-
-2. **中间对话：**一个对话实例沿流程展开，连接抽象模块与实际交互；自己的案例须先处理身份信息。
-
-3. **右侧编号模块：**结果、过程、成本三种信号分别编号。分组讲职责，箭头讲信息流，编号讲处理步骤。
-
-4. **右上评分输出：**Task Score、Turn Credit和Global Cost并排显示，输入、回复与评分信号各有位置，避免混成一类。
-
-[Reinforcing Real-world Service Agents: Balancing Utility and Cost in Task-oriented Dialogue · arXiv:2602.22697v1, Fig. 1, PDF p. 4](https://arxiv.org/abs/2602.22697v1)
-
-Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。
-
 <a id="draft-step-3"></a>
-### 1.3 正文结构与实验
+### 1.2 正文结构与实验
 
 - 先列全部章节标题、每节目的、所需图表及预计篇幅；按任务归类同级内容。
 - Method 按实际依赖组织。Overview 概括完整流程，各小节写清输入、操作、输出和交接。
@@ -244,10 +203,95 @@ Intro 结构：前两个自然段可调整顺序和分工，交代领域背景�
 <a id="figures"></a>
 ## 2. 论文绘图
 
-按图的任务选择结构，结合原图理解绘图规范。
+先完成 mainfig 和 framework，供合作者审阅，再人工精修内容、布局和标注。统计图用 Python 从真实数据生成，并按规范检查。
+
+<a id="figure-mainfig"></a>
+### 2.1 Mainfig：研究动机与贡献
+
+- 画清具体问题、已有方法的局限和本文的改动；用必要对照或关键观察突出贡献。
+- 主线通常不超过 5 个环节，保留理解贡献所需的输入、输出和例子。
+- 人工检查读图顺序与重点；按最终栏宽排版，图内字号为正文减 2 pt 至正文，放不下就重排。
+
+<a id="visual-lost-middle-fig-1"></a>
+#### 单栏首图：研究动机
+
+![单栏首图：研究动机](../assets/paper-lost-middle-fig-1.png)
+
+这张单栏图只问一件事：答案所在文档的位置，会不会影响问答准确率？横轴是答案文档在 20 篇输入文档中的位置，纵轴是 GPT-3.5-Turbo 的准确率。紫线是带文档问答，红虚线是同一模型不读文档时的准确率。中间位置更低，开头和结尾更高；读者先记住这个发现，再去正文看实验。
+
+1. **横轴与纵轴：**横轴是答案文档在20篇输入文档中的位置，纵轴是问答准确率；两个量足以提出一个研究问题。
+
+2. **紫线与红虚线：**紫线显示带文档问答，红虚线给出同一模型的无文档基准；对照说明中间位置的低谷为什么值得研究。
+
+3. **图例与结论范围：**图例写明模型和条件。结论限于该模型与20文档设置；纵轴未从零开始，不能按曲线高度比较倍数。
+
+[Liu et al. · Lost in the Middle (TACL 2024), Fig. 1, p. 158 / PDF p. 2](https://aclanthology.org/2024.tacl-1.9/)
+
+Nelson F. Liu et al., Lost in the Middle: How Language Models Use Long Contexts, TACL 12 (2024), Fig. 1, p. 158. CC BY 4.0. 从正式 PDF 提取图面；图形、坐标、文字和图例未改。
+
+<a id="visual-tcod-fig-1"></a>
+#### 问题与解法对照
+
+![问题与解法对照](../assets/paper-tcod-fig-1.png)
+
+左边画误差随轮次的示意，中间放大回复细节，右边对照三种训练范围；先看到问题，再看到改哪一步。
+
+1. **左侧问题：**KL随轮次变化的示意先提出问题；这是示意曲线，不能当作实测结果。
+
+2. **中间回复细节：**从完整轨迹放大到两轮回复，文本与数值块放在一起；数值含义须由原图注定义。
+
+3. **右侧训练范围：**三条时间线沿同一方向对照训练范围，读者直接看到改了哪一段；未计算的轮次要解释原因。
+
+[TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 1, PDF p. 2](https://arxiv.org/abs/2604.24005v3)
+
+Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。
+
+<a id="figure-framework"></a>
+### 2.2 Framework：方法流程与设计作用
+
+- 先说明设计怎样应对 Intro 的局限，再画真实流程；模块名称与 Method Overview 一致。
+- 每步写清输入、操作、输出和接收者，区分先后、并行、汇合与反馈。
+- 用一个可追踪的案例贯穿流程；输入、输出和评价信息分别标记，仅供评价的判据不能画成模型输入。
+- 人工核对连线、标签与层级，再精修布局和配色；箭头起止明确，不穿文字，同一对象全篇同色。
+
+<a id="visual-interactcs-fig-1"></a>
+#### 框架层级与模块编号
+
+![框架层级与模块编号](../assets/paper-interactcs-fig-1.png)
+
+先分交互生成和策略优化两块，再编号结果、过程、成本三种信号；旁边的对话走一遍流程。
+
+1. **左侧输入分组：**用户特征、外部需求与业务场景先分组，读者知道交互由什么输入产生。
+
+2. **中间对话：**一个对话实例沿流程展开，连接抽象模块与实际交互；自己的案例须先处理身份信息。
+
+3. **右侧编号模块：**结果、过程、成本三种信号分别编号。分组讲职责，箭头讲信息流，编号讲处理步骤。
+
+4. **右上评分输出：**Task Score、Turn Credit和Global Cost并排显示，输入、回复与评分信号各有位置，避免混成一类。
+
+[Reinforcing Real-world Service Agents: Balancing Utility and Cost in Task-oriented Dialogue · arXiv:2602.22697v1, Fig. 1, PDF p. 4](https://arxiv.org/abs/2602.22697v1)
+
+Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。
+
+<a id="visual-tcod-fig-3"></a>
+#### 训练范围对照
+
+![训练范围对照](../assets/paper-tcod-fig-3.png)
+
+基线和两种课程共用步骤框与师生图标，再沿轮数展开；读者直接看训练覆盖哪一段，不必重读三套流程。
+
+1. **左侧基线：**先展示完整轨迹与师生关系，为后面两种课程提供共同参照。
+
+2. **中间与右侧：**两种课程复用步骤框、师生图标和箭头，只改变训练覆盖位置，便于直接比较。
+
+3. **轮数与颜色：**沿轮数向下读课程变化。步骤颜色、轮数标签和训练目标仍须在图注中定义，图标不能替代解释。
+
+[TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 3, PDF p. 5](https://arxiv.org/abs/2604.24005v3)
+
+Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 3. CC BY 4.0. 从原页裁切；图形与数据未改。
 
 <a id="figure-skill"></a>
-### 2.1 绘图准备
+### 2.3 绘图准备
 
 [下载绘图 skill](../assets/paperbank-figures-skill.zip)
 
@@ -281,7 +325,7 @@ Intro 结构：前两个自然段可调整顺序和分工，交代领域背景�
 依据：paper-visual-standards · academic-plotting · clean-flow-figures · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-figures/references/prompts.md#figures)
 
 <a id="figure-rules"></a>
-### 2.2 绘图规范
+### 2.4 绘图规范
 
 - **每图明确一个主要任务：**mainfig 展示研究动机与观察，framework 说明设计如何对应问题，结果图提供验证证据。每图明确一个主要任务。
 
@@ -376,15 +420,7 @@ Intro 结构：前两个自然段可调整顺序和分工，交代领域背景�
 [图例与批注：KDE 密度分布](#teaching-kde)
 
 <a id="figure-types"></a>
-### 2.3 图型选择
-
-- **摘要图：**方法型画问题、旧做法和本文改动；发现型展示一个关键观察。通常最多 5 个环节，保留必要对照。
-
-[图例与批注：单栏首图：研究动机](#visual-lost-middle-fig-1)
-
-- **框架图：**输入是什么，经过哪几个模块，每步产物交给谁，输出是什么。旁边走一个可追踪例子。
-
-[图例与批注：框架层级与模块编号](#visual-interactcs-fig-1)
+### 2.5 统计图与案例图
 
 - **案例图：**“不同highlight颜色表示不同类型的信息” 白底保留必要背景、需求、证据、动作与结果；输入、模型输出、judge 用可解释边框，位置表示真实层级。
 
@@ -444,45 +480,9 @@ Intro 结构：前两个自然段可调整顺序和分工，交代领域背景�
 
 <a id="notion-gallery"></a>
 <a id="figure-gallery"></a>
-### 2.4 图例与说明
+### 2.6 图例与说明
 
-首图与框架图的入门案例见 [1.2 关键图绘制](#draft-step-2)。
-
-#### 动机与框架
-
-<a id="visual-tcod-fig-1"></a>
-#### 问题与解法对照
-
-![问题与解法对照](../assets/paper-tcod-fig-1.png)
-
-左边画误差随轮次的示意，中间放大回复细节，右边对照三种训练范围；先看到问题，再看到改哪一步。
-
-1. **左侧问题：**KL随轮次变化的示意先提出问题；这是示意曲线，不能当作实测结果。
-
-2. **中间回复细节：**从完整轨迹放大到两轮回复，文本与数值块放在一起；数值含义须由原图注定义。
-
-3. **右侧训练范围：**三条时间线沿同一方向对照训练范围，读者直接看到改了哪一段；未计算的轮次要解释原因。
-
-[TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 1, PDF p. 2](https://arxiv.org/abs/2604.24005v3)
-
-Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。
-
-<a id="visual-tcod-fig-3"></a>
-#### 训练范围对照
-
-![训练范围对照](../assets/paper-tcod-fig-3.png)
-
-基线和两种课程共用步骤框与师生图标，再沿轮数展开；读者直接看训练覆盖哪一段，不必重读三套流程。
-
-1. **左侧基线：**先展示完整轨迹与师生关系，为后面两种课程提供共同参照。
-
-2. **中间与右侧：**两种课程复用步骤框、师生图标和箭头，只改变训练覆盖位置，便于直接比较。
-
-3. **轮数与颜色：**沿轮数向下读课程变化。步骤颜色、轮数标签和训练目标仍须在图注中定义，图标不能替代解释。
-
-[TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 3, PDF p. 5](https://arxiv.org/abs/2604.24005v3)
-
-Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 3. CC BY 4.0. 从原页裁切；图形与数据未改。
+按图的任务整理统计图与案例图。
 
 #### 诊断与训练动态
 
@@ -804,7 +804,7 @@ PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 <a id="figure-references"></a>
-### 2.5 补充参考
+### 2.7 补充参考
 
 [15-minute cities 图 1：地图、分布、多维散点](https://arxiv.org/html/2408.03794v1#S2.F1)：地图定位差异，累计分布看人口覆盖，散点把城市放到同一坐标系。横轴是人口加权平均邻近时间，纵轴是 15 分钟覆盖人口比例；颜色是 Gini，圆大小是人口密度。位置、颜色、大小各讲一件事。灰区是受概率约束的不可达组合，不是“平均不到 15 分钟就人人可达”。
 

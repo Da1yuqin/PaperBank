@@ -12,9 +12,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 REPO = 'https://github.com/Da1yuqin/PaperBank'
 FIGURE_SECTIONS = [
+ ('figure-mainfig','Mainfig：研究动机与贡献'),
+ ('figure-framework','Framework：方法流程与设计作用'),
  ('figure-skill','绘图准备'),
  ('figure-rules','绘图规范'),
- ('figure-types','图型选择'),
+ ('figure-types','统计图与案例图'),
  ('notion-gallery','图例与说明'),
  ('figure-references','补充参考'),
 ]
@@ -288,12 +290,12 @@ def render_paper_outline(content):
 
 def render_draft_chapter(data):
  e=html.escape;q=data['quick_start'];layout=data['tutorial_layout']
- rendered='<section class="quick-start major-chapter" id="quick-start"><h2>1. 初稿准备</h2><p>整理材料，先做关键图，再组织正文与实验。用中文审核逻辑后，精修英文。</p>'
- md=['','<a id="quick-start"></a>','## 1. 初稿准备','','整理材料，先做关键图，再组织正文与实验。用中文审核逻辑后，精修英文。']
+ rendered='<section class="quick-start major-chapter" id="quick-start"><h2>1. 初稿准备</h2><p>准备材料后，先到<a href="#figure-mainfig">论文绘图</a>完成 mainfig 和 framework，再组织正文与实验。</p>'
+ md=['','<a id="quick-start"></a>','## 1. 初稿准备','','准备材料后，先到[论文绘图](#figure-mainfig)完成 mainfig 和 framework，再组织正文与实验。']
  for n,step in enumerate(layout['draft_steps'],1):
   rendered+=f'<section class="draft-step" id="{step["id"]}"><h3>{e(step["title"])}</h3>'
   md+=['',f'<a id="{step["id"]}"></a>','### '+step['title']]
-  if n==3:
+  if step['id']=='draft-step-3':
    rendered+='<ul class="draft-requirements">'+''.join(f'<li>{e(rule)}</li>' for rule in layout['outline_example']['requirements'])+'</ul>'
    md+=['']+['- '+rule for rule in layout['outline_example']['requirements']]
    ph,pm=render_paper_outline(layout['outline_example']);rendered+=ph;md+=pm
@@ -304,13 +306,7 @@ def render_draft_chapter(data):
    rendered+=f'<p class="skill-links"><a href="{data["writing_skill"]["download"]}" download>下载写作 skill</a> · <a href="#writing-skill">安装与用法</a></p>'
    ph,pm=render_codex_prompt(data,q['prompt_ref'],'填写研究材料，生成初稿');rendered+=ph;md+=pm
    rendered+='<p class="example-source">'+' · '.join(f'<a href="{e(s["url"])}">{e(s["title"])}</a>' for s in q['sources'][:2])+'</p>'
-  if n==2:
-   for block in q['steps'][1]['blocks']:
-    if not block.get('figure_reference'):continue
-    v=next(v for v in data['figure_chapter']['visual_examples'] if v['id']==block['figure_reference'])
-    ph,pm=render_figure_case(v,layout.get('figure_notes',{}).get(v['id']));rendered+=ph;md+=pm
-   rendered+='<p><a href="#figure-rules">绘图规范</a> · <a href="#notion-gallery">更多图例与说明</a></p>'
-  if n==3:
+  if step['id']=='draft-step-3':
    block=next(b for b in q['steps'][2]['blocks'] if b.get('table'));t=block['table']
    rendered+='<div class="draft-table-wrap"><table class="draft-table"><caption>'+e(t['caption'])+'</caption><thead><tr>'+''.join(f'<th scope="col">{e(h)}</th>' for h in t['headers'])+'</tr></thead><tbody>'
    md+=['',t['caption'],'','| '+' | '.join(t['headers'])+' |','| --- | --- | --- |']
@@ -332,25 +328,36 @@ def render_figures(data):
  e=html.escape;f=data['figure_chapter'];layout=data['tutorial_layout']
  titles={key:f'2.{n} '+title for n,(key,title) in enumerate(FIGURE_SECTIONS,1)}
  visuals={v['id']:v for v in f['visual_examples']}
- rendered='<section class="major-chapter figure-chapter" id="figures"><h2>2. 论文绘图</h2><p>按图的任务选择结构，结合原图理解绘图规范。</p>'
- md=['','<a id="figures"></a>','## 2. 论文绘图','','按图的任务选择结构，结合原图理解绘图规范。']
+ opening=layout['figure_opening']
+ def figure(v):
+  if v.get('existing'):
+   gallery=next(g for g in f['gallery'] if g['figure_id']==v['id']);item=next(i for i in data['items'] if i['id']==gallery['item']);ex=item['examples'][gallery['example_index']]
+   v=dict(v,zh=ex.get('caption_zh',ex.get('caption','')),analysis_zh=ex['analysis_zh'],license=ex['license'],source_url=data['references'][ex['provenance']['reference']]['url'],source_title=data['references'][ex['provenance']['reference']]['title'])
+  return render_figure_case(v,layout.get('figure_notes',{}).get(v['id']))
+ rendered='<section class="major-chapter figure-chapter" id="figures"><h2>2. 论文绘图</h2><p>'+e(opening['lead'])+'</p>'
+ md=['','<a id="figures"></a>','## 2. 论文绘图','',opening['lead']]
+ for part in opening['parts']:
+  rendered+=f'<section id="{e(part["id"])}"><h3>{e(titles[part["id"]])}</h3><ul class="template-rules">'+''.join(f'<li>{e(rule)}</li>' for rule in part['rules'])+'</ul>'
+  md+=['','<a id="'+part['id']+'"></a>','### '+titles[part['id']],'']+['- '+rule for rule in part['rules']]
+  for key in part['visuals']:
+   ph,pm=figure(visuals[key]);rendered+=ph;md+=pm
+  rendered+='</section>'
  rendered+=f'<section id="figure-skill"><h3>{titles["figure-skill"]}</h3><p><a href="{e(f["skill"]["download"])}" download>下载绘图 skill</a> · <a href="{REPO}/blob/main/{e(f["skill"]["source"])}">SKILL.md</a></p><p>{e(f["scope_note"])}</p>'
  md+=['','<a id="figure-skill"></a>','### '+titles['figure-skill'],'',f'[下载绘图 skill](../{f["skill"]["download"]})','',f['scope_note']]
  ph,pm=render_codex_prompt(data,f['prompt_ref'],'填写绘图任务与数据');rendered+=ph+'</section>';md+=pm
  for key,field in [('figure-rules','rules'),('figure-types','types')]:
   rendered+=f'<h3 id="{key}">{titles[key]}</h3>'
-  rh,rm=render_short_rules(f[field],visuals,compact=True);rendered+=rh;md+=['','<a id="'+key+'"></a>','### '+titles[key]]+rm
- rendered+=f'<h3 id="notion-gallery">{titles["notion-gallery"]}</h3><p>首图与框架图见 <a href="#draft-step-2">1.2 关键图绘制</a>。下面按图的任务整理其余图例。</p><span id="figure-gallery"></span>'
- md+=['','<a id="notion-gallery"></a>','<a id="figure-gallery"></a>','### '+titles['notion-gallery'],'','首图与框架图的入门案例见 [1.2 关键图绘制](#draft-step-2)。']
- shown={b['figure_reference'] for b in data['quick_start']['steps'][1]['blocks'] if b.get('figure_reference')}
+  rules=f[field][2:] if field=='types' else f[field]
+  rh,rm=render_short_rules(rules,visuals,compact=True);rendered+=rh;md+=['','<a id="'+key+'"></a>','### '+titles[key]]+rm
+ rendered+=f'<h3 id="notion-gallery">{titles["notion-gallery"]}</h3><p>按图的任务整理统计图与案例图。</p><span id="figure-gallery"></span>'
+ md+=['','<a id="notion-gallery"></a>','<a id="figure-gallery"></a>','### '+titles['notion-gallery'],'','按图的任务整理统计图与案例图。']
+ shown={key for part in opening['parts'] for key in part['visuals']}
  for topic in dict.fromkeys(v['topic'] for v in visuals.values()):
   group=[v for v in visuals.values() if v['topic']==topic and v['id'] not in shown]
+  if not group:continue
   rendered+=f'<section class="figure-topic"><p class="figure-topic-label"><strong>{e(topic)}</strong></p>';md+=['','#### '+topic]
   for v in group:
-   if v.get('existing'):
-    gallery=next(g for g in f['gallery'] if g['figure_id']==v['id']);item=next(i for i in data['items'] if i['id']==gallery['item']);ex=item['examples'][gallery['example_index']]
-    v=dict(v,zh=ex.get('caption_zh',ex.get('caption','')),analysis_zh=ex['analysis_zh'],license=ex['license'],source_url=data['references'][ex['provenance']['reference']]['url'],source_title=data['references'][ex['provenance']['reference']]['title'])
-   ph,pm=render_figure_case(v,layout.get('figure_notes',{}).get(v['id']));rendered+=ph;md+=pm
+   ph,pm=figure(v);rendered+=ph;md+=pm
   rendered+='</section>'
  rendered+=f'<h3 id="figure-references">{titles["figure-references"]}</h3><details class="figure-source-links"><summary>补充图页与点评</summary>';md+=['','<a id="figure-references"></a>','### '+titles['figure-references']]
  for n,link in enumerate(f['links'],1):
@@ -651,8 +658,6 @@ def build():
  source_data=json.loads((ROOT/'data/guide.json').read_text(encoding='utf-8'))
  data=deepcopy(source_data)
  data['_tutorial_layout']=True
- data['quick_start']['steps']=data['quick_start']['steps'][:len(data['tutorial_layout']['draft_steps'])]
- for old,new in zip(data['quick_start']['steps'],data['tutorial_layout']['draft_steps']):old['title_zh']=new['title']
  for section,rules in data['tutorial_layout']['section_additions'].items():
   data['refine_section_principles'][section]+=rules
  for section in data['sections']:
@@ -683,7 +688,7 @@ def build():
  figures,figures_md=render_figures(data)
  opening,opening_md=render_opening(data)
  skill,skill_md=render_skill(data)
- draft_nav=''.join(f'<a href="#{e(s["id"])}">{e(s["title_zh"])}</a>' for s in data['quick_start']['steps'])
+ draft_nav=''.join(f'<a href="#{e(s["id"])}">{e(s["title"])}</a>' for s in data['tutorial_layout']['draft_steps'])
  figure_nav=''.join(f'<a href="#{key}">2.{n} {e(title)}</a>' for n,(key,title) in enumerate(FIGURE_SECTIONS,1))
  rebuttal_nav=''.join(f'<a href="#{e(p["id"])}">{e(p["title"])}</a>' for p in data['refine_templates'] if p['section']=='rebuttal')
  tools_nav=''.join(f'<a href="#tools-{e(g["id"])}">5.{n} {e(g["title"])}</a>' for n,g in enumerate(data['tools'],1))
