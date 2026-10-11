@@ -69,7 +69,7 @@ Contribution-list hard rule: use native itemize with three items: overview, chal
 
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill。
 
-对应规则：新贡献、具体对象与证据边界；句间承接与最新短句要求；Related Work 主题缺口与 Overview 章节定位；实验结论优先；【铁律】摘要按背景、limitation、解法与实验亮点组织，解法用 For [具体 limitation], we ...；引言方法总述用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].，逐点解法用 To solve [同名 limitation], we ...。挑战名须直接显示困难。每次修改后回读摘要与引言，核对对象、术语、数字、范围与因果方向。；【铁律】贡献固定三项，第二项逐个 For [挑战], we [解法]；清楚代词保留，行长按本稿版式检查。。
+对应规则：新贡献、具体对象与证据边界；句间承接与最新短句要求；Related Work 主题缺口与 Overview 章节定位；实验结论优先；【铁律】摘要按背景、limitation、解法与实验亮点组织，解法用 For [具体 limitation], we ...；引言方法总述用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].，逐点解法用 To solve [同名 limitation], we ...。挑战名须直接显示困难。每次修改后回读摘要与引言，核对对象、术语、数字、范围与因果方向。；【铁律】贡献固定三项，第二项逐个 For [挑战], we [解法]；清楚代词保留，行长按本稿版式检查。；【铁律】充分利用长文正文页数；优先保留实验结论和关键条件，不改模板凑页。。
 
 ### 中文
 
@@ -91,6 +91,8 @@ Intro 结构：前两个自然段可调整顺序和分工，交代领域背景�
 
 【铁律】摘要按背景、limitation、解法与实验亮点组织，解法用 For [具体 limitation], we ...；引言方法总述用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].，逐点解法用 To solve [同名 limitation], we ...。挑战名须直接显示困难。每次修改后回读摘要与引言，核对对象、术语、数字、范围与因果方向。
 贡献列表【铁律】：固定三项：工作概述、挑战与对应解法、实验发现。第二项每个挑战用 For [挑战], we [解法]，是引言 To solve 的明确例外；不编造贡献。
+篇幅【铁律】：长文按目标会议正文上限规划，写满有效内容；不足先补必要证据和分析，不注水。实验页保留可见结果与就近解释。超页先删重复、无关背景及常规实现，保留实验结论和必要条件；按最终 PDF 核查计页与官方模板。
+篇幅利用与实验页呈现是本教程针对实证型 CS 长文的经验，不是会议规定的最低页数。
 ```
 
 ### English
@@ -113,6 +115,8 @@ Introduction structure: Adapt the order and division of the first two paragraphs
 
 Hard rules: retain background, a specific limitation, corresponding design, and experimental findings in the Abstract. Name each limitation with "For [specific limitation], we ..." in the Abstract and "To solve [the same limitation], we ..." in the Introduction. Start the Introduction method paragraph with "Therefore, to address these obstacles, we introduce [name], a [core feature and purpose]." Name challenges as concrete difficulties. Re-read both sections after either changes and align objects, terminology, numbers, scope, and causal direction.
 Contribution-list hard rule: use exactly three items: overview, challenge-specific solutions, and experimental findings. In item two, use For [challenge], we [solution] for each actual challenge, as an explicit exception to Introduction To solve hooks. Invent no contribution.
+Page-budget rule: For a full paper, plan substantive content around the venue’s main-text page limit. Use available space for necessary evidence and analysis, not padding. Keep results and their explanations visible on experiment pages. If over length, remove repetition, irrelevant background, and standard implementation details before cutting findings or necessary conditions. Check the final PDF against the current page-count and template rules.
+Page use and experiment-page presentation are author recommendations for empirical CS full papers, not venue-mandated minimum lengths.
 ```
 
 <a id="experiments"></a>

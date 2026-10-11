@@ -30,11 +30,12 @@ description: Draft and refine empirical CS conference papers with section templa
 
 ## 最新写作铁律
 
-- 【铁律】摘要保留背景、具体 limitation、对应方法与亮点、实验亮点。摘要解法用 `For [具体 limitation], we ...`，引言解法用 `To solve [同名 limitation], we ...`；贡献列表第 2 项用 `For`，是明确例外。
+- 【铁律】长文写满有效篇幅。明显偏短容易让人觉得实验和分析不足；先补必要证据，不注水。实验页保留实际结果与就近解释；超页先删重复和无关背景，再压缩 Related Work 与常规方法介绍，保留实验结论和必要条件。官方计页与模板要求优先，短文另按要求。
+- 【铁律】摘要一个自然段，保留背景、具体 limitation、对应方法与亮点、实验亮点。摘要解法用 `For [具体 limitation], we ...`，引言解法用 `To solve [同名 limitation], we ...`；贡献列表第 2 项用 `For`，是明确例外。
 - 【铁律】引言方法介绍段首用 `Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].`，总述后仍须逐点给解法。
 - 【铁律】挑战名称直接显示困难；贡献句突出新增对象、动作及相对最接近工作的实际区别。
 - 【铁律】改动摘要或引言后回读另一节，持续对齐问题、设计、命名、数字、范围与因果方向；不逐字照抄。
-- 【铁律】每个 Related Work 主题小节都用 `However, [具体不足].` 接 `To solve / To address [实际改进].` 收尾，与引言对应。原生 section / subsection 的主题标题独占一行，在最终 PDF 最多一行。
+- 【铁律】每个 Related Work 主题小节都用 `However, [具体不足].` 接本文的实际改进及其能力或用途收尾，与引言对应；预期作用与已验证效果分开。原生 section / subsection 的主题标题独占一行，在最终 PDF 最多一行。
 - 【铁律】Method overview 按真实输入输出衔接；章节名只作定位，每个名称与引用一次，末句对应 framework。模块首句用 `To [具体目的], [实际主语] ...`。
 - 【铁律】引言只引用属于本节的图表，不提前指向后文图表、公式、章节或写“见后文”；正式命名对象在引言每次出现用斜体，同一对象全节最多一次强调性加粗。
 - 【铁律】贡献总结用普通正文 `In summary, our contributions are:`，接原生 itemize，固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个用 `For [挑战], we [解法]`，不造贡献凑数；列表后直接下一节。
@@ -67,6 +68,8 @@ description: Draft and refine empirical CS conference papers with section templa
 - **References / Appendix**：引用回查原文；实现与补充实验放附录，正文给入口。
 
 模板按实际内容增删。标为【铁律】的要求按本套 CS 写作约定执行；论文类型与当轮官方要求决定适用范围。
+
+各章的完整铁律见 [checklist.md](references/checklist.md)：先查全文篇幅、逻辑、语言与证据，再查当前章节的特殊要求。篇幅利用与实验页呈现来自作者的写作经验，不是会议规定的最低页数或固定扣分标准。
 
 ## 讲解例子
 

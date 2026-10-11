@@ -7355,6 +7355,46 @@
   ],
   "refine_standards": [
     {
+      "id": "standard-page-budget",
+      "section": "revision",
+      "group": "layout",
+      "title": "【铁律】写满有效篇幅",
+      "purpose": "长文按目标会议正文上限写满有效内容。明显偏短容易让人觉得实验和分析不足，影响对工作完整性的判断；先补必要证据与解释，不注水。短文按对应要求。",
+      "scope": "作者针对实证型 CS 长文的写作与排版经验；当轮会议要求优先。"
+    },
+    {
+      "id": "standard-experiment-pages",
+      "section": "revision",
+      "group": "layout",
+      "title": "【铁律】实验页有可见证据",
+      "purpose": "正文末几页用于实验时，每页应有实际结果、分析图或对照表，与解释就近排。核心证据别全移附录，也不为凑页拆成零碎实验。",
+      "scope": "作者针对实证型 CS 长文的写作与排版经验；当轮会议要求优先。"
+    },
+    {
+      "id": "standard-trimming-order",
+      "section": "revision",
+      "group": "layout",
+      "title": "【铁律】超页先删次要内容",
+      "purpose": "先删重复和无关背景，再压缩 Related Work 与常规方法介绍。保留实验结论、关键条件和比较；删到只剩分数，贡献就失去论证。",
+      "scope": "作者针对实证型 CS 长文的写作与排版经验；当轮会议要求优先。"
+    },
+    {
+      "id": "standard-venue-layout",
+      "section": "revision",
+      "group": "layout",
+      "title": "【铁律】保持官方模板",
+      "purpose": "按当轮规则分别核查正文、参考文献与附录的页数，不改字号、行距、字距或页边距凑页。最终看 PDF，源码长度不能代替版面检查。",
+      "scope": "作者针对实证型 CS 长文的写作与排版经验；当轮会议要求优先。"
+    },
+    {
+      "id": "standard-visual-alignment",
+      "section": "revision",
+      "group": "layout",
+      "title": "【铁律】图表与正文一致",
+      "purpose": "同一对象的名称、符号、单位、数值和范围对齐；图表就近引用，caption 解释读法。改图或改表后回查正文，避免留下两个版本。",
+      "scope": "作者针对实证型 CS 长文的写作与排版经验；当轮会议要求优先。"
+    },
+    {
       "id": "standard-contribution",
       "section": "revision",
       "group": "logic",
@@ -7423,7 +7463,7 @@
       "section": "revision",
       "group": "language",
       "title": "【铁律】正文写完整句子",
-      "purpose": "加号、箭头不能代替文字关系；公式、代码和图中照常使用。",
+      "purpose": "正文用完整句子表达关系，不用加号、斜杠、与号或箭头代替文字；英文不用破折号插入解释，复合词连字符、数学、单位和图连线保留。",
       "scope": "通用表达要求",
       "label": "教学改写：假设已有对应设计或比较，非论文原文与实测结果。",
       "before_en": "Notes + constraints → better answers.",
@@ -7527,8 +7567,8 @@
       "id": "standard-named-findings",
       "section": "revision",
       "group": "terms",
-      "title": "发现可取短名",
-      "purpose": "短名后立即解释具体发现；优先四个英文词以内。",
+      "title": "【铁律】命名发现立即解释",
+      "purpose": "需要命名时，短名后立即解释现象，全文沿用同一定义，优先四个英文词以内。名称帮助记忆，不能代替证据。",
       "scope": "PaperBank 命名与粗斜体偏好；标签须对应真实发现",
       "label": "教学改写：假设已有对应设计或比较，非论文原文与实测结果。",
       "before_en": "We identify a Citation Support Gap.",
@@ -7592,7 +7632,7 @@
       "section": "revision",
       "group": "logic",
       "title": "【铁律】章节按流程衔接",
-      "purpose": "开头说明输入，结尾说明输出及其在下一步的用途。",
+      "purpose": "章首接回具体问题，说明本章任务；确有上下游关系时交代产物给谁用。不编串行依赖，不追加无用目录预告；Conclusion 直接收束。",
       "scope": "通用表达要求",
       "label": "教学改写：假设已有对应设计或比较，非论文原文与实测结果。",
       "before_en": "Next, we introduce the next module.",
@@ -7678,8 +7718,8 @@
       "id": "standard-results",
       "section": "revision",
       "group": "evidence",
-      "title": "首句写发现",
-      "purpose": "随后给图表、关键比较和意义，不复述表头。",
+      "title": "【铁律】结果首句写发现",
+      "purpose": "结果段首句给有依据的发现，随后给图表、关键比较和意义；先读完一段设置才找到结论，会增加阅读负担。",
       "scope": "通用表达要求",
       "label": "教学改写：假设已有对应设计或比较，非论文原文与实测结果。",
       "before_en": "Table 1 shows the scores of all methods.",
@@ -7722,6 +7762,10 @@
     }
   ],
   "refine_standard_groups": [
+    {
+      "id": "layout",
+      "title": "篇幅与版面：充分呈现证据"
+    },
     {
       "id": "logic",
       "title": "逻辑：句子承接与对象一致"
@@ -7802,11 +7846,12 @@
         "Related Work 主题缺口与 Overview 章节定位",
         "实验结论优先",
         "【铁律】摘要按背景、limitation、解法与实验亮点组织，解法用 For [具体 limitation], we ...；引言方法总述用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].，逐点解法用 To solve [同名 limitation], we ...。挑战名须直接显示困难。每次修改后回读摘要与引言，核对对象、术语、数字、范围与因果方向。",
-        "【铁律】贡献固定三项，第二项逐个 For [挑战], we [解法]；清楚代词保留，行长按本稿版式检查。"
+        "【铁律】贡献固定三项，第二项逐个 For [挑战], we [解法]；清楚代词保留，行长按本稿版式检查。",
+        "【铁律】充分利用长文正文页数；优先保留实验结论和关键条件，不改模板凑页。"
       ],
       "skill": "cs-paper-writing",
-      "zh": "读取 cs-paper-writing/SKILL.md 和 references/checklist.md，按当前任务选规则。\n使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。\n任务：【起草／精修哪节／只读检查】；目标会议与限制：【】\n材料：【最新稿件、真实结果、参考原文】；允许修改：【文件与范围】\n\n铁律：\n1. 先查“具体不足→新增设计→实际证据”。Abstract、Intro 贡献和 Method Overview 明说新对象或设计及其价值，与最近工作比较；全篇困难、模块和发现名称一致。不猜技术设定，不编引用、数字或优先权。\n2. 一句一个完整判断，一段一个任务，后句接前句对象、问题或产物。代词须唯一、明确且就近；含混的 it／they 换成短对象名，清楚的代词保留，不以符号替代句子，不使用重复修饰；有依据的贡献词一词换一词。\n3. 缩写、符号首次出现定义对象、来源、单位与下标；摘要、引言、实验各自能读懂。按最终 PDF 检查句长，双栏一句默认最多三行、单栏一句默认一行半，完整语义优先；不用缩字、改栏宽或硬换行凑行数。\n4. Related Work 按主题写已有路线、能力、具体不足和本文方案；However 与 To address 的对象、关键词对齐 Intro，按类别概括文献，仅引用直接相关的工作。Method Overview 先讲设计为什么回应困难，再写目的、操作、产物；用 in [准确章节名] (ref) 定位，每个章节名与引用出现一次，保留并行关系，末句引 framework。\n5. 实验段先给有证据的结论，再讲比较条件、关键对照与含义；消融固定其他条件。指标说明方向、分母和不确定性，区分记录与独立样本、百分比与百分点、观察与因果；保留影响解释的负结果。RQ 按需要使用。\n6. 数据、公式含义、实验设置、引文、原始 prompt 和模型回复不因润色改变；保留他人修改。先给中文逻辑与最小改法，确认后改英文。缺证据单列给我，不写入论文正文；只读任务不写文件。最后说明实际改动和检查，编译与最终 PDF 目检分别确认。\n语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。\nIntro 结构：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。\n\n【铁律】摘要按背景、limitation、解法与实验亮点组织，解法用 For [具体 limitation], we ...；引言方法总述用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].，逐点解法用 To solve [同名 limitation], we ...。挑战名须直接显示困难。每次修改后回读摘要与引言，核对对象、术语、数字、范围与因果方向。\n贡献列表【铁律】：固定三项：工作概述、挑战与对应解法、实验发现。第二项每个挑战用 For [挑战], we [解法]，是引言 To solve 的明确例外；不编造贡献。",
-      "en": "Read cs-paper-writing/SKILL.md and references/checklist.md and select rules for this task.\nBefore use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.\nTask: [draft / refine a specified section / read-only check]; venue and limits: [ ]\nMaterials: [current manuscript, actual results, source passages]; editable files and scope: [ ]\n\nHard rules:\n1. Check the specific limitation → new design → actual evidence chain first. The Abstract, Introduction contributions, and Method Overview state the new object or design, its value, and its difference from the closest work. Keep challenge, module, and finding names consistent. Invent no settings, citations, numbers, or priority claims.\n2. Use one complete main judgment per sentence and one task per paragraph. Connect each sentence to the preceding object, question, or product. Use pronouns only when their referent is unique, clear, and nearby. Replace ambiguous it / they with short object names. Avoid symbol-packed prose and stacked modifiers; use supported contribution words as concise replacements.\n3. Define acronyms and notation at first use, including objects, sources, units, and indices. Make the Abstract, Introduction, and Experiments independently understandable. Check sentence length in the final PDF: default maximum three lines in a narrow two-column layout and one-and-a-half lines in a single-column layout. Retain complete meaning; do not shrink text, alter columns, or add hard line breaks.\n4. Organize Related Work by topic: existing approach, capability, specific limitation, and the paper's response. Match However / To address objects and keywords to the Introduction; do not list papers or pad citations. The Method Overview explains why the design addresses the challenge before its purpose, operations, and products. Locate actions with in [exact section title] (ref), citing each title once; preserve parallel paths and cite the framework last.\n5. Start result paragraphs with evidenced conclusions, then conditions, key comparisons, and implications. Hold other conditions fixed in ablations. Define metric direction, denominators, and uncertainty. Distinguish records from independent samples, percentages from percentage points, and observations from causal findings. Retain negative results that affect interpretation. Use RQs when useful.\n6. Preserve data, formula meanings, settings, citations, original prompts, model outputs, and concurrent edits. Show Chinese reasoning and minimal fixes before revising English. Keep evidence gaps outside the paper; do not write files for read-only tasks. Report actual changes and checks, distinguishing compilation from visual inspection of the final PDF.\nLanguage: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.\nIntroduction structure: Adapt the order and division of the first two paragraphs. Include field context, a review of existing approaches, and evidence-based comparisons of their capabilities, differences, and limitations. Combine or split these functions as needed; do not fix paragraph one as background and paragraph two as limitations.\n\nHard rules: retain background, a specific limitation, corresponding design, and experimental findings in the Abstract. Name each limitation with \"For [specific limitation], we ...\" in the Abstract and \"To solve [the same limitation], we ...\" in the Introduction. Start the Introduction method paragraph with \"Therefore, to address these obstacles, we introduce [name], a [core feature and purpose].\" Name challenges as concrete difficulties. Re-read both sections after either changes and align objects, terminology, numbers, scope, and causal direction.\nContribution-list hard rule: use exactly three items: overview, challenge-specific solutions, and experimental findings. In item two, use For [challenge], we [solution] for each actual challenge, as an explicit exception to Introduction To solve hooks. Invent no contribution."
+      "zh": "读取 cs-paper-writing/SKILL.md 和 references/checklist.md，按当前任务选规则。\n使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。\n任务：【起草／精修哪节／只读检查】；目标会议与限制：【】\n材料：【最新稿件、真实结果、参考原文】；允许修改：【文件与范围】\n\n铁律：\n1. 先查“具体不足→新增设计→实际证据”。Abstract、Intro 贡献和 Method Overview 明说新对象或设计及其价值，与最近工作比较；全篇困难、模块和发现名称一致。不猜技术设定，不编引用、数字或优先权。\n2. 一句一个完整判断，一段一个任务，后句接前句对象、问题或产物。代词须唯一、明确且就近；含混的 it／they 换成短对象名，清楚的代词保留，不以符号替代句子，不使用重复修饰；有依据的贡献词一词换一词。\n3. 缩写、符号首次出现定义对象、来源、单位与下标；摘要、引言、实验各自能读懂。按最终 PDF 检查句长，双栏一句默认最多三行、单栏一句默认一行半，完整语义优先；不用缩字、改栏宽或硬换行凑行数。\n4. Related Work 按主题写已有路线、能力、具体不足和本文方案；However 与 To address 的对象、关键词对齐 Intro，按类别概括文献，仅引用直接相关的工作。Method Overview 先讲设计为什么回应困难，再写目的、操作、产物；用 in [准确章节名] (ref) 定位，每个章节名与引用出现一次，保留并行关系，末句引 framework。\n5. 实验段先给有证据的结论，再讲比较条件、关键对照与含义；消融固定其他条件。指标说明方向、分母和不确定性，区分记录与独立样本、百分比与百分点、观察与因果；保留影响解释的负结果。RQ 按需要使用。\n6. 数据、公式含义、实验设置、引文、原始 prompt 和模型回复不因润色改变；保留他人修改。先给中文逻辑与最小改法，确认后改英文。缺证据单列给我，不写入论文正文；只读任务不写文件。最后说明实际改动和检查，编译与最终 PDF 目检分别确认。\n语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。\nIntro 结构：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。\n\n【铁律】摘要按背景、limitation、解法与实验亮点组织，解法用 For [具体 limitation], we ...；引言方法总述用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].，逐点解法用 To solve [同名 limitation], we ...。挑战名须直接显示困难。每次修改后回读摘要与引言，核对对象、术语、数字、范围与因果方向。\n贡献列表【铁律】：固定三项：工作概述、挑战与对应解法、实验发现。第二项每个挑战用 For [挑战], we [解法]，是引言 To solve 的明确例外；不编造贡献。\n篇幅【铁律】：长文按目标会议正文上限规划，写满有效内容；不足先补必要证据和分析，不注水。实验页保留可见结果与就近解释。超页先删重复、无关背景及常规实现，保留实验结论和必要条件；按最终 PDF 核查计页与官方模板。\n篇幅利用与实验页呈现是本教程针对实证型 CS 长文的经验，不是会议规定的最低页数。",
+      "en": "Read cs-paper-writing/SKILL.md and references/checklist.md and select rules for this task.\nBefore use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.\nTask: [draft / refine a specified section / read-only check]; venue and limits: [ ]\nMaterials: [current manuscript, actual results, source passages]; editable files and scope: [ ]\n\nHard rules:\n1. Check the specific limitation → new design → actual evidence chain first. The Abstract, Introduction contributions, and Method Overview state the new object or design, its value, and its difference from the closest work. Keep challenge, module, and finding names consistent. Invent no settings, citations, numbers, or priority claims.\n2. Use one complete main judgment per sentence and one task per paragraph. Connect each sentence to the preceding object, question, or product. Use pronouns only when their referent is unique, clear, and nearby. Replace ambiguous it / they with short object names. Avoid symbol-packed prose and stacked modifiers; use supported contribution words as concise replacements.\n3. Define acronyms and notation at first use, including objects, sources, units, and indices. Make the Abstract, Introduction, and Experiments independently understandable. Check sentence length in the final PDF: default maximum three lines in a narrow two-column layout and one-and-a-half lines in a single-column layout. Retain complete meaning; do not shrink text, alter columns, or add hard line breaks.\n4. Organize Related Work by topic: existing approach, capability, specific limitation, and the paper's response. Match However / To address objects and keywords to the Introduction; do not list papers or pad citations. The Method Overview explains why the design addresses the challenge before its purpose, operations, and products. Locate actions with in [exact section title] (ref), citing each title once; preserve parallel paths and cite the framework last.\n5. Start result paragraphs with evidenced conclusions, then conditions, key comparisons, and implications. Hold other conditions fixed in ablations. Define metric direction, denominators, and uncertainty. Distinguish records from independent samples, percentages from percentage points, and observations from causal findings. Retain negative results that affect interpretation. Use RQs when useful.\n6. Preserve data, formula meanings, settings, citations, original prompts, model outputs, and concurrent edits. Show Chinese reasoning and minimal fixes before revising English. Keep evidence gaps outside the paper; do not write files for read-only tasks. Report actual changes and checks, distinguishing compilation from visual inspection of the final PDF.\nLanguage: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.\nIntroduction structure: Adapt the order and division of the first two paragraphs. Include field context, a review of existing approaches, and evidence-based comparisons of their capabilities, differences, and limitations. Combine or split these functions as needed; do not fix paragraph one as background and paragraph two as limitations.\n\nHard rules: retain background, a specific limitation, corresponding design, and experimental findings in the Abstract. Name each limitation with \"For [specific limitation], we ...\" in the Abstract and \"To solve [the same limitation], we ...\" in the Introduction. Start the Introduction method paragraph with \"Therefore, to address these obstacles, we introduce [name], a [core feature and purpose].\" Name challenges as concrete difficulties. Re-read both sections after either changes and align objects, terminology, numbers, scope, and causal direction.\nContribution-list hard rule: use exactly three items: overview, challenge-specific solutions, and experimental findings. In item two, use For [challenge], we [solution] for each actual challenge, as an explicit exception to Introduction To solve hooks. Invent no contribution.\nPage-budget rule: For a full paper, plan substantive content around the venue’s main-text page limit. Use available space for necessary evidence and analysis, not padding. Keep results and their explanations visible on experiment pages. If over length, remove repetition, irrelevant background, and standard implementation details before cutting findings or necessary conditions. Check the final PDF against the current page-count and template rules.\nPage use and experiment-page presentation are author recommendations for empirical CS full papers, not venue-mandated minimum lengths."
     },
     "experiments": {
       "title": "给 Codex 的实验整理提示词",
@@ -8891,56 +8936,58 @@
       }
     ]
   },
-  "refine_global_lead": "铁律是本套 CS 写作约定，适用范围按论文类型和当轮官方要求确定。普通建议按内容选择。先查全文要求，再按章节精修。",
+  "refine_global_lead": "铁律是本教程的 CS 写作默认要求，官方规定优先；短文及其他研究类型按实际任务调整。篇幅利用与实验页呈现是作者经验，不是会议规定的最低页数。先查篇幅、论证和语言，再逐章精修。",
   "refine_section_principles": {
     "intro": [
-      "【铁律】段首用钩子接回前文的具体问题、困难或产物，再推进一层；However 写转折，To solve 点名所解决的困难。",
+      "【铁律】段首用钩子接回前文的具体问题、困难或产物。However 写转折，To solve 点名困难，Therefore 据前述证据引出结论，Specifically 展开判断；连接词不能代替实际逻辑。",
       "【铁律】前两段可穿插、合并或拆分，但要有领域回顾与已有方法比较。回顾给局限铺路：后面批评什么，前面先说明已有方法怎样处理它。",
       "【铁律】挑战名称本身就要显示困难：什么缺失、什么难以完成、什么阻碍目标。随后解释原因和影响，中性任务属性不能直接当挑战名。",
       "【铁律】贡献对象与动作尽早出现。expert-confirmed、manually selected、tailored 等词要对应实际工作；写清选择依据，不用“高质量”代替依据。",
-      "【铁律】方法介绍段首用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].；随后 To solve 逐点给解法。引言讲设计思路，公式与实现留给 Method。",
+      "【铁律】方法介绍段首用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].；随后逐点用 To solve [具体 limitation], we [实际动作]. 给解法。引言讲设计思路，公式与实现留给 Method。",
       "【铁律】结果段先接回研究问题，再概述发现。改动摘要或引言后回读另一节，核对问题、设计、命名、数字与范围；不逐字重复，不把排名当分析。",
       "【铁律】给每个局限沿用同一名称和定义；Related Work 给比较依据，Method 写对应设计，实验检验这项设计并接回该局限。",
       "【铁律】结果概述对应正文实际结论。若实验只支持某些任务或条件，摘要、引言、讨论和结论都限定到相同范围。",
-      "【铁律】引言解法逐点写 To solve [具体 limitation], we [实际动作与贡献].，点名前文同一限制；方法总述不能代替逐点解法。贡献列表第 2 项改用 For [挑战], we [解法]。",
       "【铁律】引言只引用属于本节的图表；不提前指向后文方法、实验、附录的图表、公式或章节，也不写“见后文”。文献 citation 与有依据的结论保留。",
       "【铁律】引言中的正式命名对象每次出现用斜体，强调性加粗对同一对象全节最多一次；贡献列表不重置次数，普通专业词不机械斜体。",
-      "【铁律】普通正文 In summary, our contributions are: 后接原生 itemize，固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个用 For [挑战], we [解法]；列表后直接下一节，不造贡献凑数。"
+      "【铁律】普通正文 In summary, our contributions are: 后接原生 itemize，固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个用 For [挑战], we [解法]；第 3 项给证据范围，新发现首次就近定义。列表后直接下一节，不造贡献凑数。"
     ],
     "related": [
       "【铁律】使用原生 section / subsection；主题标题独占一行，在最终 PDF 最多一行，不以 paragraph 或行内粗体代替。",
-      "按共同任务或机制分组，解释各路线怎样工作。先承认已有能力，再比较真正相近的工作。",
-      "【铁律】每个主题小节都这样收尾：However, [与引言对应的具体不足]. To solve this [problem], we [实际改进]. 两句紧接，包括第一个小节。",
-      "【铁律】However 的问题名称、对象与范围对齐 Intro，To solve 对齐同一方案；不同主题承担不同缺口。",
+      "【铁律】按共同任务、机制或评价目标分组，解释各路线怎样工作；先承认已有能力，再比较近邻。逐篇罗列，读者就看不出路线差异与本文位置。",
+      "【铁律】每个主题用 However, [与引言对应的具体不足]. 转折，紧接 To solve this [problem], we [实际改进], enabling [具体能力或用途].，包括第一个小节。末句说明改进的价值；预期作用与已验证效果分开。",
+      "【铁律】不足的名称、对象与范围对齐 Intro，解法对应同一方案；不同主题承担不同缺口，解法起句按实际关系变化。重复一个缺口，只是换地方再讲一遍。",
       "【铁律】不足要能回查原论文。未报告不等于没有；仅测单轮，不等于多轮一定失败。客观限定范围，不夸大缺陷。",
       "【铁律】引用按相关性选，不设篇数配额，也不因方法相似而漏引。可直接比较的近邻安排基线；设置不同就讲清差异。"
     ],
     "method": [
       "【铁律】为什么你的方法好，比解释清楚方法更重要。每项关键设计接回 Intro 的具体困难，再讲怎样实现。",
       "【铁律】任务定义写清实际输入、要求输出和约束；训练、推理、评价能看到的信息分开，符号随计算引入。",
-      "【铁律】Overview 先讲设计为何针对引言困难，再按真实输入输出衔接。用 in [章节名] (ref) 定位，每个章节名与引用只出现一次；实际执行者作主语，末句引用 framework。",
+      "【铁律】Overview 先接回 Intro 的困难，再按真实输入输出概括交接。用准确章节名与 ref 定位，每节只引一次，实际执行者作主语，末句指向 framework；保留并行、循环与反馈，否则总览会误导实际流程。",
       "【铁律】模块首句用 To [具体目的], [实际主语] ...；随后给设计依据、操作和必要公式，末句交代产物给谁用。",
-      "自己的设计占主要篇幅。标准编码、格式转换简写；参数、长 prompt 和部署细节放可定位的附录。",
-      "【铁律】公式说明对象、单位、下标、信号来源与更新对象；并行、循环、反馈不能硬写成顺序流水线。",
-      "【铁律】Overview 先接回 Intro 的具体局限，再概括各阶段怎样交接；每个小节开头说明本步目的，结尾交代输出怎样供下一步使用。"
+      "【铁律】主要篇幅留给自己的设计。标准操作简写，正文说明参数作用，数值、搜索与版本归 Implementation Details；长 prompt 和额外细节放附录。否则读者会先看完实现细账，仍找不到贡献。",
+      "【铁律】符号先讲普通含义，再定义对象、单位、下标与信号来源。关键计算用独立 equation / align 并编号，公式作为完整句保留标点；短定义行内写，不给普通操作造无用公式。",
+      "【铁律】框架图、Overview、小节和粗体模块名必须对应真实步骤；图文各说一套，读者就无法追踪同一个方法。",
+      "【铁律】说明外部模型、检索器、仿真器等组件的职责与来源，明确本文改了哪一部分；使用现成组件不等于提出新方法。"
     ],
     "experiments": [
       "【铁律】先把 Intro 的核心主张变成可检验的问题，再安排主结果、消融和必要的扩展实验。RQ 是组织工具，不必每表编号。",
-      "【铁律】设置按 Metrics、Baselines、Implementation Details 分组。指标写定义、方向、分母、汇总与无效输出处理；基线按路线介绍。",
-      "【铁律】对齐会改变结果的条件。写清数据版本与划分、训练和推理预算、参数选择、重复单位，以及人工或模型 judge 的核验方式。",
-      "【铁律】结果段先加粗一句具体发现，再给关键对照与意义。不要逐行读表；收益、代价和负结果都要解释。",
+      "【铁律】设置先写 Metrics，再写 Baselines 与 Implementation Details。指标交代定义、方向、单位、分母、汇总和无效输出处理；基线说明真实路线与版本。读者应能按同一口径重算结果。",
+      "【铁律】写清会改变结果的条件：数据版本与划分、参数值、训练或推理预算、评价方式，以及可获知的相关硬件条件。正文、附录及发布配置对应同一执行版；改了 prompt 或判据，不能把旧分数算成新版结果。",
+      "【铁律】结果段先加粗一句具体发现，再给关键对照与意义，说明回答了 Intro 哪个问题。不要逐行读表；收益、代价和负结果都要解释。",
       "【铁律】消融一次删除或替换一个因素，固定其他条件。多项一起改，只能评价整套改动，不能把收益归给其中一项。",
       "【铁律】扩展实验围绕实际主张选取；效率算端到端成本，稳定性报告重复变化。个例解释过程，不能代替总体证据。",
-      "【铁律】段首先接回 Intro 的研究问题或 Method 的设计动机，再报告发现、关键对照及图表依据；分析最后说明原问题回答到了哪一步。",
-      "【铁律】Intro 中的每项核心设计都应能找到对应检验。只得到整套方法的结果时，不把收益单独归给未经检验的模块。"
+      "【铁律】实验章首接回已完成的方法或数据构建，概述真实被测对象、主发现和后续分析；别只报模型名单。",
+      "【铁律】Intro 中的每项核心设计都应能找到对应检验。只得到整套方法的结果时，不把收益单独归给未经检验的模块。",
+      "【铁律】报告实际重复次数和重复单位，说明均值旁是 SD、SE 还是 CI。模型、案例与随机种子不能混作同一统计单位；排名高低不等于显著差异。",
+      "【铁律】先固定同一评估集合；使用共同有效子集时，写清纳入条件、n of N 与排除原因。缺失、无效与不适用分开处理，不能只留成功输出，否则比较对象和结论都会改变。",
+      "【铁律】实测案例与示意案例分开，说明选例依据。个例用于解释过程，不证明总体排名或部署效果；被测模型得分高，也不能证明 benchmark 更好。"
     ],
     "title": [
-      "围绕最重要的贡献写标题，让人看出研究对象、任务或关键发现。",
-      "方法名只是名字，后半句要交代实际做了什么。发现型论文直接写发现，不必包装成方法论文。",
-      "记忆点应准确、好懂。避开需要正文解释才能理解的缩写和自我评价。"
+      "【铁律】标题明确研究对象与核心贡献；方法名后说明做了什么，发现型论文直接写关键发现。只报名字，读者看不出研究内容。",
+      "【铁律】标题中的能力与发现须有正文证据，不能把诊断问题写成已解决问题。记忆点要准确、好懂，不用自我评价代替贡献。"
     ],
     "abstract": [
-      "【铁律】摘要按背景、具体 limitation、对应方法与亮点、实验亮点组织，至少半句背景；长度按会议要求，能单独读懂。",
+      "【铁律】摘要一个自然段，按背景、具体 limitation、对应方法与亮点、实验亮点组织。不用设问或术语定义代替不足；缺一环，就看不出研究为何必要、做了什么或证据是什么。长度服从会议要求。",
       "【铁律】贡献对象和动作尽早出现。关键改动要回应前句的不足，不先堆流程和数量。",
       "【铁律】每句接住上句的对象，再增加信息。术语首次解释，缩写展开；通常不放引文，投稿规定优先。",
       "【铁律】结果优先保留有信息增量的发现及比较范围；不逐项报分，不机械以最大数字结尾。",
@@ -8951,10 +8998,11 @@
       "【铁律】解释结果改变了什么认识，不再复述成绩表。结论保留实际测试范围。",
       "【铁律】解释与机制分开。没有单独控制某项设计，就不能把效果全部归因于它。",
       "【铁律】局限写具体条件：哪些数据、语言、信息或预算尚未覆盖。未测试不等于已失败。",
-      "未来工作接当前局限，说明补哪项验证，不空写更多数据、更大模型。"
+      "【铁律】未来工作对应具体局限，说明下一步要验证什么。尚未执行的方案留在未来工作，不写成本文已建立的结果。",
+      "【铁律】决定结论的限制就近说明，不只藏在附录。全文沿用同一适用范围；实验只测了特定子集，讨论不能扩成所有场景。"
     ],
     "conclusion": [
-      "先回答引言的问题，再概括最重要的设计与发现。",
+      "【铁律】先回答 Intro 的研究问题，再概括对应设计、关键发现与适用范围。贡献名称和结论方向与正文一致，不只重复方法流程。",
       "【铁律】只收束正文已经建立的认识，不新增结果、对照或能力。",
       "【铁律】保留关键取舍和适用范围。未来方向接实际局限，不重复整套方法流程。"
     ],
@@ -8962,13 +9010,14 @@
       "【铁律】引用支持附近的具体判断，先回查原文，不把搜索摘要或能编译的 BibTeX 当核验。",
       "【铁律】模型、数据、工具和外部方法在可独立阅读的章节首次实质出现时，就近引原始报告或官方文档。",
       "【铁律】条目与实际版本对应，核对题名、作者、年份和来源；同一论文的重复版本去重。",
-      "【铁律】来源没测过的条件，不能用它支撑该条件下的结论。没有真实来源就缩小或删除说法。"
+      "【铁律】来源没测过的条件，不能用它支撑该条件下的结论。没有真实来源就缩小或删除说法。",
+      "【铁律】直接引用的文字与借用的图注明出处，另核对转载或使用许可。公开可读不等于可以直接复用，学术用途也不自动证明已获授权。"
     ],
     "appendix": [
-      "【铁律】先删重复，再移次要细节。核心设计、关键证据和决定结论的限制留正文。",
-      "按技术细节、实验设置、补充结果等职责分组，不把所有剩余内容堆在一起。",
-      "【铁律】正文在对应主张后指向具体节、图或表；附录每节先说补什么、服务哪项主张。",
-      "【铁律】设置、符号、版本和统计范围与正文一致。补充结果改变主结论，正文同步说明。"
+      "【铁律】先删重复，再移次要细节。核心设计、关键证据和决定结论的限制留正文，否则正文无法独立成立。",
+      "【铁律】技术细节、实验设置、补充结果分节，每节开头说明服务哪项主张；正文在对应位置引用具体节、图或表，避免读者在附录里查找。",
+      "【铁律】附录中的参数、prompt、数据与评分规则对应实际运行版，符号和统计范围与正文一致。后加规则不能写成实验已用。",
+      "【铁律】补充结果改变主结论时，同步改正文、摘要和引言；不能把相反证据只留在附录。"
     ]
   },
   "refine_global_cases": [
