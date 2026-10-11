@@ -181,28 +181,34 @@ We do not have direct evidence for [claim] under [untested condition]. The avail
 - 【铁律】不猜未回复审稿人的态度，不请求提分或接收，把判断交给审稿方。
 
 <a id="follow-up-template-1"></a>
-### 5.1 第二轮追问
+### 5.1 追问回复模板
 
 ```markdown
-> **Q1.2c: Follow-up on [specific unresolved point]**
+> **Q1.2c: [Faithful title of the follow-up question]**
 
-[Direct answer to the new question]. Compared with our response to Q1.2, the new information is [verified evidence or clarification], located in [location]. This [addresses / leaves unresolved] [specific point]; [remaining limitation] remains outside the tested scope.
+[Direct answer to the new question, with the necessary scope].
+
+**New evidence**: Compared with Q1.2, we now provide [verified result or clarification]. Under [necessary setting], [comparison or reasoning] shows [specific finding] ([table / section / lines]). This supports [bounded conclusion] because [link between the evidence and the question].
+
+**Revision**: Section [X], lines [Y–Z], now states: “[Exact wording of the completed revision].”
+
+**Remaining issue**: The evidence covers [tested scope]; it does not establish [unresolved claim]. [Specific evidence still needed, if any].
 ```
 
-只写新增信息；若问题仍未解决，直说证据缺口。
+保留原 Q 编号，追问新子项续编。填真实证据与位置；无新结果就给已有依据和明确边界。未改稿删 Revision，没有剩余疑问删 Remaining issue；可比较数据改用紧凑表格。
 
 <a id="follow-up-template-2"></a>
-### 5.2 给 AC 的简要总结
+### 5.2 给 AC 的总结模板
 
 ```markdown
-The main remaining issue concerns [precise issue]. Our response provides [verified evidence and location], supporting [bounded conclusion].
+The evidence supports [central conclusion] under [evaluated setting]. The main concerns were [issue A] and [issue B].
 
-**Reviewer [ID], Q[X.X].** The concern was [faithful summary]. We answered it with [comparison or clarification]; [verified result or revised wording] is in [location]. [Remaining disagreement or limitation, if any].
+**1. [Key concern A] — Reviewer [ID], Q[X.X].** The concern was [faithful summary]. Our response [direct answer]. [Verified comparison or clarification] in [table / section / lines] supports [bounded conclusion]. [Remaining disagreement or evidence gap, if any].
 
-**Reviewer [ID], Q[Y.Y].** The concern was [faithful summary]. The response distinguishes [explanation A] from [explanation B] using [evidence and location]. [What the evidence establishes and leaves unresolved].
+**2. [Key concern B] — Reviewer [ID], Q[Y.Y].** The concern was [faithful summary]. Our response [direct answer]. [Verified result or completed revision] in [table / section / lines] establishes [what the evidence shows], but does not establish [unresolved claim, if any].
 ```
 
-没有实质分歧就改为关键问题总结。内容与篇幅服从当轮规则；不列推测态度、身份或提分诉求。
+按关键关切增删条目，同一关切可列多个审稿人和 Q。首句给有依据的总体结论；每项写关切、回应、证据位置和剩余分歧。不把作者的解释写成“审稿人已认可”，不猜未回复者态度。
 
 ---
 

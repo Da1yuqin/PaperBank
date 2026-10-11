@@ -669,7 +669,7 @@ def build_response():
   rules_md+=['',f'<a id="{key}"></a>','## '+title,'',section['lead'],'']+['- '+rule for rule in section['rules']]
   templates=([section['template']] if section.get('template') else [])+section.get('templates',[])
   for n,template in enumerate(templates,1):
-   template_html,template_md=render_response_template(template,key+'-template-'+str(n),key=='response-format')
+   template_html,template_md=render_response_template(template,key+'-template-'+str(n),key=='response-format' or template.get('open',False))
    chapters+=template_html;rules_md+=template_md
   for n,example in enumerate(section.get('examples',[]),1):
    annotated={'id':key+'-example-'+str(n),'section':key,'title':example['title'],'label':'教学模板：把方括号换成自己的真实证据。','paragraphs':[{'en':example['paragraph']}],'annotations':[{'paragraph':0,'en':quote['text'],'title':'【铁律】'+label,'body':quote['note'].removeprefix('【铁律】')} for quote,label in zip(example['quotes'],['先答问题','交代对照','限定结论','给出位置'])],'processing':'原创教学模板，不是真实审稿回复。','source_label':'StrongResponse · 原创教学模板'}
@@ -678,9 +678,9 @@ def build_response():
   chapters+='</section>'
  usage=f'<details class="writing-skill" id="response-skill"><summary>skill 安装与用法</summary><p>下载 ZIP，解压并保留完整的 <code>rebuttal</code> 文件夹。让 Codex 读取 <code>rebuttal/SKILL.md</code>，填入论文、完整 review、已有证据、当轮规则和允许修改的范围。</p><p><a href="{REPO}/blob/main/{e(skill["source"])}">SKILL.md</a> · <a href="{REPO}/blob/main/skills/rebuttal/references/rules.md">规则与模板</a> · <a href="{REPO}/blob/main/skills/rebuttal/references/prompts.md">提示词</a></p><p>制作类似教程：<a href="../assets/tutorial-authoring-skill.zip" download>下载教程编排 skill</a> · <a href="{REPO}/blob/main/skills/tutorial-authoring/SKILL.md">SKILL.md</a>。内容顺序、简洁表达、完整案例与旁批、窄屏检查均包含在内。</p></details>'
  prompt_html,_=render_response_template({'title':'复制给 Codex：起草与逐题检查','text':data['quick_start_prompt'],'note':'把【】换成材料或文件。先查清问题，再写回复；缺证据的地方由作者决定如何处理。'},'response-prompt')
- preface=f'<p class="site-switch">论文写作与绘图：<a href="../">PaperBank</a> · 审稿回复：StrongResponse</p><p class="skill-links"><strong>这里有一份可以直接使用的 skill。</strong> <a href="../{e(skill["download"])}" download>下载 rebuttal skill</a> · <a href="#response-skill">用法</a></p><figure class="accept-banner"><img src="../{e(data["image"])}" alt="{e(data["image_alt"])}" width="1672" height="941" fetchpriority="high"></figure><p>{e(data["preface"])}</p>'+usage+prompt_html
+ preface=f'<p class="site-switch">论文写作与绘图：<a href="../">PaperBank</a> · 审稿回复：StrongResponse</p><p class="skill-links"><strong>这里有一份可以直接使用的 skill。</strong> <a href="../{e(skill["download"])}" download>下载 rebuttal skill</a> · <a href="#response-skill">用法</a></p><figure class="accept-banner response-banner"><img src="../{e(data["image"])}" alt="{e(data["image_alt"])}" width="{data["image_width"]}" height="{data["image_height"]}" fetchpriority="high"></figure><p>{e(data["preface"])}</p>'+usage+prompt_html
  template=(ROOT/'assets/response-template.html').read_text(encoding='utf-8')
- for key,value in {'TITLE':e(data['title']),'SUBTITLE':e(data['subtitle']),'PREFACE':preface,'NAV':nav,'CHAPTERS':chapters}.items():template=template.replace('{{'+key+'}}',value)
+ for key,value in {'TITLE':e(data['title']),'SUBTITLE':e(data['subtitle']),'LOGO':e(data['logo']),'LOGO_WIDTH':str(data['logo_width']),'LOGO_HEIGHT':str(data['logo_height']),'PREFACE':preface,'NAV':nav,'CHAPTERS':chapters}.items():template=template.replace('{{'+key+'}}',value)
  assert not re.search(r'{{[A-Z_]+}}',template)
  (ROOT/'StrongResponse').mkdir(exist_ok=True)
  (ROOT/'StrongResponse/index.html').write_text(template,encoding='utf-8')

@@ -129,23 +129,30 @@
       ],
       "templates": [
         {
-          "title": "5.1 第二轮追问",
-          "text": "> **Q1.2c: Follow-up on [specific unresolved point]**\n\n[Direct answer to the new question]. Compared with our response to Q1.2, the new information is [verified evidence or clarification], located in [location]. This [addresses / leaves unresolved] [specific point]; [remaining limitation] remains outside the tested scope.",
-          "note": "只写新增信息；若问题仍未解决，直说证据缺口。"
+          "title": "5.1 追问回复模板",
+          "open": true,
+          "text": "> **Q1.2c: [Faithful title of the follow-up question]**\n\n[Direct answer to the new question, with the necessary scope].\n\n**New evidence**: Compared with Q1.2, we now provide [verified result or clarification]. Under [necessary setting], [comparison or reasoning] shows [specific finding] ([table / section / lines]). This supports [bounded conclusion] because [link between the evidence and the question].\n\n**Revision**: Section [X], lines [Y–Z], now states: “[Exact wording of the completed revision].”\n\n**Remaining issue**: The evidence covers [tested scope]; it does not establish [unresolved claim]. [Specific evidence still needed, if any].",
+          "note": "保留原 Q 编号，追问新子项续编。填真实证据与位置；无新结果就给已有依据和明确边界。未改稿删 Revision，没有剩余疑问删 Remaining issue；可比较数据改用紧凑表格。"
         },
         {
-          "title": "5.2 给 AC 的简要总结",
-          "text": "The main remaining issue concerns [precise issue]. Our response provides [verified evidence and location], supporting [bounded conclusion].\n\n**Reviewer [ID], Q[X.X].** The concern was [faithful summary]. We answered it with [comparison or clarification]; [verified result or revised wording] is in [location]. [Remaining disagreement or limitation, if any].\n\n**Reviewer [ID], Q[Y.Y].** The concern was [faithful summary]. The response distinguishes [explanation A] from [explanation B] using [evidence and location]. [What the evidence establishes and leaves unresolved].",
-          "note": "没有实质分歧就改为关键问题总结。内容与篇幅服从当轮规则；不列推测态度、身份或提分诉求。"
+          "title": "5.2 给 AC 的总结模板",
+          "open": true,
+          "text": "The evidence supports [central conclusion] under [evaluated setting]. The main concerns were [issue A] and [issue B].\n\n**1. [Key concern A] — Reviewer [ID], Q[X.X].** The concern was [faithful summary]. Our response [direct answer]. [Verified comparison or clarification] in [table / section / lines] supports [bounded conclusion]. [Remaining disagreement or evidence gap, if any].\n\n**2. [Key concern B] — Reviewer [ID], Q[Y.Y].** The concern was [faithful summary]. Our response [direct answer]. [Verified result or completed revision] in [table / section / lines] establishes [what the evidence shows], but does not establish [unresolved claim, if any].",
+          "note": "按关键关切增删条目，同一关切可列多个审稿人和 Q。首句给有依据的总体结论；每项写关切、回应、证据位置和剩余分歧。不把作者的解释写成“审稿人已认可”，不猜未回复者态度。"
         }
       ]
     }
   ],
-  "image": "assets/strongresponse-hero.png",
-  "image_alt": "边牧、魔法橘猫和龙一起整理 Q1.1 审稿回复，龙举起手臂为 StrongResponse 加油。",
+  "image": "assets/strongresponse-negotiation.png",
+  "image_alt": "戴眼镜的健壮德牧用“回答、证据、结论”说明研究，与一位惊讶的人类学者讨论。",
   "skill": {
     "source": "skills/rebuttal/SKILL.md",
     "download": "assets/rebuttal-skill.zip",
     "instructions": "---\nname: rebuttal\ndescription: Draft and revise evidence-based author responses with numbered reviewer questions, answer-first prose, and a concern-by-concern revision loop. Use for rebuttals, review responses, follow-ups, and AC summaries.\n---\n\n# StrongResponse · 审稿回复\n\n按原问题作答。第一句给答案，随后给证据、解释与位置。完整模板见 [rules.md](references/rules.md)，起草与检查提示词见 [prompts.md](references/prompts.md)。\n\n## 回复格式【铁律】\n\n标为【铁律】的是本教程的硬性要求；当轮官方规定优先。模板类型和普通建议按问题选择。\n\n- 每位审稿人单独一个 Markdown 代码块。代码块用于复制，提交时粘贴其中正文。\n- 从第一个问题开始：`> **Q1.1: [忠于原意的问题标题]**`。保留 blockquote、加粗、编号和冒号，不加 `Dear Reviewer`。\n- 一个大问题有多个子问题，拆成 `Q1.1a`、`Q1.1b`；保留原问题与编号的对应关系，不改写成更容易回答的问题。\n- 题目下第一句直接答。真正的是否题可用 `Yes.` 或 `No.`；证据不足则明确不能判断。为什么、怎样、数值题分别先给理由、操作、具体值。观点性质疑先给相关结论，不硬改成是否题。\n- 再写必要设置、证据及其含义，给表号、节号或行号。流程问题写清输入、操作与输出。\n- 列点使用 `**Evidence**: ...` 这类短标签。可比较的数据必须用紧凑表格，保留比较条件、单位、指标方向与样本范围，表后解释结论，不在正文复述每个数值。同一实验跨 Q 引用，首次定义简短名称，后续统一使用；每个 Q 本身仍要自洽。\n- 不用致谢、背景或复述问题占第一句。每问处理一个关切，问题之间空一行；简短致谢放回复末尾，不请求提分。\n\n## 起草顺序\n\n1. 读取论文、完整 review、当前回复与已有结果；按审稿人提取 Weaknesses、Questions、建议及评分理由里的每个具体关切。\n2. 建立「原问题 → 所需证据 → 已有依据与位置 → 缺口」。一句话有多问就拆开；不推测审稿人的身份、能力或动机。\n3. 根据问题选择回应：定义给定义，流程给案例，效果给对照，替代解释给能区分两种解释的检验。设计理由不能代替效果证据。\n4. 已有结果能回答就直接整理；缺关键证据时说明缺口和最小对照，由作者决定是否补实验。合理批评修正，有分歧给依据，无法区分就缩小主张。\n5. 【铁律】每问必答，先回答再给证据与位置。首句结论、证据范围与论文主张必须一致；不能把相关性写成因果，也不能从一个设置外推所有场景。\n\n## Revise loop【铁律】\n\n以原 review 的问题清单为准，不能按当前回复的目录检查：\n\n| 原问题 | 回复位置 | 是否答到 | 证据是否匹配 | 剩余疑问 | 最小改法／缺失证据 |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n\n先修漏答、证据和逻辑，再缩文字、调语气。只改未通过项，改后重查同一张清单；新证据带来新疑问时补入清单。\n\n每问有明确回应，事实有来源，证据与结论对应，格式和篇幅符合当轮规定后停止。无法补齐的证据交作者决定，不编结果，不靠模拟预测评分或接收。\n\n## 追问与 AC 总结【铁律】\n\n追问先定位尚未解决的关切，不重复粘贴上一轮整篇回复。AC 总结按「关键问题 → 作者回应 → 证据位置 → 剩余分歧」组织；只引用真实评审原话，不推测尚未回应的审稿人态度，不给 AC 下指令。\n\n## 材料与交付\n\n核对当轮字数、匿名、补实验、链接、修订稿和 AI 使用规定；确认材料可在所选工具中使用。不编造结果、引用、评价或已完成修改，不隐藏影响结论的条件、不利结果与错误。\n\n只改获授权的回复文件，保留原 review、原始记录及他人修改。补实验、改稿和提交分别依作者授权。英文回复可附中文供作者审阅，内部缺口与检查记录不混入提交文本。\n\nDa1yuqin / [StrongResponse](https://da1yuqin.github.io/PaperBank/StrongResponse/)。原创规则与教学模板采用 CC BY 4.0；第三方材料按原许可使用。\n"
-  }
+  },
+  "logo": "assets/strongresponse-logo.png",
+  "logo_width": 2172,
+  "logo_height": 724,
+  "image_width": 1672,
+  "image_height": 941
 }
