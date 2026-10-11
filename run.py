@@ -49,15 +49,17 @@ def section_label(section):
 def render_annotated_paragraph(example, refs):
  """Keep source paragraphs intact and place matched comments beside them."""
  e=html.escape;key=example['id']
+ assert len(example['paragraphs'])==1,(key,'one natural paragraph per case')
+ english_label='English 原文' if example.get('source') else 'English 教学改写'
  rendered=f'<section class="paragraph-lesson annotated-example" id="{e(key)}" data-section="{e(example["section"])}"><h4>{e(example["title"])}</h4><p class="lesson-context">{e(example["label"])}</p>'
  rendered+='<div class="paragraph-language js-only" role="group" aria-label="例子语言" data-annotation-exclude>'
- for lang,label in [('en','English 原文'),('zh','中文译文')]:
+ for lang,label in [('en',english_label),('zh','中文译文')]:
   rendered+=f'<button type="button" data-paragraph-language="{lang}" aria-pressed="{str(lang=="en").lower()}" aria-controls="{e(key)}-{lang}">{label}</button>'
  rendered+='</div>'
  md=['','#### '+example['title'],'',example['label']]
  for lang,language in [('en','en'),('zh','zh-CN')]:
   rendered+=f'<div class="annotated-panel" id="{e(key)}-{lang}" data-paragraph-panel="{lang}">'
-  md+=['','**'+('English 原文' if lang=='en' else '中文译文')+'**','']
+  md+=['','**'+(english_label if lang=='en' else '中文译文')+'**','']
   for n,paragraph in enumerate(example['paragraphs']):
    rendered+=f'<div class="annotated-row"><div class="annotated-text" lang="{language}">'
    text=paragraph[lang];marks=[]
@@ -81,9 +83,16 @@ def render_annotated_paragraph(example, refs):
  md+=['','**高亮与旁批**','']
  for i,note in enumerate(example['annotations'],1):
   md+=[f'{i}. **{note["en"]} / {note["zh"]}**：{note["title"]}。{note["body"]}']
- r=refs[example['source']]
- rendered+=f'<p class="example-source"><a href="{e(r["url"])}">{e(example["paper_label"])}</a> · {e(example["location"])}</p><p class="annotation-takeaway">{e(example["takeaway"])}</p><details class="annotation-rights"><summary>出处与复用范围</summary><p>{e(example["processing"])}</p><p>{e(r["license"])}</p></details></section>'
- md+=['',f'[{example["paper_label"]}]({r["url"]}) · {example["location"]}','',example['takeaway'],'',example['processing'],'',r['license']]
+ if example.get('source'):
+  r=refs[example['source']]
+  source=f'<a href="{e(r["url"])}">{e(example["paper_label"])}</a> · {e(example["location"])}'
+  source_md=f'[{example["paper_label"]}]({r["url"]}) · {example["location"]}'
+  rights=r['license']
+ else:
+  source=source_md='PaperBank · 教学改写'
+  rights='本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。'
+ rendered+=f'<p class="example-source">{source}</p><p class="annotation-takeaway">{e(example["takeaway"])}</p><details class="annotation-rights"><summary>出处与复用范围</summary><p>{e(example["processing"])}</p><p>{e(rights)}</p></details></section>'
+ md+=['',source_md,'',example['takeaway'],'',example['processing'],'',rights]
  return rendered,md
 
 def render_paragraph(lesson, refs, md_level=4, number=None, heading=True):

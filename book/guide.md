@@ -2661,40 +2661,89 @@ With the spatial contract established, PlanCraft-Agent then furnishes the scene 
 
 前两段不固定分工：交代领域回顾，比较已有能力和不足，再引出本文设计。背景与比较可穿插、合并或拆分。
 
-#### 整段示例：领域回顾怎样引出具体问题
+#### 整段示例：领域回顾怎样接到任务
 
-先读完整段落。相同颜色和编号对应右侧批注；可切换中文译文。
+高亮与旁批按颜色和编号对应；点击切换中英。
 
 **English 原文**
 
 Humans spend nearly 90% of their time indoors [12], and the built environment contributes a substantial share of global carbon emissions [34, 65, 66]. Thus, building design sits at the nexus of daily life and sustainability. Traditional design relies heavily on expert knowledge and extensive manual iteration [2, 14, 20], often taking days to months to reach viable solutions. Recent advances in generative models on controllable [5, 32, 47] and multimodal generation [7, 24, 50] pave the way for automated building design generation.
-
-To enable automation, prior works have employed conditioned generators [22, 31, 37, 38, 44, 48, 49, 59, 60, 63, 64] that translate coarse user requirements into concrete floorplan layouts. However, existing methods rely solely on user-specified conditions and thus often violate unspecified real-world design constraints. This neglect results in over 60% of samples in existing datasets [48] being practically unusable due to excessive energy use and flawed spatial-functional design. Some methods [38, 44] even fail to generate essential structural components such as windows, leading to unrealistic energy evaluations. Therefore, enforcing design constraints in generative models remains a major bottleneck for practical deployment.
 
 
 **中文译文**
 
 人们近 90% 的时间在室内度过 [12]，建筑环境也占全球碳排放的相当大一部分 [34, 65, 66]。因此，建筑设计连接着日常生活与可持续性。传统设计高度依赖专家知识和大量人工迭代 [2, 14, 20]，往往需要数天至数月才能得到可行方案。近期，可控生成 [5, 32, 47] 和多模态生成 [7, 24, 50] 的进展，为建筑设计的自动生成铺平了道路。
 
+
+**高亮与旁批**
+
+1. **at the nexus of daily life and sustainability / 连接着日常生活与可持续性**：背景要为后文服务。室内生活与碳排放对应两个实际问题，后文的功能和能耗也要分别接住。只说建筑重要，还没说本文为何重要。
+2. **expert knowledge and extensive manual iteration / 专家知识和大量人工迭代**：先交代实际代价。依赖专家、人工迭代慢，是自动化要解决的代价。这样下一句介绍生成模型才有来由。
+3. **pave the way for automated building design generation / 为建筑设计的自动生成铺平了道路**：进展接到具体任务。可控生成与多模态生成落到建筑设计，范围没跑远。接下来要写已有方法能做什么，再谈缺口。
+
+[GreenPlanner · CVPR Findings 2026](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html) · §1 Introduction，第一自然段，p.8596
+
+开头先交代领域价值、实际代价和已有进展。下一段继续比较能力与缺口；前两段也可以穿插或合并。
+
+英文保持原文，仅还原 PDF 换行、断词与字体连字。中文、高亮和旁批为本指南添加；保留原文引文编号。
+
+原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
+
+#### 整段示例：已有能力怎样接到缺口
+
+高亮与旁批按颜色和编号对应；点击切换中英。
+
+**English 原文**
+
+To enable automation, prior works have employed conditioned generators [22, 31, 37, 38, 44, 48, 49, 59, 60, 63, 64] that translate coarse user requirements into concrete floorplan layouts. However, existing methods rely solely on user-specified conditions and thus often violate unspecified real-world design constraints. This neglect results in over 60% of samples in existing datasets [48] being practically unusable due to excessive energy use and flawed spatial-functional design. Some methods [38, 44] even fail to generate essential structural components such as windows, leading to unrealistic energy evaluations. Therefore, enforcing design constraints in generative models remains a major bottleneck for practical deployment.
+
+
+**中文译文**
+
 为实现自动化，已有工作采用条件生成器 [22, 31, 37, 38, 44, 48, 49, 59, 60, 63, 64]，将用户的粗略需求转为具体平面布局。然而，现有方法仅依赖用户明确给出的条件，因此往往违反未被明确提出的现实设计约束。这种忽视使现有数据集 [48] 中超过 60% 的样本因能耗过高、空间与功能设计不合理而无法实际使用。一些方法 [38, 44] 甚至无法生成窗户等必要结构，导致能耗评估不符合现实。因此，在生成模型中落实设计约束，仍是实际部署的主要瓶颈。
 
 
 **高亮与旁批**
 
-1. **at the nexus of daily life and sustainability / 连接着日常生活与可持续性**：说明研究价值。室内生活与碳排放收束为研究价值，背景直接服务任务。
-2. **expert knowledge and extensive manual iteration / 专家知识和大量人工迭代**：已有做法与实际代价。先写专家与人工迭代的依赖，再引出自动化的必要性。
-3. **pave the way for automated building design generation / 为建筑设计的自动生成铺平了道路**：把领域进展接到本文任务。领域进展落到建筑设计；下一段继续讲“自动化”。
-4. **translate coarse user requirements into concrete floorplan layouts / 将用户的粗略需求转为具体平面布局**：先承认已有能力。先说输入和输出，承认已有能力，后面才有比较对象。
-5. **violate unspecified real-world design constraints / 违反未被明确提出的现实设计约束**：指出漏掉的条件。缺口落在未明确提出的约束，后两句补实际后果。
-6. **enforcing design constraints in generative models / 在生成模型中落实设计约束**：把比较收束为研究问题。Therefore 回扣具体缺口，明确后文要处理的问题。
+1. **translate coarse user requirements into concrete floorplan layouts / 将用户的粗略需求转为具体平面布局**：比较别换对象。输入是粗略需求，输出是平面布局。后面的不足围绕这个任务展开，不能突然换比较对象。
+2. **violate unspecified real-world design constraints / 违反未被明确提出的现实设计约束**：缺口要有实际后果。关键是用户没说、现实仍要求满足的约束。后面用能耗、空间功能和窗户说明漏掉它们会怎样。
+3. **enforcing design constraints in generative models / 在生成模型中落实设计约束**：后文要接住这个问题。末句回扣设计约束。方法接下来要解释约束从哪里来、怎样进入生成过程，不能只报组件名。
 
-[GreenPlanner · CVPR Findings 2026](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html) · §1 Introduction，前两自然段，p.8596
+[GreenPlanner · CVPR Findings 2026](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html) · §1 Introduction，第二自然段，p.8596
 
-前两段没有固定分工。这一例先写领域与进展，再在下一段比较已有能力和实际缺口；领域回顾也可以与比较合在一段。这里的 60% 仅指原论文所述数据集，不能改成所有生成结果。
+缺什么、为什么影响使用、本文要处理什么，三件事接起来。60% 只对应原文所引数据集，不是所有方法的失败率。
 
-英文保持原文段落，仅合并换行、还原排版断词与字体连字，规范引文括号空白；高亮和批注为本指南添加。中文为本指南翻译，不是作者原文。 保留两段顺序和全部引文编号；不包含插入两栏间的图注、作者脚注或出版水印。
+英文保持原文，仅还原 PDF 换行、断词与字体连字。中文、高亮和旁批为本指南添加；保留原文引文编号。
 
 原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
+
+#### 批注示例：困难讲完，还缺一句承接
+
+教学改写：根据作者提供的批注组织，一例只放一个自然段。
+
+**English 教学改写**
+
+Evaluating shopping advice presents two obstacles. First, access to real commercial conversations is limited, and identifying complex or ambiguous needs requires costly expert annotation. Second, recommendation criteria vary across product categories: clothing advice must account for color and outfit coordination, whereas phone advice must match usage needs to device capabilities. A single checklist cannot capture these differences.
+
+
+**中文译文**
+
+评价购物建议有两个困难。首先，真实商业对话难以获取，识别其中复杂或模糊的需求还需要成本较高的专家标注。其次，推荐标准随商品类别变化：服装建议要考虑颜色与穿搭搭配，手机建议则要将使用需求与设备能力对应起来。一张通用清单无法覆盖这些差异。
+
+
+**高亮与旁批**
+
+1. **identifying complex or ambiguous needs requires costly expert annotation / 识别其中复杂或模糊的需求还需要成本较高的专家标注**：这里还缺“为什么”。不能只说标注贵。要讲清专家需判断哪些需求仍有效、哪些条件尚未确定，读者才知道专家为何必要。
+2. **clothing advice must account for color and outfit coordination, whereas phone advice must match usage needs to device capabilities / 服装建议要考虑颜色与穿搭搭配，手机建议则要将使用需求与设备能力对应起来**：例子要解释标准为何不同。对比同一维度：什么建议算合适。这里分别给出两类商品的判断依据，比只说“品类不同”具体。
+3. **A single checklist cannot capture these differences. / 一张通用清单无法覆盖这些差异。**：段尾缺一句铺垫。这里还停在困难。接一句说明：因此，评价需要保留每例的有效需求与未决条件，并采用与品类相符的标准；下一段再介绍解法。
+
+PaperBank · 教学改写
+
+先解释困难为何妨碍评价，再引出本文怎样处理。不能写完“数据难拿、标准不同”就直接 We propose。
+
+PaperBank 编写的教学段落，非已发表论文摘录。购物场景仅用于演示论证，不报告真实项目的数据或比较结论。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
 <details><summary>展开句式与 LaTeX 模板</summary>
 
@@ -3075,7 +3124,7 @@ A tailored prompt guides each role in checking the evidence.
 
 #### 整段示例：比较机制，再说明本文差异
 
-英文原文整段；右侧说明归类、比较与收尾各自的作用。
+高亮与旁批按颜色和编号对应；点击切换中英。
 
 **English 原文**
 
@@ -3089,15 +3138,15 @@ Multi-dancer generation is an emerging area currently in its nascent stage. To t
 
 **高亮与旁批**
 
-1. **avoid the imbalance issue in motion representation / 避免运动表示的不平衡**：给出比较维度。把两项相近工作放在同一机制下比较，说明为什么会难以区分舞者。
-2. **splits group motions into single-person motions / 将群体动作拆成单人动作**：承认另一条路线的进展。这里指出一个不同的操作，并承认它处理了前述问题。
-3. **completely isolating individual features results in incomplete group information / 完全隔离个体特征会造成群体信息不完整**：However 指出代价。不足接着前一句的操作出现；解释为什么会丢信息，再写不协调的后果。
-4. **a more optimal feature separation strategy is necessary / 需要更合适的特征分离策略**：把对比变成设计需求。已有路线各有代价，因此需要什么策略；下一句顺势介绍本文。
-5. **first generates dancers’ trajectories and then produces logical movements / 先生成舞者轨迹，再生成合乎逻辑的动作**：用明确动作说明区别。收尾写本文的处理顺序，回应前面的表示与分离问题，不只报方法名。
+1. **utilize no special structures to avoid the imbalance issue in motion representation, resulting in a tendency for dancer ambiguity / 没有采用专门结构来避免运动表示的不平衡，因而容易出现舞者混淆**：先统一比较维度。两项工作按表示机制归类，有共同尺度。“表示不平衡→舞者混淆”仍需定义或文献依据。
+2. **splits group motions into single-person motions / 将群体动作拆成单人动作**：承认别人解决了什么。先承认拆成单人动作处理了舞者混淆，再谈代价。后文才说得清本文要同时保留什么。
+3. **completely isolating individual features results in incomplete group information / 完全隔离个体特征会造成群体信息不完整**：代价接上了，对象还可更具体。不足来自前一句的完全隔离，逻辑接得上。但“群体信息”仍宽泛；写自己的论文时应指出缺哪种关系。
+4. **a more optimal feature separation strategy is necessary / 需要更合适的特征分离策略**：“更合适”还不够。收尾应说清需要兼顾个体区分与群体协调。“更合适的策略”本身不能代替设计目标。
+5. **first generates dancers’ trajectories and then produces logical movements / 先生成舞者轨迹，再生成合乎逻辑的动作**：操作还要解释作用。先轨迹、后动作给出顺序，还需说明怎样回应前面的两种代价。Fusion Projection 也要讲机制，不能只写 effective。
 
 [TCDiff · AAAI 2025](https://ojs.aaai.org/index.php/AAAI/article/view/32268) · Related Work / Music-driven Multi-dancer Generation，p.2646
 
-比较的重点是机制与后果：混合表示难以区分舞者，完全拆开又丢失群体信息。本文方案接回这两个问题。领域范围与效果判断限原论文发表时的研究和实验，不照搬成今天的现状。
+借鉴比较的顺序，也看哪些话还没写具体。领域范围与效果判断只对应原论文发表时的研究和实验。
 
 英文保持原文段落，仅合并换行、还原排版断词与字体连字，规范引文括号空白；高亮和批注为本指南添加。中文为本指南翻译，不是作者原文。 保留原文全部作者年份引文。
 
@@ -3223,7 +3272,7 @@ Our study examines whether keeping earlier constraints helps across dialogue tur
 
 #### 整段示例：Method 开头怎样连接各组件
 
-英文原文整段；重点看数据、预测器与生成器如何相接。
+高亮与旁批按颜色和编号对应；点击切换中英。
 
 **English 原文**
 
@@ -3237,15 +3286,15 @@ We propose GreenPlanner, an energy- and functionality-aware generative framework
 
 **高亮与旁批**
 
-1. **an energy- and functionality-aware generative framework for residential design / 一套同时考虑能耗与功能的住宅设计生成框架**：首句说任务与设计特点。住宅设计是任务，能耗和功能是关键考虑；先让读者知道框架的用途。
-2. **expert-verified energy and functional evaluations / 经专家核验的能耗与功能评估**：说明监督信息的来源与质量。expert-verified 点出真实核验工作。DesignFD 随后成为预测器的训练数据。
-3. **a predictor trained on DesignFD / 在 DesignFD 上训练**：接上前一个产物。数据集不是孤立组件：预测器在它上面训练，得到快速评估能力。
-4. **a PDE-guided dataset pairing user requirements with regulation-compliant layouts / 由 PDE 引导，将用户需求与符合规范的布局配对**：交代预测器的下一步用途。PDE 用于引导配对数据构建；需求与布局也把生成任务的输入输出说清。
-5. **a generator trained on GreenPD with PDE feedback / 在 GreenPD 上训练并使用 PDE 反馈**：收束到最终生成器。GreenPD 提供训练数据，PDE 提供反馈。复用前文产物，四个组件形成实际依赖。
+1. **an energy- and functionality-aware generative framework for residential design / 一套同时考虑能耗与功能的住宅设计生成框架**：接回 Intro 的两类缺口。能耗与功能对应前文的问题。Overview 要说明设计为何针对这些问题，不能只复述方法名称。
+2. **expert-verified energy and functional evaluations / 经专家核验的能耗与功能评估**：好词要有具体工作撑着。expert-verified 比“高质量”具体。数据章节仍要解释谁核验、核验什么、怎样处理分歧。
+3. **a predictor trained on DesignFD for fast simulation of energy and functional feasibility / 在 DesignFD 上训练，用于快速模拟能耗与功能可行性**：依赖清楚，效果还需证据。DesignFD 成为预测器的训练数据，两个组件接上了。fast 是效果声明，要在效率实验中给依据。
+4. **a PDE-guided dataset pairing user requirements with regulation-compliant layouts / 由 PDE 引导，将用户需求与符合规范的布局配对**：说明产物，也解释条件。PDE 引导构建需求—布局配对。regulation-compliant 需要后文说明采用哪些规范、怎样检查。
+5. **a generator trained on GreenPD with PDE feedback / 在 GreenPD 上训练并使用 PDE 反馈**：这两条路径也要画出来。GreenPD 提供训练数据，PDE 提供反馈。对照 Fig. 2 检查两条路径，不能正文有反馈、图里没有。
 
 [GreenPlanner · CVPR Findings 2026](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html) · §3 Method，开头自然段，p.8597
 
-这段适合看输入输出与组件依赖。写自己的 Overview，还要补关键设计为什么针对 Intro 的困难，以及真实章节引用；末句的目录预告不必照抄。
+组件依赖写得清楚，但 Overview 还要点明设计为什么有效。核验方式、效率和规范需要在后文给依据，不能靠形容词代替。
 
 英文保持原文段落，仅合并换行、还原排版断词与字体连字，规范引文括号空白；高亮和批注为本指南添加。中文为本指南翻译，不是作者原文。 保留原文组件编号、Fig.2 与引文 [48]，仅清理 PDF 提取产生的标点空白。
 
