@@ -26,7 +26,7 @@
 <a id="quick-start"></a>
 ## 1. 初稿准备
 
-准备材料后，先到[论文绘图](#figure-mainfig)完成 mainfig 和 framework，再组织正文与实验。
+准备研究材料与模板，确定正文结构，再进入[论文绘图](#figure-mainfig)。图先成型，方便合作者审阅；正文随后填充。
 
 <a id="draft-step-1"></a>
 ### 1.1 研究材料与模板
@@ -62,31 +62,46 @@ Intro 结构：前两个自然段可调整顺序和分工，交代领域背景�
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · paper-visual-standards · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#draft)
 
 <a id="draft-step-3"></a>
-### 1.2 正文结构与实验
+### 1.2 正文结构
 
-- 先列章节标题、核心问题、需要的证据与篇幅。每个实验对应一项引言主张，同级内容按任务归类。
-- 引言串起研究问题、已有局限、对应设计和主要发现；相关工作给比较依据，方法解释设计怎样处理局限，实验检验这些主张。
-- Method 的 Overview 先讲核心思路及设计作用，再概括后文各节的输入、操作、输出和依赖；基础格式转换不要单独占一节。
-- 实验先固定数据划分、指标口径、对照条件和参数选择，再报告主结果。消融、稳健性、效率或错误分析按主张选，不为凑章节全做一遍。
-- 结果段先给具体发现，再给决定结论的比较与图表，最后接回原动机。讨论解释证据边界，结论回答同一研究问题。
-- 表格标清单位、指标方向和不确定性。只在同指标、同条件的可比结果中标最优、次优；引用分数与重跑分数分组。
+- 先列章节标题、各节要回答的问题、对应证据与篇幅。标题用具体对象或任务，不把多个无关动作塞在一节。
+- 同一问题贯穿引言、相关工作、设计与实验。用 To solve [limitation], we [对应动作] 点名问题；结论回答原问题，局限全文一致。
+- Method 的 Overview 先说设计为何处理局限，再概括后文各节的输入、输出与依赖；诊断型另交代瓶颈证据，基准型另交代系统输入与评分材料。
+- 实验按主张安排：整体效果看主结果，设计作用用受控检验，能力边界看相关条件。诊断驱动研究还要复测原诊断。具体设置和写法见第 3 章实验部分。
 
-<a id="draft-paper-outline"></a>
 #### 论文大纲与章节衔接
 
-实证型 CS 论文的通用大纲。方括号填本研究内容；编号仅示意，可按贡献类型调整。Method 圈内演示串行依赖，实际并行或反馈应另画对应箭头。
+引言没有固定的模板数量。先按主要贡献选论证主线，再排全文章节；诊断驱动的论文要先把发现讲成立，不能只换一个引言标题。下列三套供借鉴，段落数、模块数和节号按实际内容调整。
 
-Abstract：压缩研究问题、已有缺口、本文贡献和主要发现；对象、数值与适用范围和正文一致。通常在主要结果确定后定稿。
+| 论文类型 | 引言的论证顺序 | 正文的展开顺序 |
+| --- | --- | --- |
+| [方法论文](#structure-method) | 背景与回顾 → 局限 → 设计 → 发现 → 贡献总结 | Related Work → Method → Experiments → Conclusion |
+| [基准与数据集论文](#structure-benchmark) | 能力与评价 → 缺口及建设障碍 → 产物与设计 → 发现 → 贡献总结 | Related Work → Construction → Evaluation → Conclusion |
+| [诊断驱动的改进研究](#structure-diagnostic) | 能力判断 → 质疑与发现 → 瓶颈 → 设计 → 验证 → 贡献总结 | Diagnostic Analysis → Method → Experiments → Related Work → Conclusion |
+
+<a id="structure-method"></a>
+<details><summary>方法论文：大纲与章节衔接</summary>
+
+核心贡献是一个新方法或系统设计。先说已知局限，再解释设计如何处理它，最后检验效果与设计作用。
+
+<a id="draft-paper-outline"></a>
+#### 方法论文：局限 → 设计 → 验证
+
+填写方括号中的对象、动作与证据。节名和编号是示意；下图展示串行方法，实际并行或反馈应画出相应关系。
+
+Abstract：压缩研究问题、主要贡献和关键发现；主张、术语与适用范围和引言、正文一致。通常在主要结果确定后定稿。
 
 **1 Introduction**
 
 为什么要研究[问题]？已有路线哪里不足？本文怎样处理？实验发现什么？
 
-- **背景与回顾**：交代具体任务、已有能力和研究问题，不固定前两段的顺序。
+- **背景与比较**：先交代领域目标、已有进展与比较依据；前两段可以穿插或合并。
 
-- **局限与贡献**：给[局限]的依据与后果，紧接[对应设计]及作用。
+- **具体局限**：However, [limitation] ... 说明在什么条件下，现有路线为什么达不到[目标]。
 
-- **结果概述**：先说主要发现，再概括关键检验；贡献句落到新增方法、数据或证据。
+- **核心工作与设计**：Therefore, to address these obstacles, we introduce [name], a [亮点与用途]. 随后用 To solve [limitation], we [设计与作用] 逐项对应。
+
+- **结果与贡献总结**：概述已验证的主要发现，再以 In summary, our contributions are: 和贡献列表收尾。
 
 ↓ 已有局限的比较依据在哪里？
 
@@ -106,9 +121,9 @@ Overview：核心思想是[设计思路]。To solve [局限一], we [设计 A �
 
 3.1 Problem Formulation：定义任务输入、要求输出、目标与约束。训练、推理和评价各能看到哪些信息分开说明；已有定义较长时可另设 Preliminaries。
 
-- **3.2 [设计 A 的具体名称]**：[任务输入 x] → To address [局限一], [关键操作与依据]. → [中间产物 a]
+- **3.2 [设计 A 的具体名称]**：[任务输入 x] → To solve [局限一], [关键操作与依据]. → [中间产物 a]
 
-- **3.3 [设计 B 的具体名称]**：[a] + [必要附加信息] → To address [局限二], [关键操作与依据]. → [中间产物 b]
+- **3.3 [设计 B 的具体名称]**：[a] + [必要附加信息] → To solve [局限二], [关键操作与依据]. → [中间产物 b]
 
 - **3.4 [训练、推理或评价流程]**：[b] + [执行所需材料] → 说明实际优化目标、运行步骤或评分协议；按论文类型选择。 → [最终输出 y]
 
@@ -116,7 +131,7 @@ Overview：核心思想是[设计思路]。To solve [局限一], we [设计 A �
 
 ↓ 怎样检验整体目标与各项设计的作用？
 
-按贡献类型调整：方法论文写核心设计与训练／推理；基准论文可写数据构建、判据与评价协议；实证发现论文写研究设计、测量与分析。理论结果另交代假设、命题和证明。
+Overview 说明后续小节怎样组成完整方法；模块数服从实际设计。训练和推理信息不同，应分别画清楚，不能把评分参考当作模型可见输入。
 
 **4 Experiments**
 
@@ -144,9 +159,209 @@ Overview：核心思想是[设计思路]。To solve [局限一], we [设计 A �
 
 简短回答研究问题，概括已验证的贡献与发现；保留同一证据范围，不新增结果或设计。
 
-References：支持文献比较、定义和外部事实。Appendix：放完整设置、算法／提示词、证明、补充结果和必要材料；支撑主要主张的核心证据应在正文中可理解。
+References 支撑已有工作、定义与外部事实。Appendix 提供完整设置、算法或提示词、补充结果与复核材料；核心主张的必要证据不能全部藏在附录。局限、伦理与其他声明的位置按投稿要求确定。
 
 [NeurIPS Paper Checklist](https://neurips.cc/public/guides/PaperChecklist) · 实验设置、可复核性、不确定性与结论范围可对照核查；上图的节名和顺序是写作模板。
+
+</details>
+
+<a id="structure-benchmark"></a>
+<details><summary>基准与数据集论文：大纲与章节衔接</summary>
+
+核心贡献是数据、基准或评价协议。先明确评价缺口，再讲产物如何构建、怎样评分，最后分析被评价系统的表现。
+
+<a id="draft-benchmark-outline"></a>
+#### 基准与数据集论文：评价缺口 → 构建 → 测评
+
+核心产物是数据、基准或评价协议。先定义并构建评价对象，再报告系统表现及诊断；不要求虚构一个新模型。
+
+Abstract：压缩研究问题、主要贡献和关键发现；主张、术语与适用范围和引言、正文一致。通常在主要结果确定后定稿。
+
+**1 Introduction**
+
+为什么现有评价还不能回答[能力问题]？本文提供什么输入、判据或协议？
+
+- **背景与已有评价**：回顾能力和评价方式，比较同一目标、输入与判据；不把“未报告”写成“没有”。
+
+- **评价缺口与建设障碍**：先讲无法区分的[行为]，再讲收集[数据]或构建[判据]为什么困难；两类问题分别接到设计。
+
+- **产物与对应贡献**：Therefore, to address these obstacles, we introduce [name], a [亮点与评价用途]. To solve [评价局限], we [数据或判据设计].
+
+- **测评发现与贡献总结**：先概述真正有信息量的发现，再总结数据、评价设计及发现的独立贡献。
+
+↓ 哪些相关路线支持这个比较？
+
+**2 Related Work**
+
+按任务或评价目标归类，说明已有输入、判据和覆盖范围。
+
+- **每个主题末尾**：However, [与引言一致的局限]. To solve this [problem], we [对应改进及作用]. 不同主题承担不同的缺口。
+
+↓ 对应的缺口怎样落实为评价设计？
+
+**3 Benchmark Construction**
+
+Overview：评价[目标能力]需要[输入与判据]。我们将[来源材料]构造成[案例]，再据此定义[评价准则]；受测系统生成[回复]，评分者按[证据与准则]评估它。下面分别讲案例、判据与评分协议；若还提出辅助方法，另讲其作用。
+
+↓ 概括各小节的职责与交接
+
+3.1 Problem Formulation：定义任务、系统输入 x、回复 y、参考证据 r 与评分目标。系统可见材料和评分者可见材料分开。
+
+- **3.2 Data / Case Construction**：[原始来源材料] → 说明来源范围、筛选或采样、标注与数据划分，产物对应前文的评价缺口。 → [案例 x 与参考证据 r]
+
+- **3.3 Evaluation Criteria**：[案例 x、参考证据 r] → 定义判据及制定依据；说明如何区分目标行为、可接受答案与错误。 → [准则 c]
+
+- **3.4 Response Assessment**：[回复 y] + [x, r, c] → 说明评分者、评分步骤、汇总和必要核验；此处定义协议，下一章执行测评。 → [评分与报告格式]
+
+资料流：来源 → 案例 → 准则 → 评分协议。另一路：受测系统接收 x，生成 y；评分者结合 y、r 和 c 评分。不能让评测参考泄漏到系统输入。
+
+↓ 用这套评价实际看到了什么，它是否测到了目标能力？
+
+有独立的辅助方法时，在构建章内或单独设节，解释它与评价目标的关系；没有就不加。判据制定、评分执行与结果分析分清职责。
+
+**4 Evaluation**
+
+交代可比设置，概述主要发现，再解释差异、失败及评价边界。
+
+- **4.1 Evaluation Setup**：交代数据划分、受测系统、运行条件、指标、评分协议和不确定性；评分核验放在读者理解评分的位置。
+
+- **4.2 Main Results**：To answer [研究问题], we evaluate [系统]. 先给发现，再给关键比较和支持范围；不从一串模型名或分数排名开讲。
+
+- **4.3 Evaluation Validation（按需）**：围绕“确实测到[目标]”安排有区分力的对照、判据或评分核验；不能只用一次总分比较证明评价有效。
+
+- **4.4 Scenario / Error Analysis**：按条件或失败模式回答具体问题；个例解释过程，频率或普遍性结论要有总体统计。
+
+↓ 哪些结论得到支持，哪些条件仍未覆盖？
+
+**5 Conclusion**
+
+回答最初的评价问题，概括产物和主要发现；不把覆盖范围写成真实使用频率。
+
+**Limitations / Ethics Statement**
+
+说明来源与任务覆盖、判据及评分边界，按实际研究说明授权、隐私或风险。
+
+References 支撑已有工作、定义与外部事实。Appendix 提供完整设置、算法或提示词、补充结果与复核材料；核心主张的必要证据不能全部藏在附录。局限、伦理与其他声明的位置按投稿要求确定。
+
+</details>
+
+<a id="structure-diagnostic"></a>
+<details><summary>诊断驱动的改进研究：大纲与章节衔接</summary>
+
+先通过实验揭示问题、定位瓶颈，再据此提出并验证改进。诊断是独立贡献，方法和验证都要回扣它。
+
+<a id="draft-diagnostic-outline"></a>
+#### 诊断驱动的改进研究：发现问题 → 定位瓶颈 → 改进验证
+
+诊断在方法之前成立。诊断条件和观察维度会在后续验证中再次出现；只做主结果表，回答不了最初发现的问题。
+
+Abstract：压缩研究问题、主要贡献和关键发现；主张、术语与适用范围和引言、正文一致。通常在主要结果确定后定稿。
+
+**1 Introduction**
+
+已有成绩是否真的代表[目标能力]？诊断发现什么，瓶颈在哪里，本文怎样回应？
+
+- **背景与能力判断**：介绍已有路线及成绩，说明这些成绩通常被理解成什么能力。
+
+- **质疑与诊断发现**：However, [能力质疑]. 说明[受控诊断]如何检验它，紧接最有信息量的观察。
+
+- **瓶颈与设计判断**：进一步对照区分可能解释；说明有证据支持的[瓶颈]为何需要[设计思路]。
+
+- **方法、验证与贡献总结**：概述针对瓶颈的设计及主要验证，最后总结诊断发现、方法与验证贡献。
+
+↓ 先把质疑变成可检验要求，再给诊断证据。
+
+**2 Diagnostic Analysis**
+
+在介绍改进方法前，先证明问题存在，并给出定位瓶颈的依据。
+
+- **2.1 Testable Hypothesis**：把[目标能力]转成在[受控条件]下应该满足的可检验要求。
+
+- **2.2 Diagnostic Data and Protocol**：说明改变了哪个条件、保留了什么，如何控制相关混淆因素及比较预算。
+
+- **2.3 Findings and Diagnostic Controls**：报告目标表现与过程症状，使用有区分力的对照检验解释；不能把相关变化直接当作因果机制。
+
+↓ 诊断指出的瓶颈，成为方法每项设计的理由。
+
+**3 Proposed Method**
+
+Overview：诊断表明[瓶颈 A]妨碍[目标]。To solve [瓶颈 A], we [设计 A]，产生[a]；[设计 B]用它处理[瓶颈 B]，产生[b]；[训练或执行流程]把它们落实为[y]。先讲为什么这样设计，再展开输入输出与依赖。
+
+↓ 概括各小节的职责与交接
+
+3.1 Overview / Problem Formulation：定义必要对象及训练、推理输入输出；已在诊断章定义的对象直接承接，不重写一遍。
+
+- **3.2 [Design A]**：[任务输入 x] → To solve [诊断瓶颈 A], [设计动作与依据]. → [产物 a]
+
+- **3.3 [Design B]**：[a] + [必要信息] → To solve [诊断瓶颈 B], [设计动作与依据]. → [产物 b]
+
+- **3.4 [Training / Execution]**：[b] + [执行材料] → 给出实际训练目标或执行流程；按方法选择，不强加训练步骤。 → [最终输出 y]
+
+每项设计都接到诊断中的具体瓶颈；箭头交接真实对象，模块数量与关系按实际方法调整。
+
+↓ 既要验证主任务表现，也要复测原诊断，看最初的失败是否缓解。
+
+诊断章的假设、对照与发现要能独立读懂；方法的引出不能替代对问题本身的验证。
+
+**4 Experiments**
+
+围绕诊断和设计安排验证；终点表现、诊断复测、过程证据各回答不同问题。
+
+- **4.1 Experimental Setup**：说明数据、基线、指标与公平比较条件；诊断章已有协议只补新增条件。
+
+- **4.2 Main Results**：回答改进方法在主要任务上是否有效，说明例外与范围。
+
+- **4.3 Diagnostic Robustness**：复用第 2 章的诊断条件，检验原有失败是否缓解及其范围。
+
+- **4.4 Process / Mechanism Analysis**：复用诊断维度，看过程变化是否符合瓶颈解释；机制主张需要有区分力的检验。
+
+- **4.5 Ablation / Alternative Explanations**：检验关键设计，按当前主张控制额外预算、提示或其他替代解释。
+
+↓ 比较这些证据是否共同支持原来的设计判断。
+
+**5 Related Work**
+
+围绕已明确的问题和设计比较相关路线；主题末尾用 However 说明局限，紧接本文处理方式。
+
+- **位置选择**：可像此模板放在实验后，也可放在引言后；前置时让读者先获得必要概念，后置时突出诊断主线。
+
+↓ 回到最初的能力问题，收束诊断与验证。
+
+**6 Conclusion**
+
+回答[目标能力问题]：诊断揭示什么，设计怎样回应，证据支持到什么范围。
+
+**Limitations / Ethics Statement**
+
+局限与引言、诊断和结论一致；说明仍未解决的问题及适用范围。
+
+References 支撑已有工作、定义与外部事实。Appendix 提供完整设置、算法或提示词、补充结果与复核材料；核心主张的必要证据不能全部藏在附录。局限、伦理与其他声明的位置按投稿要求确定。
+
+</details>
+
+只有实证发现、没有改进方法时：Introduction → Study Design → Results → Robustness / Further Analysis → Discussion → Conclusion。引言按“问题 → 证据缺口 → 研究设计 → 发现 → 贡献总结”组织；删去改进方法及其消融。Related Work、局限及声明的位置按论证和投稿要求调整。
+
+<a id="draft-contribution-format"></a>
+#### 引言的贡献总结：默认保留的格式
+
+先用连贯段落讲清核心工作、设计为何对应局限，以及实验发现。方法名后的同位语立即交代亮点与用途；不要让读者读完一串流程才知道贡献。
+
+最后一个自然段用普通正文 In summary, our contributions are:，随后接原生 itemize；不把引导句改成加粗标题，不在列表后追加目录预告、链接或新结果。
+
+方法型通常概括核心工作、关键设计、验证创新与发现；基准型概括数据、评价设计与发现；诊断型概括诊断发现、对应设计与改进验证。每项一个独立贡献，亮点前置，项数按实际贡献，不为凑数拆开同一件事。
+
+这是本教程推荐保留的默认写法。只有确实受篇幅限制，或能用更清楚的组织达到同等信息量时再改；先删重复背景和次要流程。固定的是贡献可见与论证职责，不是所有论文都必须写相同数量的段落或条目。
+
+```latex
+In summary, our contributions are:
+\begin{itemize}
+    \item [Core contribution with its distinguishing feature and purpose].
+    \item [Independent design or evaluation contribution and its role].
+    \item [Verified finding and its tested scope].
+\end{itemize}
+```
+
+[引言段落模板与精修要求](#intro-writing-templates)
 
 排版示例：以下数值均为假设，不是论文结果。上标演示均值旁的标准差；浅红为最优，浅蓝为次优。
 
@@ -188,6 +403,10 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 ```
 
 包声明放导言区，table 环境放正文；先确认会议模板允许这些包。正式表替换真实数据，并在表注写清统计单位、重复次数、实际可比范围及主要发现。跨栏时用 table*，不改模板栏宽。
+
+正文结构确定后，进入论文绘图。Mainfig 让读者看懂问题与核心贡献；framework 说明设计怎样处理问题及输入输出关系；结果图支持实验发现。先确定每张图要证明什么，再画图和精修。
+
+[进入第 2 章：论文绘图](#figure-mainfig)
 
 <a id="writing-skill"></a>
 ### 三个独立 skill
@@ -1118,7 +1337,7 @@ PaperBank · 教学改写
 <a id="intro-writing-templates"></a>
 #### 引言写作模板
 
-按贡献类型选模板，方括号填自己的材料。前两段完成领域回顾和相关比较，顺序与段数可调整；后文依次接局限、对应设计和主要发现。模板给论证结构，不预设实验胜出。
+先在 1.2 正文结构选择全文组织，再按同一类型精修引言。方括号填自己的材料；前两段完成领域回顾与比较，可穿插或合并。各模板最后均接贡献总结，格式见 1.2。
 
 <a id="intro-template-method"></a>
 <details><summary>方法型引言</summary>
@@ -1139,7 +1358,7 @@ Existing [approach family A] uses [input A] to [supported operation A] [citation
 
 **对应设计与贡献**
 
-Therefore, to address these obstacles, we introduce [method name], a [verified distinguishing design and purpose]. To solve [specific limitation], we [concrete design action and contribution] to meet [corresponding design requirement]. It takes [input] and produces [output] through [high-level mechanism]. [next design, if needed] uses [preceding output] to [purpose tied to another established limitation]. Together, these designs enable [supported capability] under [stated conditions].
+Therefore, to address these obstacles, we introduce [method name], a [verified distinguishing design and purpose]. To solve [specific limitation], we [concrete design action and contribution] to meet [corresponding design requirement]. It takes [input] and produces [output] through [high-level mechanism]. To solve [another established limitation, if present], we [next design action] using [preceding output] to [corresponding purpose]. Together, these designs enable [supported capability] under [stated conditions].
 
 方法名后立即交代亮点和用途；To solve 点名前文同一个局限并给对应动作。每项设计有依据，正面修饰能从来源、操作或结果中核查。
 
@@ -1148,6 +1367,19 @@ Therefore, to address these obstacles, we introduce [method name], a [verified d
 To answer [research question], we compare [method name] with [appropriate baselines] under [shared evaluation conditions]. Experiments show [verified main finding] on [metric or measured outcome] within [tested scope]. To examine [design motivation], [ablation or controlled comparison] tests [specific design choice] and shows [verified design finding]. Further analysis identifies [supported pattern or remaining limitation], indicating [bounded answer to the original question].
 
 先概述发现，再展开设计检验和分析；与摘要、实验、结论使用同一发现和范围，不自动填写最优、显著提升或因果收益。
+
+**贡献总结**
+
+```latex
+In summary, our contributions are:
+\begin{itemize}
+    \item [Core method with its distinguishing feature and purpose].
+    \item [Independent design contribution and the limitation it addresses].
+    \item [Verified main finding and evidence about the design within the tested scope].
+\end{itemize}
+```
+
+普通正文引导句后接原生 itemize；每项一个独立贡献，列表后直接下一节。这里演示三项，按真实贡献增删，不为凑数拆分或编造；贡献亮点与作用前置。
 
 </details>
 
@@ -1176,7 +1408,7 @@ However, establishing [required evaluation] faces [self-explanatory construction
 
 **数据、判据与核心贡献**
 
-Therefore, to address these obstacles, we introduce [artifact name], a [verified source or distinguishing design] for [evaluation purpose]. [data contribution] is constructed from [verified source] using [documented selection or collection rule]. To solve [specific evaluation limitation], we [evaluation contribution and action] to measure [capability linked to the earlier gap]. The tested system receives [task input], while [evaluation evidence or criteria] is used by [evaluator] to assess [system output]. These components support [supported evaluation capability] within [coverage boundary].
+Therefore, to address these obstacles, we introduce [artifact name], a [verified source or distinguishing design] for [evaluation purpose]. To solve [data construction obstacle], we construct [data contribution] from [verified source] using [documented selection or collection rule]. To solve [specific evaluation limitation], we [evaluation contribution and action] to measure [capability linked to the earlier gap]. The tested system receives [task input], while [evaluation evidence or criteria] is used by [evaluator] to assess [system output]. These components support [supported evaluation capability] within [coverage boundary].
 
 先突出产物，再写可执行的来源与构建依据；To solve 复用评价局限名称。受测系统输入与评分材料分开，数据与判据分别接回对应困难。
 
@@ -1185,6 +1417,63 @@ Therefore, to address these obstacles, we introduce [artifact name], a [verified
 To answer [research question], we evaluate [systems or model families] using [shared protocol]. Results reveal [verified main finding] within [tested scope]. Specifically, [named finding, if useful] describes [observed behavior or result contrast]. To examine [observed limitation], [diagnostic analysis] shows [supported diagnostic finding]. These results indicate [bounded implication] and leave [remaining question] unresolved.
 
 结果段先给实际发现，不从模型名单或指标层级开讲；命名现象紧接含义，诊断回扣原问题且不扩大为未经检验的机制。
+
+**贡献总结**
+
+```latex
+In summary, our contributions are:
+\begin{itemize}
+    \item [Data contribution with its source or distinguishing design and coverage].
+    \item [Evaluation contribution and the behavior it distinguishes].
+    \item [Verified evaluation finding and its tested scope].
+\end{itemize}
+```
+
+普通正文引导句后接原生 itemize；每项一个独立贡献，列表后直接下一节。这里演示三项，按真实贡献增删，不为凑数拆分或编造；贡献亮点与作用前置。
+
+</details>
+
+<a id="intro-template-diagnostic"></a>
+<details><summary>诊断驱动的改进研究引言</summary>
+
+先通过诊断发现问题、定位瓶颈，再据此提出改进。全文先讲 Diagnostic Analysis，再讲 Method 与验证；不能只把发现塞到常规方法型结尾。
+
+**已有能力判断与可检验问题**
+
+[research area] seeks to [goal]. Existing [approach family] achieves [supported result] under [reported conditions] [citations]. However, it remains unclear whether this result demonstrates [target capability]. If the capability holds, [testable expectation] should be satisfied under [controlled condition].
+
+先区分已有成绩与它被解释成的能力，再用 However 提出可检验质疑。背景与比较可穿插，不硬套段落数。
+
+**诊断设计与关键发现**
+
+To test this expectation, we construct [diagnostic comparison] by changing [target condition] while preserving [relevant controls]. The comparison reveals [verified diagnostic finding]. Further [discriminating control or process analysis] shows [supported bottleneck evidence], suggesting that [bounded interpretation]. These observations motivate [design requirement].
+
+诊断先于方法。写清改变与保留条件，发现接到有依据的瓶颈；未检验的机制不写成事实。
+
+**针对瓶颈的设计**
+
+Therefore, to address these obstacles, we introduce [method name], a [distinguishing design and purpose]. To solve [diagnosed bottleneck], we [concrete design action] to [corresponding role]. To solve [another established bottleneck, if present], we [next design action] using [preceding output] to [corresponding role]. [training or execution procedure] combines these components to produce [output].
+
+核心动作靠前，每项设计接到前面的诊断。没有独立第二项就删去；训练或推理按实际方法写。
+
+**回到诊断的改进验证**
+
+To answer [original capability question], we evaluate [method] on [main task] and repeat [original diagnostic comparison]. Results show [verified main finding] and [verified finding under diagnostic conditions]. Further [process analysis or controlled ablation] examines [design motivation] and yields [verified result]. Together, these tests support [bounded conclusion] within [tested scope].
+
+主任务表现、诊断复测和过程检验各有职责。先概述关键发现，再展开对应证据；结论回答最初的能力质疑。
+
+**贡献总结**
+
+```latex
+In summary, our contributions are:
+\begin{itemize}
+    \item [Diagnostic contribution and the supported bottleneck finding].
+    \item [Method contribution that addresses the diagnosed bottleneck].
+    \item [Verified findings on the main task and under the diagnostic conditions].
+\end{itemize}
+```
+
+普通正文引导句后接原生 itemize；每项一个独立贡献，列表后直接下一节。这里演示三项，按真实贡献增删，不为凑数拆分或编造；贡献亮点与作用前置。
 
 </details>
 
@@ -1216,6 +1505,19 @@ To solve 点名证据缺口，贡献落到可复核的比较或测量。受控�
 To answer [research question], we analyze [evidence] under [reported study conditions]. The results show [verified main relationship or contrast]. Further [robustness check or independent analysis] examines [specific alternative explanation] and yields [verified result]. These findings support [evidence-bounded interpretation] within [tested scope], while [unresolved limitation] restricts [claim or generalization].
 
 先陈述发现，再说检验排除了什么、仍未排除什么；主结果和稳健性检查各有对象，最后回到同一研究问题与边界。
+
+**贡献总结**
+
+```latex
+In summary, our contributions are:
+\begin{itemize}
+    \item [Study design or measurement contribution and the question it tests].
+    \item [Verified empirical finding and its study conditions].
+    \item [Independent analysis contribution, if present, and its supported interpretation].
+\end{itemize}
+```
+
+普通正文引导句后接原生 itemize；每项一个独立贡献，列表后直接下一节。这里演示三项，按真实贡献增删，不为凑数拆分或编造；贡献亮点与作用前置。
 
 </details>
 

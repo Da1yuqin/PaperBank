@@ -6,7 +6,7 @@
 
 五章：初稿准备、论文绘图、正文精修、审稿回复、辅助工具。正文精修先读本节原则，再看整段批注；其他章节集中给操作要求、图例和模板。
 
-初稿准备分为研究材料与模板、正文结构与实验两节。Mainfig 和 framework 放在绘图章开头，由作者人工精修；统计图用 Python 从真实数据绘制。通用大纲图说明章节职责、方法的输入输出和 Overview，以及实验设置、主结果和设计检验。引言提供方法型、基准与数据集型、实证发现型三套填空模板；实验提供概述、设置、主结果、设计检验、敏感性与资源、错误分析六类模板。Related Work 用 However 说明局限，紧接对应解法。两张对应图把摘要、引言与正文连起来，实验结果回写前文主张。
+初稿准备分为研究材料与模板、正文结构两节。正文结构提供方法论文、基准与数据集论文、诊断驱动改进三套大纲与衔接图，并说明纯实证发现的组织。诊断型先发现问题、定位瓶颈，再提出设计并复测诊断；基准型先构建再评价。贡献总结保留普通引导句与 itemize。确定结构后进入绘图，Mainfig 和 framework 由作者人工精修，统计图从真实数据绘制。正文精修提供四类引言与六类实验模板；对应图连接摘要、引言和正文。
 
 [在线阅读](https://da1yuqin.github.io/PaperBank/) · [cs-paper-writing](assets/cs-paper-writing-skill.zip) · [绘图 skill](assets/paperbank-figures-skill.zip) · [rebuttal skill](assets/rebuttal-skill.zip) · [Markdown 全文](book/guide.md) · [来源](SOURCES.md)
 

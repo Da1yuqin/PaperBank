@@ -63,8 +63,9 @@ def render_writing_templates(content, section):
    text=paragraph['text']
    display=e(re.sub(r'(Table|Figure)~\\ref\{(\[[^\]]+\])\}',r'\1 \2',text))
    display=re.sub(r'\\textbf\{([^{}]*)\}',r'<strong>\1</strong>',display)
-   rendered+=f'<div class="template-paragraph"><h5>{e(paragraph["heading"])}</h5><p lang="en" class="template-text" data-template-raw="{e(text,quote=True)}">{display}</p><p class="template-guidance">{e(paragraph["note"])}</p></div>'
-   md+=['','**'+paragraph['heading']+'**','',text,'',paragraph['note']]
+   tag='pre' if paragraph.get('format')=='latex' else 'p'
+   rendered+=f'<div class="template-paragraph"><h5>{e(paragraph["heading"])}</h5><{tag} lang="en" class="template-text" data-template-raw="{e(text,quote=True)}">{display}</{tag}><p class="template-guidance">{e(paragraph["note"])}</p></div>'
+   md+=['','**'+paragraph['heading']+'**','']+(['```latex',text,'```'] if tag=='pre' else [text])+['',paragraph['note']]
   rendered+='<button type="button" class="copy js-only" data-copy-writing-template data-copy-label="复制完整模板">复制完整模板</button></div></details>'
   md+=['','</details>']
  return rendered+'</section>',md
@@ -284,8 +285,9 @@ def render_figure_case(visual, notes=None):
 
 def render_paper_outline(content):
  e=html.escape
- rendered=f'<figure class="paper-outline" id="draft-paper-outline"><figcaption>{e(content["title"])}</figcaption><p class="lesson-context">{e(content["caption"])}</p><p class="outline-abstract">{e(content["abstract"])}</p>'
- md=['','<a id="draft-paper-outline"></a>','#### '+content['title'],'',content['caption'],'',content['abstract']]
+ key=content['id']
+ rendered=f'<figure class="paper-outline" id="{e(key)}"><figcaption>{e(content["title"])}</figcaption><p class="lesson-context">{e(content["caption"])}</p><p class="outline-abstract">{e(content["abstract"])}</p>'
+ md=['',f'<a id="{key}"></a>','#### '+content['title'],'',content['caption'],'',content['abstract']]
  def chapter(node):
   block=f'<div class="outline-section"><p><strong><a href="#{e(node["link"])}">{e(node["title"])}</a></strong></p><p>{e(node["summary"])}</p>'
   lines=['','**'+node['title']+'**','',node['summary']]
@@ -302,7 +304,7 @@ def render_paper_outline(content):
  for node in content['before_method']:
   h,m=chapter(node);rendered+=h;md+=m
  method=content['method']
- rendered+=f'<div class="outline-method"><p><strong><a href="#chapter-method">{e(method["title"])}</a></strong></p><div class="overview-node"><p>{e(method["overview"])}</p></div><div class="overview-arrow" aria-hidden="true"><span>概括圈内各小节的职责与交接</span><svg viewBox="0 0 100 48"><defs><marker id="overview-flow-tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor"/></marker></defs><path d="M50 2 L50 43" stroke="currentColor" stroke-width="1.5" fill="none" marker-end="url(#overview-flow-tip)"/></svg></div><div class="method-main-group"><p class="method-formulation"><strong>{e(method["formulation"]["title"])}</strong> · {e(method["formulation"]["summary"])}</p><div class="method-stages">'
+ rendered+=f'<div class="outline-method"><p><strong><a href="#chapter-method">{e(method["title"])}</a></strong></p><div class="overview-node"><p>{e(method["overview"])}</p></div><div class="overview-arrow" aria-hidden="true"><span>概括圈内各小节的职责与交接</span><svg viewBox="0 0 100 48"><defs><marker id="{key}-overview-tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor"/></marker></defs><path d="M50 2 L50 43" stroke="currentColor" stroke-width="1.5" fill="none" marker-end="url(#{key}-overview-tip)"/></svg></div><div class="method-main-group"><p class="method-formulation"><strong>{e(method["formulation"]["title"])}</strong> · {e(method["formulation"]["summary"])}</p><div class="method-stages">'
  md+=['','**'+method['title']+'**','',method['overview'],'','↓ 概括各小节的职责与交接','',method['formulation']['title']+'：'+method['formulation']['summary']]
  for n,stage in enumerate(method['stages']):
   if n:rendered+='<span class="method-stage-arrow"><span aria-hidden="true">→</span><small>'+e(stage['handoff'])+'</small></span>'
@@ -320,17 +322,39 @@ def render_paper_outline(content):
   md+=['',f'[{source["title"]}]({source["url"]}) · {source["note"]}']
  return rendered+'</figure>',md
 
+def render_organization_templates(content):
+ """Choose the manuscript argument before assigning sections."""
+ e=html.escape
+ rendered=f'<h4>{e(content["title"])}</h4><p>{e(content["lead"])}</p><div class="organization-table-wrap"><table class="organization-table"><caption>按主要贡献选择全文组织</caption><thead><tr><th scope="col">论文类型</th><th scope="col">引言的论证顺序</th><th scope="col">正文的展开顺序</th></tr></thead><tbody>'
+ md=['','#### '+content['title'],'',content['lead'],'','| 论文类型 | 引言的论证顺序 | 正文的展开顺序 |','| --- | --- | --- |']
+ for pattern in content['patterns']:
+  rendered+=f'<tr><th scope="row"><a href="#{e(pattern["id"])}">{e(pattern["title"])}</a></th><td>{e(pattern["intro_chain"])}</td><td>{e(pattern["body_chain"])}</td></tr>'
+  md+=['| ['+pattern['title']+'](#'+pattern['id']+') | '+pattern['intro_chain']+' | '+pattern['body_chain']+' |']
+ rendered+='</tbody></table></div>'
+ for pattern in content['patterns']:
+  rendered+=f'<details class="organization-template" id="{e(pattern["id"])}"><summary>{e(pattern["title"])}：大纲与章节衔接</summary><p>{e(pattern["when"])}</p>'
+  md+=['',f'<a id="{pattern["id"]}"></a>','<details><summary>'+pattern['title']+'：大纲与章节衔接</summary>','',pattern['when']]
+  ph,pm=render_paper_outline(pattern['outline']);rendered+=ph+'</details>';md+=pm+['','</details>']
+ rendered+=f'<p class="outline-variants">{e(content["variant_note"])}</p><h4 id="draft-contribution-format">{e(content["contributions"]["title"])}</h4>'
+ md+=['',content['variant_note'],'','<a id="draft-contribution-format"></a>','#### '+content['contributions']['title']]
+ for rule in content['contributions']['rules']:
+  rendered+=f'<p>{e(rule)}</p>';md+=['',rule]
+ rendered+=f'<details class="prompt"><summary>贡献列表：LaTeX 格式</summary><pre>{e(content["contributions"]["code"])}</pre><button class="copy js-only" data-copy-label="复制格式">复制格式</button></details><p><a href="#intro-writing-templates">引言段落模板与精修要求 →</a></p>'
+ md+=['','```latex',content['contributions']['code'],'```','','[引言段落模板与精修要求](#intro-writing-templates)']
+ return rendered,md
+
 def render_draft_chapter(data):
  e=html.escape;q=data['quick_start'];layout=data['tutorial_layout']
- rendered='<section class="quick-start major-chapter" id="quick-start"><h2>1. 初稿准备</h2><p>准备材料后，先到<a href="#figure-mainfig">论文绘图</a>完成 mainfig 和 framework，再组织正文与实验。</p>'
- md=['','<a id="quick-start"></a>','## 1. 初稿准备','','准备材料后，先到[论文绘图](#figure-mainfig)完成 mainfig 和 framework，再组织正文与实验。']
+ rendered='<section class="quick-start major-chapter" id="quick-start"><h2>1. 初稿准备</h2><p>准备研究材料与模板，确定正文结构，再进入<a href="#figure-mainfig">论文绘图</a>。图先成型，方便合作者审阅；正文随后填充。</p>'
+ md=['','<a id="quick-start"></a>','## 1. 初稿准备','','准备研究材料与模板，确定正文结构，再进入[论文绘图](#figure-mainfig)。图先成型，方便合作者审阅；正文随后填充。']
  for n,step in enumerate(layout['draft_steps'],1):
   rendered+=f'<section class="draft-step" id="{step["id"]}"><h3>{e(step["title"])}</h3>'
   md+=['',f'<a id="{step["id"]}"></a>','### '+step['title']]
   if step['id']=='draft-step-3':
-   rendered+='<ul class="draft-requirements">'+''.join(f'<li>{e(rule)}</li>' for rule in layout['outline_example']['requirements'])+'</ul>'
-   md+=['']+['- '+rule for rule in layout['outline_example']['requirements']]
-   ph,pm=render_paper_outline(layout['outline_example']);rendered+=ph;md+=pm
+   organization=layout['organization_templates']
+   rendered+='<ul class="draft-requirements">'+''.join(f'<li>{e(rule)}</li>' for rule in organization['requirements'])+'</ul>'
+   md+=['']+['- '+rule for rule in organization['requirements']]
+   ph,pm=render_organization_templates(organization);rendered+=ph;md+=pm
   else:
    text=step['text']
    rendered+=f'<p>{e(text)}</p>';md+=['',text]
@@ -353,6 +377,9 @@ def render_draft_chapter(data):
    rendered+='</tbody></table></div>'
    rendered+=f'<details class="prompt"><summary>LaTeX 表格模板</summary><pre>{e(block["code"])}</pre><button class="copy js-only" data-copy-label="复制模板">复制模板</button><p class="example-source">{e(block["code_note"])}</p></details>'
    md+=['','**LaTeX 表格模板**','','```latex',block['code'],'```','',block['code_note']]
+   closing=layout['organization_templates']['closing']
+   rendered+=f'<p class="draft-next">{e(closing)} <a href="#figure-mainfig">进入第 2 章：论文绘图 →</a></p>'
+   md+=['',closing,'','[进入第 2 章：论文绘图](#figure-mainfig)']
   rendered+='</section>'
  return rendered+'</section>',md
 
