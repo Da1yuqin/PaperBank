@@ -35,6 +35,24 @@ for(const example of $$('.annotated-example')){
  }
 }
 window.addEventListener('resize',()=>$$('.annotated-panel').forEach(alignParagraphNotes));
+function alignArgumentArrows(){
+ if(matchMedia('(max-width:820px)').matches)return;
+ for(const pair of $$('.argument-pair')){
+  if(!pair.getClientRects().length)continue;
+  const svg=pair.querySelector('svg'),box=svg.getBoundingClientRect();
+  if(!box.height)continue;
+  const center=selector=>{
+   const mark=pair.querySelector(selector).getClientRects()[0];
+   return ((mark.top+mark.height/2-box.top)/box.height*100).toFixed(2);
+  };
+  const start=center('.argument-abstract .argument-mark'),end=center('.argument-intro .argument-mark');
+  pair.querySelector('.argument-link').setAttribute('d',`M 5 ${start} C 35 ${start}, 65 ${end}, 93 ${end}`);
+ }
+}
+const argumentObserver=new ResizeObserver(alignArgumentArrows);
+$$('.argument-pair').forEach(pair=>argumentObserver.observe(pair));
+window.addEventListener('resize',alignArgumentArrows);
+requestAnimationFrame(alignArgumentArrows);
 const lessons=$$('.paragraph-lesson');
 try{if(localStorage.getItem('paperbank-theme')==='dark')document.documentElement.classList.add('dark');}catch{}
 function sync(){

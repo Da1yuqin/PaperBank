@@ -8,6 +8,8 @@
 
 Intro、Related Work 与 Method 开头先读完整自然段，一例一段，中英可切换。高亮与旁批直接说哪里没对应、缺什么、为什么关键、怎么接；原文有不足也指出。句式与 LaTeX 模板保留在下方。Method 解释设计为何针对困难，Experiments 分析发现，Introduction 对应问题、设计与证据。先审核论证，再精修语言。
 
+Intro 开头先讲段首钩子，并用箭头对照 Abstract 与 Intro 的问题、贡献和发现。点击图中引言句子，可跳到三个修改 case：困难铺垫、专家产物与筛选、发现总览与分析。
+
 [在线阅读](https://da1yuqin.github.io/PaperBank/) · [cs-paper-writing](assets/cs-paper-writing-skill.zip) · [绘图 skill](assets/paperbank-figures-skill.zip) · [rebuttal skill](assets/rebuttal-skill.zip) · [Markdown 全文](book/guide.md) · [来源](SOURCES.md)
 
 主要面向实证型 CS / AI 论文。逐句示范混合真实短引与明确标注的教学例句，不把不同论文拼成一篇文章。PlanCraft、SAGE、GreenPlanner、EviNoteRAG、TCDiff、TCDiff++、WebFilter、CARD 共提供 56 处短引和双语拆解；另有 UrbanZero 公开介绍的教学改写。Rebuttal 保留逐点回应例子，工具附中英使用情境。

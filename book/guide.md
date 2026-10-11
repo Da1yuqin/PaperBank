@@ -2661,6 +2661,128 @@ With the spatial contract established, PlanCraft-Agent then furnishes the scene 
 
 前两段不固定分工：交代领域回顾，比较已有能力和不足，再引出本文设计。背景与比较可穿插、合并或拆分。
 
+<a id="intro-hooks"></a>
+#### 段首先加钩子
+
+钩子把新段接回前文的具体问题，让读者知道这段在回答什么。常放句首；However、Therefore 后也要有明确对象。
+
+- `However, answering this question faces two obstacles.`：“这个问题” → 两类困难
+- `To address these obstacles, we introduce [Benchmark].`：“这些困难” → 本文解法
+- `To answer this question, we evaluate [models].`：“这个问题” → 实验与发现
+
+<a id="abstract-intro-map"></a>
+#### Abstract ↔ Intro：同一主张，摘要压缩，引言展开
+
+教学对照。方括号填自己的材料；箭头连接对应内容，不规定段数。点击引言一侧可跳到修改 case。
+
+
+**问题 · 同一问题，展开困难**
+
+**Abstract**：We ask whether LLMs can handle changing needs and unresolved conditions in shopping conversations.
+
+**Intro**：How well can LLMs handle changing needs and unresolved conditions? Answering this question faces data scarcity and case-dependent evaluation standards.
+ · [修改 case](#annotated-intro-obstacles)
+
+**贡献 · 同一产物，交代来源与作用**
+
+**Abstract**：We introduce [Benchmark], pairing timestamped dialogue with case-specific evaluation criteria.
+
+**Intro**：To address these obstacles, [Benchmark] retains timestamped dialogue. Experts distill Ideal Response Principles from manually selected replies to define case-specific evaluation criteria.
+ · [修改 case](#annotated-intro-design)
+
+**发现 · 名称一致，展开含义与分析**
+
+**Abstract**：Models exhibit Product Evidence Overreach and Shopping Uncertainty Collapse.
+
+**Intro**：To answer this question, we evaluate [models]. Replies exhibit Product Evidence Overreach through unsupported claims and Shopping Uncertainty Collapse by treating unknown needs as settled; further analysis examines [specific finding].
+ · [修改 case](#annotated-intro-findings)
+
+#### 修改 case：困难要接到评价目标
+
+教学改写，非论文原文或实测结果；方括号替换自己的材料。
+
+**English 教学改写**
+
+However, answering this question faces two obstacles. First, data scarcity limits access to real commercial conversations, and identifying complex or ambiguous needs requires costly expert annotation. Second, case-dependent standards complicate evaluation: clothing recommendations require color and outfit coordination, whereas phone recommendations require different suitability checks. Even within one category, requirements and risks vary across cases. A fixed checklist can miss these differences. Together, these obstacles hinder accurate evaluation of LLMs on complex, ambiguous, and time-sensitive shopping requests.
+
+
+**中文译文**
+
+然而，回答这个问题有两个困难。首先，数据稀缺使真实商业对话难以获取，识别复杂或模糊的需求还需要成本较高的专家标注。其次，随案例变化的标准增加了评价难度：服装推荐要考虑颜色与穿搭搭配，手机推荐则要检查其他适配条件。即使是同类商品，不同案例的需求与风险也会变化。一张固定清单可能漏掉这些差异。这两类困难共同妨碍了对 LLM 处理复杂、模糊且有时效性的购物请求进行准确评价。
+
+
+**高亮与旁批**
+
+1. **However, answering this question faces two obstacles. / 然而，回答这个问题有两个困难。**：段首先加钩子。this question 接回上段的问题。先让读者知道这段为什么出现，再讲困难；只放一个 However 不够。
+2. **data scarcity limits access to real commercial conversations, and identifying complex or ambiguous needs requires costly expert annotation / 数据稀缺使真实商业对话难以获取，识别复杂或模糊的需求还需要成本较高的专家标注**：数据与标准是两类困难。数据难拿、标注成本高，是数据问题；标准随情境变化，是评价问题。别把后者写成“进一步阻碍数据获取”。
+3. **Even within one category, requirements and risks vary across cases. / 即使是同类商品，不同案例的需求与风险也会变化。**：category 和 case 别直接互换。服装与手机说明品类差异。这句再交代同类商品也有不同需求与风险，才接得上 case-dependent。
+4. **Together, these obstacles hinder accurate evaluation of LLMs on complex, ambiguous, and time-sensitive shopping requests. / 这两类困难共同妨碍了对 LLM 处理复杂、模糊且有时效性的购物请求进行准确评价。**：加一句铺垫，再提解法。点明困难妨碍的是准确评价。下一段的数据与按例标准就有了来由，不要从困难直接跳到 We introduce。
+
+PaperBank · 教学改写
+
+困难要说明阻碍了什么；解法再逐项回应。写一句 in urgent need，不能代替这层关系。
+
+根据作者提供的修改意见撰写的教学段落，不含当前稿件名称、数据数量、模型名单或未经核对的基准比较。Figure [X] 为图号占位。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
+#### 修改 case：先说专家产出了什么
+
+教学改写，非论文原文或实测结果；方括号替换自己的材料。
+
+**English 教学改写**
+
+To address these obstacles, we introduce [Benchmark]. Business experts screen cases in de-identified shopping conversations. Each case retains timestamped dialogue, including changed needs and unanswered questions. Experts distill Ideal Response Principles from excellent replies manually selected from completed transactions. These principles guide case-specific criteria across Core, Excellence, and Safety and inform a tailored reasoning prompt. The tiers assess required completion, added value, and risk avoidance, respectively. Our example (Figure [X]) illustrates how elapsed time and unresolved information affect the advice a case requires.
+
+
+**中文译文**
+
+为处理这些困难，我们提出【Benchmark】。业务专家从去标识化的购物对话中筛选案例。每个案例保留带时间戳的对话，包括发生变化的需求和未得到回答的问题。专家提炼出理想回复原则，依据的是从成功交易中手工筛选出的优秀回复。这些原则指导针对每个案例制定 Core、Excellence 和 Safety 三层标准，并用于设计专门的推理提示词。三层分别评价必要要求的完成、额外价值和风险规避。我们的例子（图【X】）说明时间推移和未决信息如何影响一个案例所需的建议。
+
+
+**高亮与旁批**
+
+1. **Experts distill Ideal Response Principles / 专家提炼出理想回复原则**：专家的产物放前面。先说谁做了什么、产出了什么，再交代来源。不要读到句尾才知道核心贡献是提炼原则。
+2. **excellent replies manually selected from completed transactions / 从成功交易中手工筛选出的优秀回复**：手工、优秀、成单都要交代。manually 写出手工；excellent 写出质量；成单写出来源。成单可筛选，但不自动证明回复好，还需给实际质量标准。
+3. **These principles guide case-specific criteria across Core, Excellence, and Safety / 这些原则指导针对每个案例制定 Core、Excellence 和 Safety 三层标准**：这句接回前文的评价要求。These principles 接上专家的产物；case-specific 回应标准随案例变化。三层名称全文一致，分别说明检查什么。
+4. **Our example (Figure [X]) illustrates how elapsed time and unresolved information affect the advice a case requires. / 我们的例子（图【X】）说明时间推移和未决信息如何影响一个案例所需的建议。**：图要接回刚才的输入。图中要能看到时间、需求变化与未决条件。若再比较别人缺少什么输入，逐项核对对比表；别凭方法名称推断。
+
+PaperBank · 教学改写
+
+动作、产物和来源写清楚：专家提炼原则，手工筛选回复，再将原则落实到每例的标准。
+
+根据作者提供的修改意见撰写的教学段落，不含当前稿件名称、数据数量、模型名单或未经核对的基准比较。Figure [X] 为图号占位。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
+#### 修改 case：先给发现总览，再展开分析
+
+教学改写，非论文原文或实测结果；方括号替换自己的材料。
+
+**English 教学改写**
+
+To answer this question, we evaluate [commercial models] and [open-weight models]. Across these models, we observe Product Evidence Overreach, where replies add unsupported product claims, and Shopping Uncertainty Collapse, where unresolved needs are treated as settled. These failures may make shopping advice less reliable. Further analysis links these failures to changing requirements and unresolved information.
+
+
+**中文译文**
+
+为回答这个问题，我们评价【商业模型】与【开放权重模型】。在这些模型的回复中，我们观察到两类失败：Product Evidence Overreach，即回复添加了缺少证据支持的商品声明；Shopping Uncertainty Collapse，即将尚未确定的需求视为已经明确。这些失败可能降低购物建议的可靠性。进一步分析将这些失败与需求变化和未决信息联系起来。
+
+
+**高亮与旁批**
+
+1. **To answer this question / 为回答这个问题**：尤其是段首，要接回问题。先接前文的研究问题，再报模型范围。否则这段像突然开始列名单，读者不知道实验在回答什么。
+2. **Across these models, we observe Product Evidence Overreach, where replies add unsupported product claims, and Shopping Uncertainty Collapse, where unresolved needs are treated as settled. / 在这些模型的回复中，我们观察到两类失败：Product Evidence Overreach，即回复添加了缺少证据支持的商品声明；Shopping Uncertainty Collapse，即将尚未确定的需求视为已经明确。**：先 overview，名称要对应。先用一句总览两类失败，再展开。与摘要和前文保留同一名称，解释可以转述；模型数量与分数不能代替发现。
+3. **Further analysis links these failures to changing requirements and unresolved information. / 进一步分析将这些失败与需求变化和未决信息联系起来。**：这里还可以展开一个结论。links 还没说具体发现。补实际条件、对照与结果，说明哪类失败何时更明显；关联不能直接写成因果。
+
+PaperBank · 教学改写
+
+报模型范围后，马上概述发现；再展开一项有依据的分析。摘要与引言用同一名称，句子可以转述。
+
+根据作者提供的修改意见撰写的教学段落，不含当前稿件名称、数据数量、模型名单或未经核对的基准比较。Figure [X] 为图号占位。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
 #### 整段示例：领域回顾怎样接到任务
 
 高亮与旁批按颜色和编号对应；点击切换中英。
@@ -2716,34 +2838,6 @@ To enable automation, prior works have employed conditioned generators [22, 31, 
 英文保持原文，仅还原 PDF 换行、断词与字体连字。中文、高亮和旁批为本指南添加；保留原文引文编号。
 
 原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
-
-#### 批注示例：困难讲完，还缺一句承接
-
-教学改写：根据作者提供的批注组织，一例只放一个自然段。
-
-**English 教学改写**
-
-Evaluating shopping advice presents two obstacles. First, access to real commercial conversations is limited, and identifying complex or ambiguous needs requires costly expert annotation. Second, recommendation criteria vary across product categories: clothing advice must account for color and outfit coordination, whereas phone advice must match usage needs to device capabilities. A single checklist cannot capture these differences.
-
-
-**中文译文**
-
-评价购物建议有两个困难。首先，真实商业对话难以获取，识别其中复杂或模糊的需求还需要成本较高的专家标注。其次，推荐标准随商品类别变化：服装建议要考虑颜色与穿搭搭配，手机建议则要将使用需求与设备能力对应起来。一张通用清单无法覆盖这些差异。
-
-
-**高亮与旁批**
-
-1. **identifying complex or ambiguous needs requires costly expert annotation / 识别其中复杂或模糊的需求还需要成本较高的专家标注**：这里还缺“为什么”。不能只说标注贵。要讲清专家需判断哪些需求仍有效、哪些条件尚未确定，读者才知道专家为何必要。
-2. **clothing advice must account for color and outfit coordination, whereas phone advice must match usage needs to device capabilities / 服装建议要考虑颜色与穿搭搭配，手机建议则要将使用需求与设备能力对应起来**：例子要解释标准为何不同。对比同一维度：什么建议算合适。这里分别给出两类商品的判断依据，比只说“品类不同”具体。
-3. **A single checklist cannot capture these differences. / 一张通用清单无法覆盖这些差异。**：段尾缺一句铺垫。这里还停在困难。接一句说明：因此，评价需要保留每例的有效需求与未决条件，并采用与品类相符的标准；下一段再介绍解法。
-
-PaperBank · 教学改写
-
-先解释困难为何妨碍评价，再引出本文怎样处理。不能写完“数据难拿、标准不同”就直接 We propose。
-
-PaperBank 编写的教学段落，非已发表论文摘录。购物场景仅用于演示论证，不报告真实项目的数据或比较结论。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
 <details><summary>展开句式与 LaTeX 模板</summary>
 

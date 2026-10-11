@@ -46,6 +46,31 @@ def package_prompt_reference(data, folder, keys):
 def section_label(section):
  return '先读 · ' if int(section['number'])==0 else str(int(section['number']))+'. '
 
+def render_intro_connections(data):
+ """Show concrete paragraph hooks and aligned Abstract–Introduction claims."""
+ content=data['intro_connections'];e=html.escape
+ rendered=f'<section class="paragraph-lesson intro-connections" id="intro-hooks" data-section="intro"><h4>{e(content["title"])}</h4><p>{e(content["lead"])}</p><ul class="intro-hook-examples">'
+ md=['','<a id="intro-hooks"></a>','#### '+content['title'],'',content['lead'],'']
+ for hook in content['hooks']:
+  rendered+=f'<li><code lang="en">{e(hook["en"])}</code><span>{e(hook["zh"])}</span></li>'
+  md+=[f'- `{hook["en"]}`：{hook["zh"]}']
+ rendered+=f'</ul><figure class="argument-map" id="abstract-intro-map"><figcaption>{e(content["map_title"])}</figcaption><p class="lesson-context">{e(content["map_note"])}</p>'
+ md+=['','<a id="abstract-intro-map"></a>','#### '+content['map_title'],'',content['map_note'],'']
+ for pair in content['pairs']:
+  key='argument-'+pair['id'];rendered+=f'<div class="argument-pair tone-{pair["tone"]}">'
+  for side in ('abstract','intro'):
+   text=pair[side];quote=pair[side+'_mark'];assert text.count(quote)==1
+   before,after=text.split(quote,1)
+   marked=e(before)+'<mark class="argument-mark">'+e(quote)+'</mark>'+e(after)
+   rendered+=f'<div class="argument-quote argument-{side}"><p class="argument-role">{("Abstract" if side=="abstract" else "Intro")} · {e(pair["label"])}</p><p lang="en">'
+   rendered+=(f'<a href="#{e(pair["link"])}">{marked}</a>' if side=='intro' else marked)
+   rendered+='</p></div>'
+   if side=='abstract':
+    rendered+=f'<div class="argument-arrow" data-annotation-exclude><span class="argument-relation">{e(pair["relation"])}</span><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="{key}-tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor"/></marker></defs><path class="argument-link" d="M 5 55 C 35 55, 65 55, 93 55" fill="none" stroke="currentColor" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#{key}-tip)"/></svg></div>'
+  rendered+='</div>'
+  md+=['','**'+pair['label']+' · '+pair['relation']+'**','', '**Abstract**：'+pair['abstract'],'','**Intro**：'+pair['intro'],f' · [修改 case](#{pair["link"]})']
+ return rendered+'</figure></section>',md
+
 def render_annotated_paragraph(example, refs):
  """Keep source paragraphs intact and place matched comments beside them."""
  e=html.escape;key=example['id']
@@ -556,6 +581,9 @@ def build():
   if s.get('principle'):
    entries+=f'<p class="chapter-principle">{e(s["principle"])}</p>'
    md+=['',s['principle']]
+  if s['id']=='intro' and data.get('intro_connections'):
+   connections_html,connections_md=render_intro_connections(data)
+   entries+=connections_html;md+=connections_md
   for example in [p for p in annotated if p['section']==s['id']]:
    example_html,example_md=render_annotated_paragraph(example,refs)
    entries+=example_html;md+=example_md
@@ -609,7 +637,7 @@ def build():
  package_skill(data)
  package_figure_skill(data)
  package_rebuttal_skill(data)
- print(f'Built 5 chapters, {len(lessons)+len(data.get("refine_templates",[]))+len(annotated)} paragraph lessons.')
+ print(f'Built 5 chapters, {len(lessons)+len(data.get("refine_templates",[]))+len(annotated)+bool(data.get("intro_connections"))} paragraph lessons.')
 
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__)
