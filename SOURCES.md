@@ -163,3 +163,11 @@ Overleaf 本地 Git 同步的 Premium 权限与当前入口核对自 [Git integr
 标题至附录的节首原则参考作者的 Notion 写作笔记与最新 CS 写作规范，重新表述为公开教学内容。Related Work 小节结尾按 However → 具体局限 → 对应方案组织，对齐 Introduction；客观限定原工作实际覆盖的范围。
 
 新增原文案例为 WebFilter 的完整标题、TCDiff 的 Footwork Adaptor 消融段（AAAI 2025，p.2651）和 EviNote-RAG 的公开 arXiv:2509.00877v3 Conclusion 第一自然段。英文保持原文；中译、高亮与旁批为 PaperBank 添加，出处、版本和原文许可紧邻案例。其他新增段落均标明假设教学场景，不作为真实文献判断或实验结果。
+
+## StrongResponse：独立审稿回复教程
+
+审稿回复从 PaperBank 拆为 [💪StrongResponse【这边也长出肌肉】](https://da1yuqin.github.io/PaperBank/StrongResponse/)。网页与公开 rebuttal skill 使用 `data/response.json` 中同一套编号、首句回答、证据定位、逐题检查和追问规则。完整模板采用通用占位符，不摘录真实评审，不分发私人 skill 原件；当轮会议与平台规定优先。
+
+开头插画为 AI 生成的原创教学配图：边牧、魔法橘猫和龙协作整理 Q1.1 回复。图片没有论文原稿、审稿记录或真实身份信息；不表达录用承诺。两个网页共享样式与交互，批注分别归属各自页面。
+
+公开教程编排 skill 总结内容顺序、标题、简洁表达、完整案例与旁批、窄屏和交付检查；为独立的通用规则，不分发私人材料或路径。

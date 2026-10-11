@@ -3,8 +3,9 @@
 : 存入你的时间，取出你的 Accept
 
 
-这里有三个可以直接使用的 skill，按任务下载。
-[cs-paper-writing](../assets/cs-paper-writing-skill.zip) · [绘图](../assets/paperbank-figures-skill.zip) · [rebuttal](../assets/rebuttal-skill.zip) · [用法](#writing-skill)
+写作与绘图：PaperBank · 审稿回复：[💪StrongResponse【这边也长出肌肉】](https://da1yuqin.github.io/PaperBank/StrongResponse/)
+这里有两个可以直接使用的 skill，按任务下载。
+[cs-paper-writing](../assets/cs-paper-writing-skill.zip) · [绘图](../assets/paperbank-figures-skill.zip) · [用法](#writing-skill)
 
 ![大字红色 accept 和庆祝彩带下，边牧、魔法橘猫和龙收到论文录用邮件，开心举起爪子。](../assets/paperbank-accept-team.png)
 
@@ -17,7 +18,7 @@
 *多数例子来自本人、本人参与或熟人的论文，另选少量具有参考价值的公开论文。各例均附出处；如用于研究，请引用对应原论文。*
 
 
-先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为审稿回复，第五章为辅助工具。
+先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为辅助工具。审稿回复见独立网页 StrongResponse。
 
 主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。
 
@@ -409,15 +410,13 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 [进入第 2 章：论文绘图](#figure-mainfig)
 
 <a id="writing-skill"></a>
-### 三个独立 skill
+### 写作与绘图 skill
 
 正文起草、章节模板、实验组织与语言精修。
 
 [cs-paper-writing ZIP](../assets/cs-paper-writing-skill.zip) · [SKILL.md](../skills/cs-paper-writing/SKILL.md)：正文起草、章节模板、实验组织与语言精修。
 
 [绘图 ZIP](../assets/paperbank-figures-skill.zip) · [SKILL.md](../skills/paperbank-figures/SKILL.md)：解压后让 Codex 读取整个 paperbank-figures/ 文件夹，并提供稿件、原始数据、参考图及允许修改的文件。
-
-[rebuttal ZIP](../assets/rebuttal-skill.zip) · [SKILL.md](../skills/rebuttal/SKILL.md)：逐题回应、证据核对、revise loop 与 AC 总结。
 
 下载所需 ZIP，解压并保留完整文件夹，让 Codex 读取其中的 SKILL.md。填入材料、任务和允许修改的范围；需要写作和绘图时同时读取两个 skill。
 
@@ -2507,100 +2506,16 @@ PaperBank · 教学改写
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
 <a id="rebuttal"></a>
-<a id="chapter-rebuttal"></a>
-## 4. 审稿回复
-
-[下载 rebuttal skill ZIP](../assets/rebuttal-skill.zip) · [SKILL.md](../skills/rebuttal/SKILL.md)：逐题回应、证据核对、revise loop 与 AC 总结。
-
-用明确证据回答审稿人的具体关切。
-
-首句回答原问题，再给证据、解释与位置；感谢简短，保持礼貌。
-
-<a id="rebuttal-prepare"></a>
-### 4.1 意见整理
-
-读取完整 review：Summary 核对理解，Strengths 记录认可点，Weaknesses 与 Questions 提取待回应关切。
-
-- 先查当轮 AI 与保密规定；确认材料可在所选工具中使用后，再提供稿件和 review。
-- 保留原问题与顺序，一句话有多问就拆开。区分机制解释与实施情况，分别回应。
-- 区分描述不清、缺对照和机制未证实；分别给案例、比较和针对性检验。
-- 从原意见判断阅读关注点，不凭 confidence 猜身份或保证提分；查当轮回复规则。
-
-<a id="rebuttal-answer"></a>
-### 4.2 回复结构
-
-首句直接回答问题，再给证据、解释与位置；流程问题用明确来源的案例展示。
-
-- 标题沿用原问题；首句给结论或具体值。
-- 给设置、对照、绝对值和指标方向；数据适合表格就用表格。
-- 说明证据如何回答问题，附表号、节号或行号。
-- 已有实验能回答就整理出来；缺关键证据时做能隔离争议的最小对照，不盲目把全部基线重跑。
-- 感谢具体、简短。说明已经补出的内容，不用一句“我们将补充”代替答案。
-- 一个段落回一个小点。表格写结果与必要设置差异，分析接回贡献；没有标准条件支持时不能把落后全归咎于不公平。
-
-<a id="rebuttal-alternative"></a>
-### 4.3 争议检验
-
-准确复述审稿人的推理，用针对性对照检验争议前提，并说明证据支持的结论。
-
-- 两种解释各预测什么？用什么实验分开？
-- 无法区分就缩小机制主张；设计动机不能代替结果。
-
-<a id="rebuttal-clarify"></a>
-### 4.4 方法澄清
-
-说明定义、真实输入与各步产物，定位争议环节；公式数量不能替代解释。
-
-- 术语不清给定义，流程不清给案例，效果不清给对照。
-- 确有错误就改；不同意就给依据。不以“你误读了”替代澄清与证据。
-
-<a id="rebuttal-loop"></a>
-### 4.5 迭代审核
-
-按原问题逐轮检查覆盖、证据与逻辑，仅修改未通过的回复，再压缩文字并调整语气。
-
-- 确认材料可在所选工具中使用后，再给 Codex 论文、原始 review、证据和回复。
-- 逐题输出：原问题、回复位置、剩余缺口、改法、所需证据。
-- 先查漏答、证据和逻辑，再缩文字、调语气。改完重查同一张问题清单。
-- 每问有答、证据对应、逻辑通顺、篇幅合规就停；缺实验交给人决定。
-- 模拟用于查漏洞，不预测评分变化或录用。
-
-<a id="rebuttal-followup"></a>
-### 4.6 后续回复与总结
-
-先逐题回应，再向 AC 概括关键问题、证据与剩余分歧，准确引用已确认的评价。
-
-- 追问接回原问题和证据，不重贴整份回复。
-- 写清剩余限制，不猜未回复审稿人的态度。
-- 不请求提分或接收，把判断留给审稿方。
-
-**复制给 Codex：Rebuttal + revise loop**
-
-```text
-读取 rebuttal/SKILL.md 和 references/rules.md。
-使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
-材料：【论文、完整 review、当前回复、已验证补充结果】
-会议当轮规则：【字数／字符限制、补实验／链接／修订稿／AI 使用规定】
-阶段：【初次／追问】；允许修改：【回复文件与范围】
-
-1. 先保留 review 原文，逐条拆出 Summary、Weaknesses、Questions、建议和评分理由里的具体关切；Strengths 记录已认可点。列“原问题→需要的证据→现有依据与位置→缺口”，不按回复现有顺序漏问，不猜审稿人动机或水平。
-2. 每问首句直接回答，随后给证据、解释和位置；问题标题忠于原意，感谢简短。数据、对照或成本适合表格就用紧凑表格，保留必要比较条件、数值口径与范围，不用文字重复每格。
-3. 每个事实回到论文、原 review、真实结果或已确认推导。合理批评就承认并改，争议就查前提与证据；不隐藏影响比较的条件。补实验的承诺不能替代结果；缺结果交给我决定，不编数字、不把 future work 写成已完成，不自动跑实验或提交回复。
-4. 执行 revise loop：按原问题清单查“原问题→回复位置→是否回答→证据是否匹配→剩余疑问→最小改法→还缺什么”。先修漏答、证据与逻辑，再压文字、调语气。只改不通过项，改后重查同一张清单，不盲目重跑全部基线。
-5. 所有问题明确覆盖、事实与证据对应、逻辑通顺、长度和当轮政策合规后停止，由我定稿。证据不足就交回缺口，不通过模拟预测评分变化或录用。
-6. 追问轮只答新增关切；AC 总结写关键问题、回应、证据与限制，不请求提分或接收。英文回复逐段附中文供我审，内部检查和缺口不混入提交文本。
-```
-
-依据：rebuttal · rebuttal-reviewer-simulator（通用证据核查规则） · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/rebuttal/references/prompts.md#rebuttal)
+审稿回复：[💪StrongResponse【这边也长出肌肉】](https://da1yuqin.github.io/PaperBank/StrongResponse/)，含回复模板与 rebuttal skill。
 
 <a id="tools"></a>
-## 5. 辅助工具
+## 4. 辅助工具
 
 按用途选。以下整理自公开文档，未逐项安装；版本和许可见原项目。
 
 核对日期：2026-10-07。
 
-### 5.1 文献检索与阅读
+### 4.1 文献检索与阅读
 
 - **[AI-Powered Literature Review Skills](https://github.com/stephenlzc/AI-Powered-Literature-Review-Skills)：**检索、去重、逐篇分析，再组织综述。
 
@@ -2625,7 +2540,7 @@ Markdown 自动同步是双向的；启用前确认需要同步的文件，保�
 
 插件也有写入笔记、标签和元数据的功能；需要只读时明确限制操作。连接云端 AI 后，读取内容可能发给模型服务商。
 
-### 5.2 写作与排版
+### 4.2 写作与排版
 
 - **[ChineseResearchLaTeX](https://github.com/huangwb8/ChineseResearchLaTeX)：**中文科研 LaTeX 模板：标书、论文、学位论文、简历。
 
@@ -2634,7 +2549,7 @@ Markdown 自动同步是双向的；启用前确认需要同步的文件，保�
 
 采用 CC BY-NC-SA 4.0，保留署名、遵守非商业与相同方式共享条件；校徽等标识另按其规则使用。
 
-### 5.3 论文绘图
+### 4.3 论文绘图
 
 - **[Paper Plot Skills](https://github.com/Trae1ounG/paper-plot-skills)：**用自己的数据画统计图，参考图布局转 matplotlib。
 
@@ -2648,7 +2563,7 @@ Markdown 自动同步是双向的；启用前确认需要同步的文件，保�
 
 [项目 LICENSE](https://github.com/larashero3-dotcom/lieflat-charts/blob/main/LICENSE)
 
-### 5.4 引用核验
+### 4.4 引用核验
 
 - **[Scholar Ref Cleaner](https://github.com/libo-huang/scholar-ref-cleaner)：**BibTeX、Word、文本引用与数据库元数据比对。
 
@@ -2665,7 +2580,7 @@ ruanyf/weekly 的链接是开发者自荐，不是独立评测；LLM 报告可�
 
 核对已有引用与正文论断的对应关系；不能保证自动核验无误。排版导出另依赖项目里的综述 skill。
 
-### 5.5 代码阅读
+### 4.5 代码阅读
 
 - **[DeepWiki](https://deepwiki.com/)：**看 GitHub 仓库架构，查函数和数据流。
 
@@ -2673,7 +2588,7 @@ ruanyf/weekly 的链接是开发者自荐，不是独立评测；LLM 报告可�
 
 [官方说明](https://docs.devin.ai/work-with-devin/deepwiki)
 
-### 5.6 论文发布与维护
+### 4.6 论文发布与维护
 
 - **[Hugging Face Daily Papers 投稿](https://huggingface.co/papers/submit)：**将公开 arXiv 论文提交到 Daily Papers。
 
@@ -2691,7 +2606,7 @@ ruanyf/weekly 的链接是开发者自荐，不是独立评测；LLM 报告可�
 
 [2026-02-06 示例页面](https://huggingface.co/papers/date/2026-02-06)
 
-### 5.7 其他资源
+### 4.7 其他资源
 
 - **[Edit Banana](https://github.com/BIT-DataLab/Edit-Banana)：**静态图转可编辑 DrawIO 元素。
 
@@ -2706,7 +2621,7 @@ README 说明默认只处理 PDF 第一页；保留原件，并为输出使用�
 作者的体验与排名是社区观点，不是统一条件下的基准测试，也不替项目做许可或安全保证。
 
 <a id="code-release-prompt"></a>
-### 5.8 开源整理
+### 4.8 开源整理
 
 先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。
 

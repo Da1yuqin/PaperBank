@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build PaperBank; use --serve to preview with Python 3 and no dependencies."""
+"""Build PaperBank and StrongResponse; use --serve to preview with Python 3."""
 import argparse
 import html
 import json
@@ -176,7 +176,7 @@ def render_annotated_paragraph(example, refs, number=None, heading_level=4, work
   source_md=f'[{example["paper_label"]}]({r["url"]}) · {example["location"]}'
   rights=r['license']
  else:
-  source=source_md='PaperBank · 教学改写'
+  source=source_md=example.get('source_label','PaperBank · 教学改写')
   rights='本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。'
  if not workflow:rendered+=f'<p class="example-source">{source}</p><details class="annotation-rights"><summary>出处与复用范围</summary><p>{e(example["processing"])}</p><p>{e(rights)}</p></details>'
  rendered+='</section>'
@@ -253,12 +253,13 @@ def render_preface(data):
  e=html.escape
  p=data['preface']
  skill=data['writing_skill']
- rendered=f'<p class="skill-links"><strong>{e(skill["opening"])}</strong> <a href="{e(skill["download"])}" download>cs-paper-writing</a> · <a href="{e(data["figure_chapter"]["skill"]["download"])}" download>绘图</a> · <a href="{e(data["rebuttal_skill"]["download"])}" download>rebuttal</a> · <a href="#writing-skill">用法</a></p>'
+ rendered='<p class="site-switch">写作与绘图：PaperBank · 审稿回复：<a href="StrongResponse/">💪StrongResponse【这边也长出肌肉】</a></p>'
+ rendered+=f'<p class="skill-links"><strong>这里有两个可以直接使用的 skill，按任务下载。</strong> <a href="{e(skill["download"])}" download>cs-paper-writing</a> · <a href="{e(data["figure_chapter"]["skill"]["download"])}" download>绘图</a> · <a href="#writing-skill">用法</a></p>'
  rendered+=f'<figure class="accept-banner"><img src="{e(p["image"])}" alt="{e(p["image_alt"])}" width="1672" height="941" fetchpriority="high"></figure><section class="preface" id="preface"><h2>{e(p["title"])}</h2>'
  rendered+=''.join(f'<p>{e(text)}</p>' for text in p['paragraphs'])
  rendered+=f'<p class="preface-aside"><em>{e(p["aside"])}</em></p>'
  rendered+='</section>'
- md=['',skill['opening'],f'[cs-paper-writing](../{skill["download"]}) · [绘图](../{data["figure_chapter"]["skill"]["download"]}) · [rebuttal](../{data["rebuttal_skill"]["download"]}) · [用法](#writing-skill)','',f'![{p["image_alt"]}](../{p["image"]})','','## '+p['title'],'']
+ md=['','写作与绘图：PaperBank · 审稿回复：[💪StrongResponse【这边也长出肌肉】](https://da1yuqin.github.io/PaperBank/StrongResponse/)','这里有两个可以直接使用的 skill，按任务下载。',f'[cs-paper-writing](../{skill["download"]}) · [绘图](../{data["figure_chapter"]["skill"]["download"]}) · [用法](#writing-skill)','',f'![{p["image_alt"]}](../{p["image"]})','','## '+p['title'],'']
  md+=sum(([text,''] for text in p['paragraphs']),[])
  md+=['*'+p['aside']+'*','']
  return rendered,md
@@ -595,9 +596,9 @@ def render_skill(data):
  """Keep the portable entry point separate from the full reading guide."""
  e=html.escape
  skill=data['writing_skill']
- rendered=f'<details class="writing-skill" id="writing-skill"><summary>给 Codex 用：三个独立 skill</summary><p>{e(skill["intro"])}</p>'
- md=['','<a id="writing-skill"></a>','### 三个独立 skill','',skill['intro']]
- for entry,label in [(skill,'cs-paper-writing'),(data['figure_chapter']['skill'],'绘图'),(data['rebuttal_skill'],'rebuttal')]:
+ rendered=f'<details class="writing-skill" id="writing-skill"><summary>给 Codex 用：写作与绘图 skill</summary><p>{e(skill["intro"])}</p>'
+ md=['','<a id="writing-skill"></a>','### 写作与绘图 skill','',skill['intro']]
+ for entry,label in [(skill,'cs-paper-writing'),(data['figure_chapter']['skill'],'绘图')]:
   rendered+=f'<p class="skill-links"><a href="{e(entry["download"])}" download>{e(label)} ZIP</a> · <a href="{REPO}/blob/main/{e(entry["source"])}">SKILL.md</a>：{e(entry["intro"])}</p>'
   md+=['',f'[{label} ZIP](../{entry["download"]}) · [SKILL.md](../{entry["source"]})：{entry["intro"]}']
  rendered+='<p>下载所需 ZIP，解压并保留完整文件夹，让 Codex 读取其中的 <code>SKILL.md</code>。填入材料、任务和允许修改的范围；需要写作和绘图时同时读取两个 skill。</p>'
@@ -644,24 +645,53 @@ def package_archive(skill, names):
    info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o644<<16
    z.writestr(info,(folder/name).read_bytes())
 
-def package_rebuttal_skill(data):
- skill=data['rebuttal_skill'];folder=ROOT/Path(skill['source']).parent
+def render_response_template(template, key, open_default=False):
+ e=html.escape
+ opened=' open' if open_default else ''
+ rendered=f'<details class="chapter-templates response-template" id="{e(key)}"{opened}><summary>{e(template["title"])}</summary><div class="paragraph-lesson"><pre>{e(template["text"])}</pre><button type="button" class="copy js-only" data-copy-label="复制模板">复制模板</button><p class="lesson-context">{e(template["note"])}</p></div></details>'
+ md=['',f'<a id="{key}"></a>','### '+template['title'],'','```markdown',template['text'],'```','',template['note']]
+ return rendered,md
+
+def build_response():
+ """Build the independent guide and skill from one public source."""
+ data=json.loads((ROOT/'data/response.json').read_text(encoding='utf-8'))
+ e=html.escape;skill=data['skill'];nav='';chapters='';rules_md=[]
+ for section in data['sections']:
+  key=section['id'];title=section['title']
+  nav+=f'<a href="#{e(key)}">{e(title)}</a>'
+  chapters+=f'<section class="major-chapter chapter" id="{e(key)}"><h2>{e(title)}</h2><div class="paragraph-lesson"><p>{e(section["lead"])}</p><ul class="template-rules">'+''.join(f'<li>{e(rule)}</li>' for rule in section['rules'])+'</ul></div>'
+  rules_md+=['',f'<a id="{key}"></a>','## '+title,'',section['lead'],'']+['- '+rule for rule in section['rules']]
+  templates=([section['template']] if section.get('template') else [])+section.get('templates',[])
+  for n,template in enumerate(templates,1):
+   template_html,template_md=render_response_template(template,key+'-template-'+str(n),key=='response-format')
+   chapters+=template_html;rules_md+=template_md
+  for n,example in enumerate(section.get('examples',[]),1):
+   annotated={'id':key+'-example-'+str(n),'section':key,'title':example['title'],'label':'教学模板：把方括号换成自己的真实证据。','paragraphs':[{'en':example['paragraph']}],'annotations':[{'paragraph':0,'en':quote['text'],'title':label,'body':quote['note']} for quote,label in zip(example['quotes'],['先答问题','交代对照','限定结论','给出位置'])],'processing':'原创教学模板，不是真实审稿回复。','source_label':'StrongResponse · 原创教学模板'}
+   example_html,example_md=render_annotated_paragraph(annotated,{},heading_level=3)
+   chapters+=example_html;rules_md+=example_md
+  chapters+='</section>'
+ usage=f'<details class="writing-skill" id="response-skill"><summary>skill 安装与用法</summary><p>下载 ZIP，解压并保留完整的 <code>rebuttal</code> 文件夹。让 Codex 读取 <code>rebuttal/SKILL.md</code>，填入论文、完整 review、已有证据、当轮规则和允许修改的范围。</p><p><a href="{REPO}/blob/main/{e(skill["source"])}">SKILL.md</a> · <a href="{REPO}/blob/main/skills/rebuttal/references/rules.md">规则与模板</a> · <a href="{REPO}/blob/main/skills/rebuttal/references/prompts.md">提示词</a></p><p>制作类似教程：<a href="../assets/tutorial-authoring-skill.zip" download>下载教程编排 skill</a> · <a href="{REPO}/blob/main/skills/tutorial-authoring/SKILL.md">SKILL.md</a>。内容顺序、简洁表达、完整案例与旁批、窄屏检查均包含在内。</p></details>'
+ prompt_html,_=render_response_template({'title':'复制给 Codex：起草与逐题检查','text':data['quick_start_prompt'],'note':'把【】换成材料或文件。先查清问题，再写回复；缺证据的地方由作者决定如何处理。'},'response-prompt')
+ preface=f'<p class="site-switch">论文写作与绘图：<a href="../">PaperBank</a> · 审稿回复：StrongResponse</p><p class="skill-links"><strong>这里有一份可以直接使用的 skill。</strong> <a href="../{e(skill["download"])}" download>下载 rebuttal skill</a> · <a href="#response-skill">用法</a></p><figure class="accept-banner"><img src="../{e(data["image"])}" alt="{e(data["image_alt"])}" width="1672" height="941" fetchpriority="high"></figure><p>{e(data["preface"])}</p>'+usage+prompt_html
+ template=(ROOT/'assets/response-template.html').read_text(encoding='utf-8')
+ for key,value in {'TITLE':e(data['title']),'SUBTITLE':e(data['subtitle']),'PREFACE':preface,'NAV':nav,'CHAPTERS':chapters}.items():template=template.replace('{{'+key+'}}',value)
+ assert not re.search(r'{{[A-Z_]+}}',template)
+ (ROOT/'StrongResponse').mkdir(exist_ok=True)
+ (ROOT/'StrongResponse/index.html').write_text(template,encoding='utf-8')
+ attribution=['','---','','Da1yuqin / [StrongResponse](https://da1yuqin.github.io/PaperBank/StrongResponse/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载请保留署名、出处及许可，改写注明改动。']
+ md=['# '+data['title'],'',data['subtitle'],'','论文写作与绘图：[PaperBank](https://da1yuqin.github.io/PaperBank/)','',f'![{data["image_alt"]}](../{data["image"]})','',data['preface'],'',f'[下载 rebuttal skill](../{skill["download"]}) · [SKILL.md](../{skill["source"]})','', '解压并保留完整 rebuttal 文件夹，让 Codex 读取 rebuttal/SKILL.md。','', '## 给 Codex 的提示词','','```text',data['quick_start_prompt'],'```']+rules_md+attribution
+ (ROOT/'book/response.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
+ folder=ROOT/Path(skill['source']).parent
  (folder/'references').mkdir(parents=True,exist_ok=True)
- md=['# Rebuttal 规则与模板','','以下均为教学模板与假设情境，不是真实审稿记录。填写真实证据；材料权限与当轮规定先确认。','','## 通用要求']
- for i in data['skill_rules']:
-  if i['section']!='rebuttal':continue
-  md+=['','### '+i['title'],'',i['checklist'],'',i['boundary']]
-  _,rm=render_example(i['examples'][0],data['references']);md+=rm
- md+=['','## 逐题回复与 revise loop']
- for lesson in data['refine_templates']:
-  if lesson['section']!='rebuttal':continue
-  _,rm=render_paragraph(lesson,data['references'],md_level=3);md+=rm
- md+=['','---','','Da1yuqin / PaperBank，[原文](https://da1yuqin.github.io/PaperBank/#rebuttal)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。']
- (folder/'references/rules.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
- package_prompt_reference(data,folder,['rebuttal'])
- license_text=(ROOT/Path(data['writing_skill']['source']).parent/'LICENSE').read_text(encoding='utf-8').replace('CS Paper Writing Skill','Rebuttal Skill').replace('references/checklist.md','references/rules.md').replace('cs-paper-writing','rebuttal')
+ (folder/'SKILL.md').write_text(skill['instructions'],encoding='utf-8')
+ (folder/'references/rules.md').write_text('\n'.join(['# StrongResponse · 规则与模板','','以下均为原创教学模板，不是真实审稿记录；方括号填写已核实材料。']+rules_md+attribution)+'\n',encoding='utf-8')
+ loop=next(s['template']['text'] for s in data['sections'] if s['id']=='revise-loop')
+ prompts=['# 给 Codex 的提示词','','## 起草与逐题检查','','```text',data['quick_start_prompt'],'```','','## Revise loop','','```text',loop,'```']+attribution
+ (folder/'references/prompts.md').write_text('\n'.join(prompts)+'\n',encoding='utf-8')
+ license_text=(folder/'LICENSE').read_text(encoding='utf-8').replace('Da1yuqin / PaperBank','Da1yuqin / StrongResponse').replace('Website: https://da1yuqin.github.io/PaperBank/\n','Website: https://da1yuqin.github.io/PaperBank/StrongResponse/\n')
  (folder/'LICENSE').write_text(license_text,encoding='utf-8')
  package_archive(skill,['SKILL.md','references/rules.md','references/prompts.md','LICENSE'])
+ package_archive({'source':'skills/tutorial-authoring/SKILL.md','download':'assets/tutorial-authoring-skill.zip'},['SKILL.md','LICENSE'])
 
 def package_figure_skill(data):
  """Publish generic drawing rules without private profiles or paper images."""
@@ -688,14 +718,14 @@ def render_tools(data):
  e=html.escape
  groups=data.get('tools',[])
  intro='按用途选。以下整理自公开文档，未逐项安装；版本和许可见原项目。'
- rendered=f'<section class="toolbox major-chapter" id="tools"><h2>5. 辅助工具</h2><p class="chapter-desc">{e(intro)}</p>'
- rendered+='<p class="tool-index">'+ ' · '.join(f'<a href="#tools-{e(g["id"])}">5.{n} {e(g["title"])}</a>' for n,g in enumerate(groups,1))+f' · <a href="#code-release-prompt">5.{len(groups)+1} 开源整理</a></p>'
+ rendered=f'<section class="toolbox major-chapter" id="tools"><h2>4. 辅助工具</h2><p class="chapter-desc">{e(intro)}</p>'
+ rendered+='<p class="tool-index">'+ ' · '.join(f'<a href="#tools-{e(g["id"])}">4.{n} {e(g["title"])}</a>' for n,g in enumerate(groups,1))+f' · <a href="#code-release-prompt">4.{len(groups)+1} 开源整理</a></p>'
  total=sum(len(g['items']) for g in groups)
  rendered+=f'<div class="tool-search js-only"><label for="tool-search">搜索工具</label><input type="search" id="tool-search" placeholder="搜 Zotero、画图、引用……"><span id="tool-count" role="status" aria-live="polite">{total} 项资源</span></div>'
- md=['','<a id="tools"></a>','## 5. 辅助工具','',intro,'','核对日期：'+data['tools_checked_at']+'。']
+ md=['','<a id="tools"></a>','## 4. 辅助工具','',intro,'','核对日期：'+data['tools_checked_at']+'。']
  for n,group in enumerate(groups,1):
-  rendered+=f'<section class="tool-group" id="tools-{e(group["id"])}"><h3>5.{n} {e(group["title"])}</h3><ul class="tool-list">'
-  md+=['',f'### 5.{n} {group["title"]}','']
+  rendered+=f'<section class="tool-group" id="tools-{e(group["id"])}"><h3>4.{n} {e(group["title"])}</h3><ul class="tool-list">'
+  md+=['',f'### 4.{n} {group["title"]}','']
   for tool in group['items']:
    assert all(tool.get(k) for k in ['id','title','url','use_zh','example_zh','example_en','boundary_zh'])
    rendered+=f'<li class="tool-item" id="tool-{e(tool["id"])}"><p><strong><a href="{e(tool["url"])}">{e(tool["title"])}</a>：</strong>{e(tool["use_zh"])}</p><p class="boundary">{e(tool["boundary_zh"])}</p>'
@@ -706,7 +736,7 @@ def render_tools(data):
    rendered+='</li>'
   rendered+='</ul></section>'
  rendered+='<p class="boundary js-only" id="tool-empty" hidden>没有匹配的工具。换个短词试试。</p>'
- title=f'5.{len(groups)+1} 开源整理'
+ title=f'4.{len(groups)+1} 开源整理'
  rendered+=f'<section class="release-prompt" id="code-release-prompt"><h3>{e(title)}</h3><p>先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。填写允许修改的范围后再使用。</p>'
  md+=['','<a id="code-release-prompt"></a>','### '+title,'','先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。']
  ph,pm=render_codex_prompt(data,data['code_release_prompt']['prompt_ref'],'中文提示词');rendered+=ph;md+=pm
@@ -722,8 +752,6 @@ def build():
   rules[rules.index(update['before'])]=update['after']
  for section,rules in data['tutorial_layout']['section_additions'].items():
   data['refine_section_principles'][section]+=rules
- for section in data['sections']:
-  if section['id']=='rebuttal':section['title']='审稿回复'
  names=data['tutorial_layout']['case_titles']
  for case in data['annotated_paragraphs']:case['title']=names.get(case['id'],case['title'])
  for figure in data['figure_chapter']['visual_examples']:figure['title']=data['tutorial_layout']['figure_titles'][figure['id']]
@@ -753,9 +781,8 @@ def build():
  skill,skill_md=render_skill(data)
  draft_nav=''.join(f'<a href="#{e(s["id"])}">{e(s["title"])}</a>' for s in data['tutorial_layout']['draft_steps'])
  figure_nav=''.join(f'<a href="#{key}">2.{n} {e(title)}</a>' for n,(key,title) in enumerate(FIGURE_SECTIONS,1))
- rebuttal_nav=''.join(f'<a href="#{e(p["id"])}">{e(p["title"])}</a>' for p in data['refine_templates'] if p['section']=='rebuttal')
- tools_nav=''.join(f'<a href="#tools-{e(g["id"])}">5.{n} {e(g["title"])}</a>' for n,g in enumerate(data['tools'],1))
- tools_nav+=f'<a href="#code-release-prompt">5.{len(data["tools"])+1} 开源整理</a>'
+ tools_nav=''.join(f'<a href="#tools-{e(g["id"])}">4.{n} {e(g["title"])}</a>' for n,g in enumerate(data['tools'],1))
+ tools_nav+=f'<a href="#code-release-prompt">4.{len(data["tools"])+1} 开源整理</a>'
  nav='<a href="#general-rules">3.1 全文规范</a>'
  for s in sections:
   if not s.get('manuscript'):continue
@@ -763,7 +790,7 @@ def build():
   number=int(s['number'])+1
   nav+=f'<a href="#chapter-{s["id"]}">3.{number} {e(s["nav"])}</a>'
  entries='';chapter_html={};chapter_md={}
- md=['# '+data['site_title'],'','先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为审稿回复，第五章为辅助工具。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎给 Codex 用作 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，修改版本注明改动。如有帮助，欢迎 Star。']
+ md=['# '+data['site_title'],'','先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为辅助工具。审稿回复见独立网页 StrongResponse。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎给 Codex 用作 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，修改版本注明改动。如有帮助，欢迎 Star。']
  md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 正文精修','','先检查全文规范，再按章节精修。模板中的【】填自己的材料，段落按内容调整。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
  md += [f'- [{section_label(s)}{s["title"]}](#{s["id"]})' for s in sections]
  md += ['- [好用工具与开源整理提示词](#tools)']
@@ -771,8 +798,8 @@ def build():
   html_start=len(entries);md_start=len(md)
   group=[i for i in items if i['section']==s['id']]
   purpose=s.get('purpose') or s.get('summary') or s['description']
-  prefix='4. ' if s['id']=='rebuttal' else ('3.'+str(int(s['number'])+1)+' ' if s.get('manuscript') else '')
-  heading_level=2 if s['id']=='rebuttal' else 3
+  prefix='3.'+str(int(s['number'])+1)+' ' if s.get('manuscript') else ''
+  heading_level=3
   entries+=f'<section class="chapter" id="chapter-{s["id"]}"><div class="chapter-head"><h{heading_level}>{prefix}{e(s["title"])}</h{heading_level}></div><p class="chapter-desc"><strong>{e(purpose)}</strong></p>'
   md+=['',f'<a id="{s["id"]}"></a>',f'<a id="chapter-{s["id"]}"></a>',f'{"#"*heading_level} {prefix}{s["title"]}','',purpose]
   principles=data.get('refine_section_principles',{}).get(s['id'])
@@ -790,19 +817,15 @@ def build():
    entries+=connections_html;md+=connections_md
   for n,example in enumerate([p for p in annotated if p['section']==s['id']]):
    number=None
-   example_html,example_md=render_annotated_paragraph(example,refs,number,heading_level=3 if s['id']=='rebuttal' else 4)
+   example_html,example_md=render_annotated_paragraph(example,refs,number,heading_level=4)
    entries+=example_html;md+=example_md
-  if s['id']=='rebuttal':
-   for lesson in [p for p in data['refine_templates'] if p['section']=='rebuttal']:
-    entries+=f'<section class="paragraph-lesson rebuttal-step" id="{e(lesson["id"])}"><h3>{e(lesson["title"])}</h3><p>{e(lesson["purpose"])}</p><ul>'+''.join(f'<li>{e(rule)}</li>' for rule in lesson['rules'])+'</ul></section>'
-    md+=['',f'<a id="{lesson["id"]}"></a>','### '+lesson['title'],'',lesson['purpose'],'']+['- '+rule for rule in lesson['rules']]
   templates=[p for p in data.get('refine_templates',[]) if p['section']==s['id'] and p.get('latex_template')]
   if templates:
    entries+='<details class="chapter-templates"><summary>结构模板</summary>'
    md+=['','<details><summary>结构模板</summary>','']
   for n,lesson in enumerate(templates):
    number=None if any(p['section']==s['id'] for p in annotated) else (f'{prefix.strip()}.{chr(97+n)}' if s.get('manuscript') and len(templates)>1 else None)
-   lesson_html,lesson_md=render_paragraph(lesson,refs,md_level=3 if s['id']=='rebuttal' else 4,number=number,heading=len(templates)>1 or s['id']=='rebuttal',compact=True)
+   lesson_html,lesson_md=render_paragraph(lesson,refs,md_level=4,number=number,heading=len(templates)>1,compact=True)
    entries+=lesson_html;md+=lesson_md
   if templates:
    entries+='</details>';md+=['','</details>','']
@@ -814,27 +837,21 @@ def build():
  for s in sections:
   if s.get('manuscript'):md+=chapter_md[s['id']]
  examples=sum(len(i.get('examples',[])) for i in items)
- rebuttal='<section class="major-chapter" id="rebuttal">'+chapter_html['rebuttal']+'</section>'
- rs=data['rebuttal_skill']
- rs_html=f'<p class="skill-links"><a href="{e(rs["download"])}" download>下载 rebuttal skill ZIP</a> · <a href="{REPO}/blob/main/{e(rs["source"])}">SKILL.md</a>：{e(rs["intro"])}</p>'
- rebuttal=rebuttal.replace('<p class="chapter-desc">',rs_html+'<p class="chapter-desc">',1)
- ph,pm=render_codex_prompt(data,data['rebuttal_prompt']['prompt_ref'],'复制给 Codex：Rebuttal + revise loop','Rebuttal + revise loop · English')
- rebuttal=rebuttal[:-len('</section>')]+ph+'</section>'
- rebuttal_md=chapter_md['rebuttal'][:4]+['',f'[下载 rebuttal skill ZIP](../{rs["download"]}) · [SKILL.md](../{rs["source"]})：{rs["intro"]}']+chapter_md['rebuttal'][4:]
- md+=rebuttal_md+pm
+ response_link='<p class="site-switch" id="rebuttal">审稿回复已独立为 <a href="StrongResponse/">💪StrongResponse【这边也长出肌肉】</a>，含回复模板与 rebuttal skill。</p>'
+ md+=['','<a id="rebuttal"></a>','审稿回复：[💪StrongResponse【这边也长出肌肉】](https://da1yuqin.github.io/PaperBank/StrongResponse/)，含回复模板与 rebuttal skill。']
  tools,tools_md=render_tools(data)
  md+=tools_md
  reading=''.join(f'<li>{link(k)}<span> — {e(r["scope"])}</span></li>' for k,r in refs.items() if r.get('public'))
  t=(ROOT/'assets/template.html').read_text(encoding='utf-8')
- for k,v in {'TITLE':e(data['site_title']),'SUBTITLE':e(data['site_subtitle']),'PREFACE':preface,'NAV':nav,'DRAFT_NAV':draft_nav,'FIGURE_NAV':figure_nav,'REBUTTAL_NAV':rebuttal_nav,'TOOLS_NAV':tools_nav,'ENTRIES':entries,'TOOLS':tools,'REBUTTAL':rebuttal,'QUICK_START':quick_start,'FIGURES':figures,'OPENING':opening,'SKILL':skill,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':'5','EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
+ for k,v in {'TITLE':e(data['site_title']),'SUBTITLE':e(data['site_subtitle']),'PREFACE':preface,'NAV':nav,'DRAFT_NAV':draft_nav,'FIGURE_NAV':figure_nav,'TOOLS_NAV':tools_nav,'ENTRIES':entries,'TOOLS':tools,'RESPONSE_LINK':response_link,'QUICK_START':quick_start,'FIGURES':figures,'OPENING':opening,'SKILL':skill,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':'4','EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
  (ROOT/'index.html').write_text(t,encoding='utf-8')
  (ROOT/'book').mkdir(exist_ok=True)
  md+=['','## 参考阅读','']+[f'- [{r["title"]}]({r["url"]})：{r["scope"]}' for r in refs.values() if r.get('public')]
  (ROOT/'book/guide.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
  package_skill(source_data)
  package_figure_skill(source_data)
- package_rebuttal_skill(source_data)
- print(f'Built 5 chapters, {len(lessons)+len(data.get("refine_templates",[]))+len(annotated)+bool(data.get("intro_connections"))} paragraph lessons.')
+ build_response()
+ print(f'Built PaperBank (4 chapters) and StrongResponse (5 chapters), {len(lessons)+len(data.get("refine_templates",[]))+len(annotated)+bool(data.get("intro_connections"))} paragraph lessons.')
 
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__)

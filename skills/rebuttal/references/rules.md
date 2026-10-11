@@ -1,261 +1,208 @@
-# Rebuttal 规则与模板
+# StrongResponse · 规则与模板
 
-以下均为教学模板与假设情境，不是真实审稿记录。填写真实证据；材料权限与当轮规定先确认。
+以下均为原创教学模板，不是真实审稿记录；方括号填写已核实材料。
 
-## 通用要求
+<a id="prepare"></a>
+## 1. 整理问题与证据
 
-### 每个审稿关切有回应
+先读完整 review，再写回答。不要只盯着 Questions：具体关切也可能出现在 Weaknesses、建议和评分理由里。
 
-一条意见有几个问题就逐个答；不能仅以“已全部修改”替代逐项回应。
+- 保留原问题和顺序；一句话问了定义、对照和成本，就拆成三问。
+- 逐题记录：原问题 → 回应类型 → 现有依据及位置 → 缺口。
+- 定义不清给定义，流程不清给案例，效果存疑给对照，实际错误就修正。
+- 优先整理已有实验；确实缺证据时，提出能区分争议解释的最小检验，交作者决定。
+- 向工具提供材料前，确认当轮保密与 AI 规则允许；不上传密钥、个人数据或无权使用的材料。
 
-模拟审稿问题与回复只用于教学，不是真实审稿记录。补实验、修订和回复格式以当轮官方政策为准；没有完成的事不写成已完成。
+<a id="prepare-template-1"></a>
+### 问题清单
 
-**审稿意见拆开，每点都有回应**
+```markdown
+| ID | 原问题 | 需要回答什么 | 已有证据与位置 | 缺口 |
+| :--- | :--- | :--- | :--- | :--- |
+| Q1.1 | 【审稿原话】 | 【具体结论】 | 【节、表、记录】 | 【仍缺什么；没有则写无】 |
+| Q1.2a | 【子问题：定义】 | 【对象与判定方式】 | 【定义所在位置】 | 【歧义在哪里】 |
+| Q1.2b | 【子问题：有效性】 | 【必要对照】 | 【已有比较】 | 【不能由现有结果回答的部分】 |
+```
 
-**教学示例：假设情境，非论文原文**
+这张表供作者整理问题；正式回复按下一节的 Q&A 交付。
 
-改后假定已有对应记录；实际改稿须先核对这些事实，不能从改前文字推断或补造。
+<a id="response-format"></a>
+## 2. 逐题回复格式
 
-**改前 · 中文**
+一题一个答案：结论 → 证据 → 解释 → 位置。首句把问题答了，后面才有必要读。
 
-意见包含缺基线、定义不清、速度未知；回复：感谢，均已修改。
+- 默认交付：每位审稿人单独一个 Markdown 代码块；提交时按平台要求粘贴正文。
+- 问题标题固定为 > **Q1.1: [问题标题]**：引用、加粗、编号、冒号都保留。
+- 一个大问题有多问，拆成 Q1.1a、Q1.1b，标题忠于原意。
+- 第一句直接回答：是否题先给结论，证据不足就说明不能判断；原因题给原因，流程题给操作，数值题给具体值。
+- 回答之后给必要设置、证据、解释与表号、节号或行号；不先感谢，不先讲背景。
+- 列点用 **Evidence**: 等短标签；适合比较的数据用表格，注明条件、单位与指标方向。
+- 一个小点一段；问题之间空一行，不堆分隔线，简短致谢放最后。
+- 修改给真实位置；只有实际改过稿件，才能写成已修改。
 
-**Before · English**
+<a id="response-format-template-1"></a>
+### 一位审稿人的完整回复
 
-The comment raises missing baselines, an unclear definition, and unknown speed. Response: Thank you; everything is fixed.
+```markdown
+> **Q1.1: How does [method] differ from [closest prior work]?**
 
-**改后 · 中文**
+The main difference is [specific mechanism or evaluation target]. [Prior work] uses [input or operation] to produce [output], whereas [our method] uses [corresponding input or operation] to produce [corresponding output]. This difference addresses [precise limitation] under [stated scope]. The description and comparison are in Section [X] and Table [Y].
 
-基线比较见表 R1。定义补在第 3 节。速度尚未测试，现有稿件不作加速主张。
+> **Q1.2: Does [component] improve [metric]?**
 
-**After · English**
+Under [tested setting], [component] [improves / does not improve] [metric] relative to [control] by [absolute difference and unit]. We hold [necessary conditions] fixed and change only [tested component].
 
-Baseline comparisons are in Table R1. The definition is clarified in Section 3. Runtime has not been measured, and the manuscript makes no speedup claim.
+| Configuration | [Metric and direction] | [Sample size or number of runs] |
+| :--- | :---: | :---: |
+| [Control] | [Verified value] | [Verified count] |
+| [With component] | [Verified value] | [Verified count] |
 
-**逐句拆解**
+This comparison supports [bounded conclusion]; it does not establish [untested mechanism or generalization]. The results and protocol are in [table or record] and Section [X].
+```
 
-每个关切均须回应，并说明证据或无法完成的原因。
+方括号全部换成已核实材料；增删表格列取决于比较需要，不能删掉影响公平性或解释结果的条件。若 Q1.2 同时问定义与效果，拆为 Q1.2a、Q1.2b，分别首句回答。
 
-### 回复讨论事实
+<a id="response-format-example-1"></a>
 
-给理由和证据；不写“显然”“你错了”，也不乱认错。
+### 一段回复怎样读
 
-模拟审稿问题与回复只用于教学，不是真实审稿记录。补实验、修订和回复格式以当轮官方政策为准；没有完成的事不写成已完成。
+教学模板：把方括号换成自己的真实证据。
 
-**讨论事实，不评价审稿人**
+**English 教学改写**
 
-**教学示例：假设情境，非论文原文**
+Under [tested setting], [component] improves [metric] relative to [control] by [absolute difference and unit]. We hold [confounding factors] fixed and compare [configurations] on [same test set]. The result supports [bounded conclusion], but does not establish [untested mechanism]. The protocol and results are in Section [X] and Table [Y].
 
-改后假定已有对应记录；实际改稿须先核对这些事实，不能从改前文字推断或补造。
 
-**改前 · 中文**
+**高亮与旁批**
 
-审稿人显然没看懂，我们早就做了。
+1. **Under [tested setting], [component] improves [metric] relative to [control] by [absolute difference and unit].**：先答问题。首句给答案：条件、比较对象、指标与差异都在。仅在相应结果支持时使用。
+2. **We hold [confounding factors] fixed and compare [configurations] on [same test set].**：交代对照。交代怎样得到答案；对照要对应审稿人的质疑。
+3. **The result supports [bounded conclusion], but does not establish [untested mechanism].**：限定结论。说明证据支持到哪里，避免把相关性写成因果。
+4. **The protocol and results are in Section [X] and Table [Y].**：给出位置。给位置，便于核查。
 
-**Before · English**
+StrongResponse · 原创教学模板
 
-The reviewer clearly misunderstood; we already did this.
+原创教学模板，不是真实审稿回复。
 
-**改后 · 中文**
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
-感谢指出这处说明不清。该比较已列在表 3；我们已在第 4.2 节补充对照条件，方便定位。
+<a id="answer-types"></a>
+## 3. 四类回答模板
 
-**After · English**
+按问题选证据，不强行把每个问题都变成补实验。澄清用定义和流程，效果用比较，机制用能区分解释的检验。
 
-Thank you for noting the unclear description. The comparison is in Table 3. We clarified the control conditions in Section 4.2 to make the evidence easier to locate.
+- 解释性答复：先定义具体对象，再给输入、操作、输出；必要时用一条样例走完整个流程。
+- 实证答复：报告真实绝对值、比较对象、指标方向与必要条件。平均值涉及波动时给相应不确定性。
+- 合理不同意见：指出争议前提和证据，只讨论论文；确有错误就修正，不评价审稿人的能力或动机。
+- 没有直接证据：明确能回答什么、不能回答什么，缩小主张。计划不是结果，空口承诺也不是证据。
+- 表格保留影响判断的设置差异和负结果；删列是为了省阅读时间，不能为了改变结论。
 
-**逐句拆解**
+<a id="answer-types-template-1"></a>
+### 3.1 定义与流程
 
-回复讨论条件、结果与表述，不评价审稿人的动机或能力。
+```markdown
+> **Q1.2a: What does [term] mean, and how is it used?**
 
-### 回复能定位结果
+[Term] denotes [concrete object and decision rule]. For input [x], [module] performs [operation] and returns [y] to [next module]. This interface is specified in Section [X]; [example or algorithm] shows [the disputed step].
+```
 
-给图表、章节或结果位置；完成、计划与未解决分开，未完成实验不配虚构结果。
+术语先落到对象；举例要解释被问到的环节，不重讲整篇方法。
 
-模拟审稿问题与回复只用于教学，不是真实审稿记录。补实验、修订和回复格式以当轮官方政策为准；没有完成的事不写成已完成。
+<a id="answer-types-template-2"></a>
+### 3.2 实验与对照
 
-**回复给位置，修改给状态**
+```markdown
+> **Q1.2b: Could [alternative explanation] account for [result]?**
 
-**教学示例：假设情境，非论文原文**
+Under [matched setting], the result [persists / does not persist] when [confounding factor] is controlled. We compare [A] and [B] with identical [necessary conditions]; [metric] is [verified A] versus [verified B] ([direction]; Table [R]). This comparison [supports / does not support] [bounded conclusion]. [Remaining uncertainty] is not resolved by this test.
+```
 
-改后假定已有对应记录；实际改稿须先核对这些事实，不能从改前文字推断或补造。
+对照必须能检验替代解释；同一批数据换个表头，不等于排除了混淆。
 
-**改前 · 中文**
+<a id="answer-types-template-3"></a>
+### 3.3 有依据的不同意见
 
-我们补了很多实验，效果很好。
+```markdown
+> **Q2.1: Does [specific concern] invalidate [claim]?**
 
-**Before · English**
+[Specific concern] does not invalidate [bounded claim] under [stated setting], because [verified fact]. The concern assumes [premise], whereas [paper location or verified record] specifies [relevant fact]. This supports [limited conclusion]. We agree that [valid part of the concern], and [verified clarification or correction, if applicable] is documented in [location].
+```
 
-We added many experiments, and the results are excellent.
+只有证据支持时才使用“不推翻主张”的首句；依据不够就说明不能判断。不同意见也要承认成立的部分。
 
-**改后 · 中文**
+<a id="answer-types-template-4"></a>
+### 3.4 目前不能回答
 
-我们新增固定预算对比，结果见表 R2；跨领域实验尚未完成，本次回复不报告该项结果。
+```markdown
+> **Q2.2: Does [claim] hold under [untested condition]?**
 
-**After · English**
+We do not have direct evidence for [claim] under [untested condition]. The available result in [location] covers [tested scope] only. We therefore limit our conclusion to [supported claim]. Establishing [broader claim] would require [specific comparison or measurement].
+```
 
-We added a comparison under a fixed budget; results are in Table R2. The cross-domain experiment is incomplete, and no result from that experiment is reported here.
+没有依据就把边界写清楚；只有稿件确已修订时，才能追加具体修改与位置。
 
-**逐句拆解**
+<a id="revise-loop"></a>
+## 4. Revise loop
 
-审稿人应能直接定位回应的依据，并区分证据与承诺。
+回到原 review，逐题查漏答、证据与逻辑。先修内容，再缩文字；一篇流畅的答非所问，还是答非所问。
 
-## 逐题回复与 revise loop
+- 按原问题清单检查，逐项定位具体 Q、段落或表格；不能因为别处提过就算回答。
+- 先只读题目与首句：是否答了原问题？再读证据：能否支撑这句结论、区分争议解释？
+- 核对数字、引用、范围、必要条件和位置；表格要能独立说明比较了什么。
+- 只改未通过项，改后重查同一张清单；新证据引出新问题时补入清单。
+- 覆盖完整、证据对应、逻辑成立、篇幅合规后停止，交作者定稿。缺实验时列出需要作者决定的事项，不预测提分或录用。
 
-### 4.1 拆审稿意见
+<a id="revise-loop-template-1"></a>
+### 让 Codex 逐题检查
 
-读取完整 review：Summary 核对理解，Strengths 记录认可点，Weaknesses 与 Questions 提取待回应关切。
+```markdown
+运行 revise loop。输入为论文【】、原 review【】、回复【】、真实证据【】、当轮规则【】。
 
-教学模板；【】填真实材料。
+按 review 原顺序逐题检查：
+1. 原问题是否有明确对应的 Q？
+2. 首句是否直接回答，而非重复问题？
+3. 证据是否支持结论、区分争议解释，且保留必要条件与范围？
+4. 图表、引用和修改位置是否真实？
 
-- 先查当轮 AI 与保密规定；确认材料可在所选工具中使用后，再提供稿件和 review。
-- 保留原问题与顺序，一句话有多问就拆开。区分机制解释与实施情况，分别回应。
-- 区分描述不清、缺对照和机制未证实；分别给案例、比较和针对性检验。
-- 从原意见判断阅读关注点，不凭 confidence 猜身份或保证提分；查当轮回复规则。
+对未通过项输出：Q 编号｜原问题｜回复位置｜具体缺口｜最小改法｜还缺的证据。只修改获授权的回复文件，不自动跑实验或改稿。修改后重查同一清单；最终交付每位审稿人的独立 Markdown，把检查记录与证据缺口单独给作者。
+```
 
-The reviewer asks whether the gain comes from retrieval quality or answer generation.
+检查记录不粘进正式回复；它帮助作者决定如何修改，不代替作者判断。
 
-审稿人问的是：收益来自检索质量，还是答案生成。
+<a id="follow-up"></a>
+## 5. 追问与 AC 总结
 
-**第 1 句：**先说清真正的问题；这里要区分两种解释。
+追问只补新增信息。给 AC 的总结写问题、回应、证据和剩余分歧，不重贴整份 rebuttal。
 
-We compare the two generators using the same retrieved passages.
+- 保留原 Q 编号和问题关系；新子问可续为 Q1.2c，编号仍以平台要求为准。
+- 先回答追问，再定位新增证据；已经讲清的背景用位置引用。
+- AC 指 Area Chair。总结按重要关切组织，写清哪些已澄清、哪些仍未解决；引用评价须与原文一致。
+- 不猜未回复审稿人的态度，不请求提分或接收，把判断交给审稿方。
 
-我们使用相同的检索段落比较两个生成器。
+<a id="follow-up-template-1"></a>
+### 5.1 第二轮追问
 
-**第 2 句：**对照须对应原问题：固定检索，改变生成器。
+```markdown
+> **Q1.2c: Follow-up on [specific unresolved point]**
 
-### 4.2 逐题回复
+[Direct answer to the new question]. Compared with our response to Q1.2, the new information is [verified evidence or clarification], located in [location]. This [addresses / leaves unresolved] [specific point]; [remaining limitation] remains outside the tested scope.
+```
 
-首句直接回答问题，再给证据、解释与位置；流程问题用明确来源的案例展示。
+只写新增信息；若问题仍未解决，直说证据缺口。
 
-教学模板；【】填真实材料。
+<a id="follow-up-template-2"></a>
+### 5.2 给 AC 的简要总结
 
-- 标题沿用原问题；首句给结论或具体值。
-- 给设置、对照、绝对值和指标方向；数据适合表格就用表格。
-- 说明证据如何回答问题，附表号、节号或行号。
-- 已有实验能回答就整理出来；缺关键证据时做能隔离争议的最小对照，不盲目把全部基线重跑。
-- 感谢具体、简短。说明已经补出的内容，不用一句“我们将补充”代替答案。
-- 一个段落回一个小点。表格写结果与必要设置差异，分析接回贡献；没有标准条件支持时不能把落后全归咎于不公平。
+```markdown
+The main remaining issue concerns [precise issue]. Our response provides [verified evidence and location], supporting [bounded conclusion].
 
-The gain persists when retrieval is held fixed.
+**Reviewer [ID], Q[X.X].** The concern was [faithful summary]. We answered it with [comparison or clarification]; [verified result or revised wording] is in [location]. [Remaining disagreement or limitation, if any].
 
-固定检索后，收益仍然存在。
+**Reviewer [ID], Q[Y.Y].** The concern was [faithful summary]. The response distinguishes [explanation A] from [explanation B] using [evidence and location]. [What the evidence establishes and leaves unresolved].
+```
 
-**第 1 句：**首句直接回答；只有相应对照支持时才能用。
-
-With identical passages and decoding settings, 【method】 scores 【A】 versus 【B】 for 【baseline】 on 【metric】 (higher is better; Table 【R1】).
-
-使用相同段落和解码设置时，【方法】在【指标】上为【A】，而【基线】为【B】（越高越好；表【R1】）。
-
-**第 2 句：**给协议、对照、绝对值和位置，不要只报“提升显著”。
-
-This comparison isolates the generator change under the tested retrieval setting.
-
-这一比较在所测试的检索设置下隔离了生成器改动。
-
-**第 3 句：**收束到已检验的范围，不扩大到所有场景。
-
-### 4.3 区分两种解释
-
-准确复述审稿人的推理，用针对性对照检验争议前提，并说明证据支持的结论。
-
-教学模板；【】填真实材料。
-
-- 两种解释各预测什么？用什么实验分开？
-- 无法区分就缩小机制主张；设计动机不能代替结果。
-
-A plausible alternative is that the improvement comes from longer outputs.
-
-一种合理的替代解释是：收益来自更长的输出。
-
-**第 1 句：**准确点出竞争解释，不评价审稿人的水平。
-
-We therefore match the output-token budget and compare 【A】 with 【B】 under the same evaluation protocol.
-
-因此，我们匹配输出 token 预算，并在相同评测协议下比较【A】和【B】。
-
-**第 2 句：**控制对方指出的混淆因素。
-
-The difference is 【result】; this supports 【bounded conclusion】 but does not establish 【untested mechanism】.
-
-差异为【结果】；它支持【限定结论】，但尚不能确立【未经检验的机制】。
-
-**第 3 句：**结果支持到哪里，就写到哪里。
-
-### 4.4 澄清：定义、流程、例子
-
-说明定义、真实输入与各步产物，定位争议环节；公式数量不能替代解释。
-
-教学模板；【】填真实材料。
-
-- 术语不清给定义，流程不清给案例，效果不清给对照。
-- 确有错误就改；不同意就给依据。不以“你误读了”替代澄清与证据。
-
-Here, 【term】 denotes 【concrete definition】.
-
-这里，【术语】指【具体定义】。
-
-**第 1 句：**定义先落到对象，不绕回抽象名词。
-
-For input 【x】, the module performs 【operation】 and returns 【y】 to 【next module】.
-
-输入【x】后，该模块执行【操作】，将【y】交给【下一模块】。
-
-**第 2 句：**一条样例走完整条路径。
-
-Section 【N】 specifies this interface; we clarify 【ambiguous phrase】 in 【permitted revision location】.
-
-第【N】节说明了这一接口；我们在【允许的修订位置】澄清【歧义表述】。
-
-**第 3 句：**位置要真实存在；会议不允许改稿时，只在回复中澄清。
-
-### 4.5 Revise loop
-
-按原问题逐轮检查覆盖、证据与逻辑，仅修改未通过的回复，再压缩文字并调整语气。
-
-教学模板；【】填真实材料。
-
-- 确认材料可在所选工具中使用后，再给 Codex 论文、原始 review、证据和回复。
-- 逐题输出：原问题、回复位置、剩余缺口、改法、所需证据。
-- 先查漏答、证据和逻辑，再缩文字、调语气。改完重查同一张问题清单。
-- 每问有答、证据对应、逻辑通顺、篇幅合规就停；缺实验交给人决定。
-- 模拟用于查漏洞，不预测评分变化或录用。
-
-Concern: 【verbatim concern】. Response location: 【paragraph/table】. Remaining gap: 【specific gap】.
-
-原问题：【审稿原话】。回复位置：【段落/表】。剩余缺口：【具体缺口】。
-
-**第 1 句：**每条批评必须定位，不能仅给“还不够有说服力”等笼统评价。
-
-Minimal fix: 【edit】. Required evidence: 【existing result or experiment needed】.
-
-最小修改：【改法】。所需证据：【已有结果或需要的实验】。
-
-**第 2 句：**把改文字和补证据分开，便于作者判断。
-
-### 4.6 第二轮与 AC 总结
-
-先逐题回应，再向 AC 概括关键问题、证据与剩余分歧，准确引用已确认的评价。
-
-教学模板；【】填真实材料。
-
-- 追问接回原问题和证据，不重贴整份回复。
-- 写清剩余限制，不猜未回复审稿人的态度。
-- 不请求提分或接收，把判断留给审稿方。
-
-Regarding the follow-up on 【issue】, 【direct answer】; the supporting comparison is in 【location】.
-
-针对【问题】的追问，【直接答案】；支持这一答案的比较见【位置】。
-
-**第 1 句：**只写新增信息。
-
-The main concern was 【issue】. Our response provides 【evidence】, supporting 【bounded conclusion】.
-
-主要关切是【问题】。回复提供了【证据】，支持【限定结论】。
-
-**第 2 句：**明确说明问题、回复及其依据。
+没有实质分歧就改为关键问题总结。内容与篇幅服从当轮规则；不列推测态度、身份或提分诉求。
 
 ---
 
-Da1yuqin / PaperBank，[原文](https://da1yuqin.github.io/PaperBank/#rebuttal)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+Da1yuqin / [StrongResponse](https://da1yuqin.github.io/PaperBank/StrongResponse/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载请保留署名、出处及许可，改写注明改动。
