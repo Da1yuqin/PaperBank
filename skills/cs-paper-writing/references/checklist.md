@@ -1102,6 +1102,7 @@ EN: We design a pre-planning evidence check that identifies unsupported constrai
 
 【铁律】摘要按背景、limitation、解法与实验亮点组织，解法用 For [具体 limitation], we ...；引言方法总述用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].，逐点解法用 To solve [同名 limitation], we ...。挑战名须直接显示困难。每次修改后回读摘要与引言，核对对象、术语、数字、范围与因果方向。
 贡献列表【铁律】：固定三项：工作概述、挑战与对应解法、实验发现。第二项每个挑战用 For [挑战], we [解法]，是引言 To solve 的明确例外；不编造贡献。
+分类：只有明确必须遵守或禁止违反的要求标“铁律”。模块 To 起句、结果段先给发现、小节篇幅相称是可调整写法，不得自行升级为铁律。
 ```
 
 **English prompt**
@@ -1122,6 +1123,7 @@ Task: write a Chinese outline first; editable files and scope: [ ].
 
 Hard rules: retain background, a specific limitation, corresponding design, and experimental findings in the Abstract. Name each limitation with "For [specific limitation], we ..." in the Abstract and "To solve [the same limitation], we ..." in the Introduction. Start the Introduction method paragraph with "Therefore, to address these obstacles, we introduce [name], a [core feature and purpose]." Name challenges as concrete difficulties. Re-read both sections after either changes and align objects, terminology, numbers, scope, and causal direction.
 Contribution-list hard rule: use exactly three items: overview, challenge-specific solutions, and experimental findings. In item two, use For [challenge], we [solution] for each actual challenge, as an explicit exception to Introduction To solve hooks. Invent no contribution.
+Classification: Reserve hard-rule labels for explicit mandatory or prohibited requirements. To-purpose module openers, finding-first result paragraphs, and balanced subsection lengths are adaptable writing recommendations.
 ```
 
 依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#intro)
@@ -1152,9 +1154,9 @@ Teaching example: Plans must satisfy multiple conditions. Existing methods gener
 
 The Introduction compresses the argument of the paper. Make the problem, design, and evidence clear in Chinese before drafting the English.
 
-## 全文表达要求与中英改写
+## 全文要求与写法建议
 
-全文围绕核心贡献组织：现有问题是什么，本文新增什么，为什么这样设计，证据支持什么。先明确论证，再精修语言。
+“铁律”只标必须遵守或禁止违反的要求；未标记的是可调整的写法建议。官方规定优先，特定稿件的要求不套用到其他论文。篇幅利用和实验页呈现来自作者笔记，不是会议的最低页数规定。
 
 #### 【铁律】写满有效篇幅
 
@@ -1168,9 +1170,9 @@ The Introduction compresses the argument of the paper. Make the problem, design,
 
 作者针对实证型 CS 长文的写作与排版经验；当轮会议要求优先。
 
-#### 【铁律】超页先删次要内容
+#### 【铁律】保留支撑结论的证据
 
-先删重复和无关背景，再压缩 Related Work 与常规方法介绍。保留实验结论、关键条件和比较；删到只剩分数，贡献就失去论证。
+不能为省篇幅删掉支撑结论的实验分析、必要条件和关键比较。超页建议先删重复和无关背景，再压缩 Related Work 与常规方法介绍。
 
 作者针对实证型 CS 长文的写作与排版经验；当轮会议要求优先。
 
@@ -1186,7 +1188,7 @@ The Introduction compresses the argument of the paper. Make the problem, design,
 
 作者针对实证型 CS 长文的写作与排版经验；当轮会议要求优先。
 
-#### 【铁律】先说为什么值得做
+#### 先说为什么值得做
 
 每项设计都要回答：已有做法在哪种条件下不足，本文改了什么，为什么有用，哪项证据支持。
 
@@ -1208,7 +1210,7 @@ To check whether retrieved evidence actually supports an answer, we verify each 
 
 **第 1 句：**相同几个模块，现在说出了具体困难、设计目的和改动位置。实际效果另给对照证据。
 
-#### 【铁律】用具体操作替代空泛评价
+#### 用具体操作替代空泛评价
 
 用具体操作替换 powerful、comprehensive 等空评价。
 
@@ -1392,9 +1394,9 @@ We use tailored prompts for each role.
 
 **第 1 句：**如果提示词确实针对角色设计，tailored 简短而直接；没有更好词时保留原词。
 
-#### 【铁律】命名发现立即解释
+#### 命名发现立即解释
 
-需要命名时，短名后立即解释现象，全文沿用同一定义，优先四个英文词以内。名称帮助记忆，不能代替证据。
+发现需要命名时，选准确、好懂的短名，通常不超过四个英文词。定义和证据仍须给出，名称不能代替解释。
 
 教学改写：假设已有对应设计或比较，非论文原文与实测结果。
 
@@ -1470,9 +1472,9 @@ Both systems use the same model and evidence-context budget.
 
 **第 1 句：**两个共同条件可以直接并列，However 在这里没有转折。
 
-#### 【铁律】章节按流程衔接
+#### 【铁律】不虚构章节依赖
 
-章首接回具体问题，说明本章任务；确有上下游关系时交代产物给谁用。不编串行依赖，不追加无用目录预告；Conclusion 直接收束。
+章节间的输入输出按真实关系交代，不把并行写成串行。章首可接回具体问题并说明本章任务，结尾按需要交代产物用途；不加无用目录预告。
 
 教学改写：假设已有对应设计或比较，非论文原文与实测结果。
 
@@ -1576,7 +1578,7 @@ This comparison does not isolate quote organization from retained constraint inf
 
 **第 2 句：**机制归因服从控制范围，不用 prove 放大解释。
 
-#### 【铁律】结果首句写发现
+#### 结果首句写发现
 
 结果段首句给有依据的发现，随后给图表、关键比较和意义；先读完一段设置才找到结论，会增加阅读负担。
 
@@ -1604,7 +1606,7 @@ Table 1 reports the matched comparison with and without those constraints.
 
 **第 2 句：**给出证据入口与比较对象，不逐行念分。
 
-#### 【铁律】同级小节篇幅相称
+#### 同级小节篇幅相称
 
 任务相近，篇幅尽量接近；太长先查重复，复杂内容分段。
 
@@ -1630,8 +1632,8 @@ We separate evidence selection from answer generation because the two stages use
 
 标题突出核心贡献，不列举全部模块。
 
-- 【铁律】标题明确研究对象与核心贡献；方法名后说明做了什么，发现型论文直接写关键发现。只报名字，读者看不出研究内容。
-- 【铁律】标题中的能力与发现须有正文证据，不能把诊断问题写成已解决问题。记忆点要准确、好懂，不用自我评价代替贡献。
+- 标题交代研究对象和核心贡献；方法名后说明做了什么，发现型论文可直接写关键发现。记忆点要准确、好懂。
+- 【铁律】标题中的能力与发现须有正文证据，不能把诊断问题写成已解决问题。
 
 ### 摘要
 
@@ -1641,8 +1643,8 @@ We separate evidence selection from answer generation because the two stages use
 
 - 【铁律】摘要一个自然段，按背景、具体 limitation、对应方法与亮点、实验亮点组织。不用设问或术语定义代替不足；缺一环，就看不出研究为何必要、做了什么或证据是什么。长度服从会议要求。
 - 【铁律】贡献对象和动作尽早出现。关键改动要回应前句的不足，不先堆流程和数量。
-- 【铁律】每句接住上句的对象，再增加信息。术语首次解释，缩写展开；通常不放引文，投稿规定优先。
-- 【铁律】结果优先保留有信息增量的发现及比较范围；不逐项报分，不机械以最大数字结尾。
+- 【铁律】必要术语首次解释，缩写给全称；句间的对象与逻辑关系明确，不能让读者猜。
+- 结果优先保留有信息增量的发现及比较范围，不机械以最大数字结尾。摘要通常不放引文，按会议要求处理。
 - 【铁律】摘要解法逐点写 For [具体 limitation], we [实际动作与贡献].，点名前文同一限制。
 - 【铁律】改动摘要或引言后，回读另一节；问题、设计、命名、数字、模型范围和因果方向持续对应，不逐字照抄。
 
@@ -1652,17 +1654,17 @@ We separate evidence selection from answer generation because the two stages use
 
 前两段不固定分工：交代领域回顾，比较已有能力和不足，再引出本文设计。背景与比较可穿插、合并或拆分。
 
-- 【铁律】段首用钩子接回前文的具体问题、困难或产物。However 写转折，To solve 点名困难，Therefore 据前述证据引出结论，Specifically 展开判断；连接词不能代替实际逻辑。
+- 【铁律】钩子承接前文真实问题、困难或产物，不能错置转折、目的与因果。However 可写转折，Therefore 据前述证据归纳，Specifically 展开判断；不是每段都要出现这些词。
 - 【铁律】前两段可穿插、合并或拆分，但要有领域回顾与已有方法比较。回顾给局限铺路：后面批评什么，前面先说明已有方法怎样处理它。
 - 【铁律】挑战名称本身就要显示困难：什么缺失、什么难以完成、什么阻碍目标。随后解释原因和影响，中性任务属性不能直接当挑战名。
 - 【铁律】贡献对象与动作尽早出现。expert-confirmed、manually selected、tailored 等词要对应实际工作；写清选择依据，不用“高质量”代替依据。
 - 【铁律】方法介绍段首用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].；随后逐点用 To solve [具体 limitation], we [实际动作]. 给解法。引言讲设计思路，公式与实现留给 Method。
-- 【铁律】结果段先接回研究问题，再概述发现。改动摘要或引言后回读另一节，核对问题、设计、命名、数字与范围；不逐字重复，不把排名当分析。
-- 【铁律】给每个局限沿用同一名称和定义；Related Work 给比较依据，Method 写对应设计，实验检验这项设计并接回该局限。
+- 结果段可先接回研究问题，再概述发现；摘要压缩、引言展开，不逐字重复，不把排名当分析。
+- 【铁律】摘要、引言及正文的问题、设计、名称、数字、范围与因果方向一致；每次修改后回读对应部分。局限沿用同一名称，Related Work 给比较依据，Method 说明设计，实验提供检验。
 - 【铁律】结果概述对应正文实际结论。若实验只支持某些任务或条件，摘要、引言、讨论和结论都限定到相同范围。
 - 【铁律】引言只引用属于本节的图表；不提前指向后文方法、实验、附录的图表、公式或章节，也不写“见后文”。文献 citation 与有依据的结论保留。
 - 【铁律】引言中的正式命名对象每次出现用斜体，强调性加粗对同一对象全节最多一次；贡献列表不重置次数，普通专业词不机械斜体。
-- 【铁律】普通正文 In summary, our contributions are: 后接原生 itemize，固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个用 For [挑战], we [解法]；第 3 项给证据范围，新发现首次就近定义。列表后直接下一节，不造贡献凑数。
+- 【铁律】普通正文引导句后接原生 itemize，固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个用 For [挑战], we [解法]；第 3 项给证据范围，新发现首次就近定义。不造贡献凑数，列表后直接下一节。
 
 ### 相关工作
 
@@ -1671,26 +1673,27 @@ We separate evidence selection from answer generation because the two stages use
 局限与对应方案须对齐 Introduction 的对象和关键词，不新增无关问题。
 
 - 【铁律】使用原生 section / subsection；主题标题独占一行，在最终 PDF 最多一行，不以 paragraph 或行内粗体代替。
-- 【铁律】按共同任务、机制或评价目标分组，解释各路线怎样工作；先承认已有能力，再比较近邻。逐篇罗列，读者就看不出路线差异与本文位置。
-- 【铁律】每个主题用 However, [与引言对应的具体不足]. 转折，紧接 To solve this [problem], we [实际改进], enabling [具体能力或用途].，包括第一个小节。末句说明改进的价值；预期作用与已验证效果分开。
-- 【铁律】不足的名称、对象与范围对齐 Intro，解法对应同一方案；不同主题承担不同缺口，解法起句按实际关系变化。重复一个缺口，只是换地方再讲一遍。
+- 按共同任务、机制或评价目标分组，解释各路线怎样工作；先承认已有能力，再比较近邻。逐篇罗列，读者就看不出路线差异与本文位置。
+- 【铁律】每个主题末尾固定三句：However, [具体缺口]. → [承接短语], we [动作] [对象] based on [方法或原则]. → This enables [实际应用], [效果动词] [解决的同一问题].。位置不互换，最后落在缺口如何解决；预期用途不写成已验证效果。
+- 【铁律】缺口的名称、对象与范围对齐 Intro，本文做法应对同一个问题；不同主题承担不同缺口，不能重复包装同一不足。
 - 【铁律】不足要能回查原论文。未报告不等于没有；仅测单轮，不等于多轮一定失败。客观限定范围，不夸大缺陷。
-- 【铁律】引用按相关性选，不设篇数配额，也不因方法相似而漏引。可直接比较的近邻安排基线；设置不同就讲清差异。
+- 【铁律】文献真实、相关且对应具体主张，不为引用配额加入无关论述，不因结果不利漏引。可比较近邻可安排基线；设置不同就说明差异。
 
 ### 方法
 
-铁律：告诉读者为什么你的方法好，比解释清楚方法更重要。
+告诉读者为什么你的方法好，比解释清楚方法更重要。
 
 围绕本文设计组织内容，每个关键选择对应 Introduction 的具体困难。既有方法简要说明，不将 Method 写成 Preliminary。
 
-- 【铁律】为什么你的方法好，比解释清楚方法更重要。每项关键设计接回 Intro 的具体困难，再讲怎样实现。
-- 【铁律】任务定义写清实际输入、要求输出和约束；训练、推理、评价能看到的信息分开，符号随计算引入。
+- 为什么你的方法好，比解释清楚方法更重要。每项关键设计接回 Intro 的具体困难，再讲怎样实现。
+- 【铁律】写清真实输入、要求输出和约束；存在训练、推理或评价阶段时，分别说明可见信息，不能把仅供评价的材料写成模型输入。
 - 【铁律】Overview 先接回 Intro 的困难，再按真实输入输出概括交接。用准确章节名与 ref 定位，每节只引一次，实际执行者作主语，末句指向 framework；保留并行、循环与反馈，否则总览会误导实际流程。
-- 【铁律】模块首句用 To [具体目的], [实际主语] ...；随后给设计依据、操作和必要公式，末句交代产物给谁用。
-- 【铁律】主要篇幅留给自己的设计。标准操作简写，正文说明参数作用，数值、搜索与版本归 Implementation Details；长 prompt 和额外细节放附录。否则读者会先看完实现细账，仍找不到贡献。
+- 模块可用 To [具体目的], [实际主语] ... 起句；再讲设计依据、操作和必要公式，最后交代产物用途。这是句式模板，不必每节逐字照用。
+- 主要篇幅留给自己的设计，标准操作简写；长 prompt 和额外细节可放附录，正文给入口。
 - 【铁律】符号先讲普通含义，再定义对象、单位、下标与信号来源。关键计算用独立 equation / align 并编号，公式作为完整句保留标点；短定义行内写，不给普通操作造无用公式。
 - 【铁律】框架图、Overview、小节和粗体模块名必须对应真实步骤；图文各说一套，读者就无法追踪同一个方法。
 - 【铁律】说明外部模型、检索器、仿真器等组件的职责与来源，明确本文改了哪一部分；使用现成组件不等于提出新方法。
+- 【铁律】正文说明参数作用，Implementation Details 交代真实数值、搜索、版本与来源；不编参数，不删除复现所需信息。
 
 ### 实验
 
@@ -1698,14 +1701,14 @@ We separate evidence selection from answer generation because the two stages use
 
 每项核心主张须有对应证据，分析解释结果如何支持或限制该主张。
 
-- 【铁律】先把 Intro 的核心主张变成可检验的问题，再安排主结果、消融和必要的扩展实验。RQ 是组织工具，不必每表编号。
-- 【铁律】设置先写 Metrics，再写 Baselines 与 Implementation Details。指标交代定义、方向、单位、分母、汇总和无效输出处理；基线说明真实路线与版本。读者应能按同一口径重算结果。
+- 先把 Intro 的核心主张变成可检验的问题，再安排主结果、消融和必要的扩展实验。RQ 是组织工具，不必每表编号。
+- 【铁律】指标交代真实定义、方向、单位、分母、汇总及无效输出处理；基线说明真实路线与版本，比较口径不能混用。
 - 【铁律】写清会改变结果的条件：数据版本与划分、参数值、训练或推理预算、评价方式，以及可获知的相关硬件条件。正文、附录及发布配置对应同一执行版；改了 prompt 或判据，不能把旧分数算成新版结果。
-- 【铁律】结果段先加粗一句具体发现，再给关键对照与意义，说明回答了 Intro 哪个问题。不要逐行读表；收益、代价和负结果都要解释。
-- 【铁律】消融一次删除或替换一个因素，固定其他条件。多项一起改，只能评价整套改动，不能把收益归给其中一项。
-- 【铁律】扩展实验围绕实际主张选取；效率算端到端成本，稳定性报告重复变化。个例解释过程，不能代替总体证据。
-- 【铁律】实验章首接回已完成的方法或数据构建，概述真实被测对象、主发现和后续分析；别只报模型名单。
-- 【铁律】Intro 中的每项核心设计都应能找到对应检验。只得到整套方法的结果时，不把收益单独归给未经检验的模块。
+- 设置可按 Metrics、Baselines、Implementation Details 排列。结果段建议先加粗一句具体发现，再给关键对照与意义，接回 Intro 的问题，不逐行读表。
+- 【铁律】判断单个因素的独立作用时，固定其他条件；多因素共同变化，只能评价整套改动，不能把收益归给其中一项。
+- 【铁律】声称效率或稳定性时，给出相应测量与口径。效率计入所声称系统的完整成本，稳定性对应真实重复变化；重要代价和负结果不能省略。
+- 实验章首接回已完成的方法或数据构建，概述真实被测对象、主发现和后续分析；别只报模型名单。
+- 【铁律】主张必须有对应证据。整套方法的结果不能证明未经检验的模块各自有效，不强制每项设计都单独做一次消融。
 - 【铁律】报告实际重复次数和重复单位，说明均值旁是 SD、SE 还是 CI。模型、案例与随机种子不能混作同一统计单位；排名高低不等于显著差异。
 - 【铁律】先固定同一评估集合；使用共同有效子集时，写清纳入条件、n of N 与排除原因。缺失、无效与不适用分开处理，不能只留成功输出，否则比较对象和结论都会改变。
 - 【铁律】实测案例与示意案例分开，说明选例依据。个例用于解释过程，不证明总体排名或部署效果；被测模型得分高，也不能证明 benchmark 更好。
@@ -1714,26 +1717,26 @@ We separate evidence selection from answer generation because the two stages use
 
 解释发现，写清适用范围和局限。
 
-- 【铁律】解释结果改变了什么认识，不再复述成绩表。结论保留实际测试范围。
+- 解释结果改变了什么认识，不再复述成绩表。
 - 【铁律】解释与机制分开。没有单独控制某项设计，就不能把效果全部归因于它。
 - 【铁律】局限写具体条件：哪些数据、语言、信息或预算尚未覆盖。未测试不等于已失败。
-- 【铁律】未来工作对应具体局限，说明下一步要验证什么。尚未执行的方案留在未来工作，不写成本文已建立的结果。
+- 【铁律】未执行的方案不能写成已建立的结果。未来工作可接具体局限，说明下一步要验证什么。
 - 【铁律】决定结论的限制就近说明，不只藏在附录。全文沿用同一适用范围；实验只测了特定子集，讨论不能扩成所有场景。
 
 ### 结论
 
 回答开头的问题，概括贡献和发现。
 
-- 【铁律】先回答 Intro 的研究问题，再概括对应设计、关键发现与适用范围。贡献名称和结论方向与正文一致，不只重复方法流程。
-- 【铁律】只收束正文已经建立的认识，不新增结果、对照或能力。
-- 【铁律】保留关键取舍和适用范围。未来方向接实际局限，不重复整套方法流程。
+- 可按“回答 Intro 问题、概括对应设计、关键发现与范围”收束；不只重复方法流程。
+- 【铁律】只收束正文已建立的认识，不新增结果、对照或能力；名称、结论方向与范围和正文一致。
+- 保留关键取舍和适用范围。未来方向接实际局限，不重复整套方法流程。
 
 ### 参考文献
 
 引用回查原文，信息和版本对齐。
 
 - 【铁律】引用支持附近的具体判断，先回查原文，不把搜索摘要或能编译的 BibTeX 当核验。
-- 【铁律】模型、数据、工具和外部方法在可独立阅读的章节首次实质出现时，就近引原始报告或官方文档。
+- 模型、数据、工具和外部方法首次实质出现时，可就近引原始报告或官方文档，方便查证；实际出处与归属必须准确。
 - 【铁律】条目与实际版本对应，核对题名、作者、年份和来源；同一论文的重复版本去重。
 - 【铁律】来源没测过的条件，不能用它支撑该条件下的结论。没有真实来源就缩小或删除说法。
 - 【铁律】直接引用的文字与借用的图注明出处，另核对转载或使用许可。公开可读不等于可以直接复用，学术用途也不自动证明已获授权。
@@ -1744,8 +1747,8 @@ We separate evidence selection from answer generation because the two stages use
 
 详细设置、补充实验与完整案例分类组织，并从正文引用具体位置。
 
-- 【铁律】先删重复，再移次要细节。核心设计、关键证据和决定结论的限制留正文，否则正文无法独立成立。
-- 【铁律】技术细节、实验设置、补充结果分节，每节开头说明服务哪项主张；正文在对应位置引用具体节、图或表，避免读者在附录里查找。
+- 【铁律】正文保留独立成立所需的核心设计、关键证据与决定结论的限制，不能全移附录。整理时可先删重复，再移次要细节。
+- 技术细节、实验设置、补充结果分节，每节开头说明服务哪项主张；正文在对应位置引用具体节、图或表，避免读者在附录里查找。
 - 【铁律】附录中的参数、prompt、数据与评分规则对应实际运行版，符号和统计范围与正文一致。后加规则不能写成实验已用。
 - 【铁律】补充结果改变主结论时，同步改正文、摘要和引言；不能把相反证据只留在附录。
 
@@ -2046,8 +2049,8 @@ In summary, our contributions are:
 
 教学模板；【】填真实材料。
 
-- 每个主题：路线概括 → 机制分组 → 已有扩展 → 缺口 → 本文方案。引用跟着类别走。
-- 【铁律】每个主题小节都收尾：However 讲对应不足，To solve this [problem] 紧接实际改进。
+- 每个主题按路线、机制和已有能力归类，再用固定三句收尾：缺口、本文做法、应用及问题解决。
+- 【铁律】每个主题末尾固定三句：However, [具体缺口]. → [承接短语], we [动作] [对象] based on [方法或原则]. → This enables [实际应用], [效果动词] [解决的同一问题].。位置不互换，最后落在缺口如何解决；预期用途不写成已验证效果。
 - 结尾的对象、范围、关键词与 Intro 一致；各小节讲不同缺口。
 - 小节标题简短。短主题一段写完，复杂主题按问题分段。
 - 相近工作的差异提前讲清。引用准确完整，不因图相似或结果不利而漏引。
@@ -2079,11 +2082,17 @@ However, these approaches do not establish [Intro challenge] under [specific sco
 
 **第 4 句：**不足直接复用引言关键词，并限定到原文支持的边界。
 
-To solve this [problem], we [matching design] to [specific purpose].
+[Transition], we [action] [object] based on [method or principle].
 
-为解决这个不足，我们通过[对应设计]实现[具体目的]。
+[承接短语]，我们基于[方法或原则]，对[对象]实施[动作]。
 
-**第 5 句：**【铁律】However 后紧接对应方案，问题与 Intro 同名同范围；每个主题小节都检查。
+**第 5 句：**【铁律】缺口之后立即给本文做法；主语为 we，对象和原则应对前句同一个不足。
+
+This enables [actual application], [resolving / addressing / reducing] [the same gap].
+
+这支持[实际应用]，从而[解决／应对／减轻][同一个缺口]。
+
+**第 6 句：**【铁律】最后一句先写实际应用，后半句落在如何处理原缺口。效果动词按证据强度选择，不用愿景代替已实现能力。
 
 **完整 LaTeX 结构模板**
 
@@ -2094,13 +2103,15 @@ To solve this [problem], we [matching design] to [specific purpose].
 One group [mechanism A], whereas another group [mechanism B]~\cite{...}.
 More recent extensions [additional established capability]~\cite{...}.
 However, these approaches do not establish [Intro challenge A] under [scope A].
-To solve this [problem], we [matching design A] to [purpose A].
+To address this gap, we [action A] [object A] based on [method or principle A].
+This enables [actual application A], [resolving / addressing / reducing] [the same gap A].
 
 \subsection{[Short Topic B]}
 [Research line B] evaluates [property] using [evaluation basis]~\cite{...}.
 Other evaluations [substantive extension]~\cite{...}.
 However, [Intro challenge B] remains unresolved under [scope B].
-To solve this [problem], we [matching design B] to [purpose B].
+To overcome this limitation, we [action B] [object B] based on [method or principle B].
+This enables [actual application B], [resolving / addressing / reducing] [the same gap B].
 ```
 
 #### Method Overview：完整模板

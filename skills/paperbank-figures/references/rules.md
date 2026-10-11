@@ -2,11 +2,11 @@
 
 先确定图的主要任务与对应贡献，再安排内容和布局。复杂图先删去重复信息，保留必要输入、操作与输出。
 
-先查铁律，再按图型选模板。这里的中英句式是教学例子，数值和口径用自己的实际记录。
+标为铁律的要求必须遵守，其余是可调整建议。这里的中英句式是教学例子，数值和口径用自己的实际记录。
 
-## 绘图铁律
+## 绘图规范
 
-- **【铁律】每图明确一个主要任务：**mainfig 展示研究动机与观察，framework 说明设计如何对应问题，结果图提供验证证据。每图明确一个主要任务。
+- **每图明确一个主要任务：**mainfig 展示研究动机与观察，framework 说明设计如何对应问题，结果图提供验证证据。每图明确一个主要任务。
 
 Show where the existing pipeline fails and which step our method changes.
 
@@ -14,7 +14,7 @@ Show where the existing pipeline fails and which step our method changes.
 
 图例与拆解：[单栏首图：一条曲线提出问题](https://da1yuqin.github.io/PaperBank/#visual-lost-middle-fig-1)
 
-- **【铁律】绘图先于正文精修：**先完成可供合作者审核的框架图与实验图，再精修正文。图未能体现贡献时，先调整内容与布局，再修改配色。
+- **绘图先于正文精修：**先完成可供合作者审核的框架图与实验图，再精修正文。图未能体现贡献时，先调整内容与布局，再修改配色。
 
 Panel (a) shows the observed gap; panel (b) tests the proposed repair.
 

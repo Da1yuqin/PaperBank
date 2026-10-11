@@ -79,11 +79,11 @@ Contribution-list hard rule: use native itemize with three items: overview, chal
 任务：【起草／精修哪节／只读检查】；目标会议与限制：【】
 材料：【最新稿件、真实结果、参考原文】；允许修改：【文件与范围】
 
-铁律：
+要求与写作建议：
 1. 先查“具体不足→新增设计→实际证据”。Abstract、Intro 贡献和 Method Overview 明说新对象或设计及其价值，与最近工作比较；全篇困难、模块和发现名称一致。不猜技术设定，不编引用、数字或优先权。
 2. 一句一个完整判断，一段一个任务，后句接前句对象、问题或产物。代词须唯一、明确且就近；含混的 it／they 换成短对象名，清楚的代词保留，不以符号替代句子，不使用重复修饰；有依据的贡献词一词换一词。
 3. 缩写、符号首次出现定义对象、来源、单位与下标；摘要、引言、实验各自能读懂。按最终 PDF 检查句长，双栏一句默认最多三行、单栏一句默认一行半，完整语义优先；不用缩字、改栏宽或硬换行凑行数。
-4. Related Work 按主题写已有路线、能力、具体不足和本文方案；However 与 To address 的对象、关键词对齐 Intro，按类别概括文献，仅引用直接相关的工作。Method Overview 先讲设计为什么回应困难，再写目的、操作、产物；用 in [准确章节名] (ref) 定位，每个章节名与引用出现一次，保留并行关系，末句引 framework。
+4. Related Work 按主题写已有路线、能力、具体不足和本文方案；各主题末尾按“However 缺口→we 的动作、对象与依据→This enables 的实际应用与同一问题解决”三句填写，对齐 Intro；引用只选直接相关工作。Method Overview 先讲设计为什么回应困难，再写目的、操作、产物；用 in [准确章节名] (ref) 定位，每个章节名与引用出现一次，保留并行关系，末句引 framework。
 5. 实验段先给有证据的结论，再讲比较条件、关键对照与含义；消融固定其他条件。指标说明方向、分母和不确定性，区分记录与独立样本、百分比与百分点、观察与因果；保留影响解释的负结果。RQ 按需要使用。
 6. 数据、公式含义、实验设置、引文、原始 prompt 和模型回复不因润色改变；保留他人修改。先给中文逻辑与最小改法，确认后改英文。缺证据单列给我，不写入论文正文；只读任务不写文件。最后说明实际改动和检查，编译与最终 PDF 目检分别确认。
 语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
@@ -93,6 +93,7 @@ Intro 结构：前两个自然段可调整顺序和分工，交代领域背景�
 贡献列表【铁律】：固定三项：工作概述、挑战与对应解法、实验发现。第二项每个挑战用 For [挑战], we [解法]，是引言 To solve 的明确例外；不编造贡献。
 篇幅【铁律】：长文按目标会议正文上限规划，写满有效内容；不足先补必要证据和分析，不注水。实验页保留可见结果与就近解释。超页先删重复、无关背景及常规实现，保留实验结论和必要条件；按最终 PDF 核查计页与官方模板。
 篇幅利用与实验页呈现是本教程针对实证型 CS 长文的经验，不是会议规定的最低页数。
+分类：只有明确必须遵守或禁止违反的要求标“铁律”。模块 To 起句、结果段先给发现、小节篇幅相称是可调整写法，不得自行升级为铁律。
 ```
 
 ### English
@@ -103,11 +104,11 @@ Before use: check the AI policy for the target venue and track, stay within the 
 Task: [draft / refine a specified section / read-only check]; venue and limits: [ ]
 Materials: [current manuscript, actual results, source passages]; editable files and scope: [ ]
 
-Hard rules:
+Requirements and writing recommendations:
 1. Check the specific limitation → new design → actual evidence chain first. The Abstract, Introduction contributions, and Method Overview state the new object or design, its value, and its difference from the closest work. Keep challenge, module, and finding names consistent. Invent no settings, citations, numbers, or priority claims.
 2. Use one complete main judgment per sentence and one task per paragraph. Connect each sentence to the preceding object, question, or product. Use pronouns only when their referent is unique, clear, and nearby. Replace ambiguous it / they with short object names. Avoid symbol-packed prose and stacked modifiers; use supported contribution words as concise replacements.
 3. Define acronyms and notation at first use, including objects, sources, units, and indices. Make the Abstract, Introduction, and Experiments independently understandable. Check sentence length in the final PDF: default maximum three lines in a narrow two-column layout and one-and-a-half lines in a single-column layout. Retain complete meaning; do not shrink text, alter columns, or add hard line breaks.
-4. Organize Related Work by topic: existing approach, capability, specific limitation, and the paper's response. Match However / To address objects and keywords to the Introduction; do not list papers or pad citations. The Method Overview explains why the design addresses the challenge before its purpose, operations, and products. Locate actions with in [exact section title] (ref), citing each title once; preserve parallel paths and cite the framework last.
+4. Organize Related Work by topic: existing approach, capability, specific limitation, and the paper's response. End each topic with three sentences: However + gap; we + action, object, and basis; This enables + actual application and resolution of the same gap. Align with the Introduction and cite relevant sources. The Method Overview explains why the design addresses the challenge before its purpose, operations, and products. Locate actions with in [exact section title] (ref), citing each title once; preserve parallel paths and cite the framework last.
 5. Start result paragraphs with evidenced conclusions, then conditions, key comparisons, and implications. Hold other conditions fixed in ablations. Define metric direction, denominators, and uncertainty. Distinguish records from independent samples, percentages from percentage points, and observations from causal findings. Retain negative results that affect interpretation. Use RQs when useful.
 6. Preserve data, formula meanings, settings, citations, original prompts, model outputs, and concurrent edits. Show Chinese reasoning and minimal fixes before revising English. Keep evidence gaps outside the paper; do not write files for read-only tasks. Report actual changes and checks, distinguishing compilation from visual inspection of the final PDF.
 Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
@@ -117,6 +118,7 @@ Hard rules: retain background, a specific limitation, corresponding design, and 
 Contribution-list hard rule: use exactly three items: overview, challenge-specific solutions, and experimental findings. In item two, use For [challenge], we [solution] for each actual challenge, as an explicit exception to Introduction To solve hooks. Invent no contribution.
 Page-budget rule: For a full paper, plan substantive content around the venue’s main-text page limit. Use available space for necessary evidence and analysis, not padding. Keep results and their explanations visible on experiment pages. If over length, remove repetition, irrelevant background, and standard implementation details before cutting findings or necessary conditions. Check the final PDF against the current page-count and template rules.
 Page use and experiment-page presentation are author recommendations for empirical CS full papers, not venue-mandated minimum lengths.
+Classification: Reserve hard-rule labels for explicit mandatory or prohibited requirements. To-purpose module openers, finding-first result paragraphs, and balanced subsection lengths are adaptable writing recommendations.
 ```
 
 <a id="experiments"></a>
@@ -183,6 +185,7 @@ Editable files: [experiment prose, tables, related files]; preserve: [original r
 
 【铁律】摘要按背景、limitation、解法与实验亮点组织，解法用 For [具体 limitation], we ...；引言方法总述用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].，逐点解法用 To solve [同名 limitation], we ...。挑战名须直接显示困难。每次修改后回读摘要与引言，核对对象、术语、数字、范围与因果方向。
 贡献列表【铁律】：固定三项：工作概述、挑战与对应解法、实验发现。第二项每个挑战用 For [挑战], we [解法]，是引言 To solve 的明确例外；不编造贡献。
+分类：只有明确必须遵守或禁止违反的要求标“铁律”。模块 To 起句、结果段先给发现、小节篇幅相称是可调整写法，不得自行升级为铁律。
 ```
 
 ### English
@@ -203,6 +206,7 @@ Task: write a Chinese outline first; editable files and scope: [ ].
 
 Hard rules: retain background, a specific limitation, corresponding design, and experimental findings in the Abstract. Name each limitation with "For [specific limitation], we ..." in the Abstract and "To solve [the same limitation], we ..." in the Introduction. Start the Introduction method paragraph with "Therefore, to address these obstacles, we introduce [name], a [core feature and purpose]." Name challenges as concrete difficulties. Re-read both sections after either changes and align objects, terminology, numbers, scope, and causal direction.
 Contribution-list hard rule: use exactly three items: overview, challenge-specific solutions, and experimental findings. In item two, use For [challenge], we [solution] for each actual challenge, as an explicit exception to Introduction To solve hooks. Invent no contribution.
+Classification: Reserve hard-rule labels for explicit mandatory or prohibited requirements. To-purpose module openers, finding-first result paragraphs, and balanced subsection lengths are adaptable writing recommendations.
 ```
 
 ---

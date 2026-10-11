@@ -624,7 +624,7 @@ def package_skill(data):
    md+=example_md
  _,draft_md=render_quick_start(data,include_figures=False)
  md+=draft_md
- md+=['','## 全文表达要求与中英改写','',data['opening_lead']]
+ md+=['','## 全文要求与写法建议','',data.get('refine_global_lead',data['opening_lead'])]
  for rule in data['refine_standards']:
   _,rm=render_paragraph(rule,data['references']);md+=rm
  md+=['','## 各章先回答什么']
@@ -705,8 +705,8 @@ def package_figure_skill(data):
  folder=ROOT/Path(skill['source']).parent
  (folder/'references').mkdir(parents=True,exist_ok=True)
  (folder/'SKILL.md').write_text(skill['instructions'],encoding='utf-8')
- md=['# PaperBank 绘图参考','',figures['lead'],'','先查铁律，再按图型选模板。这里的中英句式是教学例子，数值和口径用自己的实际记录。','','## 绘图铁律']
- for key,title in [('rules','绘图铁律'),('types','按图的任务选模板')]:
+ md=['# PaperBank 绘图参考','',figures['lead'],'','标为铁律的要求必须遵守，其余是可调整建议。这里的中英句式是教学例子，数值和口径用自己的实际记录。','','## 绘图规范']
+ for key,title in [('rules','绘图规范'),('types','按图的任务选模板')]:
   if key=='types':md+=['','## '+title]
   for rule in figures[key]:
    _,rm=render_short_rules([rule]);md+=rm

@@ -27,7 +27,7 @@ description: Create and refine CS paper main figures, framework diagrams, case i
 - **统计图**：用 Python 等专业绘图工具读取真实数据，保留坐标、数值、误差、分母和统计几何。按数据形态选图，不为美观改数据、补缺测、平滑曲线或重跑实验。
 - **概念图**：按当前环境用 imagegen。先确认真实语义和连线，再生成图面；不要让生成器猜模块关系或发明实验结果。
 
-详细铁律与中英例子见 [rules.md](references/rules.md)。先读“绘图铁律”，统计图再按需读“按图的任务选模板”。
+详细规范与中英例子见 [rules.md](references/rules.md)。只将明确必须遵守或禁止违反的要求标为铁律；图的编排与起草顺序是可调整建议。先读“绘图规范”，统计图再按需读“按图的任务选模板”。
 
 ## 排字与配色
 
