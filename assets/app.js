@@ -22,7 +22,7 @@ for(const example of $$('.annotated-example')){
   requestAnimationFrame(()=>panels.forEach(alignParagraphNotes));
  }
  buttons.forEach(button=>button.addEventListener('click',()=>chooseLanguage(button.dataset.paragraphLanguage)));
- chooseLanguage('en');
+ chooseLanguage(panels[0]?.dataset.paragraphPanel||'zh');
  for(const panel of panels){
   for(const node of panel.querySelectorAll('[data-note-key]')){
    const matching=[...panel.querySelectorAll('[data-note-key]')].filter(other=>other.dataset.noteKey===node.dataset.noteKey);

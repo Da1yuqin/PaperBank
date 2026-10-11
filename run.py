@@ -4,6 +4,7 @@ import argparse
 import html
 import json
 import zipfile
+from copy import deepcopy
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -11,19 +12,20 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 REPO = 'https://github.com/Da1yuqin/PaperBank'
 FIGURE_SECTIONS = [
- ('figure-skill','先给 Codex 绘图 skill'),
- ('figure-rules','绘图铁律'),
- ('figure-types','按图的任务选模板'),
- ('notion-gallery','图例库：原图与逐图拆解'),
- ('figure-gallery','私藏图：好在哪里，怎么借鉴'),
- ('figure-references','更多参考图，带着问题看'),
+ ('figure-skill','绘图准备'),
+ ('figure-rules','绘图规范'),
+ ('figure-types','图型选择'),
+ ('notion-gallery','图例与批注'),
+ ('figure-references','补充参考'),
 ]
 
 def render_codex_prompt(data, key, label_zh, label_en='English prompt'):
  """Use one skill-grounded prompt for the page and portable references."""
  e=html.escape;prompt=data['codex_prompts'][key]
  rendered='';md=[]
- for language,label,lang in [('zh',label_zh,'zh-CN'),('en',label_en,'en')]:
+ languages=[('zh',label_zh,'zh-CN')]
+ if not data.get('_tutorial_layout'):languages.append(('en',label_en,'en'))
+ for language,label,lang in languages:
   text=prompt[language]
   rendered+=f'<details class="prompt" data-prompt-ref="{e(key)}" data-prompt-lang="{language}"><summary>{e(label)}</summary><pre lang="{lang}">{e(text)}</pre><button class="copy js-only">复制提示词</button></details>'
   md+=['','**'+label+'**','','```text',text,'```']
@@ -49,12 +51,9 @@ def section_label(section):
 def render_intro_connections(data):
  """Show concrete paragraph hooks and aligned Abstract–Introduction claims."""
  content=data['intro_connections'];e=html.escape
- rendered=f'<section class="paragraph-lesson intro-connections" id="intro-hooks" data-section="intro"><h4>{e(content["title"])}</h4><p>{e(content["lead"])}</p><ul class="intro-hook-examples">'
+ rendered=f'<section class="paragraph-lesson intro-connections" id="intro-hooks" data-section="intro"><h4>{e(content["title"])}</h4><p>{e(content["lead"])}</p>'
  md=['','<a id="intro-hooks"></a>','#### '+content['title'],'',content['lead'],'']
- for hook in content['hooks']:
-  rendered+=f'<li><code lang="en">{e(hook["en"])}</code><span>{e(hook["zh"])}</span></li>'
-  md+=[f'- `{hook["en"]}`：{hook["zh"]}']
- rendered+=f'</ul><figure class="argument-map" id="abstract-intro-map"><figcaption>{e(content["map_title"])}</figcaption><p class="lesson-context">{e(content["map_note"])}</p>'
+ rendered+=f'<figure class="argument-map" id="abstract-intro-map"><figcaption>{e(content["map_title"])}</figcaption><p class="lesson-context">{e(content["map_note"])}</p>'
  md+=['','<a id="abstract-intro-map"></a>','#### '+content['map_title'],'',content['map_note'],'']
  for pair in content['pairs']:
   key='argument-'+pair['id'];rendered+=f'<div class="argument-pair tone-{pair["tone"]}">'
@@ -71,21 +70,27 @@ def render_intro_connections(data):
   md+=['','**'+pair['label']+' · '+pair['relation']+'**','', '**Abstract**：'+pair['abstract'],'','**Intro**：'+pair['intro'],f' · [修改 case](#{pair["link"]})']
  return rendered+'</figure></section>',md
 
-def render_annotated_paragraph(example, refs, number=None):
+def render_annotated_paragraph(example, refs, number=None, heading_level=4, workflow=False):
  """Keep source paragraphs intact and place matched comments beside them."""
  e=html.escape;key=example['id']
  assert len(example['paragraphs'])==1,(key,'one natural paragraph per case')
  english_label='English 原文' if example.get('source') else 'English 教学改写'
  title=(number+' ' if number else '')+example['title']
- rendered=f'<section class="paragraph-lesson annotated-example" id="{e(key)}" data-section="{e(example["section"])}"><h4>{e(title)}</h4><p class="lesson-context">{e(example["label"])}</p>'
- rendered+='<div class="paragraph-language js-only" role="group" aria-label="例子语言" data-annotation-exclude>'
- for lang,label in [('en',english_label),('zh','中文译文')]:
-  rendered+=f'<button type="button" data-paragraph-language="{lang}" aria-pressed="{str(lang=="en").lower()}" aria-controls="{e(key)}-{lang}">{label}</button>'
- rendered+='</div>'
- md=['','#### '+title,'',example['label']]
- for lang,language in [('en','en'),('zh','zh-CN')]:
+ rendered=f'<section class="paragraph-lesson annotated-example" id="{e(key)}" data-section="{e(example["section"])}">'
+ if not workflow:rendered+=f'<h{heading_level}>{e(title)}</h{heading_level}><p class="lesson-context">{e(example["label"])}</p>'
+ languages=[lang for lang in ('en','zh') if lang in example['paragraphs'][0]]
+ labels={'en':english_label,'zh':'中文译文' if 'en' in languages else '流程说明'}
+ if len(languages)>1:
+  rendered+='<div class="paragraph-language js-only" role="group" aria-label="案例语言" data-annotation-exclude>'
+  for lang in languages:
+   rendered+=f'<button type="button" data-paragraph-language="{lang}" aria-pressed="{str(lang==languages[0]).lower()}" aria-controls="{e(key)}-{lang}">{labels[lang]}</button>'
+  rendered+='</div>'
+ md=['',f'<a id="{key}"></a>']
+ if not workflow:md+=['','#'*heading_level+' '+title,'',example['label']]
+ for lang in languages:
+  language='en' if lang=='en' else 'zh-CN'
   rendered+=f'<div class="annotated-panel" id="{e(key)}-{lang}" data-paragraph-panel="{lang}">'
-  md+=['','**'+(english_label if lang=='en' else '中文译文')+'**','']
+  md+=['','**'+labels[lang]+'**','']
   for n,paragraph in enumerate(example['paragraphs']):
    rendered+=f'<div class="annotated-row"><div class="annotated-text" lang="{language}">'
    text=paragraph[lang];marks=[]
@@ -108,7 +113,7 @@ def render_annotated_paragraph(example, refs, number=None):
   rendered+='</div>'
  md+=['','**高亮与旁批**','']
  for i,note in enumerate(example['annotations'],1):
-  md+=[f'{i}. **{note["en"]} / {note["zh"]}**：{note["title"]}。{note["body"]}']
+  md+=[f'{i}. **'+(' / '.join(note[lang] for lang in languages))+f'**：{note["title"]}。{note["body"]}']
  if example.get('source'):
   r=refs[example['source']]
   source=f'<a href="{e(r["url"])}">{e(example["paper_label"])}</a> · {e(example["location"])}'
@@ -117,14 +122,20 @@ def render_annotated_paragraph(example, refs, number=None):
  else:
   source=source_md='PaperBank · 教学改写'
   rights='本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。'
- rendered+=f'<p class="example-source">{source}</p><p class="annotation-takeaway">{e(example["takeaway"])}</p><details class="annotation-rights"><summary>出处与复用范围</summary><p>{e(example["processing"])}</p><p>{e(rights)}</p></details></section>'
- md+=['',source_md,'',example['takeaway'],'',example['processing'],'',rights]
+ if not workflow:rendered+=f'<p class="example-source">{source}</p><details class="annotation-rights"><summary>出处与复用范围</summary><p>{e(example["processing"])}</p><p>{e(rights)}</p></details>'
+ rendered+='</section>'
+ if not workflow:md+=['',source_md,'',example['processing'],'',rights]
  return rendered,md
 
-def render_paragraph(lesson, refs, md_level=4, number=None, heading=True):
+def render_paragraph(lesson, refs, md_level=4, number=None, heading=True, compact=False):
  """Show the paragraph's job before explaining its sentences."""
  e=html.escape
  title=(number+' ' if number else '')+lesson['title']
+ if compact:
+  template=lesson.get('latex_template')
+  if not template:return '',[]
+  rendered=f'<section class="paragraph-lesson template-only" id="{e(lesson["id"])}" data-section="{e(lesson["section"])}"><h4>{e(title)}</h4><pre>{e(template)}</pre><button class="copy js-only" data-copy-label="复制模板">复制模板</button></section>'
+  return rendered,['','#### '+title,'','```latex',template,'```']
  label=f'<h{md_level}>{e(title)}</h{md_level}>' if heading else f'<p class="example-title"><strong>{e(title)}</strong></p>'
  rendered=f'<section class="paragraph-lesson" id="{e(lesson["id"])}" data-section="{e(lesson["section"])}">{label}<p class="paragraph-purpose">{e(lesson["purpose"])}</p>'
  md=['',f'{"#"*md_level} {title}' if heading else f'**{title}**','',lesson['purpose']]
@@ -160,12 +171,11 @@ def render_opening(data):
  rendered='<section class="opening-rules" id="general-rules"><h3>3.1 全文规范</h3><p>'+e(lead)+'</p>'
  md=['','<a id="general-rules"></a>','### 3.1 全文规范','',lead]
  for n,group in enumerate(data['refine_standard_groups']):
-  title=f'3.1.{chr(97+n)} '+group['title']
+  title=group['title']
   rendered+=f'<h4>{e(title)}</h4><ul class="compact-rules">';md+=['','#### '+title]
   for rule in [r for r in data['refine_standards'] if r['group']==group['id']]:
-   rendered+=f'<li id="{rule["id"]}"><strong>{e(rule["title"])}：</strong>{e(rule["purpose"])}<details class="short-example"><summary>中英改写与拆解</summary>'
-   example=dict(rule);example['id']=rule['id']+'-example'
-   rh,rm=render_paragraph(example,data['references'],heading=False);rendered+=rh.replace('class="paragraph-lesson"','class="global-example"')+'</details></li>';md+=rm
+   rendered+=f'<li id="{rule["id"]}"><strong>{e(rule["title"])}：</strong>{e(rule["purpose"])}</li>'
+   md+=['',f'- **{rule["title"]}：**{rule["purpose"]}']
   rendered+='</ul>'
  for example in data.get('refine_global_cases',[]):
   case_html,case_md=render_annotated_paragraph(example,data['references'])
@@ -197,7 +207,98 @@ def render_preface(data):
  md+=['*'+p['aside']+'*','']
  return rendered,md
 
+def render_figure_case(visual, notes=None):
+ """Keep the original figure beside comments about its visible structure."""
+ e=html.escape;v=visual
+ notes=notes or [{'title':f'观察 {n}','body':text} for n,text in enumerate(v.get('analysis_zh',[]),1)]
+ figure_class=' single-column-figure' if v.get('layout')=='single-column' else ''
+ rendered=f'<section class="visual-example" id="{e(v["id"])}"><h4>{e(v["title"])}</h4><div class="figure-annotation"><figure class="{figure_class.strip()}"><a href="{e(v["asset"])}"><img src="{e(v["asset"])}" alt="{e(v["title"])}" loading="lazy"></a><figcaption>{e(v.get("zh",""))}</figcaption></figure><aside class="figure-notes" aria-label="图例批注" data-annotation-exclude>'
+ md=['',f'<a id="{v["id"]}"></a>','#### '+v['title'],'',f'![{v["title"]}](../{v["asset"]})','',v.get('zh','')]
+ for n,note in enumerate(notes,1):
+  rendered+=f'<div class="paragraph-note tone-{(n-1)%5}"><p class="note-title"><span>{n}</span>{e(note["title"])}</p><p>{e(note["body"])}</p></div>'
+  md+=['',f'{n}. **{note["title"]}：**{note["body"]}']
+ rendered+='</aside></div>'
+ if v.get('source_url'):
+  rendered+=f'<p class="example-source"><a href="{e(v["source_url"])}">{e(v["source_title"])}</a></p>'
+  url=v['source_url'] if '://' in v['source_url'] else '../'+v['source_url']
+  md+=['',f'[{v["source_title"]}]({url})']
+ rendered+=f'<p class="example-source">{e(v.get("license",""))}'
+ if v.get('license_url'):rendered+=f' · <a href="{e(v["license_url"])}">许可</a>'
+ rendered+='</p></section>';md+=['',v.get('license','')]
+ return rendered,md
+
+def render_draft_chapter(data):
+ e=html.escape;q=data['quick_start'];layout=data['tutorial_layout']
+ rendered='<section class="quick-start major-chapter" id="quick-start"><h2>1. 初稿准备</h2><p>整理材料，先做关键图，再组织正文与实验。用中文审核逻辑后，精修英文。</p>'
+ md=['','<a id="quick-start"></a>','## 1. 初稿准备','','整理材料，先做关键图，再组织正文与实验。用中文审核逻辑后，精修英文。']
+ for n,step in enumerate(layout['draft_steps'],1):
+  rendered+=f'<section class="draft-step" id="{step["id"]}"><h3>{e(step["title"])}</h3>'
+  md+=['',f'<a id="{step["id"]}"></a>','### '+step['title']]
+  ph,pm=render_annotated_paragraph(step['paragraph'],data['references'],workflow=True);rendered+=ph;md+=pm
+  if n==1:
+   rendered+=f'<p class="skill-links"><a href="{data["writing_skill"]["download"]}" download>下载写作 skill</a> · <a href="#writing-skill">安装与用法</a></p>'
+   ph,pm=render_codex_prompt(data,q['prompt_ref'],'填写研究材料，生成初稿');rendered+=ph;md+=pm
+   rendered+='<p class="example-source">'+' · '.join(f'<a href="{e(s["url"])}">{e(s["title"])}</a>' for s in q['sources'][:2])+'</p>'
+  if n==2:
+   for block in q['steps'][1]['blocks']:
+    if not block.get('figure_reference'):continue
+    v=next(v for v in data['figure_chapter']['visual_examples'] if v['id']==block['figure_reference'])
+    ph,pm=render_figure_case(v,layout.get('figure_notes',{}).get(v['id']));rendered+=ph;md+=pm
+   rendered+='<p><a href="#figure-rules">绘图规范</a> · <a href="#notion-gallery">更多图例与批注</a></p>'
+  if n==3:
+   block=next(b for b in q['steps'][2]['blocks'] if b.get('table'));t=block['table']
+   rendered+='<div class="draft-table-wrap"><table class="draft-table"><caption>'+e(t['caption'])+'</caption><thead><tr>'+''.join(f'<th scope="col">{e(h)}</th>' for h in t['headers'])+'</tr></thead><tbody>'
+   md+=['',t['caption'],'','| '+' | '.join(t['headers'])+' |','| --- | --- | --- |']
+   for row in t['rows']:
+    rendered+=f'<tr><th scope="row">{e(row["method"])}</th>';cells=[]
+    for cell in row['cells']:
+     mark=cell.get('mark','');value=e(cell['value'])
+     if mark=='best':value=f'<strong>{value}</strong>'
+     elif mark=='second':value=f'<u>{value}</u>'
+     rendered+=f'<td class="{mark}">{value}<sup>±{e(cell["uncertainty"])}</sup></td>';cells.append(cell['value']+' ±'+cell['uncertainty'])
+    rendered+='</tr>';md+=['| '+row['method']+' | '+' | '.join(cells)+' |']
+   rendered+='</tbody></table></div>'
+   rendered+=f'<details class="prompt"><summary>LaTeX 表格模板</summary><pre>{e(block["code"])}</pre><button class="copy js-only" data-copy-label="复制模板">复制模板</button><p class="example-source">{e(block["code_note"])}</p></details>'
+   md+=['','**LaTeX 表格模板**','','```latex',block['code'],'```','',block['code_note']]
+  if n==4:rendered+='<p><a href="#refine">正文精修：逐章原则、完整段落与模板</a></p>'
+  rendered+='</section>'
+ return rendered+'</section>',md
+
+def render_figures(data):
+ e=html.escape;f=data['figure_chapter'];layout=data['tutorial_layout']
+ titles={key:f'2.{n} '+title for n,(key,title) in enumerate(FIGURE_SECTIONS,1)}
+ visuals={v['id']:v for v in f['visual_examples']}
+ rendered='<section class="major-chapter figure-chapter" id="figures"><h2>2. 论文绘图</h2><p>按图的任务选择结构；规则集中查，原图与批注集中看。</p>'
+ md=['','<a id="figures"></a>','## 2. 论文绘图','','按图的任务选择结构；规则集中查，原图与批注集中看。']
+ rendered+=f'<section id="figure-skill"><h3>{titles["figure-skill"]}</h3><p><a href="{e(f["skill"]["download"])}" download>下载绘图 skill</a> · <a href="{REPO}/blob/main/{e(f["skill"]["source"])}">SKILL.md</a></p><p>{e(f["scope_note"])}</p>'
+ md+=['','<a id="figure-skill"></a>','### '+titles['figure-skill'],'',f'[下载绘图 skill](../{f["skill"]["download"]})','',f['scope_note']]
+ ph,pm=render_codex_prompt(data,f['prompt_ref'],'填写绘图任务与数据');rendered+=ph+'</section>';md+=pm
+ for key,field in [('figure-rules','rules'),('figure-types','types')]:
+  rendered+=f'<h3 id="{key}">{titles[key]}</h3>'
+  rh,rm=render_short_rules(f[field],visuals,compact=True);rendered+=rh;md+=['','<a id="'+key+'"></a>','### '+titles[key]]+rm
+ rendered+=f'<h3 id="notion-gallery">{titles["notion-gallery"]}</h3><p>首图与框架图的入门案例见 <a href="#draft-step-2">1.2 关键图绘制</a>。下面按任务整理其余图例；原图与旁注一起阅读。</p><span id="figure-gallery"></span>'
+ md+=['','<a id="notion-gallery"></a>','<a id="figure-gallery"></a>','### '+titles['notion-gallery'],'','首图与框架图的入门案例见 [1.2 关键图绘制](#draft-step-2)。']
+ shown={b['figure_reference'] for b in data['quick_start']['steps'][1]['blocks'] if b.get('figure_reference')}
+ for topic in dict.fromkeys(v['topic'] for v in visuals.values()):
+  group=[v for v in visuals.values() if v['topic']==topic and v['id'] not in shown]
+  rendered+=f'<section class="figure-topic"><p class="figure-topic-label"><strong>{e(topic)}</strong></p>';md+=['','#### '+topic]
+  for v in group:
+   if v.get('existing'):
+    gallery=next(g for g in f['gallery'] if g['figure_id']==v['id']);item=next(i for i in data['items'] if i['id']==gallery['item']);ex=item['examples'][gallery['example_index']]
+    v=dict(v,zh=ex.get('caption_zh',ex.get('caption','')),analysis_zh=ex['analysis_zh'],license=ex['license'],source_url=data['references'][ex['provenance']['reference']]['url'],source_title=data['references'][ex['provenance']['reference']]['title'])
+   ph,pm=render_figure_case(v,layout.get('figure_notes',{}).get(v['id']));rendered+=ph;md+=pm
+  rendered+='</section>'
+ rendered+=f'<h3 id="figure-references">{titles["figure-references"]}</h3><details class="figure-source-links"><summary>补充图页与点评</summary>';md+=['','<a id="figure-references"></a>','### '+titles['figure-references']]
+ for n,link in enumerate(f['links'],1):
+  rendered+=f'<section class="linked-figure" id="figure-link-{n}"><p><strong><a href="{e(link["url"])}">{e(link["title"])}</a></strong>：{e(link["zh"])}</p>'
+  if link.get('analysis'):rendered+=f'<p>{e(link["analysis"])}</p>'
+  for key in ('source','license'):
+   if link.get(key):rendered+=f'<p class="example-source">{e(link[key])}</p>'
+  rendered+='</section>';md+=['',f'[{link["title"]}]({link["url"]})：'+link['zh'],'',link.get('analysis',''),'',link.get('source',''),'',link.get('license','')]
+ return rendered+'</details></section>',md
+
 def render_quick_start(data, include_figures=True):
+ if data.get('_tutorial_layout'):return render_draft_chapter(data)
  e=html.escape
  q=data['quick_start']
  rendered=f'<section class="quick-start major-chapter" id="quick-start"><h2>1. {e(q["title_zh"])}</h2><p>{e(q["lead_zh"])}</p>'
@@ -338,82 +439,27 @@ def render_example(example, refs):
   md+=['',f'**原文／图片许可：**{example["license"]}']
  return rendered+'</div>',md
 
-def render_short_rules(rules, visuals=None):
+def render_short_rules(rules, visuals=None, compact=False):
  e=html.escape
  visuals=visuals or {}
  rendered='<ul class="compact-rules">';md=[]
  for r in rules:
   rendered+=f'<li><strong>{e(r["title"])}：</strong>{e(r["zh"])}'
   md+=['','- **'+r['title']+'：**'+r['zh']]
-  if r.get('example_en'):
+  if r.get('example_en') and not compact:
    rendered+=f'<details class="short-example"><summary>中英例子</summary><p lang="en">{e(r["example_en"])}</p><p>{e(r["example_zh"])}</p></details>'
    md+=['',r['example_en'],'',r['example_zh']]
   for key in r.get('visuals',[]):
    if key not in visuals:continue
    v=visuals[key]
+   if compact:
+    rendered+=f' <a class="rule-reference" href="#{e(v["id"])}">{e(v["title"])} ↗</a>'
+    md+=['',f'[图例与批注：{v["title"]}](#{v["id"]})']
+    continue
    rendered+=f'<a class="rule-visual" href="#{e(v["id"])}"><img src="{e(v["asset"])}" alt="{e(v["title"])}" loading="lazy"><span>{e(v["title"])} · 点开原图与拆解 ↗</span></a>'
    md+=['',f'![{v["title"]}](../{v["asset"]})',f'[原图与拆解](#{v["id"]})']
   rendered+='</li>'
  return rendered+'</ul>',md
-
-def render_figures(data):
- e=html.escape;f=data['figure_chapter']
- titles={key:f'2.{n} '+title for n,(key,title) in enumerate(FIGURE_SECTIONS,1)}
- visuals={v['id']:v for v in f.get('visual_examples',[])}
- rendered=f'<section class="major-chapter figure-chapter" id="figures"><h2>2. {e(f["title"])}</h2><p>{e(f["lead"])}</p><p class="lesson-context">{e(f["scope_note"])}</p>'
- md=['','<a id="figures"></a>','## 2. '+f['title'],'',f['lead'],'',f['scope_note']]
- skill=f['skill']
- rendered+=f'<section id="figure-skill"><h3>{e(titles["figure-skill"])}</h3><p class="skill-links"><a href="{e(skill["download"])}" download>下载绘图 skill ZIP</a> · <a href="{REPO}/blob/main/{e(skill["source"])}">查看 SKILL.md</a> · <a href="#figure-rules">绘图铁律</a></p><p>{e(skill["intro"])}</p>'
- md+=['','<a id="figure-skill"></a>','### '+titles['figure-skill'],'',f'[下载绘图 skill ZIP](../{skill["download"]}) · [查看 SKILL.md](../{skill["source"]}) · [绘图铁律](#figure-rules)','',skill['intro']]
- ph,pm=render_codex_prompt(data,f['prompt_ref'],'复制给 Codex：开始画图','Figure prompt · English');rendered+=ph;md+=pm
- rendered+=f'</section><h3 id="figure-rules">{e(titles["figure-rules"])}</h3>'
- rh,rm=render_short_rules(f['rules'],visuals);rendered+=rh;md+=['','<a id="figure-rules"></a>','### '+titles['figure-rules']]+rm
- rendered+=f'<h3 id="figure-types">{e(titles["figure-types"])}</h3><p class="lesson-context">下面均为教学句式；数值、误差和区间按实际记录填写。</p>'
- rh,rm=render_short_rules(f['types'],visuals);rendered+=rh;md+=['','<a id="figure-types"></a>','### '+titles['figure-types']]+rm
- if visuals:
-  rendered+=f'<h3 id="notion-gallery">{e(titles["notion-gallery"])}</h3><p>同类图放一起；点击缩略图或展开目录看原图。</p>'
-  md+=['','<a id="notion-gallery"></a>','### '+titles['notion-gallery'],'']
-  for topic in dict.fromkeys(v['topic'] for v in visuals.values() if not v.get('existing')):
-   group=[v for v in visuals.values() if v['topic']==topic and not v.get('existing')]
-   rendered+=f'<details class="figure-set"><summary>{e(topic)} · {len(group)} 张图</summary>'
-   md+=['','<details><summary>'+topic+' · '+str(len(group))+' 张图</summary>','']
-   for v in group:
-    license_link=f' · <a href="{e(v["license_url"])}">许可</a>' if v.get('license_url') else ''
-    figure_class=' class="single-column-figure"' if v.get('layout')=='single-column' else ''
-    rendered+=f'<section class="visual-example" id="{e(v["id"])}"><p class="example-title"><strong>{e(v["title"])}</strong></p><p>{e(v["zh"])}</p><figure{figure_class}><a href="{e(v["asset"])}"><img src="{e(v["asset"])}" alt="{e(v["title"])}" loading="lazy"></a><figcaption>{e(v["license"])}{license_link}</figcaption></figure><details class="short-example"><summary>English 与拆解</summary><p lang="en">{e(v["en"])}</p>'
-    md+=['',f'<a id="{v["id"]}"></a>','**'+v['title']+'**','',v['zh'],'',f'![{v["title"]}](../{v["asset"]})','',v['license'],'',v['en']]
-    for why in v.get('analysis_zh',[]):rendered+=f'<p>{e(why)}</p>';md+=['',why]
-    rendered+='</details>'
-    if v.get('source_url'):
-     rendered+=f'<p class="example-source">来源：<a href="{e(v["source_url"])}">{e(v["source_title"])}</a></p>'
-     source_url=v['source_url'] if '://' in v['source_url'] else '../'+v['source_url']
-     md+=['',f'来源：[{v["source_title"]}]({source_url})']
-    if v.get('license_url'):md+=['',f'[图片许可]({v["license_url"]})']
-    rendered+='</section>'
-   rendered+='</details>';md+=['','</details>','']
- rendered+=f'<h3 id="figure-gallery">{e(titles["figure-gallery"])}</h3><p>参考原图的内容组织与布局，结果仍使用自己的数据。</p>'
- md+=['','<a id="figure-gallery"></a>','### '+titles['figure-gallery'],'','参考原图的内容组织与布局，结果仍使用自己的数据。']
- items={i['id']:i for i in data['items']}
- for g in f['gallery']:
-  ex=items[g['item']]['examples'][g['example_index']]
-  rendered+=f'<section class="gallery-example" id="{g["figure_id"]}"><p><strong>{e(g["comment"])}</strong></p>'
-  eh,em=render_example(ex,data['references']);rendered+=eh+'</section>';md+=['',f'<a id="{g["figure_id"]}"></a>',g['comment']]+em
- rendered+=f'<h3 id="figure-references">{e(titles["figure-references"])}</h3>'
- rendered+=f'<details class="figure-source-links"><summary>原文图页与点评 · {len(f["links"])} 项</summary>'
- md+=['','<a id="figure-references"></a>','### '+titles['figure-references']]
- for n,g in enumerate(f['links'],1):
-  rendered+=f'<section class="linked-figure" id="figure-link-{n}"><p class="example-title"><strong><a href="{e(g["url"])}">{e(g["title"])} ↗</a></strong></p><p>{e(g["zh"])}</p><details class="short-example"><summary>English 与拆解</summary><p lang="en">{e(g["en"])}</p>'
-  if g.get('analysis'):rendered+=f'<p>{e(g["analysis"])}</p>'
-  rendered+='</details>'
-  if g.get('source'):rendered+=f'<p class="example-source">{e(g["source"])}</p>'
-  if g.get('license'):rendered+=f'<p class="example-source">{e(g["license"])}</p>'
-  rendered+='</section>'
-  md+=['',f'**[{g["title"]}]({g["url"]})**','',g['zh'],'',g['en']]
-  if g.get('analysis'):md+=['',g['analysis']]
-  if g.get('source'):md+=['',g['source']]
-  if g.get('license'):md+=['',g['license']]
- rendered+='</details>'
- return rendered+'</section>',md
 
 def render_skill(data):
  """Keep the portable entry point separate from the full reading guide."""
@@ -512,34 +558,50 @@ def render_tools(data):
  e=html.escape
  groups=data.get('tools',[])
  intro='按用途选。以下整理自公开文档，未逐项安装；版本和许可见原项目。'
- rendered=f'<section class="toolbox major-chapter" id="tools"><h2>5. 我推荐的 AI 工具</h2><p class="chapter-desc">{e(intro)}</p>'
- rendered+='<p class="tool-index">'+ ' · '.join(f'<a href="#tools-{e(g["id"])}">5.{n} {e(g["title"])}</a>' for n,g in enumerate(groups,1))+f' · <a href="#code-release-prompt">5.{len(groups)+1} 开源整理提示词</a></p>'
+ rendered=f'<section class="toolbox major-chapter" id="tools"><h2>5. 辅助工具</h2><p class="chapter-desc">{e(intro)}</p>'
+ rendered+='<p class="tool-index">'+ ' · '.join(f'<a href="#tools-{e(g["id"])}">5.{n} {e(g["title"])}</a>' for n,g in enumerate(groups,1))+f' · <a href="#code-release-prompt">5.{len(groups)+1} 开源整理</a></p>'
  total=sum(len(g['items']) for g in groups)
  rendered+=f'<div class="tool-search js-only"><label for="tool-search">搜索工具</label><input type="search" id="tool-search" placeholder="搜 Zotero、画图、引用……"><span id="tool-count" role="status" aria-live="polite">{total} 项资源</span></div>'
- md=['','<a id="tools"></a>','## 5. 我推荐的 AI 工具','',intro,'','核对日期：'+data['tools_checked_at']+'。']
+ md=['','<a id="tools"></a>','## 5. 辅助工具','',intro,'','核对日期：'+data['tools_checked_at']+'。']
  for n,group in enumerate(groups,1):
   rendered+=f'<section class="tool-group" id="tools-{e(group["id"])}"><h3>5.{n} {e(group["title"])}</h3><ul class="tool-list">'
   md+=['',f'### 5.{n} {group["title"]}','']
   for tool in group['items']:
    assert all(tool.get(k) for k in ['id','title','url','use_zh','example_zh','example_en','boundary_zh'])
-   rendered+=f'<li class="tool-item" id="tool-{e(tool["id"])}"><p><strong><a href="{e(tool["url"])}">{e(tool["title"])}</a>：</strong>{e(tool["use_zh"])}</p><details class="tool-detail"><summary>中英例子与使用边界</summary><p lang="zh-CN"><strong>例子：</strong>{e(tool["example_zh"])}</p><p lang="en"><strong>Example:</strong> {e(tool["example_en"])}</p><p class="boundary"><strong>注意：</strong>{e(tool["boundary_zh"])}</p>'
-   md+=[f'- **[{tool["title"]}]({tool["url"]})：**{tool["use_zh"]}','',f'  <details><summary>中英例子与使用边界</summary>','',f'  **例子：**{tool["example_zh"]}','',f'  **Example:** {tool["example_en"]}','',f'  **注意：**{tool["boundary_zh"]}']
+   rendered+=f'<li class="tool-item" id="tool-{e(tool["id"])}"><p><strong><a href="{e(tool["url"])}">{e(tool["title"])}</a>：</strong>{e(tool["use_zh"])}</p><p class="boundary">{e(tool["boundary_zh"])}</p>'
+   md+=[f'- **[{tool["title"]}]({tool["url"]})：**{tool["use_zh"]}','',tool['boundary_zh']]
    if tool.get('links'):
     rendered+='<p class="sources">'+' · '.join(f'<a href="{e(link["url"])}">{e(link["title"])}</a>' for link in tool['links'])+'</p>'
-    md+=['','  '+' · '.join(f'[{link["title"]}]({link["url"]})' for link in tool['links'])]
-   rendered+='</details></li>'
-   md+=['','  </details>','']
+    md+=['',' · '.join(f'[{link["title"]}]({link["url"]})' for link in tool['links'])]
+   rendered+='</li>'
   rendered+='</ul></section>'
  rendered+='<p class="boundary js-only" id="tool-empty" hidden>没有匹配的工具。换个短词试试。</p>'
- title=f'5.{len(groups)+1} 开源整理：翻译、去秘与行为保留'
- rendered+=f'<section class="release-prompt" id="code-release-prompt"><h3>{e(title)}</h3><p>先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。下面中英两版都可复制。</p>'
+ title=f'5.{len(groups)+1} 开源整理'
+ rendered+=f'<section class="release-prompt" id="code-release-prompt"><h3>{e(title)}</h3><p>先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。填写允许修改的范围后再使用。</p>'
  md+=['','<a id="code-release-prompt"></a>','### '+title,'','先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。']
  ph,pm=render_codex_prompt(data,data['code_release_prompt']['prompt_ref'],'中文提示词');rendered+=ph;md+=pm
  rendered+=f'<p class="tool-checked">文档核对：{e(data["tools_checked_at"])}。安装、版本和许可见项目原文。</p></section></section>'
  return rendered,md
 
 def build():
- data=json.loads((ROOT/'data/guide.json').read_text(encoding='utf-8'))
+ source_data=json.loads((ROOT/'data/guide.json').read_text(encoding='utf-8'))
+ data=deepcopy(source_data)
+ data['_tutorial_layout']=True
+ for old,new in zip(data['quick_start']['steps'],data['tutorial_layout']['draft_steps']):old['title_zh']=new['title']
+ data['annotated_paragraphs']+=data['tutorial_layout']['rebuttal_cases']
+ for section in data['sections']:
+  if section['id']=='rebuttal':section['title']='审稿回复'
+ names=data['tutorial_layout']['case_titles']
+ for case in data['annotated_paragraphs']:case['title']=names.get(case['id'],case['title'])
+ for figure in data['figure_chapter']['visual_examples']:figure['title']=data['tutorial_layout']['figure_titles'][figure['id']]
+ for template in data['refine_templates']:template['title']=data['tutorial_layout']['template_titles'].get(template['id'],template['title'])
+ data['refine_global_cases'][0]['title']='贡献与句间衔接'
+ data['intro_connections']['title']='段落承接'
+ data['intro_connections']['map_title']='摘要与引言：主张对应'
+ for old,new in zip([p for p in data['refine_templates'] if p['section']=='rebuttal'],data['tutorial_layout']['rebuttal_cases']):
+  old['title']=new['title']
+  new['id']=old['id']
+ for group,title in zip(data['tools'],['文献检索与阅读','写作与排版','论文绘图','引用核验','代码阅读','论文发布与维护','其他资源']):group['title']=title
  sections,items,refs=data['sections'],data['items'],data['references']
  lessons=data.get('manuscript_paragraphs',[])
  annotated=data.get('annotated_paragraphs',[])
@@ -560,9 +622,9 @@ def build():
  skill,skill_md=render_skill(data)
  draft_nav=''.join(f'<a href="#{e(s["id"])}">{e(s["title_zh"])}</a>' for s in data['quick_start']['steps'])
  figure_nav=''.join(f'<a href="#{key}">2.{n} {e(title)}</a>' for n,(key,title) in enumerate(FIGURE_SECTIONS,1))
- rebuttal_nav=''.join(f'<a href="#{e(p["id"])}">{e(p["title"])}</a>' for p in data['refine_templates'] if p['section']=='rebuttal')
+ rebuttal_nav=''.join(f'<a href="#{e(p["id"])}">{e(p["title"])}</a>' for p in data['tutorial_layout']['rebuttal_cases'])
  tools_nav=''.join(f'<a href="#tools-{e(g["id"])}">5.{n} {e(g["title"])}</a>' for n,g in enumerate(data['tools'],1))
- tools_nav+=f'<a href="#code-release-prompt">5.{len(data["tools"])+1} 开源整理提示词</a>'
+ tools_nav+=f'<a href="#code-release-prompt">5.{len(data["tools"])+1} 开源整理</a>'
  nav='<a href="#general-rules">3.1 全文规范</a>'
  for s in sections:
   if not s.get('manuscript'):continue
@@ -570,8 +632,8 @@ def build():
   number=int(s['number'])+1
   nav+=f'<a href="#chapter-{s["id"]}">3.{number} {e(s["nav"])}</a>'
  entries='';chapter_html={};chapter_md={}
- md=['# '+data['site_title'],'','先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为 Rebuttal，第五章为 AI 工具。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎给 Codex 用作 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，修改版本注明改动。如有帮助，欢迎 Star。']
- md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 古法精修','','先检查全文规范，再按章节精修。模板中的【】填自己的材料，段落按内容调整。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
+ md=['# '+data['site_title'],'','先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为审稿回复，第五章为辅助工具。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎给 Codex 用作 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，修改版本注明改动。如有帮助，欢迎 Star。']
+ md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 正文精修','','先检查全文规范，再按章节精修。模板中的【】填自己的材料，段落按内容调整。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
  md += [f'- [{section_label(s)}{s["title"]}](#{s["id"]})' for s in sections]
  md += ['- [好用工具与开源整理提示词](#tools)']
  for s in sections:
@@ -593,35 +655,23 @@ def build():
    connections_html,connections_md=render_intro_connections(data)
    entries+=connections_html;md+=connections_md
   for n,example in enumerate([p for p in annotated if p['section']==s['id']]):
-   number=f'{prefix.strip()}.{chr(97+n)}' if s.get('manuscript') else None
-   example_html,example_md=render_annotated_paragraph(example,refs,number)
+   number=None
+   example_html,example_md=render_annotated_paragraph(example,refs,number,heading_level=3 if s['id']=='rebuttal' else 4)
    entries+=example_html;md+=example_md
-  templates=[p for p in data.get('refine_templates',[]) if p['section']==s['id']]
-  if any(p['section']==s['id'] for p in annotated):
-   entries+='<details class="chapter-templates"><summary>展开句式与 LaTeX 模板</summary>'
-   md+=['','<details><summary>展开句式与 LaTeX 模板</summary>','']
+  templates=[p for p in data.get('refine_templates',[]) if p['section']==s['id'] and p.get('latex_template')]
+  if templates:
+   entries+='<details class="chapter-templates"><summary>结构模板</summary>'
+   md+=['','<details><summary>结构模板</summary>','']
   for n,lesson in enumerate(templates):
    number=None if any(p['section']==s['id'] for p in annotated) else (f'{prefix.strip()}.{chr(97+n)}' if s.get('manuscript') and len(templates)>1 else None)
-   lesson_html,lesson_md=render_paragraph(lesson,refs,md_level=3 if s['id']=='rebuttal' else 4,number=number,heading=len(templates)>1 or s['id']=='rebuttal')
+   lesson_html,lesson_md=render_paragraph(lesson,refs,md_level=3 if s['id']=='rebuttal' else 4,number=number,heading=len(templates)>1 or s['id']=='rebuttal',compact=True)
    entries+=lesson_html;md+=lesson_md
-  if any(p['section']==s['id'] for p in annotated):
-   entries+='</details>';md+=['','</details>','']
-  if any(p['section']==s['id'] for p in lessons):
-   entries+='<details class="more-lessons"><summary>更多例子：论文原句与拆解</summary>'
-   md+=['','<details><summary>更多例子：论文原句与拆解</summary>','']
-  for lesson in [p for p in lessons if p['section']==s['id']]:
-   lesson_html,lesson_md=render_paragraph(lesson,refs,heading=False)
-   entries+=lesson_html
-   if lesson.get('label') and lesson['label'] not in lesson_md:
-    at=lesson_md.index(lesson['purpose'])+1
-    lesson_md[at:at]=['',lesson['label']]
-   md+=lesson_md
-  if any(p['section']==s['id'] for p in lessons):
+  if templates:
    entries+='</details>';md+=['','</details>','']
   entries+='</section>'
   chapter_html[s['id']]=entries[html_start:];chapter_md[s['id']]=md[md_start:]
  entries=''.join(chapter_html[s['id']] for s in sections if s.get('manuscript'))
- md=md[:1]+['',data['site_subtitle'],'']+preface_md+md[1:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 古法精修','','先检查全文规范，再按章节精修。模板中的【】填自己的材料，段落按内容调整。','']+opening_md+['','### 本章目录','']
+ md=md[:1]+['',data['site_subtitle'],'']+preface_md+md[1:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 正文精修','','先检查全文规范，再按章节精修。模板中的【】填自己的材料，段落按内容调整。','']+opening_md+['','### 本章目录','']
  md+=[f'- [3.{int(s["number"])+1} {s["nav"]}](#{s["id"]})' for s in sections if s.get('manuscript')]
  for s in sections:
   if s.get('manuscript'):md+=chapter_md[s['id']]
@@ -643,9 +693,9 @@ def build():
  (ROOT/'book').mkdir(exist_ok=True)
  md+=['','## 参考阅读','']+[f'- [{r["title"]}]({r["url"]})：{r["scope"]}' for r in refs.values() if r.get('public')]
  (ROOT/'book/guide.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
- package_skill(data)
- package_figure_skill(data)
- package_rebuttal_skill(data)
+ package_skill(source_data)
+ package_figure_skill(source_data)
+ package_rebuttal_skill(source_data)
  print(f'Built 5 chapters, {len(lessons)+len(data.get("refine_templates",[]))+len(annotated)+bool(data.get("intro_connections"))} paragraph lessons.')
 
 if __name__=='__main__':

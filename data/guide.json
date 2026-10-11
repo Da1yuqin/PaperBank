@@ -9890,5 +9890,814 @@
         }
       ]
     }
-  ]
+  ],
+  "tutorial_layout": {
+    "draft_steps": [
+      {
+        "id": "draft-step-1",
+        "title": "1.1 研究材料与模板",
+        "paragraph": {
+          "id": "draft-materials-annotated",
+          "section": "draft",
+          "title": "流程示范",
+          "label": "流程说明；按实际研究和投稿要求执行。",
+          "processing": "将同一任务的操作集中为一个段落，旁注说明各步目的。",
+          "takeaway": "完成这一节后，应有研究材料、可编译模板和允许修改的文件范围。",
+          "paragraphs": [
+            {
+              "zh": "先整理研究问题、已有局限、对应设计和真实结果，附上可核对的文献、图与数据。下载目标会议当年的官方模板，确认页数并编译。使用 Overleaf 时，将最新源文件同步到本地；Git 同步需要项目 owner 有会员或相应权限，没有则下载源文件 ZIP、本地编译，或跳过同步。写明允许修改的文件，再把材料填入提示词，让 Codex 先形成提纲和初稿。"
+            }
+          ],
+          "annotations": [
+            {
+              "paragraph": 0,
+              "zh": "先整理研究问题、已有局限、对应设计和真实结果",
+              "title": "研究材料",
+              "body": "材料按“问题—设计—证据”整理；模块关系、实验设置和原始结果随材料提供。"
+            },
+            {
+              "paragraph": 0,
+              "zh": "下载目标会议当年的官方模板，确认页数并编译",
+              "title": "官方模板",
+              "body": "先确认页数与编译环境，避免填完正文再处理模板问题。"
+            },
+            {
+              "paragraph": 0,
+              "zh": "Git 同步需要项目 owner 有会员或相应权限，没有则下载源文件 ZIP、本地编译，或跳过同步",
+              "title": "本地项目",
+              "body": "没有会员也能改稿。可请有会员的老师或师兄师姐担任 owner；同步前先合入合作者更新。"
+            },
+            {
+              "paragraph": 0,
+              "zh": "写明允许修改的文件，再把材料填入提示词",
+              "title": "初稿输入",
+              "body": "约定修改范围后再填提示词；Codex 依据材料形成初稿，不能代替缺失的实验结果。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "draft-step-2",
+        "title": "1.2 关键图绘制",
+        "paragraph": {
+          "id": "draft-figures-annotated",
+          "section": "draft",
+          "title": "流程示范",
+          "label": "流程说明；按实际研究和投稿要求执行。",
+          "processing": "将同一任务的操作集中为一个段落，旁注说明各步目的。",
+          "takeaway": "首图讲价值，框架图讲流程，结果图讲证据；细则与图例见第二章。",
+          "paragraphs": [
+            {
+              "zh": "先完成关键图，供合作者审核研究思路。mainfig 用一个问题或发现说明研究价值；framework 展示真实流程，每步写清输入、操作、输出，箭头连到实际接收者，仅供评价的规则不进入被测模型。结果图从真实数据绘制，轴、单位、比较条件和误差含义齐全。全篇名称、配色和字体统一；按最终栏宽设计，图内字控制在正文减 2 pt 至正文之间，放不下就重排。编译后按正常阅读大小检查，不用放大的截图验收。"
+            }
+          ],
+          "annotations": [
+            {
+              "paragraph": 0,
+              "zh": "mainfig 用一个问题或发现说明研究价值",
+              "title": "首图的任务",
+              "body": "首图回答为什么做。方法型突出已有做法的失败点与本文改动；发现型突出关键观察。"
+            },
+            {
+              "paragraph": 0,
+              "zh": "framework 展示真实流程，每步写清输入、操作、输出",
+              "title": "框架图的任务",
+              "body": "框架图回答怎么做。模块收到什么、产出什么，以及产物交给谁，都要可追踪。"
+            },
+            {
+              "paragraph": 0,
+              "zh": "结果图从真实数据绘制，轴、单位、比较条件和误差含义齐全",
+              "title": "结果图的任务",
+              "body": "结果图回答设计是否有效；颜色、线型和误差条须在图或图注中解释。"
+            },
+            {
+              "paragraph": 0,
+              "zh": "全篇名称、配色和字体统一；按最终栏宽设计，图内字控制在正文减 2 pt 至正文之间",
+              "title": "可读性",
+              "body": "同一对象使用同一名称和颜色，并配线型或点形。按论文 PDF 的最终字号验收，不靠缩小文字塞内容。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "draft-step-3",
+        "title": "1.3 正文结构与实验",
+        "paragraph": {
+          "id": "draft-structure-annotated",
+          "section": "draft",
+          "title": "流程示范",
+          "label": "流程说明；按实际研究和投稿要求执行。",
+          "processing": "将同一任务的操作集中为一个段落，旁注说明各步目的。",
+          "takeaway": "形成章节提纲、实验论证和主结果表，再填正文；章节句式与表格模板见下方。",
+          "paragraphs": [
+            {
+              "zh": "先列全部章节标题、每节目的、所需图表和预计篇幅。Related Work 按研究主题归类；Method 按实际依赖组织，overview 串起目的、输入、操作和输出，并对应各小节与框架图。实验按需要检验的主张组织：主结果比较整体效果，消融检验关键设计，分析解释差异与失败。表格按可比设置分组，注明指标方向和不确定性；逐列标最优与次优，长表先拆列或跨栏，不通过缩小整表解决。"
+            }
+          ],
+          "annotations": [
+            {
+              "paragraph": 0,
+              "zh": "先列全部章节标题、每节目的、所需图表和预计篇幅",
+              "title": "正文结构",
+              "body": "章节标题要能看出研究任务；同级内容放在一起，篇幅按贡献和工作量分配。"
+            },
+            {
+              "paragraph": 0,
+              "zh": "overview 串起目的、输入、操作和输出，并对应各小节与框架图",
+              "title": "方法概述",
+              "body": "先建立方法的整体路径，再进入组件细节；上一阶段的输出承接下一阶段的输入。"
+            },
+            {
+              "paragraph": 0,
+              "zh": "实验按需要检验的主张组织",
+              "title": "实验论证",
+              "body": "先确定每项实验要验证什么，再选数据、对照和指标。RQ 按研究需要设置，不强制每节使用疑问句。"
+            },
+            {
+              "paragraph": 0,
+              "zh": "表格按可比设置分组，注明指标方向和不确定性",
+              "title": "表格组织",
+              "body": "可比组内逐列判断最优与次优；表注说明重复次数及 SD、SE 或 CI。颜色不能代替显著性检验。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "draft-step-4",
+        "title": "1.4 引言与逻辑审核",
+        "paragraph": {
+          "id": "draft-intro-annotated",
+          "section": "draft",
+          "title": "流程示范",
+          "label": "流程说明；按实际研究和投稿要求执行。",
+          "processing": "将同一任务的操作集中为一个段落，旁注说明各步目的。",
+          "takeaway": "先通过中文逻辑审核，再进入正文精修；引言与摘要的段落示范见第三章。",
+          "paragraphs": [
+            {
+              "zh": "先用中文写清引言的论证：领域与已有能力、具体局限、对应设计、主要发现。前两个自然段可以合并或调整顺序，只要完成领域回顾与相关工作比较。每段首句接回上一段的问题，设计逐项回应局限，发现说明哪些结果支持贡献；摘要概括同一组问题、设计和发现。定下章节标题后，让 Codex 逐节给出中文，作者先审逻辑、操作与证据，再写回英文。最后编译，检查实际页数、图表与引用顺序。"
+            }
+          ],
+          "annotations": [
+            {
+              "paragraph": 0,
+              "zh": "领域与已有能力、具体局限、对应设计、主要发现",
+              "title": "引言论证",
+              "body": "背景只保留理解问题所需的内容；设计与发现分别回答如何解决、凭什么成立。"
+            },
+            {
+              "paragraph": 0,
+              "zh": "每段首句接回上一段的问题",
+              "title": "段落承接",
+              "body": "首句给读者定位：这段是在解释困难、介绍设计，还是报告发现；避免突然列出无关步骤。"
+            },
+            {
+              "paragraph": 0,
+              "zh": "摘要概括同一组问题、设计和发现",
+              "title": "跨章节一致",
+              "body": "对象、术语和贡献保持一致；摘要压缩引言的论证，不能换一套主张。"
+            },
+            {
+              "paragraph": 0,
+              "zh": "作者先审逻辑、操作与证据，再写回英文",
+              "title": "人工审核",
+              "body": "先确认问题是否回答、流程能否复现、结论有无证据，再精修英文。"
+            }
+          ]
+        }
+      }
+    ],
+    "rebuttal_cases": [
+      {
+        "id": "rebuttal-prepare-annotated",
+        "section": "rebuttal",
+        "title": "4.1 意见整理",
+        "label": "教学模板；非真实审稿记录。【】替换为真实内容。",
+        "processing": "依据回复任务组织完整段落；未填写的数值和位置均为占位，不代表已完成实验或改稿。",
+        "takeaway": "先把意见拆成可回答的问题，再给每问匹配证据。",
+        "paragraphs": [
+          {
+            "en": "The review raises two separate questions: whether retrieval quality explains the gain and whether the generator receives the scoring criteria. We address the first with 【a matched comparison】 that fixes the retrieved passages and changes only the generator. We address the second by tracing 【the model input】 and 【the evaluator input】 in 【the relevant section or figure】. These questions require different evidence, so we organize the response under the original questions rather than giving one general defense.",
+            "zh": "这条意见包含两个问题：收益是否来自检索质量，以及生成器是否接收评分规则。第一问用【同条件对照】回答：固定检索段落，只改变生成器。第二问在【对应章节或图片】中追踪【模型输入】和【评价器输入】。两问需要不同证据，因此回复沿用原问题组织，不用一段笼统解释同时回答。"
+          }
+        ],
+        "annotations": [
+          {
+            "paragraph": 0,
+            "en": "two separate questions",
+            "zh": "两个问题",
+            "title": "拆分关切",
+            "body": "效果来源与输入边界是不同问题，应分别回答，避免只回应容易解释的一问。"
+          },
+          {
+            "paragraph": 0,
+            "en": "fixes the retrieved passages and changes only the generator",
+            "zh": "固定检索段落，只改变生成器",
+            "title": "对应对照",
+            "body": "对照直接检验收益来源；先查已有实验能否回答，再决定是否补实验。"
+          },
+          {
+            "paragraph": 0,
+            "en": "tracing 【the model input】 and 【the evaluator input】",
+            "zh": "追踪【模型输入】和【评价器输入】",
+            "title": "对应澄清",
+            "body": "输入问题需要实际接口、流程或案例；效果数字不能证明信息边界。"
+          },
+          {
+            "paragraph": 0,
+            "en": "under the original questions",
+            "zh": "沿用原问题组织",
+            "title": "回复顺序",
+            "body": "保留问题的可定位性，让审稿人快速找到各问的答案。"
+          }
+        ]
+      },
+      {
+        "id": "rebuttal-answer-annotated",
+        "section": "rebuttal",
+        "title": "4.2 回复结构",
+        "label": "教学模板；非真实审稿记录。【】替换为真实内容。",
+        "processing": "依据回复任务组织完整段落；未填写的数值和位置均为占位，不代表已完成实验或改稿。",
+        "takeaway": "答案、条件、证据解释和位置写在同一段。",
+        "paragraphs": [
+          {
+            "en": "With retrieval held fixed, the difference in 【metric】 is 【A − B】. Using identical passages, decoding settings, and evaluation cases, 【method】 scores 【A】 and 【baseline】 scores 【B】; 【metric direction】 (Table 【R1】). This comparison isolates the generator change under 【the tested setting】 and supports 【the bounded conclusion】. We report the comparison protocol and its scope in 【the permitted revision location】.",
+            "zh": "固定检索后，【指标】的差异为【A − B】。使用相同段落、解码设置和评测案例时，【方法】得分为【A】，【基线】为【B】；【指标方向】（表【R1】）。这一对照在【所测试的设置】下隔离了生成器改动，支持【限定结论】。对照协议和适用范围见【允许的修订位置】。"
+          }
+        ],
+        "annotations": [
+          {
+            "paragraph": 0,
+            "en": "the difference in 【metric】 is 【A − B】",
+            "zh": "【指标】的差异为【A − B】",
+            "title": "直接回答",
+            "body": "首句先给问题的答案；按真实差异填写，不能预设收益存在。"
+          },
+          {
+            "paragraph": 0,
+            "en": "identical passages, decoding settings, and evaluation cases",
+            "zh": "相同段落、解码设置和评测案例",
+            "title": "比较条件",
+            "body": "列出固定条件和绝对值，让读者判断差异是否可归因于待检验改动。"
+          },
+          {
+            "paragraph": 0,
+            "en": "under 【the tested setting】 and supports 【the bounded conclusion】",
+            "zh": "在【所测试的设置】下隔离了生成器改动，支持【限定结论】",
+            "title": "证据解释",
+            "body": "说明结果如何回答问题，并限定到已测试条件。"
+          },
+          {
+            "paragraph": 0,
+            "en": "【the permitted revision location】",
+            "zh": "【允许的修订位置】",
+            "title": "定位内容",
+            "body": "只填写真实存在、当轮规则允许的修订位置；不允许改稿时在回复中澄清。"
+          }
+        ]
+      },
+      {
+        "id": "rebuttal-alternative-annotated",
+        "section": "rebuttal",
+        "title": "4.3 争议检验",
+        "label": "教学模板；非真实审稿记录。【】替换为真实内容。",
+        "processing": "依据回复任务组织完整段落；未填写的数值和位置均为占位，不代表已完成实验或改稿。",
+        "takeaway": "检验争议前提，而不是重复介绍方法。",
+        "paragraphs": [
+          {
+            "en": "A plausible alternative is that longer outputs account for the improvement. To distinguish output length from 【the proposed mechanism】, we match the output-token budget and compare 【A】 with 【B】 under the same evaluation protocol. The difference is 【result】, supporting 【the bounded conclusion】. This test does not establish 【the untested mechanism】; we therefore restrict the claim to 【the evidence-supported scope】.",
+            "zh": "一种合理的替代解释是：收益来自更长的输出。为区分输出长度与【本文提出的机制】，我们匹配输出 token 预算，并在相同评测协议下比较【A】和【B】。差异为【结果】，支持【限定结论】。这项检验尚不能确立【未经检验的机制】，因此我们将主张限定为【证据支持的范围】。"
+          }
+        ],
+        "annotations": [
+          {
+            "paragraph": 0,
+            "en": "longer outputs account for the improvement",
+            "zh": "收益来自更长的输出",
+            "title": "竞争解释",
+            "body": "先准确复述争议，不以设计动机或对审稿人的评价代替回应。"
+          },
+          {
+            "paragraph": 0,
+            "en": "match the output-token budget",
+            "zh": "匹配输出 token 预算",
+            "title": "区分解释",
+            "body": "固定竞争解释指出的因素，再改变目标因素；明确两种解释如何被区分。"
+          },
+          {
+            "paragraph": 0,
+            "en": "The difference is 【result】, supporting 【the bounded conclusion】",
+            "zh": "差异为【结果】，支持【限定结论】",
+            "title": "报告判据",
+            "body": "填实际结果并说明支持哪项主张；结果不支持时调整解释。"
+          },
+          {
+            "paragraph": 0,
+            "en": "restrict the claim to 【the evidence-supported scope】",
+            "zh": "将主张限定为【证据支持的范围】",
+            "title": "调整主张",
+            "body": "无法证明的机制不写成结论；不能区分时缩小主张，而非加强语气。"
+          }
+        ]
+      },
+      {
+        "id": "rebuttal-clarify-annotated",
+        "section": "rebuttal",
+        "title": "4.4 方法澄清",
+        "label": "教学模板；非真实审稿记录。【】替换为真实内容。",
+        "processing": "依据回复任务组织完整段落；未填写的数值和位置均为占位，不代表已完成实验或改稿。",
+        "takeaway": "定义说对象，流程说产物，案例解释具体变换。",
+        "paragraphs": [
+          {
+            "en": "Here, 【term】 denotes 【a concrete object or operation】. For input 【x】, 【module】 performs 【operation】 and returns 【y】 to 【the next module】. In 【a labeled illustrative case】, this means 【the specific transformation】, rather than 【the interpretation being questioned】. Section 【N】 specifies the interface; we clarify 【the ambiguous phrase】 in 【the permitted revision location】.",
+            "zh": "这里，【术语】指【具体对象或操作】。输入【x】后，【模块】执行【操作】，将【y】交给【下一模块】。在【明确标注的示例】中，这一步对应【具体变换】，而非【受到质疑的解释】。第【N】节说明这一接口；我们在【允许的修订位置】澄清【歧义表述】。"
+          }
+        ],
+        "annotations": [
+          {
+            "paragraph": 0,
+            "en": "denotes 【a concrete object or operation】",
+            "zh": "指【具体对象或操作】",
+            "title": "先给定义",
+            "body": "把术语落实到具体对象，避免用另一个抽象名词解释它。"
+          },
+          {
+            "paragraph": 0,
+            "en": "returns 【y】 to 【the next module】",
+            "zh": "将【y】交给【下一模块】",
+            "title": "连通流程",
+            "body": "操作、产物和接收者写全；确认描述与实际实现一致。"
+          },
+          {
+            "paragraph": 0,
+            "en": "【a labeled illustrative case】",
+            "zh": "【明确标注的示例】",
+            "title": "用案例澄清",
+            "body": "示例用于走通争议步骤；注明实测案例或教学示例，不冒充实验结果。"
+          },
+          {
+            "paragraph": 0,
+            "en": "we clarify 【the ambiguous phrase】",
+            "zh": "澄清【歧义表述】",
+            "title": "定位修订",
+            "body": "指出具体歧义和实际修改位置；确有错误就修正，不只归因于误读。"
+          }
+        ]
+      },
+      {
+        "id": "rebuttal-loop-annotated",
+        "section": "rebuttal",
+        "title": "4.5 迭代审核",
+        "label": "教学模板；非真实审稿记录。【】替换为真实内容。",
+        "processing": "依据回复任务组织完整段落；未填写的数值和位置均为占位，不代表已完成实验或改稿。",
+        "takeaway": "迭代只修具体缺口；原问题是每轮审核的依据。",
+        "paragraphs": [
+          {
+            "en": "The concern 【original question】 is addressed in 【response location】, but 【the specific gap】 remains. The minimal revision is 【the targeted edit】, which requires 【an existing result or a new comparison】. We revise this point and check it against the original question before shortening the response and adjusting the tone. The loop ends when each question has a corresponding answer and evidence, the logic is consistent, and the response meets the length limit; unresolved evidence needs return to the authors.",
+            "zh": "原问题【原始问题】的回复位于【回复位置】，仍缺【具体缺口】。最小修改是【针对性改法】，需要【已有结果或新增对照】。我们只修改这一点，按原问题重查，再压缩文字、调整语气。每问有对应答案与证据、逻辑一致且篇幅合规时停止；尚缺的证据交回作者判断。"
+          }
+        ],
+        "annotations": [
+          {
+            "paragraph": 0,
+            "en": "【response location】, but 【the specific gap】 remains",
+            "zh": "【回复位置】，仍缺【具体缺口】",
+            "title": "定位缺口",
+            "body": "审核应指出哪问、哪段、哪里不足，不能只说“不够有说服力”。"
+          },
+          {
+            "paragraph": 0,
+            "en": "【the targeted edit】, which requires 【an existing result or a new comparison】",
+            "zh": "【针对性改法】，需要【已有结果或新增对照】",
+            "title": "区分修改与证据",
+            "body": "分别列出文字改法和证据需求，作者才能判断能否完成。"
+          },
+          {
+            "paragraph": 0,
+            "en": "check it against the original question before shortening the response",
+            "zh": "按原问题重查，再压缩文字",
+            "title": "迭代顺序",
+            "body": "先查漏答、证据和逻辑，修改后重查同一组问题，再处理篇幅与语气。"
+          },
+          {
+            "paragraph": 0,
+            "en": "The loop ends when each question has a corresponding answer and evidence",
+            "zh": "每问有对应答案与证据",
+            "title": "停止条件",
+            "body": "以问题覆盖与合规为准；模拟审稿用于查漏洞，不预测评分变化或录用。"
+          }
+        ]
+      },
+      {
+        "id": "rebuttal-followup-annotated",
+        "section": "rebuttal",
+        "title": "4.6 后续回复与总结",
+        "label": "教学模板；非真实审稿记录。【】替换为真实内容。",
+        "processing": "依据回复任务组织完整段落；未填写的数值和位置均为占位，不代表已完成实验或改稿。",
+        "takeaway": "后续回复补新增信息，AC 总结压缩问题、证据和剩余分歧。",
+        "paragraphs": [
+          {
+            "en": "Regarding the follow-up on 【issue】, 【direct answer】; the supporting comparison is in 【location】. The remaining disagreement concerns 【the precisely stated point】, while the evidence supports 【the bounded conclusion】. For the area chair, the main concern was 【issue】 and our response provides 【evidence】. The remaining limitation is 【limitation】; we leave the final assessment to the reviewers and area chair.",
+            "zh": "针对【问题】的追问，【直接答案】；支持这一答案的比较见【位置】。剩余分歧是【明确的问题】，现有证据支持【限定结论】。向领域主席总结时，主要关切是【问题】，回复提供了【证据】。仍有【局限】；最终判断交给审稿人与领域主席。"
+          }
+        ],
+        "annotations": [
+          {
+            "paragraph": 0,
+            "en": "Regarding the follow-up on 【issue】, 【direct answer】",
+            "zh": "针对【问题】的追问，【直接答案】",
+            "title": "回答新增问题",
+            "body": "追问接回原问题和证据，只补新增信息，不重贴整份回复。"
+          },
+          {
+            "paragraph": 0,
+            "en": "The remaining disagreement concerns 【the precisely stated point】",
+            "zh": "剩余分歧是【明确的问题】",
+            "title": "明确分歧",
+            "body": "准确说明尚未解决的争议，不猜未回复审稿人的态度。"
+          },
+          {
+            "paragraph": 0,
+            "en": "the main concern was 【issue】 and our response provides 【evidence】",
+            "zh": "主要关切是【问题】，回复提供了【证据】",
+            "title": "概括依据",
+            "body": "向 AC 总结问题和相应证据；引用评价时只用已确认内容。"
+          },
+          {
+            "paragraph": 0,
+            "en": "The remaining limitation is 【limitation】",
+            "zh": "仍有【局限】",
+            "title": "保留限制",
+            "body": "写清证据仍缺什么；不请求提分或接收。"
+          }
+        ]
+      }
+    ],
+    "figure_notes": {
+      "visual-lost-middle-fig-1": [
+        {
+          "title": "横轴与纵轴",
+          "body": "横轴是答案文档在20篇输入文档中的位置，纵轴是问答准确率；两个量足以提出一个研究问题。"
+        },
+        {
+          "title": "紫线与红虚线",
+          "body": "紫线显示带文档问答，红虚线给出同一模型的无文档基准；对照说明中间位置的低谷为什么值得研究。"
+        },
+        {
+          "title": "图例与结论范围",
+          "body": "图例写明模型和条件。结论限于该模型与20文档设置；纵轴未从零开始，不能按曲线高度比较倍数。"
+        }
+      ],
+      "visual-tcod-fig-1": [
+        {
+          "title": "左侧问题",
+          "body": "KL随轮次变化的示意先提出问题；这是示意曲线，不能当作实测结果。"
+        },
+        {
+          "title": "中间回复细节",
+          "body": "从完整轨迹放大到两轮回复，文本与数值块放在一起；数值含义须由原图注定义。"
+        },
+        {
+          "title": "右侧训练范围",
+          "body": "三条时间线沿同一方向对照训练范围，读者直接看到改了哪一段；未计算的轮次要解释原因。"
+        }
+      ],
+      "visual-tcod-fig-3": [
+        {
+          "title": "左侧基线",
+          "body": "先展示完整轨迹与师生关系，为后面两种课程提供共同参照。"
+        },
+        {
+          "title": "中间与右侧",
+          "body": "两种课程复用步骤框、师生图标和箭头，只改变训练覆盖位置，便于直接比较。"
+        },
+        {
+          "title": "轮数与颜色",
+          "body": "沿轮数向下读课程变化。步骤颜色、轮数标签和训练目标仍须在图注中定义，图标不能替代解释。"
+        }
+      ],
+      "visual-tcod-fig-4": [
+        {
+          "title": "相邻面板",
+          "body": "成功率与KL成对放置，效果与诊断就近对照；一起变化不等于已经证明因果。"
+        },
+        {
+          "title": "共用横轴",
+          "body": "所有面板使用训练步数，可按同一时间点比较；不同指标各用自己的纵轴。"
+        },
+        {
+          "title": "面板图例",
+          "body": "颜色区分训练条件。原图部分图例使用日志简写，自己的论文应换成可直接识别的模型和条件。"
+        }
+      ],
+      "visual-tcod-fig-5": [
+        {
+          "title": "四个指标面板",
+          "body": "轮数、优势、最大回复长度和损失各占一格，避免不同单位挤在同一纵轴上。"
+        },
+        {
+          "title": "共用训练步数",
+          "body": "横轴一致，读者可在同一训练时刻核对不同过程指标。"
+        },
+        {
+          "title": "损失曲线",
+          "body": "损失下降描述训练过程，不能替代最终任务实验；诊断指标与任务结果要分清。"
+        }
+      ],
+      "visual-tcod-fig-6": [
+        {
+          "title": "两幅任务图",
+          "body": "每个任务各一幅图，方法顺序一致，比较时无需重新找位置。"
+        },
+        {
+          "title": "柱顶数值与单位",
+          "body": "柱顶直接标小时数，纵轴写Time (h)。这是训练耗时，不能当作在线推理延迟；另需交代硬件与训练条件。"
+        },
+        {
+          "title": "柱顶误差线",
+          "body": "误差线保留，但原图未给全其含义，不能自行补成标准差、置信区间或特定重复次数。"
+        }
+      ],
+      "visual-interactcs-fig-1": [
+        {
+          "title": "左侧输入分组",
+          "body": "用户特征、外部需求与业务场景先分组，读者知道交互由什么输入产生。"
+        },
+        {
+          "title": "中间对话",
+          "body": "一个对话实例沿流程展开，连接抽象模块与实际交互；自己的案例须先处理身份信息。"
+        },
+        {
+          "title": "右侧编号模块",
+          "body": "结果、过程、成本三种信号分别编号。分组讲职责，箭头讲信息流，编号讲处理步骤。"
+        },
+        {
+          "title": "右上评分输出",
+          "body": "Task Score、Turn Credit和Global Cost并排显示，输入、回复与评分信号各有位置，避免混成一类。"
+        }
+      ],
+      "visual-tcod-fig-2": [
+        {
+          "title": "左侧训练诊断",
+          "body": "(a)(b)共用训练步数，把KL变化与成功率放在一起读；这是两种量的对照，不能仅凭曲线认定因果。"
+        },
+        {
+          "title": "中间配对柱图",
+          "body": "每个师生组合把Initial与final紧邻排列，横轴箭头写明配对方向，柱顶数值减少来回查轴。"
+        },
+        {
+          "title": "柱图纵轴",
+          "body": "纵轴从50开始，比较应读数值，不能用柱高判断初始值是最终值的多少倍。"
+        },
+        {
+          "title": "右侧轮次曲线",
+          "body": "按对话轮次展示KL，补充训练步数之外的诊断视角；色带含义应由原图注说明。"
+        }
+      ],
+      "visual-interactcs-fig-2": [
+        {
+          "title": "顶部共享图例",
+          "body": "颜色区分方法族，实色、斜线和点纹区分组内方案，四个面板复用同一套编码。"
+        },
+        {
+          "title": "指标标题箭头",
+          "body": "↑与↓标出指标的优劣方向，避免把违规率下降读成性能变差。"
+        },
+        {
+          "title": "柱顶误差棒",
+          "body": "保留不确定性信息；图面没有定义误差棒，不能自行称为标准差或置信区间。"
+        },
+        {
+          "title": "前三幅纵轴",
+          "body": "前三幅图未从零开始，不能按柱高比较倍数；应读坐标和数值差异。"
+        }
+      ],
+      "visual-interactcs-fig-3": [
+        {
+          "title": "左侧成本与右侧使用率",
+          "body": "控制量与实际行为并排，共用训练步数，便于按同一时间点核对两条动态。"
+        },
+        {
+          "title": "两幅图的红蓝线",
+          "body": "红蓝始终对应20%与30%两种目标，同一条件跨面板保持同色。"
+        },
+        {
+          "title": "半透明色带",
+          "body": "色带显示了额外信息，但图面未说明统计含义；不能自行补成方差、标准误或置信区间。"
+        }
+      ],
+      "teaching-kde": [
+        {
+          "title": "横轴与纵轴",
+          "body": "横轴是模拟分数，纵轴是概率密度；曲线越高，说明附近样本越密集，不是累计比例。"
+        },
+        {
+          "title": "两组曲线与填充",
+          "body": "两组共用坐标，便于比较分布位置；浅色填充是曲线下面积，不是置信区间。"
+        },
+        {
+          "title": "底部计算说明",
+          "body": "每组100个模拟样本，采用高斯核、固定带宽0.4；每条密度曲线的面积约为1。"
+        }
+      ],
+      "teaching-ecdf": [
+        {
+          "title": "阶梯线",
+          "body": "每个样本使曲线上升，纵轴表示不超过当前横轴值的样本比例。"
+        },
+        {
+          "title": "两组共用坐标",
+          "body": "在同一阈值比较线高，读的是累计比例差，不是该位置的样本密度。"
+        },
+        {
+          "title": "底部样本说明",
+          "body": "与KDE使用同一批模拟样本，每组100个；比例直接由样本计数得到，无需平滑。"
+        }
+      ],
+      "teaching-pca": [
+        {
+          "title": "两个主成分轴",
+          "body": "轴上写出计算得到的解释方差：PC1为62.4%，PC2为27.8%，避免只标抽象坐标。"
+        },
+        {
+          "title": "散点颜色",
+          "body": "颜色显示原分组，PCA未使用分组训练；投影分开不等于分类准确或泛化成立。"
+        },
+        {
+          "title": "底部输入说明",
+          "body": "80个模拟样本、3个特征，先中心化并除以样本标准差，再由协方差矩阵求主成分。"
+        }
+      ],
+      "teaching-radar": [
+        {
+          "title": "各指标轴",
+          "body": "所有轴统一为0到1，方向统一为越高越好；真实图须先说明归一化方法。"
+        },
+        {
+          "title": "点、线与颜色",
+          "body": "同一组的点与线保持同色，逐轴比较各项表现。"
+        },
+        {
+          "title": "填充多边形",
+          "body": "图中未定义综合分数，多边形面积不能当作经过验证的总能力。"
+        }
+      ],
+      "teaching-confidence": [
+        {
+          "title": "均值线与两层色带",
+          "body": "深线是模拟样本均值；内层为68%、外层为95%的逐点bootstrap区间，宽度来自计算。"
+        },
+        {
+          "title": "底部重采样说明",
+          "body": "每个设置有40个独立模拟观测，按观测有放回重采样1000次，再取均值分位数。"
+        },
+        {
+          "title": "色带的解释范围",
+          "body": "区间针对各个均值，不是整个函数的同时置信带，也不表示样本本身落在带内。"
+        }
+      ],
+      "teaching-paired-gain": [
+        {
+          "title": "每个任务一个点",
+          "body": "24个模拟任务各保留自己的配对关系；每点是同一任务的干预准确率减基线准确率。"
+        },
+        {
+          "title": "虚线零点",
+          "body": "零线右侧提高，左侧下降，收益与失败一起展示。"
+        },
+        {
+          "title": "横轴单位",
+          "body": "差值单位是百分点，不是相对百分比；任务散点没有进行显著性检验，也不能替代总体汇总。"
+        }
+      ],
+      "teaching-heatmap": [
+        {
+          "title": "行列与格内数字",
+          "body": "模型和任务交叉排列，格内直接标数值，让不辨色的读者也能比较。"
+        },
+        {
+          "title": "底部统一色标",
+          "body": "全图使用60%到80%的同一色标；不能逐行归一化后继续横向比较颜色。"
+        },
+        {
+          "title": "灰色Missing格",
+          "body": "灰色只表示缺测，单独标Missing；缺测不能记为零分。"
+        }
+      ],
+      "teaching-cost": [
+        {
+          "title": "成本与准确率两轴",
+          "body": "横轴按每1000次查询计模拟在线成本，纵轴是准确率；一次性训练成本须另行报告。"
+        },
+        {
+          "title": "字母配置点",
+          "body": "每个字母是一项明确的模拟配置，让成本与表现可以对应回具体设置。"
+        },
+        {
+          "title": "虚线连接",
+          "body": "虚线只连接已展示的非支配点，方便读取取舍；不证明中间配置存在，也不代表连续最优函数。"
+        }
+      ],
+      "teaching-donut": [
+        {
+          "title": "中心总数",
+          "body": "先写100个模拟对象，明确统计单位与分母，再看各类占比。"
+        },
+        {
+          "title": "右侧数量与比例",
+          "body": "四类分别为40、30、20、10，总和为100；数量与比例同时列出，减少估读。"
+        },
+        {
+          "title": "四个扇区",
+          "body": "四类互斥，共同构成整体。精确比较相近比例时，数值或横向条图更直接。"
+        }
+      ],
+      "teaching-two-gain": [
+        {
+          "title": "横轴与纵轴方向",
+          "body": "准确率增益向右更好，延迟减少向上更好；横轴用百分点，纵轴用相对百分比。"
+        },
+        {
+          "title": "两条零线与右上区",
+          "body": "零线分出四个象限，右上表示两项同时改善，其余象限显示不同取舍。"
+        },
+        {
+          "title": "配置点与结论范围",
+          "body": "每点是构造的模拟配置；象限只说明这两项指标的关系，不是论文结果或总体优越性的证明。"
+        }
+      ]
+    },
+    "case_titles": {
+      "annotated-intro-obstacles": "困难与评价目标",
+      "annotated-intro-design": "设计与专家产物",
+      "annotated-intro-findings": "发现与分析",
+      "annotated-intro": "领域回顾",
+      "annotated-intro-comparison": "已有能力与研究缺口",
+      "annotated-related-closure": "局限与对应解法",
+      "annotated-related": "方法比较",
+      "annotated-method-task": "任务定义",
+      "annotated-method-overview-teaching": "方法概述",
+      "annotated-method-module": "组件设计",
+      "annotated-method": "组件衔接",
+      "annotated-experiments-metrics": "指标定义",
+      "annotated-experiments-main-teaching": "主结果",
+      "annotated-experiments-ablation": "消融分析",
+      "annotated-experiments-ablation-source": "组件效果",
+      "annotated-title": "标题结构",
+      "annotated-abstract": "摘要结构",
+      "annotated-discussion": "结果解释与局限",
+      "annotated-conclusion": "结论结构",
+      "annotated-references": "引用与主张",
+      "annotated-appendix": "附录组织"
+    },
+    "figure_titles": {
+      "visual-lost-middle-fig-1": "单栏首图：研究动机",
+      "visual-tcod-fig-1": "问题与解法对照",
+      "visual-tcod-fig-3": "训练范围对照",
+      "visual-tcod-fig-4": "效果与机制曲线",
+      "visual-tcod-fig-5": "辅助指标对照",
+      "visual-tcod-fig-6": "方法效果比较",
+      "visual-interactcs-fig-1": "框架层级与模块编号",
+      "visual-tcod-fig-2": "多面板诊断",
+      "visual-interactcs-fig-2": "消融结果",
+      "visual-interactcs-fig-3": "训练动态",
+      "fig-interactcs-case": "交互案例",
+      "teaching-kde": "KDE 密度分布",
+      "teaching-ecdf": "ECDF 累积分布",
+      "teaching-pca": "PCA 二维投影",
+      "teaching-radar": "雷达图：多指标比较",
+      "teaching-confidence": "置信区间与误差带",
+      "teaching-paired-gain": "配对增益",
+      "teaching-heatmap": "热图：分组结果",
+      "teaching-cost": "成本与性能",
+      "teaching-donut": "环图：组成比例",
+      "teaching-two-gain": "双指标增益"
+    },
+    "template_titles": {
+      "template-title": "标题模板",
+      "template-abstract": "摘要模板",
+      "template-intro-route": "引言主线",
+      "template-intro-opening": "引言开头",
+      "template-intro-prior": "领域回顾与比较",
+      "template-intro-limitations": "研究局限",
+      "template-intro-design": "方法设计",
+      "template-intro-results": "主要发现",
+      "template-intro-contributions": "贡献列表",
+      "template-related-work": "相关工作模板",
+      "template-method-overview": "方法概述模板",
+      "template-problem-formulation": "任务定义模板",
+      "template-method-module": "组件说明模板",
+      "template-experiment-overview": "实验组织",
+      "template-experimental-setup": "实验设置",
+      "template-main-results": "主结果",
+      "template-ablation": "消融分析",
+      "template-extension": "扩展实验",
+      "template-pareto": "成本与性能",
+      "template-did": "双重差分",
+      "template-case-study": "案例分析",
+      "template-discussion": "讨论与局限",
+      "template-conclusion": "结论模板",
+      "template-references": "参考文献",
+      "template-appendix": "附录模板"
+    }
+  }
 }
