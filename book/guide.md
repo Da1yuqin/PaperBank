@@ -77,9 +77,9 @@ Intro 结构：前两个自然段可调整顺序和分工，交代领域背景�
 
 | 论文类型 | 引言的论证顺序 | 正文的展开顺序 |
 | --- | --- | --- |
-| [方法论文](#structure-method) | 背景与回顾 → 局限 → 设计 → 发现 → 贡献总结 | Related Work → Method → Experiments → Conclusion |
-| [基准与数据集论文](#structure-benchmark) | 能力与评价 → 缺口及建设障碍 → 产物与设计 → 发现 → 贡献总结 | Related Work → Construction → Evaluation → Conclusion |
-| [诊断驱动的改进研究](#structure-diagnostic) | 能力判断 → 质疑与发现 → 瓶颈 → 设计 → 验证 → 贡献总结 | Diagnostic Analysis → Method → Experiments → Related Work → Conclusion |
+| 方法论文 | 背景与回顾 → 局限 → 设计 → 发现 → 贡献总结 | Related Work → Method → Experiments → Conclusion |
+| 基准与数据集论文 | 能力与评价 → 缺口及建设障碍 → 产物与设计 → 发现 → 贡献总结 | Related Work → Construction → Evaluation → Conclusion |
+| 诊断驱动的改进研究 | 能力判断 → 质疑与发现 → 瓶颈 → 设计 → 验证 → 贡献总结 | Diagnostic Analysis → Method → Experiments → Related Work → Conclusion |
 
 <a id="structure-method"></a>
 <details><summary>方法论文：大纲与章节衔接</summary>

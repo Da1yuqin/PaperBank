@@ -334,8 +334,8 @@ def render_organization_templates(content):
  rendered=f'<h4>{e(content["title"])}</h4><p>{e(content["lead"])}</p><div class="organization-table-wrap"><table class="organization-table"><caption>按主要贡献选择全文组织</caption><thead><tr><th scope="col">论文类型</th><th scope="col">引言的论证顺序</th><th scope="col">正文的展开顺序</th></tr></thead><tbody>'
  md=['','#### '+content['title'],'',content['lead'],'','| 论文类型 | 引言的论证顺序 | 正文的展开顺序 |','| --- | --- | --- |']
  for pattern in content['patterns']:
-  rendered+=f'<tr><th scope="row"><a href="#{e(pattern["id"])}">{e(pattern["title"])}</a></th><td>{e(pattern["intro_chain"])}</td><td>{e(pattern["body_chain"])}</td></tr>'
-  md+=['| ['+pattern['title']+'](#'+pattern['id']+') | '+pattern['intro_chain']+' | '+pattern['body_chain']+' |']
+  rendered+=f'<tr><th scope="row">{e(pattern["title"])}</th><td>{e(pattern["intro_chain"])}</td><td>{e(pattern["body_chain"])}</td></tr>'
+  md+=['| '+pattern['title']+' | '+pattern['intro_chain']+' | '+pattern['body_chain']+' |']
  rendered+='</tbody></table></div>'
  for pattern in content['patterns']:
   rendered+=f'<details class="organization-template" id="{e(pattern["id"])}"><summary>{e(pattern["title"])}：大纲与章节衔接</summary><p>{e(pattern["when"])}</p>'
