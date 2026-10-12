@@ -6,6 +6,10 @@
 <details><summary>更新记录</summary>
 
 
+**2026-10-12 14:58 · 补全写作与绘图 skill 介绍**
+
+- 网页和 README 写明技能名称、用途、源码与下载入口；补充中英文搜索摘要和仓库主题标签。
+
 **2026-10-12 14:44 · 同步写作与绘图 skill · skill 更新**
 
 - 补齐数字与文献版本口径、Related Work 的应用字段。
@@ -29,6 +33,8 @@
 ![美丽的西施犬展示 BeautyPaper 论文；边牧、魔法橘猫和龙三位评委举起 ACCEPT 牌，在醒目的红色 ACCEPT 和庆祝彩带下欢呼。](../assets/beautypaper-presentation.png)
 
 ## 写在前头
+
+BeautyPaper 提供可直接用于 Codex 的论文写作 skill（cs-paper-writing）和学术绘图 skill（paperbank-figures）。写作按章节加载，绘图覆盖 mainfig、framework、案例图、统计图和 LaTeX 图表。
 
 本指南用于学术讨论，整理本人在论文写作与修改中的经验，供研究者参考。本人并非领域权威，内容可能有误。
 
