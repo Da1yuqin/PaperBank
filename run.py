@@ -255,14 +255,14 @@ def skill_latest(skill):
 
 def render_update_log(data):
  e=html.escape
- rendered='<details class="update-log" id="update-log"><summary>更新记录</summary><ol>'
+ rendered='<details class="update-log" id="update-log"><summary>更新记录</summary><div class="update-log-scroll" role="region" aria-label="历史更新记录，可滚动查看" tabindex="0"><ol>'
  md=['','<details><summary>更新记录</summary>','']
  for entry in data.get('update_log',[]):
   label=' · skill 更新' if entry.get('skill_update') else ''
   rendered+=f'<li><time datetime="{e(entry["at"])}">{e(entry["date"])}</time> · <strong>{e(entry["title"])}</strong>{label}<ul>'
   rendered+=''.join(f'<li>{e(change)}</li>' for change in entry['changes'])+'</ul></li>'
   md+=['',f'**{entry["date"]} · {entry["title"]}{label}**','']+['- '+change for change in entry['changes']]
- return rendered+'</ol></details>',md+['','</details>','']
+ return rendered+'</ol></div></details>',md+['','</details>','']
 
 def render_preface(data):
  e=html.escape
