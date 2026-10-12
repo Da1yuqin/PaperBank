@@ -606,42 +606,82 @@ def render_skill(data):
  for entry,label in [(skill,'cs-paper-writing'),(data['figure_chapter']['skill'],'绘图')]:
   rendered+=f'<p class="skill-links"><a href="{e(entry["download"])}" download>{e(label)} ZIP</a> · <a href="{REPO}/blob/main/{e(entry["source"])}">SKILL.md</a>：{e(entry["intro"])}</p>'
   md+=['',f'[{label} ZIP](../{entry["download"]}) · [SKILL.md](../{entry["source"]})：{entry["intro"]}']
- rendered+='<p>下载所需 ZIP，解压并保留完整文件夹，让 Codex 读取其中的 <code>SKILL.md</code>。填入材料、任务和允许修改的范围；需要写作和绘图时同时读取两个 skill。</p>'
- md+=['','下载所需 ZIP，解压并保留完整文件夹，让 Codex 读取其中的 SKILL.md。填入材料、任务和允许修改的范围；需要写作和绘图时同时读取两个 skill。']
+ installation='写作包已按章节拆分：入口、共享规则和六个章节，共八个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。'
+ rendered+=f'<p>{e(installation)}</p><p class="boundary">写作包更新：{e(skill["updated_at"])}。只含通用规则与教学模板，不含私人稿件信息。</p>'
+ md+=['',installation,'','写作包更新：'+skill['updated_at']+'。只含通用规则与教学模板，不含私人稿件信息。']
  ph,pm=render_codex_prompt(data,skill['prompt_ref'],'中文使用提示词','English usage prompt');rendered+=ph;md+=pm
  return rendered+'</details>',md
 
 def package_skill(data):
- """Generate the skill reference from the same rules used by the website."""
+ """Build a closed, sanitized chapter bundle from the public website rules."""
  skill=data['writing_skill'];folder=ROOT/Path(skill['source']).parent
- rules=[i for i in data['skill_rules'] if i['section']!='rebuttal' and i['id'] not in {'tip-89','tip-91','tip-92','tip-95','tip-88'}]
- md=['# CS 论文写作检查参考','','按本次任务选规则。下面示例是假设情境，不是论文原文或实测；实际改稿先核对事实。','','网页：[写作铁律](https://da1yuqin.github.io/PaperBank/#general-rules) · [论文结构与逐句例子](https://da1yuqin.github.io/PaperBank/#paper-order)']
- for group in dict.fromkeys(i['group'] for i in rules):
-  md+=['','## '+group,'']
-  for i in [x for x in rules if x['group']==group]:
-   md+=['',f'### 第 {i["id"][4:]} 条：{i["title"]}','',i['checklist'],'','适用边界：'+i['boundary']]
-   _,example_md=render_example(i['examples'][0],data['references'])
-   md+=example_md
- _,draft_md=render_quick_start(data,include_figures=False)
- md+=draft_md
- md+=['','## 全文要求与写法建议','',data.get('refine_global_lead',data['opening_lead'])]
- for rule in data['refine_standards']:
-  _,rm=render_paragraph(rule,data['references']);md+=rm
- md+=['','## 各章先回答什么']
- for section in data['sections']:
-  if not section.get('manuscript'):continue
-  md+=['','### '+section['nav'],'',section['purpose']]
-  if section.get('principle'):md+=['',section['principle']]
-  if data['refine_section_principles'].get(section['id']):md+=['']+['- '+rule for rule in data['refine_section_principles'][section['id']]]
- md+=['','## 各章完整句式模板']
- for lesson in data['refine_templates']:
-  if lesson['section']=='rebuttal':continue
-  _,rm=render_paragraph(lesson,data['references']);md+=rm
- md+=['','---','','原创规则与教学示例：Da1yuqin / PaperBank，[原文](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处及许可，改编注明改动。']
+ modules=[
+  ('cs-abstract-introduction','摘要、引言与贡献',['abstract','intro']),
+  ('cs-related-work','相关工作',['related']),
+  ('cs-method','方法、任务定义与 Overview',['method']),
+  ('cs-experiments','实验、评价与诊断',['experiments']),
+  ('cs-visuals','图表、Caption 与排版',[]),
+  ('cs-integration','全文整合、标题、讨论、结论与附录',['title','discussion','conclusion','references','appendix'])]
+ attribution=['','---','','Da1yuqin / [PaperBank](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。']
+ def write_skill(name, title, body):
+  target=ROOT/'skills'/name;target.mkdir(parents=True,exist_ok=True)
+  text=['---','name: '+name,'description: '+title+'；适用于实证型 CS 会议论文，按当前任务加载。','---','','# '+title,'']+body+attribution
+  (target/'SKILL.md').write_text('\n'.join(text)+'\n',encoding='utf-8')
+  return target
+ router=['先读一次[共享规则](../cs-writing-common/SKILL.md)，再只读当前任务涉及的章节；不默认加载全部模板。当前章规则与当前人工定版优先于历史写法。仅用于 CS 会议，Nature 系列使用独立体系。','','| 任务 | 章节入口 |','| --- | --- |']
+ router += [f'| {title} | [{name}](../{name}/SKILL.md) |' for name,title,_ in modules]
+ router+=['','起草前先借鉴合适论文的组织逻辑，再根据自己的研究拟大纲。参考结构，不复制措辞、事实或贡献。','','解压后保留全部八个同级目录。旧入口和下载地址保留，写作任务不需要同时加载绘图包。','','[任务提示词](references/prompts.md) · [规则索引](references/checklist.md)']
+ write_skill('cs-paper-writing','CS 论文写作入口',router)
+ common=['每个新写作任务先读一次。当前用户指令、官方要求与人工定版优先；某篇稿件的页数、图号、颜色、数字与授权不移植到其他论文。',
+  '【铁律】先核对最新源与证据，只改授权范围，保留他人并发修改、原始输入、prompt、模型回复和实测结果。',
+  '【铁律】不编造结果、引用、首次提出或因果效果。未知不填 0，展示案例不证明总体能力。',
+  data['refine_global_lead'],'','## 共享表达与证据','']
+ common += ['- '+rule['title']+'：'+rule['purpose'] for rule in data['refine_standards']]
+ common += ['','某章的具体写法由该章 SKILL 维护；阅读全文检查时加载 cs-integration，不重复读取所有历史例库。']
+ write_skill('cs-writing-common','CS 写作共享规则',common)
+ for name,title,sections in modules:
+  body=['先读[共享规则](../cs-writing-common/SKILL.md)。本章只处理当前任务；既有人工定版和最新证据优先。','','## 本章要求']
+  for section in sections:
+   label=next(s['nav'] for s in data['sections'] if s['id']==section)
+   body+=['','### '+label,'']+['- '+rule for rule in data['refine_section_principles'][section]]
+  if name=='cs-visuals':
+   body+=['']
+   body+=['- '+rule for rule in skill['visual_rules']]
+   body+=['','图型与完整绘图规范按需读[视觉参考](references/rules.md)。人工精修图形也可使用网页的独立绘图下载包。']
+  else:
+   body+=['','只在需要句式时读[本章模板](references/templates.md)。方括号换成实际材料；模板不能制造研究事实。']
+  if name=='cs-integration':
+   body+=['','【铁律】全文检查同时覆盖摘要、引言、正文、Caption、表注和解释性附录。问题、设计、证据、范围与因果方向统一。',
+    '【铁律】本地编译、最终 PDF、远端源同步与服务端 PDF 分开核验；旧源码或 hash 不证明服务器 PDF。共享项目先取最新源，写入前再查远端是否前移。',
+    '涉及摘要、引言或贡献列表时只加载[对应章节](../cs-abstract-introduction/SKILL.md)，不在这里维护第二套贡献格式。']
+  target=write_skill(name,title,body);ref=target/'references';ref.mkdir(exist_ok=True)
+  template_md=['# '+title+'：按需参考','','以下为通用规则与教学模板，不是真实论文原文、研究事实或实测。']
+  if name=='cs-visuals':
+   for rule in data['figure_chapter']['rules']:
+    _,rm=render_short_rules([rule]);template_md+=rm
+   reference_name='rules.md'
+  else:
+   for lesson in data['refine_templates']:
+    if lesson['section'] in sections and not lesson.get('source'):
+     _,rm=render_paragraph(lesson,data['references']);template_md+=rm
+   reference_name='templates.md'
+  (ref/reference_name).write_text('\n'.join(template_md+attribution)+'\n',encoding='utf-8')
+ index=['# 写作规则索引','','写作包已按章节拆分；不再默认加载旧的整份检查清单。先读入口和共享规则，再按任务选择。','','[入口](../SKILL.md) · [共享规则](../../cs-writing-common/SKILL.md)']
+ index += ['', '| 任务 | 当前规则 |','| --- | --- |']+[f'| {title} | [{name}](../../{name}/SKILL.md) |' for name,title,_ in modules]
  (folder/'references').mkdir(parents=True,exist_ok=True)
- (folder/'references/checklist.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
+ (folder/'references/checklist.md').write_text('\n'.join(index+attribution)+'\n',encoding='utf-8')
  package_prompt_reference(data,folder,['draft','writing','experiments','intro'])
- package_archive(skill,['SKILL.md','references/checklist.md','references/prompts.md','LICENSE'])
+ license_text=(folder/'LICENSE').read_text(encoding='utf-8')
+ chapter_license=license_text.replace('The original text in SKILL.md, references/checklist.md, and references/prompts.md is licensed under', 'All original Markdown files in this skill directory are licensed under')
+ for name in skill['bundle']:
+  (ROOT/'skills'/name/'LICENSE').write_text(license_text if name==folder.name else chapter_license,encoding='utf-8')
+ with zipfile.ZipFile(ROOT/skill['download'],'w',zipfile.ZIP_DEFLATED) as archive:
+  for name in skill['bundle']:
+   for path in sorted((ROOT/'skills'/name).rglob('*')):
+    if not path.is_file() or (path.suffix!='.md' and path.name!='LICENSE'):continue
+    info=zipfile.ZipInfo(str(path.relative_to(ROOT/'skills')),date_time=(2026,10,12,0,0,0))
+    info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o644<<16
+    archive.writestr(info,path.read_bytes())
 
 def package_archive(skill, names):
  folder=ROOT/Path(skill['source']).parent

@@ -6,207 +6,173 @@
 <a id="draft"></a>
 ## 一天拉完草稿：给 Codex 的提示词
 
-依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill · paper-visual-standards。
+依据：cs-writing-common · cs-abstract-introduction · cs-related-work · cs-method · cs-experiments · cs-visuals · cs-integration。
 
-对应规则：贡献可见性与问题—设计—证据对应；章节与 Overview 逻辑；先起草再人工审核；最终字号、成绩表与引用顺序。
+对应规则：只加载当前任务相关章节；真实句间钩子与问题—设计—证据对应；固定三项贡献：对象、机制与用途、发现；当前人工定版与证据边界优先。
 
 ### 中文
 
 ```text
-读取 cs-paper-writing/SKILL.md、references/checklist.md；绘图同时读 paperbank-figures/SKILL.md。先形成初稿，再由我审中文逻辑。本提示词用于实证型 CS 论文，Nature 系列另用独立体系。
-使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
-会议、当年官方模板、页数与附录规则：【】
-问题与依据：【已有做法能做什么，在哪个条件下不足】
-一句话贡献：【新对象／设计、对应缺口、与最近工作的区别】
-方法：【任务、输入、操作、输出、真实依赖与信号来源】
-实验：【数据与划分、指标、基线与预算、真实结果、消融】
-参考原文、图片与出处：【】
-本地项目与允许改的文件：【】
+读取 cs-paper-writing/SKILL.md：先读共享规则，只加载当前任务相关的章节 skill；不默认读全部例库。
+核对目标会议及 track 的 AI 规定和材料使用权限，遵守当轮允许范围。未经许可，不向外部服务发送未公开稿件、review、个人数据或密钥。
+会议、官方模板、正文页数与附录规定：【】
+研究问题与已有不足：【】；真实设计与依据：【】
+实验材料、指标口径、对照与真实结果：【】
+结构适合的参考论文与想借鉴的部分：【】
+允许修改的文件与范围：【】
 
-执行顺序与铁律：
-1. 核对官方模板，读取最新文件，先编译；保留并发修改、实验输入与记录，不改其他项目。
-2. 先定 mainfig、framework 与关键结果图。mainfig 默认至多 5 环节，突出问题与改动；framework 解释设计为何有效，再讲输入、操作、产物。箭头必须是真依赖，训练、推理、评价分开，输入／输出／评价规则用可解释的边框。
-3. 图按最终栏宽绘制。所有图字同一字号，正文减 2 pt 至正文；白底、低饱和、同对象同色，配形状或线型。结果图只读真实数据；同一案例全文只呈现一次。Caption 先说图是什么，解释必要标记和简称，再按面板读序讲解，最后写有依据的发现与贡献；必要定义优先于三行目标。图表用 [!t]，核对实际首次引用顺序。
-4. 列全部 section、subsection 的标题、任务、承接、图表和篇幅，再填正文。Method Overview 先讲针对困难的关键设计，再写目的、操作与产物；章节名作为位置，每个标题与引用出现一次，后句接前句产物，末句引用 framework。
-5. 按 Intro 主张整理实验。Setup 写清数据与划分，按 Metrics、Baselines、Implementation Details 说明指标口径、比较路线和真实设置。Main Results 先给有证据的结论，再讲关键对照与范围；消融固定其他条件，不逐行重复表格数值。
-6. 表格用 booktabs，列宽、精度与单位一致。真实可比组内最优加粗浅红，第二个不同显示值下划线浅蓝，并列共享标记；不把排名当显著性。有真实重复才写均值与不确定性，说明次数、SD／SE／CI 和有效子集。不用 resizebox 整体缩放表格。
-7. 最后组织 Intro：已有能力→具体不足→对应设计→实际发现→平行贡献。写清真正新增了什么，设计为什么回应不足；不把普通工程步骤包装成创新。不够的证据单列给我，不编结果、引用或 first／unique。
-8. 每次给我一节中文提纲与真实证据，确认后再写英文。一句一个完整判断，一段一个任务；定义术语、符号和信号来源，同对象同名称，代词须唯一、明确且就近，含混时换成短对象名。贡献形容词须有依据，一词换一词，避免重复修饰。超页先删重复，不缩模板字号或间距。交付实际编译与 PDF 检查结果，远端同步单独说明。
-语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
-Intro 结构：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。
-贡献列表【铁律】：原生 itemize 固定三项：工作概述、挑战与对应解法、实验发现。第 2 项逐个 For [挑战], we [解法]；不造贡献凑数。
+1. 核对模板并编译，保留最新源、原始结果与合作者修改。
+2. 先梳理参考部分的各节职责、论证顺序与输入输出衔接，再按自己的研究拟大纲。只借鉴组织，不复制措辞、事实或主张。
+3. 完成关键图，确定问题、设计与证据的对应；绘图读取 cs-visuals，精修图形可另读公开绘图 skill。
+4. 列章节标题、任务、证据与篇幅。Method Overview 接回具体困难并串起真实输入输出；模块开头先写动机，再写真实设计。
+5. 按主张组织实验；整体结果、局部差异与独立条件分析分别给比较范围和分母。没有实际分析，不补标题或结果。
+6. 引言先说明已有能力与具体不足，再逐项说明解法、机制用途和有依据的发现。段首承接具体对象，连接词服从真实逻辑。
+7. 贡献用原生 itemize，固定三项：工作概述、新机制与实际用途、实验发现。第 2 项点名新设计及作用，不重复已经解释的障碍标签。
+8. 先给我中文提纲和证据，再按当前授权写英文。检查真实数值、引用、图表、分页与最终 PDF；远端源和服务端 PDF 分开核验。
 ```
 
 ### English
 
 ```text
-Read cs-paper-writing/SKILL.md and references/checklist.md; also read paperbank-figures/SKILL.md for figures. Draft first and let me review the reasoning in Chinese. This prompt targets empirical CS papers; use the independent Nature system for Nature-family journals.
-Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
-Venue, current official template, page limit, and appendix rules: [ ]
-Problem and evidence: [existing capabilities and the condition where they fall short]
-Contribution: [new object / design, matched gap, difference from the closest work]
-Method: [task, inputs, operations, outputs, actual dependencies, signal sources]
-Experiments: [data and splits, metrics, baselines and budgets, actual results, ablations]
-Reference passages, figures, and sources: [ ]
-Local project and editable files: [ ]
+Read cs-paper-writing/SKILL.md. Load the shared rules once and only the chapter skills relevant to this task; do not load every example by default.
+Check the current venue and track AI policy and permissions for the material. Do not send unpublished manuscripts, reviews, personal data, or credentials to external services without authorization.
+Venue, official template, body-page limit, and appendix rules: [ ]
+Research question and prior limitations: [ ]; actual design and basis: [ ]
+Experiments, metric definitions, controls, and measured results: [ ]
+Suitable reference paper and selected sections for structural guidance: [ ]
+Allowed files and edit scope: [ ]
 
-Order and hard rules:
-1. Check the official template, read current files, and compile first. Preserve concurrent edits, experimental inputs, and records; stay within the project and scope.
-2. Settle the main figure, framework, and key result plots first. Give the main figure at most five stages by default to show the problem and change. Explain why the framework addresses the challenge before its inputs, operations, and products. Arrows must represent real dependencies; separate training, inference, and evaluation and explain border encodings for inputs, outputs, and criteria.
-3. Draw at final column width. Use one figure-text size between body size minus 2 pt and body size, white backgrounds, muted consistent colors, and auxiliary shapes or line styles. Plot actual data; present each case once across the paper. Identify the figure, expand necessary abbreviations and marks, guide readers through panel order, and state evidenced findings and contribution. Necessary definitions take priority over the three-line target. Use [!t] and check actual order against first body citations.
-4. List every section and subsection with its title, purpose, connection, figures, tables, and space budget before drafting. The Method Overview first explains the design's response to the challenge, then its purpose, operations, and products. Treat section names as locations, cite each title once, connect successive products, and cite the framework last.
-5. Organize experiments around Introduction claims. The setup specifies data and splits, Metrics, Baselines, and Implementation Details with actual definitions, comparison groups, and settings. Start Main Results with an evidenced finding, then the key comparison and scope. Hold other conditions fixed in ablations; do not recite tables.
-6. Use booktabs and consistent widths, precision, and units. Within genuinely comparable groups, mark the best value in bold on pale red and the second distinct displayed value underlined on pale blue; share markings for ties. Rankings are not significance tests. Report means and uncertainty only for actual repeats, defining counts, SD / SE / CI, and valid subsets. Do not squeeze tables with resizebox.
-7. Build the Introduction last: existing capabilities → specific limitation → matched design → actual finding → parallel contributions. State what is new and why each design responds to a limitation. Do not relabel routine engineering as innovation. List evidence gaps separately; invent no results, citations, or first / unique claims.
-8. Show one Chinese section outline and its evidence for approval before English prose. Use one complete main judgment per sentence and one task per paragraph. Define terms, notation, and signal sources; name objects consistently and retain clear, unique, nearby pronouns and replace ambiguous references with short object names. Use evidence-supported contribution modifiers as concise word replacements. Remove repetition before cutting supporting evidence; preserve template fonts and spacing. Report actual compilation and PDF checks separately from remote synchronization.
-Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
-Introduction structure: Adapt the order and division of the first two paragraphs. Include field context, a review of existing approaches, and evidence-based comparisons of their capabilities, differences, and limitations. Combine or split these functions as needed; do not fix paragraph one as background and paragraph two as limitations.
-Contribution-list hard rule: use native itemize with three items: overview, challenge-specific solutions, and experimental findings. In item two, use For [challenge], we [solution] for each actual challenge. Invent no contribution.
+1. Check and compile the template; preserve current sources, original results, and concurrent edits.
+2. Explain the reference sections’ roles, argument order, and real dependencies, then outline this research. Borrow organization, not wording, facts, or claims.
+3. Settle key figures and the problem-design-evidence mapping. Load cs-visuals; use the public drawing skill when needed.
+4. List section titles, purposes, evidence, and page budgets. Connect the Method Overview through real inputs and outputs; begin each module with its specific motivation and actual design.
+5. Organize experiments around claims. Give separate populations and denominators for overall results, local differences, and independent conditional analyses. Do not invent analyses.
+6. Establish prior capabilities and concrete limitations, then explain matched solutions, mechanisms, uses, and supported findings. Hooks must connect real objects and relationships.
+7. Use three native itemize contributions: overview, new mechanism and actual use, and empirical findings. The second item names the design and its function rather than repeating obstacle labels.
+8. Present a Chinese outline and evidence for author review before authorized English drafting. Verify data, references, layout, and the rendered PDF; distinguish remote-source sync from the server PDF.
 ```
 
 <a id="writing"></a>
 ## 给 Codex 的写作与精修提示词
 
-依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill。
+依据：cs-writing-common · cs-abstract-introduction · cs-related-work · cs-method · cs-experiments · cs-visuals · cs-integration。
 
-对应规则：新贡献、具体对象与证据边界；句间承接与最新短句要求；Related Work 主题缺口与 Overview 章节定位；实验结论优先；【铁律】摘要按背景、limitation、解法与实验亮点组织，解法用 For [具体 limitation], we ...；引言方法总述用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].，逐点解法用 To solve [同名 limitation], we ...。挑战名须直接显示困难。每次修改后回读摘要与引言，核对对象、术语、数字、范围与因果方向。；【铁律】贡献固定三项，第二项逐个 For [挑战], we [解法]；清楚代词保留，行长按本稿版式检查。；【铁律】充分利用长文正文页数；优先保留实验结论和关键条件，不改模板凑页。。
+对应规则：只加载当前任务相关章节；真实句间钩子与问题—设计—证据对应；固定三项贡献：对象、机制与用途、发现；当前人工定版与证据边界优先。
 
 ### 中文
 
 ```text
-读取 cs-paper-writing/SKILL.md 和 references/checklist.md，按当前任务选规则。
-使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
-任务：【起草／精修哪节／只读检查】；目标会议与限制：【】
-材料：【最新稿件、真实结果、参考原文】；允许修改：【文件与范围】
+读取 cs-paper-writing/SKILL.md：先读共享规则，只加载当前任务相关的章节 skill；不默认读全部例库。
+核对目标会议及 track 的 AI 规定和材料使用权限，遵守当轮允许范围。未经许可，不向外部服务发送未公开稿件、review、个人数据或密钥。
+任务与论文类型：【】；目标会议及限制：【】
+材料：【最新源、真实结果、原文依据】；允许修改：【】
 
-要求与写作建议：
-1. 先查“具体不足→新增设计→实际证据”。Abstract、Intro 贡献和 Method Overview 明说新对象或设计及其价值，与最近工作比较；全篇困难、模块和发现名称一致。不猜技术设定，不编引用、数字或优先权。
-2. 一句一个完整判断，一段一个任务，后句接前句对象、问题或产物。代词须唯一、明确且就近；含混的 it／they 换成短对象名，清楚的代词保留，不以符号替代句子，不使用重复修饰；有依据的贡献词一词换一词。
-3. 缩写、符号首次出现定义对象、来源、单位与下标；摘要、引言、实验各自能读懂。按最终 PDF 检查句长，双栏一句默认最多三行、单栏一句默认一行半，完整语义优先；不用缩字、改栏宽或硬换行凑行数。
-4. Related Work 按主题写已有路线、能力、具体不足和本文方案；各主题末尾按“However 缺口→we 的动作、对象与依据→This enables 的实际应用与同一问题解决”三句填写，对齐 Intro；引用只选直接相关工作。Method Overview 先讲设计为什么回应困难，再写目的、操作、产物；用 in [准确章节名] (ref) 定位，每个章节名与引用出现一次，保留并行关系，末句引 framework。
-5. 实验段先给有证据的结论，再讲比较条件、关键对照与含义；消融固定其他条件。指标说明方向、分母和不确定性，区分记录与独立样本、百分比与百分点、观察与因果；保留影响解释的负结果。RQ 按需要使用。
-6. 数据、公式含义、实验设置、引文、原始 prompt 和模型回复不因润色改变；保留他人修改。先给中文逻辑与最小改法，确认后改英文。缺证据单列给我，不写入论文正文；只读任务不写文件。最后说明实际改动和检查，编译与最终 PDF 目检分别确认。
-语言要求：专业、简洁、直白；不添加调侃、比喻或空泛修饰。
-Intro 结构：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。
-
-【铁律】摘要按背景、limitation、解法与实验亮点组织，解法用 For [具体 limitation], we ...；引言方法总述用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].，逐点解法用 To solve [同名 limitation], we ...。挑战名须直接显示困难。每次修改后回读摘要与引言，核对对象、术语、数字、范围与因果方向。
-贡献列表【铁律】：固定三项：工作概述、挑战与对应解法、实验发现。第二项每个挑战用 For [挑战], we [解法]，是引言 To solve 的明确例外；不编造贡献。
-篇幅【铁律】：长文按目标会议正文上限规划，写满有效内容；不足先补必要证据和分析，不注水。实验页保留可见结果与就近解释。超页先删重复、无关背景及常规实现，保留实验结论和必要条件；按最终 PDF 核查计页与官方模板。
-篇幅利用与实验页呈现是本教程针对实证型 CS 长文的经验，不是会议规定的最低页数。
-分类：只有明确必须遵守或禁止违反的要求标“铁律”。模块 To 起句、结果段先给发现、小节篇幅相称是可调整写法，不得自行升级为铁律。
+1. 先核对具体不足、实际设计和对应证据。后句承接前句的对象、问题或产物，再增加一个判断。
+2. Therefore 归纳证据，Specifically 展开判断，However 写具体转折；For example 或 For instance 放在引例句首。缺少某设计后，说清因此不能区分什么。相邻句段不反复使用同一个过渡词。
+3. 对象和动作尽早出现；保留有依据的贡献信息，删除无信息叠加。清楚、就近且唯一的代词保留，符号、缩写、单位与来源就近定义。
+4. 按当前章规则修改。引言不永久强制 Therefore 或 To solve；贡献第 2 项写新机制、依据、具体作用与实际用途。Related Work 按固定三句收尾，Method 按真实输入输出衔接，模块先交代动机。
+5. 摘要、引言、方法、实验与结论统一问题、名称、数字、范围和因果方向。整体发现与局部诊断分开，不能用相关或条件结果冒充机制证明。
+6. 不改原始记录、实验协议、冻结 prompt 或模型回复，不编结果和引用。保留人工定版及并发修改。只读任务不写文件，缺证据的问题留给作者。
+7. 检查最终 PDF 的句长、图表、脚注、分页与计页。只有明确必须遵守或禁止违反的要求标“铁律”，写法建议不升级为硬规则。
 ```
 
 ### English
 
 ```text
-Read cs-paper-writing/SKILL.md and references/checklist.md and select rules for this task.
-Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
-Task: [draft / refine a specified section / read-only check]; venue and limits: [ ]
-Materials: [current manuscript, actual results, source passages]; editable files and scope: [ ]
+Read cs-paper-writing/SKILL.md. Load the shared rules once and only the chapter skills relevant to this task; do not load every example by default.
+Check the current venue and track AI policy and permissions for the material. Do not send unpublished manuscripts, reviews, personal data, or credentials to external services without authorization.
+Task and paper type: [ ]; venue and constraints: [ ]
+Material: [latest source, actual results, primary evidence]; allowed edits: [ ]
 
-Requirements and writing recommendations:
-1. Check the specific limitation → new design → actual evidence chain first. The Abstract, Introduction contributions, and Method Overview state the new object or design, its value, and its difference from the closest work. Keep challenge, module, and finding names consistent. Invent no settings, citations, numbers, or priority claims.
-2. Use one complete main judgment per sentence and one task per paragraph. Connect each sentence to the preceding object, question, or product. Use pronouns only when their referent is unique, clear, and nearby. Replace ambiguous it / they with short object names. Avoid symbol-packed prose and stacked modifiers; use supported contribution words as concise replacements.
-3. Define acronyms and notation at first use, including objects, sources, units, and indices. Make the Abstract, Introduction, and Experiments independently understandable. Check sentence length in the final PDF: default maximum three lines in a narrow two-column layout and one-and-a-half lines in a single-column layout. Retain complete meaning; do not shrink text, alter columns, or add hard line breaks.
-4. Organize Related Work by topic: existing approach, capability, specific limitation, and the paper's response. End each topic with three sentences: However + gap; we + action, object, and basis; This enables + actual application and resolution of the same gap. Align with the Introduction and cite relevant sources. The Method Overview explains why the design addresses the challenge before its purpose, operations, and products. Locate actions with in [exact section title] (ref), citing each title once; preserve parallel paths and cite the framework last.
-5. Start result paragraphs with evidenced conclusions, then conditions, key comparisons, and implications. Hold other conditions fixed in ablations. Define metric direction, denominators, and uncertainty. Distinguish records from independent samples, percentages from percentage points, and observations from causal findings. Retain negative results that affect interpretation. Use RQs when useful.
-6. Preserve data, formula meanings, settings, citations, original prompts, model outputs, and concurrent edits. Show Chinese reasoning and minimal fixes before revising English. Keep evidence gaps outside the paper; do not write files for read-only tasks. Report actual changes and checks, distinguishing compilation from visual inspection of the final PDF.
-Language: use professional, concise, direct wording; omit jokes, metaphors, and empty modifiers.
-Introduction structure: Adapt the order and division of the first two paragraphs. Include field context, a review of existing approaches, and evidence-based comparisons of their capabilities, differences, and limitations. Combine or split these functions as needed; do not fix paragraph one as background and paragraph two as limitations.
-
-Hard rules: retain background, a specific limitation, corresponding design, and experimental findings in the Abstract. Name each limitation with "For [specific limitation], we ..." in the Abstract and "To solve [the same limitation], we ..." in the Introduction. Start the Introduction method paragraph with "Therefore, to address these obstacles, we introduce [name], a [core feature and purpose]." Name challenges as concrete difficulties. Re-read both sections after either changes and align objects, terminology, numbers, scope, and causal direction.
-Contribution-list hard rule: use exactly three items: overview, challenge-specific solutions, and experimental findings. In item two, use For [challenge], we [solution] for each actual challenge, as an explicit exception to Introduction To solve hooks. Invent no contribution.
-Page-budget rule: For a full paper, plan substantive content around the venue’s main-text page limit. Use available space for necessary evidence and analysis, not padding. Keep results and their explanations visible on experiment pages. If over length, remove repetition, irrelevant background, and standard implementation details before cutting findings or necessary conditions. Check the final PDF against the current page-count and template rules.
-Page use and experiment-page presentation are author recommendations for empirical CS full papers, not venue-mandated minimum lengths.
-Classification: Reserve hard-rule labels for explicit mandatory or prohibited requirements. To-purpose module openers, finding-first result paragraphs, and balanced subsection lengths are adaptable writing recommendations.
+1. Match the concrete limitation, actual design, and supporting evidence. Each sentence inherits an object, question, or output and adds a judgment.
+2. Use Therefore to infer from evidence, Specifically to unpack a judgment, and However for a concrete contrast. Put For example or For instance first in an example sentence. Explain what cannot be distinguished without a missing design feature. Vary transitions naturally across adjacent sentences and sections.
+3. Put contribution objects and actions early. Retain supported informative modifiers and remove empty stacking. Keep clear nearby pronouns; define notation, abbreviations, units, and sources locally.
+4. Follow the current chapter rules. Do not permanently require Therefore or To solve in the Introduction. Contribution 2 describes the new mechanism, basis, function, and actual use. Related Work uses its three-sentence ending; Method uses real input-output dependencies and motivation-first modules.
+5. Align the Abstract, Introduction, method, experiments, and conclusion in problem, names, numbers, scope, and causal direction. Separate overall findings from local diagnosis and conditional evidence from mechanism proof.
+6. Preserve original records, protocols, frozen prompts, replies, approved wording, and concurrent edits. Do not invent results or citations. Read-only tasks make no edits; evidence gaps remain for the author.
+7. Inspect the rendered PDF for sentence length, tables, footnotes, layout, and page counting. Only explicit mandatory or prohibited requirements are hard rules.
 ```
 
 <a id="experiments"></a>
 ## 给 Codex 的实验整理提示词
 
-依据：cs-paper-writing · paper-writing-clarity · paper-visual-standards。
+依据：cs-writing-common · cs-abstract-introduction · cs-related-work · cs-method · cs-experiments · cs-visuals · cs-integration。
 
-对应规则：实验设置的 Metrics 与 Baselines；实验先结论再证据；消融与负结果；成绩表可比组、排名及不确定性。
+对应规则：只加载当前任务相关章节；真实句间钩子与问题—设计—证据对应；固定三项贡献：对象、机制与用途、发现；当前人工定版与证据边界优先。
 
 ### 中文
 
 ```text
-读取 cs-paper-writing/SKILL.md 的 Experiments 与图表规则。
-使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
-材料：【Intro 主张、真实结果文件、数据划分、基线配置、预算、重复记录】
-允许修改：【实验正文、表格及相关文件】；不得改动：【原始结果与实验协议】
+读取 cs-paper-writing/SKILL.md：先读共享规则，只加载当前任务相关的章节 skill；不默认读全部例库。
+核对目标会议及 track 的 AI 规定和材料使用权限，遵守当轮允许范围。未经许可，不向外部服务发送未公开稿件、review、个人数据或密钥。
+材料：【引言主张、真实结果、指标定义、对照、重复记录与版本】
+允许修改：【】；保护：【原始结果、执行协议与评价输入】
 
-1. 按“Intro 主张／研究问题→比较对象与固定条件→指标→图表→能支持的结论”整理。RQ 有需要再用，不要求每张图单独设置 RQ。
-2. 先写 Experimental Setup：数据来源与划分；Metrics 定义方向、分母、聚合；Baselines 按路线分组，注明来源与版本；Implementation Details 写真实训练／推理预算、硬件、超参数和重复次数。没有记录就列缺口，不猜默认值。
-3. 再排 Main Results、Ablation Studies 与必要分析。每段首句给有证据的结论，随后讲关键对照、条件和范围；一个独立发现一段，不逐行重复数值。消融只改待检因素，保留其他条件，未排除的解释不能写成因果。
-4. 表格用 booktabs；同类表统一列宽、组名、精度和单位。最优加粗浅红，第二个不同显示值下划线浅蓝，并列共享标记，限真实可比组。均值与不确定性同行，整段 ± 及误差可上标；写清真实重复次数、SD／SE／CI 和共同有效子集，不用排名替代显著性，不用 resizebox 缩整表。
-5. Caption 写比较、实际发现与必要口径，每条展开简称，尽量三行。图表用 [!t]，核对最终首次引用顺序。百分比与百分点、记录与独立样本、整体与子集分开，保留影响结论的负结果。
-6. 先给中文逻辑让我审，再写英文；只根据所附记录绘图制表，不补结果、重跑基线或改统计口径。编译检查实际页数、数值、标记、字体和溢出，报告证据缺口与已做检查。
+1. 先将每项主张对应到真实比较与证据。RQ 按需要使用，不要求每张表编号。
+2. Setup 说明数据划分、Metrics、模型与基线、预算和真实设置。各指标交代单位、分母、汇总、不适用与无效输出处理。
+3. 概述主发现，再按证据层级组织局部差异与独立条件分析。However 指出整体结果掩盖的差异；Separately 或 Next 转向真正独立的问题，不虚构串行或因果。
+4. 每段讲一项发现、关键对照、范围与含义；不逐行读表。全局组成、场景发生率和条件子集使用各自真实分母，不能混称或直接相减。
+5. 消融用合适对照检验实际设计；联合改变不能归因于单个模块。诊断、描述关联、因果证据及评价器一致率分别说明。
+6. 表体名称、引用、数值与上标误差保持单行，先调允许范围内的列宽。真实重复才写均值与 SD、SE 或 CI，排名不等于显著性。Caption 保留核心口径，局部例外放对应脚注，检查最终 PDF。
+7. 结果改变后回读已授权的摘要、引言和结论，不改冻结材料、不新增未经授权的实验。
 ```
 
 ### English
 
 ```text
-Read the Experiments and figure/table rules in cs-paper-writing/SKILL.md.
-Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
-Materials: [Introduction claims, actual result files, data splits, baseline configurations, budgets, repeat records]
-Editable files: [experiment prose, tables, related files]; preserve: [original results and protocols]
+Read cs-paper-writing/SKILL.md. Load the shared rules once and only the chapter skills relevant to this task; do not load every example by default.
+Check the current venue and track AI policy and permissions for the material. Do not send unpublished manuscripts, reviews, personal data, or credentials to external services without authorization.
+Material: [Introduction claims, actual results, metrics, controls, repeat records, and versions]
+Allowed edits: [ ]; protect: [original results, execution protocol, and assessment inputs]
 
-1. Map each Introduction claim or research question to comparison objects, fixed conditions, metrics, figures/tables, and supported conclusions. Use RQs when needed, without inventing one per plot.
-2. Write Experimental Setup first: data sources and splits; Metrics with direction, denominators, and aggregation; Baselines grouped by approach with sources and versions; Implementation Details with actual training/inference budgets, hardware, hyperparameters, and repeat counts. List missing records rather than guessing defaults.
-3. Organize Main Results, Ablation Studies, and necessary analyses. Start each paragraph with an evidenced finding, then key comparisons, conditions, and scope. Give each independent finding its own paragraph; do not recite rows. Change only the tested factor in an ablation, hold other conditions fixed, and avoid causal claims when alternatives remain.
-4. Use booktabs and consistent widths, group names, precision, and units. Within comparable groups, mark the best value in bold on pale red and the second distinct displayed value underlined on pale blue, sharing marks for ties. Keep means and uncertainty on one line; the entire ± and error may be superscripted. Define actual repeat counts, SD / SE / CI, and common valid subsets. Rankings do not establish significance; do not scale whole tables with resizebox.
-5. Captions state comparisons, actual findings, and necessary scope; expand abbreviations in each caption and aim for three lines. Use [!t] and verify actual order against first citations. Distinguish percentages from percentage points, records from independent samples, and full sets from subsets. Retain negative results that affect conclusions.
-6. Show Chinese reasoning for approval before English. Use supplied records only; do not fabricate results, rerun baselines, or change aggregation. Compile and inspect pages, numbers, markings, fonts, and overflow; report evidence gaps and completed checks.
+1. Map each claim to an actual comparison and evidence. Use RQs when helpful, not for every table.
+2. Explain data splits, metrics, models and baselines, budgets, and actual settings. Give units, denominators, aggregation, inapplicability, and invalid-output handling.
+3. Overview the main finding, then organize local differences and independent conditional analyses by evidence level. However exposes a difference hidden by the aggregate; Separately or Next moves to a genuinely independent question, not an invented causal chain.
+4. Each paragraph gives a finding, key comparison, scope, and meaning. Do not narrate every table row. Global composition, scenario incidence, and conditional subsets retain their own denominators and cannot be directly subtracted.
+5. Use suitable ablation controls for actual designs. Joint changes cannot be attributed to one module. Distinguish diagnosis, association, causal evidence, and judge agreement.
+6. Keep table-body names, references, values, and superscript uncertainty on one line; adjust permitted column widths first. Report means and SD, SE, or CI only for real repetitions. Ranking is not significance. Keep core definitions in captions and local exceptions in linked footnotes; inspect the final PDF.
+7. Re-read authorized Abstract, Introduction, and Conclusion sections when findings change. Preserve frozen materials and do not run unauthorized new experiments.
 ```
 
 <a id="intro"></a>
 ## Intro 中文提纲提示词
 
-依据：cs-paper-writing · paper-writing-clarity · cs-writing-skill。
+依据：cs-writing-common · cs-abstract-introduction · cs-related-work · cs-method · cs-experiments · cs-visuals · cs-integration。
 
-对应规则：贡献可见性与有依据的贡献形容词；背景—困难—对应方案；引言句间承接与平行贡献；摘要与引言一致；引言前两段结构可调整，领域回顾与比较完整；【铁律】摘要按背景、limitation、解法与实验亮点组织，解法用 For [具体 limitation], we ...；引言方法总述用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].，逐点解法用 To solve [同名 limitation], we ...。挑战名须直接显示困难。每次修改后回读摘要与引言，核对对象、术语、数字、范围与因果方向。；【铁律】贡献固定三项，第二项逐个 For [挑战], we [解法]；清楚代词保留，行长按本稿版式检查。。
+对应规则：只加载当前任务相关章节；真实句间钩子与问题—设计—证据对应；固定三项贡献：对象、机制与用途、发现；当前人工定版与证据边界优先。
 
 ### 中文
 
 ```text
-读取 cs-paper-writing/SKILL.md 的 Introduction 规则与模板。
-使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
-材料：【问题依据、最近工作、真实设计、已验证结果与范围】
-任务：先写中文提纲；允许修改：【文件与范围】。
+读取 cs-paper-writing/SKILL.md：先读共享规则，只加载当前任务相关的章节 skill；不默认读全部例库。
+核对目标会议及 track 的 AI 规定和材料使用权限，遵守当轮允许范围。未经许可，不向外部服务发送未公开稿件、review、个人数据或密钥。
+材料：【问题、已有工作原文、真实设计、已核验发现与范围】
+允许修改：【摘要、引言或其中指定段落】
 
-1. 先写“具体不足→对应设计→实际证据”映射，缺证据单列，不补造。
-2. 开头前两段：前两个自然段可调整顺序和分工，交代领域背景与回顾，并比较相关工作的能力、差异和不足；可合并或拆分，不固定“第一段背景、第二段局限”。 说清研究方向与价值，紧接已有路线怎么做、已经能做什么。用必要原文引用，删除与具体问题无关的泛化背景。
-3. 比较与问题：指出哪个条件下，已有做法不能证明或处理什么，并给依据。每个问题须有后文设计回应，不把已有能力写成没人做过。
-4. 方案段：明确本文新增的对象或设计，与最近工作区别在哪里；先解释为什么针对该困难，再写输入、操作、产物。解释设计机制，不能仅列模块名称与步骤。
-5. 发现段：只写实际主要发现、关键比较和适用范围。没有结果不写结果句，诊断不冒充因果，有限测试不推广全部场景。
-6. 贡献用原生 itemize，平行、简短、长度相近，固定三项：工作概述、挑战与解法、实验发现。第二项逐个用 For [挑战], we [解法]，不为凑数造贡献，常规实现不单独列为创新。manually selected、expert-confirmed、tailored 等词须有对应事实，一词换一词，不使用空泛评价；不用无依据的 first／unique。
-7. 逐句查前句是否提供后句的对象或前提，问题、机制与实验名称是否一致。定义必要术语，用具体对象替代含混的 it／they，保留清楚、就近的指代；段落数量服从实际论证。先让我审中文，再组织英文。每次改动后回读摘要，按同一问题、设计、结果与范围同步，保留原始结果、引文和并发修改。
-
-【铁律】摘要按背景、limitation、解法与实验亮点组织，解法用 For [具体 limitation], we ...；引言方法总述用 Therefore, to address these obstacles, we introduce [name], a [核心亮点与用途].，逐点解法用 To solve [同名 limitation], we ...。挑战名须直接显示困难。每次修改后回读摘要与引言，核对对象、术语、数字、范围与因果方向。
-贡献列表【铁律】：固定三项：工作概述、挑战与对应解法、实验发现。第二项每个挑战用 For [挑战], we [解法]，是引言 To solve 的明确例外；不编造贡献。
-分类：只有明确必须遵守或禁止违反的要求标“铁律”。模块 To 起句、结果段先给发现、小节篇幅相称是可调整写法，不得自行升级为铁律。
+1. 前两段建立领域价值与已有能力，比较具体不足；可合并、穿插或拆分，不强制段数。
+2. 每项不足解释条件、机制与实际妨碍。缺少某功能后，说明已有成功仍不能区分什么，未报告不写成不存在。
+3. 方法段首接回已建立的障碍，方法名后立即写产物、亮点与用途。逐项用 For [困难] 等准确钩子交代解法，不按旧模板恢复人工已删的 Therefore 或 To solve。
+4. 贡献对象先出现，再写可核验依据与实际作用。来源、原则、产物和应用各有职责，模型可见输入与评价材料分开。
+5. 结果段先概述有证据的发现，再解释命名发现及范围；归纳用 Therefore，展开用 Specifically，词由关系决定。
+6. 普通正文引导句后接原生 itemize，固定三项：对象与任务；We propose [新机制]、依据、具体作用及实际应用；有范围的实验发现。正文已配对问题与解法时，第 2 项不机械重复困难标签。贡献后直接进入下一节。
+7. 回读摘要与授权范围内的正文：同一问题、设计、数字、名称、范围与因果方向一致，压缩和展开不逐字照抄。先给中文逻辑，再按授权组织英文。
 ```
 
 ### English
 
 ```text
-Read the Introduction rules and templates in cs-paper-writing/SKILL.md.
-Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
-Materials: [problem evidence, closest work, actual designs, verified findings and scope]
-Task: write a Chinese outline first; editable files and scope: [ ].
+Read cs-paper-writing/SKILL.md. Load the shared rules once and only the chapter skills relevant to this task; do not load every example by default.
+Check the current venue and track AI policy and permissions for the material. Do not send unpublished manuscripts, reviews, personal data, or credentials to external services without authorization.
+Material: [problem, primary prior-work passages, actual design, verified findings and scope]
+Allowed edits: [Abstract, Introduction, or specified paragraphs]
 
-1. Map specific limitations to matched designs and actual evidence. List gaps separately without inventing support.
-2. Opening paragraphs: Adapt the order and division of the first two paragraphs. Include field context, a review of existing approaches, and evidence-based comparisons of their capabilities, differences, and limitations. Combine or split these functions as needed; do not fix paragraph one as background and paragraph two as limitations.  explain the field and its value, then how existing approaches work and what they already achieve. Cite necessary original sources; skip generic technological-progress openings.
-3. Comparisons and problems: identify the condition where an existing approach cannot handle or establish something, with evidence. Match every problem to a later design; acknowledge existing capabilities.
-4. Response: state the new object or design and its difference from the closest work. Explain why the design addresses the limitation before inputs, operations, and products. A module list or pipeline alone is insufficient.
-5. Findings: report actual main findings, key comparisons, and scope only. Omit result sentences without results. Distinguish diagnosis from causality and bounded tests from universal claims.
-6. Use native itemize with exactly three concise items: overview, challenge-specific solutions, and experimental findings. In the second item, use For [challenge], we [solution] for each actual challenge. Do not invent contributions; routine implementation is not novelty. Use manually selected, expert-confirmed, tailored, or similar modifiers only when supported, as concise word replacements. Avoid unsupported first / unique claims.
-7. Check that each sentence supplies the next sentence's object or premise and that problem, mechanism, and experiment names agree. Define necessary terms; replace ambiguous it / they with concrete objects and retain clear, nearby references. Adapt paragraph count to the argument. Let me review Chinese before English; re-read and align the Abstract after each change, preserving the same problem, design, results, and scope. Preserve original results, citations, and concurrent edits.
-
-Hard rules: retain background, a specific limitation, corresponding design, and experimental findings in the Abstract. Name each limitation with "For [specific limitation], we ..." in the Abstract and "To solve [the same limitation], we ..." in the Introduction. Start the Introduction method paragraph with "Therefore, to address these obstacles, we introduce [name], a [core feature and purpose]." Name challenges as concrete difficulties. Re-read both sections after either changes and align objects, terminology, numbers, scope, and causal direction.
-Contribution-list hard rule: use exactly three items: overview, challenge-specific solutions, and experimental findings. In item two, use For [challenge], we [solution] for each actual challenge, as an explicit exception to Introduction To solve hooks. Invent no contribution.
-Classification: Reserve hard-rule labels for explicit mandatory or prohibited requirements. To-purpose module openers, finding-first result paragraphs, and balanced subsection lengths are adaptable writing recommendations.
+1. Establish field value and prior capabilities before comparing limitations. Merge, interleave, or split the opening paragraphs as the argument requires.
+2. Explain the conditions, mechanism, and practical obstruction for each limitation. State which distinction existing success cannot establish without the missing feature; unreported is not absent.
+3. Connect the method paragraph to established obstacles and immediately describe the artifact, verified feature, and use. Use accurate matched hooks such as For [challenge]; do not restore Therefore or To solve after the author has removed them.
+4. Put contribution objects first, then their verified basis and function. Distinguish sources, principles, artifacts, applications, model-visible inputs, and assessment targets.
+5. Overview supported findings before defining named findings and their scope. Therefore makes an inference; Specifically expands a judgment. Choose words by relationship.
+6. A normal prose lead introduces three native itemize items: artifact and task; We propose [new mechanism], basis, function, and actual use; scoped empirical findings. Do not mechanically repeat obstacle labels in item 2 when the body already pairs problems and solutions. Proceed directly to the next section after the list.
+7. Re-read the Abstract and authorized body sections for consistent problem, design, numbers, names, scope, and causal direction. Compress or expand without copying verbatim. Present Chinese reasoning before authorized English drafting.
 ```
 
 ---

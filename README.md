@@ -9,9 +9,9 @@
 
 ## 给 Codex 用
 
-下载并解压，保留完整文件夹，让 Codex 读取其中的 `SKILL.md`；再给材料、任务和允许修改的范围。
+写作 ZIP 解压后保留全部八个同级目录，让 Codex 先读 `cs-paper-writing/SKILL.md`，再按任务加载共享规则和对应章节；不用一次读完全部模板。其他 ZIP 保留各自完整文件夹。再给材料、任务和允许修改的范围。
 
-- [cs-paper-writing ZIP](assets/cs-paper-writing-skill.zip)：正文起草、章节模板、实验组织与语言精修。
+- [cs-paper-writing ZIP](assets/cs-paper-writing-skill.zip)：写作入口、共享规则和六个章节 skill（摘要与引言、相关工作、方法、实验、图表、全文整合）。更新于 2026-10-12。
 - [绘图 ZIP](assets/paperbank-figures-skill.zip)：mainfig / framework、绘图铁律、图型和提示词；第三方原图不随包分发。
 - [rebuttal ZIP](assets/rebuttal-skill.zip)：`Q1.1` 编号、首句回答、证据定位、逐题检查和 AC 总结。模板与 StrongResponse 使用同一份公开内容。
 
