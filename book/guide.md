@@ -1,13 +1,13 @@
-# PaperBank
+# BeautyPaper
 
 : 存入你的时间，取出你的 Accept
 
 
-写作与绘图：PaperBank · 审稿回复：[💪StrongResponse【这边也长出肌肉】](https://da1yuqin.github.io/PaperBank/StrongResponse/)
+写作与绘图：BeautyPaper · 审稿回复：[💪StrongResponse【这边也长出肌肉】](https://da1yuqin.github.io/PaperBank/StrongResponse/)
 这里有两个可以直接使用的 skill，按任务下载。
 [cs-paper-writing](../assets/cs-paper-writing-skill.zip) · [绘图](../assets/paperbank-figures-skill.zip) · [用法](#writing-skill)
 
-![大字红色 accept 和庆祝彩带下，边牧、魔法橘猫和龙收到论文录用邮件，开心举起爪子。](../assets/paperbank-accept-team.png)
+![美丽的西施犬展示 BeautyPaper 论文；边牧、魔法橘猫和龙三位评委举起 ACCEPT 牌，在醒目的红色 ACCEPT 和庆祝彩带下欢呼。](../assets/beautypaper-presentation.png)
 
 ## 写在前头
 
@@ -532,7 +532,7 @@ Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 3. CC BY 4.0. 从原页裁切�
 
 [下载绘图 skill](../assets/paperbank-figures-skill.zip)
 
-以下是 PaperBank 面向 CS 论文的默认约定，会议硬性要求和当前稿件已确认的配置优先。参考图用来学信息组织，不照搬它的字号、色板或数据。
+以下是 BeautyPaper 面向 CS 论文的默认约定，会议硬性要求和当前稿件已确认的配置优先。参考图用来学信息组织，不照搬它的字号、色板或数据。
 
 **填写绘图任务与数据**
 
@@ -648,7 +648,7 @@ Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 3. CC BY 4.0. 从原页裁切�
 
 [图例与批注：问题与解法对照](#visual-tcod-fig-1)
 
-- **【铁律】表格用于结果与数据：**PaperBank 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
+- **【铁律】表格用于结果与数据：**BeautyPaper 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
 
 [图例与批注：消融结果](#visual-interactcs-fig-2)
 
@@ -867,7 +867,7 @@ Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1. CC B
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 #### ECDF 累计分布
 
@@ -886,7 +886,7 @@ PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 #### PCA / 空间嵌入
 
@@ -905,7 +905,7 @@ PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 #### 雷达与多指标
 
@@ -924,7 +924,7 @@ PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 #### 置信带
 
@@ -943,7 +943,7 @@ PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 #### 配对增益
 
@@ -962,7 +962,7 @@ PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 #### 热图
 
@@ -981,7 +981,7 @@ PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 #### 成本性能图
 
@@ -1000,7 +1000,7 @@ PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 #### 饼图与环图
 
@@ -1019,7 +1019,7 @@ PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 #### 二维增益
 
@@ -1038,7 +1038,7 @@ PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 <a id="figure-references"></a>
 ### 2.7 补充参考
@@ -1207,7 +1207,7 @@ To make answers traceable to source evidence, [Method] records each retrieved qu
 3. **With the inputs and inference budget held fixed / 在固定输入与推理预算后**：【铁律】比较条件写在近处。说明固定什么，后面的差别才可解释；只写“公平比较”不够。
 4. **improves citation support by [support gain] but adds [latency cost] under [tested conditions] / 使引用支持率提高[提升幅度]，但增加[延迟开销]**：【铁律】发现保留收益、代价与范围。引用支持率、延迟是两项不同结果。报告已测条件下的取舍，不一句话扩大成“全面提升问答性能”。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
 本段是原创教学示范。[support gain]、[latency cost] 与 [tested conditions] 必须由真实实验替换。
 
@@ -1280,7 +1280,7 @@ Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools
 
 去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。
 
-©2026 AAAI. All rights reserved. 独立保留原论文版权；未授予PaperBank整篇或原图再许可。
+©2026 AAAI. All rights reserved. 独立保留原论文版权；未授予BeautyPaper整篇或原图再许可。
 
 <a id="abstract"></a>
 <a id="chapter-abstract"></a>
@@ -1321,7 +1321,7 @@ Document-based dialogue requires answers that respect both source evidence and e
 4. **notes increase citation support relative to direct generation but add latency / 相比直接生成，笔记提高了引用支持率，但增加了延迟**：发现与取舍一起交代。这个假设案例保留引用支持率和延迟的取舍。真实论文换成核验过的结果，不逐项罗列排名。
 5. **the support scores do not establish that every user constraint is satisfied / 不能据此认定每项用户约束都得到满足**：【铁律】别让指标越界。引用支持率测来源支持，不能代替约束满足率。实际摘要只保留会影响结论理解的边界。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
 沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。
 
@@ -1706,7 +1706,7 @@ However, answering this question faces two obstacles. First, data scarcity limit
 3. **Even within one category, requirements and risks vary across cases. / 即使是同类商品，不同案例的需求与风险也会变化。**：category 和 case 别直接互换。服装与手机说明品类差异。这句再交代同类商品也有不同需求与风险，才接得上 case-dependent。
 4. **Together, these obstacles hinder accurate evaluation of LLMs on complex, ambiguous, and time-sensitive shopping requests. / 这两类困难共同妨碍了对 LLM 处理复杂、模糊且有时效性的购物请求进行准确评价。**：加一句铺垫，再提解法。点明困难妨碍的是准确评价。下一段的数据与按例标准就有了来由，不要从困难直接跳到 We introduce。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
 根据作者提供的修改意见撰写的教学段落，不含当前稿件名称、数据数量、模型名单或未经核对的基准比较。Figure [X] 为图号占位。
 
@@ -1735,7 +1735,7 @@ Therefore, to address these obstacles, we introduce [Benchmark], an evaluation r
 3. **These principles guide case-specific criteria across Core, Excellence, and Safety / 这些原则指导针对每个案例制定 Core、Excellence 和 Safety 三层标准**：【铁律】这句接回前文的评价要求。These principles 接上专家的产物；case-specific 回应标准随案例变化。三层名称全文一致，分别说明检查什么。
 4. **Our example (Figure [X]) illustrates how elapsed time and unresolved information affect the advice a case requires. / 我们的例子（图【X】）说明时间推移和未决信息如何影响一个案例所需的建议。**：图要接回刚才的输入。图中要能看到时间、需求变化与未决条件。若再比较别人缺少什么输入，逐项核对对比表；别凭方法名称推断。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
 根据作者提供的修改意见撰写的教学段落，不含当前稿件名称、数据数量、模型名单或未经核对的基准比较。Figure [X] 为图号占位。
 
@@ -1763,7 +1763,7 @@ To answer this question, we evaluate [commercial models] and [open-weight models
 2. **Across these models, we observe Product Evidence Overreach, where replies add unsupported product claims, and Shopping Uncertainty Collapse, where unresolved needs are treated as settled. / 在这些模型的回复中，我们观察到两类失败：Product Evidence Overreach，即回复添加了缺少证据支持的商品声明；Shopping Uncertainty Collapse，即将尚未确定的需求视为已经明确。**：先 overview，名称要对应。先用一句总览两类失败，再展开。与摘要和前文保留同一名称，解释可以转述；模型数量与分数不能代替发现。
 3. **Further analysis links these failures to changing requirements and unresolved information. / 进一步分析将这些失败与需求变化和未决信息联系起来。**：这里还可以展开一个结论。links 还没说具体发现。补实际条件、对照与结果，说明哪类失败何时更明显；关联不能直接写成因果。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
 根据作者提供的修改意见撰写的教学段落，不含当前稿件名称、数据数量、模型名单或未经核对的基准比较。Figure [X] 为图号占位。
 
@@ -1882,9 +1882,9 @@ Evidence-grounded dialogue systems select supporting text before generating an a
 4. **To address this gap, we construct constraint-linked evidence notes based on a constraint-to-evidence linking rule. / 为应对这个缺口，我们基于约束与证据的关联规则构建绑定约束的证据笔记。**：【铁律】紧跟解法：同一个缺口，同一个对象。对象是绑定约束的证据笔记，依据是约束与证据的关联规则；两者共同应对跨轮约束缺少检验的缺口。
 5. **This enables evaluation of constraint retention across turns, addressing the lack of evidence about whether earlier requirements remain satisfied. / 这支持跨轮约束保留评价，应对前文需求能否持续得到满足缺少检验证据的问题。**：【铁律】末句落在应用与原缺口。前半句说用于跨轮评价，后半句接回需求保留缺少证据的问题。不能突然换成检索速度或泛化能力。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
-本段为 PaperBank 原创教学示范。路线、评价范围与方法均为假设，不能直接当作文献综述使用。
+本段为 BeautyPaper 原创教学示范。路线、评价范围与方法均为假设，不能直接当作文献综述使用。
 
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
@@ -1916,7 +1916,7 @@ Multi-dancer generation is an emerging area currently in its nascent stage. To t
 
 英文保持原文段落，仅合并换行、还原排版断词与字体连字，规范引文括号空白；高亮和批注为本指南添加。中文为本指南翻译，不是作者原文。 保留原文全部作者年份引文。
 
-作者教学复用；原论文英文短引与原图不受 PaperBank 原创内容 CC BY 授权覆盖。本文不转授第三方转载原论文材料的权利。
+作者教学复用；原论文英文短引与原图不受 BeautyPaper 原创内容 CC BY 授权覆盖。本文不转授第三方转载原论文材料的权利。
 
 <details><summary>结构模板</summary>
 
@@ -1985,7 +1985,7 @@ Given a question, the dialogue history, and a collection of English manuals, the
 3. **no reference answer / 不接收参考答案**：【铁律】划清可见信息。评价参照不等于推理输入。图中也不能把参考答案连进生成器。
 4. **unless the user explicitly changes it / 除非用户明确更改**：边界说具体。旧约束何时有效，给出规则；不要让模型或读者自行猜。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
 独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
 
@@ -2015,7 +2015,7 @@ To retain earlier constraints during answering, we connect quoted evidence to th
 4. **the generator uses the resulting notes / 生成器使用所得笔记**：再把笔记交给生成器。当前产物成为下一步输入。“先 A 再 B”还不够，要说明 B 使用 A 的什么。
 5. **Figure [framework] shows these dependencies. / 图[framework]展示这些依赖关系。**：【铁律】图与正文对上。填真实图号；框架图画出片段→笔记→答案的依赖，不只排三个模块名。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
 独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
 
@@ -2045,7 +2045,7 @@ To keep earlier requirements available during answering, the note builder links 
 4. **an unverified relation is left unresolved / 尚未核验的关系保留为未确定**：处理边界情况。不知道的关系不能自动写成支持或冲突；需要有明确处理规则。
 5. **receives these notes together with the current question / 接收这些笔记和当前问题**：末句交给下一步。写明产物、接收者和用途；这里是目标能力，不能伪装成实测提升。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
 独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
 
@@ -2268,7 +2268,7 @@ To test whether evidence notes improve citation support, we evaluate multi-turn 
 4. **We average these per-question fractions rather than pooling sentences across questions. / 我们对各问题的比例取平均，不把所有问题的事实句混在一起计算。**：说明怎样汇总。先按问题计算再平均，与把所有句子合并计算不同；长回答不会只因句子多而权重更大。
 5. **reported separately as not applicable / 单列为不适用**：定义不能评分的情形。没有事实句时，比例无定义。不能自动算零或算满分，还要报告数量。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
 独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
 
@@ -2297,7 +2297,7 @@ Evidence notes improve citation support under a fixed evidence-context budget. I
 3. **supports note-guided generation as a whole / 支持该设置下的笔记引导生成整体**：解释证据的意义。主结果比较整套系统；只对齐预算，不能宣称已经隔离某个组件或信息类型的作用。
 4. **the note builder adds processing time / 笔记构建增加了处理时间**：代价跟收益一起说。效率不是只算生成器；端到端延迟应计入检索、笔记构建与生成。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
 独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
 
@@ -2327,7 +2327,7 @@ To examine the role of retained dialogue constraints, we remove those constraint
 4. **If constraint satisfaction decreases after this single change / 若这项单一改动后约束满足率下降**：没有结果就不编发现。这里是条件句教学。正式结果段应替换为真实差异及统计范围。
 5. **does not isolate the benefit of the entire note-building pipeline / 不能单独确定整套笔记构建流程的收益**：归因范围与改动一致。当前比较只检验保留约束，未单独识别检索、摘句等其他步骤的作用。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
 独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
 
@@ -2361,7 +2361,7 @@ We highlight the importance of natural footwork in enhancing visual aesthetics (
 
 英文保持原文，仅合并换行、还原排版断词，并移除粗体段标题；中文为本指南翻译。英文原文包含 PFC 与 GMC 的两项作用，教学批注明确各自的指标和对照，不改原句。
 
-作者教学复用；原论文英文短引与原图不受 PaperBank 原创内容 CC BY 授权覆盖。本文不转授第三方转载原论文材料的权利。
+作者教学复用；原论文英文短引与原图不受 BeautyPaper 原创内容 CC BY 授权覆盖。本文不转授第三方转载原论文材料的权利。
 
 <a id="discussion"></a>
 <a id="chapter-discussion"></a>
@@ -2401,7 +2401,7 @@ Higher citation support is consistent with more explicit use of document evidenc
 4. **cross-language questions and frequently updated documents remain untested / 跨语言问题与频繁更新的文档尚未检验**：范围要具体。语言变化和文档更新是两个尚未测的设置。写出来，比一句 limited generalizability 有用。
 5. **because language and document updates can change which quoted evidence supports an answer / 因为语言与文档更新可能改变哪些摘句能够支持答案**：未来工作说明为什么必要。下一步不是随手扩大任务，而是检查证据支持关系是否仍成立。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
 沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。
 
@@ -2484,7 +2484,7 @@ Retrieval-augmented generation combines retrieved passages with answer generatio
 3. **[retriever and version] [official documentation for that version] / [检索器与版本][该版本的官方文档]**：名称、版本、来源对应。工具或模型没有论文时，可以引用真实官方文档。不要用另一版本的报告补当前版本出处。
 4. **The method citation supports the approach; the version-specific documentation identifies the tool actually used. / 方法引用说明采用哪条路线；对应版本的文档说明实际使用什么工具。**：别混淆引用的职责。方法来源与实际工具版本是两件事。引用准确后，还要核对运行记录是否采用这个版本。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
 用占位展示正文主张与真实来源的对应，不提供虚构作者、年份、题名或 DOI。
 
@@ -2526,7 +2526,7 @@ To reproduce the citation-support comparison in Section [X], this appendix recor
 3. **using development questions and freeze it before evaluating the test questions / 用开发集问题选择笔记最大长度，在评价测试问题前冻结这个选择**：参数选择与测试分开。给出选择数据和冻结时点，说明参数如何确定。不能用最终测试结果倒选参数。
 4. **so the aggregate in the main text can be traced to the same runs / 使正文的汇总结果能追溯到同一批运行**：附录与正文口径一致。补充表应对应正文统计，配置、运行与失败处理不能换一套范围。
 
-PaperBank · 教学改写
+BeautyPaper · 教学改写
 
 沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。
 

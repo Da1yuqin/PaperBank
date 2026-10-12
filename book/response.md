@@ -2,7 +2,7 @@
 
 首句回答，证据跟上。
 
-论文写作与绘图：[PaperBank](https://da1yuqin.github.io/PaperBank/)
+论文写作与绘图：[BeautyPaper](https://da1yuqin.github.io/PaperBank/)
 
 ![戴眼镜的健壮德牧用“回答、证据、结论”说明研究，与一位惊讶的人类学者讨论。](../assets/strongresponse-negotiation.png)
 

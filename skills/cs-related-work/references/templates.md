@@ -15,7 +15,7 @@
 - 相近工作的差异提前讲清。引用准确完整，不因图相似或结果不利而漏引。
 - 引用数量不是会议配额；删除重复说明，不加入无关文献。
 
-PaperBank 规范化写法；主题数量按论文内容
+BeautyPaper 规范化写法；主题数量按论文内容
 
 [Research line] addresses [shared task] by [shared mechanism] [citations].
 
@@ -75,4 +75,4 @@ This enables [actual application B], [resolving / addressing / reducing] [the sa
 
 ---
 
-Da1yuqin / [PaperBank](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。
+Da1yuqin / [BeautyPaper](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。

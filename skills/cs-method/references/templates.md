@@ -13,7 +13,7 @@
 - 每步说目的、输入、操作与输出，用准确章节引用定位一次；后句接前句产物，并行关系照实写。
 - 末句引用框架图；已有章首总览不再单开重复 Overview。格式转换不单独列为创新模块。
 
-PaperBank 规范化写法；按真实依赖替换或删除阶段
+BeautyPaper 规范化写法；按真实依赖替换或删除阶段
 
 To address [Intro challenge], we [key design] rather than [verified prior approach], so that [specific intended capability].
 
@@ -109,7 +109,7 @@ At inference time, [executor] receives [visible information]; [reference informa
 - 自己的创新占主要篇幅，标准编码、调用与格式转换简写；不能把已有方法改名当创新。
 - 每节结尾说明输出与后续用途，下一节使用对应产物。重点是为什么值得做，复现所需细节仍要给全。
 
-通用要求；PaperBank 推荐句式
+通用要求；BeautyPaper 推荐句式
 
 To [specific problem or purpose], we [actual design or operation] using [real input].
 
@@ -143,4 +143,4 @@ The resulting [output] is passed to [next step] for [purpose].
 
 ---
 
-Da1yuqin / [PaperBank](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。
+Da1yuqin / [BeautyPaper](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。

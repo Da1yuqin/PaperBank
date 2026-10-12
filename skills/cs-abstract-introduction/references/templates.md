@@ -81,7 +81,7 @@ Motivated by [supported diagnosis], we [matching design] and evaluate [targeted 
 - 前两段可以先讲领域与进展，也可以从具体问题进入，再回顾和比较已有路线；段落顺序服务于论证。
 - 领域背景、相关工作与比较都要交代；背景只留理解问题所需的信息，不固定“第一段背景、第二段局限”。
 
-PaperBank 推荐结构模板
+BeautyPaper 推荐结构模板
 
 [Research direction] aims to [clear task objective] [citations].
 
@@ -111,7 +111,7 @@ In this setting, [input] must be converted into [output] while satisfying [const
 - 引言与 Related Work 的分类、对象和关键词一致；机制细节放后者。
 - 与背景的先后和段落分工可调整；开头要有领域回顾和有依据的比较，不能只有泛化背景。
 
-PaperBank 规范化写法；段数按内容调整
+BeautyPaper 规范化写法；段数按内容调整
 
 Existing [research line] uses [shared mechanism] to [established capability] [citations].
 
@@ -137,7 +137,7 @@ Another line uses [different mechanism] to support [additional capability] [cita
 - 给 2～3 个词的自明短名，首次就解释；困难数量按真实贡献，按实际内容确定。
 - 每个困难都能指向后文设计与实验；命名新不等于发现新。
 
-PaperBank 规范化写法
+BeautyPaper 规范化写法
 
 However, [existing capability] does not establish [missing property] when [condition].
 
@@ -169,7 +169,7 @@ For example, [concrete input or situation] requires [specific behavior], which [
 - Introduction 说明设计思路与作用；公式、模型细节与实现参数放在 Method。
 - 关键词与 Related Work、Method、图、实验一致。预期作用与实测效果分开。
 
-PaperBank 规范化写法
+BeautyPaper 规范化写法
 
 To address these obstacles, we introduce [name], a [verified core feature and purpose].
 
@@ -206,7 +206,7 @@ For [challenge B], we [design B].
 - 发现可取短名，随后解释含义；不添加未测能力。
 - 只讲关键关系，不复述结果表；引言图用来讲动机。
 
-PaperBank 规范化写法
+BeautyPaper 规范化写法
 
 Experiments on [tested tasks] reveal [specific finding] under [comparison conditions].
 
@@ -270,4 +270,4 @@ In summary, our contributions are:
 
 ---
 
-Da1yuqin / [PaperBank](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。
+Da1yuqin / [BeautyPaper](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。

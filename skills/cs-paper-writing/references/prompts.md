@@ -177,4 +177,4 @@ Allowed edits: [Abstract, Introduction, or specified paragraphs]
 
 ---
 
-Da1yuqin / PaperBank，[原文](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+Da1yuqin / BeautyPaper，[原文](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。

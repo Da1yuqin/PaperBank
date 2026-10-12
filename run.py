@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build PaperBank and StrongResponse; use --serve to preview with Python 3."""
+"""Build BeautyPaper and StrongResponse; use --serve to preview with Python 3."""
 import argparse
 import html
 import json
@@ -50,7 +50,7 @@ def package_prompt_reference(data, folder, keys):
   md+=['',f'<a id="{key}"></a>','## '+prompt['title'],'','依据：'+' · '.join(prompt['sources'])+'。','', '对应规则：'+'；'.join(prompt['basis'])+'。']
   for lang,label in [('zh','中文'),('en','English')]:
    md+=['','### '+label,'','```text',prompt[lang],'```']
- md+=['','---','','Da1yuqin / PaperBank，[原文](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。']
+ md+=['','---','','Da1yuqin / BeautyPaper，[原文](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。']
  (folder/'references/prompts.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
 
 def section_label(section):
@@ -181,7 +181,7 @@ def render_annotated_paragraph(example, refs, number=None, heading_level=4, work
   source_md=f'[{example["paper_label"]}]({r["url"]}) · {example["location"]}'
   rights=r['license']
  else:
-  source=source_md=example.get('source_label','PaperBank · 教学改写')
+  source=source_md=example.get('source_label','BeautyPaper · 教学改写')
   rights='本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。'
  if not workflow:rendered+=f'<p class="example-source">{source}</p><details class="annotation-rights"><summary>出处与复用范围</summary><p>{e(example["processing"])}</p><p>{e(rights)}</p></details>'
  rendered+='</section>'
@@ -258,13 +258,13 @@ def render_preface(data):
  e=html.escape
  p=data['preface']
  skill=data['writing_skill']
- rendered='<p class="site-switch">写作与绘图：PaperBank · 审稿回复：<a href="StrongResponse/">💪StrongResponse【这边也长出肌肉】</a></p>'
+ rendered='<p class="site-switch">写作与绘图：BeautyPaper · 审稿回复：<a href="StrongResponse/">💪StrongResponse【这边也长出肌肉】</a></p>'
  rendered+=f'<p class="skill-links"><strong>这里有两个可以直接使用的 skill，按任务下载。</strong> <a href="{e(skill["download"])}" download>cs-paper-writing</a> · <a href="{e(data["figure_chapter"]["skill"]["download"])}" download>绘图</a> · <a href="#writing-skill">用法</a></p>'
- rendered+=f'<figure class="accept-banner"><img src="{e(p["image"])}" alt="{e(p["image_alt"])}" width="1672" height="941" fetchpriority="high"></figure><section class="preface" id="preface"><h2>{e(p["title"])}</h2>'
+ rendered+=f'<figure class="accept-banner"><img src="{e(p["image"])}" alt="{e(p["image_alt"])}" width="{p["image_width"]}" height="{p["image_height"]}" fetchpriority="high"></figure><section class="preface" id="preface"><h2>{e(p["title"])}</h2>'
  rendered+=''.join(f'<p>{e(text)}</p>' for text in p['paragraphs'])
  rendered+=f'<p class="preface-aside"><em>{e(p["aside"])}</em></p>'
  rendered+='</section>'
- md=['','写作与绘图：PaperBank · 审稿回复：[💪StrongResponse【这边也长出肌肉】](https://da1yuqin.github.io/PaperBank/StrongResponse/)','这里有两个可以直接使用的 skill，按任务下载。',f'[cs-paper-writing](../{skill["download"]}) · [绘图](../{data["figure_chapter"]["skill"]["download"]}) · [用法](#writing-skill)','',f'![{p["image_alt"]}](../{p["image"]})','','## '+p['title'],'']
+ md=['','写作与绘图：BeautyPaper · 审稿回复：[💪StrongResponse【这边也长出肌肉】](https://da1yuqin.github.io/PaperBank/StrongResponse/)','这里有两个可以直接使用的 skill，按任务下载。',f'[cs-paper-writing](../{skill["download"]}) · [绘图](../{data["figure_chapter"]["skill"]["download"]}) · [用法](#writing-skill)','',f'![{p["image_alt"]}](../{p["image"]})','','## '+p['title'],'']
  md+=sum(([text,''] for text in p['paragraphs']),[])
  md+=['*'+p['aside']+'*','']
  return rendered,md
@@ -622,7 +622,7 @@ def package_skill(data):
   ('cs-experiments','实验、评价与诊断',['experiments']),
   ('cs-visuals','图表、Caption 与排版',[]),
   ('cs-integration','全文整合、标题、讨论、结论与附录',['title','discussion','conclusion','references','appendix'])]
- attribution=['','---','','Da1yuqin / [PaperBank](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。']
+ attribution=['','---','','Da1yuqin / [BeautyPaper](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。']
  def write_skill(name, title, body):
   target=ROOT/'skills'/name;target.mkdir(parents=True,exist_ok=True)
   text=['---','name: '+name,'description: '+title+'；适用于实证型 CS 会议论文，按当前任务加载。','---','','# '+title,'']+body+attribution
@@ -718,14 +718,14 @@ def build_response():
   chapters+='</section>'
  usage=f'<details class="writing-skill" id="response-skill"><summary>skill 安装与用法</summary><p>下载 ZIP，解压并保留完整的 <code>rebuttal</code> 文件夹。让 Codex 读取 <code>rebuttal/SKILL.md</code>，填入论文、完整 review、已有证据、当轮规则和允许修改的范围。</p><p><a href="{REPO}/blob/main/{e(skill["source"])}">SKILL.md</a> · <a href="{REPO}/blob/main/skills/rebuttal/references/rules.md">规则与模板</a> · <a href="{REPO}/blob/main/skills/rebuttal/references/prompts.md">提示词</a></p><p>制作类似教程：<a href="../assets/tutorial-authoring-skill.zip" download>下载教程编排 skill</a> · <a href="{REPO}/blob/main/skills/tutorial-authoring/SKILL.md">SKILL.md</a>。内容顺序、简洁表达、完整案例与旁批、窄屏检查均包含在内。</p></details>'
  prompt_html,_=render_response_template({'title':'复制给 Codex：起草与逐题检查','text':data['quick_start_prompt'],'note':'把【】换成材料或文件。先查清问题，再写回复；缺证据的地方由作者决定如何处理。'},'response-prompt')
- preface=f'<p class="site-switch">论文写作与绘图：<a href="../">PaperBank</a> · 审稿回复：StrongResponse</p><p class="skill-links"><strong>这里有一份可以直接使用的 skill。</strong> <a href="../{e(skill["download"])}" download>下载 rebuttal skill</a> · <a href="#response-skill">用法</a></p><figure class="accept-banner response-banner"><img src="../{e(data["image"])}" alt="{e(data["image_alt"])}" width="{data["image_width"]}" height="{data["image_height"]}" fetchpriority="high"></figure><p>{e(data["preface"])}</p>'+usage+prompt_html
+ preface=f'<p class="site-switch">论文写作与绘图：<a href="../">BeautyPaper</a> · 审稿回复：StrongResponse</p><p class="skill-links"><strong>这里有一份可以直接使用的 skill。</strong> <a href="../{e(skill["download"])}" download>下载 rebuttal skill</a> · <a href="#response-skill">用法</a></p><figure class="accept-banner response-banner"><img src="../{e(data["image"])}" alt="{e(data["image_alt"])}" width="{data["image_width"]}" height="{data["image_height"]}" fetchpriority="high"></figure><p>{e(data["preface"])}</p>'+usage+prompt_html
  template=(ROOT/'assets/response-template.html').read_text(encoding='utf-8')
  for key,value in {'TITLE':e(data['title']),'SUBTITLE':e(data['subtitle']),'LOGO':e(data['logo']),'LOGO_WIDTH':str(data['logo_width']),'LOGO_HEIGHT':str(data['logo_height']),'PREFACE':preface,'NAV':nav,'CHAPTERS':chapters}.items():template=template.replace('{{'+key+'}}',value)
  assert not re.search(r'{{[A-Z_]+}}',template)
  (ROOT/'StrongResponse').mkdir(exist_ok=True)
  (ROOT/'StrongResponse/index.html').write_text(template,encoding='utf-8')
  attribution=['','---','','Da1yuqin / [StrongResponse](https://da1yuqin.github.io/PaperBank/StrongResponse/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载请保留署名、出处及许可，改写注明改动。']
- md=['# '+data['title'],'',data['subtitle'],'','论文写作与绘图：[PaperBank](https://da1yuqin.github.io/PaperBank/)','',f'![{data["image_alt"]}](../{data["image"]})','',data['preface'],'',f'[下载 rebuttal skill](../{skill["download"]}) · [SKILL.md](../{skill["source"]})','', '解压并保留完整 rebuttal 文件夹，让 Codex 读取 rebuttal/SKILL.md。','', '## 给 Codex 的提示词','','```text',data['quick_start_prompt'],'```']+rules_md+attribution
+ md=['# '+data['title'],'',data['subtitle'],'','论文写作与绘图：[BeautyPaper](https://da1yuqin.github.io/PaperBank/)','',f'![{data["image_alt"]}](../{data["image"]})','',data['preface'],'',f'[下载 rebuttal skill](../{skill["download"]}) · [SKILL.md](../{skill["source"]})','', '解压并保留完整 rebuttal 文件夹，让 Codex 读取 rebuttal/SKILL.md。','', '## 给 Codex 的提示词','','```text',data['quick_start_prompt'],'```']+rules_md+attribution
  (ROOT/'book/response.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
  folder=ROOT/Path(skill['source']).parent
  (folder/'references').mkdir(parents=True,exist_ok=True)
@@ -734,7 +734,7 @@ def build_response():
  loop=next(s['template']['text'] for s in data['sections'] if s['id']=='revise-loop')
  prompts=['# 给 Codex 的提示词','','## 起草与逐题检查','','```text',data['quick_start_prompt'],'```','','## Revise loop','','```text',loop,'```']+attribution
  (folder/'references/prompts.md').write_text('\n'.join(prompts)+'\n',encoding='utf-8')
- license_text=(folder/'LICENSE').read_text(encoding='utf-8').replace('Da1yuqin / PaperBank','Da1yuqin / StrongResponse').replace('Website: https://da1yuqin.github.io/PaperBank/\n','Website: https://da1yuqin.github.io/PaperBank/StrongResponse/\n')
+ license_text=(folder/'LICENSE').read_text(encoding='utf-8').replace('Da1yuqin / BeautyPaper','Da1yuqin / StrongResponse').replace('Website: https://da1yuqin.github.io/PaperBank/\n','Website: https://da1yuqin.github.io/PaperBank/StrongResponse/\n')
  (folder/'LICENSE').write_text(license_text,encoding='utf-8')
  package_archive(skill,['SKILL.md','references/rules.md','references/prompts.md','LICENSE'])
  package_archive({'source':'skills/tutorial-authoring/SKILL.md','download':'assets/tutorial-authoring-skill.zip'},['SKILL.md','LICENSE'])
@@ -745,17 +745,17 @@ def package_figure_skill(data):
  folder=ROOT/Path(skill['source']).parent
  (folder/'references').mkdir(parents=True,exist_ok=True)
  (folder/'SKILL.md').write_text(skill['instructions'],encoding='utf-8')
- md=['# PaperBank 绘图参考','',figures['lead'],'','标为铁律的要求必须遵守，其余是可调整建议。这里的中英句式是教学例子，数值和口径用自己的实际记录。','','## 绘图规范']
+ md=['# BeautyPaper 绘图参考','',figures['lead'],'','标为铁律的要求必须遵守，其余是可调整建议。这里的中英句式是教学例子，数值和口径用自己的实际记录。','','## 绘图规范']
  for key,title in [('rules','绘图规范'),('types','按图的任务选模板')]:
   if key=='types':md+=['','## '+title]
   for rule in figures[key]:
    _,rm=render_short_rules([rule]);md+=rm
    links=[f'[{v["title"]}](https://da1yuqin.github.io/PaperBank/#{v["id"]})' for v in figures['visual_examples'] if v['id'] in rule.get('visuals',[])]
    if links:md+=['','图例与拆解：'+' · '.join(links)]
- md+=['','---','','Da1yuqin / PaperBank，[原文](https://da1yuqin.github.io/PaperBank/#figures)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可；改编注明改动。第三方原图不随包分发。']
+ md+=['','---','','Da1yuqin / BeautyPaper，[原文](https://da1yuqin.github.io/PaperBank/#figures)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可；改编注明改动。第三方原图不随包分发。']
  (folder/'references/rules.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
  package_prompt_reference(data,folder,['figures'])
- license_text=(ROOT/Path(data['writing_skill']['source']).parent/'LICENSE').read_text(encoding='utf-8').replace('CS Paper Writing Skill','PaperBank Drawing Skill').replace('references/checklist.md','references/rules.md').replace('cs-paper-writing','paperbank-figures')
+ license_text=(ROOT/Path(data['writing_skill']['source']).parent/'LICENSE').read_text(encoding='utf-8').replace('CS Paper Writing Skill','BeautyPaper Drawing Skill').replace('references/checklist.md','references/rules.md').replace('cs-paper-writing','paperbank-figures')
  (folder/'LICENSE').write_text(license_text,encoding='utf-8')
  package_archive(skill,['SKILL.md','references/rules.md','references/prompts.md','LICENSE'])
 
@@ -897,7 +897,7 @@ def build():
  package_skill(source_data)
  package_figure_skill(source_data)
  build_response()
- print(f'Built PaperBank (4 chapters) and StrongResponse (5 chapters), {len(lessons)+len(data.get("refine_templates",[]))+len(annotated)+bool(data.get("intro_connections"))} paragraph lessons.')
+ print(f'Built BeautyPaper (4 chapters) and StrongResponse (5 chapters), {len(lessons)+len(data.get("refine_templates",[]))+len(annotated)+bool(data.get("intro_connections"))} paragraph lessons.')
 
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__)

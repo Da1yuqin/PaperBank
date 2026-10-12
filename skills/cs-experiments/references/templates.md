@@ -84,7 +84,7 @@ Implementation Details. We select [parameters] on [development data] and fix the
 - 先说明关键关系，再给决定判断的数字与范围；全面胜出、显著、稳定需要对应证据。
 - 观察之后解释原因，消融才能帮助归因；有利、不利指标与代价都照实解释。
 
-通用要求；加粗发现为 PaperBank 偏好
+通用要求；加粗发现为 BeautyPaper 偏好
 
 [Design] improves [specific ability] under [tested condition].
 
@@ -194,4 +194,4 @@ The final output [meets or violates requirement] because [observable evidence].
 
 ---
 
-Da1yuqin / [PaperBank](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。
+Da1yuqin / [BeautyPaper](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。

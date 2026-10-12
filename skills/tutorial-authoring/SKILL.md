@@ -27,4 +27,4 @@ description: Create concise tutorial websites with task-oriented chapters, reusa
 
 检查目录是否形成连续任务路径，模板是否可直接复制，图中文字与箭头是否清楚，窄屏是否溢出，链接与下载是否可用。保留素材事实与数据；公开包仅含获授权内容，移除凭据、机器路径、个人隐私和未公开材料。
 
-原创规则：Da1yuqin / PaperBank & StrongResponse。CC BY 4.0；转载保留署名、原文链接与许可，改写注明改动。
+原创规则：Da1yuqin / BeautyPaper & StrongResponse。CC BY 4.0；转载保留署名、原文链接与许可，改写注明改动。

@@ -1,11 +1,11 @@
-# PaperBank & StrongResponse
+# BeautyPaper & StrongResponse
 
 两份教程，按任务选：
 
-- [PaperBank](https://da1yuqin.github.io/PaperBank/)：初稿准备、论文绘图、正文精修、辅助工具。
+- [BeautyPaper](https://da1yuqin.github.io/PaperBank/)：初稿准备、论文绘图、正文精修、辅助工具。
 - [💪StrongResponse【这边也长出肌肉】](https://da1yuqin.github.io/PaperBank/StrongResponse/)：整理审稿问题、逐题回复、四类回答模板、revise loop、追问与 AC 总结。
 
-两个网页开头互相链接。章节先给原则，再给完整模板或段落批注；方括号填写自己的材料。PaperBank 的真实论文摘录与原图附出处、版本和许可；StrongResponse 只使用原创教学模板。
+两个网页开头互相链接。章节先给原则，再给完整模板或段落批注；方括号填写自己的材料。BeautyPaper 的真实论文摘录与原图附出处、版本和许可；StrongResponse 只使用原创教学模板。
 
 ## 给 Codex 用
 
@@ -29,9 +29,9 @@ python3 run.py --serve
 
 打开 `http://127.0.0.1:8000/` 或 `http://127.0.0.1:8000/StrongResponse/`。只重建用 `python3 run.py`。
 
-PaperBank 内容在 `data/guide.json`，StrongResponse 在 `data/response.json`；模板、样式和交互在 `assets/`。构建同时生成两个网页、两份 Markdown 和四个 skill ZIP。网页支持搜索、目录、深色模式、评论和正文批注；两页批注分别保存。GitHub Pages 使用 `main` 分支根目录。
+BeautyPaper 内容在 `data/guide.json`，StrongResponse 在 `data/response.json`；模板、样式和交互在 `assets/`。构建同时生成两个网页、两份 Markdown 和四个 skill ZIP。网页支持搜索、目录、深色模式、评论和正文批注；两页批注分别保存。GitHub Pages 使用 `main` 分支根目录。
 
-[PaperBank Markdown](book/guide.md) · [StrongResponse Markdown](book/response.md) · [来源说明](SOURCES.md) · [勘误与补充](https://github.com/Da1yuqin/PaperBank/issues)
+[BeautyPaper Markdown](book/guide.md) · [StrongResponse Markdown](book/response.md) · [来源说明](SOURCES.md) · [勘误与补充](https://github.com/Da1yuqin/PaperBank/issues)
 
 ## 使用与转载
 

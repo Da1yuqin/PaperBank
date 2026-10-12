@@ -1,4 +1,4 @@
-# PaperBank 绘图参考
+# BeautyPaper 绘图参考
 
 先确定图的主要任务与对应贡献，再安排内容和布局。复杂图先删去重复信息，保留必要输入、操作与输出。
 
@@ -166,7 +166,7 @@ Rearrange parallel branches within the column width; keep the paper template unc
 
 图例与拆解：[问题和解法放在同一张图](https://da1yuqin.github.io/PaperBank/#visual-tcod-fig-1)
 
-- **【铁律】表格用于结果与数据：**PaperBank 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
+- **【铁律】表格用于结果与数据：**BeautyPaper 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
 
 Put success rates in a table and explain the checking procedure in the text.
 
@@ -314,4 +314,4 @@ With both gains defined as higher is better, the upper-right quadrant shows impr
 
 ---
 
-Da1yuqin / PaperBank，[原文](https://da1yuqin.github.io/PaperBank/#figures)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可；改编注明改动。第三方原图不随包分发。
+Da1yuqin / BeautyPaper，[原文](https://da1yuqin.github.io/PaperBank/#figures)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可；改编注明改动。第三方原图不随包分发。
