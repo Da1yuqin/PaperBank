@@ -2,14 +2,15 @@
 
 以下为通用规则与教学模板，不是真实论文原文、研究事实或实测。
 
-#### Experiments：先列要验证的问题
+#### Experiments：承接方法，概述发现
 
-先列 Introduction 的主张与检验标准，再安排主结果、消融及补充分析。
+先列 Intro 主张与检验标准；成稿章首承接方法，概述被测对象和主发现，再进入实际分析。
 
 教学模板；【】填真实材料。
 
 - RQ 可用于组织，不必每表一个编号；标题写 Main Results、Ablation Studies 或具体目的。
 - 按论文贡献选实验，不照搬另一类研究的实验清单。
+- 章首先概述已有证据支持的主发现，再用 Specifically 展开分析；没有实际结果时，不用模板编造发现。
 
 通用要求；推荐结构模板
 
@@ -17,19 +18,25 @@ After constructing [method or benchmark], we evaluate [actual target] on [scope]
 
 构建[方法或基准]后，我们在[范围]内评价[实际对象]。
 
-**第 1 句：**承接前章产物，先给比较范围。
+**第 1 句：**承接前章产物，交代实际被测对象与范围。
 
-We first test whether [design] improves [goal] under [fixed conditions].
+Our results show [supported main finding] under [tested conditions].
 
-我们先检验，在[固定条件]下，[设计]能否改善[目标]。
+结果显示，在[已测试条件]下，[有证据支持的主发现]。
 
-**第 2 句：**主结果使用能检验 Introduction 主张的指标，不根据有利结果临时更换指标。
+**第 2 句：**先让读者知道发现什么，范围与正文实测一致。
 
-We then isolate [component] and examine [robustness, efficiency, or transfer question].
+Specifically, we examine whether [design] addresses [Intro limitation] using [actual comparison].
 
-随后，我们单独检验[组件]，并检查[稳健性、效率或迁移问题]。
+具体而言，我们用[实际比较]检验[设计]是否处理了[引言局限]。
 
-**第 3 句：**只预告实际存在的分析，不能为了补齐模板虚构实验。
+**第 3 句：**展开上一句的发现与检验依据；设计、局限和比较必须真实对应。
+
+We further analyze [actual additional question] through [existing evidence or control].
+
+我们进一步通过[已有证据或对照]分析[实际的补充问题]。
+
+**第 4 句：**只引出实际存在的分析，不自动要求消融或虚构串行依赖。
 
 #### Experimental Setup：比较设置
 

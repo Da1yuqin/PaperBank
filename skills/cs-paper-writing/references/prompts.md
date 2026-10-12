@@ -74,6 +74,7 @@ Allowed files and edit scope: [ ]
 5. 摘要、引言、方法、实验与结论统一问题、名称、数字、范围和因果方向。整体发现与局部诊断分开，不能用相关或条件结果冒充机制证明。
 6. 不改原始记录、实验协议、冻结 prompt 或模型回复，不编结果和引用。保留人工定版及并发修改。只读任务不写文件，缺证据的问题留给作者。
 7. 检查最终 PDF 的句长、图表、脚注、分页与计页。只有明确必须遵守或禁止违反的要求标“铁律”，写法建议不升级为硬规则。
+数字给单位、分母与版本，区分百分比与百分点、宏平均与微平均；不以分号拼接长句。核对文献实际版本、发布日期与预印本身份。
 ```
 
 ### English
@@ -91,6 +92,7 @@ Material: [latest source, actual results, primary evidence]; allowed edits: [ ]
 5. Align the Abstract, Introduction, method, experiments, and conclusion in problem, names, numbers, scope, and causal direction. Separate overall findings from local diagnosis and conditional evidence from mechanism proof.
 6. Preserve original records, protocols, frozen prompts, replies, approved wording, and concurrent edits. Do not invent results or citations. Read-only tasks make no edits; evidence gaps remain for the author.
 7. Inspect the rendered PDF for sentence length, tables, footnotes, layout, and page counting. Only explicit mandatory or prohibited requirements are hard rules.
+Give units, denominators, and versions; distinguish percentages from percentage points and macro from micro averages. Do not rejoin long sentences with semicolons. Verify publication dates, versions, and preprint status.
 ```
 
 <a id="experiments"></a>
@@ -115,6 +117,7 @@ Material: [latest source, actual results, primary evidence]; allowed edits: [ ]
 5. 消融用合适对照检验实际设计；联合改变不能归因于单个模块。诊断、描述关联、因果证据及评价器一致率分别说明。
 6. 表体名称、引用、数值与上标误差保持单行，先调允许范围内的列宽。真实重复才写均值与 SD、SE 或 CI，排名不等于显著性。Caption 保留核心口径，局部例外放对应脚注，检查最终 PDF。
 7. 结果改变后回读已授权的摘要、引言和结论，不改冻结材料、不新增未经授权的实验。
+成稿章首先概述主发现，再用 Specifically 展开分析。先核对有效覆盖，不预设共同子集；区分初始判分、人工复核标签和最终得分，一致率不冒称独立准确率。
 ```
 
 ### English
@@ -132,6 +135,7 @@ Allowed edits: [ ]; protect: [original results, execution protocol, and assessme
 5. Use suitable ablation controls for actual designs. Joint changes cannot be attributed to one module. Distinguish diagnosis, association, causal evidence, and judge agreement.
 6. Keep table-body names, references, values, and superscript uncertainty on one line; adjust permitted column widths first. Report means and SD, SE, or CI only for real repetitions. Ranking is not significance. Keep core definitions in captions and local exceptions in linked footnotes; inspect the final PDF.
 7. Re-read authorized Abstract, Introduction, and Conclusion sections when findings change. Preserve frozen materials and do not run unauthorized new experiments.
+Overview the supported main finding before using Specifically to expand the analysis. Verify actual coverage without presuming a common subset. Separate initial judgments, human-reviewed labels, and reported scores; label agreement is not independent accuracy.
 ```
 
 <a id="intro"></a>

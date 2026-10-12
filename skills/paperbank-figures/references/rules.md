@@ -94,7 +94,7 @@ Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.
 
 图例与拆解：[配对增益：同一任务，直接看差了多少](https://da1yuqin.github.io/PaperBank/#teaching-paired-gain)
 
-- **【铁律】Caption 按图的读序讲解：**先说明图是什么，再解释必要标记、简称和术语，按实际面板或上下左右顺序带读，最后给有证据的发现与贡献意义。必要单位、分母和边界不省；“显著”须有对应统计检验。
+- **【铁律】Caption 按图的读序讲解：**先定位图表对象，在本图 Caption 或对应脚注解释实际简称，再按读序带读。案例条件对应难点标签，颜色点明连接对象；保留必要单位、分母与边界，不堆单项判定。“显著”须有统计检验。
 
 Error bars show 95% question-level bootstrap intervals; the horizontal line marks zero gain.
 
@@ -102,7 +102,7 @@ Error bars show 95% question-level bootstrap intervals; the horizontal line mark
 
 图例与拆解：[置信带：先认统计单位，再认内外两层](https://da1yuqin.github.io/PaperBank/#teaching-confidence)
 
-- **【铁律】编译后检查最终页面：**放回论文检查实际字号、字体嵌入、可选文字、裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后仍正确。
+- **【铁律】编译后检查最终页面：**放回论文检查实际字号、字体嵌入、可选文字、裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后仍正确。图表移到附录时，同步详解、Overview 与引用，正文保留主要结论。
 
 Place the figure after its first mention and check all labels at normal reading size.
 
@@ -134,7 +134,7 @@ Trace one task from the evidence input through checking to the final plan.
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/PaperBank/#visual-interactcs-fig-1) · [案例：相同信息同框](https://da1yuqin.github.io/PaperBank/#fig-interactcs-case)
 
-- **【铁律】区分示意与实测：**估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，图形本身须准确，不能仅靠图注纠正。
+- **【铁律】区分示意与实测：**估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，图形本身须准确，不能仅靠图注纠正。评分通过不等于真实执行、成交或部署成功；显示改名不改冻结 prompt、机器字段和统计，不冒称执行原文。
 
 Keep illustrative module boxes equally sized; plot measured latency on a labeled axis.
 

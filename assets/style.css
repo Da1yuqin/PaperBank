@@ -128,3 +128,5 @@
 
 /* StrongResponse wordmark and negotiation illustration. */
 .response-brand img{display:block;width:190px;height:auto}.doc-head .response-title{margin:0 0 16px}.response-title img{display:block;width:min(100%,620px);height:auto}.doc-head .response-title+.site-subtitle{margin:0 0 20px}.response-banner{max-width:680px}.dark .response-title img,.dark .response-brand img{background:#f7f2e9;border-radius:8px}@media(max-width:820px){.response-title img{width:100%}.response-banner{max-width:100%}}
+
+.update-log{margin:12px 0;color:var(--muted);font-size:13px}.update-log>summary{cursor:pointer;width:fit-content}.update-log ol{padding-left:20px}.update-log li{margin:8px 0}.update-log ul{padding-left:20px}.skill-latest{color:var(--muted);font-size:12px;white-space:nowrap}

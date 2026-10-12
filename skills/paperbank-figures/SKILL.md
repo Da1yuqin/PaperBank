@@ -5,6 +5,8 @@ description: Create and refine CS paper main figures, framework diagrams, case i
 
 # BeautyPaper 绘图 skill
 
+latest:【2026-10-12 14:44】
+
 图须突出对应贡献，明确问题、输入、操作与输出。先核对内容和真实依赖，再调整布局、字体与配色。
 
 ## 使用前
@@ -40,6 +42,10 @@ description: Create and refine CS paper main figures, framework diagrams, case i
 正文通栏先参考 16:9，单栏参考 4:3；这是初始布局参考。按内容重排并保留关键文字，附录可纵排。只改色时，保留布局、文字、照片、公式、字号和连线；不扩大改图范围或改论文模板。
 
 ## Caption 与导出
+
+【铁律】每图自身解释实际简称。案例用具体条件对应难点标签，颜色说明点明连接对象；Caption 只留全图必要读法，单项判定写对应脚注。用 `\footnote` 管理页底脚注、`\footref` 复用，跨栏表可用 `footnotehyper` 的 `savenotes`；改排版后核查实际落页和跳转。
+
+【铁律】图表移到附录，同步详解、Overview 和引用，正文保留结论。评分通过不等于真实执行或成交；显示名称改写不改冻结 prompt、机器字段与统计，不冒称执行原文。
 
 【铁律】Caption 先说明图是什么，再解释必要标记与术语，按实际面板或上下左右顺序带读，最后给有证据的发现与贡献意义。写清比较对象和必要口径。解释单位、分母、误差、简称和未在图内解释的标记；不要重复图内文字，不用“画法说明”修补错误的数量或因果暗示。尽量三行，必要定义优先。
 

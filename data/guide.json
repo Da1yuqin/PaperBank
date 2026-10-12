@@ -3748,15 +3748,16 @@
       "cs-visuals",
       "cs-integration"
     ],
-    "updated_at": "2026-10-12",
+    "updated_at": "2026-10-12 14:44",
     "visual_rules": [
-      "【铁律】保留真实数据、几何、拓扑、统计分母和输入输出。示意图与实测图明确区分；截图由真实生成源更新，不擦改证据像素。",
+      "【铁律】保留真实数据、几何、拓扑、统计分母和输入输出。示意图与实测图明确区分；截图由真实生成源更新，不擦改证据像素。评分通过不等于真实执行、购买或部署成功。",
       "【铁律】表体文字、完整名称与同格引用、数值及上标误差保持单行。出现换行先调整模板允许范围内的总宽与列宽，不擅自简称、缩字或越过页边距。多级表头与注释保留各自结构。",
-      "【铁律】Caption 说明图表对象、核心统计口径、必要符号与术语，再按真实读序解释输入、处理、输出或比较。不能省去单位、分母、误差、缺失及示意与实测的边界。",
-      "【铁律】某行、列或单元格的特殊理由与局部例外默认写在对应脚注；真正的 footnote 与页面脚注区关联，不用手工上标拼接。全表通用读法仍在 caption，当前明确例外优先。",
+      "【铁律】每幅图表在自身 Caption 或对应脚注解释实际简称。Caption 先定位对象，说明核心口径和必要标记，再按真实读序带读。案例用具体条件对应难点，颜色说明点明连接对象；只留理解全图必需的内容，单项判定不堆进 Caption。",
+      "【铁律】局部判定与例外放对应页底脚注，全表读法留在 Caption；当前明确例外优先。用 \\footnote 管理、\\footref 复用，不手工拼上标。跨栏表可用 footnotehyper 的 savenotes；改排版后核查实际落页和标记跳转。",
       "【铁律】正文及附录 caption 的最终末行不只剩 1 或 2 个英文单词。先精简或补充必要解释；不缩字号、改栏宽或用填充词凑行。",
       "【铁律】按论文最终插入尺寸检查文字、留白、边框、箭头、单位、色标和版本。图文引用顺序及 label 对应当前内容，仅编译或仅看源码不算视觉验收。",
-      "多处高亮时保留大面积白底，浅色用于必要语义标记；同级标题、内容起点和重复条目间距统一。具体字号、配色及浮动配置按目标模板与当前稿件确定。"
+      "多处高亮时保留大面积白底，浅色用于必要语义标记；同级标题、内容起点和重复条目间距统一。具体字号、配色及浮动配置按目标模板与当前稿件确定。",
+      "【铁律】图表移到附录须同步详解、Overview 和引用，正文保留结论。名称改写不改冻结 prompt、机器字段或真实分析，不把显示文本冒称执行原文。"
     ]
   },
   "general_rules": [
@@ -5867,7 +5868,7 @@
       },
       {
         "title": "【铁律】Caption 按图的读序讲解",
-        "zh": "先说明图是什么，再解释必要标记、简称和术语，按实际面板或上下左右顺序带读，最后给有证据的发现与贡献意义。必要单位、分母和边界不省；“显著”须有对应统计检验。",
+        "zh": "先定位图表对象，在本图 Caption 或对应脚注解释实际简称，再按读序带读。案例条件对应难点标签，颜色点明连接对象；保留必要单位、分母与边界，不堆单项判定。“显著”须有统计检验。",
         "en": "Identify the figure, explain necessary marks and terms, guide readers through its actual panel order, then state evidenced findings and contribution.",
         "example_en": "Error bars show 95% question-level bootstrap intervals; the horizontal line marks zero gain.",
         "example_zh": "误差条表示按题目重采样的 95% 区间；水平线表示零增益。",
@@ -5877,7 +5878,7 @@
       },
       {
         "title": "【铁律】编译后检查最终页面",
-        "zh": "放回论文检查实际字号、字体嵌入、可选文字、裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后仍正确。",
+        "zh": "放回论文检查实际字号、字体嵌入、可选文字、裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后仍正确。图表移到附录时，同步详解、Overview 与引用，正文保留主要结论。",
         "en": "Inspect the figure inside the final paper PDF.",
         "example_en": "Place the figure after its first mention and check all labels at normal reading size.",
         "example_zh": "按首次引用顺序排图，以正常阅读大小检查全部文字。",
@@ -5915,7 +5916,7 @@
       },
       {
         "title": "【铁律】区分示意与实测",
-        "zh": "估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，图形本身须准确，不能仅靠图注纠正。",
+        "zh": "估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，图形本身须准确，不能仅靠图注纠正。评分通过不等于真实执行、成交或部署成功；显示改名不改冻结 prompt、机器字段和统计，不冒称执行原文。",
         "example_en": "Keep illustrative module boxes equally sized; plot measured latency on a labeled axis.",
         "example_zh": "示意模块框不靠大小表示耗时；实测延迟另用带坐标的图展示。",
         "visuals": [
@@ -6595,7 +6596,8 @@
       "source": "skills/paperbank-figures/SKILL.md",
       "download": "assets/paperbank-figures-skill.zip",
       "intro": "解压后让 Codex 读取整个 paperbank-figures/ 文件夹，并提供稿件、原始数据、参考图及允许修改的文件。",
-      "instructions": "---\nname: paperbank-figures\ndescription: Create and refine CS paper main figures, framework diagrams, case illustrations, and quantitative charts from manuscripts and real data, with self-explanatory labels and final-size PDF checks.\n---\n\n# BeautyPaper 绘图 skill\n\n图须突出对应贡献，明确问题、输入、操作与输出。先核对内容和真实依赖，再调整布局、字体与配色。\n\n## 使用前\n\n核对目标会议及 track 的 AI 绘图规定，按要求披露；作者核实图的内容并承担责任。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。\n\n生成图用于已确认的概念或明确标注的教学示例，不能充当实验结果。保留原图出处与许可，不提供规避 AI 政策或检测的做法。\n\n## 先确认图的任务\n\n读取稿件对应段落、原始数据、已有图和作者允许修改的文件。确定图型、目标会议、最终插入宽度、正文实际字体与字号、已确认色板。缺关键材料先指出缺口，不编实验或流程。\n\n这是实证型 CS 论文的默认约定。作者当前要求和会议硬规则优先；Nature 系列使用其独立的写作与绘图体系，不强套本包的 CS 字号、浮动或案例配置。\n\n## 选图型与工具\n\n- **mainfig / Introduction 图**：讲具体问题、已有做法的缺口、本文改哪一步。默认不超过 5 个环节；保留理解贡献所需的输入、输出和必要对照。\n- **framework**：对应 Method Overview，说明关键设计为何针对 Intro 的困难，再讲真实模块、输入、操作、输出及接收者。用一个能追踪的案例串起来，保持并行、汇合与反馈的真实关系；训练、推理和评价分开。\n- **案例图**：给必要背景、有效需求、证据、回复或决策及判据。标清实测输出或作者示例；同一案例只完整呈现一次，其他位置交叉引用。\n- **统计图**：用 Python 等专业绘图工具读取真实数据，保留坐标、数值、误差、分母和统计几何。按数据形态选图，不为美观改数据、补缺测、平滑曲线或重跑实验。\n- **概念图**：按当前环境用 imagegen。先确认真实语义和连线，再生成图面；不要让生成器猜模块关系或发明实验结果。\n\n详细规范与中英例子见 [rules.md](references/rules.md)。只将明确必须遵守或禁止违反的要求标为铁律；图的编排与起草顺序是可调整建议。先读“绘图规范”，统计图再按需读“按图的任务选模板”。\n\n## 排字与配色\n\n按稿件最终栏宽起稿。图内所有文字同一字号，范围为正文减 2 pt 至正文，字体家族匹配；标题、轴、图例、注释都不能更大。以插入论文后的 PDF 实测为准，不看放大 PNG 猜字号。放不下就重排、删重复或拆图，不进行非等比缩放，不缩小规定字号。\n\n白底，面板近白，深色文字与刻度。常规模块用中性色，自己的关键改动用统一强调色，突出显示。同一对象全篇同色，再用点形、线型或纹理辅助；已有色板优先，不复制另一篇论文的配置。输入、输出、评价规则采用三种可解释的边框；仅供评价的规则不能画成模型输入。\n\n所有缩写、符号、箭头、颜色、图标和数值都可解释。图标旁写对象名，模块名与 Method 一致。对话一轮一框，长回复按语义分段；未评分的检查不画勾号。\n\n正文通栏先参考 16:9，单栏参考 4:3；这是初始布局参考。按内容重排并保留关键文字，附录可纵排。只改色时，保留布局、文字、照片、公式、字号和连线；不扩大改图范围或改论文模板。\n\n## Caption 与导出\n\n【铁律】Caption 先说明图是什么，再解释必要标记与术语，按实际面板或上下左右顺序带读，最后给有证据的发现与贡献意义。写清比较对象和必要口径。解释单位、分母、误差、简称和未在图内解释的标记；不要重复图内文字，不用“画法说明”修补错误的数量或因果暗示。尽量三行，必要定义优先。\n\n统计图优先导出矢量 PDF 并嵌入字体。生成底图保留图像，用原生、可见、可选的 PDF 文字排标签；不叠两套字形，不用隐藏 OCR 文字层。混合 PDF 仍含位图，不能称全矢量。\n\nCS 图表默认使用 [!t]，按正文首次引用核对最终页内顺序。保留当前模板、数据、已有可靠图和合作者修改；图与 Caption 合计占高一起查。\n\n## 验收与交付\n\n把图插回论文、编译并查看受影响页面。逐项核对图形与源数据、真实依赖、实际字体字号、可选文字、字体嵌入、图例、裁切、碰撞和引用顺序。源码能编译不等于图已通过。\n\n保留生成或绘图源、真实数据来源、色板、最终提示词和导出文件。交付源文件、PDF 和预览图；只报告已完成的检查。远端同步、改实验或发布按原任务授权，不因本 skill 扩大权限。\n\n## 给 Codex 的提示词\n\n直接复制 [prompts.md](references/prompts.md) 中的绘图说明单，填写【】。提示词已列明本 skill 的适用铁律，和网页第一、二章使用同一份内容。\n\n## 来源与许可\n\nDa1yuqin / BeautyPaper，[网页](https://da1yuqin.github.io/PaperBank/#figures)。原创规则与教学例子采用 CC BY 4.0，详见 LICENSE。论文原图和第三方摘录不随本包分发；网页所链接材料保留各自许可。\n"
+      "instructions": "---\nname: paperbank-figures\ndescription: Create and refine CS paper main figures, framework diagrams, case illustrations, and quantitative charts from manuscripts and real data, with self-explanatory labels and final-size PDF checks.\n---\n\n# BeautyPaper 绘图 skill\n\nlatest:【2026-10-12 14:44】\n\n图须突出对应贡献，明确问题、输入、操作与输出。先核对内容和真实依赖，再调整布局、字体与配色。\n\n## 使用前\n\n核对目标会议及 track 的 AI 绘图规定，按要求披露；作者核实图的内容并承担责任。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。\n\n生成图用于已确认的概念或明确标注的教学示例，不能充当实验结果。保留原图出处与许可，不提供规避 AI 政策或检测的做法。\n\n## 先确认图的任务\n\n读取稿件对应段落、原始数据、已有图和作者允许修改的文件。确定图型、目标会议、最终插入宽度、正文实际字体与字号、已确认色板。缺关键材料先指出缺口，不编实验或流程。\n\n这是实证型 CS 论文的默认约定。作者当前要求和会议硬规则优先；Nature 系列使用其独立的写作与绘图体系，不强套本包的 CS 字号、浮动或案例配置。\n\n## 选图型与工具\n\n- **mainfig / Introduction 图**：讲具体问题、已有做法的缺口、本文改哪一步。默认不超过 5 个环节；保留理解贡献所需的输入、输出和必要对照。\n- **framework**：对应 Method Overview，说明关键设计为何针对 Intro 的困难，再讲真实模块、输入、操作、输出及接收者。用一个能追踪的案例串起来，保持并行、汇合与反馈的真实关系；训练、推理和评价分开。\n- **案例图**：给必要背景、有效需求、证据、回复或决策及判据。标清实测输出或作者示例；同一案例只完整呈现一次，其他位置交叉引用。\n- **统计图**：用 Python 等专业绘图工具读取真实数据，保留坐标、数值、误差、分母和统计几何。按数据形态选图，不为美观改数据、补缺测、平滑曲线或重跑实验。\n- **概念图**：按当前环境用 imagegen。先确认真实语义和连线，再生成图面；不要让生成器猜模块关系或发明实验结果。\n\n详细规范与中英例子见 [rules.md](references/rules.md)。只将明确必须遵守或禁止违反的要求标为铁律；图的编排与起草顺序是可调整建议。先读“绘图规范”，统计图再按需读“按图的任务选模板”。\n\n## 排字与配色\n\n按稿件最终栏宽起稿。图内所有文字同一字号，范围为正文减 2 pt 至正文，字体家族匹配；标题、轴、图例、注释都不能更大。以插入论文后的 PDF 实测为准，不看放大 PNG 猜字号。放不下就重排、删重复或拆图，不进行非等比缩放，不缩小规定字号。\n\n白底，面板近白，深色文字与刻度。常规模块用中性色，自己的关键改动用统一强调色，突出显示。同一对象全篇同色，再用点形、线型或纹理辅助；已有色板优先，不复制另一篇论文的配置。输入、输出、评价规则采用三种可解释的边框；仅供评价的规则不能画成模型输入。\n\n所有缩写、符号、箭头、颜色、图标和数值都可解释。图标旁写对象名，模块名与 Method 一致。对话一轮一框，长回复按语义分段；未评分的检查不画勾号。\n\n正文通栏先参考 16:9，单栏参考 4:3；这是初始布局参考。按内容重排并保留关键文字，附录可纵排。只改色时，保留布局、文字、照片、公式、字号和连线；不扩大改图范围或改论文模板。\n\n## Caption 与导出\n\n【铁律】每图自身解释实际简称。案例用具体条件对应难点标签，颜色说明点明连接对象；Caption 只留全图必要读法，单项判定写对应脚注。用 `\\footnote` 管理页底脚注、`\\footref` 复用，跨栏表可用 `footnotehyper` 的 `savenotes`；改排版后核查实际落页和跳转。\n\n【铁律】图表移到附录，同步详解、Overview 和引用，正文保留结论。评分通过不等于真实执行或成交；显示名称改写不改冻结 prompt、机器字段与统计，不冒称执行原文。\n\n【铁律】Caption 先说明图是什么，再解释必要标记与术语，按实际面板或上下左右顺序带读，最后给有证据的发现与贡献意义。写清比较对象和必要口径。解释单位、分母、误差、简称和未在图内解释的标记；不要重复图内文字，不用“画法说明”修补错误的数量或因果暗示。尽量三行，必要定义优先。\n\n统计图优先导出矢量 PDF 并嵌入字体。生成底图保留图像，用原生、可见、可选的 PDF 文字排标签；不叠两套字形，不用隐藏 OCR 文字层。混合 PDF 仍含位图，不能称全矢量。\n\nCS 图表默认使用 [!t]，按正文首次引用核对最终页内顺序。保留当前模板、数据、已有可靠图和合作者修改；图与 Caption 合计占高一起查。\n\n## 验收与交付\n\n把图插回论文、编译并查看受影响页面。逐项核对图形与源数据、真实依赖、实际字体字号、可选文字、字体嵌入、图例、裁切、碰撞和引用顺序。源码能编译不等于图已通过。\n\n保留生成或绘图源、真实数据来源、色板、最终提示词和导出文件。交付源文件、PDF 和预览图；只报告已完成的检查。远端同步、改实验或发布按原任务授权，不因本 skill 扩大权限。\n\n## 给 Codex 的提示词\n\n直接复制 [prompts.md](references/prompts.md) 中的绘图说明单，填写【】。提示词已列明本 skill 的适用铁律，和网页第一、二章使用同一份内容。\n\n## 来源与许可\n\nDa1yuqin / BeautyPaper，[网页](https://da1yuqin.github.io/PaperBank/#figures)。原创规则与教学例子采用 CC BY 4.0，详见 LICENSE。论文原图和第三方摘录不随本包分发；网页所链接材料保留各自许可。\n",
+      "updated_at": "2026-10-12 14:44"
     },
     "prompt_ref": "figures"
   },
@@ -6887,7 +6889,8 @@
         "结尾的对象、范围、关键词与 Intro 一致；各小节讲不同缺口。",
         "小节标题简短。短主题一段写完，复杂主题按问题分段。",
         "相近工作的差异提前讲清。引用准确完整，不因图相似或结果不利而漏引。",
-        "引用数量不是会议配额；删除重复说明，不加入无关文献。"
+        "引用数量不是会议配额；删除重复说明，不加入无关文献。",
+        "【铁律】This enables 后写完整实际应用，末尾回扣 However 的同一缺口；不重复产物名称或局部属性。"
       ],
       "label": "教学模板；【】填真实材料。",
       "sentences": [
@@ -6919,7 +6922,7 @@
         {
           "en": "This enables [actual application], [resolving / addressing / reducing] [the same gap].",
           "zh": "这支持[实际应用]，从而[解决／应对／减轻][同一个缺口]。",
-          "why_zh": "【铁律】最后一句先写实际应用，后半句落在如何处理原缺口。效果动词按证据强度选择，不用愿景代替已实现能力。"
+          "why_zh": "【铁律】先填完整实际应用，后半句处理 However 的同一缺口。不能只重复产物名或局部属性；效果动词按证据强度选择。"
         }
       ],
       "latex_template": "\\section{Related Work}\n\\subsection{[Short Topic A]}\n[Research line] addresses [shared task] by [shared mechanism]~\\cite{...}.\nOne group [mechanism A], whereas another group [mechanism B]~\\cite{...}.\nMore recent extensions [additional established capability]~\\cite{...}.\nHowever, these approaches do not establish [Intro challenge A] under [scope A].\nTo address this gap, we [action A] [object A] based on [method or principle A].\nThis enables [actual application A], [resolving / addressing / reducing] [the same gap A].\n\n\\subsection{[Short Topic B]}\n[Research line B] evaluates [property] using [evaluation basis]~\\cite{...}.\nOther evaluations [substantive extension]~\\cite{...}.\nHowever, [Intro challenge B] remains unresolved under [scope B].\nTo overcome this limitation, we [action B] [object B] based on [method or principle B].\nThis enables [actual application B], [resolving / addressing / reducing] [the same gap B]."
@@ -7012,7 +7015,7 @@
         "粗体段首对应真实模块或步骤，名称与框架图一致。",
         "并行、循环、反馈单独说明；训练信号注明样本、阶段、指标和更新对象。",
         "自己的创新占主要篇幅，标准编码、调用与格式转换简写；不能把已有方法改名当创新。",
-        "每节结尾说明输出与后续用途，下一节使用对应产物。重点是为什么值得做，复现所需细节仍要给全。"
+        "确有下游依赖时，结尾说明输出及接收者；并行或终结步骤不硬接下一节。重点是设计为何有用，复现所需细节仍要给全。"
       ],
       "label": "教学模板；【】填真实材料。",
       "sentences": [
@@ -7046,29 +7049,35 @@
     {
       "id": "template-experiment-overview",
       "section": "experiments",
-      "title": "Experiments：先列要验证的问题",
+      "title": "Experiments：承接方法，概述发现",
       "scope": "通用要求；推荐结构模板",
-      "purpose": "先列 Introduction 的主张与检验标准，再安排主结果、消融及补充分析。",
+      "purpose": "先列 Intro 主张与检验标准；成稿章首承接方法，概述被测对象和主发现，再进入实际分析。",
       "rules": [
         "RQ 可用于组织，不必每表一个编号；标题写 Main Results、Ablation Studies 或具体目的。",
-        "按论文贡献选实验，不照搬另一类研究的实验清单。"
+        "按论文贡献选实验，不照搬另一类研究的实验清单。",
+        "章首先概述已有证据支持的主发现，再用 Specifically 展开分析；没有实际结果时，不用模板编造发现。"
       ],
       "label": "教学模板；【】填真实材料。",
       "sentences": [
         {
           "en": "After constructing [method or benchmark], we evaluate [actual target] on [scope].",
           "zh": "构建[方法或基准]后，我们在[范围]内评价[实际对象]。",
-          "why_zh": "承接前章产物，先给比较范围。"
+          "why_zh": "承接前章产物，交代实际被测对象与范围。"
         },
         {
-          "en": "We first test whether [design] improves [goal] under [fixed conditions].",
-          "zh": "我们先检验，在[固定条件]下，[设计]能否改善[目标]。",
-          "why_zh": "主结果使用能检验 Introduction 主张的指标，不根据有利结果临时更换指标。"
+          "en": "Our results show [supported main finding] under [tested conditions].",
+          "zh": "结果显示，在[已测试条件]下，[有证据支持的主发现]。",
+          "why_zh": "先让读者知道发现什么，范围与正文实测一致。"
         },
         {
-          "en": "We then isolate [component] and examine [robustness, efficiency, or transfer question].",
-          "zh": "随后，我们单独检验[组件]，并检查[稳健性、效率或迁移问题]。",
-          "why_zh": "只预告实际存在的分析，不能为了补齐模板虚构实验。"
+          "en": "Specifically, we examine whether [design] addresses [Intro limitation] using [actual comparison].",
+          "zh": "具体而言，我们用[实际比较]检验[设计]是否处理了[引言局限]。",
+          "why_zh": "展开上一句的发现与检验依据；设计、局限和比较必须真实对应。"
+        },
+        {
+          "en": "We further analyze [actual additional question] through [existing evidence or control].",
+          "zh": "我们进一步通过[已有证据或对照]分析[实际的补充问题]。",
+          "why_zh": "只引出实际存在的分析，不自动要求消融或虚构串行依赖。"
         }
       ]
     },
@@ -7467,7 +7476,7 @@
       "section": "revision",
       "group": "language",
       "title": "【铁律】短句，完整动作",
-      "purpose": "按最终 PDF 检查：常用双栏窄栏句子最多 3 行，单栏约 1.5 行；本稿另有明确要求时按本稿执行。保留完整动作、条件与承接，不缩字体或改模板。",
+      "purpose": "每句一个主要判断，不用分号把长句接回来。按最终 PDF 检查：常用双栏窄栏句子最多 3 行，单栏约 1.5 行；本稿另有明确要求时按本稿执行。保留动作、条件与承接，不缩字体或改模板。",
       "scope": "本套 CS 写作约定；按本稿确认版式与实际行长验收",
       "label": "教学改写：假设已有对应设计或比较，非论文原文与实测结果。",
       "before_en": "The retriever selects relevant passages, which are organized into notes that are subsequently supplied to the generator so that the generator can produce cited answers.",
@@ -7664,7 +7673,7 @@
       "section": "revision",
       "group": "logic",
       "title": "【铁律】不虚构章节依赖",
-      "purpose": "章节间的输入输出按真实关系交代，不把并行写成串行。章首可接回具体问题并说明本章任务，结尾按需要交代产物用途；不加无用目录预告。",
+      "purpose": "章首说明承接的问题或产物；确有后续用途时，章末说明产物交给谁。不把并行写成串行。Related Work 小节直接进入内容，Intro 以贡献列表结束，Conclusion 不预告不存在的下一步。",
       "scope": "通用表达要求",
       "label": "教学改写：假设已有对应设计或比较，非论文原文与实测结果。",
       "before_en": "Next, we introduce the next module.",
@@ -7800,6 +7809,15 @@
       "sentences": [],
       "group": "logic",
       "section": "revision"
+    },
+    {
+      "id": "standard-numeric-scope",
+      "section": "revision",
+      "group": "evidence",
+      "title": "【铁律】数字与统计口径准确",
+      "purpose": "数字用阿拉伯数字，并能回查最新记录。子集给 n of N、单位与版本；区分百分比与百分点、宏平均与微平均。未知不填 0，不能换分母或单位夸大结果。",
+      "scope": "通用 CS 写作规则",
+      "sentences": []
     }
   ],
   "refine_standard_groups": [
@@ -7855,8 +7873,8 @@
         "Caption、顶部浮动与最终 PDF 验收"
       ],
       "skill": "paperbank-figures",
-      "zh": "读取 paperbank-figures/SKILL.md 和 references/rules.md。按以下材料画图。\n使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。\n图型：【mainfig／framework／统计图／案例图】\n要突出的问题与贡献：【对应 Intro 的哪项困难，方法改了什么，依据在哪里】\n材料：【稿件、真实数据、参考图与出处、已有案例及使用位置】\n真实结构：【输入、操作、输出、接收者；并行、汇合、反馈；训练／推理／评价】\n允许修改：【文件与范围】；最终插入宽度：【mm】\n正文 PDF 实测字体与字号：【字体，pt】；本篇已确认色板：【】\n\n铁律：\n1. mainfig 讲问题、已有缺口与关键改动，默认不超过 5 个环节；framework 先让人看懂设计为什么好，再画完整输入、操作与产物。两图分别承担不同叙述任务。\n2. 每条箭头对应真实依赖，不穿文字。保留并行与反馈；训练、推理、评价分开。输入、输出、评价规则用三种边框并给图例；仅供评价的信息不能画成模型输入。\n3. 按最终宽度起稿。所有标题、坐标、刻度、图例、数字、注释用同一字号，正文减 2 pt ≤ 图字 ≤ 正文，字体家族匹配。放不下就重排或拆图，不缩小规定字号、不进行非等比缩放、不修改论文模板。\n4. 白底、近白面板、深色文字、低饱和配色。同一对象全篇同色，用形状或线型辅助区分；不加渐变、阴影和装饰光效。通栏先参考 16:9，单栏参考 4:3，内容与可读性优先。\n5. 模块名与正文一致。缩写、变量、单位、图标、颜色和线型都能解释；图标旁写对象名。标签用自然语言，不用符号拼句。\n6. 同一案例全文只呈现一次，翻译、裁剪或改名仍算同一个。先按来源核对使用位置，其他位置交叉引用。对话一轮一框；作者示例与实测回复分清，没有评分不画勾。\n7. 统计图用 Python 等专业工具读取所附数据，保留数值、坐标几何、分母、单位与 SD／SE／CI 定义；同类比较统一尺度。不为美观补缺测、改数据或平滑曲线，不重跑实验；KDE 等估计图说明样本量、方法和带宽。概念图按当前环境使用 imagegen，生成内容须依据已确认流程，不生成虚构结果。\n8. Caption 先说明图是什么，再解释必要标记和术语，按实际面板或上下左右读序带读，最后给有证据的发现与贡献意义；简称在本条 Caption 写全称。方法图说明机制，不编实验结论。尽量三行，必要定义与事实边界优先。\n9. PDF 文字可见、可选，字体嵌入；不叠两套字形或隐藏 OCR。统计图优先矢量 PDF，含位图的 PDF 不称全矢量。CS 图表默认 [!t]，实际位置跟随正文首次引用，保留附录归属。\n10. 先给问题、布局和缺口，再绘制。插回论文编译，看最终页面的字号、图例、裁切、碰撞和引用顺序。交付源文件、PDF、预览及实际检查结果。只改色时保留原布局、文字、连线与图片；保留他人修改，不扩大范围。",
-      "en": "Read paperbank-figures/SKILL.md and references/rules.md. Draw from these materials.\nBefore use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.\nType: [main figure / framework / quantitative chart / case]\nProblem and contribution: [Introduction challenge, actual design change, evidence]\nMaterials: [manuscript, original data, references and sources, cases and their existing locations]\nActual structure: [inputs, operations, outputs, recipients; parallel paths, merges, feedback; training / inference / evaluation]\nEditable files and scope: [ ]; final insertion width: [mm]\nFont family and body size measured in the manuscript PDF: [family, pt]; approved palette: [ ]\n\nHard rules:\n1. The main figure shows the problem, existing gap, and key change, with at most five stages by default. The framework explains why the design addresses the challenge before showing inputs, operations, and products. Give the two figures distinct jobs.\n2. Every arrow represents an actual dependency and avoids text. Preserve parallel paths and feedback; separate training, inference, and evaluation. Use three explained border encodings for inputs, outputs, and evaluation criteria. Evaluation-only information must not appear as model input.\n3. Design at the final width. Use one size for titles, axes, ticks, legends, numbers, and annotations: body size minus 2 pt ≤ figure text ≤ body size, with a matching font family. Rearrange or split crowded content; do not shrink text, distort geometry, or change the paper template.\n4. Use a white canvas, near-white panels, dark text, and muted colors. Keep each object's color consistent throughout the paper; add shapes or line styles. Avoid gradients, shadows, and decorative glow. Start near 16:9 for full-width figures and 4:3 for single-column figures; prioritize content and readability.\n5. Match module names to the body. Explain abbreviations, variables, units, icons, colors, and line styles; label icons with object names. Use natural-language labels rather than symbol-packed prose.\n6. Present each source case only once across the paper. Translations, crops, and renamed versions still count as the same case. Check existing locations by source and cross-reference elsewhere. Use one frame per dialogue turn. Distinguish author examples from measured outputs; do not show unrecorded check marks.\n7. Use Python or equivalent professional plotting tools for supplied quantitative data. Preserve values, coordinate geometry, denominators, units, and SD / SE / CI definitions; use common scales for comparable plots. Do not fill missing measurements, alter data, or smooth curves for appearance, and do not rerun experiments. For KDE and other estimated plots, specify sample counts, methods, and bandwidth where applicable. Use imagegen for conceptual figures in the current environment; do not let a generator invent dependencies or results.\n8. Captions identify the figure, explain necessary marks and terms, follow the actual panel order, and end with evidenced findings and contribution. Include necessary comparisons and scope. Expand abbreviations in each caption. Method figures explain mechanisms without fabricated experimental conclusions. Aim for three final lines; necessary definitions and factual limits take priority.\n9. Use visible, selectable PDF text and embedded fonts; avoid duplicate lettering and hidden OCR. Prefer vector PDF for statistical plots; a PDF containing raster images is not fully vector. Use [!t] for CS figures and tables by default. Verify actual order against first body citations and retain appendix ownership.\n10. Propose the question, layout, and evidence gaps before drawing. Insert the figure into the paper, compile, and inspect final-size text, legends, crops, collisions, and citation order. Deliver sources, PDF, preview, and completed checks. A color-only edit preserves layout, text, edges, and images. Preserve concurrent edits and the authorized scope."
+      "zh": "读取 paperbank-figures/SKILL.md 和 references/rules.md。按以下材料画图。\n使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。\n图型：【mainfig／framework／统计图／案例图】\n要突出的问题与贡献：【对应 Intro 的哪项困难，方法改了什么，依据在哪里】\n材料：【稿件、真实数据、参考图与出处、已有案例及使用位置】\n真实结构：【输入、操作、输出、接收者；并行、汇合、反馈；训练／推理／评价】\n允许修改：【文件与范围】；最终插入宽度：【mm】\n正文 PDF 实测字体与字号：【字体，pt】；本篇已确认色板：【】\n\n铁律：\n1. mainfig 讲问题、已有缺口与关键改动，默认不超过 5 个环节；framework 先让人看懂设计为什么好，再画完整输入、操作与产物。两图分别承担不同叙述任务。\n2. 每条箭头对应真实依赖，不穿文字。保留并行与反馈；训练、推理、评价分开。输入、输出、评价规则用三种边框并给图例；仅供评价的信息不能画成模型输入。\n3. 按最终宽度起稿。所有标题、坐标、刻度、图例、数字、注释用同一字号，正文减 2 pt ≤ 图字 ≤ 正文，字体家族匹配。放不下就重排或拆图，不缩小规定字号、不进行非等比缩放、不修改论文模板。\n4. 白底、近白面板、深色文字、低饱和配色。同一对象全篇同色，用形状或线型辅助区分；不加渐变、阴影和装饰光效。通栏先参考 16:9，单栏参考 4:3，内容与可读性优先。\n5. 模块名与正文一致。缩写、变量、单位、图标、颜色和线型都能解释；图标旁写对象名。标签用自然语言，不用符号拼句。\n6. 同一案例全文只呈现一次，翻译、裁剪或改名仍算同一个。先按来源核对使用位置，其他位置交叉引用。对话一轮一框；作者示例与实测回复分清，没有评分不画勾。\n7. 统计图用 Python 等专业工具读取所附数据，保留数值、坐标几何、分母、单位与 SD／SE／CI 定义；同类比较统一尺度。不为美观补缺测、改数据或平滑曲线，不重跑实验；KDE 等估计图说明样本量、方法和带宽。概念图按当前环境使用 imagegen，生成内容须依据已确认流程，不生成虚构结果。\n8. Caption 先说明图是什么，再解释必要标记和术语，按实际面板或上下左右读序带读，最后给有证据的发现与贡献意义；简称在本条 Caption 写全称。方法图说明机制，不编实验结论。尽量三行，必要定义与事实边界优先。\n9. PDF 文字可见、可选，字体嵌入；不叠两套字形或隐藏 OCR。统计图优先矢量 PDF，含位图的 PDF 不称全矢量。CS 图表默认 [!t]，实际位置跟随正文首次引用，保留附录归属。\n10. 先给问题、布局和缺口，再绘制。插回论文编译，看最终页面的字号、图例、裁切、碰撞和引用顺序。交付源文件、PDF、预览及实际检查结果。只改色时保留原布局、文字、连线与图片；保留他人修改，不扩大范围。\n每图自身解释简称，案例条件对应难点，颜色点明对象。Caption 保留全图读法，单项判定用 \\footnote 与 \\footref；跨栏脚注可用 savenotes，并查落页与跳转。评分通过不写成真实执行。移图到附录同步详解、Overview 和引用；显示改名不改冻结记录。",
+      "en": "Read paperbank-figures/SKILL.md and references/rules.md. Draw from these materials.\nBefore use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.\nType: [main figure / framework / quantitative chart / case]\nProblem and contribution: [Introduction challenge, actual design change, evidence]\nMaterials: [manuscript, original data, references and sources, cases and their existing locations]\nActual structure: [inputs, operations, outputs, recipients; parallel paths, merges, feedback; training / inference / evaluation]\nEditable files and scope: [ ]; final insertion width: [mm]\nFont family and body size measured in the manuscript PDF: [family, pt]; approved palette: [ ]\n\nHard rules:\n1. The main figure shows the problem, existing gap, and key change, with at most five stages by default. The framework explains why the design addresses the challenge before showing inputs, operations, and products. Give the two figures distinct jobs.\n2. Every arrow represents an actual dependency and avoids text. Preserve parallel paths and feedback; separate training, inference, and evaluation. Use three explained border encodings for inputs, outputs, and evaluation criteria. Evaluation-only information must not appear as model input.\n3. Design at the final width. Use one size for titles, axes, ticks, legends, numbers, and annotations: body size minus 2 pt ≤ figure text ≤ body size, with a matching font family. Rearrange or split crowded content; do not shrink text, distort geometry, or change the paper template.\n4. Use a white canvas, near-white panels, dark text, and muted colors. Keep each object's color consistent throughout the paper; add shapes or line styles. Avoid gradients, shadows, and decorative glow. Start near 16:9 for full-width figures and 4:3 for single-column figures; prioritize content and readability.\n5. Match module names to the body. Explain abbreviations, variables, units, icons, colors, and line styles; label icons with object names. Use natural-language labels rather than symbol-packed prose.\n6. Present each source case only once across the paper. Translations, crops, and renamed versions still count as the same case. Check existing locations by source and cross-reference elsewhere. Use one frame per dialogue turn. Distinguish author examples from measured outputs; do not show unrecorded check marks.\n7. Use Python or equivalent professional plotting tools for supplied quantitative data. Preserve values, coordinate geometry, denominators, units, and SD / SE / CI definitions; use common scales for comparable plots. Do not fill missing measurements, alter data, or smooth curves for appearance, and do not rerun experiments. For KDE and other estimated plots, specify sample counts, methods, and bandwidth where applicable. Use imagegen for conceptual figures in the current environment; do not let a generator invent dependencies or results.\n8. Captions identify the figure, explain necessary marks and terms, follow the actual panel order, and end with evidenced findings and contribution. Include necessary comparisons and scope. Expand abbreviations in each caption. Method figures explain mechanisms without fabricated experimental conclusions. Aim for three final lines; necessary definitions and factual limits take priority.\n9. Use visible, selectable PDF text and embedded fonts; avoid duplicate lettering and hidden OCR. Prefer vector PDF for statistical plots; a PDF containing raster images is not fully vector. Use [!t] for CS figures and tables by default. Verify actual order against first body citations and retain appendix ownership.\n10. Propose the question, layout, and evidence gaps before drawing. Insert the figure into the paper, compile, and inspect final-size text, legends, crops, collisions, and citation order. Deliver sources, PDF, preview, and completed checks. A color-only edit preserves layout, text, edges, and images. Preserve concurrent edits and the authorized scope.\nDefine each figure’s abbreviations locally, match concrete case conditions to challenges, and name the objects connected by colors. Keep shared reading guidance in captions and use \\footnote and \\footref for item-specific notes; savenotes can support full-width floats, with page and link checks. Passing an evaluation does not mean successful execution. When moving figures to the appendix, update explanations, overviews, and references. Display-name changes must preserve frozen records."
     },
     "draft": {
       "title": "一天拉完草稿：给 Codex 的提示词",
@@ -7897,8 +7915,8 @@
         "当前人工定版与证据边界优先"
       ],
       "skill": "cs-paper-writing",
-      "zh": "读取 cs-paper-writing/SKILL.md：先读共享规则，只加载当前任务相关的章节 skill；不默认读全部例库。\n核对目标会议及 track 的 AI 规定和材料使用权限，遵守当轮允许范围。未经许可，不向外部服务发送未公开稿件、review、个人数据或密钥。\n任务与论文类型：【】；目标会议及限制：【】\n材料：【最新源、真实结果、原文依据】；允许修改：【】\n\n1. 先核对具体不足、实际设计和对应证据。后句承接前句的对象、问题或产物，再增加一个判断。\n2. Therefore 归纳证据，Specifically 展开判断，However 写具体转折；For example 或 For instance 放在引例句首。缺少某设计后，说清因此不能区分什么。相邻句段不反复使用同一个过渡词。\n3. 对象和动作尽早出现；保留有依据的贡献信息，删除无信息叠加。清楚、就近且唯一的代词保留，符号、缩写、单位与来源就近定义。\n4. 按当前章规则修改。引言不永久强制 Therefore 或 To solve；贡献第 2 项写新机制、依据、具体作用与实际用途。Related Work 按固定三句收尾，Method 按真实输入输出衔接，模块先交代动机。\n5. 摘要、引言、方法、实验与结论统一问题、名称、数字、范围和因果方向。整体发现与局部诊断分开，不能用相关或条件结果冒充机制证明。\n6. 不改原始记录、实验协议、冻结 prompt 或模型回复，不编结果和引用。保留人工定版及并发修改。只读任务不写文件，缺证据的问题留给作者。\n7. 检查最终 PDF 的句长、图表、脚注、分页与计页。只有明确必须遵守或禁止违反的要求标“铁律”，写法建议不升级为硬规则。",
-      "en": "Read cs-paper-writing/SKILL.md. Load the shared rules once and only the chapter skills relevant to this task; do not load every example by default.\nCheck the current venue and track AI policy and permissions for the material. Do not send unpublished manuscripts, reviews, personal data, or credentials to external services without authorization.\nTask and paper type: [ ]; venue and constraints: [ ]\nMaterial: [latest source, actual results, primary evidence]; allowed edits: [ ]\n\n1. Match the concrete limitation, actual design, and supporting evidence. Each sentence inherits an object, question, or output and adds a judgment.\n2. Use Therefore to infer from evidence, Specifically to unpack a judgment, and However for a concrete contrast. Put For example or For instance first in an example sentence. Explain what cannot be distinguished without a missing design feature. Vary transitions naturally across adjacent sentences and sections.\n3. Put contribution objects and actions early. Retain supported informative modifiers and remove empty stacking. Keep clear nearby pronouns; define notation, abbreviations, units, and sources locally.\n4. Follow the current chapter rules. Do not permanently require Therefore or To solve in the Introduction. Contribution 2 describes the new mechanism, basis, function, and actual use. Related Work uses its three-sentence ending; Method uses real input-output dependencies and motivation-first modules.\n5. Align the Abstract, Introduction, method, experiments, and conclusion in problem, names, numbers, scope, and causal direction. Separate overall findings from local diagnosis and conditional evidence from mechanism proof.\n6. Preserve original records, protocols, frozen prompts, replies, approved wording, and concurrent edits. Do not invent results or citations. Read-only tasks make no edits; evidence gaps remain for the author.\n7. Inspect the rendered PDF for sentence length, tables, footnotes, layout, and page counting. Only explicit mandatory or prohibited requirements are hard rules."
+      "zh": "读取 cs-paper-writing/SKILL.md：先读共享规则，只加载当前任务相关的章节 skill；不默认读全部例库。\n核对目标会议及 track 的 AI 规定和材料使用权限，遵守当轮允许范围。未经许可，不向外部服务发送未公开稿件、review、个人数据或密钥。\n任务与论文类型：【】；目标会议及限制：【】\n材料：【最新源、真实结果、原文依据】；允许修改：【】\n\n1. 先核对具体不足、实际设计和对应证据。后句承接前句的对象、问题或产物，再增加一个判断。\n2. Therefore 归纳证据，Specifically 展开判断，However 写具体转折；For example 或 For instance 放在引例句首。缺少某设计后，说清因此不能区分什么。相邻句段不反复使用同一个过渡词。\n3. 对象和动作尽早出现；保留有依据的贡献信息，删除无信息叠加。清楚、就近且唯一的代词保留，符号、缩写、单位与来源就近定义。\n4. 按当前章规则修改。引言不永久强制 Therefore 或 To solve；贡献第 2 项写新机制、依据、具体作用与实际用途。Related Work 按固定三句收尾，Method 按真实输入输出衔接，模块先交代动机。\n5. 摘要、引言、方法、实验与结论统一问题、名称、数字、范围和因果方向。整体发现与局部诊断分开，不能用相关或条件结果冒充机制证明。\n6. 不改原始记录、实验协议、冻结 prompt 或模型回复，不编结果和引用。保留人工定版及并发修改。只读任务不写文件，缺证据的问题留给作者。\n7. 检查最终 PDF 的句长、图表、脚注、分页与计页。只有明确必须遵守或禁止违反的要求标“铁律”，写法建议不升级为硬规则。\n数字给单位、分母与版本，区分百分比与百分点、宏平均与微平均；不以分号拼接长句。核对文献实际版本、发布日期与预印本身份。",
+      "en": "Read cs-paper-writing/SKILL.md. Load the shared rules once and only the chapter skills relevant to this task; do not load every example by default.\nCheck the current venue and track AI policy and permissions for the material. Do not send unpublished manuscripts, reviews, personal data, or credentials to external services without authorization.\nTask and paper type: [ ]; venue and constraints: [ ]\nMaterial: [latest source, actual results, primary evidence]; allowed edits: [ ]\n\n1. Match the concrete limitation, actual design, and supporting evidence. Each sentence inherits an object, question, or output and adds a judgment.\n2. Use Therefore to infer from evidence, Specifically to unpack a judgment, and However for a concrete contrast. Put For example or For instance first in an example sentence. Explain what cannot be distinguished without a missing design feature. Vary transitions naturally across adjacent sentences and sections.\n3. Put contribution objects and actions early. Retain supported informative modifiers and remove empty stacking. Keep clear nearby pronouns; define notation, abbreviations, units, and sources locally.\n4. Follow the current chapter rules. Do not permanently require Therefore or To solve in the Introduction. Contribution 2 describes the new mechanism, basis, function, and actual use. Related Work uses its three-sentence ending; Method uses real input-output dependencies and motivation-first modules.\n5. Align the Abstract, Introduction, method, experiments, and conclusion in problem, names, numbers, scope, and causal direction. Separate overall findings from local diagnosis and conditional evidence from mechanism proof.\n6. Preserve original records, protocols, frozen prompts, replies, approved wording, and concurrent edits. Do not invent results or citations. Read-only tasks make no edits; evidence gaps remain for the author.\n7. Inspect the rendered PDF for sentence length, tables, footnotes, layout, and page counting. Only explicit mandatory or prohibited requirements are hard rules.\nGive units, denominators, and versions; distinguish percentages from percentage points and macro from micro averages. Do not rejoin long sentences with semicolons. Verify publication dates, versions, and preprint status."
     },
     "experiments": {
       "title": "给 Codex 的实验整理提示词",
@@ -7918,8 +7936,8 @@
         "当前人工定版与证据边界优先"
       ],
       "skill": "cs-paper-writing",
-      "zh": "读取 cs-paper-writing/SKILL.md：先读共享规则，只加载当前任务相关的章节 skill；不默认读全部例库。\n核对目标会议及 track 的 AI 规定和材料使用权限，遵守当轮允许范围。未经许可，不向外部服务发送未公开稿件、review、个人数据或密钥。\n材料：【引言主张、真实结果、指标定义、对照、重复记录与版本】\n允许修改：【】；保护：【原始结果、执行协议与评价输入】\n\n1. 先将每项主张对应到真实比较与证据。RQ 按需要使用，不要求每张表编号。\n2. Setup 说明数据划分、Metrics、模型与基线、预算和真实设置。各指标交代单位、分母、汇总、不适用与无效输出处理。\n3. 概述主发现，再按证据层级组织局部差异与独立条件分析。However 指出整体结果掩盖的差异；Separately 或 Next 转向真正独立的问题，不虚构串行或因果。\n4. 每段讲一项发现、关键对照、范围与含义；不逐行读表。全局组成、场景发生率和条件子集使用各自真实分母，不能混称或直接相减。\n5. 消融用合适对照检验实际设计；联合改变不能归因于单个模块。诊断、描述关联、因果证据及评价器一致率分别说明。\n6. 表体名称、引用、数值与上标误差保持单行，先调允许范围内的列宽。真实重复才写均值与 SD、SE 或 CI，排名不等于显著性。Caption 保留核心口径，局部例外放对应脚注，检查最终 PDF。\n7. 结果改变后回读已授权的摘要、引言和结论，不改冻结材料、不新增未经授权的实验。",
-      "en": "Read cs-paper-writing/SKILL.md. Load the shared rules once and only the chapter skills relevant to this task; do not load every example by default.\nCheck the current venue and track AI policy and permissions for the material. Do not send unpublished manuscripts, reviews, personal data, or credentials to external services without authorization.\nMaterial: [Introduction claims, actual results, metrics, controls, repeat records, and versions]\nAllowed edits: [ ]; protect: [original results, execution protocol, and assessment inputs]\n\n1. Map each claim to an actual comparison and evidence. Use RQs when helpful, not for every table.\n2. Explain data splits, metrics, models and baselines, budgets, and actual settings. Give units, denominators, aggregation, inapplicability, and invalid-output handling.\n3. Overview the main finding, then organize local differences and independent conditional analyses by evidence level. However exposes a difference hidden by the aggregate; Separately or Next moves to a genuinely independent question, not an invented causal chain.\n4. Each paragraph gives a finding, key comparison, scope, and meaning. Do not narrate every table row. Global composition, scenario incidence, and conditional subsets retain their own denominators and cannot be directly subtracted.\n5. Use suitable ablation controls for actual designs. Joint changes cannot be attributed to one module. Distinguish diagnosis, association, causal evidence, and judge agreement.\n6. Keep table-body names, references, values, and superscript uncertainty on one line; adjust permitted column widths first. Report means and SD, SE, or CI only for real repetitions. Ranking is not significance. Keep core definitions in captions and local exceptions in linked footnotes; inspect the final PDF.\n7. Re-read authorized Abstract, Introduction, and Conclusion sections when findings change. Preserve frozen materials and do not run unauthorized new experiments."
+      "zh": "读取 cs-paper-writing/SKILL.md：先读共享规则，只加载当前任务相关的章节 skill；不默认读全部例库。\n核对目标会议及 track 的 AI 规定和材料使用权限，遵守当轮允许范围。未经许可，不向外部服务发送未公开稿件、review、个人数据或密钥。\n材料：【引言主张、真实结果、指标定义、对照、重复记录与版本】\n允许修改：【】；保护：【原始结果、执行协议与评价输入】\n\n1. 先将每项主张对应到真实比较与证据。RQ 按需要使用，不要求每张表编号。\n2. Setup 说明数据划分、Metrics、模型与基线、预算和真实设置。各指标交代单位、分母、汇总、不适用与无效输出处理。\n3. 概述主发现，再按证据层级组织局部差异与独立条件分析。However 指出整体结果掩盖的差异；Separately 或 Next 转向真正独立的问题，不虚构串行或因果。\n4. 每段讲一项发现、关键对照、范围与含义；不逐行读表。全局组成、场景发生率和条件子集使用各自真实分母，不能混称或直接相减。\n5. 消融用合适对照检验实际设计；联合改变不能归因于单个模块。诊断、描述关联、因果证据及评价器一致率分别说明。\n6. 表体名称、引用、数值与上标误差保持单行，先调允许范围内的列宽。真实重复才写均值与 SD、SE 或 CI，排名不等于显著性。Caption 保留核心口径，局部例外放对应脚注，检查最终 PDF。\n7. 结果改变后回读已授权的摘要、引言和结论，不改冻结材料、不新增未经授权的实验。\n成稿章首先概述主发现，再用 Specifically 展开分析。先核对有效覆盖，不预设共同子集；区分初始判分、人工复核标签和最终得分，一致率不冒称独立准确率。",
+      "en": "Read cs-paper-writing/SKILL.md. Load the shared rules once and only the chapter skills relevant to this task; do not load every example by default.\nCheck the current venue and track AI policy and permissions for the material. Do not send unpublished manuscripts, reviews, personal data, or credentials to external services without authorization.\nMaterial: [Introduction claims, actual results, metrics, controls, repeat records, and versions]\nAllowed edits: [ ]; protect: [original results, execution protocol, and assessment inputs]\n\n1. Map each claim to an actual comparison and evidence. Use RQs when helpful, not for every table.\n2. Explain data splits, metrics, models and baselines, budgets, and actual settings. Give units, denominators, aggregation, inapplicability, and invalid-output handling.\n3. Overview the main finding, then organize local differences and independent conditional analyses by evidence level. However exposes a difference hidden by the aggregate; Separately or Next moves to a genuinely independent question, not an invented causal chain.\n4. Each paragraph gives a finding, key comparison, scope, and meaning. Do not narrate every table row. Global composition, scenario incidence, and conditional subsets retain their own denominators and cannot be directly subtracted.\n5. Use suitable ablation controls for actual designs. Joint changes cannot be attributed to one module. Distinguish diagnosis, association, causal evidence, and judge agreement.\n6. Keep table-body names, references, values, and superscript uncertainty on one line; adjust permitted column widths first. Report means and SD, SE, or CI only for real repetitions. Ranking is not significance. Keep core definitions in captions and local exceptions in linked footnotes; inspect the final PDF.\n7. Re-read authorized Abstract, Introduction, and Conclusion sections when findings change. Preserve frozen materials and do not run unauthorized new experiments.\nOverview the supported main finding before using Specifically to expand the analysis. Verify actual coverage without presuming a common subset. Separate initial judgments, human-reviewed labels, and reported scores; label agreement is not independent accuracy."
     },
     "intro": {
       "title": "Intro 中文提纲提示词",
@@ -9017,7 +9035,9 @@
       "【铁律】缺口的名称、对象与范围对齐 Intro，本文做法应对同一个问题；不同主题承担不同缺口，不能重复包装同一不足。",
       "【铁律】不足要能回查原论文。未报告不等于没有；仅测单轮，不等于多轮一定失败。客观限定范围，不夸大缺陷。",
       "【铁律】文献真实、相关且对应具体主张，不为引用配额加入无关论述，不因结果不利漏引。可比较近邻可安排基线；设置不同就说明差异。",
-      "【铁律】相邻主题的承接表述按真实语义变化，不反复使用同一个过渡短语；专业术语与方法名保持一致。"
+      "【铁律】相邻主题的承接表述按真实语义变化，不反复使用同一个过渡短语；专业术语与方法名保持一致。",
+      "【铁律】核对原始或正式发布日期、实际版本及预印本身份；访问日期和版本更新日期不能当作新论文日期。",
+      "【铁律】This enables 后填完整实际应用，不重复产物名称或只写局部属性；句末回扣 However 提出的同一个缺口。"
     ],
     "method": [
       "为什么你的方法好，比解释清楚方法更重要。每项关键设计接回 Intro 的具体困难，再讲怎样实现。",
@@ -9038,12 +9058,13 @@
       "设置可按 Metrics、Baselines、Implementation Details 排列。结果段建议先加粗一句具体发现，再给关键对照与意义，接回 Intro 的问题，不逐行读表。",
       "【铁律】判断单个因素的独立作用时，固定其他条件；多因素共同变化，只能评价整套改动，不能把收益归给其中一项。",
       "【铁律】声称效率或稳定性时，给出相应测量与口径。效率计入所声称系统的完整成本，稳定性对应真实重复变化；重要代价和负结果不能省略。",
-      "实验章首接回已完成的方法或数据构建，概述真实被测对象、主发现和后续分析；别只报模型名单。",
+      "实验章首承接方法或数据构建，概述真实被测对象与主发现，再用 Specifically 或自然钩子展开具体分析。名单、设置与分析拆成完整短句。",
       "【铁律】主张必须有对应证据。整套方法的结果不能证明未经检验的模块各自有效，不强制每项设计都单独做一次消融。",
       "【铁律】报告实际重复次数和重复单位，说明均值旁是 SD、SE 还是 CI。模型、案例与随机种子不能混作同一统计单位；排名高低不等于显著差异。",
-      "【铁律】先固定同一评估集合；使用共同有效子集时，写清纳入条件、n of N 与排除原因。缺失、无效与不适用分开处理，不能只留成功输出，否则比较对象和结论都会改变。",
+      "【铁律】核对实际有效覆盖，再说明完整评估集合或有效子集，不预设必须删到共同子集。实际使用共同有效子集时，写清纳入条件、n of N 与排除原因；缺失、无效与不适用分开，不能只留成功输出。",
       "【铁律】实测案例与示意案例分开，说明选例依据。个例用于解释过程，不证明总体排名或部署效果；被测模型得分高，也不能证明 benchmark 更好。",
-      "【铁律】全局失败组成、某场景发生率与条件子集表现分别给对象和分母；不能将不同分母的比例直接相减，也不能用局部失败诊断冒充整体差距的因果解释。"
+      "【铁律】全局失败组成、某场景发生率与条件子集表现分别给对象和分母；不能将不同分母的比例直接相减，也不能用局部失败诊断冒充整体差距的因果解释。",
+      "【铁律】区分初始判分、人工复核标签与最终得分。一致性写清比较对象、范围与分母；标签一致率不等于独立准确率，也不能证明没有偏差。"
     ],
     "title": [
       "标题交代研究对象和核心贡献；方法名后说明做了什么，发现型论文可直接写关键发现。记忆点要准确、好懂。",
@@ -9072,7 +9093,7 @@
     "references": [
       "【铁律】引用支持附近的具体判断，先回查原文，不把搜索摘要或能编译的 BibTeX 当核验。",
       "模型、数据、工具和外部方法首次实质出现时，可就近引原始报告或官方文档，方便查证；实际出处与归属必须准确。",
-      "【铁律】条目与实际版本对应，核对题名、作者、年份和来源；同一论文的重复版本去重。",
+      "【铁律】条目对应实际版本，核对题名、作者、年份、原始或正式日期及预印本身份。同一论文的重复版本去重；访问日期与版本更新日期不当作新论文日期。",
       "【铁律】来源没测过的条件，不能用它支撑该条件下的结论。没有真实来源就缩小或删除说法。",
       "【铁律】直接引用的文字与借用的图注明出处，另核对转载或使用许可。公开可读不等于可以直接复用，学术用途也不自动证明已获授权。"
     ],
@@ -9080,7 +9101,8 @@
       "【铁律】正文保留独立成立所需的核心设计、关键证据与决定结论的限制，不能全移附录。整理时可先删重复，再移次要细节。",
       "技术细节、实验设置、补充结果分节，每节开头说明服务哪项主张；正文在对应位置引用具体节、图或表，避免读者在附录里查找。",
       "【铁律】附录中的参数、prompt、数据与评分规则对应实际运行版，符号和统计范围与正文一致。后加规则不能写成实验已用。",
-      "【铁律】补充结果改变主结论时，同步改正文、摘要和引言；不能把相反证据只留在附录。"
+      "【铁律】补充结果改变主结论时，同步改正文、摘要和引言；不能把相反证据只留在附录。",
+      "【铁律】图表移到附录时，同时移动详解，修正 Overview 和引用；正文保留主要结论。名称更新不改变冻结 prompt、机器字段或分析结果；显示改写不能冒称执行原文。"
     ]
   },
   "refine_global_cases": [
@@ -10552,5 +10574,35 @@
       },
       "closing": "正文结构确定后，进入论文绘图。Mainfig 让读者看懂问题与核心贡献；framework 说明设计怎样处理问题及输入输出关系；结果图支持实验发现。先确定每张图要证明什么，再画图和精修。"
     }
-  }
+  },
+  "update_log": [
+    {
+      "at": "2026-10-12T14:44:00+08:00",
+      "date": "2026-10-12 14:44",
+      "title": "同步写作与绘图 skill",
+      "skill_update": true,
+      "changes": [
+        "补齐数字与文献版本口径、Related Work 的应用字段。",
+        "更新实验章首模板、有效评估范围、判分可靠性与章节承接。",
+        "补齐图注、脚注和移图规范；下载链接标出 latest，新增折叠更新记录。"
+      ]
+    },
+    {
+      "at": "2026-10-12T12:54:54+08:00",
+      "date": "2026-10-12 12:54",
+      "title": "更名 BeautyPaper",
+      "changes": [
+        "更新西施犬展示论文、三位评委举起 ACCEPT 的主图，并同步博客封面。"
+      ]
+    },
+    {
+      "at": "2026-10-12T12:23:05+08:00",
+      "date": "2026-10-12 12:23",
+      "title": "写作 skill 按章节拆分",
+      "skill_update": true,
+      "changes": [
+        "拆为入口、共享规则和六个章节；同步钩子、引言结构、贡献格式与 Related Work 收尾。"
+      ]
+    }
+  ]
 }

@@ -254,17 +254,31 @@ def render_opening(data):
  md+=['',data['simulation_context']]
  return rendered,md
 
+def skill_latest(skill):
+ return f'<small class="skill-latest">latest:【{html.escape(skill["updated_at"])}】</small>' if skill.get('updated_at') else ''
+
+def render_update_log(data):
+ e=html.escape
+ rendered='<details class="update-log" id="update-log"><summary>更新记录</summary><ol>'
+ md=['','<details><summary>更新记录</summary>','']
+ for entry in data.get('update_log',[]):
+  label=' · skill 更新' if entry.get('skill_update') else ''
+  rendered+=f'<li><time datetime="{e(entry["at"])}">{e(entry["date"])}</time> · <strong>{e(entry["title"])}</strong>{label}<ul>'
+  rendered+=''.join(f'<li>{e(change)}</li>' for change in entry['changes'])+'</ul></li>'
+  md+=['',f'**{entry["date"]} · {entry["title"]}{label}**','']+['- '+change for change in entry['changes']]
+ return rendered+'</ol></details>',md+['','</details>','']
+
 def render_preface(data):
  e=html.escape
  p=data['preface']
  skill=data['writing_skill']
- rendered=''
- rendered+=f'<p class="skill-links"><strong>这里有两个可以直接使用的 skill，按任务下载。</strong> <a href="{e(skill["download"])}" download>cs-paper-writing</a> · <a href="{e(data["figure_chapter"]["skill"]["download"])}" download>绘图</a> · <a href="#writing-skill">用法</a></p>'
+ rendered,log_md=render_update_log(data)
+ rendered+=f'<p class="skill-links"><strong>这里有两个可以直接使用的 skill，按任务下载。</strong> <a href="{e(skill["download"])}" download>cs-paper-writing</a> {skill_latest(skill)} · <a href="{e(data["figure_chapter"]["skill"]["download"])}" download>绘图</a> {skill_latest(data["figure_chapter"]["skill"])} · <a href="#writing-skill">用法</a></p>'
  rendered+=f'<figure class="accept-banner"><img src="{e(p["image"])}" alt="{e(p["image_alt"])}" width="{p["image_width"]}" height="{p["image_height"]}" fetchpriority="high"></figure><section class="preface" id="preface"><h2>{e(p["title"])}</h2>'
  rendered+=''.join(f'<p>{e(text)}</p>' for text in p['paragraphs'])
  rendered+=f'<p class="preface-aside"><em>{e(p["aside"])}</em></p>'
  rendered+='</section>'
- md=['','这里有两个可以直接使用的 skill，按任务下载。',f'[cs-paper-writing](../{skill["download"]}) · [绘图](../{data["figure_chapter"]["skill"]["download"]}) · [用法](#writing-skill)','',f'![{p["image_alt"]}](../{p["image"]})','','## '+p['title'],'']
+ md=log_md+['','这里有两个可以直接使用的 skill，按任务下载。',f'[cs-paper-writing](../{skill["download"]}) latest:【{skill["updated_at"]}】 · [绘图](../{data["figure_chapter"]["skill"]["download"]}) latest:【{data["figure_chapter"]["skill"]["updated_at"]}】 · [用法](#writing-skill)','',f'![{p["image_alt"]}](../{p["image"]})','','## '+p['title'],'']
  md+=sum(([text,''] for text in p['paragraphs']),[])
  md+=['*'+p['aside']+'*','']
  return rendered,md
@@ -365,7 +379,7 @@ def render_draft_chapter(data):
    text=step['text']
    rendered+=f'<p>{e(text)}</p>';md+=['',text]
   if n==1:
-   rendered+=f'<p class="skill-links"><a href="{data["writing_skill"]["download"]}" download>下载写作 skill</a> · <a href="#writing-skill">安装与用法</a></p>'
+   rendered+=f'<p class="skill-links"><a href="{data["writing_skill"]["download"]}" download>下载写作 skill</a> {skill_latest(data["writing_skill"])} · <a href="#writing-skill">安装与用法</a></p>'
    ph,pm=render_codex_prompt(data,q['prompt_ref'],'填写研究材料，生成初稿');rendered+=ph;md+=pm
    rendered+='<p class="example-source">'+' · '.join(f'<a href="{e(s["url"])}">{e(s["title"])}</a>' for s in q['sources'][:2])+'</p>'
   if step['id']=='draft-step-3':
@@ -451,7 +465,7 @@ def render_quick_start(data, include_figures=True):
    continue
   if n==2:
    skill=data['figure_chapter']['skill']
-   rendered+=f'<p class="skill-links"><a href="{e(skill["download"])}" download>先下载绘图 skill ZIP</a> · <a href="{REPO}/blob/main/{e(skill["source"])}">查看 SKILL.md</a> · <a href="#figure-rules">绘图铁律</a></p>'
+   rendered+=f'<p class="skill-links"><a href="{e(skill["download"])}" download>先下载绘图 skill ZIP</a> {skill_latest(skill)} · <a href="{REPO}/blob/main/{e(skill["source"])}">查看 SKILL.md</a> · <a href="#figure-rules">绘图铁律</a></p>'
    md+=['',f'[先下载绘图 skill ZIP](../{skill["download"]}) · [查看 SKILL.md](../{skill["source"]}) · [绘图铁律](#figure-rules)']
   rendered+=f'<p>{e(s["text_zh"])}</p>'
   md+=['',s['text_zh']]
@@ -505,7 +519,7 @@ def render_quick_start(data, include_figures=True):
   rendered+=f'<details class="short-example"><summary>中英例子</summary><p>{e(s["example_zh"])}</p><p lang="en">{e(s["example_en"])}</p><p lang="en">{e(s["text_en"])}</p></details>'
   md+=['',s['example_zh'],'',s['example_en'],'',s['text_en']]
   if n==1:
-   rendered+=f'<p class="fill-hint"><strong>填什么：</strong>{e(q["fill_hint_zh"])}</p><p class="skill-links"><a href="{data["writing_skill"]["download"]}" download>下载 cs-paper-writing skill</a> · <a href="#writing-skill">安装与用法</a></p>'
+   rendered+=f'<p class="fill-hint"><strong>填什么：</strong>{e(q["fill_hint_zh"])}</p><p class="skill-links"><a href="{data["writing_skill"]["download"]}" download>下载 cs-paper-writing skill</a> {skill_latest(data["writing_skill"])} · <a href="#writing-skill">安装与用法</a></p>'
    ph,pm=render_codex_prompt(data,q['prompt_ref'],'复制这个提示词，填空就能用');rendered+=ph;md+=pm
    rendered+=f'<p class="example-source">{e(s["note_zh"])} <a href="{q["sources"][0]["url"]}">Git 同步说明</a> · <a href="{q["sources"][1]["url"]}">ZIP 下载说明</a></p>'
    md+=['',s['note_zh'],'',' · '.join(f'[{r["title"]}]({r["url"]})' for r in q['sources'][:2])]
@@ -604,7 +618,7 @@ def render_skill(data):
  rendered=f'<details class="writing-skill" id="writing-skill"><summary>给 Codex 用：写作与绘图 skill</summary><p>{e(skill["intro"])}</p>'
  md=['','<a id="writing-skill"></a>','### 写作与绘图 skill','',skill['intro']]
  for entry,label in [(skill,'cs-paper-writing'),(data['figure_chapter']['skill'],'绘图')]:
-  rendered+=f'<p class="skill-links"><a href="{e(entry["download"])}" download>{e(label)} ZIP</a> · <a href="{REPO}/blob/main/{e(entry["source"])}">SKILL.md</a>：{e(entry["intro"])}</p>'
+  rendered+=f'<p class="skill-links"><a href="{e(entry["download"])}" download>{e(label)} ZIP</a> {skill_latest(entry)} · <a href="{REPO}/blob/main/{e(entry["source"])}">SKILL.md</a>：{e(entry["intro"])}</p>'
   md+=['',f'[{label} ZIP](../{entry["download"]}) · [SKILL.md](../{entry["source"]})：{entry["intro"]}']
  installation='写作包已按章节拆分：入口、共享规则和六个章节，共八个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。'
  rendered+=f'<p>{e(installation)}</p><p class="boundary">写作包更新：{e(skill["updated_at"])}。只含通用规则与教学模板，不含私人稿件信息。</p>'
@@ -625,7 +639,7 @@ def package_skill(data):
  attribution=['','---','','Da1yuqin / [BeautyPaper](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。']
  def write_skill(name, title, body):
   target=ROOT/'skills'/name;target.mkdir(parents=True,exist_ok=True)
-  text=['---','name: '+name,'description: '+title+'；适用于实证型 CS 会议论文，按当前任务加载。','---','','# '+title,'']+body+attribution
+  text=['---','name: '+name,'description: '+title+'；适用于实证型 CS 会议论文，按当前任务加载。','---','','# '+title,'',f'latest:【{skill["updated_at"]}】','']+body+attribution
   (target/'SKILL.md').write_text('\n'.join(text)+'\n',encoding='utf-8')
   return target
  router=['先读一次[共享规则](../cs-writing-common/SKILL.md)，再只读当前任务涉及的章节；不默认加载全部模板。当前章规则与当前人工定版优先于历史写法。仅用于 CS 会议，Nature 系列使用独立体系。','','| 任务 | 章节入口 |','| --- | --- |']

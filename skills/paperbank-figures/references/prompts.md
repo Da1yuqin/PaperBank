@@ -33,6 +33,7 @@
 8. Caption 先说明图是什么，再解释必要标记和术语，按实际面板或上下左右读序带读，最后给有证据的发现与贡献意义；简称在本条 Caption 写全称。方法图说明机制，不编实验结论。尽量三行，必要定义与事实边界优先。
 9. PDF 文字可见、可选，字体嵌入；不叠两套字形或隐藏 OCR。统计图优先矢量 PDF，含位图的 PDF 不称全矢量。CS 图表默认 [!t]，实际位置跟随正文首次引用，保留附录归属。
 10. 先给问题、布局和缺口，再绘制。插回论文编译，看最终页面的字号、图例、裁切、碰撞和引用顺序。交付源文件、PDF、预览及实际检查结果。只改色时保留原布局、文字、连线与图片；保留他人修改，不扩大范围。
+每图自身解释简称，案例条件对应难点，颜色点明对象。Caption 保留全图读法，单项判定用 \footnote 与 \footref；跨栏脚注可用 savenotes，并查落页与跳转。评分通过不写成真实执行。移图到附录同步详解、Overview 和引用；显示改名不改冻结记录。
 ```
 
 ### English
@@ -58,6 +59,7 @@ Hard rules:
 8. Captions identify the figure, explain necessary marks and terms, follow the actual panel order, and end with evidenced findings and contribution. Include necessary comparisons and scope. Expand abbreviations in each caption. Method figures explain mechanisms without fabricated experimental conclusions. Aim for three final lines; necessary definitions and factual limits take priority.
 9. Use visible, selectable PDF text and embedded fonts; avoid duplicate lettering and hidden OCR. Prefer vector PDF for statistical plots; a PDF containing raster images is not fully vector. Use [!t] for CS figures and tables by default. Verify actual order against first body citations and retain appendix ownership.
 10. Propose the question, layout, and evidence gaps before drawing. Insert the figure into the paper, compile, and inspect final-size text, legends, crops, collisions, and citation order. Deliver sources, PDF, preview, and completed checks. A color-only edit preserves layout, text, edges, and images. Preserve concurrent edits and the authorized scope.
+Define each figure’s abbreviations locally, match concrete case conditions to challenges, and name the objects connected by colors. Keep shared reading guidance in captions and use \footnote and \footref for item-specific notes; savenotes can support full-width floats, with page and link checks. Passing an evaluation does not mean successful execution. When moving figures to the appendix, update explanations, overviews, and references. Display-name changes must preserve frozen records.
 ```
 
 ---

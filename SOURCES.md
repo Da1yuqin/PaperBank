@@ -175,3 +175,11 @@ Overleaf 本地 Git 同步的 Premium 权限与当前入口核对自 [Git integr
 展示名由 PaperBank 更为 BeautyPaper；原仓库地址、网页地址、skill 机器名及批注页面标识保留兼容。原有论文摘录、引用和研究事实未因品牌变化修改。
 
 `assets/beautypaper-presentation.png` 由 imagegen 生成，参考旧主图的整体插画风格与三位通用动物角色，重新组织为西施犬展示论文、边牧／魔法橘猫／龙举 ACCEPT 牌的场景。红色 ACCEPT 与彩带是庆祝性的品牌插画，不对应真实录用决定；论文、表格和图形为装饰示意，无实测数字或会议标识。生成说明见 `assets/beautypaper-presentation-prompt.txt`。旧主图及其来源记录保留。
+
+## 分章写作包细则同步（2026-10-12 14:44 UTC+8）
+
+核对当时的 cs-writing-common、cs-abstract-introduction、cs-related-work、cs-method、cs-experiments、cs-visuals 与 cs-integration 当前章节规则。原有钩子、可变引言结构、贡献格式及 Related Work 收尾已在公开包；本次补齐数字与文献版本口径、完整应用字段、实验章首发现概述、实际覆盖与判分可靠性、章节承接边界、图注与脚注细则。网页、Markdown、章节 skill 与下载包从同一公开规则生成。
+
+只提取可迁移要求并重新表述。私人论文的命名、数量、结果、固定篇幅、章节编号、内部流程、路径和未公开范例不迁入公开包；项目特例不当作通用写作要求。原论文段落与图资产未改。
+
+开头更新记录采用原生 details，默认折叠；历史两项日期来自对应公开提交的作者时间。本次写作及绘图包、各章 SKILL.md 和网页下载入口统一标注 latest 日期与分钟。
