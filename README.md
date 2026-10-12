@@ -6,6 +6,8 @@ Open-source **CS paper writing and academic figure drawing skills for Codex**, w
 
 [阅读 BeautyPaper](https://da1yuqin.github.io/PaperBank/) · [下载写作 skill](assets/cs-paper-writing-skill.zip) · [下载绘图 skill](assets/paperbank-figures-skill.zip)
 
+论文绘图分 Mainfig、Framework、实验绘图三节，每节两个模板例子，附优化前后对照；其他图集中在文末参考绘图附录。
+
 章节先给原则，再给完整模板或段落批注；方括号填写自己的材料。BeautyPaper 的真实论文摘录与原图附出处、版本和许可。
 
 ## 论文写作与学术绘图 skills

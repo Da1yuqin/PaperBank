@@ -6589,6 +6589,42 @@
         "license": "BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
         "source_title": "可复现教学绘图代码",
         "source_url": "assets/generate-statistical-examples.py"
+      },
+      {
+        "id": "teaching-mainfig-before-after",
+        "topic": "优化前后教学示意",
+        "title": "模板 1：问题与改动对照",
+        "asset": "assets/figure-mainfig-before-after.svg",
+        "zh": "假设的证据问答任务。左侧流程过于抽象；右侧把“证据不足仍回答”的问题与“核对证据、保留未知”的改动对齐。只展示设计，不声称效果已验证。",
+        "analysis_zh": [
+          "先找要讲的缺口，再删掉不能帮助理解缺口的节点。左右保持同一问题和阅读顺序，让改动位置可直接比较。"
+        ],
+        "license": "BeautyPaper 原创教学改排，CC BY 4.0；非原论文修订记录。",
+        "layout": "comparison"
+      },
+      {
+        "id": "teaching-framework-before-after",
+        "topic": "优化前后教学示意",
+        "title": "模板 1：输入、产物与评价分离",
+        "asset": "assets/figure-framework-before-after.svg",
+        "zh": "假设的文档问答流程。左侧只有泛称；右侧写清证据、被支持的主张和回答，并把参考答案送往独立评价器。",
+        "analysis_zh": [
+          "前后使用同一任务。关键不是多画框，而是让每根箭头交代实际传递的材料；参考答案仅用于评价，不能连进回答生成流程。"
+        ],
+        "license": "BeautyPaper 原创教学改排，CC BY 4.0；非原论文修订记录。",
+        "layout": "comparison"
+      },
+      {
+        "id": "teaching-experiment-before-after",
+        "topic": "优化前后教学示意",
+        "title": "模板 1：同一数据的排版优化",
+        "asset": "assets/figure-experiment-before-after.svg",
+        "zh": "两侧都使用 Baseline 60%、Ours 66% 的教学数据。优化后补单位和数值、移开图例、增加纹理；提高 6 个百分点，相对提高 10%。",
+        "analysis_zh": [
+          "排版修改不改柱高或数据。这里没有重复试验记录，因此不画误差棒；实际实验须保留并定义已有的不确定性。"
+        ],
+        "license": "BeautyPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。",
+        "layout": "comparison"
       }
     ],
     "skill": {
@@ -9482,15 +9518,15 @@
       "annotated-appendix": "附录组织"
     },
     "figure_titles": {
-      "visual-lost-middle-fig-1": "单栏首图：研究动机",
+      "visual-lost-middle-fig-1": "模板 2：用一个关键观察开题",
       "visual-tcod-fig-1": "问题与解法对照",
       "visual-tcod-fig-3": "训练范围对照",
       "visual-tcod-fig-4": "效果与机制曲线",
       "visual-tcod-fig-5": "辅助指标对照",
       "visual-tcod-fig-6": "方法效果比较",
-      "visual-interactcs-fig-1": "框架层级与模块编号",
+      "visual-interactcs-fig-1": "模板 2：按职责分组，用案例串流程",
       "visual-tcod-fig-2": "多面板诊断",
-      "visual-interactcs-fig-2": "消融结果",
+      "visual-interactcs-fig-2": "模板 2：多面板共用编码与图例",
       "visual-interactcs-fig-3": "训练动态",
       "fig-interactcs-case": "交互案例",
       "teaching-kde": "KDE 密度分布",
@@ -9502,7 +9538,10 @@
       "teaching-heatmap": "热图：分组结果",
       "teaching-cost": "成本与性能",
       "teaching-donut": "环图：组成比例",
-      "teaching-two-gain": "双指标增益"
+      "teaching-two-gain": "双指标增益",
+      "teaching-mainfig-before-after": "模板 1：问题与改动对照",
+      "teaching-framework-before-after": "模板 1：输入、产物与评价分离",
+      "teaching-experiment-before-after": "模板 1：同一数据的排版优化"
     },
     "template_titles": {
       "template-title": "标题模板",
@@ -9822,36 +9861,87 @@
     },
     "section_additions": {},
     "figure_opening": {
-      "lead": "先完成 mainfig 和 framework，供合作者审阅，再人工精修内容、布局和标注。统计图用 Python 从真实数据生成，并按规范检查。",
+      "lead": "先完成 Mainfig 与 Framework，人工核对贡献、流程和案例；实验图用 Python 读取真实数据。下面按三类图整理笔记、铁律和优化前后示范。",
       "parts": [
         {
           "id": "figure-mainfig",
-          "title": "Mainfig：研究动机与贡献",
+          "title": "Mainfig",
+          "purpose": "让读者先看懂为什么要做这项研究，以及本文解决了什么。",
           "rules": [
-            "画清具体问题、已有方法的局限和本文的改动；用必要对照或关键观察突出贡献。",
-            "主线通常不超过 5 个环节，保留理解贡献所需的输入、输出和例子。",
-            "人工检查读图顺序与重点；按最终栏宽排版，图内字号为正文减 2 pt 至正文，放不下就重排。"
+            "先简化。只留问题、关键观察和本文改动；框多不代表贡献多。",
+            "方法型：Baseline 与 Ours 同层对齐，问题与解决步骤一一对应；发现型：用一张实测图提出问题。",
+            "用位置讲关系，用少量高亮讲重点；图标旁写对象名，删掉重复背景和装饰。",
+            "【铁律】示意和实测分清。生成工具只画概念；曲线与数值从真实数据绘制，不用示意图暗示已验证的效果。"
           ],
           "visuals": [
-            "visual-lost-middle-fig-1",
-            "visual-tcod-fig-1"
+            "teaching-mainfig-before-after",
+            "visual-lost-middle-fig-1"
           ]
         },
         {
           "id": "figure-framework",
-          "title": "Framework：方法流程与设计作用",
+          "title": "Framework",
+          "purpose": "先说明设计为什么有效，再让读者追踪输入如何成为输出。大框对应 Method Overview，框内步骤对应方法小节。",
           "rules": [
-            "先说明设计怎样应对 Intro 的局限，再画真实流程；模块名称与 Method Overview 一致。",
-            "每步写清输入、操作、输出和接收者，区分先后、并行、汇合与反馈。",
-            "用一个可追踪的案例贯穿流程；输入、输出和评价信息分别标记，仅供评价的判据不能画成模型输入。",
-            "人工核对连线、标签与层级，再精修布局和配色；箭头起止明确，不穿文字，同一对象全篇同色。"
+            "结合一个案例画流程：输入、关键操作、中间产物、最终输出都要出现。NLP 展示处理后的文本，CV 展示中间图像或特征。",
+            "同类信息放一起；同层模块并排，真实先后关系用箭头。颜色表示职责，编号表示步骤，不靠满屏连线补逻辑。",
+            "【铁律】箭头表示真实依赖。标清每步收到什么、做什么、交出什么、交给谁；训练、推理和评价分开。",
+            "【铁律】边框区分输入、输出与仅供评价的材料，并给图例。参考答案或评价判据不能误画成被测模型的输入。",
+            "【铁律】模块名称与正文一致，缩写、符号和颜色就近解释；同一来源案例只完整呈现一次，其他位置回引。"
           ],
           "visuals": [
-            "visual-interactcs-fig-1",
-            "visual-tcod-fig-3"
+            "teaching-framework-before-after",
+            "visual-interactcs-fig-1"
+          ]
+        },
+        {
+          "id": "figure-experiments",
+          "title": "实验绘图",
+          "purpose": "一张图回答一个实验问题。先选统计对象与比较方式，再调整配色、图例和标注。",
+          "rules": [
+            "少量方法比较用柱图或点图，训练动态用折线，分布用 KDE 或 ECDF；热图、投影、雷达等按需查附录，不为凑图换图型。",
+            "完整方法与删组件版本保持同顺序、同配色；再用线型、点形或纹理区分。少量柱可画细一些，透明度保留重叠；图例放空白处，关键点就近标注。",
+            "【铁律】从真实记录绘制，保留缺测、下降和不确定性；不补点、不编误差、不为平滑改曲线。误差写明统计单位、类型与计算方法。",
+            "【铁律】坐标有单位、方向和必要分母；同类面板保持可比尺度。柱图优先零起点，截断须明显标出；相对增益同时给绝对值，百分点与百分比区分。",
+            "【铁律】统计图导出矢量 PDF 并嵌入字体，核对数值与图形对应。KDE 是密度，ECDF 才读累计比例；投影分开不证明泛化好，雷达面积不是综合分数。"
+          ],
+          "visuals": [
+            "teaching-experiment-before-after",
+            "visual-interactcs-fig-2"
           ]
         }
-      ]
+      ],
+      "common_rules": [
+        "先选一张结构清楚的参考图，借鉴读图顺序与配色；内容、数值和贡献用自己的材料。",
+        "高亮越多，背景越应保持白色；同类内容同框、同层内容对齐，留白由信息关系决定。",
+        "【铁律】按最终栏宽检查。图内字同一字号，介于正文减 2 pt 至正文，字体与正文一致；放不下就重排，不缩字、不压扁图、不改论文模板。",
+        "【铁律】每图解释必要简称、标记与统计口径。Caption 先说明图是什么，再按面板顺序带读；插回论文检查字号、重叠、裁切与首次引用。"
+      ],
+      "example_captions": {
+        "visual-lost-middle-fig-1": "20 文档设置下，答案文档的位置影响 GPT-3.5-Turbo 的问答准确率；红虚线是同一模型的无文档基准。",
+        "visual-interactcs-fig-1": "交互生成与策略优化先分两块；一个对话实例连接输入、交互与结果、过程、成本信号。",
+        "visual-interactcs-fig-2": "四个面板共用一套图例：颜色区分方法族，纹理区分组内方案，↑／↓标明指标方向。"
+      },
+      "example_notes": {
+        "visual-lost-middle-fig-1": [
+          {
+            "title": "怎么借鉴",
+            "body": "一个变量、一条结果曲线、一条基准线就能提出问题。结论限于该模型与设置；纵轴未从零开始，不能按曲线高度读倍数。"
+          }
+        ],
+        "visual-interactcs-fig-1": [
+          {
+            "title": "怎么借鉴",
+            "body": "先按职责分组，再用案例连接抽象模块与实际产物。输入、回复与评分信号各占明确位置；学习这种组织方式，不照搬全部节点。"
+          }
+        ],
+        "visual-interactcs-fig-2": [
+          {
+            "title": "怎么借鉴",
+            "body": "同一方法跨面板保持颜色和纹理，读者无需反复找图例。图面未定义误差棒，不能自行补成标准差或置信区间；前三图非零起点，应读数值差。"
+          }
+        ]
+      }
     },
     "writing_templates": {
       "intro": {
@@ -10577,6 +10667,16 @@
     }
   },
   "update_log": [
+    {
+      "at": "2026-10-12T16:08:00+08:00",
+      "date": "2026-10-12 16:08",
+      "title": "精简论文绘图章节",
+      "changes": [
+        "正文改为 Mainfig、Framework 与实验绘图三节，每节两个模板例子。",
+        "融入绘图笔记、标出铁律，增加同一内容或数据的优化前后教学对照。",
+        "其余 18 张图移至文末“收集的参考绘图”，保留出处、许可与点评。"
+      ]
+    },
     {
       "at": "2026-10-12T15:50:00+08:00",
       "date": "2026-10-12 15:50",

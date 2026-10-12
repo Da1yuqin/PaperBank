@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="760" viewBox="0 0 960 760" role="img" aria-labelledby="title desc">
+<title id="title">Framework：展示产物怎样接到下一步</title>
+<desc id="desc">优化前：输入、处理、输出没有交代对象与中间产物。优化后：文档证据进入核查和生成；参考答案只供评价，回答送入评价器。教学示意，非原论文修订记录。</desc>
+<style>text { font-family: 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif; font-size: 20px; }</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 8 5 L 0 9" fill="none" stroke="#69737D" stroke-width="1.6"/></marker>
+<pattern id="hatch" patternUnits="userSpaceOnUse" width="9" height="9"><path d="M -2 2 L 2 -2 M 0 9 L 9 0 M 7 11 L 11 7" stroke="#4D7463" stroke-width="1.3"/></pattern></defs>
+<rect width="960" height="760" fill="white"/>
+<text x="28" y="35" text-anchor="start" font-weight="bold" fill="#28313A">Framework：展示产物怎样接到下一步</text>
+<rect x="28" y="60" width="440" height="614" rx="14" fill="#FAFAFC" stroke="#DFE3E7"/>
+<rect x="492" y="60" width="440" height="614" rx="14" fill="#FAFAFC" stroke="#DFE3E7"/>
+<text x="50" y="95" text-anchor="start" font-weight="bold" fill="#28313A">优化前</text>
+<text x="514" y="95" text-anchor="start" font-weight="bold" fill="#386A9D">优化后</text>
+<rect x="138" y="170" width="220" height="70" rx="10" fill="white" stroke="#CBD1D7" stroke-width="2"/><text x="248.0" y="212.0" text-anchor="middle" font-weight="normal" fill="#28313A">输入</text>
+<rect x="138" y="350" width="220" height="70" rx="10" fill="white" stroke="#CBD1D7" stroke-width="2"/><text x="248.0" y="392.0" text-anchor="middle" font-weight="normal" fill="#28313A">处理</text>
+<rect x="138" y="530" width="220" height="70" rx="10" fill="white" stroke="#CBD1D7" stroke-width="2"/><text x="248.0" y="572.0" text-anchor="middle" font-weight="normal" fill="#28313A">输出</text>
+<path d="M 248 240 L 248 346" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<path d="M 248 420 L 248 526" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<text x="248" y="643" text-anchor="middle" font-weight="normal" fill="#69737D">不知道输入、产物和接收者</text>
+<rect x="514" y="140" width="234" height="56" rx="10" fill="white" stroke="#386A9D" stroke-width="2" stroke-dasharray="7 5"/><text x="631.0" y="175.0" text-anchor="middle" font-weight="normal" fill="#28313A">文档证据</text>
+<path d="M 631 196 L 631 224" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="514" y="228" width="234" height="56" rx="10" fill="white" stroke="#CBD1D7" stroke-width="2"/><text x="631.0" y="263.0" text-anchor="middle" font-weight="normal" fill="#28313A">核查主张</text>
+<path d="M 631 284 L 631 312" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="514" y="316" width="234" height="66" rx="10" fill="#EDF4F0" stroke="#4D7463" stroke-width="2"/><text x="631.0" y="341.0" text-anchor="middle" font-weight="normal" fill="#28313A">中间产物</text><text x="631.0" y="371.0" text-anchor="middle" font-weight="normal" fill="#28313A">支持的主张</text>
+<path d="M 631 382 L 631 410" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="514" y="414" width="234" height="56" rx="10" fill="white" stroke="#CBD1D7" stroke-width="2"/><text x="631.0" y="449.0" text-anchor="middle" font-weight="normal" fill="#28313A">生成回答</text>
+<path d="M 631 470 L 631 510" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="514" y="514" width="234" height="56" rx="10" fill="white" stroke="#4D7463" stroke-width="2"/><text x="631.0" y="549.0" text-anchor="middle" font-weight="normal" fill="#28313A">输出回答</text>
+<rect x="778" y="352" width="132" height="66" rx="10" fill="white" stroke="#826890" stroke-width="2" stroke-dasharray="2 5"/><text x="844.0" y="377.0" text-anchor="middle" font-weight="normal" fill="#28313A">参考答案</text><text x="844.0" y="407.0" text-anchor="middle" font-weight="normal" fill="#28313A">仅供评价</text>
+<path d="M 844 418 L 844 510" fill="none" stroke="#826890" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="778" y="514" width="132" height="56" rx="10" fill="white" stroke="#826890" stroke-width="2"/><text x="844.0" y="549.0" text-anchor="middle" font-weight="normal" fill="#28313A">评价器</text>
+<path d="M 748 542 L 774 542" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<text x="712" y="618" text-anchor="middle" font-weight="normal" fill="#69737D">参考答案不进入模型输入</text>
+<rect x="86" y="681" width="42" height="24" fill="white" stroke="#386A9D" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="140" y="701" text-anchor="start" font-weight="normal" fill="#28313A">输入</text>
+<rect x="340" y="681" width="42" height="24" fill="white" stroke="#4D7463" stroke-width="2"/>
+<text x="394" y="701" text-anchor="start" font-weight="normal" fill="#28313A">输出或中间产物</text>
+<rect x="656" y="681" width="42" height="24" fill="white" stroke="#826890" stroke-width="2" stroke-dasharray="2 5"/>
+<text x="710" y="701" text-anchor="start" font-weight="normal" fill="#28313A">仅供评价的材料</text>
+<text x="480" y="726" text-anchor="middle" font-weight="normal" fill="#69737D">教学示意，非原论文修订记录</text>
+</svg>

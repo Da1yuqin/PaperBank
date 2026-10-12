@@ -13,13 +13,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 REPO = 'https://github.com/Da1yuqin/PaperBank'
 FIGURE_SECTIONS = [
- ('figure-mainfig','Mainfig：研究动机与贡献'),
- ('figure-framework','Framework：方法流程与设计作用'),
- ('figure-skill','绘图准备'),
- ('figure-rules','绘图规范'),
- ('figure-types','统计图与案例图'),
- ('notion-gallery','图例与说明'),
- ('figure-references','补充参考'),
+ ('figure-mainfig','Mainfig'),
+ ('figure-framework','Framework'),
+ ('figure-experiments','实验绘图'),
 ]
 
 def rule_html(text):
@@ -287,8 +283,10 @@ def render_figure_case(visual, notes=None):
  """Keep the original figure and its reading guidance in one place."""
  e=html.escape;v=visual
  notes=notes or [{'title':f'观察 {n}','body':text} for n,text in enumerate(v.get('analysis_zh',[]),1)]
- figure_class=' single-column-figure' if v.get('layout')=='single-column' else ''
- rendered=f'<section class="visual-example" id="{e(v["id"])}"><h4>{e(v["title"])}</h4><figure class="{figure_class.strip()}"><a href="{e(v["asset"])}"><img src="{e(v["asset"])}" alt="{e(v["title"])}" loading="lazy"></a><figcaption>{e(v.get("zh",""))}</figcaption></figure><p class="figure-guidance">'
+ figure_class={'single-column':'single-column-figure','comparison':'comparison-figure'}.get(v.get('layout'),'')
+ rendered=f'<section class="visual-example" id="{e(v["id"])}"><h4>{e(v["title"])}</h4><figure class="{figure_class}"><a href="{e(v["asset"])}"><img src="{e(v["asset"])}" alt="{e(v["title"])}" loading="lazy"></a><figcaption>{e(v.get("zh",""))}</figcaption></figure>'
+ if v.get('layout')=='comparison':rendered+='<p class="example-source">点击图可放大；窄屏可横向滚动。</p>'
+ rendered+='<p class="figure-guidance">'
  md=['',f'<a id="{v["id"]}"></a>','#### '+v['title'],'',f'![{v["title"]}](../{v["asset"]})','',v.get('zh','')]
  for n,note in enumerate(notes,1):
   rendered+=e(note['body'])+' '
@@ -412,40 +410,52 @@ def render_figures(data):
   if v.get('existing'):
    gallery=next(g for g in f['gallery'] if g['figure_id']==v['id']);item=next(i for i in data['items'] if i['id']==gallery['item']);ex=item['examples'][gallery['example_index']]
    v=dict(v,zh=ex.get('caption_zh',ex.get('caption','')),analysis_zh=ex['analysis_zh'],license=ex['license'],source_url=data['references'][ex['provenance']['reference']]['url'],source_title=data['references'][ex['provenance']['reference']]['title'])
-  return render_figure_case(v,layout.get('figure_notes',{}).get(v['id']))
+  if v['id'] in opening.get('example_captions',{}):v=dict(v,zh=opening['example_captions'][v['id']])
+  notes=opening.get('example_notes',{}).get(v['id'],layout.get('figure_notes',{}).get(v['id']))
+  return render_figure_case(v,notes)
  rendered='<section class="major-chapter figure-chapter" id="figures"><h2>2. 论文绘图</h2><p>'+e(opening['lead'])+'</p>'
  md=['','<a id="figures"></a>','## 2. 论文绘图','',opening['lead']]
+ rendered+=f'<p class="skill-links" id="figure-skill"><a href="{e(f["skill"]["download"])}" download>下载绘图 skill</a> {skill_latest(f["skill"])} · <a href="{REPO}/blob/main/{e(f["skill"]["source"])}">SKILL.md</a></p><ul class="template-rules">'
+ md+=['','<a id="figure-skill"></a>',f'[下载绘图 skill](../{f["skill"]["download"]}) latest:【{f["skill"]["updated_at"]}】','']
+ for rule in opening['common_rules']:
+  rendered+=f'<li>{rule_html(rule)}</li>';md+=['- '+rule]
+ rendered+='</ul>'
+ ph,pm=render_codex_prompt(data,f['prompt_ref'],'填写绘图任务与数据');rendered+=ph;md+=pm
+ rendered+='<details class="figure-full-rules" id="figure-rules"><summary>完整绘图规范</summary>'
+ rh,rm=render_short_rules(f['rules'],visuals,compact=True);rendered+=rh+'</details>';md+=['','<a id="figure-rules"></a>','<details><summary>完整绘图规范</summary>']+rm+['','</details>']
  for part in opening['parts']:
-  rendered+=f'<section id="{e(part["id"])}"><h3>{e(titles[part["id"]])}</h3><ul class="template-rules">'+''.join(f'<li>{e(rule)}</li>' for rule in part['rules'])+'</ul>'
-  md+=['','<a id="'+part['id']+'"></a>','### '+titles[part['id']],'']+['- '+rule for rule in part['rules']]
+  rendered+=f'<section id="{e(part["id"])}"><h3>{e(titles[part["id"]])}</h3><p>{e(part["purpose"])}</p>'
+  if part['id']=='figure-experiments':rendered+='<span id="figure-types"></span>'
+  rendered+='<ul class="template-rules">'+''.join(f'<li>{rule_html(rule)}</li>' for rule in part['rules'])+'</ul>'
+  md+=['','<a id="'+part['id']+'"></a>','### '+titles[part['id']],'',part['purpose'],'']+['- '+rule for rule in part['rules']]
+  if part['id']=='figure-experiments':md+=['','<a id="figure-types"></a>']
   for key in part['visuals']:
    ph,pm=figure(visuals[key]);rendered+=ph;md+=pm
   rendered+='</section>'
- rendered+=f'<section id="figure-skill"><h3>{titles["figure-skill"]}</h3><p><a href="{e(f["skill"]["download"])}" download>下载绘图 skill</a> · <a href="{REPO}/blob/main/{e(f["skill"]["source"])}">SKILL.md</a></p><p>{e(f["scope_note"])}</p>'
- md+=['','<a id="figure-skill"></a>','### '+titles['figure-skill'],'',f'[下载绘图 skill](../{f["skill"]["download"]})','',f['scope_note']]
- ph,pm=render_codex_prompt(data,f['prompt_ref'],'填写绘图任务与数据');rendered+=ph+'</section>';md+=pm
- for key,field in [('figure-rules','rules'),('figure-types','types')]:
-  rendered+=f'<h3 id="{key}">{titles[key]}</h3>'
-  rules=f[field][2:] if field=='types' else f[field]
-  rh,rm=render_short_rules(rules,visuals,compact=True);rendered+=rh;md+=['','<a id="'+key+'"></a>','### '+titles[key]]+rm
- rendered+=f'<h3 id="notion-gallery">{titles["notion-gallery"]}</h3><p>按图的任务整理统计图与案例图。</p><span id="figure-gallery"></span>'
- md+=['','<a id="notion-gallery"></a>','<a id="figure-gallery"></a>','### '+titles['notion-gallery'],'','按图的任务整理统计图与案例图。']
+ rendered+='<p class="draft-next"><a href="#figure-appendix">更多图型、原图与点评：收集的参考绘图 →</a></p></section>'
+ md+=['','[更多图型、原图与点评：收集的参考绘图](#figure-appendix)']
+ appendix='<section class="major-chapter figure-chapter figure-appendix" id="figure-appendix"><h2>附录：收集的参考绘图</h2><p>按需要查图型。原图保留出处与许可，教学图注明模拟数据；点评同时说明值得借鉴的设计与结论边界。</p><span id="notion-gallery"></span><span id="figure-gallery"></span>'
+ appendix_md=['','<a id="figure-appendix"></a>','<a id="notion-gallery"></a>','<a id="figure-gallery"></a>','## 附录：收集的参考绘图','','按需要查图型。原图保留出处与许可，教学图注明模拟数据；点评同时说明值得借鉴的设计与结论边界。']
  shown={key for part in opening['parts'] for key in part['visuals']}
  for topic in dict.fromkeys(v['topic'] for v in visuals.values()):
   group=[v for v in visuals.values() if v['topic']==topic and v['id'] not in shown]
   if not group:continue
-  rendered+=f'<section class="figure-topic"><p class="figure-topic-label"><strong>{e(topic)}</strong></p>';md+=['','#### '+topic]
+  appendix+=f'<details class="figure-topic"><summary>{e(topic)}（{len(group)} 张）</summary>';appendix_md+=['','<details><summary>'+topic+'</summary>']
+  keys={v['id'] for v in group}
+  relevant=[rule for rule in f['types'][2:] if keys.intersection(rule.get('visuals',[]))]
+  for rule in relevant:
+   appendix+=f'<p class="figure-guidance"><strong>{e(rule["title"])}</strong>：{e(rule["zh"])}</p>';appendix_md+=['','**'+rule['title']+'**：'+rule['zh']]
   for v in group:
-   ph,pm=figure(v);rendered+=ph;md+=pm
-  rendered+='</section>'
- rendered+=f'<h3 id="figure-references">{titles["figure-references"]}</h3><details class="figure-source-links"><summary>补充图页与点评</summary>';md+=['','<a id="figure-references"></a>','### '+titles['figure-references']]
+   ph,pm=figure(v);appendix+=ph;appendix_md+=pm
+  appendix+='</details>';appendix_md+=['','</details>']
+ appendix+='<details class="figure-source-links" id="figure-references"><summary>更多原图链接与点评</summary>';appendix_md+=['','<a id="figure-references"></a>','<details><summary>更多原图链接与点评</summary>']
  for n,link in enumerate(f['links'],1):
-  rendered+=f'<section class="linked-figure" id="figure-link-{n}"><p><strong><a href="{e(link["url"])}">{e(link["title"])}</a></strong>：{e(link["zh"])}</p>'
-  if link.get('analysis'):rendered+=f'<p>{e(link["analysis"])}</p>'
+  appendix+=f'<section class="linked-figure" id="figure-link-{n}"><p><strong><a href="{e(link["url"])}">{e(link["title"])}</a></strong>：{e(link["zh"])}</p>'
+  if link.get('analysis'):appendix+=f'<p>{e(link["analysis"])}</p>'
   for key in ('source','license'):
-   if link.get(key):rendered+=f'<p class="example-source">{e(link[key])}</p>'
-  rendered+='</section>';md+=['',f'[{link["title"]}]({link["url"]})：'+link['zh'],'',link.get('analysis',''),'',link.get('source',''),'',link.get('license','')]
- return rendered+'</details></section>',md
+   if link.get(key):appendix+=f'<p class="example-source">{e(link[key])}</p>'
+  appendix+='</section>';appendix_md+=['',f'[{link["title"]}]({link["url"]})：'+link['zh'],'',link.get('analysis',''),'',link.get('source',''),'',link.get('license','')]
+ return rendered,md,appendix+'</details></section>',appendix_md+['','</details>']
 
 def render_quick_start(data, include_figures=True):
  if data.get('_tutorial_layout'):return render_draft_chapter(data)
@@ -790,7 +800,7 @@ def build():
   return f'<a href="{e(r["url"])}">{e(r["title"])}</a>'
  preface,preface_md=render_preface(data)
  quick_start,quick_md=render_quick_start(data)
- figures,figures_md=render_figures(data)
+ figures,figures_md,figure_appendix,figure_appendix_md=render_figures(data)
  opening,opening_md=render_opening(data)
  skill,skill_md=render_skill(data)
  draft_nav=''.join(f'<a href="#{e(s["id"])}">{e(s["title"])}</a>' for s in data['tutorial_layout']['draft_steps'])
@@ -855,10 +865,11 @@ def build():
  md+=tools_md
  reading=''.join(f'<li>{link(k)}<span> — {e(r["scope"])}</span></li>' for k,r in refs.items() if r.get('public'))
  t=(ROOT/'assets/template.html').read_text(encoding='utf-8')
- for k,v in {'TITLE':e(data['site_title']),'SUBTITLE':e(data['site_subtitle']),'PREFACE':preface,'NAV':nav,'DRAFT_NAV':draft_nav,'FIGURE_NAV':figure_nav,'TOOLS_NAV':tools_nav,'ENTRIES':entries,'TOOLS':tools,'QUICK_START':quick_start,'FIGURES':figures,'OPENING':opening,'SKILL':skill,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':'4','EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
+ for k,v in {'TITLE':e(data['site_title']),'SUBTITLE':e(data['site_subtitle']),'PREFACE':preface,'NAV':nav,'DRAFT_NAV':draft_nav,'FIGURE_NAV':figure_nav,'TOOLS_NAV':tools_nav,'ENTRIES':entries,'TOOLS':tools,'QUICK_START':quick_start,'FIGURES':figures,'FIGURE_APPENDIX':figure_appendix,'OPENING':opening,'SKILL':skill,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':'4','EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
  (ROOT/'index.html').write_text(t,encoding='utf-8')
  (ROOT/'book').mkdir(exist_ok=True)
  md+=['','## 参考阅读','']+[f'- [{r["title"]}]({r["url"]})：{r["scope"]}' for r in refs.values() if r.get('public')]
+ md+=figure_appendix_md
  (ROOT/'book/guide.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
  package_skill(source_data)
  package_figure_skill(source_data)

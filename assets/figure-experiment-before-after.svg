@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="680" viewBox="0 0 960 680" role="img" aria-labelledby="title desc">
+<title id="title">实验绘图：同一数据，补全比较口径</title>
+<desc id="desc">优化前：两柱使用60与66的相同比例，颜色难辨，图例遮挡且没有单位和数值。优化后：准确率坐标从0至100，注明60和66，差值6个百分点，相对提高10%，无误差条。教学示意，非原论文修订记录。</desc>
+<style>text { font-family: 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif; font-size: 20px; }</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 8 5 L 0 9" fill="none" stroke="#69737D" stroke-width="1.6"/></marker>
+<pattern id="hatch" patternUnits="userSpaceOnUse" width="9" height="9"><path d="M -2 2 L 2 -2 M 0 9 L 9 0 M 7 11 L 11 7" stroke="#4D7463" stroke-width="1.3"/></pattern></defs>
+<rect width="960" height="680" fill="white"/>
+<text x="28" y="35" text-anchor="start" font-weight="bold" fill="#28313A">实验绘图：同一数据，补全比较口径</text>
+<rect x="28" y="60" width="440" height="534" rx="14" fill="#FAFAFC" stroke="#DFE3E7"/>
+<rect x="492" y="60" width="440" height="534" rx="14" fill="#FAFAFC" stroke="#DFE3E7"/>
+<text x="50" y="95" text-anchor="start" font-weight="bold" fill="#28313A">优化前</text>
+<text x="514" y="95" text-anchor="start" font-weight="bold" fill="#386A9D">优化后</text>
+<text x="248" y="139" text-anchor="middle" font-weight="normal" fill="#69737D">缺单位、数值与清楚图例</text>
+<path d="M 106 176 V 476 H 424" fill="none" stroke="#69737D" stroke-width="2"/>
+<rect x="158" y="296" width="72" height="180" fill="#BDC4CB"/>
+<rect x="286" y="278" width="72" height="198" fill="#C4CAD0"/>
+<text x="194" y="510" text-anchor="middle" font-weight="normal" fill="#28313A">基线</text>
+<text x="322" y="510" text-anchor="middle" font-weight="normal" fill="#28313A">本文</text>
+<rect x="150" y="318" width="216" height="94" rx="8" fill="white" stroke="#CAD0D6"/>
+<rect x="170" y="336" width="24" height="24" fill="#BDC4CB"/>
+<text x="210" y="356" text-anchor="start" font-weight="normal" fill="#28313A">基线</text>
+<rect x="170" y="374" width="24" height="24" fill="#C4CAD0"/>
+<text x="210" y="394" text-anchor="start" font-weight="normal" fill="#28313A">本文</text>
+<text x="248" y="571" text-anchor="middle" font-weight="normal" fill="#69737D">图例遮数据，颜色难区分</text>
+<text x="514" y="135" text-anchor="start" font-weight="normal" fill="#28313A">准确率（%）</text>
+<rect x="726" y="118" width="24" height="24" fill="#9CB4CC"/>
+<text x="760" y="139" text-anchor="start" font-weight="normal" fill="#28313A">基线</text>
+<rect x="824" y="118" width="24" height="24" fill="#BFD4C9"/>
+<rect x="824" y="118" width="24" height="24" fill="url(#hatch)"/>
+<text x="858" y="139" text-anchor="start" font-weight="normal" fill="#28313A">本文</text>
+<path d="M 554 176 V 476 H 906" fill="none" stroke="#69737D" stroke-width="2"/>
+<path d="M 554 176 H 906" fill="none" stroke="#E0E4E8" stroke-width="1"/>
+<text x="544" y="183" text-anchor="end" font-weight="normal" fill="#69737D">100</text>
+<path d="M 554 326 H 906" fill="none" stroke="#E0E4E8" stroke-width="1"/>
+<text x="544" y="333" text-anchor="end" font-weight="normal" fill="#69737D">50</text>
+<path d="M 554 476 H 906" fill="none" stroke="#E0E4E8" stroke-width="1"/>
+<text x="544" y="483" text-anchor="end" font-weight="normal" fill="#69737D">0</text>
+<rect x="636" y="296" width="72" height="180" fill="#9CB4CC"/>
+<rect x="782" y="278" width="72" height="198" fill="#BFD4C9"/>
+<rect x="782" y="278" width="72" height="198" fill="url(#hatch)"/>
+<text x="672" y="284" text-anchor="middle" font-weight="bold" fill="#28313A">60</text>
+<text x="818" y="266" text-anchor="middle" font-weight="bold" fill="#28313A">66</text>
+<text x="672" y="510" text-anchor="middle" font-weight="normal" fill="#28313A">基线</text>
+<text x="818" y="510" text-anchor="middle" font-weight="normal" fill="#28313A">本文</text>
+<text x="730" y="550" text-anchor="middle" font-weight="bold" fill="#28313A">增加 6 个百分点</text>
+<text x="730" y="580" text-anchor="middle" font-weight="normal" fill="#69737D">相对提高 10%，未作显著性判断</text>
+<text x="480" y="616" text-anchor="middle" font-weight="normal" fill="#69737D">两侧均为教学数据：基线 60%，本文 66%；没有误差记录，不画误差条</text>
+<text x="480" y="646" text-anchor="middle" font-weight="normal" fill="#69737D">教学示意，非原论文修订记录</text>
+</svg>

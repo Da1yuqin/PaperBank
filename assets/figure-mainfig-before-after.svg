@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="660" viewBox="0 0 960 660" role="img" aria-labelledby="title desc">
+<title id="title">Mainfig：让读者看到问题与改动</title>
+<desc id="desc">优化前：只列背景、模型、工具、处理和结果。优化后：对照证据不足时的已有流程与本文改动，不报告效果。教学示意，非原论文修订记录。</desc>
+<style>text { font-family: 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif; font-size: 20px; }</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 8 5 L 0 9" fill="none" stroke="#69737D" stroke-width="1.6"/></marker>
+<pattern id="hatch" patternUnits="userSpaceOnUse" width="9" height="9"><path d="M -2 2 L 2 -2 M 0 9 L 9 0 M 7 11 L 11 7" stroke="#4D7463" stroke-width="1.3"/></pattern></defs>
+<rect width="960" height="660" fill="white"/>
+<text x="28" y="35" text-anchor="start" font-weight="bold" fill="#28313A">Mainfig：让读者看到问题与改动</text>
+<rect x="28" y="60" width="440" height="514" rx="14" fill="#FAFAFC" stroke="#DFE3E7"/>
+<rect x="492" y="60" width="440" height="514" rx="14" fill="#FAFAFC" stroke="#DFE3E7"/>
+<text x="50" y="95" text-anchor="start" font-weight="bold" fill="#28313A">优化前</text>
+<text x="514" y="95" text-anchor="start" font-weight="bold" fill="#386A9D">优化后</text>
+<rect x="138" y="144" width="220" height="50" rx="10" fill="white" stroke="#CBD1D7" stroke-width="2"/><text x="248.0" y="176.0" text-anchor="middle" font-weight="normal" fill="#28313A">背景</text>
+<path d="M 248 195 L 248 216" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="138" y="218" width="220" height="50" rx="10" fill="white" stroke="#CBD1D7" stroke-width="2"/><text x="248.0" y="250.0" text-anchor="middle" font-weight="normal" fill="#28313A">模型</text>
+<path d="M 248 269 L 248 290" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="138" y="292" width="220" height="50" rx="10" fill="white" stroke="#CBD1D7" stroke-width="2"/><text x="248.0" y="324.0" text-anchor="middle" font-weight="normal" fill="#28313A">工具</text>
+<path d="M 248 343 L 248 364" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="138" y="366" width="220" height="50" rx="10" fill="white" stroke="#CBD1D7" stroke-width="2"/><text x="248.0" y="398.0" text-anchor="middle" font-weight="normal" fill="#28313A">处理</text>
+<path d="M 248 417 L 248 438" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="138" y="440" width="220" height="50" rx="10" fill="white" stroke="#CBD1D7" stroke-width="2"/><text x="248.0" y="472.0" text-anchor="middle" font-weight="normal" fill="#28313A">结果</text>
+<text x="248" y="540" text-anchor="middle" font-weight="normal" fill="#69737D">看得到步骤，看不到具体缺口</text>
+<text x="712" y="139" text-anchor="middle" font-weight="normal" fill="#28313A">示例：证据问答</text>
+<rect x="518" y="160" width="388" height="62" rx="10" fill="white" stroke="#386A9D" stroke-width="2" stroke-dasharray="7 5"/><text x="712.0" y="198.0" text-anchor="middle" font-weight="normal" fill="#28313A">文档不能支持全部主张</text>
+<path d="M 712 222 L 712 252 L 614 252 L 614 281" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<path d="M 712 252 L 810 252 L 810 281" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="518" y="285" width="192" height="96" rx="10" fill="white" stroke="#CBD1D7" stroke-width="2"/><text x="614.0" y="325.0" text-anchor="middle" font-weight="normal" fill="#28313A">已有流程</text><text x="614.0" y="355.0" text-anchor="middle" font-weight="normal" fill="#28313A">仍直接回答</text>
+<rect x="714" y="285" width="192" height="96" rx="10" fill="#EDF4F0" stroke="#4D7463" stroke-width="2"/><text x="810.0" y="325.0" text-anchor="middle" font-weight="bold" fill="#28313A">本文改动</text><text x="810.0" y="355.0" text-anchor="middle" font-weight="bold" fill="#28313A">先核对证据</text>
+<path d="M 614 381 L 614 416" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<path d="M 810 381 L 810 416" fill="none" stroke="#69737D" stroke-width="2.4" marker-end="url(#arrow)"/>
+<rect x="518" y="420" width="192" height="70" rx="10" fill="white" stroke="#CBD1D7" stroke-width="2"/><text x="614.0" y="462.0" text-anchor="middle" font-weight="normal" fill="#28313A">缺口仍不明确</text>
+<rect x="714" y="420" width="192" height="70" rx="10" fill="#EDF4F0" stroke="#4D7463" stroke-width="2"/><text x="810.0" y="462.0" text-anchor="middle" font-weight="bold" fill="#28313A">保留未知</text>
+<text x="712" y="540" text-anchor="middle" font-weight="normal" fill="#69737D">同一问题，对齐不同处理方式</text>
+<text x="480" y="626" text-anchor="middle" font-weight="normal" fill="#69737D">教学示意，非原论文修订记录</text>
+</svg>
