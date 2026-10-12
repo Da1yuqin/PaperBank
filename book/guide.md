@@ -3,7 +3,6 @@
 : 存入你的时间，取出你的 Accept
 
 
-写作与绘图：BeautyPaper · 审稿回复：[💪StrongResponse【这边也长出肌肉】](https://da1yuqin.github.io/PaperBank/StrongResponse/)
 这里有两个可以直接使用的 skill，按任务下载。
 [cs-paper-writing](../assets/cs-paper-writing-skill.zip) · [绘图](../assets/paperbank-figures-skill.zip) · [用法](#writing-skill)
 
@@ -18,7 +17,7 @@
 *多数例子来自本人、本人参与或熟人的论文，另选少量具有参考价值的公开论文。各例均附出处；如用于研究，请引用对应原论文。*
 
 
-先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为辅助工具。审稿回复见独立网页 StrongResponse。
+先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为辅助工具。
 
 主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。
 
@@ -2531,9 +2530,6 @@ BeautyPaper · 教学改写
 沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。
 
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
-
-<a id="rebuttal"></a>
-审稿回复：[💪StrongResponse【这边也长出肌肉】](https://da1yuqin.github.io/PaperBank/StrongResponse/)，含回复模板与 rebuttal skill。
 
 <a id="tools"></a>
 ## 4. 辅助工具
