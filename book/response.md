@@ -1,4 +1,4 @@
-# 💪StrongResponse【这边也长出肌肉】
+# 💪 StrongResponse
 
 首句回答，证据跟上。
 
