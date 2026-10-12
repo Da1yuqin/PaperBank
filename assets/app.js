@@ -145,3 +145,60 @@ $('#tool-search').addEventListener('input',filterTools);
 $$('a[href^="#tools"]').forEach(link=>link.addEventListener('click',()=>{$('#tool-search').value='';filterTools();closeMenu();}));
 filterTools();
 }
+
+async function setupPageStats(){
+ const footer=$('#page-stats');if(!footer)return;
+ const like=$('#page-like'),likes=$('#page-like-count'),views=$('#page-view-count');
+ const status=$('#page-stats-status'),retry=$('#page-stats-retry');
+ const endpoint='https://day-blog-comments.pages.dev/stats',page='/PaperBank/';
+ const live=location.protocol==='https:'&&location.hostname==='da1yuqin.github.io'&&/^\/PaperBank\/(?:index\.html)?$/.test(location.pathname);
+ const uuid=()=>crypto.randomUUID();
+ let visitor=uuid();
+ try{
+  const saved=localStorage.getItem('paperbank-stats-visitor-id');
+  if(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(saved||''))visitor=saved;
+  else localStorage.setItem('paperbank-stats-visitor-id',visitor);
+ }catch{}
+ const viewEvent={action:'view',page,visitor_id:visitor,event_id:uuid()};
+ let stats=null,pending=false,failedAction=null;
+ async function request(action){
+  const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),12000);
+  try{
+   const url=new URL(endpoint);url.searchParams.set('page',page);url.searchParams.set('visitor_id',visitor);
+   if(action&&!live)throw new Error('Preview is read-only');
+   const response=await fetch(action?endpoint:url.toString(),{
+    method:action?'POST':'GET',credentials:'omit',cache:'no-store',signal:controller.signal,
+    headers:action?{'Content-Type':'application/json'}:{Accept:'application/json'},
+    ...(action?{body:JSON.stringify(action)}:{})
+   });
+   if(!response.ok)throw new Error('Statistics unavailable');
+   const data=await response.json();
+   if(!Number.isSafeInteger(data.likes)||data.likes<0||!Number.isSafeInteger(data.views)||data.views<0||typeof data.liked!=='boolean')throw new Error('Invalid statistics');
+   return data;
+  }finally{clearTimeout(timeout);}
+ }
+ async function update(action=null){
+  if(pending)return;
+  pending=true;like.disabled=true;retry.disabled=true;retry.hidden=true;footer.setAttribute('aria-busy','true');status.textContent='';
+  try{
+   stats=await request(action);failedAction=null;
+   likes.textContent=stats.likes.toLocaleString();views.textContent=stats.views.toLocaleString();
+   like.setAttribute('aria-pressed',String(stats.liked));
+   like.querySelector('[data-like-icon]').textContent=stats.liked?'♥':'♡';
+   like.querySelector('[data-like-label]').textContent=stats.liked?'已赞':'点赞';
+  }catch{
+   stats=null;failedAction=action;likes.textContent='—';views.textContent='—';
+   status.textContent='统计暂时不可用，请稍后重试。';retry.hidden=false;
+  }finally{
+   pending=false;like.disabled=!stats||!live;retry.disabled=false;footer.setAttribute('aria-busy','false');
+  }
+ }
+ like.addEventListener('click',()=>{
+  if(!live||pending||!stats)return;
+  update({action:'like',page,visitor_id:visitor,liked:!stats.liked});
+ });
+ retry.addEventListener('click',()=>update(failedAction));
+ await update();
+ if(live)await update(viewEvent);
+}
+setupPageStats();

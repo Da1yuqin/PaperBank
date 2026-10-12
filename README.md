@@ -33,7 +33,7 @@ python3 run.py --serve
 
 打开 `http://127.0.0.1:8000/`。只重建用 `python3 run.py`。
 
-正文数据在 `data/guide.json`；模板、样式和交互在 `assets/`。构建同时生成网页、Markdown 和三个 skill ZIP。网页支持搜索、目录、深色模式、评论和正文批注。GitHub Pages 使用 `main` 分支根目录。
+正文数据在 `data/guide.json`；模板、样式和交互在 `assets/`。构建同时生成网页、Markdown 和三个 skill ZIP。网页支持搜索、目录、深色模式、评论、正文批注、共享点赞数和页面浏览次数。统计从启用后累计，同一浏览器可点赞或取消。GitHub Pages 使用 `main` 分支根目录。
 
 [BeautyPaper Markdown](book/guide.md) · [来源说明](SOURCES.md) · [勘误与补充](https://github.com/Da1yuqin/PaperBank/issues)
 
