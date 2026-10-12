@@ -25,16 +25,16 @@
 
 **第 2 句：**发现或 benchmark 论文也能用结果组织标题，不必伪装成方法论文。
 
-#### Discussion / Limitations：意义与局限
+#### Discussion：结果的意义与解释范围
 
-解释发现的意义、可能原因与失效条件，区分经验解释与有对照支持的机制判断。
+解释发现的意义与可排除的替代解释；局限性另用单段两点模板。
 
 教学模板；【】填真实材料。
 
 - 局限写具体数据、语言、条件和预算，说明没测什么、没解决什么。
 - 未测条件不能直接写成失败；关键限制不能藏起来。
 
-通用要求；标题位置按领域
+通用要求；是否单列 Discussion 按论文与会议要求。
 
 The results suggest [specific interpretation] within [tested scope].
 
@@ -130,4 +130,4 @@ This section tests [main-text claim] while controlling [alternative explanation]
 
 ---
 
-Da1yuqin / [BeautyPaper](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。
+Da1yuqin / [StarPaper](https://da1yuqin.github.io/StarPaper/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。

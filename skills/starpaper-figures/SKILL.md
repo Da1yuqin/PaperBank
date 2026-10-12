@@ -1,11 +1,11 @@
 ---
-name: paperbank-figures
+name: starpaper-figures
 description: Create and refine CS paper main figures, framework diagrams, case illustrations, and quantitative charts from manuscripts and real data, with self-explanatory labels and final-size PDF checks.
 ---
 
-# BeautyPaper 绘图 skill
+# StarPaper 绘图 skill
 
-latest:【2026-10-12 14:44】
+latest:【2026-10-13 00:38】
 
 图须突出对应贡献，明确问题、输入、操作与输出。先核对内容和真实依赖，再调整布局、字体与配色。
 
@@ -65,4 +65,4 @@ CS 图表默认使用 [!t]，按正文首次引用核对最终页内顺序。保
 
 ## 来源与许可
 
-Da1yuqin / BeautyPaper，[网页](https://da1yuqin.github.io/PaperBank/#figures)。原创规则与教学例子采用 CC BY 4.0，详见 LICENSE。论文原图和第三方摘录不随本包分发；网页所链接材料保留各自许可。
+Da1yuqin / StarPaper，[网页](https://da1yuqin.github.io/StarPaper/#figures)。原创规则与教学例子采用 CC BY 4.0，详见 LICENSE。论文原图和第三方摘录不随本包分发；网页所链接材料保留各自许可。

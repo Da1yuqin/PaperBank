@@ -1,10 +1,16 @@
-# BeautyPaper
+# StarPaper
 
-: 存入你的时间，取出你的 Accept
+要把论文像明星一样包装起来
 
 
 <details><summary>更新记录</summary>
 
+
+**2026-10-13 00:38 · 更名 StarPaper，更新写作 skill · skill 更新**
+
+- 统一教程、博客、仓库与网址名称；新增流星标题图与夜空 ACCEPT 主图。
+- 写作包新增独立 cs-limitations，按九个章节模块加载；补齐单段两点模板与 Metrics 格式。
+- 区分讨论与局限性，核对贡献格式、篇幅要求和全文范围的一致性。
 
 **2026-10-12 16:31 · 补全历史更新记录**
 
@@ -126,13 +132,13 @@
 
 
 这里有两个可以直接使用的 skill，按任务下载。
-[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-12 14:44】 · [绘图](../assets/paperbank-figures-skill.zip) latest:【2026-10-12 14:44】 · [用法](#writing-skill)
+[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-13 00:38】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 00:38】 · [用法](#writing-skill)
 
-![美丽的西施犬展示 BeautyPaper 论文；边牧、魔法橘猫和龙三位评委举起 ACCEPT 牌，在醒目的红色 ACCEPT 和庆祝彩带下欢呼。](../assets/beautypaper-presentation.png)
+![流星划过夜空；边牧、魔法橘猫和龙举起红色 ACCEPT，庆祝论文接收的愿望成真。](../assets/starpaper-night-accept.png)
 
 ## 写在前头
 
-BeautyPaper 提供可直接用于 Codex 的论文写作 skill（cs-paper-writing）和学术绘图 skill（paperbank-figures）。写作按章节加载，绘图覆盖 mainfig、framework、案例图、统计图和 LaTeX 图表。
+StarPaper 提供可直接用于 Codex 的论文写作 skill（cs-paper-writing）和学术绘图 skill（starpaper-figures）。写作按章节加载，绘图覆盖 mainfig、framework、案例图、统计图和 LaTeX 图表。
 
 本指南用于学术讨论，整理本人在论文写作与修改中的经验，供研究者参考。本人并非领域权威，内容可能有误。
 
@@ -145,7 +151,7 @@ BeautyPaper 提供可直接用于 Codex 的论文写作 skill（cs-paper-writing
 
 主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。
 
-欢迎使用、改写、转载，也欢迎给 Codex 用作 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，修改版本注明改动。如有帮助，欢迎 Star。
+欢迎使用、改写、转载，也欢迎给 Codex 用作 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://da1yuqin.github.io/StarPaper/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，修改版本注明改动。如有帮助，欢迎 Star。
 
 <a id="quick-start"></a>
 ## 1. 初稿准备
@@ -176,9 +182,10 @@ BeautyPaper 提供可直接用于 Codex 的论文写作 skill（cs-paper-writing
 6. 引言先说明已有能力与具体不足，再逐项说明解法、机制用途和有依据的发现。段首承接具体对象，连接词服从真实逻辑。
 7. 贡献用原生 itemize，固定三项：工作概述、新机制与实际用途、实验发现。第 2 项点名新设计及作用，不重复已经解释的障碍标签。
 8. 先给我中文提纲和证据，再按当前授权写英文。检查真实数值、引用、图表、分页与最终 PDF；远端源和服务端 PDF 分开核验。
+局限性按 cs-limitations：用一个自然段、First 和 Second 两点，让步说明有据工作与具体边界。
 ```
 
-依据：cs-writing-common · cs-abstract-introduction · cs-related-work · cs-method · cs-experiments · cs-visuals · cs-integration · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#draft)
+依据：cs-writing-common · cs-abstract-introduction · cs-related-work · cs-method · cs-experiments · cs-visuals · cs-integration · cs-limitations · [对应铁律与完整提示词](https://github.com/Da1yuqin/StarPaper/blob/main/skills/cs-paper-writing/references/prompts.md#draft)
 
 <a id="draft-step-3"></a>
 ### 1.2 正文结构
@@ -531,15 +538,15 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 <a id="writing-skill"></a>
 ### 写作与绘图 skill
 
-按章节加载：共享规则、摘要与引言、相关工作、方法、实验、图表、全文整合。
+按章节加载：共享规则、摘要与引言、相关工作、方法、实验、图表、局限性、全文整合。 解压后保留九个同级目录，先读 cs-paper-writing/SKILL.md，再按任务加载。
 
-[cs-paper-writing ZIP](../assets/cs-paper-writing-skill.zip) · [SKILL.md](../skills/cs-paper-writing/SKILL.md)：按章节加载：共享规则、摘要与引言、相关工作、方法、实验、图表、全文整合。
+[cs-paper-writing ZIP](../assets/cs-paper-writing-skill.zip) · [SKILL.md](../skills/cs-paper-writing/SKILL.md)：按章节加载：共享规则、摘要与引言、相关工作、方法、实验、图表、局限性、全文整合。 解压后保留九个同级目录，先读 cs-paper-writing/SKILL.md，再按任务加载。
 
-[绘图 ZIP](../assets/paperbank-figures-skill.zip) · [SKILL.md](../skills/paperbank-figures/SKILL.md)：解压后让 Codex 读取整个 paperbank-figures/ 文件夹，并提供稿件、原始数据、参考图及允许修改的文件。
+[绘图 ZIP](../assets/starpaper-figures-skill.zip) · [SKILL.md](../skills/starpaper-figures/SKILL.md)：解压后让 Codex 读取整个 starpaper-figures/ 文件夹，并提供稿件、原始数据、参考图及允许修改的文件。
 
-写作包已按章节拆分：入口、共享规则和六个章节，共八个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。
+写作包已按章节拆分：入口、共享规则和六个章节，共九个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。
 
-写作包更新：2026-10-12 14:44。只含通用规则与教学模板，不含私人稿件信息。
+写作包更新：2026-10-13 00:38。只含通用规则与教学模板，不含私人稿件信息。
 
 **中文使用提示词**
 
@@ -557,9 +564,10 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 6. 不改原始记录、实验协议、冻结 prompt 或模型回复，不编结果和引用。保留人工定版及并发修改。只读任务不写文件，缺证据的问题留给作者。
 7. 检查最终 PDF 的句长、图表、脚注、分页与计页。只有明确必须遵守或禁止违反的要求标“铁律”，写法建议不升级为硬规则。
 数字给单位、分母与版本，区分百分比与百分点、宏平均与微平均；不以分号拼接长句。核对文献实际版本、发布日期与预印本身份。
+涉及 Limitations 时加载 cs-limitations：一个自然段，用 First 和 Second 写两项有据工作与具体边界；未测不当失败，实质限制与全文结论一致。
 ```
 
-依据：cs-writing-common · cs-abstract-introduction · cs-related-work · cs-method · cs-experiments · cs-visuals · cs-integration · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/cs-paper-writing/references/prompts.md#writing)
+依据：cs-writing-common · cs-abstract-introduction · cs-related-work · cs-method · cs-experiments · cs-visuals · cs-integration · cs-limitations · [对应铁律与完整提示词](https://github.com/Da1yuqin/StarPaper/blob/main/skills/cs-paper-writing/references/prompts.md#writing)
 
 <a id="figures"></a>
 ## 2. 论文绘图
@@ -567,7 +575,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 先完成 Mainfig 与 Framework，人工核对贡献、流程和案例；实验图用 Python 读取真实数据。下面按三类图整理笔记、铁律和优化前后示范。
 
 <a id="figure-skill"></a>
-[下载绘图 skill](../assets/paperbank-figures-skill.zip) latest:【2026-10-12 14:44】
+[下载绘图 skill](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 00:38】
 
 - 先选一张结构清楚的参考图，借鉴读图顺序与配色；内容、数值和贡献用自己的材料。
 - 高亮越多，背景越应保持白色；同类内容同框、同层内容对齐，留白由信息关系决定。
@@ -577,7 +585,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 **填写绘图任务与数据**
 
 ```text
-读取 paperbank-figures/SKILL.md 和 references/rules.md。按以下材料画图。
+读取 starpaper-figures/SKILL.md 和 references/rules.md。按以下材料画图。
 使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 图型：【mainfig／framework／统计图／案例图】
 要突出的问题与贡献：【对应 Intro 的哪项困难，方法改了什么，依据在哪里】
@@ -600,7 +608,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 每图自身解释简称，案例条件对应难点，颜色点明对象。Caption 保留全图读法，单项判定用 \footnote 与 \footref；跨栏脚注可用 savenotes，并查落页与跳转。评分通过不写成真实执行。移图到附录同步详解、Overview 和引用；显示改名不改冻结记录。
 ```
 
-依据：paper-visual-standards · academic-plotting · clean-flow-figures · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/skills/paperbank-figures/references/prompts.md#figures)
+依据：paper-visual-standards · academic-plotting · clean-flow-figures · [对应铁律与完整提示词](https://github.com/Da1yuqin/StarPaper/blob/main/skills/starpaper-figures/references/prompts.md#figures)
 
 <a id="figure-rules"></a>
 <details><summary>完整绘图规范</summary>
@@ -689,7 +697,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 [图例与批注：问题与解法对照](#visual-tcod-fig-1)
 
-- **【铁律】表格用于结果与数据：**BeautyPaper 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
+- **【铁律】表格用于结果与数据：**StarPaper 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
 
 [图例与批注：模板 2：多面板共用编码与图例](#visual-interactcs-fig-2)
 
@@ -718,7 +726,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 1. **观察 1：**先找要讲的缺口，再删掉不能帮助理解缺口的节点。左右保持同一问题和阅读顺序，让改动位置可直接比较。
 
-BeautyPaper 原创教学改排，CC BY 4.0；非原论文修订记录。
+StarPaper 原创教学改排，CC BY 4.0；非原论文修订记录。
 
 <a id="visual-lost-middle-fig-1"></a>
 #### 模板 2：用一个关键观察开题
@@ -753,7 +761,7 @@ Nelson F. Liu et al., Lost in the Middle: How Language Models Use Long Contexts,
 
 1. **观察 1：**前后使用同一任务。关键不是多画框，而是让每根箭头交代实际传递的材料；参考答案仅用于评价，不能连进回答生成流程。
 
-BeautyPaper 原创教学改排，CC BY 4.0；非原论文修订记录。
+StarPaper 原创教学改排，CC BY 4.0；非原论文修订记录。
 
 <a id="visual-interactcs-fig-1"></a>
 #### 模板 2：按职责分组，用案例串流程
@@ -790,7 +798,7 @@ Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig.
 
 1. **观察 1：**排版修改不改柱高或数据。这里没有重复试验记录，因此不画误差棒；实际实验须保留并定义已有的不确定性。
 
-BeautyPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
+StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 
 <a id="visual-interactcs-fig-2"></a>
 #### 模板 2：多面板共用编码与图例
@@ -820,7 +828,7 @@ Ning Gao et al., arXiv:2602.22697v1, Fig. 2. CC BY 4.0. 从原 PDF 裁切；图�
 
 #### 篇幅与版面：充分呈现证据
 
-- **【铁律】写满有效篇幅：**长文按目标会议正文上限写满有效内容。明显偏短容易让人觉得实验和分析不足，影响对工作完整性的判断；先补必要证据与解释，不注水。短文按对应要求。
+- **【铁律】遵守当轮篇幅要求：**按会议上限和当前稿件明确的篇幅目标排版。要求写满时，补足有效证据、比较和解释；明显偏短可能让审稿人觉得实验和分析不足。不为凑页注水，不把单稿页数套到所有论文。
 
 - **【铁律】实验页有可见证据：**正文末几页用于实验时，每页应有实际结果、分析图或对照表，与解释就近排。核心证据别全移附录，也不为凑页拆成零碎实验。
 
@@ -901,7 +909,7 @@ To make answers traceable to source evidence, [Method] records each retrieved qu
 3. **With the inputs and inference budget held fixed / 在固定输入与推理预算后**：【铁律】比较条件写在近处。说明固定什么，后面的差别才可解释；只写“公平比较”不够。
 4. **improves citation support by [support gain] but adds [latency cost] under [tested conditions] / 使引用支持率提高[提升幅度]，但增加[延迟开销]**：【铁律】发现保留收益、代价与范围。引用支持率、延迟是两项不同结果。报告已测条件下的取舍，不一句话扩大成“全面提升问答性能”。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
 本段是原创教学示范。[support gain]、[latency cost] 与 [tested conditions] 必须由真实实验替换。
 
@@ -917,10 +925,11 @@ BeautyPaper · 教学改写
 - 3.5 相关工作：说明已有路线、本文差异及其与核心贡献的关系。
 - 3.6 方法：告诉读者为什么你的方法好，比解释清楚方法更重要。
 - 3.7 实验：用对照检验贡献，解释主要差异与发现。
-- 3.8 讨论与局限：解释发现，写清适用范围和局限。
-- 3.9 结论：回答开头的问题，概括贡献和发现。
-- 3.10 参考文献：引用回查原文，信息和版本对齐。
-- 3.11 附录：提供可定位、可复核的设置与补充材料。
+- 3.8 讨论：解释发现的意义，区分观察与机制。
+- 3.9 局限性：用一个自然段写清两项与任务相关的具体边界。
+- 3.10 结论：回答开头的问题，概括贡献和发现。
+- 3.11 参考文献：引用回查原文，信息和版本对齐。
+- 3.12 附录：提供可定位、可复核的设置与补充材料。
 
 逐句示范有论文原文短引，也有明确标注的模拟段落。原文例子来自不同论文，不拼接成同一篇完整论文；模拟部分用同一个假设任务串联。
 
@@ -932,10 +941,11 @@ BeautyPaper · 教学改写
 - [3.5 相关工作](#related)
 - [3.6 方法](#method)
 - [3.7 实验](#experiments)
-- [3.8 讨论与局限](#discussion)
-- [3.9 结论](#conclusion)
-- [3.10 参考文献](#references)
-- [3.11 附录](#appendix)
+- [3.8 讨论](#discussion)
+- [3.9 局限性](#limitations)
+- [3.10 结论](#conclusion)
+- [3.11 参考文献](#references)
+- [3.12 附录](#appendix)
 
 <a id="title"></a>
 <a id="chapter-title"></a>
@@ -974,7 +984,7 @@ Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools
 
 去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。
 
-©2026 AAAI. All rights reserved. 独立保留原论文版权；未授予BeautyPaper整篇或原图再许可。
+©2026 AAAI. All rights reserved. 独立保留原论文版权；未授予StarPaper整篇或原图再许可。
 
 <a id="abstract"></a>
 <a id="chapter-abstract"></a>
@@ -1015,7 +1025,7 @@ Document-based dialogue requires answers that respect both source evidence and e
 4. **notes increase citation support relative to direct generation but add latency / 相比直接生成，笔记提高了引用支持率，但增加了延迟**：发现与取舍一起交代。这个假设案例保留引用支持率和延迟的取舍。真实论文换成核验过的结果，不逐项罗列排名。
 5. **the support scores do not establish that every user constraint is satisfied / 不能据此认定每项用户约束都得到满足**：【铁律】别让指标越界。引用支持率测来源支持，不能代替约束满足率。实际摘要只保留会影响结论理解的边界。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
 沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。
 
@@ -1400,7 +1410,7 @@ However, answering this question faces two obstacles. First, data scarcity limit
 3. **Even within one category, requirements and risks vary across cases. / 即使是同类商品，不同案例的需求与风险也会变化。**：category 和 case 别直接互换。服装与手机说明品类差异。这句再交代同类商品也有不同需求与风险，才接得上 case-dependent。
 4. **Together, these obstacles hinder accurate evaluation of LLMs on complex, ambiguous, and time-sensitive shopping requests. / 这两类困难共同妨碍了对 LLM 处理复杂、模糊且有时效性的购物请求进行准确评价。**：加一句铺垫，再提解法。点明困难妨碍的是准确评价。下一段的数据与按例标准就有了来由，不要从困难直接跳到 We introduce。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
 根据作者提供的修改意见撰写的教学段落，不含当前稿件名称、数据数量、模型名单或未经核对的基准比较。Figure [X] 为图号占位。
 
@@ -1429,7 +1439,7 @@ Therefore, to address these obstacles, we introduce [Benchmark], an evaluation r
 3. **These principles guide case-specific criteria across Core, Excellence, and Safety / 这些原则指导针对每个案例制定 Core、Excellence 和 Safety 三层标准**：【铁律】这句接回前文的评价要求。These principles 接上专家的产物；case-specific 回应标准随案例变化。三层名称全文一致，分别说明检查什么。
 4. **Our example (Figure [X]) illustrates how elapsed time and unresolved information affect the advice a case requires. / 我们的例子（图【X】）说明时间推移和未决信息如何影响一个案例所需的建议。**：图要接回刚才的输入。图中要能看到时间、需求变化与未决条件。若再比较别人缺少什么输入，逐项核对对比表；别凭方法名称推断。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
 根据作者提供的修改意见撰写的教学段落，不含当前稿件名称、数据数量、模型名单或未经核对的基准比较。Figure [X] 为图号占位。
 
@@ -1457,7 +1467,7 @@ To answer this question, we evaluate [commercial models] and [open-weight models
 2. **Across these models, we observe Product Evidence Overreach, where replies add unsupported product claims, and Shopping Uncertainty Collapse, where unresolved needs are treated as settled. / 在这些模型的回复中，我们观察到两类失败：Product Evidence Overreach，即回复添加了缺少证据支持的商品声明；Shopping Uncertainty Collapse，即将尚未确定的需求视为已经明确。**：先 overview，名称要对应。先用一句总览两类失败，再展开。与摘要和前文保留同一名称，解释可以转述；模型数量与分数不能代替发现。
 3. **Further analysis links these failures to changing requirements and unresolved information. / 进一步分析将这些失败与需求变化和未决信息联系起来。**：这里还可以展开一个结论。links 还没说具体发现。补实际条件、对照与结果，说明哪类失败何时更明显；关联不能直接写成因果。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
 根据作者提供的修改意见撰写的教学段落，不含当前稿件名称、数据数量、模型名单或未经核对的基准比较。Figure [X] 为图号占位。
 
@@ -1578,9 +1588,9 @@ Evidence-grounded dialogue systems select supporting text before generating an a
 4. **To address this gap, we construct constraint-linked evidence notes based on a constraint-to-evidence linking rule. / 为应对这个缺口，我们基于约束与证据的关联规则构建绑定约束的证据笔记。**：【铁律】紧跟解法：同一个缺口，同一个对象。对象是绑定约束的证据笔记，依据是约束与证据的关联规则；两者共同应对跨轮约束缺少检验的缺口。
 5. **This enables evaluation of constraint retention across turns, addressing the lack of evidence about whether earlier requirements remain satisfied. / 这支持跨轮约束保留评价，应对前文需求能否持续得到满足缺少检验证据的问题。**：【铁律】末句落在应用与原缺口。前半句说用于跨轮评价，后半句接回需求保留缺少证据的问题。不能突然换成检索速度或泛化能力。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
-本段为 BeautyPaper 原创教学示范。路线、评价范围与方法均为假设，不能直接当作文献综述使用。
+本段为 StarPaper 原创教学示范。路线、评价范围与方法均为假设，不能直接当作文献综述使用。
 
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
@@ -1612,7 +1622,7 @@ Multi-dancer generation is an emerging area currently in its nascent stage. To t
 
 英文保持原文段落，仅合并换行、还原排版断词与字体连字，规范引文括号空白；高亮和批注为本指南添加。中文为本指南翻译，不是作者原文。 保留原文全部作者年份引文。
 
-作者教学复用；原论文英文短引与原图不受 BeautyPaper 原创内容 CC BY 授权覆盖。本文不转授第三方转载原论文材料的权利。
+作者教学复用；原论文英文短引与原图不受 StarPaper 原创内容 CC BY 授权覆盖。本文不转授第三方转载原论文材料的权利。
 
 <details><summary>结构模板</summary>
 
@@ -1681,7 +1691,7 @@ Given a question, the dialogue history, and a collection of English manuals, the
 3. **no reference answer / 不接收参考答案**：【铁律】划清可见信息。评价参照不等于推理输入。图中也不能把参考答案连进生成器。
 4. **unless the user explicitly changes it / 除非用户明确更改**：边界说具体。旧约束何时有效，给出规则；不要让模型或读者自行猜。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
 独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
 
@@ -1711,7 +1721,7 @@ To retain earlier constraints during answering, we connect quoted evidence to th
 4. **the generator uses the resulting notes / 生成器使用所得笔记**：再把笔记交给生成器。当前产物成为下一步输入。“先 A 再 B”还不够，要说明 B 使用 A 的什么。
 5. **Figure [framework] shows these dependencies. / 图[framework]展示这些依赖关系。**：【铁律】图与正文对上。填真实图号；框架图画出片段→笔记→答案的依赖，不只排三个模块名。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
 独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
 
@@ -1741,7 +1751,7 @@ To keep earlier requirements available during answering, the note builder links 
 4. **an unverified relation is left unresolved / 尚未核验的关系保留为未确定**：处理边界情况。不知道的关系不能自动写成支持或冲突；需要有明确处理规则。
 5. **receives these notes together with the current question / 接收这些笔记和当前问题**：末句交给下一步。写明产物、接收者和用途；这里是目标能力，不能伪装成实测提升。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
 独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
 
@@ -1821,6 +1831,9 @@ Figure~\ref{fig:framework} summarizes this workflow.
 - 【铁律】实测案例与示意案例分开，说明选例依据。个例用于解释过程，不证明总体排名或部署效果；被测模型得分高，也不能证明 benchmark 更好。
 - 【铁律】全局失败组成、某场景发生率与条件子集表现分别给对象和分母；不能将不同分母的比例直接相减，也不能用局部失败诊断冒充整体差距的因果解释。
 - 【铁律】区分初始判分、人工复核标签与最终得分。一致性写清比较对象、范围与分母；标签一致率不等于独立准确率，也不能证明没有偏差。
+- 【铁律】Metrics 用一个紧凑自然段：先说明指标类别和适用对象，再按 1) 加粗指标名、2) 加粗指标名逐项定义；Models 或 Baselines 另写。每项交代定义、方向、单位、分母和汇总，不把指标分成零散无编号小节。
+- 已有初始与复核记录时，可分析标签修改方向、模型分布和得分或排名敏感性。协议约束不等于已测得去偏效果，未测试的偏差不写成已证明。
+- 评价器的准确标识、参数和输出限制集中放在一个可定位的设置块；正文给必要角色与引用，不反复复制全部配置。实际材料与判分版本必须对应。
 
 <a id="experiments-writing-templates"></a>
 #### 实验写作模板
@@ -1965,7 +1978,7 @@ To test whether evidence notes improve citation support, we evaluate multi-turn 
 4. **We average these per-question fractions rather than pooling sentences across questions. / 我们对各问题的比例取平均，不把所有问题的事实句混在一起计算。**：说明怎样汇总。先按问题计算再平均，与把所有句子合并计算不同；长回答不会只因句子多而权重更大。
 5. **reported separately as not applicable / 单列为不适用**：定义不能评分的情形。没有事实句时，比例无定义。不能自动算零或算满分，还要报告数量。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
 独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
 
@@ -1994,7 +2007,7 @@ Evidence notes improve citation support under a fixed evidence-context budget. I
 3. **supports note-guided generation as a whole / 支持该设置下的笔记引导生成整体**：解释证据的意义。主结果比较整套系统；只对齐预算，不能宣称已经隔离某个组件或信息类型的作用。
 4. **the note builder adds processing time / 笔记构建增加了处理时间**：代价跟收益一起说。效率不是只算生成器；端到端延迟应计入检索、笔记构建与生成。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
 独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
 
@@ -2024,7 +2037,7 @@ To examine the role of retained dialogue constraints, we remove those constraint
 4. **If constraint satisfaction decreases after this single change / 若这项单一改动后约束满足率下降**：没有结果就不编发现。这里是条件句教学。正式结果段应替换为真实差异及统计范围。
 5. **does not isolate the benefit of the entire note-building pipeline / 不能单独确定整套笔记构建流程的收益**：归因范围与改动一致。当前比较只检验保留约束，未单独识别检索、摘句等其他步骤的作用。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
 独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
 
@@ -2058,21 +2071,35 @@ We highlight the importance of natural footwork in enhancing visual aesthetics (
 
 英文保持原文，仅合并换行、还原排版断词，并移除粗体段标题；中文为本指南翻译。英文原文包含 PFC 与 GMC 的两项作用，教学批注明确各自的指标和对照，不改原句。
 
-作者教学复用；原论文英文短引与原图不受 BeautyPaper 原创内容 CC BY 授权覆盖。本文不转授第三方转载原论文材料的权利。
+作者教学复用；原论文英文短引与原图不受 StarPaper 原创内容 CC BY 授权覆盖。本文不转授第三方转载原论文材料的权利。
+
+<details><summary>结构模板</summary>
+
+
+#### 实验设置
+
+```latex
+\noindent\textbf{Metrics.}
+We evaluate [target properties] using [verified metrics and assessment units].
+1) \textbf{[Metric 1]} measures [definition, unit, direction, and denominator].
+2) \textbf{[Metric 2]} measures [definition, unit, direction, and denominator].
+We aggregate [per-unit results] by [actual rule] and handle [invalid or not-applicable outputs] according to [actual protocol].
+```
+
+</details>
+
 
 <a id="discussion"></a>
 <a id="chapter-discussion"></a>
-### 3.8 讨论与局限
+### 3.8 讨论
 
-解释发现，写清适用范围和局限。
+解释发现的意义，区分观察与机制。
 
 #### 本节原则
 
 - 解释结果改变了什么认识，不再复述成绩表。
-- 【铁律】解释与机制分开。没有单独控制某项设计，就不能把效果全部归因于它。
-- 【铁律】局限写具体条件：哪些数据、语言、信息或预算尚未覆盖。未测试不等于已失败。
-- 【铁律】未执行的方案不能写成已建立的结果。未来工作可接具体局限，说明下一步要验证什么。
-- 【铁律】决定结论的限制就近说明，不只藏在附录。全文沿用同一适用范围；实验只测了特定子集，讨论不能扩成所有场景。
+- 【铁律】解释与机制分开。没有单独控制某项设计，不能把效果全部归因于它。
+- 【铁律】讨论沿用实测范围，未执行的方案不写成已得到的结果；决定结论的实质限制就近说明。
 
 <a id="annotated-discussion"></a>
 
@@ -2098,15 +2125,71 @@ Higher citation support is consistent with more explicit use of document evidenc
 4. **cross-language questions and frequently updated documents remain untested / 跨语言问题与频繁更新的文档尚未检验**：范围要具体。语言变化和文档更新是两个尚未测的设置。写出来，比一句 limited generalizability 有用。
 5. **because language and document updates can change which quoted evidence supports an answer / 因为语言与文档更新可能改变哪些摘句能够支持答案**：未来工作说明为什么必要。下一步不是随手扩大任务，而是检查证据支持关系是否仍成立。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
 沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。
 
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
+<a id="limitations"></a>
+<a id="chapter-limitations"></a>
+### 3.9 局限性
+
+用一个自然段写清两项与任务相关的具体边界。
+
+#### 本节原则
+
+- 【铁律】本套 CS 写作约定：Limitations 全节只写一个自然段，用 First, 和 Second, 引出两点，不另起段、列条目或加小标题。官方格式与当前用户要求优先。
+- 【铁律】每点先用 although 简短说明已完成的有据工作，再给具体的特殊或长期边界；已有措施不能写成解决了尚未验证的问题。
+- 作者行动用 we；贡献和实现细节简写，重点放在仍需讨论的具体对象及其与本文任务的关系。
+- 依据实际覆盖选择长尾需求、长期反馈或其他相关边界。不机械复用上一论文的主题，也不泛泛说未来增加数据。
+- 【铁律】未测试不等于已失败。未来场景只作研究方向示例，不冒充已发现的缺漏、数据事实或实测结论。
+- 【铁律】真实有效性限制与全文结论一致；若限制动摇核心结论，先缩小或修正结论，不用让步句掩盖。
+
+<a id="annotated-limitations"></a>
+
+#### 局限性：已完成工作与具体边界
+
+通用教学模板，非真实论文原文或实测结果。
+
+**English 教学改写**
+
+First, although we have [verified work addressing the main difficulty], [specific special condition] still warrants further study. Second, although we have [another verified contribution], [specific longer-term condition] still warrants further study.
+
+
+**中文译文**
+
+首先，尽管我们已完成[针对主要难点的有据工作]，[具体特殊情况]仍值得进一步研究。其次，尽管我们已完成[另一项有据工作]，[具体长期情况]仍值得进一步研究。
+
+
+**高亮与旁批**
+
+1. **First, although we have [verified work addressing the main difficulty] / 首先，尽管我们已完成[针对主要难点的有据工作]**：有据工作先交代。只写论文或材料已支持的处理，不虚构评估、复核或已消除的问题。
+2. **[specific special condition] still warrants further study. / [具体特殊情况]仍值得进一步研究。**：第一点落到具体边界。说明在什么条件下还需要讨论；未测场景不当作已发现的失败。
+3. **Second, although we have [another verified contribution] / 其次，尽管我们已完成[另一项有据工作]**：第二点保持同段。用另一个真实相关的边界；不重复前一点，不另起段或列第三点。
+4. **[specific longer-term condition] still warrants further study. / [具体长期情况]仍值得进一步研究。**：全文范围一致。该边界与正文任务相关。影响核心结论的限制要就近说明，不能只放在这里。
+
+StarPaper · 教学改写
+
+只展示单段 First/Second 让步结构；方括号根据本稿材料填写。
+
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+
+<details><summary>结构模板</summary>
+
+
+#### Limitations：单段两点
+
+```latex
+First, although we have [verified work addressing the main difficulty], [specific special condition] still warrants further study. Second, although we have [another verified contribution], [specific longer-term condition] still warrants further study.
+```
+
+</details>
+
+
 <a id="conclusion"></a>
 <a id="chapter-conclusion"></a>
-### 3.9 结论
+### 3.10 结论
 
 回答开头的问题，概括贡献和发现。
 
@@ -2146,7 +2229,7 @@ We present EviNote-RAG, a framework that introduces a note-taking step to extrac
 
 <a id="references"></a>
 <a id="chapter-references"></a>
-### 3.10 参考文献
+### 3.11 参考文献
 
 引用回查原文，信息和版本对齐。
 
@@ -2181,7 +2264,7 @@ Retrieval-augmented generation combines retrieved passages with answer generatio
 3. **[retriever and version] [official documentation for that version] / [检索器与版本][该版本的官方文档]**：名称、版本、来源对应。工具或模型没有论文时，可以引用真实官方文档。不要用另一版本的报告补当前版本出处。
 4. **The method citation supports the approach; the version-specific documentation identifies the tool actually used. / 方法引用说明采用哪条路线；对应版本的文档说明实际使用什么工具。**：别混淆引用的职责。方法来源与实际工具版本是两件事。引用准确后，还要核对运行记录是否采用这个版本。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
 用占位展示正文主张与真实来源的对应，不提供虚构作者、年份、题名或 DOI。
 
@@ -2189,7 +2272,7 @@ BeautyPaper · 教学改写
 
 <a id="appendix"></a>
 <a id="chapter-appendix"></a>
-### 3.11 附录
+### 3.12 附录
 
 提供可定位、可复核的设置与补充材料。
 
@@ -2224,7 +2307,7 @@ To reproduce the citation-support comparison in Section [X], this appendix recor
 3. **using development questions and freeze it before evaluating the test questions / 用开发集问题选择笔记最大长度，在评价测试问题前冻结这个选择**：参数选择与测试分开。给出选择数据和冻结时点，说明参数如何确定。不能用最终测试结果倒选参数。
 4. **so the aggregate in the main text can be traced to the same runs / 使正文的汇总结果能追溯到同一批运行**：附录与正文口径一致。补充表应对应正文统计，配置、运行与失败处理不能换一套范围。
 
-BeautyPaper · 教学改写
+StarPaper · 教学改写
 
 沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。
 
@@ -2358,7 +2441,7 @@ README 说明默认只处理 PDF 第一页；保留原件，并为输出使用�
 交付修改差异、处理过的内容类型、未解决项和实际验证结果。没有跑过的检查不要说通过；发现真实秘密时不要发布，先报告位置和处置需求。
 ```
 
-依据：minimal-code-layout · 作者指定的翻译与去秘范围 · [对应铁律与完整提示词](https://github.com/Da1yuqin/PaperBank/blob/main/data/guide.json)
+依据：minimal-code-layout · 作者指定的翻译与去秘范围 · [对应铁律与完整提示词](https://github.com/Da1yuqin/StarPaper/blob/main/data/guide.json)
 
 ## 参考阅读
 
@@ -2574,7 +2657,7 @@ Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1. CC B
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 </details>
 
@@ -2597,7 +2680,7 @@ BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 </details>
 
@@ -2620,7 +2703,7 @@ BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 </details>
 
@@ -2643,7 +2726,7 @@ BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 </details>
 
@@ -2666,7 +2749,7 @@ BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 </details>
 
@@ -2689,7 +2772,7 @@ BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 </details>
 
@@ -2712,7 +2795,7 @@ BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 </details>
 
@@ -2735,7 +2818,7 @@ BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 </details>
 
@@ -2760,7 +2843,7 @@ BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 </details>
 
@@ -2783,7 +2866,7 @@ BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
-BeautyPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 </details>
 

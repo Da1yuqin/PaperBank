@@ -16,7 +16,7 @@
 - 引用数量不是会议配额；删除重复说明，不加入无关文献。
 - 【铁律】This enables 后写完整实际应用，末尾回扣 However 的同一缺口；不重复产物名称或局部属性。
 
-BeautyPaper 规范化写法；主题数量按论文内容
+StarPaper 规范化写法；主题数量按论文内容
 
 [Research line] addresses [shared task] by [shared mechanism] [citations].
 
@@ -76,4 +76,4 @@ This enables [actual application B], [resolving / addressing / reducing] [the sa
 
 ---
 
-Da1yuqin / [BeautyPaper](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。
+Da1yuqin / [StarPaper](https://da1yuqin.github.io/StarPaper/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。

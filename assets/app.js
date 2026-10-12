@@ -151,7 +151,7 @@ async function setupPageStats(){
  const like=$('#page-like'),likes=$('#page-like-count'),views=$('#page-view-count');
  const status=$('#page-stats-status'),retry=$('#page-stats-retry');
  const endpoint='https://day-blog-comments.pages.dev/stats',page='/PaperBank/';
- const live=location.protocol==='https:'&&location.hostname==='da1yuqin.github.io'&&/^\/PaperBank\/(?:index\.html)?$/.test(location.pathname);
+ const live=location.protocol==='https:'&&location.hostname==='da1yuqin.github.io'&&/^\/StarPaper\/(?:index\.html)?$/.test(location.pathname);
  const uuid=()=>crypto.randomUUID();
  let visitor=uuid();
  try{

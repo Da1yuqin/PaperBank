@@ -189,3 +189,11 @@ Overleaf 本地 Git 同步的 Premium 权限与当前入口核对自 [Git integr
 绘图正文按 Mainfig、Framework、实验绘图组织。节首心得来自作者的 Notion 绘图笔记：先简化、问题与改动对齐、位置与分组表达关系、同一案例展示中间产物、白底局部高亮、颜色与纹理共同编码、绝对值与相对增益同报。按当前 CS 绘图规范标出必须遵守的要求，编排建议不升格为铁律。
 
 新增 `assets/figure-mainfig-before-after.svg`、`assets/figure-framework-before-after.svg` 和 `assets/figure-experiment-before-after.svg` 是原创教学改排，分别展示重点、信息流和统计图排版。前两张是假设流程；第三张两侧使用同一组教学数值（60%、66%），未补造误差或实验记录。三张都不是原论文真实修改历史，采用 CC BY 4.0。其余已有原图与教学图移动至文末附录，图面、出处与许可不变；KDE、ECDF 等点评保留。
+
+## StarPaper 更名、流星插画与写作包同步（2026-10-13）
+
+当前教程、仓库及公开网址更名为 StarPaper。历史记录、原论文摘录和研究事实保留；评论、批注与统计沿用历史逻辑标识，避免数据分叉。
+
+assets/starpaper-logo.png 与 assets/starpaper-night-accept.png 由内置 imagegen 生成，分别参考自有 StrongResponse 标题质感和作者提供的三位动物角色。流星和 ACCEPT 为庆祝性的品牌插画，不对应真实论文接收或实验结果。生成说明见同目录的 prompt 文本。
+
+写作包新增 cs-limitations，九个同级模块，附单段 First/Second 模板；同步 Metrics 编号、贡献格式和篇幅规则。只提取通用要求，未复制私人论文案例、数量、模型、费用、路径或审核记录。官方要求与当前人工要求优先。

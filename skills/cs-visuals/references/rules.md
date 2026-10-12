@@ -122,7 +122,7 @@ Rearrange parallel branches within the column width; keep the paper template unc
 
 在栏宽内重排并行分支，保留论文模板。
 
-- **【铁律】表格用于结果与数据：**BeautyPaper 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
+- **【铁律】表格用于结果与数据：**StarPaper 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
 
 Put success rates in a table and explain the checking procedure in the text.
 
@@ -136,4 +136,4 @@ Move the legend outside the plotted curves while preserving the data and axes.
 
 ---
 
-Da1yuqin / [BeautyPaper](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。
+Da1yuqin / [StarPaper](https://da1yuqin.github.io/StarPaper/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。

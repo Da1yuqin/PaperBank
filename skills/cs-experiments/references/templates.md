@@ -44,7 +44,7 @@ We further analyze [actual additional question] through [existing evidence or co
 
 教学模板；【】填真实材料。
 
-- Metrics：定义、方向、分母、汇总方式和无效输出处理。指标多时编号，名称与简称便于查找；新指标单独起段。
+- Metrics：一个紧凑自然段，先总述指标类别，再编号并加粗各指标名；各项给定义、方向、单位、分母、汇总和无效输出处理。Models 或 Baselines 独立介绍。
 - Baselines：按路线分类，给引用和可影响结果的共享条件。简介讲它做什么，结果差异留给分析。
 - Implementation Details：Method 出现的参数给实际值与选择依据；完整参数表可放附录。训练、推理、硬件、重复次数和成本口径说全。
 - 人工或模型 judge：谁判什么、按什么判、核验多少。设置是为了让人判断比较是否成立，不是报设备清单。
@@ -57,11 +57,11 @@ We evaluate [unit] from [dataset version], using [split or selection rule].
 
 **第 1 句：**先定义比较对象与分母，不根据结果更换统计范围。
 
-Metrics. We measure [property] using [metric definition]; [direction] is better.
+Metrics. We evaluate [target properties]. 1) [Metric 1] measures [definition, unit, direction, and denominator]. 2) [Metric 2] measures [definition, unit, direction, and denominator].
 
-指标。我们用[指标定义]测量[性质]；[方向]表示更好。
+指标。我们评价[目标属性]。1) [指标一]衡量[定义、单位、方向与分母]。2) [指标二]衡量[定义、单位、方向与分母]。
 
-**第 2 句：**不是只列缩写；定义、单位和方向决定读法。
+**第 2 句：**保持一个紧凑自然段，编号定义各指标；正式 LaTeX 中只用 textbf 加粗指标名，完整格式见下方模板。
 
 We compute [per-unit statistic] and aggregate by [rule]. [Invalid-output policy].
 
@@ -81,6 +81,16 @@ Implementation Details. We select [parameters] on [development data] and fix the
 
 **第 5 句：**明确选择边界；具体值与来源按真实记录填。
 
+**完整 LaTeX 结构模板**
+
+```latex
+\noindent\textbf{Metrics.}
+We evaluate [target properties] using [verified metrics and assessment units].
+1) \textbf{[Metric 1]} measures [definition, unit, direction, and denominator].
+2) \textbf{[Metric 2]} measures [definition, unit, direction, and denominator].
+We aggregate [per-unit results] by [actual rule] and handle [invalid or not-applicable outputs] according to [actual protocol].
+```
+
 #### Main Results：先写发现
 
 解释主要差异、可能原因及对应设计，不逐行重复表格数值。
@@ -91,7 +101,7 @@ Implementation Details. We select [parameters] on [development data] and fix the
 - 先说明关键关系，再给决定判断的数字与范围；全面胜出、显著、稳定需要对应证据。
 - 观察之后解释原因，消融才能帮助归因；有利、不利指标与代价都照实解释。
 
-通用要求；加粗发现为 BeautyPaper 偏好
+通用要求；加粗发现为 StarPaper 偏好
 
 [Design] improves [specific ability] under [tested condition].
 
@@ -201,4 +211,4 @@ The final output [meets or violates requirement] because [observable evidence].
 
 ---
 
-Da1yuqin / [BeautyPaper](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。
+Da1yuqin / [StarPaper](https://da1yuqin.github.io/StarPaper/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。

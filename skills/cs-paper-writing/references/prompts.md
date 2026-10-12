@@ -6,7 +6,7 @@
 <a id="draft"></a>
 ## 一天拉完草稿：给 Codex 的提示词
 
-依据：cs-writing-common · cs-abstract-introduction · cs-related-work · cs-method · cs-experiments · cs-visuals · cs-integration。
+依据：cs-writing-common · cs-abstract-introduction · cs-related-work · cs-method · cs-experiments · cs-visuals · cs-integration · cs-limitations。
 
 对应规则：只加载当前任务相关章节；真实句间钩子与问题—设计—证据对应；固定三项贡献：对象、机制与用途、发现；当前人工定版与证据边界优先。
 
@@ -29,6 +29,7 @@
 6. 引言先说明已有能力与具体不足，再逐项说明解法、机制用途和有依据的发现。段首承接具体对象，连接词服从真实逻辑。
 7. 贡献用原生 itemize，固定三项：工作概述、新机制与实际用途、实验发现。第 2 项点名新设计及作用，不重复已经解释的障碍标签。
 8. 先给我中文提纲和证据，再按当前授权写英文。检查真实数值、引用、图表、分页与最终 PDF；远端源和服务端 PDF 分开核验。
+局限性按 cs-limitations：用一个自然段、First 和 Second 两点，让步说明有据工作与具体边界。
 ```
 
 ### English
@@ -50,14 +51,15 @@ Allowed files and edit scope: [ ]
 6. Establish prior capabilities and concrete limitations, then explain matched solutions, mechanisms, uses, and supported findings. Hooks must connect real objects and relationships.
 7. Use three native itemize contributions: overview, new mechanism and actual use, and empirical findings. The second item names the design and its function rather than repeating obstacle labels.
 8. Present a Chinese outline and evidence for author review before authorized English drafting. Verify data, references, layout, and the rendered PDF; distinguish remote-source sync from the server PDF.
+Use cs-limitations for Limitations: one paragraph, First and Second, with verified completed work and concrete relevant boundaries.
 ```
 
 <a id="writing"></a>
 ## 给 Codex 的写作与精修提示词
 
-依据：cs-writing-common · cs-abstract-introduction · cs-related-work · cs-method · cs-experiments · cs-visuals · cs-integration。
+依据：cs-writing-common · cs-abstract-introduction · cs-related-work · cs-method · cs-experiments · cs-visuals · cs-integration · cs-limitations。
 
-对应规则：只加载当前任务相关章节；真实句间钩子与问题—设计—证据对应；固定三项贡献：对象、机制与用途、发现；当前人工定版与证据边界优先。
+对应规则：只加载当前任务相关章节；真实句间钩子与问题—设计—证据对应；固定三项贡献：对象、机制与用途、发现；当前人工定版与证据边界优先；cs-limitations：单段 First/Second 两点让步模板。
 
 ### 中文
 
@@ -75,6 +77,7 @@ Allowed files and edit scope: [ ]
 6. 不改原始记录、实验协议、冻结 prompt 或模型回复，不编结果和引用。保留人工定版及并发修改。只读任务不写文件，缺证据的问题留给作者。
 7. 检查最终 PDF 的句长、图表、脚注、分页与计页。只有明确必须遵守或禁止违反的要求标“铁律”，写法建议不升级为硬规则。
 数字给单位、分母与版本，区分百分比与百分点、宏平均与微平均；不以分号拼接长句。核对文献实际版本、发布日期与预印本身份。
+涉及 Limitations 时加载 cs-limitations：一个自然段，用 First 和 Second 写两项有据工作与具体边界；未测不当失败，实质限制与全文结论一致。
 ```
 
 ### English
@@ -93,6 +96,7 @@ Material: [latest source, actual results, primary evidence]; allowed edits: [ ]
 6. Preserve original records, protocols, frozen prompts, replies, approved wording, and concurrent edits. Do not invent results or citations. Read-only tasks make no edits; evidence gaps remain for the author.
 7. Inspect the rendered PDF for sentence length, tables, footnotes, layout, and page counting. Only explicit mandatory or prohibited requirements are hard rules.
 Give units, denominators, and versions; distinguish percentages from percentage points and macro from micro averages. Do not rejoin long sentences with semicolons. Verify publication dates, versions, and preprint status.
+For Limitations, load cs-limitations. Use one paragraph with First and Second; each point briefly states verified completed work before a concrete relevant boundary. Untested is not failed, and material limitations must agree with the manuscript’s claims.
 ```
 
 <a id="experiments"></a>
@@ -181,4 +185,4 @@ Allowed edits: [Abstract, Introduction, or specified paragraphs]
 
 ---
 
-Da1yuqin / BeautyPaper，[原文](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+Da1yuqin / StarPaper，[原文](https://da1yuqin.github.io/StarPaper/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。

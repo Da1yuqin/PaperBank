@@ -28,7 +28,7 @@ final class CompanionApp: NSObject, NSApplicationDelegate {
               let image = NSImage(contentsOf: imageURL) else {
             let alert = NSAlert()
             alert.messageText = "没有找到比格图片"
-            alert.informativeText = "请保留完整的 PaperBank Beagle.app，或从项目重新运行 build.sh。"
+            alert.informativeText = "请保留完整的 StarPaper Beagle.app，或从项目重新运行 build.sh。"
             alert.runModal()
             NSApp.terminate(nil)
             return
@@ -40,7 +40,7 @@ final class CompanionApp: NSObject, NSApplicationDelegate {
 
         window = NSWindow(contentRect: NSRect(origin: .zero, size: size),
                           styleMask: .borderless, backing: .buffered, defer: false)
-        window.title = "PaperBank 贝果"
+        window.title = "StarPaper 贝果"
         window.isOpaque = false
         window.backgroundColor = .clear
         window.hasShadow = false
@@ -52,7 +52,7 @@ final class CompanionApp: NSObject, NSApplicationDelegate {
         view.imageScaling = .scaleProportionallyUpOrDown
         view.imageAlignment = .alignCenter
         view.toolTip = "拖动贝果；右键打开菜单。"
-        view.setAccessibilityLabel("PaperBank 贝果，拖动移动，右键打开菜单")
+        view.setAccessibilityLabel("StarPaper 贝果，拖动移动，右键打开菜单")
         window.contentView = view
 
         let menu = NSMenu()
@@ -73,7 +73,7 @@ final class CompanionApp: NSObject, NSApplicationDelegate {
 
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem.button?.title = "🐶"
-        statusItem.button?.toolTip = "PaperBank 贝果"
+        statusItem.button?.toolTip = "StarPaper 贝果"
         statusItem.menu = menu
 
         NSWorkspace.shared.notificationCenter.addObserver(
@@ -117,7 +117,7 @@ final class CompanionApp: NSObject, NSApplicationDelegate {
 
     @objc private func openGuide() {
         // The only external action occurs after the user chooses this menu item.
-        if let url = URL(string: "https://da1yuqin.github.io/PaperBank/") {
+        if let url = URL(string: "https://da1yuqin.github.io/StarPaper/") {
             NSWorkspace.shared.open(url)
         }
     }

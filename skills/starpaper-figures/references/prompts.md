@@ -13,7 +13,7 @@
 ### 中文
 
 ```text
-读取 paperbank-figures/SKILL.md 和 references/rules.md。按以下材料画图。
+读取 starpaper-figures/SKILL.md 和 references/rules.md。按以下材料画图。
 使用前：核对目标会议及 track 的 AI 规定，只在允许范围内起草、改写或绘图，按要求披露。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。
 图型：【mainfig／framework／统计图／案例图】
 要突出的问题与贡献：【对应 Intro 的哪项困难，方法改了什么，依据在哪里】
@@ -39,7 +39,7 @@
 ### English
 
 ```text
-Read paperbank-figures/SKILL.md and references/rules.md. Draw from these materials.
+Read starpaper-figures/SKILL.md and references/rules.md. Draw from these materials.
 Before use: check the AI policy for the target venue and track, stay within the permitted drafting, editing, and figure-generation scope, and disclose use as required. Confirm material permissions and the tool’s data-handling practices; do not send unpublished manuscripts, reviews, personal data, or credentials to external services without permission.
 Type: [main figure / framework / quantitative chart / case]
 Problem and contribution: [Introduction challenge, actual design change, evidence]
@@ -64,4 +64,4 @@ Define each figure’s abbreviations locally, match concrete case conditions to 
 
 ---
 
-Da1yuqin / BeautyPaper，[原文](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+Da1yuqin / StarPaper，[原文](https://da1yuqin.github.io/StarPaper/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。

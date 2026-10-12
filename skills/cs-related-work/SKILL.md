@@ -5,7 +5,7 @@ description: 相关工作；适用于实证型 CS 会议论文，按当前任务
 
 # 相关工作
 
-latest:【2026-10-12 14:44】
+latest:【2026-10-13 00:38】
 
 先读[共享规则](../cs-writing-common/SKILL.md)。本章只处理当前任务；既有人工定版和最新证据优先。
 
@@ -27,4 +27,4 @@ latest:【2026-10-12 14:44】
 
 ---
 
-Da1yuqin / [BeautyPaper](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。
+Da1yuqin / [StarPaper](https://da1yuqin.github.io/StarPaper/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。

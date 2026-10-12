@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build BeautyPaper; use --serve to preview with Python 3."""
+"""Build StarPaper; use --serve to preview with Python 3."""
 import argparse
 import html
 import json
@@ -11,7 +11,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-REPO = 'https://github.com/Da1yuqin/PaperBank'
+REPO = 'https://github.com/Da1yuqin/StarPaper'
 FIGURE_SECTIONS = [
  ('figure-mainfig','Mainfig'),
  ('figure-framework','Framework'),
@@ -46,7 +46,7 @@ def package_prompt_reference(data, folder, keys):
   md+=['',f'<a id="{key}"></a>','## '+prompt['title'],'','依据：'+' · '.join(prompt['sources'])+'。','', '对应规则：'+'；'.join(prompt['basis'])+'。']
   for lang,label in [('zh','中文'),('en','English')]:
    md+=['','### '+label,'','```text',prompt[lang],'```']
- md+=['','---','','Da1yuqin / BeautyPaper，[原文](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。']
+ md+=['','---','','Da1yuqin / StarPaper，[原文](https://da1yuqin.github.io/StarPaper/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。']
  (folder/'references/prompts.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
 
 def section_label(section):
@@ -177,7 +177,7 @@ def render_annotated_paragraph(example, refs, number=None, heading_level=4, work
   source_md=f'[{example["paper_label"]}]({r["url"]}) · {example["location"]}'
   rights=r['license']
  else:
-  source=source_md=example.get('source_label','BeautyPaper · 教学改写')
+  source=source_md=example.get('source_label','StarPaper · 教学改写')
   rights='本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。'
  if not workflow:rendered+=f'<p class="example-source">{source}</p><details class="annotation-rights"><summary>出处与复用范围</summary><p>{e(example["processing"])}</p><p>{e(rights)}</p></details>'
  rendered+='</section>'
@@ -471,7 +471,7 @@ def render_quick_start(data, include_figures=True):
   md+=['','### '+s['title_zh']]
   if n==2 and not include_figures:
    rendered+=f'<p>{e(s["text_zh"])}</p></section>'
-   md+=['',s['text_zh'],'','绘图规则与模板另见 [绘图 skill](https://github.com/Da1yuqin/PaperBank/tree/main/skills/paperbank-figures)。']
+   md+=['',s['text_zh'],'','绘图规则与模板另见 [绘图 skill](https://github.com/Da1yuqin/StarPaper/tree/main/skills/starpaper-figures)。']
    continue
   if n==2:
    skill=data['figure_chapter']['skill']
@@ -630,7 +630,7 @@ def render_skill(data):
  for entry,label in [(skill,'cs-paper-writing'),(data['figure_chapter']['skill'],'绘图')]:
   rendered+=f'<p class="skill-links"><a href="{e(entry["download"])}" download>{e(label)} ZIP</a> {skill_latest(entry)} · <a href="{REPO}/blob/main/{e(entry["source"])}">SKILL.md</a>：{e(entry["intro"])}</p>'
   md+=['',f'[{label} ZIP](../{entry["download"]}) · [SKILL.md](../{entry["source"]})：{entry["intro"]}']
- installation='写作包已按章节拆分：入口、共享规则和六个章节，共八个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。'
+ installation='写作包已按章节拆分：入口、共享规则和六个章节，共九个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。'
  rendered+=f'<p>{e(installation)}</p><p class="boundary">写作包更新：{e(skill["updated_at"])}。只含通用规则与教学模板，不含私人稿件信息。</p>'
  md+=['',installation,'','写作包更新：'+skill['updated_at']+'。只含通用规则与教学模板，不含私人稿件信息。']
  ph,pm=render_codex_prompt(data,skill['prompt_ref'],'中文使用提示词','English usage prompt');rendered+=ph;md+=pm
@@ -645,8 +645,9 @@ def package_skill(data):
   ('cs-method','方法、任务定义与 Overview',['method']),
   ('cs-experiments','实验、评价与诊断',['experiments']),
   ('cs-visuals','图表、Caption 与排版',[]),
+  ('cs-limitations','局限性与结论边界',['limitations']),
   ('cs-integration','全文整合、标题、讨论、结论与附录',['title','discussion','conclusion','references','appendix'])]
- attribution=['','---','','Da1yuqin / [BeautyPaper](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。']
+ attribution=['','---','','Da1yuqin / [StarPaper](https://da1yuqin.github.io/StarPaper/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。']
  def write_skill(name, title, body):
   target=ROOT/'skills'/name;target.mkdir(parents=True,exist_ok=True)
   text=['---','name: '+name,'description: '+title+'；适用于实证型 CS 会议论文，按当前任务加载。','---','','# '+title,'',f'latest:【{skill["updated_at"]}】','']+body+attribution
@@ -654,7 +655,7 @@ def package_skill(data):
   return target
  router=['先读一次[共享规则](../cs-writing-common/SKILL.md)，再只读当前任务涉及的章节；不默认加载全部模板。当前章规则与当前人工定版优先于历史写法。仅用于 CS 会议，Nature 系列使用独立体系。','','| 任务 | 章节入口 |','| --- | --- |']
  router += [f'| {title} | [{name}](../{name}/SKILL.md) |' for name,title,_ in modules]
- router+=['','起草前先借鉴合适论文的组织逻辑，再根据自己的研究拟大纲。参考结构，不复制措辞、事实或贡献。','','解压后保留全部八个同级目录。旧入口和下载地址保留，写作任务不需要同时加载绘图包。','','[任务提示词](references/prompts.md) · [规则索引](references/checklist.md)']
+ router+=['','起草前先借鉴合适论文的组织逻辑，再根据自己的研究拟大纲。参考结构，不复制措辞、事实或贡献。','','解压后保留全部九个同级目录。旧入口和下载地址保留，写作任务不需要同时加载绘图包。','','[任务提示词](references/prompts.md) · [规则索引](references/checklist.md)']
  write_skill('cs-paper-writing','CS 论文写作入口',router)
  common=['每个新写作任务先读一次。当前用户指令、官方要求与人工定版优先；某篇稿件的页数、图号、颜色、数字与授权不移植到其他论文。',
   '【铁律】先核对最新源与证据，只改授权范围，保留他人并发修改、原始输入、prompt、模型回复和实测结果。',
@@ -677,7 +678,8 @@ def package_skill(data):
   if name=='cs-integration':
    body+=['','【铁律】全文检查同时覆盖摘要、引言、正文、Caption、表注和解释性附录。问题、设计、证据、范围与因果方向统一。',
     '【铁律】本地编译、最终 PDF、远端源同步与服务端 PDF 分开核验；旧源码或 hash 不证明服务器 PDF。共享项目先取最新源，写入前再查远端是否前移。',
-    '涉及摘要、引言或贡献列表时只加载[对应章节](../cs-abstract-introduction/SKILL.md)，不在这里维护第二套贡献格式。']
+    '涉及摘要、引言或贡献列表时只加载[对应章节](../cs-abstract-introduction/SKILL.md)，不在这里维护第二套贡献格式。',
+    '局限性按[cs-limitations](../cs-limitations/SKILL.md) 的当前约定检查，与摘要、引言、实验和结论保持同一范围；不在这里维护另一套格式。']
   target=write_skill(name,title,body);ref=target/'references';ref.mkdir(exist_ok=True)
   template_md=['# '+title+'：按需参考','','以下为通用规则与教学模板，不是真实论文原文、研究事实或实测。']
   if name=='cs-visuals':
@@ -723,17 +725,17 @@ def package_figure_skill(data):
  folder=ROOT/Path(skill['source']).parent
  (folder/'references').mkdir(parents=True,exist_ok=True)
  (folder/'SKILL.md').write_text(skill['instructions'],encoding='utf-8')
- md=['# BeautyPaper 绘图参考','',figures['lead'],'','标为铁律的要求必须遵守，其余是可调整建议。这里的中英句式是教学例子，数值和口径用自己的实际记录。','','## 绘图规范']
+ md=['# StarPaper 绘图参考','',figures['lead'],'','标为铁律的要求必须遵守，其余是可调整建议。这里的中英句式是教学例子，数值和口径用自己的实际记录。','','## 绘图规范']
  for key,title in [('rules','绘图规范'),('types','按图的任务选模板')]:
   if key=='types':md+=['','## '+title]
   for rule in figures[key]:
    _,rm=render_short_rules([rule]);md+=rm
-   links=[f'[{v["title"]}](https://da1yuqin.github.io/PaperBank/#{v["id"]})' for v in figures['visual_examples'] if v['id'] in rule.get('visuals',[])]
+   links=[f'[{v["title"]}](https://da1yuqin.github.io/StarPaper/#{v["id"]})' for v in figures['visual_examples'] if v['id'] in rule.get('visuals',[])]
    if links:md+=['','图例与拆解：'+' · '.join(links)]
- md+=['','---','','Da1yuqin / BeautyPaper，[原文](https://da1yuqin.github.io/PaperBank/#figures)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可；改编注明改动。第三方原图不随包分发。']
+ md+=['','---','','Da1yuqin / StarPaper，[原文](https://da1yuqin.github.io/StarPaper/#figures)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可；改编注明改动。第三方原图不随包分发。']
  (folder/'references/rules.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
  package_prompt_reference(data,folder,['figures'])
- license_text=(ROOT/Path(data['writing_skill']['source']).parent/'LICENSE').read_text(encoding='utf-8').replace('CS Paper Writing Skill','BeautyPaper Drawing Skill').replace('references/checklist.md','references/rules.md').replace('cs-paper-writing','paperbank-figures')
+ license_text=(ROOT/Path(data['writing_skill']['source']).parent/'LICENSE').read_text(encoding='utf-8').replace('CS Paper Writing Skill','StarPaper Drawing Skill').replace('references/checklist.md','references/rules.md').replace('cs-paper-writing','starpaper-figures')
  (folder/'LICENSE').write_text(license_text,encoding='utf-8')
  package_archive(skill,['SKILL.md','references/rules.md','references/prompts.md','LICENSE'])
 
@@ -814,7 +816,7 @@ def build():
   number=int(s['number'])+1
   nav+=f'<a href="#chapter-{s["id"]}">3.{number} {e(s["nav"])}</a>'
  entries='';chapter_html={};chapter_md={}
- md=['# '+data['site_title'],'','先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为辅助工具。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎给 Codex 用作 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://Da1yuqin.github.io/PaperBank/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，修改版本注明改动。如有帮助，欢迎 Star。']
+ md=['# '+data['site_title'],'','先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为辅助工具。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎给 Codex 用作 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://da1yuqin.github.io/StarPaper/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，修改版本注明改动。如有帮助，欢迎 Star。']
  md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 正文精修','','先检查全文规范，再按章节精修。模板中的【】填自己的材料，段落按内容调整。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
  md += [f'- [{section_label(s)}{s["title"]}](#{s["id"]})' for s in sections]
  md += ['- [好用工具与开源整理提示词](#tools)']
@@ -874,7 +876,7 @@ def build():
  package_skill(source_data)
  package_figure_skill(source_data)
  package_archive({'source':'skills/tutorial-authoring/SKILL.md','download':'assets/tutorial-authoring-skill.zip'},['SKILL.md','LICENSE'])
- print(f'Built BeautyPaper (4 chapters), {len(lessons)+len(data.get("refine_templates",[]))+len(annotated)+bool(data.get("intro_connections"))} paragraph lessons.')
+ print(f'Built StarPaper (4 chapters), {len(lessons)+len(data.get("refine_templates",[]))+len(annotated)+bool(data.get("intro_connections"))} paragraph lessons.')
 
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__)

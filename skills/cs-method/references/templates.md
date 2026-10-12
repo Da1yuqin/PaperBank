@@ -13,7 +13,7 @@
 - 每步说目的、输入、操作与输出，用准确章节引用定位一次；后句接前句产物，并行关系照实写。
 - 末句引用框架图；已有章首总览不再单开重复 Overview。格式转换不单独列为创新模块。
 
-BeautyPaper 规范化写法；按真实依赖替换或删除阶段
+StarPaper 规范化写法；按真实依赖替换或删除阶段
 
 To address [Intro challenge], we [key design] rather than [verified prior approach], so that [specific intended capability].
 
@@ -109,7 +109,7 @@ At inference time, [executor] receives [visible information]; [reference informa
 - 自己的创新占主要篇幅，标准编码、调用与格式转换简写；不能把已有方法改名当创新。
 - 确有下游依赖时，结尾说明输出及接收者；并行或终结步骤不硬接下一节。重点是设计为何有用，复现所需细节仍要给全。
 
-通用要求；BeautyPaper 推荐句式
+通用要求；StarPaper 推荐句式
 
 To [specific problem or purpose], we [actual design or operation] using [real input].
 
@@ -143,4 +143,4 @@ The resulting [output] is passed to [next step] for [purpose].
 
 ---
 
-Da1yuqin / [BeautyPaper](https://da1yuqin.github.io/PaperBank/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。
+Da1yuqin / [StarPaper](https://da1yuqin.github.io/StarPaper/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。

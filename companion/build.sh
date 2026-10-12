@@ -5,7 +5,7 @@ set -eu
 source_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 project_dir=$(CDPATH= cd -- "$source_dir/.." && pwd)
 output_dir="$source_dir/outputs"
-app_dir="$output_dir/PaperBank Beagle.app"
+app_dir="$output_dir/StarPaper Beagle.app"
 resource_dir="$app_dir/Contents/Resources"
 build_dir="$output_dir/.build"
 
@@ -19,7 +19,7 @@ if ! /usr/bin/xcrun --find swiftc >/dev/null 2>&1; then
 fi
 for asset in beagle-logo.png beagle-pet.png beagle-wave.gif; do
     if [ ! -f "$project_dir/assets/$asset" ]; then
-        echo "Missing assets/$asset. Keep the complete PaperBank project together." >&2
+        echo "Missing assets/$asset. Keep the complete StarPaper project together." >&2
         exit 1
     fi
 done
@@ -52,9 +52,9 @@ cat > "$app_dir/Contents/Info.plist" <<'PLIST'
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict>
   <key>CFBundleExecutable</key><string>Beagle</string>
-  <key>CFBundleIdentifier</key><string>io.github.da1yuqin.paperbank.beagle</string>
-  <key>CFBundleName</key><string>PaperBank Beagle</string>
-  <key>CFBundleDisplayName</key><string>PaperBank 贝果</string>
+  <key>CFBundleIdentifier</key><string>io.github.da1yuqin.starpaper.beagle</string>
+  <key>CFBundleName</key><string>StarPaper Beagle</string>
+  <key>CFBundleDisplayName</key><string>StarPaper 贝果</string>
   <key>CFBundleIconFile</key><string>Beagle.icns</string>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>CFBundleVersion</key><string>1</string>
@@ -67,11 +67,11 @@ PLIST
 
 # Ad hoc signing makes the local bundle coherent; this is not Apple notarization.
 /usr/bin/codesign --force --sign - "$app_dir"
-package_dir="$build_dir/PaperBank-Beagle"
+package_dir="$build_dir/StarPaper-Beagle"
 mkdir -p "$package_dir"
-/usr/bin/ditto "$app_dir" "$package_dir/PaperBank Beagle.app"
+/usr/bin/ditto "$app_dir" "$package_dir/StarPaper Beagle.app"
 cp "$source_dir/README.md" "$package_dir/README.md"
 cp "$project_dir/LICENSE" "$package_dir/LICENSE"
-/usr/bin/ditto -c -k --norsrc --noextattr --noqtn --keepParent "$package_dir" "$output_dir/PaperBank-Beagle-macOS.zip"
+/usr/bin/ditto -c -k --norsrc --noextattr --noqtn --keepParent "$package_dir" "$output_dir/StarPaper-Beagle-macOS.zip"
 printf 'Built Universal macOS app: %s\n' "$app_dir"
-printf 'Download archive: %s\n' "$output_dir/PaperBank-Beagle-macOS.zip"
+printf 'Download archive: %s\n' "$output_dir/StarPaper-Beagle-macOS.zip"

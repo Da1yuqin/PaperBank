@@ -23,7 +23,7 @@ INK = '#27343E'
 GRID = '#E3E8EB'
 WIDTH, HEIGHT = 900, 610
 X0, Y0, PW, PH = 110, 125, 670, 335
-LICENSE = 'PaperBank 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0'
+LICENSE = 'StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0'
 METADATA = []
 
 
