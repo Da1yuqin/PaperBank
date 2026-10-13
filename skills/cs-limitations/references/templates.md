@@ -15,7 +15,7 @@ First, although we have [completed work addressing the main difficulty], [specif
 
 **高亮与旁批**
 
-1. **First, although we have [completed work addressing the main difficulty]**：第一点：已完成什么。简短填已被论文支持的工作，为后半句说明研究边界。
+1. **First, although we have [completed work addressing the main difficulty]**：第一点：已完成什么。have 后填过去分词短语，简短写明已完成且有证据的工作，再说明仍未覆盖的边界。
 2. **[specific boundary 1] still warrants further study.**：第一点：边界是什么。填实际相关的特殊条件或未覆盖问题，不能只写 limited generalizability。
 3. **Second, although we have [another completed and verified contribution]**：第二点：另一个方面。换一个有据工作与对应边界，同段承接，不重复第一点。
 4. **[specific boundary 2] still warrants further study.**：第二点：还需研究什么。填另一项明确的对象与条件。若对象为复数，将 warrants 改为 warrant。

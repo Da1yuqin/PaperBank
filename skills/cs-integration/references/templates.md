@@ -52,20 +52,31 @@ We introduced [work name and type] to address [research problem]. By [core desig
 **高亮与旁批**
 
 1. **We introduced [work name and type] to address [research problem].**：收束贡献。填本文提出什么、解决什么问题；与 Intro 保持同一研究对象。
-2. **By [core design and action], [work name] [actual capability].**：概括设计。留下最关键的设计与作用，不重新展开完整方法流程。
+2. **By [core design and action], [work name] [actual capability].**：概括设计。By 后填实际动作的 -ing 形式，再写方法能完成什么。保留核心设计与作用，不展开完整流程。
 3. **Experiments on [evaluation scope] show [main quantitative result] and reveal [key finding].**：概括证据。填真实比较范围、代表性数字和关键实验结论；与摘要、引言及实验章对应。
 4. **These findings indicate [answer to the research question within the established scope].**：回答起点。用一句话说清研究现在能回答什么，保持正文已经建立的结论强度。
 
 <a id="template-references"></a>
 #### 引文与书目格式
 
+正文引文放入 .tex，文献条目放入 .bib。引用键必须一致；沿用会议模板的引用命令与书目样式。
+
+**正文引用（.tex）**
+
+把引用紧跟在它支持的判断后。下面使用 citep；模板只支持 cite 时，改用 cite。书目加载命令沿用官方模板。
+
 ```latex
 [Claim supported by the cited work] \citep{source_key}.
-We use [component and actual version] \citep{component_key}.
+```
 
+**文献条目（.bib）**
+
+会议论文用 inproceedings，期刊论文用 article 并填写 journal。以下每个字段都从原文核对；作者之间用 and 分隔。无 DOI 就删掉该字段，必要时加真实 URL。
+
+```bibtex
 @inproceedings{source_key,
   title     = {[Verified title]},
-  author    = {[Verified author list]},
+  author    = {[Family name, Given name] and [Family name, Given name]},
   booktitle = {[Verified proceedings title]},
   year      = {[Publication year]},
   doi       = {[Verified DOI]}

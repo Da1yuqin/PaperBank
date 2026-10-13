@@ -28,14 +28,14 @@ After constructing [method, dataset, or benchmark], we evaluate [target systems 
 
 **English 填空模板**
 
-**Datasets.** We evaluate on [dataset names, versions, and citations], which contain [sample unit and task-relevant coverage]. We use [training, development, and test split or official evaluation protocol]. [Parameters or model choices] are selected using [development data], while [test split] is reserved for final evaluation. [Inclusion rules and resulting sample counts] define the evaluated population; [additional preprocessing details] are provided in Appendix [data].
+**Datasets.** We evaluate on [dataset names, versions, and citations], which contain [sample unit and task-relevant coverage]. We use [training, development, and test split or official evaluation protocol]. [Parameters or model choices] are selected using [development data], while [test split] is reserved for final evaluation. [Inclusion rules and resulting sample counts] define the evaluated population. [Additional preprocessing details] are provided in Appendix [data].
 
 
 **高亮与旁批**
 
 1. **[dataset names, versions, and citations]**：标识数据版本。名称、版本与引用放在一起，避免同名数据的不同划分混用。
 2. **[sample unit and task-relevant coverage]**：说明一条样本是什么。交代输入、标签或场景覆盖中影响评价的部分，详细统计可放数据章节或附录。
-3. **[training, development, and test split or official evaluation protocol]**：交代真实划分。按实际方案填；纯推理评价可以直接说明官方测试集，不虚构训练集。
+3. **[training, development, and test split or official evaluation protocol]**：交代真实划分。按真实方案填写；纯推理评价可写官方测试集，没有调参就删去开发集选参句，不虚构训练集或开发集。
 4. **[Inclusion rules and resulting sample counts] define the evaluated population**：固定统计范围。说明纳入规则和有效数量；排除、不适用与无效输出按真实协议分别处理。
 
 <a id="annotated-experiments-baselines"></a>
@@ -72,7 +72,7 @@ After constructing [method, dataset, or benchmark], we evaluate [target systems 
 1. **[backbone or dependency versions]**：固定执行版本。写真实使用的模型、软件版本或代码版本，读者应能定位同一实现。
 2. **[actual values] using [selection procedure and data]**：补全方法参数。Method 解释参数作用，这里给实际取值、搜索范围与选择依据；一次性固定值也如实说明。
 3. **[execution configuration, hardware, and resource budget relevant to the comparison]**：写影响结果的条件。训练、推理、检索、解码和成本只保留与本研究有关的设置，完整配置可放附录。
-4. **[actual repeats] over [repeat unit] and report [aggregation and uncertainty definition]**：定义重复与误差。注明按随机种子、样本或评估轮次重复；明确 SD、SE 或 CI，单次运行不能声称跨运行稳定性。
+4. **[actual repeats] over [repeat unit] and report [aggregation and uncertainty definition]**：定义重复与误差。写实际运行次数及重复单位，并注明统计或重采样方法。单次运行可以报告样本统计，但不能声称跨运行稳定性；不把样本量当作运行次数。
 5. **[Evaluator identity, configuration, and assessment protocol, if applicable]**：单独交代评价器。有人工或模型判分时说明谁判什么、依据什么及如何核验。没有 judge 就删去该句。
 
 <a id="annotated-experiments-metrics"></a>
@@ -161,7 +161,7 @@ Bold marks the best and underline the second-best distinct value among comparabl
 
 **English 填空模板**
 
-**Setting.** To examine [the specific role of Module A], we compare [control variant full name] with [variant containing Module A]. The two variants differ only in [Module A or its specified replacement]. Both retain [other modules] and use [matched data, backbone, training or inference settings, and evaluation protocol]. [Required retraining and any remaining differences] are described in [settings location].
+**Setting.** To examine [the specific role of Module A], we compare [control variant full name] with [variant containing Module A]. The two variants differ only in [Module A or its specified replacement]. Both retain [other modules] and use [matched data, backbone, training or inference settings, and evaluation protocol]. [Required retraining and downstream changes caused by this intervention] are described in [settings location].
 
 **Results.** **[Verified finding about Module A under these conditions].** Table [ablation] compares [the two variant rows] on [the metric tied to this module's purpose]. [Metric] changes from [control value] for [control variant] to [observed value] for [tested variant], with [measured uncertainty, if available]. This result supports [the module's role within this configuration]. [Relevant exception or trade-off, if observed].
 
@@ -170,7 +170,7 @@ Bold marks the best and underline the second-best distinct value among comparabl
 
 1. **To examine [the specific role of Module A]**：先点明要检验的作用。目的与 Method 中这一模块的设计动机对应，读者先知道为什么做这组消融。
 2. **[control variant full name] with [variant containing Module A]**：先定义表中的两行。变体名称在设置、表格与结果中完全一致；说明删去、替换或改变了什么。
-3. **Both retain [other modules] and use [matched data, backbone, training or inference settings, and evaluation protocol].**：固定其余条件。多项同时变化只能评价整套变动。训练型模块按实际协议重新训练，不把推理开关冒称训练消融。
+3. **Both retain [other modules] and use [matched data, backbone, training or inference settings, and evaluation protocol].**：固定其余条件。控制其他会影响结果的条件，并说明干预造成的后续变化。若存在无法对齐的额外条件，列出差异、改掉 differ only，并收窄归因；训练型模块按实际协议重新训练。
 4. **[Verified finding about Module A under these conditions].**：Results 开头回答这个问题。先写真实发现，再引出数字；提升、下降或无明确差异都按记录写。
 5. **[the two variant rows] on [the metric tied to this module's purpose]**：结果回到刚定义的对照。只分析这两行及相关指标，不拿完整方法的总增益归因给当前模块。
 6. **[the module's role within this configuration]**：解释模块作用与范围。有其他模块固定时，结论是该配置下的增量作用；不能自动写成单独作用或协同效应。
@@ -183,7 +183,7 @@ Bold marks the best and underline the second-best distinct value among comparabl
 
 **English 填空模板**
 
-To investigate [question not answered by the main comparison], we [analysis or test] using [actual evidence and comparison conditions]. Figure [analysis] shows [verified pattern], with [key value or contrast] under [tested scope]. This finding explains [the aspect of the original research question supported by the analysis]. [Implication for the method or a remaining question].
+To investigate [question not answered by the main comparison], we [analysis action stated as a verb phrase] using [actual evidence and comparison conditions]. Figure [analysis] shows [verified pattern], with [key value or contrast] under [tested scope]. This finding explains [the aspect of the original research question supported by the analysis]. [Implication for the method or a remaining question].
 
 
 **高亮与旁批**

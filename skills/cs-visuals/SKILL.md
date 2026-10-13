@@ -5,7 +5,7 @@ description: 图表、Caption 与排版；适用于实证型 CS 会议论文，�
 
 # 图表、Caption 与排版
 
-latest:【2026-10-13 21:17】
+latest:【2026-10-13 21:46】
 
 先读[共享规则](../cs-writing-common/SKILL.md)。本章只处理当前任务；既有人工定版和最新证据优先。
 

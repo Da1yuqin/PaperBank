@@ -27,7 +27,7 @@
 4. 列章节标题、任务、证据与篇幅。Method Overview 接回具体困难并串起真实输入输出；模块开头先写动机，再写真实设计。
 5. 按主张组织实验；整体结果、局部差异与独立条件分析分别给比较范围和分母。没有实际分析，不补标题或结果。
 6. 引言先说明已有能力与具体不足，再逐项说明解法、机制用途和有依据的发现。段首承接具体对象，连接词服从真实逻辑。
-7. 贡献用原生 itemize，固定三项：工作概述、新机制与实际用途、实验发现。第 2 项点名新设计及作用，不重复已经解释的障碍标签。
+7. 贡献用原生 itemize，固定三项：整体工作、关键设计或证据贡献、实验发现。第 2 项按论文类型写新机制、构建或评价设计、比较或测量贡献，不虚构新机制或诊断实验。
 8. 先给我中文提纲和证据，再按当前授权写英文。检查真实数值、引用、图表、分页与最终 PDF；远端源和服务端 PDF 分开核验。
 局限性按 cs-limitations：用一个自然段、First 和 Second 两点，让步说明有据工作与具体边界。
 ```
@@ -49,7 +49,7 @@ Allowed files and edit scope: [ ]
 4. List section titles, purposes, evidence, and page budgets. Connect the Method Overview through real inputs and outputs; begin each module with its specific motivation and actual design.
 5. Organize experiments around claims. Give separate populations and denominators for overall results, local differences, and independent conditional analyses. Do not invent analyses.
 6. Establish prior capabilities and concrete limitations, then explain matched solutions, mechanisms, uses, and supported findings. Hooks must connect real objects and relationships.
-7. Use three native itemize contributions: overview, new mechanism and actual use, and empirical findings. The second item names the design and its function rather than repeating obstacle labels.
+7. Use three native itemize contributions: overall work, key design or evidence contribution, and empirical findings. Adapt item 2 to the paper type: a mechanism, construction or evaluation design, controlled comparison, or measurement. Do not invent a mechanism or diagnostic experiment.
 8. Present a Chinese outline and evidence for author review before authorized English drafting. Verify data, references, layout, and the rendered PDF; distinguish remote-source sync from the server PDF.
 Use cs-limitations for Limitations: one paragraph, First and Second, with verified completed work and concrete relevant boundaries.
 ```
@@ -72,7 +72,7 @@ Use cs-limitations for Limitations: one paragraph, First and Second, with verifi
 1. 先核对具体不足、实际设计和对应证据。后句承接前句的对象、问题或产物，再增加一个判断。
 2. Therefore 归纳证据，Specifically 展开判断，However 写具体转折；For example 或 For instance 放在引例句首。缺少某设计后，说清因此不能区分什么。相邻句段不反复使用同一个过渡词。
 3. 对象和动作尽早出现；保留有依据的贡献信息，删除无信息叠加。清楚、就近且唯一的代词保留，符号、缩写、单位与来源就近定义。
-4. 按当前章规则修改。引言不永久强制 Therefore 或 To solve；贡献第 2 项写新机制、依据、具体作用与实际用途。Related Work 按固定三句收尾，Method 按真实输入输出衔接，模块先交代动机。
+4. 按当前章规则修改。引言不永久强制 Therefore 或 To solve；贡献第 2 项按论文类型写关键设计或证据贡献、依据与实际用途，不虚构新机制。Related Work 按固定三句收尾，Method 按真实输入输出衔接，模块先交代动机。
 5. 摘要、引言、方法、实验与结论统一问题、名称、数字、范围和因果方向。整体发现与局部诊断分开，不能用相关或条件结果冒充机制证明。
 6. 不改原始记录、实验协议、冻结 prompt 或模型回复，不编结果和引用。保留人工定版及并发修改。只读任务不写文件，缺证据的问题留给作者。
 7. 检查最终 PDF 的句长、图表、脚注、分页与计页。只有明确必须遵守或禁止违反的要求标“铁律”，写法建议不升级为硬规则。
@@ -91,7 +91,7 @@ Material: [latest source, actual results, primary evidence]; allowed edits: [ ]
 1. Match the concrete limitation, actual design, and supporting evidence. Each sentence inherits an object, question, or output and adds a judgment.
 2. Use Therefore to infer from evidence, Specifically to unpack a judgment, and However for a concrete contrast. Put For example or For instance first in an example sentence. Explain what cannot be distinguished without a missing design feature. Vary transitions naturally across adjacent sentences and sections.
 3. Put contribution objects and actions early. Retain supported informative modifiers and remove empty stacking. Keep clear nearby pronouns; define notation, abbreviations, units, and sources locally.
-4. Follow the current chapter rules. Do not permanently require Therefore or To solve in the Introduction. Contribution 2 describes the new mechanism, basis, function, and actual use. Related Work uses its three-sentence ending; Method uses real input-output dependencies and motivation-first modules.
+4. Follow the current chapter rules. Do not permanently require Therefore or To solve in the Introduction. Contribution 2 describes the actual design or evidence contribution, its basis and use, according to the paper type; it does not invent a new mechanism. Related Work uses its three-sentence ending; Method uses real input-output dependencies and motivation-first modules.
 5. Align the Abstract, Introduction, method, experiments, and conclusion in problem, names, numbers, scope, and causal direction. Separate overall findings from local diagnosis and conditional evidence from mechanism proof.
 6. Preserve original records, protocols, frozen prompts, replies, approved wording, and concurrent edits. Do not invent results or citations. Read-only tasks make no edits; evidence gaps remain for the author.
 7. Inspect the rendered PDF for sentence length, tables, footnotes, layout, and page counting. Only explicit mandatory or prohibited requirements are hard rules.
@@ -162,7 +162,7 @@ Overview the supported main finding before using Specifically to expand the anal
 3. 方法段首接回已建立的障碍，方法名后立即写产物、亮点与用途。逐项用 For [困难] 等准确钩子交代解法，不按旧模板恢复人工已删的 Therefore 或 To solve。
 4. 贡献对象先出现，再写可核验依据与实际作用。来源、原则、产物和应用各有职责，模型可见输入与评价材料分开。
 5. 结果段先概述有证据的发现，再解释命名发现及范围；归纳用 Therefore，展开用 Specifically，词由关系决定。
-6. 普通正文引导句后接原生 itemize，固定三项：对象与任务；We propose [新机制]、依据、具体作用及实际应用；有范围的实验发现。正文已配对问题与解法时，第 2 项不机械重复困难标签。贡献后直接进入下一节。
+6. 普通正文引导句后接原生 itemize，固定三项：整体工作与任务；关键设计或证据贡献、依据及用途；有范围的实验发现。按论文类型填写新机制、构建或评价协议、比较或测量贡献；不虚构工作，也不机械重复困难标签。贡献后直接进入下一节。
 7. 回读摘要与授权范围内的正文：同一问题、设计、数字、名称、范围与因果方向一致，压缩和展开不逐字照抄。先给中文逻辑，再按授权组织英文。
 ```
 
@@ -179,7 +179,7 @@ Allowed edits: [Abstract, Introduction, or specified paragraphs]
 3. Connect the method paragraph to established obstacles and immediately describe the artifact, verified feature, and use. Use accurate matched hooks such as For [challenge]; do not restore Therefore or To solve after the author has removed them.
 4. Put contribution objects first, then their verified basis and function. Distinguish sources, principles, artifacts, applications, model-visible inputs, and assessment targets.
 5. Overview supported findings before defining named findings and their scope. Therefore makes an inference; Specifically expands a judgment. Choose words by relationship.
-6. A normal prose lead introduces three native itemize items: artifact and task; We propose [new mechanism], basis, function, and actual use; scoped empirical findings. Do not mechanically repeat obstacle labels in item 2 when the body already pairs problems and solutions. Proceed directly to the next section after the list.
+6. A normal prose lead introduces three native itemize items: overall work and task; the key design or evidence contribution, its basis and use; scoped empirical findings. Adapt item 2 to the actual mechanism, construction or evaluation protocol, comparison, or measurement. Do not invent work or mechanically repeat obstacle labels. Proceed directly to the next section after the list.
 7. Re-read the Abstract and authorized body sections for consistent problem, design, numbers, names, scope, and causal direction. Compress or expand without copying verbatim. Present Chinese reasoning before authorized English drafting.
 ```
 

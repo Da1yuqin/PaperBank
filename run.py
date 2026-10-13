@@ -68,9 +68,12 @@ def render_writing_templates(content, section, inline=False):
    md+=['']+['- '+rule for rule in template['rules']]
   for paragraph in template['paragraphs']:
    text=paragraph['text']
-   display=e(re.sub(r'(Table|Figure)~\\ref\{(\[[^\]]+\])\}',r'\1 \2',text))
-   display=re.sub(r'\\textbf\{([^{}]*)\}',r'<strong>\1</strong>',display)
    tag='pre' if paragraph.get('format')=='latex' else 'p'
+   display=e(text)
+   if tag=='p':
+    display=e(re.sub(r'(Table|Figure)~\\ref\{(\[[^\]]+\])\}',r'\1 \2',text))
+    display=re.sub(r'\\textbf\{([^{}]*)\}',r'<strong>\1</strong>',display)
+    display=re.sub(r'\\textit\{([^{}]*)\}',r'<em>\1</em>',display)
    rendered+=f'<div class="template-paragraph"><h5>{e(paragraph["heading"])}</h5>'
    if inline and tag=='pre':rendered+='<details class="prompt"><summary>展开 LaTeX 模板</summary>'
    rendered+=f'<{tag} lang="en" class="template-text" data-template-raw="{e(text,quote=True)}">{display}</{tag}>'
@@ -256,9 +259,16 @@ def render_paragraph(lesson, refs, md_level=4, number=None, heading=True, compac
  e=html.escape
  title=(number+' ' if number else '')+lesson['title']
  if compact:
+  if lesson.get('code_blocks'):
+   rendered=f'<section class="paragraph-lesson template-only" id="{e(lesson["id"])}" data-section="{e(lesson["section"])}"><h4>{e(title)}</h4><p>{e(lesson["purpose"])}</p>'
+   md=['',f'<a id="{lesson["id"]}"></a>','#### '+title,'',lesson['purpose']]
+   for block in lesson['code_blocks']:
+    rendered+=f'<h5>{e(block["title"])}</h5><p>{e(block["note"])}</p><pre>{e(block["text"])}</pre><button type="button" class="copy js-only" data-copy-text="{e(block["text"],quote=True)}" data-copy-label="{e(block["copy_label"])}">{e(block["copy_label"])}</button>'
+    md+=['','**'+block['title']+'**','',block['note'],'','```'+block['language'],block['text'],'```']
+   return rendered+'</section>',md
   template=lesson.get('latex_template')
   if not template:return '',[]
-  lead=lesson['purpose'] if lesson.get('placement')=='before-examples' else ''
+  lead=lesson.get('purpose','')
   rendered=f'<section class="paragraph-lesson template-only" id="{e(lesson["id"])}" data-section="{e(lesson["section"])}"><h4>{e(title)}</h4>'
   if lead:rendered+=f'<p>{e(lead)}</p>'
   rendered+=f'<pre>{e(template)}</pre><button class="copy js-only" data-copy-label="复制模板">复制模板</button></section>'
@@ -783,6 +793,8 @@ def package_skill(data):
    for section in sections:
     if section in data.get('refine_flow',{}):
      _,rm=render_refine_steps(data,section);template_md+=rm
+    if section=='intro':
+     _,rm=render_writing_templates(data['tutorial_layout']['writing_templates']['intro'],'intro');template_md+=rm
    reference_name='templates.md'
   (ref/reference_name).write_text('\n'.join(template_md+attribution)+'\n',encoding='utf-8')
  index=['# 写作规则索引','','写作包已按章节拆分；不再默认加载旧的整份检查清单。先读入口和共享规则，再按任务选择。','','[入口](../SKILL.md) · [共享规则](../../cs-writing-common/SKILL.md)']

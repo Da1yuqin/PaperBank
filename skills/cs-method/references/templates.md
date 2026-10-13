@@ -28,15 +28,15 @@ Given [input objects and their sources], the task is to produce [output object] 
 
 **English 填空模板**
 
-To address [Introduction limitation A], in [exact subsection A title] (Section [A]), we [design action] using [input] to obtain [intermediate output]. To address [Introduction limitation B], in [exact subsection B title] (Section [B]), we use this [intermediate output] together with [additional input] to [next action]. Finally, in [exact subsection C title] (Section [C]), [actual executor] transforms [preceding output] into [final output] for [task objective]. Figure [framework] summarizes these dependencies.
+To address [Introduction limitation A], in [exact subsection A title] (Section [A]), we [design action] using [input] to obtain [intermediate output]. To address [Introduction limitation B], in [exact subsection B title] (Section [B]), we [next action] using this [intermediate output] and [additional input]. This step produces [output of module B]. Finally, in [exact subsection C title] (Section [C]), [actual executor] transforms this [output of module B] into [final output] for [task objective]. Figure [framework] summarizes these dependencies.
 
 
 **高亮与旁批**
 
 1. **To address [Introduction limitation A]**：从引言的问题起笔。填前文已经建立的具体局限，说明这项设计为什么需要。
 2. **in [exact subsection A title] (Section [A]), we [design action] using [input] to obtain [intermediate output]**：用一句话概括一个小节。章节名与节号负责导航，执行者负责操作；同时交代这一节接收和产出什么。
-3. **we use this [intermediate output] together with [additional input]**：把真实产物接到下一步。此模板展示串行依赖；并行模块分别写其输入，再说明汇合位置，不能把独立来源强行串起来。
-4. **transforms [preceding output] into [final output] for [task objective]**：收束到任务目标。末个模块给出最终产物，并接回任务定义的输出要求。模块不足或超过三项时按真实结构增删。
+3. **we [next action] using this [intermediate output] and [additional input]. This step produces [output of module B].**：把真实产物接到下一步。此模板展示串行依赖；并行模块分别写其输入，再说明汇合位置，不能把独立来源强行串起来。
+4. **transforms this [output of module B] into [final output] for [task objective]**：收束到任务目标。末个模块给出最终产物，并接回任务定义的输出要求。模块不足或超过三项时按真实结构增删。
 5. **Figure [framework] summarizes these dependencies.**：图文共同指向同一结构。框架图、总览与后续小节使用相同名称和依赖关系。
 
 <a id="annotated-method-module"></a>

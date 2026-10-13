@@ -6,6 +6,13 @@
 <details><summary>更新记录</summary>
 
 
+**2026-10-13 21:46 · 正文精修全文检查 · skill 更新**
+
+- 按论文类型区分引言贡献，修正占位句法与全文对应图。
+- 补全方法输入输出交接，统一消融设置、统计说明与 LaTeX 引用。
+- 参考文献分为正文引文与 BibTeX 两块；合并重复规则，区分铁律与排版建议。
+- 公开写作 skill 同步正文模板和各类引言模板。
+
 **2026-10-13 21:17 · 正文精修改为顺序填空模板 · skill 更新**
 
 - 按论文顺序集中展示各节职责、逻辑要求与填空模板；旁批解释句子位置，不再讲某篇论文的改词记录。
@@ -169,7 +176,7 @@
 
 
 这里有两个可以直接使用的 skill，按任务下载。
-[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-13 21:17】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 12:00】 · [用法](#writing-skill)
+[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-13 21:46】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 12:00】 · [用法](#writing-skill)
 
 ![流星划过夜空；边牧、魔法橘猫和龙举起红色 ACCEPT，庆祝论文接收的愿望成真。](../assets/starpaper-night-accept.png)
 
@@ -217,7 +224,7 @@ StarPaper 提供可直接用于 Codex 的论文写作 skill（cs-paper-writing�
 4. 列章节标题、任务、证据与篇幅。Method Overview 接回具体困难并串起真实输入输出；模块开头先写动机，再写真实设计。
 5. 按主张组织实验；整体结果、局部差异与独立条件分析分别给比较范围和分母。没有实际分析，不补标题或结果。
 6. 引言先说明已有能力与具体不足，再逐项说明解法、机制用途和有依据的发现。段首承接具体对象，连接词服从真实逻辑。
-7. 贡献用原生 itemize，固定三项：工作概述、新机制与实际用途、实验发现。第 2 项点名新设计及作用，不重复已经解释的障碍标签。
+7. 贡献用原生 itemize，固定三项：整体工作、关键设计或证据贡献、实验发现。第 2 项按论文类型写新机制、构建或评价设计、比较或测量贡献，不虚构新机制或诊断实验。
 8. 先给我中文提纲和证据，再按当前授权写英文。检查真实数值、引用、图表、分页与最终 PDF；远端源和服务端 PDF 分开核验。
 局限性按 cs-limitations：用一个自然段、First 和 Second 两点，让步说明有据工作与具体边界。
 ```
@@ -510,18 +517,18 @@ References 支撑已有工作、定义与外部事实。Appendix 提供完整设
 
 先用连贯段落讲清核心工作、设计为何对应局限，以及实验发现。方法名后的同位语立即交代亮点与用途；不要让读者读完一串流程才知道贡献。
 
-【铁律】普通正文引导句后接原生 itemize；固定三项，列表后直接下一节，不追加目录预告、链接或新结果。
+【铁律】普通正文引导句后接原生 itemize；固定三项，依次写整体工作、关键设计或证据贡献、实验发现，列表后直接下一节。
 
-【铁律】普通正文引导句后接原生 itemize，固定三项：工作概述、新机制与实际用途、实验发现。第 2 项用 We propose [机制] 点名真正的新设计，说明依据、具体作用及实际应用；正文已建立问题与解法时，不再重复障碍标签。第 3 项给证据范围，新名称首次就近定义，列表后直接下一节。
+方法论文第 2 项写新机制及用途；基准论文写构建或评价设计；实证研究写新的比较、测量或分析贡献。只写真正完成的工作。
 
 三项是本套 CS 写作约定，不是所有会议的官方要求。论文类型与当轮要求优先；先删重复背景和次要流程，不用改模板规避篇幅限制。
 
 ```latex
-In summary, our contributions are:
+Our contributions are summarized as follows:
 \begin{itemize}
-    \item We introduce [research object], which supports [task] with [verified distinguishing feature].
-    \item We propose [mechanism], derived from [verified basis], which [specific function] and supports [actual application].
-    \item Experiments within [tested scope] reveal [verified finding]. Further diagnosis identifies [supported recurring problems].
+  \item We introduce [work and its type], which [supports the target task through its core contribution].
+  \item We [propose or provide] [key design or evidence contribution] based on [verified basis], enabling [specific function or comparison].
+  \item Our evaluation on [scope] reveals [key finding], with [the most informative verified evidence].
 \end{itemize}
 ```
 
@@ -583,7 +590,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 写作包已按章节拆分：入口、共享规则和七个章节，共九个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。
 
-写作包更新：2026-10-13 21:17。只含通用规则与教学模板，不含私人稿件信息。
+写作包更新：2026-10-13 21:46。只含通用规则与教学模板，不含私人稿件信息。
 
 **中文使用提示词**
 
@@ -596,7 +603,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 1. 先核对具体不足、实际设计和对应证据。后句承接前句的对象、问题或产物，再增加一个判断。
 2. Therefore 归纳证据，Specifically 展开判断，However 写具体转折；For example 或 For instance 放在引例句首。缺少某设计后，说清因此不能区分什么。相邻句段不反复使用同一个过渡词。
 3. 对象和动作尽早出现；保留有依据的贡献信息，删除无信息叠加。清楚、就近且唯一的代词保留，符号、缩写、单位与来源就近定义。
-4. 按当前章规则修改。引言不永久强制 Therefore 或 To solve；贡献第 2 项写新机制、依据、具体作用与实际用途。Related Work 按固定三句收尾，Method 按真实输入输出衔接，模块先交代动机。
+4. 按当前章规则修改。引言不永久强制 Therefore 或 To solve；贡献第 2 项按论文类型写关键设计或证据贡献、依据与实际用途，不虚构新机制。Related Work 按固定三句收尾，Method 按真实输入输出衔接，模块先交代动机。
 5. 摘要、引言、方法、实验与结论统一问题、名称、数字、范围和因果方向。整体发现与局部诊断分开，不能用相关或条件结果冒充机制证明。
 6. 不改原始记录、实验协议、冻结 prompt 或模型回复，不编结果和引用。保留人工定版及并发修改。只读任务不写文件，缺证据的问题留给作者。
 7. 检查最终 PDF 的句长、图表、脚注、分页与计页。只有明确必须遵守或禁止违反的要求标“铁律”，写法建议不升级为硬规则。
@@ -895,13 +902,13 @@ StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 <a id="general-rules"></a>
 ### 3.1 全文规范
 
-“铁律”只标必须遵守或禁止违反的要求；未标记的是可调整的写法建议。官方规定优先，特定稿件的要求不套用到其他论文。篇幅利用和实验页呈现来自作者笔记，不是会议的最低页数规定。
+“铁律”标记本套 skill 中必须遵守的要求；未标记的是写法建议。官方规定与当前作者要求优先。三项贡献和文末 Limitations 的两点格式属于本套约定，不是所有会议的规定；页数按当轮要求核对。
 
 #### 篇幅与版面：充分呈现证据
 
 - **【铁律】遵守当轮篇幅要求：**按会议上限和当前稿件明确的篇幅目标排版。要求写满时，补足有效证据、比较和解释；明显偏短可能让审稿人觉得实验和分析不足。不为凑页注水，不把单稿页数套到所有论文。
 
-- **【铁律】实验页有可见证据：**正文末几页用于实验时，每页应有实际结果、分析图或对照表，与解释就近排。核心证据别全移附录，也不为凑页拆成零碎实验。
+- **实验与分析就近呈现：**结果、图表与对应解释就近排。核心证据留在正文，篇幅按分析需要分配，不按每页图表数量安排实验。
 
 - **【铁律】保留支撑结论的证据：**不能为省篇幅删掉支撑结论的实验分析、必要条件和关键比较。超页建议先删重复和无关背景，再压缩 Related Work 与常规方法介绍。
 
@@ -913,15 +920,11 @@ StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 
 - **先说为什么值得做：**每项设计都要回答：已有做法在哪种条件下不足，本文改了什么，为什么有用，哪项证据支持。
 
-- **【铁律】句子之间有逻辑关系：**后句处理前句的问题或产物，Then 和 Therefore 须符合实际关系。
-
-- **【铁律】连接词用对：**转折用 However，有推导依据才用 Therefore；展开已有判断用 Specifically，并列直接写。连接词由真实关系决定。
-
 - **【铁律】不虚构章节依赖：**章首说明承接的问题或产物；确有后续用途时，章末说明产物交给谁。不把并行写成串行。Related Work 小节直接进入内容，Intro 以贡献列表结束，Conclusion 不预告不存在的下一步。
 
-- **【铁律】问题、设计、实验对应：**引言提出的问题，方法处理，实验检验。
+- **【铁律】问题、设计、实验对应：**引言提出的问题，由方法或研究设计回应，再由实验或分析提供对应证据。
 
-- **【铁律】钩子连接真实关系：**前句建立对象或前提，后句增加判断。Therefore 从证据归纳，Specifically 展开判断，However 说明具体转折；举例用 For example 或 For instance 起句。缺少某项设计后，紧接说明因此无法区分什么；连接词不能代替依据。
+- **【铁律】钩子连接真实关系：**前句建立对象或前提，后句推进判断。However 表示转折，Therefore 从证据归纳，Specifically 展开判断，Then 对应真实先后；举例用 For example 或 For instance 起句。连接词不能代替依据。
 
 #### 语言：完整判断与句长
 
@@ -939,7 +942,7 @@ StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 
 - **【铁律】术语首次解释：**写清对象和用途，不让读者到后文找定义。
 
-- **【铁律】符号首次定义：**写对象、来源、算法、用途和下标；不用的符号删掉。
+- **【铁律】符号首次定义：**首次出现时说明符号表示的对象、单位和下标；由数据或模型计算得到的量，再交代来源与计算方式。不使用的符号删除。
 
 - **【铁律】同一对象同一称呼：**同一对象同一名称；代词的对象须唯一、明确且就近。含混时换成短对象名，清楚的代词保留。
 
@@ -973,7 +976,7 @@ StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 - 3.11 参考文献：按官方格式生成文献表，核对每条引文的支持关系。
 - 3.12 附录：补实现与评价细节，按正文入口组织。
 
-本章均为填空模板：替换方括号中的对象、动作和实测结果。旁批解释每句的职责与承接关系；按自己的贡献增删对应段落。
+本章均为填空模板。方括号替换为自己的材料，we 后填动词短语，However 后填主谓完整的判断；按实际工作删除可选句、调整单复数。不适用的模块、基线、指标或分析不为套模板补造。
 
 ### 本章目录
 
@@ -1064,7 +1067,7 @@ StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 - 【铁律】每项局限都说明原因和实际妨碍，后面给对应设计；Method 展开设计，Experiments 检验作用，结论回到同一目标。
 - 设计段的方法名后立即交代产物与用途，再逐项回应局限。引言讲为什么这样设计，实现细节留到 Method。
 - 实验段先给发现总览，再给关键数字与必要分析；与摘要呼应，和正文实验结论一致。
-- 【铁律】贡献固定 3 点：整体对象与任务、关键机制及用途、实验发现与亮点。正文已经建立问题与解法，不在贡献列表机械重复局限标签。
+- 【铁律】贡献固定 3 点：整体工作与任务、关键设计或证据贡献、实验发现与亮点。按论文类型填写真实贡献，不为套模板虚构新机制或诊断实验；正文已建立问题与解法时，列表不机械重复局限标签。
 - 【铁律】引言只引用属于本节的图表，不提前指向后文章节、公式、方法图或附录；文献引用及有依据的结论保留。
 - 【铁律】引言中的正式命名对象每次出现用斜体，同一对象在完整引言强调性加粗最多一次，贡献列表计入；普通专业词不机械斜体。
 
@@ -1160,11 +1163,13 @@ To answer [the research question introduced above], we evaluate [Method or evalu
 <a id="template-intro-contributions"></a>
 #### 贡献列表模板
 
+用 3 条收束引言：整体工作、关键设计或证据贡献、实验发现。第 2 条按论文类型选用 propose 或 provide，不虚构新机制。 填入正式方法名时用 textit，普通描述不加斜体。
+
 ```latex
 Our contributions are summarized as follows:
 \begin{itemize}
-  \item We introduce \textit{[Method or artifact]}, which [performs the task through the core components].
-  \item We propose \textit{[new mechanism]} based on [verified basis], enabling [specific function] and [another actual use, if supported].
+  \item We introduce [work and its type], which [supports the target task through its core contribution].
+  \item We [propose or provide] [key design or evidence contribution] based on [verified basis], enabling [specific function or comparison].
   \item Our evaluation on [scope] reveals [key finding], with [the most informative verified evidence].
 \end{itemize}
 ```
@@ -1172,7 +1177,7 @@ Our contributions are summarized as follows:
 <a id="intro-writing-templates"></a>
 #### 引言写作模板
 
-先在 1.2 正文结构选择全文组织，再按同一类型精修引言。方括号填自己的材料；前两段完成领域回顾与比较，可穿插或合并。各模板最后均接贡献总结，格式见 1.2。
+按主要贡献选择一套模板，不把四套拼在同一篇引言里。前两段可合并或交错；贡献保持三项，分别填整体工作、关键设计或证据贡献、实验发现。
 
 <a id="intro-template-method"></a>
 <details><summary>方法型引言</summary>
@@ -1193,13 +1198,13 @@ Existing [approach family A] uses [input A] to [supported operation A] [citation
 
 **对应设计与贡献**
 
-To address these limitations, we propose [method name], a [verified distinguishing design and purpose]. For [specific limitation], we [concrete design action and contribution] to meet [corresponding design requirement]. It takes [input] and produces [output] through [high-level mechanism]. For [another established limitation, if present], we [next design action] using [preceding output] to [corresponding purpose]. Together, these designs enable [supported capability] under [stated conditions].
+To address these limitations, we propose \textit{[method name]}, a [verified distinguishing design and purpose]. For [specific limitation], we [concrete design action and contribution] to meet [corresponding design requirement]. It takes [input] and produces [output] through [high-level mechanism]. For [another established limitation, if present], we [next design action] using [preceding output] to [corresponding purpose]. Together, these designs enable [supported capability] under [stated conditions].
 
 【铁律】方法名后立即交代亮点和用途；解法钩子点名前文同一个局限并给对应动作。每项设计有依据，正面修饰能从来源、操作或结果中核查。
 
 **实验概述与结论边界**
 
-To answer [research question], we compare [method name] with [appropriate baselines] under [shared evaluation conditions]. Experiments show [verified main finding] on [metric or measured outcome] within [tested scope]. To examine [design motivation], [ablation or controlled comparison] tests [specific design choice] and shows [verified design finding]. Further analysis identifies [supported pattern or remaining limitation], indicating [bounded answer to the original question].
+To answer [research question], we compare \textit{[method name]} with [appropriate baselines] under [shared evaluation conditions]. Experiments show [verified main finding] on [metric or measured outcome] within [tested scope]. To examine [design motivation], [ablation or controlled comparison] tests [specific design choice] and shows [verified design finding]. Further analysis identifies [supported pattern or remaining limitation], indicating [bounded answer to the original question].
 
 先概述发现，再展开设计检验和分析；与摘要、实验、结论使用同一发现和范围，不自动填写最优、显著提升或因果收益。
 
@@ -1208,13 +1213,13 @@ To answer [research question], we compare [method name] with [appropriate baseli
 ```latex
 In summary, our contributions are:
 \begin{itemize}
-    \item We introduce [research object], which supports [task] with [verified distinguishing feature].
-    \item We propose [mechanism], derived from [verified basis], which [specific function] and supports [actual application].
-    \item Experiments within [tested scope] reveal [verified finding]. Further diagnosis identifies [supported recurring problems].
+    \item We introduce \textit{[method name]}, which [performs the target task through the core components].
+    \item We propose \textit{[new mechanism]} based on [verified basis], enabling [specific function] and [actual application].
+    \item Evaluation on [tested scope] reveals [key experimental finding], supported by [the most informative verified comparison].
 \end{itemize}
 ```
 
-【铁律】普通正文引导句后接原生 itemize，固定三项：工作概述、新机制与实际用途、实验发现。第 2 项用 We propose [机制] 点名真正的新设计，说明依据、具体作用及实际应用；正文已建立问题与解法时，不再重复障碍标签。第 3 项给证据范围，新名称首次就近定义，列表后直接下一节。
+三项依次写方法、关键机制和实验证据；第 2 项点名真实设计及用途，不重述全部流程。
 
 </details>
 
@@ -1243,7 +1248,7 @@ However, establishing [required evaluation] faces [self-explanatory construction
 
 **数据、判据与核心贡献**
 
-To address these limitations, we propose [artifact name], a [verified source or distinguishing design] for [evaluation purpose]. For [data construction obstacle], we construct [data contribution] from [verified source] using [documented selection or collection rule]. For [specific evaluation limitation], we [evaluation contribution and action] to measure [capability linked to the earlier gap]. The tested system receives [task input], while [evaluation evidence or criteria] is used by [evaluator] to assess [system output]. These components support [supported evaluation capability] within [coverage boundary].
+To address these limitations, we propose \textit{[benchmark or dataset name]}, a [verified source or distinguishing design] for [evaluation purpose]. For [data construction obstacle], we construct [data contribution] from [verified source] using [documented selection or collection rule]. For [specific evaluation limitation], we [evaluation contribution and action] to measure [capability linked to the earlier gap]. The tested system receives [task input], while [evaluation evidence or criteria] is used by [evaluator] to assess [system output]. These components support [supported evaluation capability] within [coverage boundary].
 
 【铁律】先突出产物，再写可执行的来源与构建依据；解法钩子复用评价局限名称。受测系统输入与评分材料分开，数据与判据分别接回对应困难。
 
@@ -1258,13 +1263,13 @@ To answer [research question], we evaluate [systems or model families] using [sh
 ```latex
 In summary, our contributions are:
 \begin{itemize}
-    \item We introduce [research object], which supports [task] with [verified distinguishing feature].
-    \item We propose [mechanism], derived from [verified basis], which [specific function] and supports [actual application].
-    \item Experiments within [tested scope] reveal [verified finding]. Further diagnosis identifies [supported recurring problems].
+    \item We introduce \textit{[benchmark or dataset name]}, which supports [evaluation task] with [verified coverage and core components].
+    \item We propose [construction or evaluation design] based on [verified source or principle] to [address the specific evaluation difficulty].
+    \item Evaluation of [systems or model families] under [shared protocol] reveals [key quantitative finding and its scope].
 \end{itemize}
 ```
 
-【铁律】普通正文引导句后接原生 itemize，固定三项：工作概述、新机制与实际用途、实验发现。第 2 项用 We propose [机制] 点名真正的新设计，说明依据、具体作用及实际应用；正文已建立问题与解法时，不再重复障碍标签。第 3 项给证据范围，新名称首次就近定义，列表后直接下一节。
+三项依次写基准或数据集、构建或评价设计、测评发现；不把数据规模当成全部贡献。
 
 </details>
 
@@ -1287,13 +1292,13 @@ To test this expectation, we construct [diagnostic comparison] by changing [targ
 
 **针对瓶颈的设计**
 
-To address these limitations, we propose [method name], a [distinguishing design and purpose]. For [diagnosed bottleneck], we [concrete design action] to [corresponding role]. For [another established bottleneck, if present], we [next design action] using [preceding output] to [corresponding role]. [training or execution procedure] combines these components to produce [output].
+To address these limitations, we propose \textit{[method name]}, a [distinguishing design and purpose]. For [diagnosed bottleneck], we [concrete design action] to [corresponding role]. For [another established bottleneck, if present], we [next design action] using [preceding output] to [corresponding role]. [training or execution procedure] combines these components to produce [output].
 
 核心动作靠前，每项设计接到前面的诊断。没有独立第二项就删去；训练或推理按实际方法写。
 
 **回到诊断的改进验证**
 
-To answer [original capability question], we evaluate [method] on [main task] and repeat [original diagnostic comparison]. Results show [verified main finding] and [verified finding under diagnostic conditions]. Further [process analysis or controlled ablation] examines [design motivation] and yields [verified result]. Together, these tests support [bounded conclusion] within [tested scope].
+To answer [original capability question], we evaluate \textit{[method name]} on [main task] and repeat [original diagnostic comparison]. Results show [verified main finding] and [verified finding under diagnostic conditions]. Further [process analysis or controlled ablation] examines [design motivation] and yields [verified result]. Together, these tests support [bounded conclusion] within [tested scope].
 
 主任务表现、诊断复测和过程检验各有职责。先概述关键发现，再展开对应证据；结论回答最初的能力质疑。
 
@@ -1302,13 +1307,13 @@ To answer [original capability question], we evaluate [method] on [main task] an
 ```latex
 In summary, our contributions are:
 \begin{itemize}
-    \item We introduce [research object], which supports [task] with [verified distinguishing feature].
-    \item We propose [mechanism], derived from [verified basis], which [specific function] and supports [actual application].
-    \item Experiments within [tested scope] reveal [verified finding]. Further diagnosis identifies [supported recurring problems].
+    \item We investigate [target capability] through [diagnostic study], identifying [evidence-supported bottleneck] under [tested conditions].
+    \item We propose \textit{[method name]} with [core design] to address [the diagnosed bottleneck].
+    \item Evaluation on [main-task scope] and [diagnostic comparison] shows [the verified improvement or trade-off], answering [the original capability question].
 \end{itemize}
 ```
 
-【铁律】普通正文引导句后接原生 itemize，固定三项：工作概述、新机制与实际用途、实验发现。第 2 项用 We propose [机制] 点名真正的新设计，说明依据、具体作用及实际应用；正文已建立问题与解法时，不再重复障碍标签。第 3 项给证据范围，新名称首次就近定义，列表后直接下一节。
+三项依次写诊断得到的认识、针对瓶颈的设计、主任务与原诊断的验证结果。
 
 </details>
 
@@ -1346,13 +1351,13 @@ To answer [research question], we analyze [evidence] under [reported study condi
 ```latex
 In summary, our contributions are:
 \begin{itemize}
-    \item We introduce [research object], which supports [task] with [verified distinguishing feature].
-    \item We propose [mechanism], derived from [verified basis], which [specific function] and supports [actual application].
-    \item Experiments within [tested scope] reveal [verified finding]. Further diagnosis identifies [supported recurring problems].
+    \item We present a systematic study of [research question] using [data and study design].
+    \item We provide [controlled comparisons, measurements, or an analysis protocol] that distinguish [the competing possibilities examined in this study].
+    \item Our analysis reveals [key empirical finding] within [studied scope], supported by [the most informative verified contrast or robustness result].
 \end{itemize}
 ```
 
-【铁律】普通正文引导句后接原生 itemize，固定三项：工作概述、新机制与实际用途、实验发现。第 2 项用 We propose [机制] 点名真正的新设计，说明依据、具体作用及实际应用；正文已建立问题与解法时，不再重复障碍标签。第 3 项给证据范围，新名称首次就近定义，列表后直接下一节。
+三项依次写研究问题与范围、新的比较或测量证据、经验发现；没有新机制就不声称提出新机制。
 
 </details>
 
@@ -1379,7 +1384,7 @@ In summary, our contributions are:
 
 **Abstract**：For [limitation A], we [design A and purpose]. For [limitation B], we [design B and purpose].
 
-**Intro**：To address these limitations, we introduce [Method], a [core design and purpose]. For [limitation A], [design A and purpose] connects [input] to [output]. For [limitation B], [design B] provides [specific function].
+**Intro**：To address these limitations, we introduce [Method], a [core design and purpose]. For [limitation A], we [design A and purpose] using [the relevant input or evidence]. For [limitation B], we [design B and purpose].
  · [查看对应关系](#intro-map-design)
 
 **发现 · 同一发现，展开证据与含义**
@@ -1433,7 +1438,7 @@ However, [已有路线]在[具体范围]存在[局限 L1]，因而妨碍[目标 
 
 句首钩子：`For [limitation L1], we [specific design action].`
 
-- 相关工作 · 主题收尾 · 给 L1 比较依据：However, [L1]. To address this gap, we [M1 的实际动作] [对象] based on [真实原则]. This enables [实际应用], addressing [前述同一缺口].
+- 相关工作 · 主题收尾 · 给 L1 比较依据：However, [L1：现有路线在具体条件下无法完成什么及其后果]. To address this gap, we [实际动作] [对象] based on [真实原则]. This enables [实际应用], [有依据的 -ing 动词] [前述同一问题].
 - 方法 · M1 · 解释为什么这样设计：[M1]针对 L1 的哪项原因采取什么操作，产生什么结果供后续使用。
 - 实验 · E1 · 检验原动机：用[能检验 M1 作用的对照 E1]检查[与 L1 对应的指标或行为]。
 
@@ -1526,16 +1531,16 @@ L1 → M1 → E1 → Q：[具体局限] → [针对它的设计] → [能检验�
 
 **English 填空模板**
 
-[Research topic] studies [task or goal]. Methods in [family A] use [mechanism A] to [established capability A] [citations]. Methods in [family B] support [different capability B] through [mechanism B] [citations]. However, [specific gap under a stated condition]. To address this gap, we [action] [research object] based on [method or principle]. This enables [actual application], [evidence-supported effect verb] [the same problem stated in the gap].
+[Research topic] studies [task or goal]. Methods in [family A] use [mechanism A] to [established capability A] [citations]. Methods in [family B] support [different capability B] through [mechanism B] [citations]. However, [a complete clause stating the limitation and its consequence]. To address this gap, we [action] [research object] based on [method or principle]. This enables [actual application], [evidence-supported -ing verb] [the same problem stated in the gap].
 
 
 **高亮与旁批**
 
 1. **[Research topic] studies [task or goal].**：小节主题。一个主题对应一种任务、机制或评价目标。主题标题另起一行，段首说明本组工作研究什么。
 2. **Methods in [family A] use [mechanism A] to [established capability A] [citations]. Methods in [family B] support [different capability B] through [mechanism B] [citations].**：归类回顾。说明各类工作已经实现的能力及共同思路，引用紧跟对应判断；不逐篇报题目。
-3. **However, [specific gap under a stated condition].**：固定倒数第三句：具体局限。先讲现有方法缺少什么，条件与范围写清。这项局限应对应引言的一个问题。
+3. **However, [a complete clause stating the limitation and its consequence].**：固定倒数第三句：具体局限。However 后填有主语、谓语的完整判断：谁在什么条件下无法完成什么，以及这会妨碍哪个目标。对应引言中的同一局限。
 4. **To address this gap, we [action] [research object] based on [method or principle].**：固定倒数第二句：我们的做法。主语是 we，填动作、研究对象和依据；必须直接处理上一句的局限。相邻主题可用 To overcome this limitation 轮换钩子。
-5. **This enables [actual application], [evidence-supported effect verb] [the same problem stated in the gap].**：固定末句：应用与问题解决。前半句填这项做法支持的完整任务，后半句落回同一个问题。按证据选择 addressing、reducing 等动词，不夸大已实现效果。
+5. **This enables [actual application], [evidence-supported -ing verb] [the same problem stated in the gap].**：固定末句：应用与问题解决。前半句填实际支持的任务；逗号后用 addressing、reducing 等 -ing 形式接回同一个问题，动词强度服从已有证据。
 
 <a id="method"></a>
 <a id="chapter-method"></a>
@@ -1578,15 +1583,15 @@ Given [input objects and their sources], the task is to produce [output object] 
 
 **English 填空模板**
 
-To address [Introduction limitation A], in [exact subsection A title] (Section [A]), we [design action] using [input] to obtain [intermediate output]. To address [Introduction limitation B], in [exact subsection B title] (Section [B]), we use this [intermediate output] together with [additional input] to [next action]. Finally, in [exact subsection C title] (Section [C]), [actual executor] transforms [preceding output] into [final output] for [task objective]. Figure [framework] summarizes these dependencies.
+To address [Introduction limitation A], in [exact subsection A title] (Section [A]), we [design action] using [input] to obtain [intermediate output]. To address [Introduction limitation B], in [exact subsection B title] (Section [B]), we [next action] using this [intermediate output] and [additional input]. This step produces [output of module B]. Finally, in [exact subsection C title] (Section [C]), [actual executor] transforms this [output of module B] into [final output] for [task objective]. Figure [framework] summarizes these dependencies.
 
 
 **高亮与旁批**
 
 1. **To address [Introduction limitation A]**：从引言的问题起笔。填前文已经建立的具体局限，说明这项设计为什么需要。
 2. **in [exact subsection A title] (Section [A]), we [design action] using [input] to obtain [intermediate output]**：用一句话概括一个小节。章节名与节号负责导航，执行者负责操作；同时交代这一节接收和产出什么。
-3. **we use this [intermediate output] together with [additional input]**：把真实产物接到下一步。此模板展示串行依赖；并行模块分别写其输入，再说明汇合位置，不能把独立来源强行串起来。
-4. **transforms [preceding output] into [final output] for [task objective]**：收束到任务目标。末个模块给出最终产物，并接回任务定义的输出要求。模块不足或超过三项时按真实结构增删。
+3. **we [next action] using this [intermediate output] and [additional input]. This step produces [output of module B].**：把真实产物接到下一步。此模板展示串行依赖；并行模块分别写其输入，再说明汇合位置，不能把独立来源强行串起来。
+4. **transforms this [output of module B] into [final output] for [task objective]**：收束到任务目标。末个模块给出最终产物，并接回任务定义的输出要求。模块不足或超过三项时按真实结构增删。
 5. **Figure [framework] summarizes these dependencies.**：图文共同指向同一结构。框架图、总览与后续小节使用相同名称和依赖关系。
 
 <a id="annotated-method-module"></a>
@@ -1651,14 +1656,14 @@ After constructing [method, dataset, or benchmark], we evaluate [target systems 
 
 **English 填空模板**
 
-**Datasets.** We evaluate on [dataset names, versions, and citations], which contain [sample unit and task-relevant coverage]. We use [training, development, and test split or official evaluation protocol]. [Parameters or model choices] are selected using [development data], while [test split] is reserved for final evaluation. [Inclusion rules and resulting sample counts] define the evaluated population; [additional preprocessing details] are provided in Appendix [data].
+**Datasets.** We evaluate on [dataset names, versions, and citations], which contain [sample unit and task-relevant coverage]. We use [training, development, and test split or official evaluation protocol]. [Parameters or model choices] are selected using [development data], while [test split] is reserved for final evaluation. [Inclusion rules and resulting sample counts] define the evaluated population. [Additional preprocessing details] are provided in Appendix [data].
 
 
 **高亮与旁批**
 
 1. **[dataset names, versions, and citations]**：标识数据版本。名称、版本与引用放在一起，避免同名数据的不同划分混用。
 2. **[sample unit and task-relevant coverage]**：说明一条样本是什么。交代输入、标签或场景覆盖中影响评价的部分，详细统计可放数据章节或附录。
-3. **[training, development, and test split or official evaluation protocol]**：交代真实划分。按实际方案填；纯推理评价可以直接说明官方测试集，不虚构训练集。
+3. **[training, development, and test split or official evaluation protocol]**：交代真实划分。按真实方案填写；纯推理评价可写官方测试集，没有调参就删去开发集选参句，不虚构训练集或开发集。
 4. **[Inclusion rules and resulting sample counts] define the evaluated population**：固定统计范围。说明纳入规则和有效数量；排除、不适用与无效输出按真实协议分别处理。
 
 <a id="annotated-experiments-baselines"></a>
@@ -1695,7 +1700,7 @@ After constructing [method, dataset, or benchmark], we evaluate [target systems 
 1. **[backbone or dependency versions]**：固定执行版本。写真实使用的模型、软件版本或代码版本，读者应能定位同一实现。
 2. **[actual values] using [selection procedure and data]**：补全方法参数。Method 解释参数作用，这里给实际取值、搜索范围与选择依据；一次性固定值也如实说明。
 3. **[execution configuration, hardware, and resource budget relevant to the comparison]**：写影响结果的条件。训练、推理、检索、解码和成本只保留与本研究有关的设置，完整配置可放附录。
-4. **[actual repeats] over [repeat unit] and report [aggregation and uncertainty definition]**：定义重复与误差。注明按随机种子、样本或评估轮次重复；明确 SD、SE 或 CI，单次运行不能声称跨运行稳定性。
+4. **[actual repeats] over [repeat unit] and report [aggregation and uncertainty definition]**：定义重复与误差。写实际运行次数及重复单位，并注明统计或重采样方法。单次运行可以报告样本统计，但不能声称跨运行稳定性；不把样本量当作运行次数。
 5. **[Evaluator identity, configuration, and assessment protocol, if applicable]**：单独交代评价器。有人工或模型判分时说明谁判什么、依据什么及如何核验。没有 judge 就删去该句。
 
 <a id="annotated-experiments-metrics"></a>
@@ -1784,7 +1789,7 @@ Bold marks the best and underline the second-best distinct value among comparabl
 
 **English 填空模板**
 
-**Setting.** To examine [the specific role of Module A], we compare [control variant full name] with [variant containing Module A]. The two variants differ only in [Module A or its specified replacement]. Both retain [other modules] and use [matched data, backbone, training or inference settings, and evaluation protocol]. [Required retraining and any remaining differences] are described in [settings location].
+**Setting.** To examine [the specific role of Module A], we compare [control variant full name] with [variant containing Module A]. The two variants differ only in [Module A or its specified replacement]. Both retain [other modules] and use [matched data, backbone, training or inference settings, and evaluation protocol]. [Required retraining and downstream changes caused by this intervention] are described in [settings location].
 
 **Results.** **[Verified finding about Module A under these conditions].** Table [ablation] compares [the two variant rows] on [the metric tied to this module's purpose]. [Metric] changes from [control value] for [control variant] to [observed value] for [tested variant], with [measured uncertainty, if available]. This result supports [the module's role within this configuration]. [Relevant exception or trade-off, if observed].
 
@@ -1793,7 +1798,7 @@ Bold marks the best and underline the second-best distinct value among comparabl
 
 1. **To examine [the specific role of Module A]**：先点明要检验的作用。目的与 Method 中这一模块的设计动机对应，读者先知道为什么做这组消融。
 2. **[control variant full name] with [variant containing Module A]**：先定义表中的两行。变体名称在设置、表格与结果中完全一致；说明删去、替换或改变了什么。
-3. **Both retain [other modules] and use [matched data, backbone, training or inference settings, and evaluation protocol].**：固定其余条件。多项同时变化只能评价整套变动。训练型模块按实际协议重新训练，不把推理开关冒称训练消融。
+3. **Both retain [other modules] and use [matched data, backbone, training or inference settings, and evaluation protocol].**：固定其余条件。控制其他会影响结果的条件，并说明干预造成的后续变化。若存在无法对齐的额外条件，列出差异、改掉 differ only，并收窄归因；训练型模块按实际协议重新训练。
 4. **[Verified finding about Module A under these conditions].**：Results 开头回答这个问题。先写真实发现，再引出数字；提升、下降或无明确差异都按记录写。
 5. **[the two variant rows] on [the metric tied to this module's purpose]**：结果回到刚定义的对照。只分析这两行及相关指标，不拿完整方法的总增益归因给当前模块。
 6. **[the module's role within this configuration]**：解释模块作用与范围。有其他模块固定时，结论是该配置下的增量作用；不能自动写成单独作用或协同效应。
@@ -1806,7 +1811,7 @@ Bold marks the best and underline the second-best distinct value among comparabl
 
 **English 填空模板**
 
-To investigate [question not answered by the main comparison], we [analysis or test] using [actual evidence and comparison conditions]. Figure [analysis] shows [verified pattern], with [key value or contrast] under [tested scope]. This finding explains [the aspect of the original research question supported by the analysis]. [Implication for the method or a remaining question].
+To investigate [question not answered by the main comparison], we [analysis action stated as a verb phrase] using [actual evidence and comparison conditions]. Figure [analysis] shows [verified pattern], with [key value or contrast] under [tested scope]. This finding explains [the aspect of the original research question supported by the analysis]. [Implication for the method or a remaining question].
 
 
 **高亮与旁批**
@@ -1891,7 +1896,7 @@ We introduced [work name and type] to address [research problem]. By [core desig
 **高亮与旁批**
 
 1. **We introduced [work name and type] to address [research problem].**：收束贡献。填本文提出什么、解决什么问题；与 Intro 保持同一研究对象。
-2. **By [core design and action], [work name] [actual capability].**：概括设计。留下最关键的设计与作用，不重新展开完整方法流程。
+2. **By [core design and action], [work name] [actual capability].**：概括设计。By 后填实际动作的 -ing 形式，再写方法能完成什么。保留核心设计与作用，不展开完整流程。
 3. **Experiments on [evaluation scope] show [main quantitative result] and reveal [key finding].**：概括证据。填真实比较范围、代表性数字和关键实验结论；与摘要、引言及实验章对应。
 4. **These findings indicate [answer to the research question within the established scope].**：回答起点。用一句话说清研究现在能回答什么，保持正文已经建立的结论强度。
 
@@ -1920,7 +1925,7 @@ First, although we have [completed work addressing the main difficulty], [specif
 
 **高亮与旁批**
 
-1. **First, although we have [completed work addressing the main difficulty]**：第一点：已完成什么。简短填已被论文支持的工作，为后半句说明研究边界。
+1. **First, although we have [completed work addressing the main difficulty]**：第一点：已完成什么。have 后填过去分词短语，简短写明已完成且有证据的工作，再说明仍未覆盖的边界。
 2. **[specific boundary 1] still warrants further study.**：第一点：边界是什么。填实际相关的特殊条件或未覆盖问题，不能只写 limited generalizability。
 3. **Second, although we have [another completed and verified contribution]**：第二点：另一个方面。换一个有据工作与对应边界，同段承接，不重复第一点。
 4. **[specific boundary 2] still warrants further study.**：第二点：还需研究什么。填另一项明确的对象与条件。若对象为复数，将 warrants 改为 warrant。
@@ -1941,13 +1946,24 @@ First, although we have [completed work addressing the main difficulty], [specif
 <a id="template-references"></a>
 #### 引文与书目格式
 
+正文引文放入 .tex，文献条目放入 .bib。引用键必须一致；沿用会议模板的引用命令与书目样式。
+
+**正文引用（.tex）**
+
+把引用紧跟在它支持的判断后。下面使用 citep；模板只支持 cite 时，改用 cite。书目加载命令沿用官方模板。
+
 ```latex
 [Claim supported by the cited work] \citep{source_key}.
-We use [component and actual version] \citep{component_key}.
+```
 
+**文献条目（.bib）**
+
+会议论文用 inproceedings，期刊论文用 article 并填写 journal。以下每个字段都从原文核对；作者之间用 and 分隔。无 DOI 就删掉该字段，必要时加真实 URL。
+
+```bibtex
 @inproceedings{source_key,
   title     = {[Verified title]},
-  author    = {[Verified author list]},
+  author    = {[Family name, Given name] and [Family name, Given name]},
   booktitle = {[Verified proceedings title]},
   year      = {[Publication year]},
   doi       = {[Verified DOI]}
