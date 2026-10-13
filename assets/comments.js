@@ -6,6 +6,16 @@
   const mainForm = section.querySelector('form'), list = section.querySelector('.blog-comments__list');
   const body = document.querySelector('[data-annotatable]');
   let comments = [], pending = null, ranges = [], lastFocus;
+  const liking = new Set();
+  let visitor = null;
+  try {
+    const key = 'paperbank-stats-visitor-id';
+    let saved = localStorage.getItem(key);
+    if (!/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(saved || '')) {
+      saved = crypto.randomUUID(); localStorage.setItem(key, saved);
+    }
+    if (localStorage.getItem(key) === saved) visitor = saved;
+  } catch {}
   const element = (tag, className, text) => {
     const el = document.createElement(tag); if (className) el.className = className;
     if (text !== undefined) el.textContent = text; return el;
@@ -35,24 +45,19 @@
     form.querySelector('[data-cancel-context]').addEventListener('click', () => {
       setContext(form, null, null); if (form === noteForm) {form.hidden = true; quotePreview.hidden = true; noteList.hidden = false;}
     });
-    form.addEventListener('change', () => {
-      form.querySelector('.blog-comments__privacy').textContent = form.elements.visibility.value === 'private' ? '私密评论仅 Day 可见。' : '公开评论会显示在页面上，所有人可见。';
-    });
     form.addEventListener('submit', async event => {
       event.preventDefault(); if (button.disabled || !form.reportValidity()) return;
       button.disabled = true; status.textContent = '正在发布…';
-      const visibility = form.elements.visibility.value;
+      const visibility = 'public';
       try {
         await request('/comments', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({
           page, name: form.elements.name.value, content: form.elements.content.value, visibility,
           parent_id: form._parent ? form._parent.id : null, anchor: form._anchor || null
         })});
         form.elements.content.value = '';
-        status.textContent = visibility === 'private' ? '私密评论已送达，仅 Day 可见。' : '评论已公开发布。';
+        status.textContent = '评论已公开发布。';
         setContext(form, null, null);
-        if (visibility === 'public') {
-          try { await load(); } catch (_) { status.textContent += ' 列表暂时加载失败，请稍后刷新。'; }
-        }
+        try { await load(); } catch (_) { status.textContent += ' 列表暂时加载失败，请稍后刷新。'; }
         if (form === noteForm) { panelStatus.textContent = status.textContent; form.hidden = true; quotePreview.hidden = true; noteList.hidden = false; }
       } catch (error) {
         status.textContent = error.name === 'AbortError' || error.message === 'Failed to fetch' ? '连接失败，请稍后重试；输入内容已保留。' : error.message;
@@ -81,12 +86,39 @@
     else form.scrollIntoView({block:'center', behavior:'smooth'});
     form.elements.content.focus();
   }
+  function updateCommentLike(comment, buttons = document.querySelectorAll('[data-comment-like="' + comment.id + '"]')) {
+    buttons.forEach(button => {
+      button.textContent = (comment.liked ? '♥ 已赞 ' : '♡ 点赞 ') + comment.likes;
+      button.setAttribute('aria-pressed', String(comment.liked));
+      button.disabled = comment.liked || liking.has(comment.id);
+    });
+  }
+  async function likeComment(comment, inNotes) {
+    const status = inNotes ? panelStatus : mainForm.querySelector('.blog-comments__status');
+    if (!visitor) {status.textContent = '允许浏览器保存网站数据后即可点赞。'; return;}
+    if (comment.liked || liking.has(comment.id)) return;
+    liking.add(comment.id); updateCommentLike(comment); status.textContent = '';
+    try {
+      const result = await request('/comments?action=like', {method: 'POST', headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({page, comment_id: comment.id, visitor_id: visitor})});
+      if (result.comment_id !== comment.id || !Number.isSafeInteger(result.likes) || result.likes < 0 || result.liked !== true) throw new Error('点赞未确认。');
+      const current = comments.find(item => item.id === comment.id);
+      comment.likes = Math.max(comment.likes, result.likes, current?.likes || 0); comment.liked = true;
+      if (current) {current.likes = comment.likes; current.liked = true;}
+    } catch (error) {
+      status.textContent = error.name === 'AbortError' || error.message === 'Failed to fetch' ? '点赞暂未确认，可重试；不会重复计数。' : error.message;
+    } finally {liking.delete(comment.id); updateCommentLike(comments.find(item => item.id === comment.id) || comment);}
+  }
   function renderComment(comment, host, inNotes, parent) {
     const item = element('article', 'blog-comments__item'); item.dataset.commentId = comment.id;
     const time = element('time', '', new Date(comment.created_at).toLocaleDateString('zh-CN')); time.dateTime = comment.created_at;
     item.append(element('strong', '', comment.name || '匿名'), time);
     if (parent) item.append(element('span', 'blog-comments__reply-to', '回复 ' + (parent.name || '匿名')));
-    item.append(element('p', '', comment.content), action('回复', () => replyTo(comment, inNotes))); host.append(item);
+    const actions = element('div', 'blog-comments__item-actions');
+    const like = action('', () => likeComment(comment, inNotes));
+    like.className = 'blog-comments__like'; like.dataset.commentLike = comment.id;
+    actions.append(action('回复', () => replyTo(comment, inNotes)), like);
+    item.append(element('p', '', comment.content), actions); host.append(item); updateCommentLike(comment, [like]);
     return item;
   }
   function renderThread(root, host, inNotes) {
@@ -176,7 +208,16 @@
       });
     }
   }
-  async function load() { const result = await request('/comments?page=' + encodeURIComponent(page)); comments = result.comments; render(); }
+  async function load() {
+    const result = await request('/comments?page=' + encodeURIComponent(page) + (visitor ? '&visitor_id=' + encodeURIComponent(visitor) : ''));
+    if (!Array.isArray(result.comments) || result.comments.some(comment => !Number.isSafeInteger(comment.likes) || comment.likes < 0 || typeof comment.liked !== 'boolean')) throw new Error('评论列表暂时不可用。');
+    const previous = new Map(comments.map(comment => [comment.id, comment]));
+    comments = result.comments.map(comment => {
+      const saved = previous.get(comment.id);
+      return {...comment, likes: Math.max(comment.likes, saved?.likes || 0), liked: comment.liked || saved?.liked === true};
+    });
+    render();
+  }
   if (body) {
     section.querySelector('.blog-comments__annotation-hint').hidden = false;
     panel = element('aside','day-notes'); panel.id = 'paperbank-notes'; panel.hidden = true; panel.setAttribute('aria-label','正文批注');

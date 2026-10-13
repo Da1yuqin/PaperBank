@@ -1,6 +1,6 @@
 # StarPaper
 
-要把论文像明星一样包装起来。
+让论文像星星一样闪耀，充满希望。
 
 开源论文写作与学术绘图指南，附可直接用于 Codex 的 `cs-paper-writing` 写作 skill 和 `starpaper-figures` 绘图 skill。
 
