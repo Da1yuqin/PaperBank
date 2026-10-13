@@ -117,8 +117,8 @@ def render_intro_body_map(content):
   rendered+='</svg></div><div class="intro-map-targets">'
   md+=['','**'+row['key']+' · '+row['label']+'**','',row['intro_sentence'],'','句首钩子：`'+row['hook']+'`','']
   for target in row['targets']:
-   rendered+=f'<a class="intro-map-target" href="#{e(target["link"])}"><p class="argument-role">{e(target["chapter"])} · {e(target["role"])}</p><p>{highlight(target["text"],target["mark"])}</p></a>'
-   md+=['- ['+target['chapter']+'](#'+target['link']+') · '+target['role']+'：'+target['text']]
+   rendered+=f'<div class="intro-map-target"><p class="argument-role">{e(target["chapter"])} · {e(target["role"])}</p><p>{highlight(target["text"],target["mark"])}</p></div>'
+   md+=['- '+target['chapter']+' · '+target['role']+'：'+target['text']]
   rendered+='</div></div>';md+=['',row['check']]
  rendered+='<div class="map-return">'
  for chain in content['chains']:
