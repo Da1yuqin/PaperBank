@@ -197,3 +197,15 @@ Overleaf 本地 Git 同步的 Premium 权限与当前入口核对自 [Git integr
 assets/starpaper-logo.png 与 assets/starpaper-night-accept.png 由内置 imagegen 生成，分别参考自有 StrongResponse 标题质感和作者提供的三位动物角色。流星和 ACCEPT 为庆祝性的品牌插画，不对应真实论文接收或实验结果。生成说明见同目录的 prompt 文本。
 
 写作包新增 cs-limitations，九个同级模块，附单段 First/Second 模板；同步 Metrics 编号、贡献格式和篇幅规则。只提取通用要求，未复制私人论文案例、数量、模型、费用、路径或审核记录。官方要求与当前人工要求优先。
+
+## 相关参考和推荐阅读（2026-10-13 绘图补充）
+
+本次仅补充原有绘图内容的五处缺口：小样本连续数据的原始观测、散点重叠、连续量色标、气泡面积编码，以及误差条重叠的解释边界。正文与教学例子由 StarPaper 独立归纳，不复制下列来源的图文；链接统一收录在文末推荐阅读，不插入正文。既有绘图规则和非定量示意图流程保留。
+
+- [Weissgerber, Milic, Winham & Garovic (2015) · Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128)：小样本连续数据的均值与误差条可能隐藏离群点、分布差异和配对关系，适合补充原始观测点；不将其建议扩展为禁止所有柱图，也不规定统一的小样本阈值。
+- [Wilke (2019) · Fundamentals of Data Visualization, Chapter 18: Handling overlapping points](https://clauswilke.com/dataviz/overlapping-points.html)：适当调整点大小与透明度；密集散点可改用二维分箱或 hexbin，并说明格子的计数或密度。本指南保留原始坐标，不采用该章的 jitter 方案；分箱不等于展示每个观测点。
+- [Wilke (2019) · Fundamentals of Data Visualization, Chapter 19: Common pitfalls of color use](https://clauswilke.com/dataviz/color-pitfalls.html)：连续数值应使用能传递大小顺序的色标，避免 rainbow/jet 的非单调明度产生误导；无序类别与有意义参照值两侧的偏离分别选择离散或发散色板，不把某一个色板规定为唯一选择。
+- [Rougier, Droettboom & Bourne (2014) · Ten Simple Rules for Better Figures, Rule 7](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833)：扩展现有来源的适用范围，核对气泡以面积而非半径编码非负数量。半径与数值平方根成正比由圆面积公式推导；形状大小用于示意时不套用定量比例要求。
+- [Cumming, Fidler & Vaux (2007) · Error bars in experimental biology](https://pmc.ncbi.nlm.nih.gov/articles/PMC2064100/)：误差类型、独立样本数与独立或配对设计共同影响区间比较。原文针对特定条件提供近似重叠规则，本指南不将其推广为通用显著性判据；配对或重复测量比较应分析差值及相应不确定性。
+
+来源按原作者教程与正式论文内容筛选，并逐项核对适用条件。2026-10-13 读取的 GitHub 数据中，Wilke 的 [dataviz](https://github.com/clauswilke/dataviz) 为 3,540 stars，Rougier 的 [scientific-visualization-book](https://github.com/rougier/scientific-visualization-book) 为 11,623 stars；这些计数仅说明关注度，不作为建议正确或有效的证据。

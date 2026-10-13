@@ -191,8 +191,11 @@ def render_paragraph(lesson, refs, md_level=4, number=None, heading=True, compac
  if compact:
   template=lesson.get('latex_template')
   if not template:return '',[]
-  rendered=f'<section class="paragraph-lesson template-only" id="{e(lesson["id"])}" data-section="{e(lesson["section"])}"><h4>{e(title)}</h4><pre>{e(template)}</pre><button class="copy js-only" data-copy-label="复制模板">复制模板</button></section>'
-  return rendered,['','#### '+title,'','```latex',template,'```']
+  lead=lesson['purpose'] if lesson.get('placement')=='before-examples' else ''
+  rendered=f'<section class="paragraph-lesson template-only" id="{e(lesson["id"])}" data-section="{e(lesson["section"])}"><h4>{e(title)}</h4>'
+  if lead:rendered+=f'<p>{e(lead)}</p>'
+  rendered+=f'<pre>{e(template)}</pre><button class="copy js-only" data-copy-label="复制模板">复制模板</button></section>'
+  return rendered,['',f'<a id="{lesson["id"]}"></a>','#### '+title]+(['',lead] if lead else [])+['','```latex',template,'```']
  label=f'<h{md_level}>{e(title)}</h{md_level}>' if heading else f'<p class="example-title"><strong>{e(title)}</strong></p>'
  rendered=f'<section class="paragraph-lesson" id="{e(lesson["id"])}" data-section="{e(lesson["section"])}">{label}<p class="paragraph-purpose">{e(lesson["purpose"])}</p>'
  md=['',f'{"#"*md_level} {title}' if heading else f'**{title}**','',lesson['purpose']]
@@ -685,6 +688,11 @@ def package_skill(data):
   if name=='cs-visuals':
    for rule in data['figure_chapter']['rules']:
     _,rm=render_short_rules([rule]);template_md+=rm
+   template_md+=['','## 统计图补充']
+   for rule in data['figure_chapter']['types']:
+    if rule.get('supplement'):
+     _,rm=render_short_rules([rule]);template_md+=rm
+   template_md+=supplement_reading_md(data)
    reference_name='rules.md'
   else:
    for lesson in data['refine_templates']:
@@ -732,12 +740,19 @@ def package_figure_skill(data):
    _,rm=render_short_rules([rule]);md+=rm
    links=[f'[{v["title"]}](https://da1yuqin.github.io/StarPaper/#{v["id"]})' for v in figures['visual_examples'] if v['id'] in rule.get('visuals',[])]
    if links:md+=['','图例与拆解：'+' · '.join(links)]
+ md+=supplement_reading_md(data)
  md+=['','---','','Da1yuqin / StarPaper，[原文](https://da1yuqin.github.io/StarPaper/#figures)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可；改编注明改动。第三方原图不随包分发。']
  (folder/'references/rules.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
  package_prompt_reference(data,folder,['figures'])
  license_text=(ROOT/Path(data['writing_skill']['source']).parent/'LICENSE').read_text(encoding='utf-8').replace('CS Paper Writing Skill','StarPaper Drawing Skill').replace('references/checklist.md','references/rules.md').replace('cs-paper-writing','starpaper-figures')
  (folder/'LICENSE').write_text(license_text,encoding='utf-8')
  package_archive(skill,['SKILL.md','references/rules.md','references/prompts.md','LICENSE'])
+
+def supplement_reading_md(data):
+ """Keep the new drawing sources at the end of each portable reference."""
+ return ['','## 相关参考和推荐阅读','']+[
+  f'- [{data["references"][key]["title"]}]({data["references"][key]["url"]})：{data["references"][key]["scope"]}'
+  for key in data['figure_chapter'].get('reference_keys',[])]
 
 def render_tools(data):
  """Render linked resources separately from manuscript checks."""
@@ -835,6 +850,10 @@ def build():
   elif s.get('principle'):
    entries+=f'<p class="chapter-principle">{e(s["principle"])}</p>'
    md+=['',s['principle']]
+  for lesson in data.get('refine_templates',[]):
+   if lesson['section']==s['id'] and lesson.get('placement')=='before-examples':
+    lesson_html,lesson_md=render_paragraph(lesson,refs,md_level=4,compact=True)
+    entries+=lesson_html;md+=lesson_md
   if s['id'] in data['tutorial_layout'].get('writing_templates',{}):
    templates_html,templates_md=render_writing_templates(data['tutorial_layout']['writing_templates'][s['id']],s['id'])
    entries+=templates_html;md+=templates_md
@@ -845,7 +864,7 @@ def build():
    number=None
    example_html,example_md=render_annotated_paragraph(example,refs,number,heading_level=4)
    entries+=example_html;md+=example_md
-  templates=[p for p in data.get('refine_templates',[]) if p['section']==s['id'] and p.get('latex_template')]
+  templates=[p for p in data.get('refine_templates',[]) if p['section']==s['id'] and p.get('latex_template') and p.get('placement')!='before-examples']
   if templates:
    entries+='<details class="chapter-templates"><summary>结构模板</summary>'
    md+=['','<details><summary>结构模板</summary>','']
@@ -865,13 +884,15 @@ def build():
  examples=sum(len(i.get('examples',[])) for i in items)
  tools,tools_md=render_tools(data)
  md+=tools_md
- reading=''.join(f'<li>{link(k)}<span> — {e(r["scope"])}</span></li>' for k,r in refs.items() if r.get('public'))
+ drawing_refs=data['figure_chapter'].get('reference_keys',[])
+ reading='<h3>绘图补充</h3><ul>'+''.join(f'<li>{link(k)}<span> — {e(refs[k]["scope"])}</span></li>' for k in drawing_refs)+'</ul><h3>写作指南、投稿要求与示例论文</h3><ul>'
+ reading+=''.join(f'<li>{link(k)}<span> — {e(r["scope"])}</span></li>' for k,r in refs.items() if r.get('public') and k not in drawing_refs)+'</ul>'
  t=(ROOT/'assets/template.html').read_text(encoding='utf-8')
  for k,v in {'TITLE':e(data['site_title']),'SUBTITLE':e(data['site_subtitle']),'PREFACE':preface,'NAV':nav,'DRAFT_NAV':draft_nav,'FIGURE_NAV':figure_nav,'TOOLS_NAV':tools_nav,'ENTRIES':entries,'TOOLS':tools,'QUICK_START':quick_start,'FIGURES':figures,'FIGURE_APPENDIX':figure_appendix,'OPENING':opening,'SKILL':skill,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':'4','EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
  (ROOT/'index.html').write_text(t,encoding='utf-8')
  (ROOT/'book').mkdir(exist_ok=True)
- md+=['','## 参考阅读','']+[f'- [{r["title"]}]({r["url"]})：{r["scope"]}' for r in refs.values() if r.get('public')]
  md+=figure_appendix_md
+ md+=['','<a id="reading"></a>']+supplement_reading_md(data)+['','### 写作指南、投稿要求与示例论文','']+[f'- [{r["title"]}]({r["url"]})：{r["scope"]}' for k,r in refs.items() if r.get('public') and k not in drawing_refs]
  (ROOT/'book/guide.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
  package_skill(source_data)
  package_figure_skill(source_data)

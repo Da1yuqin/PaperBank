@@ -6,6 +6,12 @@
 <details><summary>更新记录</summary>
 
 
+**2026-10-13 12:00 · 补充统计图读法与写作模板**
+
+- 补充小样本、散点遮挡、连续色标、气泡面积与误差线的五组教学图。
+- Method Overview 模板前置显示，Intro 方法介绍段增加固定开头句。
+- 来源集中到文末“相关参考和推荐阅读”，同步写作与绘图下载包。
+
 **2026-10-13 11:13 · 新增开头点赞打卡**
 
 - 页面开头显示累计打卡人数；同一浏览器只计一次，重复点击播放 ACCEPT 与星星动画。
@@ -137,7 +143,7 @@
 
 
 这里有两个可以直接使用的 skill，按任务下载。
-[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-13 00:38】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 00:38】 · [用法](#writing-skill)
+[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-13 12:00】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 12:00】 · [用法](#writing-skill)
 
 ![流星划过夜空；边牧、魔法橘猫和龙举起红色 ACCEPT，庆祝论文接收的愿望成真。](../assets/starpaper-night-accept.png)
 
@@ -231,7 +237,7 @@ Abstract：压缩研究问题、主要贡献和关键发现；主张、术语与
 
 - **具体局限**：However, [limitation] ... 说明在什么条件下，现有路线为什么达不到[目标]。
 
-- **核心工作与设计**：To address these obstacles, we introduce [name], a [亮点与用途]. 随后用 For [limitation], we [设计与作用] 逐项对应。
+- **核心工作与设计**：To address these limitations, we propose [name], a [亮点与用途]. 随后用 For [limitation], we [设计与作用] 逐项对应。
 
 - **结果与贡献总结**：概述已验证的主要发现，再以 In summary, our contributions are: 和贡献列表收尾。
 
@@ -317,7 +323,7 @@ Abstract：压缩研究问题、主要贡献和关键发现；主张、术语与
 
 - **评价缺口与建设障碍**：先讲无法区分的[行为]，再讲收集[数据]或构建[判据]为什么困难；两类问题分别接到设计。
 
-- **产物与对应贡献**：To address these obstacles, we introduce [name], a [亮点与评价用途]. For [评价局限], we [数据或判据设计].
+- **产物与对应贡献**：To address these limitations, we propose [name], a [亮点与评价用途]. For [评价局限], we [数据或判据设计].
 
 - **测评发现与贡献总结**：先概述真正有信息量的发现，再总结数据、评价设计及发现的独立贡献。
 
@@ -551,7 +557,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 写作包已按章节拆分：入口、共享规则和六个章节，共九个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。
 
-写作包更新：2026-10-13 00:38。只含通用规则与教学模板，不含私人稿件信息。
+写作包更新：2026-10-13 12:00。只含通用规则与教学模板，不含私人稿件信息。
 
 **中文使用提示词**
 
@@ -580,7 +586,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 先完成 Mainfig 与 Framework，人工核对贡献、流程和案例；实验图用 Python 读取真实数据。下面按三类图整理笔记、铁律和优化前后示范。
 
 <a id="figure-skill"></a>
-[下载绘图 skill](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 00:38】
+[下载绘图 skill](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 12:00】
 
 - 先选一张结构清楚的参考图，借鉴读图顺序与配色；内容、数值和贡献用自己的材料。
 - 高亮越多，背景越应保持白色；同类内容同框、同层内容对齐，留白由信息关系决定。
@@ -791,6 +797,7 @@ Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig.
 - 【铁律】从真实记录绘制，保留缺测、下降和不确定性；不补点、不编误差、不为平滑改曲线。误差写明统计单位、类型与计算方法。
 - 【铁律】坐标有单位、方向和必要分母；同类面板保持可比尺度。柱图优先零起点，截断须明显标出；相对增益同时给绝对值，百分点与百分比区分。
 - 【铁律】统计图导出矢量 PDF 并嵌入字体，核对数值与图形对应。KDE 是密度，ECDF 才读累计比例；投影分开不证明泛化好，雷达面积不是综合分数。
+- 原始点、散点遮挡、连续色标、气泡面积与误差线读法，按需要查文末绘图附录；各项依据集中在“相关参考和推荐阅读”。
 
 <a id="figure-types"></a>
 
@@ -1048,13 +1055,24 @@ StarPaper · 教学改写
 - 【铁律】前两段可穿插、合并或拆分，但要有领域回顾与已有方法比较。回顾给局限铺路：后面批评什么，前面先说明已有方法怎样处理它。
 - 【铁律】挑战名称本身就要显示困难：什么缺失、什么难以完成、什么阻碍目标。随后解释原因和影响，中性任务属性不能直接当挑战名。
 - 【铁律】贡献对象与动作尽早出现。expert-confirmed、manually selected、tailored 等词要对应实际工作；写清选择依据，不用“高质量”代替依据。
-- 【铁律】方法段首承接已建立的障碍；方法名后同一句说明产物、核心设计与用途。随后逐项点名困难及对应解法，服从当前人工定版，不把 Therefore 或 To solve 设为永久必需。引言讲设计思路，实现细节留给 Method。
+- 【铁律】方法介绍段首接回前段已建立的具体局限；方法名后同一句说明产物、核心设计与用途。随后逐项点名局限及对应解法。本教程默认开头为 To address these limitations, we propose；当前稿的人工定版优先。引言讲设计思路，实现细节留给 Method。
 - 结果段可先接回研究问题，再概述发现；摘要压缩、引言展开，不逐字重复，不把排名当分析。
 - 【铁律】摘要、引言及正文的问题、设计、名称、数字、范围与因果方向一致；每次修改后回读对应部分。局限沿用同一名称，Related Work 给比较依据，Method 说明设计，实验提供检验。
 - 【铁律】结果概述对应正文实际结论。若实验只支持某些任务或条件，摘要、引言、讨论和结论都限定到相同范围。
 - 【铁律】引言只引用属于本节的图表；不提前指向后文方法、实验、附录的图表、公式或章节，也不写“见后文”。文献 citation 与有依据的结论保留。
 - 【铁律】引言中的正式命名对象每次出现用斜体，强调性加粗对同一对象全节最多一次；贡献列表不重置次数，普通专业词不机械斜体。
 - 【铁律】普通正文引导句后接原生 itemize，固定三项：工作概述、新机制与实际用途、实验发现。第 2 项用 We propose [机制] 点名真正的新设计，说明依据、具体作用及实际应用；正文已建立问题与解法时，不再重复障碍标签。第 3 项给证据范围，新名称首次就近定义，列表后直接下一节。
+
+<a id="template-intro-design"></a>
+#### Intro 方法介绍段：固定开头句
+
+these limitations 指前段已建立的具体局限。方法名后立即说明核心设计与用途，再按同一局限顺序展开解法；这是本教程的默认句式，当前人工定版优先。
+
+```latex
+To address these limitations, we propose [Method Name], a [method/framework] that [core design] to [specific purpose].
+For [specific limitation A], we [design A and its concrete role].
+For [another established limitation, if present], we [design B and its concrete role].
+```
 
 <a id="intro-writing-templates"></a>
 #### 引言写作模板
@@ -1080,7 +1098,7 @@ Existing [approach family A] uses [input A] to [supported operation A] [citation
 
 **对应设计与贡献**
 
-To address these obstacles, we introduce [method name], a [verified distinguishing design and purpose]. For [specific limitation], we [concrete design action and contribution] to meet [corresponding design requirement]. It takes [input] and produces [output] through [high-level mechanism]. For [another established limitation, if present], we [next design action] using [preceding output] to [corresponding purpose]. Together, these designs enable [supported capability] under [stated conditions].
+To address these limitations, we propose [method name], a [verified distinguishing design and purpose]. For [specific limitation], we [concrete design action and contribution] to meet [corresponding design requirement]. It takes [input] and produces [output] through [high-level mechanism]. For [another established limitation, if present], we [next design action] using [preceding output] to [corresponding purpose]. Together, these designs enable [supported capability] under [stated conditions].
 
 【铁律】方法名后立即交代亮点和用途；解法钩子点名前文同一个局限并给对应动作。每项设计有依据，正面修饰能从来源、操作或结果中核查。
 
@@ -1130,7 +1148,7 @@ However, establishing [required evaluation] faces [self-explanatory construction
 
 **数据、判据与核心贡献**
 
-To address these obstacles, we introduce [artifact name], a [verified source or distinguishing design] for [evaluation purpose]. For [data construction obstacle], we construct [data contribution] from [verified source] using [documented selection or collection rule]. For [specific evaluation limitation], we [evaluation contribution and action] to measure [capability linked to the earlier gap]. The tested system receives [task input], while [evaluation evidence or criteria] is used by [evaluator] to assess [system output]. These components support [supported evaluation capability] within [coverage boundary].
+To address these limitations, we propose [artifact name], a [verified source or distinguishing design] for [evaluation purpose]. For [data construction obstacle], we construct [data contribution] from [verified source] using [documented selection or collection rule]. For [specific evaluation limitation], we [evaluation contribution and action] to measure [capability linked to the earlier gap]. The tested system receives [task input], while [evaluation evidence or criteria] is used by [evaluator] to assess [system output]. These components support [supported evaluation capability] within [coverage boundary].
 
 【铁律】先突出产物，再写可执行的来源与构建依据；解法钩子复用评价局限名称。受测系统输入与评分材料分开，数据与判据分别接回对应困难。
 
@@ -1174,7 +1192,7 @@ To test this expectation, we construct [diagnostic comparison] by changing [targ
 
 **针对瓶颈的设计**
 
-To address these obstacles, we introduce [method name], a [distinguishing design and purpose]. For [diagnosed bottleneck], we [concrete design action] to [corresponding role]. For [another established bottleneck, if present], we [next design action] using [preceding output] to [corresponding role]. [training or execution procedure] combines these components to produce [output].
+To address these limitations, we propose [method name], a [distinguishing design and purpose]. For [diagnosed bottleneck], we [concrete design action] to [corresponding role]. For [another established bottleneck, if present], we [next design action] using [preceding output] to [corresponding role]. [training or execution procedure] combines these components to produce [output].
 
 核心动作靠前，每项设计接到前面的诊断。没有独立第二项就删去；训练或推理按实际方法写。
 
@@ -1218,7 +1236,7 @@ Existing studies examine [relationship or behavior] using [reported design] [cit
 
 **研究设计与可检验贡献**
 
-To address these obstacles, we introduce [study or analysis], a [verified distinguishing design] for testing [research question]. For [specific evidence limitation], we [core comparison or measurement]. We compare [groups or conditions] that differ in [examined factor], using [documented control or adjustment] to examine [alternative explanation]. [measurement or analysis contribution] measures [observable outcome] using [verified data or procedure]. This design estimates [precise quantity or relationship] within [study population and conditions].
+To address these limitations, we propose [study or analysis], a [verified distinguishing design] for testing [research question]. For [specific evidence limitation], we [core comparison or measurement]. We compare [groups or conditions] that differ in [examined factor], using [documented control or adjustment] to examine [alternative explanation]. [measurement or analysis contribution] measures [observable outcome] using [verified data or procedure]. This design estimates [precise quantity or relationship] within [study population and conditions].
 
 【铁律】解法钩子点名证据缺口，贡献落到可复核的比较或测量。受控实验交代改变因素；观察研究交代自然差异、调整及估计对象，不把调整写成排除所有解释。
 
@@ -1266,7 +1284,7 @@ In summary, our contributions are:
 
 **Abstract**：For [specific limitation], we introduce [name], which uses [core design] to [purpose].
 
-**Intro**：To address these obstacles, we introduce [name], a [key feature and purpose]. For [specific limitation], we use [core design] to [concrete action and role].
+**Intro**：To address these limitations, we propose [name], a [key feature and purpose]. For [specific limitation], we use [core design] to [concrete action and role].
  · [查看对应关系](#intro-map-design)
 
 **发现 · 同一发现，展开证据与含义**
@@ -1351,7 +1369,7 @@ D 是本研究怎样完成的困难，不等于前人局限 L；来源或权限�
 
 **M · 核心设计与贡献**
 
-To address these obstacles, we introduce [name], a [核心亮点与用途]。For [同名局限], we [核心设计的具体动作].
+To address these limitations, we propose [name], a [核心亮点与用途]。For [同名局限], we [核心设计的具体动作].
 
 句首钩子：`For [named limitation], we [concrete contribution].`
 
@@ -1537,6 +1555,7 @@ To enable automation, prior works have employed conditioned generators [22, 31, 
 <details><summary>结构模板</summary>
 
 
+<a id="template-intro-contributions"></a>
 #### 贡献列表
 
 ```latex
@@ -1632,6 +1651,7 @@ Multi-dancer generation is an emerging area currently in its nascent stage. To t
 <details><summary>结构模板</summary>
 
 
+<a id="template-related-work"></a>
 #### 相关工作模板
 
 ```latex
@@ -1672,6 +1692,25 @@ This enables [actual application B], [resolving / addressing / reducing] [the sa
 - 【铁律】框架图、Overview、小节和粗体模块名必须对应真实步骤；图文各说一套，读者就无法追踪同一个方法。
 - 【铁律】说明外部模型、检索器、仿真器等组件的职责与来源，明确本文改了哪一部分；使用现成组件不等于提出新方法。
 - 【铁律】正文说明参数作用，Implementation Details 交代真实数值、搜索、版本与来源；不编参数，不删除复现所需信息。
+
+<a id="template-method-overview"></a>
+#### Method Overview：完整模板
+
+先接回 Introduction 的具体困难，说明关键设计的作用，再用真实章节名和编号概括输入、操作、产物与依赖；末句对应框架图。方括号填自己的材料，不存在的阶段删除；并行与反馈按真实关系写。
+
+```latex
+To address [Intro challenge], we [key design] rather than [verified prior approach]
+to [specific intended capability].
+In \textbf{[Problem Formulation]}
+(\S\ref{sec:problem}), we define [input] and [required output].
+Following this definition, in \textbf{[Input Construction]}
+(\S\ref{sec:inputs}), we construct [inputs] from [verified source].
+Using [constructed inputs], in \textbf{[Processing]}
+(\S\ref{sec:processing}), we [operation] to obtain [intermediate output].
+Given [intermediate output], in \textbf{[Output Generation]}
+(\S\ref{sec:output}), we [operation] and produce [final output].
+Figure~\ref{fig:framework} summarizes this workflow.
+```
 
 <a id="annotated-method-task"></a>
 
@@ -1791,28 +1830,6 @@ We propose GreenPlanner, an energy- and functionality-aware generative framework
 英文保持原文段落，仅合并换行、还原排版断词与字体连字，规范引文括号空白；高亮和批注为本指南添加。中文为本指南翻译，不是作者原文。 保留原文组件编号、Fig.2 与引文 [48]，仅清理 PDF 提取产生的标点空白。
 
 原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
-
-<details><summary>结构模板</summary>
-
-
-#### 方法概述模板
-
-```latex
-To address [Intro challenge], we [key design] rather than [verified prior approach]
-to [specific intended capability].
-In \textbf{[Problem Formulation]}
-(\S\ref{sec:problem}), we define [input] and [required output].
-Following this definition, in \textbf{[Input Construction]}
-(\S\ref{sec:inputs}), we construct [inputs] from [verified source].
-Using [constructed inputs], in \textbf{[Processing]}
-(\S\ref{sec:processing}), we [operation] to obtain [intermediate output].
-Given [intermediate output], in \textbf{[Output Generation]}
-(\S\ref{sec:output}), we [operation] and produce [final output].
-Figure~\ref{fig:framework} summarizes this workflow.
-```
-
-</details>
-
 
 <a id="experiments"></a>
 <a id="chapter-experiments"></a>
@@ -2081,6 +2098,7 @@ We highlight the importance of natural footwork in enhancing visual aesthetics (
 <details><summary>结构模板</summary>
 
 
+<a id="template-experimental-setup"></a>
 #### 实验设置
 
 ```latex
@@ -2183,6 +2201,7 @@ StarPaper · 教学改写
 <details><summary>结构模板</summary>
 
 
+<a id="template-limitations"></a>
 #### Limitations：单段两点
 
 ```latex
@@ -2447,36 +2466,6 @@ README 说明默认只处理 PDF 第一页；保留原件，并为输出使用�
 ```
 
 依据：minimal-code-layout · 作者指定的翻译与去秘范围 · [对应铁律与完整提示词](https://github.com/Da1yuqin/StarPaper/blob/main/data/guide.json)
-
-## 参考阅读
-
-- [Mensh & Kording (2017) · Ten simple rules for structuring papers](https://doi.org/10.1371/journal.pcbi.1005619)：中心贡献、读者视角与文章/段落结构；写法需要按研究取舍。
-- [Rougier et al. (2014) · Ten Simple Rules for Better Figures](https://doi.org/10.1371/journal.pcbi.1003833)：根据读者与主要信息选择图型，检查布局、颜色及说明。
-- [Henderson & Chambers (2022) · Ten simple rules for writing a Registered Report](https://doi.org/10.1371/journal.pcbi.1010571)：研究问题、适用时的假设与预先规划；不要求所有论文写 RQ1/H1。
-- [NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)：主张、限制、设置、统计不确定性与复现；提交时以当年指南为准。
-- [ACL Rolling Review · Responsible NLP Research](https://aclrollingreview.org/responsibleNLPresearch/)：NLP 研究责任与披露要求；其他领域检查自己的投稿政策。
-- [Liu et al. (2024) · Lost in the Middle, Figure 1 / §2](https://aclanthology.org/2024.tacl-1.9/)：证据位置与问答表现的控制实验，适合学习“现象—诊断”的论证。
-- [TCOD (2026 预印本) · Figure 1](https://arxiv.org/pdf/2604.24005v3)：多轮监督案例与课程设计并排呈现；概念图本身不证明效果。
-- [Reinforcing Real-world Service Agents (2026 预印本) · Figure 1](https://arxiv.org/html/2602.22697v1#S4.F1)：交互环境、轨迹、学习信号与更新对象的框架图；模拟表现不等于真实部署收益。
-- [NeurIPS 2026 · Main Track Handbook V2026.3，Author Responses](https://neurips.cc/Conferences/2026/MainTrackHandbook)：2026 主会回复流程、匿名、篇幅与新结果要求；其他年份和赛道另查指南。核查日期：2026-10-07。
-- [ICLR 2026 · Author Guide，Discussion Stages](https://iclr.cc/Conferences/2026/AuthorGuide)：2026 讨论期修订与变更说明；审稿人和 AC 不必阅读每一版。实际投稿遵循当轮最新通知。核查日期：2026-10-07。
-- [ACL Rolling Review · Authors Guidelines，Author response](https://aclrollingreview.org/authors#author-response)：截至 2026-10-07 可见的作者回复指南；页面注明此版适用至 2026 年 8 月轮次，后续轮次需重查。用于了解 ARR 与直接投会议的区别，不作后续轮次规则保证。
-- [Yuqin Dai et al. (AAAI 2025) · Harmonious Music-driven Group Choreography with Trajectory-Controllable Diffusion](https://ojs.aaai.org/index.php/AAAI/article/view/32268)：论文作者在本指南中用少量原文短引讲解贡献、动机、方法与实验，逐项标明节名、页码和中文翻译；英文引句保持原貌，教学改写单独标注。TCDiff 的数据、性能与结论仅限论文报告的任务与比较条件。
-- [Yuqin Dai et al. (AAAI 2026) · Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools with Reinforcement Learning](https://ojs.aaai.org/index.php/AAAI/article/view/40299)：AAAI 2026 正式发表；作者终稿短引，讲解问题、搜索操作、奖励、指标与消融。保留 AAAI 原版权。
-- [Pengyu Zeng et al. (EMNLP 2025) · CARD: Cross-modal Agent Framework for Generative and Editable Residential Design](https://aclanthology.org/2025.emnlp-main.473/)：EMNLP 2025 正式发表；模块输入输出、公平比较、人评重复与表示转换。原文 CC BY 4.0，中文为本指南翻译。
-- [Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3)：摘录公开预印本中的短句与标题，分析渐进设计、方法总览、模块机制、结果段及 Fig.2 流程。英文、翻译和教学改写分开标注；结论限原文比较设置。
-- [Chaoyang Shi, Yuqin Dai et al. · UrbanZero（公开项目介绍）](https://github.com/Da1yuqin/Da1yuqin.github.io/blob/main/_pages/includes/pub.md#L193-L202)：依据公开项目介绍编写双语教学示例，讲解任务编译、逐块规划与程序反馈；教学实验和模拟回复不代表论文原文或实测结果。
-- [Ling Shi, Yuqin Dai et al. · SAGE: An Extensible Benchmark for Service Agent Graph-guided Evaluation](https://arxiv.org/abs/2604.09285)：用不同短引讲解术语、指标、比较对象、相关工作、全文论证、案例版式及事实澄清；不复制私有评审材料。模拟回复明确不属于实际 rebuttal。
-- [Yuqin Dai et al. · EviNoteRAG: Enhancing RAG Models via Quality-Augmented Evidence Notes](https://arxiv.org/abs/2509.00877)：用八处不同短引讲解摘要核对、背景取舍、近邻比较、引文用途、给 AI 的真实材料、润色边界和逐点回复。数值只对应终稿表中实际比较；模拟回复并非真实评审记录。
-- [Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html)：署名原文短引、中文翻译与写作拆解。数据合规、生成结果与不同输入设置分开；不将论文中的法规设置推广为一般建筑指导。
-- [Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)：说明模块命名、实验设置、问题与对应设计、收益与代价、未实现能力的边界；仅使用署名短引，不复制期刊原图或全文。
-- [Jiaqi Wang et al. · TCOD (arXiv v3)](https://arxiv.org/abs/2604.24005v3)：多轮智能体蒸馏；图2说明如何把训练诊断组织成一条论证。公开预印本，CC BY 4.0。
-- [Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)：服务智能体的质量与成本；图2/3和附录案例用于讲解编码、动态和排版。公开预印本，CC BY 4.0。
-- [OneReason Technical Report · Figure 12](https://arxiv.org/pdf/2606.06260v1#page=34)：训练策略对照图；仅链接分析，不转载原图。arXiv 分发许可不等于图片复用许可。
-- [Bruno et al. (2024) · A universal framework for inclusive 15-minute cities](https://arxiv.org/html/2408.03794v1)：地图、累计分布、多维气泡与设施迁移排名。原图只链接，点评为本指南整理；颜色和大小按原图注解释。
-- [pymoo · Pareto dominance](https://pymoo.org/getting_started/preface.html)：多目标比较与非支配解的定义
-- [Callaway & Sant’Anna · Difference-in-Differences with Multiple Time Periods](https://arxiv.org/abs/1803.09015)：DID 的比较设计与平行趋势识别条件
-- [Yuqin Dai et al. · EviNote-RAG: Enhancing RAG Models via Answer-Supportive Evidence Notes](https://arxiv.org/html/2509.00877v3#S5)：Conclusion 第一自然段：核心设计、作用与结果如何收束；表现判断只对应该版本的比较。
 
 <a id="figure-appendix"></a>
 <a id="notion-gallery"></a>
@@ -2875,6 +2864,121 @@ StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 
 </details>
 
+<details><summary>均值与原始分布</summary>
+
+**小样本：均值之外看原始观测**：比较小样本的连续测量时，优先展示原始观测点与样本量，可叠加均值或区间；较多观测可用箱线图或已有分布图。均值相同不代表分布相同。计数、比例等汇总量仍可用柱图，不把这条写成禁止所有柱图。
+
+<a id="teaching-mean-distribution"></a>
+#### 小样本：均值相同，分布不同
+
+![小样本：均值相同，分布不同](../assets/mean-distribution.svg)
+
+左侧两柱均为6；右侧显示各组5个模拟观测，A分散、B集中，均值线保持相同。
+
+1. **观察 1：**横轴区分组，纵轴是任意单位的模拟分数；左右使用相同的0到12坐标范围。
+
+2. **观察 2：**A为2、4、6、8、10，B为5、5、6、7、7；黑横线是组均值。水平错开仅用于避免重复点遮挡。
+
+3. **观察 3：**柱状汇总没有展示组内分布；本图用于小样本连续值，不表示所有柱状图都不合适，也没有统计检验。
+
+[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+</details>
+
+<details><summary>重叠点与二维计数</summary>
+
+**散点遮挡：必要时改看二维计数**：重叠的点可能隐藏观测数量和少数类别。先检查透明度是否仍能呈现密集区与稀疏区；大量重叠时可用二维分箱或六边形分箱，说明每格计数、范围与箱宽。保留原始坐标，不为分开点而移动测量值；颜色深浅不是未经定义的概率。
+
+<a id="teaching-overlap-count"></a>
+#### 散点遮挡：重叠点与二维计数
+
+![散点遮挡：重叠点与二维计数](../assets/overlap-count.svg)
+
+同一批54个模拟点，左图的重复位置完全遮挡，右图按1×1格统计数量并同时标数。
+
+1. **观察 1：**左右横纵轴都是任意单位坐标，范围均为0到5；左侧每个点是一个观测，但同位置会重复遮挡。
+
+2. **观察 2：**右侧每格覆盖一个横轴单位和一个纵轴单位，颜色与数字表示落入该格的观测数，包含零计数。
+
+3. **观察 3：**二维分箱保留重复数量但丢失格内位置；实际使用需选择并说明分箱大小，不能把颜色直接读成概率。
+
+[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+</details>
+
+<details><summary>连续色标与基准</summary>
+
+**连续色标：让明暗顺序对应数值**：无序类别用离散色板，连续大小用明暗顺序清楚的顺序色标；偏离有意义的参照值时用发散色标。连续数值不默认用 rainbow／jet：不均匀、非单调的明暗变化可能掩盖差异或制造边界。沿用现有色板的语义，检查灰度下的数值顺序。
+
+<a id="teaching-continuous-color"></a>
+#### 连续色标：不要让配色制造边界
+
+![连续色标：不要让配色制造边界](../assets/continuous-color.svg)
+
+相同0到1数值分别用顺序色标和彩虹色标；灰度行暴露亮度是否单调，下方用零居中的发散色标显示正负差值。
+
+1. **观察 1：**上方两行横向位置代表相同的0到1模拟值，下面的灰度按线性sRGB相对亮度计算，并非另外一批数据。
+
+2. **观察 2：**顺序色标随数值增加逐渐变暗；彩虹色标在中间变亮，可能突出非数据边界，颜色变化不等于真实分组。
+
+3. **观察 3：**下方示例范围为−1到1，浅色中心对应有意义的零差值；只有需要区分基准两侧时才使用发散色标。
+
+[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+</details>
+
+<details><summary>气泡面积编码</summary>
+
+**【铁律】气泡面积与数量成正比**：用气泡面积表示非负数量时，面积必须与数量成正比，半径随数量平方根变化；给出大小图例与单位。数量变为 4 倍，面积变为 4 倍、半径变为 2 倍。圆面积关系来自 A = πr²；颜色或位置表示的其他变量分别解释。
+
+<a id="teaching-bubble-area"></a>
+#### 气泡编码：数量对应面积
+
+![气泡编码：数量对应面积](../assets/bubble-area.svg)
+
+相同数量1、4、9，左图按半径缩放导致面积变成1、16、81；右图用平方根半径保持面积比例。
+
+1. **观察 1：**这是三种数量对应的图形编码对照，没有数据坐标轴；横向位置仅用于排列，标签v是被编码的模拟数量。
+
+2. **观察 2：**圆面积为πr²；左侧r=6v，右侧r=18√v，两侧最大圆半径都为54像素，以便公平比较各自比例。
+
+3. **观察 3：**以圆的大小表达数量时使用面积比例；本图不表示人能够精确估计面积，重要比较仍应给数值或位置编码。
+
+[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+</details>
+
+<details><summary>误差线重叠与判断</summary>
+
+**误差线重叠：先认类型与比较设计**：不能通用地把误差线重叠判作不显著，或把不重叠判作显著。解释依赖 SD、SE、CI 类型、样本量以及独立／配对设计；差异判断用相应检验或直接估计差值与区间。已有的误差类型、重复单位和区间定义继续保留，不凭图形外观补出 p 值。
+
+<a id="teaching-errorbar-overlap"></a>
+#### 误差线：重叠不构成通用判据
+
+![误差线：重叠不构成通用判据](../assets/errorbar-overlap.svg)
+
+同两组模拟观测和相同均值，SD误差线重叠而SE误差线不重叠；图形变了，数据没有变。
+
+1. **观察 1：**左右各组均有5个构造观测，横轴是组，纵轴是任意单位分数；小点为原始观测，大点为均值5和9。
+
+2. **观察 2：**样本SD用n−1为分母，均为√10；SE=SD/√5=√2。左侧显示均值±1SD，右侧显示均值±1SE。
+
+3. **观察 3：**两种误差线回答不同问题，没有计算p值；重叠不是通用显著性判据，正式比较还需对应独立或配对设计的检验或差值区间。
+
+[可复现教学绘图代码](../assets/generate-statistical-examples.py)
+
+StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+</details>
+
 <a id="figure-references"></a>
 <details><summary>更多原图链接与点评</summary>
 
@@ -2951,3 +3055,42 @@ ShoppingBench: A Real-World Intent-Grounded Shopping Benchmark for LLM-based Age
 只链接正式论文页，不重托管原图。
 
 </details>
+
+<a id="reading"></a>
+
+## 相关参考和推荐阅读
+
+- [Weissgerber 等（2015）· 小样本连续数据为何需要展示原始观测](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128)：小样本连续数据：原始观测点揭示均值与误差条隐藏的分布、离群点和配对关系；不禁止所有柱图，不规定统一的小样本阈值。
+- [Wilke（2019）· 散点重叠的处理](https://clauswilke.com/dataviz/overlapping-points.html)：调整点大小和透明度；密集散点可用二维分箱或 hexbin，并解释计数或密度。保留原始坐标，不采用 jitter；分箱不等于逐点展示。
+- [Wilke（2019）· 颜色使用的常见误区](https://clauswilke.com/dataviz/color-pitfalls.html)：连续量用有大小顺序的色标，避免 rainbow/jet 误导；类别与参照值两侧的偏离分别选择离散或发散色板，不规定唯一色板。
+- [Rougier 等（2014）· 科研绘图的十条建议](https://doi.org/10.1371/journal.pcbi.1003833)：根据读者与主要信息选择图型，检查布局、颜色及说明；以气泡面积编码非负数量，避免将半径直接设为数值。示意性形状大小不套用定量比例要求。
+- [Cumming 等（2007）· 误差条与组间差异的解读](https://pmc.ncbi.nlm.nih.gov/articles/PMC2064100/)：误差类型、独立样本数与独立或配对设计共同影响区间比较；不把特定条件下的近似重叠规则作为通用显著性判据。配对比较分析差值及相应不确定性。
+
+### 写作指南、投稿要求与示例论文
+
+- [Mensh & Kording (2017) · Ten simple rules for structuring papers](https://doi.org/10.1371/journal.pcbi.1005619)：中心贡献、读者视角与文章/段落结构；写法需要按研究取舍。
+- [Henderson & Chambers (2022) · Ten simple rules for writing a Registered Report](https://doi.org/10.1371/journal.pcbi.1010571)：研究问题、适用时的假设与预先规划；不要求所有论文写 RQ1/H1。
+- [NeurIPS · Paper Checklist](https://neurips.cc/public/guides/PaperChecklist)：主张、限制、设置、统计不确定性与复现；提交时以当年指南为准。
+- [ACL Rolling Review · Responsible NLP Research](https://aclrollingreview.org/responsibleNLPresearch/)：NLP 研究责任与披露要求；其他领域检查自己的投稿政策。
+- [Liu et al. (2024) · Lost in the Middle, Figure 1 / §2](https://aclanthology.org/2024.tacl-1.9/)：证据位置与问答表现的控制实验，适合学习“现象—诊断”的论证。
+- [TCOD (2026 预印本) · Figure 1](https://arxiv.org/pdf/2604.24005v3)：多轮监督案例与课程设计并排呈现；概念图本身不证明效果。
+- [Reinforcing Real-world Service Agents (2026 预印本) · Figure 1](https://arxiv.org/html/2602.22697v1#S4.F1)：交互环境、轨迹、学习信号与更新对象的框架图；模拟表现不等于真实部署收益。
+- [NeurIPS 2026 · Main Track Handbook V2026.3，Author Responses](https://neurips.cc/Conferences/2026/MainTrackHandbook)：2026 主会回复流程、匿名、篇幅与新结果要求；其他年份和赛道另查指南。核查日期：2026-10-07。
+- [ICLR 2026 · Author Guide，Discussion Stages](https://iclr.cc/Conferences/2026/AuthorGuide)：2026 讨论期修订与变更说明；审稿人和 AC 不必阅读每一版。实际投稿遵循当轮最新通知。核查日期：2026-10-07。
+- [ACL Rolling Review · Authors Guidelines，Author response](https://aclrollingreview.org/authors#author-response)：截至 2026-10-07 可见的作者回复指南；页面注明此版适用至 2026 年 8 月轮次，后续轮次需重查。用于了解 ARR 与直接投会议的区别，不作后续轮次规则保证。
+- [Yuqin Dai et al. (AAAI 2025) · Harmonious Music-driven Group Choreography with Trajectory-Controllable Diffusion](https://ojs.aaai.org/index.php/AAAI/article/view/32268)：论文作者在本指南中用少量原文短引讲解贡献、动机、方法与实验，逐项标明节名、页码和中文翻译；英文引句保持原貌，教学改写单独标注。TCDiff 的数据、性能与结论仅限论文报告的任务与比较条件。
+- [Yuqin Dai et al. (AAAI 2026) · Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools with Reinforcement Learning](https://ojs.aaai.org/index.php/AAAI/article/view/40299)：AAAI 2026 正式发表；作者终稿短引，讲解问题、搜索操作、奖励、指标与消融。保留 AAAI 原版权。
+- [Pengyu Zeng et al. (EMNLP 2025) · CARD: Cross-modal Agent Framework for Generative and Editable Residential Design](https://aclanthology.org/2025.emnlp-main.473/)：EMNLP 2025 正式发表；模块输入输出、公平比较、人评重复与表示转换。原文 CC BY 4.0，中文为本指南翻译。
+- [Zeng, Dai et al. (2026 预印本) · PlanCraft: Sketch, Refine, and Furnish for Architect-Inspired Progressive 3D Residential Scene Generation](https://arxiv.org/abs/2607.23491v3)：摘录公开预印本中的短句与标题，分析渐进设计、方法总览、模块机制、结果段及 Fig.2 流程。英文、翻译和教学改写分开标注；结论限原文比较设置。
+- [Chaoyang Shi, Yuqin Dai et al. · UrbanZero（公开项目介绍）](https://github.com/Da1yuqin/Da1yuqin.github.io/blob/main/_pages/includes/pub.md#L193-L202)：依据公开项目介绍编写双语教学示例，讲解任务编译、逐块规划与程序反馈；教学实验和模拟回复不代表论文原文或实测结果。
+- [Ling Shi, Yuqin Dai et al. · SAGE: An Extensible Benchmark for Service Agent Graph-guided Evaluation](https://arxiv.org/abs/2604.09285)：用不同短引讲解术语、指标、比较对象、相关工作、全文论证、案例版式及事实澄清；不复制私有评审材料。模拟回复明确不属于实际 rebuttal。
+- [Yuqin Dai et al. · EviNoteRAG: Enhancing RAG Models via Quality-Augmented Evidence Notes](https://arxiv.org/abs/2509.00877)：用八处不同短引讲解摘要核对、背景取舍、近邻比较、引文用途、给 AI 的真实材料、润色边界和逐点回复。数值只对应终稿表中实际比较；模拟回复并非真实评审记录。
+- [Pengyu Zeng et al. (CVPR Findings 2026) · GreenPlanner: Practical Floorplan Layout Generation via an Energy-Aware and Function-Feasible Generative Framework](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html)：署名原文短引、中文翻译与写作拆解。数据合规、生成结果与不同输入设置分开；不将论文中的法规设置推广为一般建筑指导。
+- [Yuqin Dai et al. (IJCV 2026；引文为 arXiv v4) · TCDiff++: An End-to-end Trajectory-Controllable Diffusion Model for Harmonious Music-Driven Group Choreography](https://link.springer.com/article/10.1007/s11263-025-02611-3)：说明模块命名、实验设置、问题与对应设计、收益与代价、未实现能力的边界；仅使用署名短引，不复制期刊原图或全文。
+- [Jiaqi Wang et al. · TCOD (arXiv v3)](https://arxiv.org/abs/2604.24005v3)：多轮智能体蒸馏；图2说明如何把训练诊断组织成一条论证。公开预印本，CC BY 4.0。
+- [Ning Gao et al. · Reinforcing Real-world Service Agents (arXiv v1)](https://arxiv.org/abs/2602.22697v1)：服务智能体的质量与成本；图2/3和附录案例用于讲解编码、动态和排版。公开预印本，CC BY 4.0。
+- [OneReason Technical Report · Figure 12](https://arxiv.org/pdf/2606.06260v1#page=34)：训练策略对照图；仅链接分析，不转载原图。arXiv 分发许可不等于图片复用许可。
+- [Bruno et al. (2024) · A universal framework for inclusive 15-minute cities](https://arxiv.org/html/2408.03794v1)：地图、累计分布、多维气泡与设施迁移排名。原图只链接，点评为本指南整理；颜色和大小按原图注解释。
+- [pymoo · Pareto dominance](https://pymoo.org/getting_started/preface.html)：多目标比较与非支配解的定义
+- [Callaway & Sant’Anna · Difference-in-Differences with Multiple Time Periods](https://arxiv.org/abs/1803.09015)：DID 的比较设计与平行趋势识别条件
+- [Yuqin Dai et al. · EviNote-RAG: Enhancing RAG Models via Answer-Supportive Evidence Notes](https://arxiv.org/html/2509.00877v3#S5)：Conclusion 第一自然段：核心设计、作用与结果如何收束；表现判断只对应该版本的比较。

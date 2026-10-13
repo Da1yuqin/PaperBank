@@ -157,25 +157,25 @@ For example, [concrete input or situation] requires [specific behavior], which [
 
 **第 3 句：**例子显示缺口怎样发生，是否未检验仍需核对实际来源。
 
-#### 引言主体：对应设计
+#### Intro 方法介绍段：固定开头句
 
-按局限顺序说明改进、作用机制与输入输出，不能只列模块名称。
+these limitations 指前段已建立的具体局限。方法名后立即说明核心设计与用途，再按同一局限顺序展开解法；这是本教程的默认句式，当前人工定版优先。
 
 按论证顺序选用，段落可合并或拆分。
 
 教学模板；【】填真实材料。
 
-- 【铁律】方法段首承接已建立的障碍；方法名后同一句说明产物、核心设计与用途。随后逐项点名困难及对应解法，服从当前人工定版，不把 Therefore 或 To solve 设为永久必需。引言讲设计思路，实现细节留给 Method。
+- 【铁律】方法介绍段首接回前段已建立的具体局限；方法名后同一句说明产物、核心设计与用途。随后逐项点名局限及对应解法。本教程默认开头为 To address these limitations, we propose；当前稿的人工定版优先。引言讲设计思路，实现细节留给 Method。
 - Introduction 说明设计思路与作用；公式、模型细节与实现参数放在 Method。
 - 关键词与 Related Work、Method、图、实验一致。预期作用与实测效果分开。
 
 StarPaper 规范化写法
 
-To address these obstacles, we introduce [name], a [verified core feature and purpose].
+To address these limitations, we propose [Method Name], a [method/framework] that [core design] to [specific purpose].
 
-为应对这些障碍，我们提出[名称]，一个具有[已核验的核心亮点与用途]的[产物]。
+为应对这些局限，我们提出[方法名]，一种通过[核心设计]实现[具体目的]的[方法／框架]。
 
-**第 1 句：**【铁律】方法名后立即说明亮点与用途；总述后仍须逐点接回具体困难。
+**第 1 句：**these limitations 接回前段局限；同一句给出方法名、设计与用途，不用名称代替解释。
 
 For [challenge A], we [design A] using [actual input or signal].
 
@@ -194,6 +194,14 @@ For [challenge B], we [design B].
 为解决[困难 B]，我们采用[B 方案]。
 
 **第 4 句：**第二项方案处理另一项真实问题；没有就删除，不添加无必要的模块。
+
+**完整 LaTeX 结构模板**
+
+```latex
+To address these limitations, we propose [Method Name], a [method/framework] that [core design] to [specific purpose].
+For [specific limitation A], we [design A and its concrete role].
+For [another established limitation, if present], we [design B and its concrete role].
+```
 
 #### 引言收束：主要发现
 

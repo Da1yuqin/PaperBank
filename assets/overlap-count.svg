@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="610" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+<title id="title">Overlapping points: count observations, not visible dots</title>
+<desc id="desc">Synthetic example. Not paper results. Reproducible using the accompanying Python source.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="45.000" y="42.000" font-size="25" text-anchor="start" fill="#27343E">Overlapping points: count observations, not visible dots</text>
+<text x="45.000" y="72.000" font-size="18" text-anchor="start" fill="#BA7D73">Synthetic example / Not paper results</text>
+<text x="270.000" y="113.000" font-size="18" text-anchor="middle" fill="#27343E">A  Opaque scatter</text>
+<line x1="120.000" y1="445.000" x2="420.000" y2="445.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="450.000" font-size="15" text-anchor="end" fill="#27343E">0</text>
+<line x1="120.000" y1="385.000" x2="420.000" y2="385.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="390.000" font-size="15" text-anchor="end" fill="#27343E">1</text>
+<line x1="120.000" y1="325.000" x2="420.000" y2="325.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="330.000" font-size="15" text-anchor="end" fill="#27343E">2</text>
+<line x1="120.000" y1="265.000" x2="420.000" y2="265.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="270.000" font-size="15" text-anchor="end" fill="#27343E">3</text>
+<line x1="120.000" y1="205.000" x2="420.000" y2="205.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="210.000" font-size="15" text-anchor="end" fill="#27343E">4</text>
+<line x1="120.000" y1="145.000" x2="420.000" y2="145.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="150.000" font-size="15" text-anchor="end" fill="#27343E">5</text>
+<line x1="120.000" y1="445.000" x2="120.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="120.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">0</text>
+<line x1="180.000" y1="445.000" x2="180.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="180.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">1</text>
+<line x1="240.000" y1="445.000" x2="240.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="240.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">2</text>
+<line x1="300.000" y1="445.000" x2="300.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="300.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">3</text>
+<line x1="360.000" y1="445.000" x2="360.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="360.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">4</text>
+<line x1="420.000" y1="445.000" x2="420.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="420.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">5</text>
+<line x1="120.000" y1="145.000" x2="120.000" y2="445.000" stroke="#27343E" stroke-width="1.7"/>
+<line x1="120.000" y1="445.000" x2="420.000" y2="445.000" stroke="#27343E" stroke-width="1.7"/>
+<text x="270.000" y="502.000" font-size="17" text-anchor="middle" fill="#27343E">X (a.u.)</text>
+<text x="69.000" y="295.000" font-size="17" text-anchor="middle" fill="#27343E" transform="rotate(-90 69 295.0)">Y (a.u.)</text>
+<circle cx="150.000" cy="415.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="210.000" cy="415.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="150.000" cy="355.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="210.000" cy="355.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="210.000" cy="355.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="210.000" cy="355.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="210.000" cy="355.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="210.000" cy="355.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="210.000" cy="355.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="210.000" cy="355.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="355.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="355.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="355.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="355.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="210.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="210.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="210.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="390.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="270.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="390.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="390.000" cy="235.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="175.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="330.000" cy="175.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="390.000" cy="175.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<text x="690.000" y="113.000" font-size="18" text-anchor="middle" fill="#27343E">B  Counts in 1 × 1 bins</text>
+<line x1="540.000" y1="445.000" x2="840.000" y2="445.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="450.000" font-size="15" text-anchor="end" fill="#27343E">0</text>
+<line x1="540.000" y1="385.000" x2="840.000" y2="385.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="390.000" font-size="15" text-anchor="end" fill="#27343E">1</text>
+<line x1="540.000" y1="325.000" x2="840.000" y2="325.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="330.000" font-size="15" text-anchor="end" fill="#27343E">2</text>
+<line x1="540.000" y1="265.000" x2="840.000" y2="265.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="270.000" font-size="15" text-anchor="end" fill="#27343E">3</text>
+<line x1="540.000" y1="205.000" x2="840.000" y2="205.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="210.000" font-size="15" text-anchor="end" fill="#27343E">4</text>
+<line x1="540.000" y1="145.000" x2="840.000" y2="145.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="150.000" font-size="15" text-anchor="end" fill="#27343E">5</text>
+<line x1="540.000" y1="445.000" x2="540.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="540.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">0</text>
+<line x1="600.000" y1="445.000" x2="600.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="600.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">1</text>
+<line x1="660.000" y1="445.000" x2="660.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="660.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">2</text>
+<line x1="720.000" y1="445.000" x2="720.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="720.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">3</text>
+<line x1="780.000" y1="445.000" x2="780.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="780.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">4</text>
+<line x1="840.000" y1="445.000" x2="840.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="840.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">5</text>
+<line x1="540.000" y1="145.000" x2="540.000" y2="445.000" stroke="#27343E" stroke-width="1.7"/>
+<line x1="540.000" y1="445.000" x2="840.000" y2="445.000" stroke="#27343E" stroke-width="1.7"/>
+<text x="690.000" y="502.000" font-size="17" text-anchor="middle" fill="#27343E">X (a.u.)</text>
+<text x="489.000" y="295.000" font-size="17" text-anchor="middle" fill="#27343E" transform="rotate(-90 489 295.0)">Y (a.u.)</text>
+<rect x="540.000" y="385.000" width="60.000" height="60.000" fill="#ecf3f4" stroke="white"/>
+<text x="570.000" y="420.000" font-size="17" text-anchor="middle" fill="#27343E">1</text>
+<rect x="600.000" y="385.000" width="60.000" height="60.000" fill="#ecf3f4" stroke="white"/>
+<text x="630.000" y="420.000" font-size="17" text-anchor="middle" fill="#27343E">1</text>
+<rect x="660.000" y="385.000" width="60.000" height="60.000" fill="#f2f7f9" stroke="white"/>
+<text x="690.000" y="420.000" font-size="17" text-anchor="middle" fill="#27343E">0</text>
+<rect x="720.000" y="385.000" width="60.000" height="60.000" fill="#f2f7f9" stroke="white"/>
+<text x="750.000" y="420.000" font-size="17" text-anchor="middle" fill="#27343E">0</text>
+<rect x="780.000" y="385.000" width="60.000" height="60.000" fill="#f2f7f9" stroke="white"/>
+<text x="810.000" y="420.000" font-size="17" text-anchor="middle" fill="#27343E">0</text>
+<rect x="540.000" y="325.000" width="60.000" height="60.000" fill="#ecf3f4" stroke="white"/>
+<text x="570.000" y="360.000" font-size="17" text-anchor="middle" fill="#27343E">1</text>
+<rect x="600.000" y="325.000" width="60.000" height="60.000" fill="#c6dad4" stroke="white"/>
+<text x="630.000" y="360.000" font-size="17" text-anchor="middle" fill="#27343E">7</text>
+<rect x="660.000" y="325.000" width="60.000" height="60.000" fill="#d9e6e4" stroke="white"/>
+<text x="690.000" y="360.000" font-size="17" text-anchor="middle" fill="#27343E">4</text>
+<rect x="720.000" y="325.000" width="60.000" height="60.000" fill="#f2f7f9" stroke="white"/>
+<text x="750.000" y="360.000" font-size="17" text-anchor="middle" fill="#27343E">0</text>
+<rect x="780.000" y="325.000" width="60.000" height="60.000" fill="#f2f7f9" stroke="white"/>
+<text x="810.000" y="360.000" font-size="17" text-anchor="middle" fill="#27343E">0</text>
+<rect x="540.000" y="265.000" width="60.000" height="60.000" fill="#f2f7f9" stroke="white"/>
+<text x="570.000" y="300.000" font-size="17" text-anchor="middle" fill="#27343E">0</text>
+<rect x="600.000" y="265.000" width="60.000" height="60.000" fill="#dfeae9" stroke="white"/>
+<text x="630.000" y="300.000" font-size="17" text-anchor="middle" fill="#27343E">3</text>
+<rect x="660.000" y="265.000" width="60.000" height="60.000" fill="#a7c5ba" stroke="white"/>
+<text x="690.000" y="300.000" font-size="17" text-anchor="middle" fill="#27343E">12</text>
+<rect x="720.000" y="265.000" width="60.000" height="60.000" fill="#d3e2df" stroke="white"/>
+<text x="750.000" y="300.000" font-size="17" text-anchor="middle" fill="#27343E">5</text>
+<rect x="780.000" y="265.000" width="60.000" height="60.000" fill="#ecf3f4" stroke="white"/>
+<text x="810.000" y="300.000" font-size="17" text-anchor="middle" fill="#27343E">1</text>
+<rect x="540.000" y="205.000" width="60.000" height="60.000" fill="#f2f7f9" stroke="white"/>
+<text x="570.000" y="240.000" font-size="17" text-anchor="middle" fill="#27343E">0</text>
+<rect x="600.000" y="205.000" width="60.000" height="60.000" fill="#f2f7f9" stroke="white"/>
+<text x="630.000" y="240.000" font-size="17" text-anchor="middle" fill="#27343E">0</text>
+<rect x="660.000" y="205.000" width="60.000" height="60.000" fill="#ccdeda" stroke="white"/>
+<text x="690.000" y="240.000" font-size="17" text-anchor="middle" fill="#27343E">6</text>
+<rect x="720.000" y="205.000" width="60.000" height="60.000" fill="#c0d6cf" stroke="white"/>
+<text x="750.000" y="240.000" font-size="17" text-anchor="middle" fill="#27343E">8</text>
+<rect x="780.000" y="205.000" width="60.000" height="60.000" fill="#e6efee" stroke="white"/>
+<text x="810.000" y="240.000" font-size="17" text-anchor="middle" fill="#27343E">2</text>
+<rect x="540.000" y="145.000" width="60.000" height="60.000" fill="#f2f7f9" stroke="white"/>
+<text x="570.000" y="180.000" font-size="17" text-anchor="middle" fill="#27343E">0</text>
+<rect x="600.000" y="145.000" width="60.000" height="60.000" fill="#f2f7f9" stroke="white"/>
+<text x="630.000" y="180.000" font-size="17" text-anchor="middle" fill="#27343E">0</text>
+<rect x="660.000" y="145.000" width="60.000" height="60.000" fill="#f2f7f9" stroke="white"/>
+<text x="690.000" y="180.000" font-size="17" text-anchor="middle" fill="#27343E">0</text>
+<rect x="720.000" y="145.000" width="60.000" height="60.000" fill="#e6efee" stroke="white"/>
+<text x="750.000" y="180.000" font-size="17" text-anchor="middle" fill="#27343E">2</text>
+<rect x="780.000" y="145.000" width="60.000" height="60.000" fill="#ecf3f4" stroke="white"/>
+<text x="810.000" y="180.000" font-size="17" text-anchor="middle" fill="#27343E">1</text>
+<text x="690.000" y="529.000" font-size="14" text-anchor="middle" fill="#27343E">Color and labels both show the bin count</text>
+<text x="45.000" y="558.000" font-size="14" text-anchor="start" fill="#27343E">54 synthetic observations; multiple observations can occupy the same position.</text>
+<text x="45.000" y="579.000" font-size="14" text-anchor="start" fill="#27343E">Each bin covers one unit on each axis. Counting retains multiplicity but hides within-bin positions.</text>
+</g>
+</svg>

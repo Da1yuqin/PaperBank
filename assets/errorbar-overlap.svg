@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="610" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+<title id="title">Error-bar overlap: the bar type changes the picture</title>
+<desc id="desc">Synthetic example. Not paper results. Reproducible using the accompanying Python source.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="45.000" y="42.000" font-size="25" text-anchor="start" fill="#27343E">Error-bar overlap: the bar type changes the picture</text>
+<text x="45.000" y="72.000" font-size="18" text-anchor="start" fill="#BA7D73">Synthetic example / Not paper results</text>
+<text x="270.000" y="113.000" font-size="18" text-anchor="middle" fill="#27343E">A  Mean ± 1 SD</text>
+<line x1="120.000" y1="445.000" x2="420.000" y2="445.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="450.000" font-size="15" text-anchor="end" fill="#27343E">0</text>
+<line x1="120.000" y1="345.000" x2="420.000" y2="345.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="350.000" font-size="15" text-anchor="end" fill="#27343E">5</text>
+<line x1="120.000" y1="245.000" x2="420.000" y2="245.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="250.000" font-size="15" text-anchor="end" fill="#27343E">10</text>
+<line x1="120.000" y1="145.000" x2="420.000" y2="145.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="150.000" font-size="15" text-anchor="end" fill="#27343E">15</text>
+<line x1="220.000" y1="445.000" x2="220.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="220.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">A</text>
+<line x1="320.000" y1="445.000" x2="320.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="320.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">B</text>
+<line x1="120.000" y1="145.000" x2="120.000" y2="445.000" stroke="#27343E" stroke-width="1.7"/>
+<line x1="120.000" y1="445.000" x2="420.000" y2="445.000" stroke="#27343E" stroke-width="1.7"/>
+<text x="270.000" y="502.000" font-size="17" text-anchor="middle" fill="#27343E">Group (n = 5 each)</text>
+<text x="69.000" y="295.000" font-size="17" text-anchor="middle" fill="#27343E" transform="rotate(-90 69 295.0)">Score (a.u.)</text>
+<circle cx="202.000" cy="425.000" r="3.5" fill="#567F9C" fill-opacity="0.7"/>
+<circle cx="202.000" cy="385.000" r="3.5" fill="#567F9C" fill-opacity="0.7"/>
+<circle cx="202.000" cy="345.000" r="3.5" fill="#567F9C" fill-opacity="0.7"/>
+<circle cx="202.000" cy="305.000" r="3.5" fill="#567F9C" fill-opacity="0.7"/>
+<circle cx="202.000" cy="265.000" r="3.5" fill="#567F9C" fill-opacity="0.7"/>
+<line x1="228.000" y1="408.246" x2="228.000" y2="281.754" stroke="#567F9C" stroke-width="2.6"/>
+<line x1="219.000" y1="408.246" x2="237.000" y2="408.246" stroke="#567F9C" stroke-width="2.6"/>
+<line x1="219.000" y1="281.754" x2="237.000" y2="281.754" stroke="#567F9C" stroke-width="2.6"/>
+<circle cx="228.000" cy="345.000" r="6" fill="#567F9C" fill-opacity="1"/>
+<circle cx="302.000" cy="345.000" r="3.5" fill="#659386" fill-opacity="0.7"/>
+<circle cx="302.000" cy="305.000" r="3.5" fill="#659386" fill-opacity="0.7"/>
+<circle cx="302.000" cy="265.000" r="3.5" fill="#659386" fill-opacity="0.7"/>
+<circle cx="302.000" cy="225.000" r="3.5" fill="#659386" fill-opacity="0.7"/>
+<circle cx="302.000" cy="185.000" r="3.5" fill="#659386" fill-opacity="0.7"/>
+<line x1="328.000" y1="328.246" x2="328.000" y2="201.754" stroke="#659386" stroke-width="2.6"/>
+<line x1="319.000" y1="328.246" x2="337.000" y2="328.246" stroke="#659386" stroke-width="2.6"/>
+<line x1="319.000" y1="201.754" x2="337.000" y2="201.754" stroke="#659386" stroke-width="2.6"/>
+<circle cx="328.000" cy="265.000" r="6" fill="#659386" fill-opacity="1"/>
+<text x="690.000" y="113.000" font-size="18" text-anchor="middle" fill="#27343E">B  Mean ± 1 SE</text>
+<line x1="540.000" y1="445.000" x2="840.000" y2="445.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="450.000" font-size="15" text-anchor="end" fill="#27343E">0</text>
+<line x1="540.000" y1="345.000" x2="840.000" y2="345.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="350.000" font-size="15" text-anchor="end" fill="#27343E">5</text>
+<line x1="540.000" y1="245.000" x2="840.000" y2="245.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="250.000" font-size="15" text-anchor="end" fill="#27343E">10</text>
+<line x1="540.000" y1="145.000" x2="840.000" y2="145.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="150.000" font-size="15" text-anchor="end" fill="#27343E">15</text>
+<line x1="640.000" y1="445.000" x2="640.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="640.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">A</text>
+<line x1="740.000" y1="445.000" x2="740.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="740.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">B</text>
+<line x1="540.000" y1="145.000" x2="540.000" y2="445.000" stroke="#27343E" stroke-width="1.7"/>
+<line x1="540.000" y1="445.000" x2="840.000" y2="445.000" stroke="#27343E" stroke-width="1.7"/>
+<text x="690.000" y="502.000" font-size="17" text-anchor="middle" fill="#27343E">Group (n = 5 each)</text>
+<text x="489.000" y="295.000" font-size="17" text-anchor="middle" fill="#27343E" transform="rotate(-90 489 295.0)">Score (a.u.)</text>
+<circle cx="622.000" cy="425.000" r="3.5" fill="#567F9C" fill-opacity="0.7"/>
+<circle cx="622.000" cy="385.000" r="3.5" fill="#567F9C" fill-opacity="0.7"/>
+<circle cx="622.000" cy="345.000" r="3.5" fill="#567F9C" fill-opacity="0.7"/>
+<circle cx="622.000" cy="305.000" r="3.5" fill="#567F9C" fill-opacity="0.7"/>
+<circle cx="622.000" cy="265.000" r="3.5" fill="#567F9C" fill-opacity="0.7"/>
+<line x1="648.000" y1="373.284" x2="648.000" y2="316.716" stroke="#567F9C" stroke-width="2.6"/>
+<line x1="639.000" y1="373.284" x2="657.000" y2="373.284" stroke="#567F9C" stroke-width="2.6"/>
+<line x1="639.000" y1="316.716" x2="657.000" y2="316.716" stroke="#567F9C" stroke-width="2.6"/>
+<circle cx="648.000" cy="345.000" r="6" fill="#567F9C" fill-opacity="1"/>
+<circle cx="722.000" cy="345.000" r="3.5" fill="#659386" fill-opacity="0.7"/>
+<circle cx="722.000" cy="305.000" r="3.5" fill="#659386" fill-opacity="0.7"/>
+<circle cx="722.000" cy="265.000" r="3.5" fill="#659386" fill-opacity="0.7"/>
+<circle cx="722.000" cy="225.000" r="3.5" fill="#659386" fill-opacity="0.7"/>
+<circle cx="722.000" cy="185.000" r="3.5" fill="#659386" fill-opacity="0.7"/>
+<line x1="748.000" y1="293.284" x2="748.000" y2="236.716" stroke="#659386" stroke-width="2.6"/>
+<line x1="739.000" y1="293.284" x2="757.000" y2="293.284" stroke="#659386" stroke-width="2.6"/>
+<line x1="739.000" y1="236.716" x2="757.000" y2="236.716" stroke="#659386" stroke-width="2.6"/>
+<circle cx="748.000" cy="265.000" r="6" fill="#659386" fill-opacity="1"/>
+<text x="270.000" y="531.000" font-size="16" text-anchor="middle" fill="#27343E">SD bars overlap</text>
+<text x="690.000" y="531.000" font-size="16" text-anchor="middle" fill="#27343E">SE bars do not overlap</text>
+<text x="45.000" y="558.000" font-size="14" text-anchor="start" fill="#27343E">Same samples in both panels: A = [1, 3, 5, 7, 9]; B = [5, 7, 9, 11, 13].</text>
+<text x="45.000" y="579.000" font-size="14" text-anchor="start" fill="#27343E">SD = √10; SE = √2. Neither panel supplies a p-value or a test of the mean difference.</text>
+</g>
+</svg>
