@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="610" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+<title id="title">Same mean, different distributions: show the observations</title>
+<desc id="desc">Synthetic example. Not paper results. Reproducible using the accompanying Python source.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="45.000" y="42.000" font-size="25" text-anchor="start" fill="#27343E">Same mean, different distributions: show the observations</text>
+<text x="45.000" y="72.000" font-size="18" text-anchor="start" fill="#BA7D73">Synthetic example / Not paper results</text>
+<text x="270.000" y="113.000" font-size="18" text-anchor="middle" fill="#27343E">A  Means alone</text>
+<line x1="120.000" y1="445.000" x2="420.000" y2="445.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="450.000" font-size="15" text-anchor="end" fill="#27343E">0</text>
+<line x1="120.000" y1="370.000" x2="420.000" y2="370.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="375.000" font-size="15" text-anchor="end" fill="#27343E">3</text>
+<line x1="120.000" y1="295.000" x2="420.000" y2="295.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="300.000" font-size="15" text-anchor="end" fill="#27343E">6</text>
+<line x1="120.000" y1="220.000" x2="420.000" y2="220.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="225.000" font-size="15" text-anchor="end" fill="#27343E">9</text>
+<line x1="120.000" y1="145.000" x2="420.000" y2="145.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="109.000" y="150.000" font-size="15" text-anchor="end" fill="#27343E">12</text>
+<line x1="220.000" y1="445.000" x2="220.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="220.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">A</text>
+<line x1="320.000" y1="445.000" x2="320.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="320.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">B</text>
+<line x1="120.000" y1="145.000" x2="120.000" y2="445.000" stroke="#27343E" stroke-width="1.7"/>
+<line x1="120.000" y1="445.000" x2="420.000" y2="445.000" stroke="#27343E" stroke-width="1.7"/>
+<text x="270.000" y="502.000" font-size="17" text-anchor="middle" fill="#27343E">Synthetic group</text>
+<text x="69.000" y="295.000" font-size="17" text-anchor="middle" fill="#27343E" transform="rotate(-90 69 295.0)">Score (a.u.)</text>
+<rect x="195.000" y="295.000" width="50.000" height="150.000" fill="#567F9C" stroke="none"/>
+<text x="220.000" y="283.000" font-size="16" text-anchor="middle" fill="#27343E">Mean = 6</text>
+<rect x="295.000" y="295.000" width="50.000" height="150.000" fill="#659386" stroke="none"/>
+<text x="320.000" y="283.000" font-size="16" text-anchor="middle" fill="#27343E">Mean = 6</text>
+<text x="690.000" y="113.000" font-size="18" text-anchor="middle" fill="#27343E">B  Individual observations</text>
+<line x1="540.000" y1="445.000" x2="840.000" y2="445.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="450.000" font-size="15" text-anchor="end" fill="#27343E">0</text>
+<line x1="540.000" y1="370.000" x2="840.000" y2="370.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="375.000" font-size="15" text-anchor="end" fill="#27343E">3</text>
+<line x1="540.000" y1="295.000" x2="840.000" y2="295.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="300.000" font-size="15" text-anchor="end" fill="#27343E">6</text>
+<line x1="540.000" y1="220.000" x2="840.000" y2="220.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="225.000" font-size="15" text-anchor="end" fill="#27343E">9</text>
+<line x1="540.000" y1="145.000" x2="840.000" y2="145.000" stroke="#E3E8EB" stroke-width="1.2"/>
+<text x="529.000" y="150.000" font-size="15" text-anchor="end" fill="#27343E">12</text>
+<line x1="640.000" y1="445.000" x2="640.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="640.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">A</text>
+<line x1="740.000" y1="445.000" x2="740.000" y2="451.000" stroke="#27343E" stroke-width="1.2"/>
+<text x="740.000" y="473.000" font-size="16" text-anchor="middle" fill="#27343E">B</text>
+<line x1="540.000" y1="145.000" x2="540.000" y2="445.000" stroke="#27343E" stroke-width="1.7"/>
+<line x1="540.000" y1="445.000" x2="840.000" y2="445.000" stroke="#27343E" stroke-width="1.7"/>
+<text x="690.000" y="502.000" font-size="17" text-anchor="middle" fill="#27343E">Synthetic group</text>
+<text x="489.000" y="295.000" font-size="17" text-anchor="middle" fill="#27343E" transform="rotate(-90 489 295.0)">Score (a.u.)</text>
+<circle cx="622.000" cy="395.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="634.000" cy="345.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="640.000" cy="295.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="646.000" cy="245.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<circle cx="658.000" cy="195.000" r="5.5" fill="#567F9C" fill-opacity="1"/>
+<line x1="616.000" y1="295.000" x2="664.000" y2="295.000" stroke="#27343E" stroke-width="2.5"/>
+<circle cx="722.000" cy="320.000" r="5.5" fill="#659386" fill-opacity="1"/>
+<circle cx="734.000" cy="320.000" r="5.5" fill="#659386" fill-opacity="1"/>
+<circle cx="740.000" cy="295.000" r="5.5" fill="#659386" fill-opacity="1"/>
+<circle cx="746.000" cy="270.000" r="5.5" fill="#659386" fill-opacity="1"/>
+<circle cx="758.000" cy="270.000" r="5.5" fill="#659386" fill-opacity="1"/>
+<line x1="716.000" y1="295.000" x2="764.000" y2="295.000" stroke="#27343E" stroke-width="2.5"/>
+<text x="690.000" y="529.000" font-size="14" text-anchor="middle" fill="#27343E">Horizontal marks = means; n = 5 per group</text>
+<text x="45.000" y="558.000" font-size="14" text-anchor="start" fill="#27343E">Same mean (6), different spread: A = [2, 4, 6, 8, 10]; B = [5, 5, 6, 7, 7].</text>
+<text x="45.000" y="579.000" font-size="14" text-anchor="start" fill="#27343E">Small horizontal offsets reveal duplicate values; plotted y-values remain the original scores.</text>
+</g>
+</svg>

@@ -3188,10 +3188,10 @@
       "public": true
     },
     "plos_figures": {
-      "title": "Rougier et al. (2014) · Ten Simple Rules for Better Figures",
+      "title": "Rougier 等（2014）· 科研绘图的十条建议",
       "url": "https://doi.org/10.1371/journal.pcbi.1003833",
-      "scope": "根据读者与主要信息选择图型，检查布局、颜色及说明。",
-      "public": true
+      "public": true,
+      "scope": "根据读者与主要信息选择图型，检查布局、颜色及说明；以气泡面积编码非负数量，避免将半径直接设为数值。示意性形状大小不套用定量比例要求。"
     },
     "rr": {
       "title": "Henderson & Chambers (2022) · Ten simple rules for writing a Registered Report",
@@ -3435,6 +3435,30 @@
       "rights_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/license.html",
       "reuse_note": "保留原文、作者与版本；预印本与后续版本区分。",
       "public": true
+    },
+    "weissgerber_small_samples": {
+      "title": "Weissgerber 等（2015）· 小样本连续数据为何需要展示原始观测",
+      "url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128",
+      "public": true,
+      "scope": "小样本连续数据：原始观测点揭示均值与误差条隐藏的分布、离群点和配对关系；不禁止所有柱图，不规定统一的小样本阈值。"
+    },
+    "wilke_overlapping_points": {
+      "title": "Wilke（2019）· 散点重叠的处理",
+      "url": "https://clauswilke.com/dataviz/overlapping-points.html",
+      "public": true,
+      "scope": "调整点大小和透明度；密集散点可用二维分箱或 hexbin，并解释计数或密度。保留原始坐标，不采用 jitter；分箱不等于逐点展示。"
+    },
+    "wilke_color_pitfalls": {
+      "title": "Wilke（2019）· 颜色使用的常见误区",
+      "url": "https://clauswilke.com/dataviz/color-pitfalls.html",
+      "public": true,
+      "scope": "连续量用有大小顺序的色标，避免 rainbow/jet 误导；类别与参照值两侧的偏离分别选择离散或发散色板，不规定唯一色板。"
+    },
+    "cumming_error_bars": {
+      "title": "Cumming 等（2007）· 误差条与组间差异的解读",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2064100/",
+      "public": true,
+      "scope": "误差类型、独立样本数与独立或配对设计共同影响区间比较；不把特定条件下的近似重叠规则作为通用显著性判据。配对比较分析差值及相应不确定性。"
     }
   },
   "tools": [
@@ -3765,7 +3789,7 @@
       "cs-integration",
       "cs-limitations"
     ],
-    "updated_at": "2026-10-13 00:38",
+    "updated_at": "2026-10-13 12:00",
     "visual_rules": [
       "【铁律】保留真实数据、几何、拓扑、统计分母和输入输出。示意图与实测图明确区分；截图由真实生成源更新，不擦改证据像素。评分通过不等于真实执行、购买或部署成功。",
       "【铁律】表体文字、完整名称与同格引用、数值及上标误差保持单行。出现换行先调整模板允许范围内的总宽与列宽，不擅自简称、缩字或越过页边距。多级表头与注释保留各自结构。",
@@ -6130,6 +6154,56 @@
         "visuals": [
           "teaching-two-gain"
         ]
+      },
+      {
+        "title": "小样本：均值之外看原始观测",
+        "zh": "比较小样本的连续测量时，优先展示原始观测点与样本量，可叠加均值或区间；较多观测可用箱线图或已有分布图。均值相同不代表分布相同。计数、比例等汇总量仍可用柱图，不把这条写成禁止所有柱图。",
+        "example_en": "Both groups average 6, but one is dispersed and the other is tightly clustered.",
+        "example_zh": "两组均值都为 6，一组分散，另一组集中；原始点让差别可见。",
+        "visuals": [
+          "teaching-mean-distribution"
+        ],
+        "supplement": true
+      },
+      {
+        "title": "散点遮挡：必要时改看二维计数",
+        "zh": "重叠的点可能隐藏观测数量和少数类别。先检查透明度是否仍能呈现密集区与稀疏区；大量重叠时可用二维分箱或六边形分箱，说明每格计数、范围与箱宽。保留原始坐标，不为分开点而移动测量值；颜色深浅不是未经定义的概率。",
+        "example_en": "The scatter view hides repeated coordinates; each cell in the count view reports how many observations it contains.",
+        "example_zh": "散点图中相同坐标被盖住；二维计数图显示每个区域实际包含多少观测。",
+        "visuals": [
+          "teaching-overlap-count"
+        ],
+        "supplement": true
+      },
+      {
+        "title": "连续色标：让明暗顺序对应数值",
+        "zh": "无序类别用离散色板，连续大小用明暗顺序清楚的顺序色标；偏离有意义的参照值时用发散色标。连续数值不默认用 rainbow／jet：不均匀、非单调的明暗变化可能掩盖差异或制造边界。沿用现有色板的语义，检查灰度下的数值顺序。",
+        "example_en": "Equal steps in a continuous score should not acquire arbitrary bright boundaries from the palette.",
+        "example_zh": "分数等距变化，不应因为色板突然变亮而看起来有一道数据边界。",
+        "visuals": [
+          "teaching-continuous-color"
+        ],
+        "supplement": true
+      },
+      {
+        "title": "【铁律】气泡面积与数量成正比",
+        "zh": "用气泡面积表示非负数量时，面积必须与数量成正比，半径随数量平方根变化；给出大小图例与单位。数量变为 4 倍，面积变为 4 倍、半径变为 2 倍。圆面积关系来自 A = πr²；颜色或位置表示的其他变量分别解释。",
+        "example_en": "For counts 1, 4 and 9, proportional areas require radii in the ratio 1:2:3.",
+        "example_zh": "数量为 1、4、9 时，面积比为 1∶4∶9，对应半径比为 1∶2∶3。",
+        "visuals": [
+          "teaching-bubble-area"
+        ],
+        "supplement": true
+      },
+      {
+        "title": "误差线重叠：先认类型与比较设计",
+        "zh": "不能通用地把误差线重叠判作不显著，或把不重叠判作显著。解释依赖 SD、SE、CI 类型、样本量以及独立／配对设计；差异判断用相应检验或直接估计差值与区间。已有的误差类型、重复单位和区间定义继续保留，不凭图形外观补出 p 值。",
+        "example_en": "A paired comparison depends on within-pair differences; the two marginal error bars alone do not encode that pairing.",
+        "example_zh": "配对比较取决于同一对象的差值，两组均值各自的误差线并没有表示这个配对关系。",
+        "visuals": [
+          "teaching-errorbar-overlap"
+        ],
+        "supplement": true
       }
     ],
     "gallery": [
@@ -6642,6 +6716,91 @@
         ],
         "license": "StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。",
         "layout": "comparison"
+      },
+      {
+        "id": "teaching-mean-distribution",
+        "topic": "均值与原始分布",
+        "title": "同样的均值，可以藏着不同的分布",
+        "asset": "assets/mean-distribution.svg",
+        "zh": "左侧两柱均为6；右侧显示各组5个模拟观测，A分散、B集中，均值线保持相同。",
+        "en": "Both means are 6, while the five observations in each synthetic group reveal different spreads.",
+        "analysis_zh": [
+          "横轴区分组，纵轴是任意单位的模拟分数；左右使用相同的0到12坐标范围。",
+          "A为2、4、6、8、10，B为5、5、6、7、7；黑横线是组均值。水平错开仅用于避免重复点遮挡。",
+          "柱状汇总没有展示组内分布；本图用于小样本连续值，不表示所有柱状图都不合适，也没有统计检验。"
+        ],
+        "license": "StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py",
+        "layout": "comparison"
+      },
+      {
+        "id": "teaching-overlap-count",
+        "topic": "重叠点与二维计数",
+        "title": "点叠在一起，不等于只有一个观测",
+        "asset": "assets/overlap-count.svg",
+        "zh": "同一批54个模拟点，左图的重复位置完全遮挡，右图按1×1格统计数量并同时标数。",
+        "en": "The same 54 synthetic points are shown as an opaque scatterplot and as labeled counts in 1 × 1 bins.",
+        "analysis_zh": [
+          "左右横纵轴都是任意单位坐标，范围均为0到5；左侧每个点是一个观测，但同位置会重复遮挡。",
+          "右侧每格覆盖一个横轴单位和一个纵轴单位，颜色与数字表示落入该格的观测数，包含零计数。",
+          "二维分箱保留重复数量但丢失格内位置；实际使用需选择并说明分箱大小，不能把颜色直接读成概率。"
+        ],
+        "license": "StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py",
+        "layout": "comparison"
+      },
+      {
+        "id": "teaching-continuous-color",
+        "topic": "连续色标与基准",
+        "title": "连续数值的颜色，要让大小顺序看得出来",
+        "asset": "assets/continuous-color.svg",
+        "zh": "相同0到1数值分别用顺序色标和彩虹色标；灰度行暴露亮度是否单调，下方用零居中的发散色标显示正负差值。",
+        "en": "Identical 0–1 values use sequential and rainbow scales; grayscale exposes lightness order, and a zero-centered diverging example represents signed differences.",
+        "analysis_zh": [
+          "上方两行横向位置代表相同的0到1模拟值，下面的灰度按线性sRGB相对亮度计算，并非另外一批数据。",
+          "顺序色标随数值增加逐渐变暗；彩虹色标在中间变亮，可能突出非数据边界，颜色变化不等于真实分组。",
+          "下方示例范围为−1到1，浅色中心对应有意义的零差值；只有需要区分基准两侧时才使用发散色标。"
+        ],
+        "license": "StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py",
+        "layout": "comparison"
+      },
+      {
+        "id": "teaching-bubble-area",
+        "topic": "气泡面积编码",
+        "title": "数量变大四倍，气泡面积也应变大四倍",
+        "asset": "assets/bubble-area.svg",
+        "zh": "相同数量1、4、9，左图按半径缩放导致面积变成1、16、81；右图用平方根半径保持面积比例。",
+        "en": "The same quantities 1, 4, and 9 produce area ratios 1:16:81 when radius scales linearly, versus 1:4:9 when area scales linearly.",
+        "analysis_zh": [
+          "这是三种数量对应的图形编码对照，没有数据坐标轴；横向位置仅用于排列，标签v是被编码的模拟数量。",
+          "圆面积为πr²；左侧r=6v，右侧r=18√v，两侧最大圆半径都为54像素，以便公平比较各自比例。",
+          "以圆的大小表达数量时使用面积比例；本图不表示人能够精确估计面积，重要比较仍应给数值或位置编码。"
+        ],
+        "license": "StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py",
+        "layout": "comparison"
+      },
+      {
+        "id": "teaching-errorbar-overlap",
+        "topic": "误差线重叠与判断",
+        "title": "误差线重叠，不能直接当作显著性结论",
+        "asset": "assets/errorbar-overlap.svg",
+        "zh": "同两组模拟观测和相同均值，SD误差线重叠而SE误差线不重叠；图形变了，数据没有变。",
+        "en": "The same two synthetic samples have overlapping SD bars and non-overlapping SE bars; the data and means are unchanged.",
+        "analysis_zh": [
+          "左右各组均有5个构造观测，横轴是组，纵轴是任意单位分数；小点为原始观测，大点为均值5和9。",
+          "样本SD用n−1为分母，均为√10；SE=SD/√5=√2。左侧显示均值±1SD，右侧显示均值±1SE。",
+          "两种误差线回答不同问题，没有计算p值；重叠不是通用显著性判据，正式比较还需对应独立或配对设计的检验或差值区间。"
+        ],
+        "license": "StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0",
+        "source_title": "可复现教学绘图代码",
+        "source_url": "assets/generate-statistical-examples.py",
+        "layout": "comparison"
       }
     ],
     "skill": {
@@ -6649,10 +6808,17 @@
       "source": "skills/starpaper-figures/SKILL.md",
       "download": "assets/starpaper-figures-skill.zip",
       "intro": "解压后让 Codex 读取整个 starpaper-figures/ 文件夹，并提供稿件、原始数据、参考图及允许修改的文件。",
-      "instructions": "---\nname: starpaper-figures\ndescription: Create and refine CS paper main figures, framework diagrams, case illustrations, and quantitative charts from manuscripts and real data, with self-explanatory labels and final-size PDF checks.\n---\n\n# StarPaper 绘图 skill\n\nlatest:【2026-10-13 00:38】\n\n图须突出对应贡献，明确问题、输入、操作与输出。先核对内容和真实依赖，再调整布局、字体与配色。\n\n## 使用前\n\n核对目标会议及 track 的 AI 绘图规定，按要求披露；作者核实图的内容并承担责任。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。\n\n生成图用于已确认的概念或明确标注的教学示例，不能充当实验结果。保留原图出处与许可，不提供规避 AI 政策或检测的做法。\n\n## 先确认图的任务\n\n读取稿件对应段落、原始数据、已有图和作者允许修改的文件。确定图型、目标会议、最终插入宽度、正文实际字体与字号、已确认色板。缺关键材料先指出缺口，不编实验或流程。\n\n这是实证型 CS 论文的默认约定。作者当前要求和会议硬规则优先；Nature 系列使用其独立的写作与绘图体系，不强套本包的 CS 字号、浮动或案例配置。\n\n## 选图型与工具\n\n- **mainfig / Introduction 图**：讲具体问题、已有做法的缺口、本文改哪一步。默认不超过 5 个环节；保留理解贡献所需的输入、输出和必要对照。\n- **framework**：对应 Method Overview，说明关键设计为何针对 Intro 的困难，再讲真实模块、输入、操作、输出及接收者。用一个能追踪的案例串起来，保持并行、汇合与反馈的真实关系；训练、推理和评价分开。\n- **案例图**：给必要背景、有效需求、证据、回复或决策及判据。标清实测输出或作者示例；同一案例只完整呈现一次，其他位置交叉引用。\n- **统计图**：用 Python 等专业绘图工具读取真实数据，保留坐标、数值、误差、分母和统计几何。按数据形态选图，不为美观改数据、补缺测、平滑曲线或重跑实验。\n- **概念图**：按当前环境用 imagegen。先确认真实语义和连线，再生成图面；不要让生成器猜模块关系或发明实验结果。\n\n详细规范与中英例子见 [rules.md](references/rules.md)。只将明确必须遵守或禁止违反的要求标为铁律；图的编排与起草顺序是可调整建议。先读“绘图规范”，统计图再按需读“按图的任务选模板”。\n\n## 排字与配色\n\n按稿件最终栏宽起稿。图内所有文字同一字号，范围为正文减 2 pt 至正文，字体家族匹配；标题、轴、图例、注释都不能更大。以插入论文后的 PDF 实测为准，不看放大 PNG 猜字号。放不下就重排、删重复或拆图，不进行非等比缩放，不缩小规定字号。\n\n白底，面板近白，深色文字与刻度。常规模块用中性色，自己的关键改动用统一强调色，突出显示。同一对象全篇同色，再用点形、线型或纹理辅助；已有色板优先，不复制另一篇论文的配置。输入、输出、评价规则采用三种可解释的边框；仅供评价的规则不能画成模型输入。\n\n所有缩写、符号、箭头、颜色、图标和数值都可解释。图标旁写对象名，模块名与 Method 一致。对话一轮一框，长回复按语义分段；未评分的检查不画勾号。\n\n正文通栏先参考 16:9，单栏参考 4:3；这是初始布局参考。按内容重排并保留关键文字，附录可纵排。只改色时，保留布局、文字、照片、公式、字号和连线；不扩大改图范围或改论文模板。\n\n## Caption 与导出\n\n【铁律】每图自身解释实际简称。案例用具体条件对应难点标签，颜色说明点明连接对象；Caption 只留全图必要读法，单项判定写对应脚注。用 `\\footnote` 管理页底脚注、`\\footref` 复用，跨栏表可用 `footnotehyper` 的 `savenotes`；改排版后核查实际落页和跳转。\n\n【铁律】图表移到附录，同步详解、Overview 和引用，正文保留结论。评分通过不等于真实执行或成交；显示名称改写不改冻结 prompt、机器字段与统计，不冒称执行原文。\n\n【铁律】Caption 先说明图是什么，再解释必要标记与术语，按实际面板或上下左右顺序带读，最后给有证据的发现与贡献意义。写清比较对象和必要口径。解释单位、分母、误差、简称和未在图内解释的标记；不要重复图内文字，不用“画法说明”修补错误的数量或因果暗示。尽量三行，必要定义优先。\n\n统计图优先导出矢量 PDF 并嵌入字体。生成底图保留图像，用原生、可见、可选的 PDF 文字排标签；不叠两套字形，不用隐藏 OCR 文字层。混合 PDF 仍含位图，不能称全矢量。\n\nCS 图表默认使用 [!t]，按正文首次引用核对最终页内顺序。保留当前模板、数据、已有可靠图和合作者修改；图与 Caption 合计占高一起查。\n\n## 验收与交付\n\n把图插回论文、编译并查看受影响页面。逐项核对图形与源数据、真实依赖、实际字体字号、可选文字、字体嵌入、图例、裁切、碰撞和引用顺序。源码能编译不等于图已通过。\n\n保留生成或绘图源、真实数据来源、色板、最终提示词和导出文件。交付源文件、PDF 和预览图；只报告已完成的检查。远端同步、改实验或发布按原任务授权，不因本 skill 扩大权限。\n\n## 给 Codex 的提示词\n\n直接复制 [prompts.md](references/prompts.md) 中的绘图说明单，填写【】。提示词已列明本 skill 的适用铁律，和网页第一、二章使用同一份内容。\n\n## 来源与许可\n\nDa1yuqin / StarPaper，[网页](https://da1yuqin.github.io/StarPaper/#figures)。原创规则与教学例子采用 CC BY 4.0，详见 LICENSE。论文原图和第三方摘录不随本包分发；网页所链接材料保留各自许可。\n",
-      "updated_at": "2026-10-13 00:38"
+      "instructions": "---\nname: starpaper-figures\ndescription: Create and refine CS paper main figures, framework diagrams, case illustrations, and quantitative charts from manuscripts and real data, with self-explanatory labels and final-size PDF checks.\n---\n\n# StarPaper 绘图 skill\n\nlatest:【2026-10-13 12:00】\n\n图须突出对应贡献，明确问题、输入、操作与输出。先核对内容和真实依赖，再调整布局、字体与配色。\n\n## 使用前\n\n核对目标会议及 track 的 AI 绘图规定，按要求披露；作者核实图的内容并承担责任。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。\n\n生成图用于已确认的概念或明确标注的教学示例，不能充当实验结果。保留原图出处与许可，不提供规避 AI 政策或检测的做法。\n\n## 先确认图的任务\n\n读取稿件对应段落、原始数据、已有图和作者允许修改的文件。确定图型、目标会议、最终插入宽度、正文实际字体与字号、已确认色板。缺关键材料先指出缺口，不编实验或流程。\n\n这是实证型 CS 论文的默认约定。作者当前要求和会议硬规则优先；Nature 系列使用其独立的写作与绘图体系，不强套本包的 CS 字号、浮动或案例配置。\n\n## 选图型与工具\n\n- **mainfig / Introduction 图**：讲具体问题、已有做法的缺口、本文改哪一步。默认不超过 5 个环节；保留理解贡献所需的输入、输出和必要对照。\n- **framework**：对应 Method Overview，说明关键设计为何针对 Intro 的困难，再讲真实模块、输入、操作、输出及接收者。用一个能追踪的案例串起来，保持并行、汇合与反馈的真实关系；训练、推理和评价分开。\n- **案例图**：给必要背景、有效需求、证据、回复或决策及判据。标清实测输出或作者示例；同一案例只完整呈现一次，其他位置交叉引用。\n- **统计图**：用 Python 等专业绘图工具读取真实数据，保留坐标、数值、误差、分母和统计几何。按数据形态选图，不为美观改数据、补缺测、平滑曲线或重跑实验。\n- **概念图**：按当前环境用 imagegen。先确认真实语义和连线，再生成图面；不要让生成器猜模块关系或发明实验结果。\n\n详细规范与中英例子见 [rules.md](references/rules.md)。只将明确必须遵守或禁止违反的要求标为铁律；图的编排与起草顺序是可调整建议。先读“绘图规范”，统计图再按需读“按图的任务选模板”，其中补充了小样本、散点遮挡、连续色标、气泡面积和误差线读法。来源集中在该参考文件文末“相关参考和推荐阅读”。\n\n## 排字与配色\n\n按稿件最终栏宽起稿。图内所有文字同一字号，范围为正文减 2 pt 至正文，字体家族匹配；标题、轴、图例、注释都不能更大。以插入论文后的 PDF 实测为准，不看放大 PNG 猜字号。放不下就重排、删重复或拆图，不进行非等比缩放，不缩小规定字号。\n\n白底，面板近白，深色文字与刻度。常规模块用中性色，自己的关键改动用统一强调色，突出显示。同一对象全篇同色，再用点形、线型或纹理辅助；已有色板优先，不复制另一篇论文的配置。输入、输出、评价规则采用三种可解释的边框；仅供评价的规则不能画成模型输入。\n\n所有缩写、符号、箭头、颜色、图标和数值都可解释。图标旁写对象名，模块名与 Method 一致。对话一轮一框，长回复按语义分段；未评分的检查不画勾号。\n\n正文通栏先参考 16:9，单栏参考 4:3；这是初始布局参考。按内容重排并保留关键文字，附录可纵排。只改色时，保留布局、文字、照片、公式、字号和连线；不扩大改图范围或改论文模板。\n\n## Caption 与导出\n\n【铁律】每图自身解释实际简称。案例用具体条件对应难点标签，颜色说明点明连接对象；Caption 只留全图必要读法，单项判定写对应脚注。用 `\\footnote` 管理页底脚注、`\\footref` 复用，跨栏表可用 `footnotehyper` 的 `savenotes`；改排版后核查实际落页和跳转。\n\n【铁律】图表移到附录，同步详解、Overview 和引用，正文保留结论。评分通过不等于真实执行或成交；显示名称改写不改冻结 prompt、机器字段与统计，不冒称执行原文。\n\n【铁律】Caption 先说明图是什么，再解释必要标记与术语，按实际面板或上下左右顺序带读，最后给有证据的发现与贡献意义。写清比较对象和必要口径。解释单位、分母、误差、简称和未在图内解释的标记；不要重复图内文字，不用“画法说明”修补错误的数量或因果暗示。尽量三行，必要定义优先。\n\n统计图优先导出矢量 PDF 并嵌入字体。生成底图保留图像，用原生、可见、可选的 PDF 文字排标签；不叠两套字形，不用隐藏 OCR 文字层。混合 PDF 仍含位图，不能称全矢量。\n\nCS 图表默认使用 [!t]，按正文首次引用核对最终页内顺序。保留当前模板、数据、已有可靠图和合作者修改；图与 Caption 合计占高一起查。\n\n## 验收与交付\n\n把图插回论文、编译并查看受影响页面。逐项核对图形与源数据、真实依赖、实际字体字号、可选文字、字体嵌入、图例、裁切、碰撞和引用顺序。源码能编译不等于图已通过。\n\n保留生成或绘图源、真实数据来源、色板、最终提示词和导出文件。交付源文件、PDF 和预览图；只报告已完成的检查。远端同步、改实验或发布按原任务授权，不因本 skill 扩大权限。\n\n## 给 Codex 的提示词\n\n直接复制 [prompts.md](references/prompts.md) 中的绘图说明单，填写【】。提示词已列明本 skill 的适用铁律，和网页第一、二章使用同一份内容。\n\n## 来源与许可\n\nDa1yuqin / StarPaper，[网页](https://da1yuqin.github.io/StarPaper/#figures)。原创规则与教学例子采用 CC BY 4.0，详见 LICENSE。论文原图和第三方摘录不随本包分发；网页所链接材料保留各自许可。\n",
+      "updated_at": "2026-10-13 12:00"
     },
-    "prompt_ref": "figures"
+    "prompt_ref": "figures",
+    "reference_keys": [
+      "weissgerber_small_samples",
+      "wilke_overlapping_points",
+      "wilke_color_pitfalls",
+      "plos_figures",
+      "cumming_error_bars"
+    ]
   },
   "refine_scope": "这里的“规范化要求”是 StarPaper 的写作约定，不是所有会议的强制格式。模板给句子职责与前后关系；篇幅和章节位置按目标会议与研究类型调整。贡献列表固定三项，Limitations 使用单自然段 First、Second 两点模板；官方格式与当前人工要求优先。",
   "refine_templates": [
@@ -6836,20 +7002,20 @@
     {
       "id": "template-intro-design",
       "section": "intro",
-      "title": "引言主体：对应设计",
+      "title": "Intro 方法介绍段：固定开头句",
       "scope": "StarPaper 规范化写法",
-      "purpose": "按局限顺序说明改进、作用机制与输入输出，不能只列模块名称。",
+      "purpose": "these limitations 指前段已建立的具体局限。方法名后立即说明核心设计与用途，再按同一局限顺序展开解法；这是本教程的默认句式，当前人工定版优先。",
       "rules": [
-        "【铁律】方法段首承接已建立的障碍；方法名后同一句说明产物、核心设计与用途。随后逐项点名困难及对应解法，服从当前人工定版，不把 Therefore 或 To solve 设为永久必需。引言讲设计思路，实现细节留给 Method。",
+        "【铁律】方法介绍段首接回前段已建立的具体局限；方法名后同一句说明产物、核心设计与用途。随后逐项点名局限及对应解法。本教程默认开头为 To address these limitations, we propose；当前稿的人工定版优先。引言讲设计思路，实现细节留给 Method。",
         "Introduction 说明设计思路与作用；公式、模型细节与实现参数放在 Method。",
         "关键词与 Related Work、Method、图、实验一致。预期作用与实测效果分开。"
       ],
       "label": "教学模板；【】填真实材料。",
       "sentences": [
         {
-          "en": "To address these obstacles, we introduce [name], a [verified core feature and purpose].",
-          "zh": "为应对这些障碍，我们提出[名称]，一个具有[已核验的核心亮点与用途]的[产物]。",
-          "why_zh": "【铁律】方法名后立即说明亮点与用途；总述后仍须逐点接回具体困难。"
+          "en": "To address these limitations, we propose [Method Name], a [method/framework] that [core design] to [specific purpose].",
+          "zh": "为应对这些局限，我们提出[方法名]，一种通过[核心设计]实现[具体目的]的[方法／框架]。",
+          "why_zh": "these limitations 接回前段局限；同一句给出方法名、设计与用途，不用名称代替解释。"
         },
         {
           "en": "For [challenge A], we [design A] using [actual input or signal].",
@@ -6867,7 +7033,9 @@
           "why_zh": "第二项方案处理另一项真实问题；没有就删除，不添加无必要的模块。"
         }
       ],
-      "context_zh": "按论证顺序选用，段落可合并或拆分。"
+      "context_zh": "按论证顺序选用，段落可合并或拆分。",
+      "placement": "before-examples",
+      "latex_template": "To address these limitations, we propose [Method Name], a [method/framework] that [core design] to [specific purpose].\nFor [specific limitation A], we [design A and its concrete role].\nFor [another established limitation, if present], we [design B and its concrete role]."
     },
     {
       "id": "template-intro-results",
@@ -6984,7 +7152,7 @@
       "section": "method",
       "title": "Method Overview：完整模板",
       "scope": "StarPaper 规范化写法；按真实依赖替换或删除阶段",
-      "purpose": "首句说明关键设计为何针对 Introduction 的困难，随后按真实依赖说明各步骤与章节位置。",
+      "purpose": "先接回 Introduction 的具体困难，说明关键设计的作用，再用真实章节名和编号概括输入、操作、产物与依赖；末句对应框架图。方括号填自己的材料，不存在的阶段删除；并行与反馈按真实关系写。",
       "rules": [
         "先写核心设计相对已有做法的最有用区别，再介绍各节如何实现它；只列目录没有贡献。",
         "Overview、章节标题、framework 中的模块名称对应；章节名是阅读位置，不是执行动作的主体。",
@@ -7024,7 +7192,8 @@
           "why_zh": "收束到框架图，读者此时能把每个节点与正文对应。"
         }
       ],
-      "latex_template": "To address [Intro challenge], we [key design] rather than [verified prior approach]\nto [specific intended capability].\nIn \\textbf{[Problem Formulation]}\n(\\S\\ref{sec:problem}), we define [input] and [required output].\nFollowing this definition, in \\textbf{[Input Construction]}\n(\\S\\ref{sec:inputs}), we construct [inputs] from [verified source].\nUsing [constructed inputs], in \\textbf{[Processing]}\n(\\S\\ref{sec:processing}), we [operation] to obtain [intermediate output].\nGiven [intermediate output], in \\textbf{[Output Generation]}\n(\\S\\ref{sec:output}), we [operation] and produce [final output].\nFigure~\\ref{fig:framework} summarizes this workflow."
+      "latex_template": "To address [Intro challenge], we [key design] rather than [verified prior approach]\nto [specific intended capability].\nIn \\textbf{[Problem Formulation]}\n(\\S\\ref{sec:problem}), we define [input] and [required output].\nFollowing this definition, in \\textbf{[Input Construction]}\n(\\S\\ref{sec:inputs}), we construct [inputs] from [verified source].\nUsing [constructed inputs], in \\textbf{[Processing]}\n(\\S\\ref{sec:processing}), we [operation] to obtain [intermediate output].\nGiven [intermediate output], in \\textbf{[Output Generation]}\n(\\S\\ref{sec:output}), we [operation] and produce [final output].\nFigure~\\ref{fig:framework} summarizes this workflow.",
+      "placement": "before-examples"
     },
     {
       "id": "template-problem-formulation",
@@ -9095,8 +9264,8 @@
         "zh": "“这个问题” → 两类困难"
       },
       {
-        "en": "To address these obstacles, we introduce [Benchmark].",
-        "zh": "“这些困难” → 本文解法"
+        "en": "To address these limitations, we propose [Benchmark].",
+        "zh": "“这些局限” → 本文解法"
       },
       {
         "en": "To answer this question, we evaluate [models].",
@@ -9148,7 +9317,7 @@
       "【铁律】前两段可穿插、合并或拆分，但要有领域回顾与已有方法比较。回顾给局限铺路：后面批评什么，前面先说明已有方法怎样处理它。",
       "【铁律】挑战名称本身就要显示困难：什么缺失、什么难以完成、什么阻碍目标。随后解释原因和影响，中性任务属性不能直接当挑战名。",
       "【铁律】贡献对象与动作尽早出现。expert-confirmed、manually selected、tailored 等词要对应实际工作；写清选择依据，不用“高质量”代替依据。",
-      "【铁律】方法段首承接已建立的障碍；方法名后同一句说明产物、核心设计与用途。随后逐项点名困难及对应解法，服从当前人工定版，不把 Therefore 或 To solve 设为永久必需。引言讲设计思路，实现细节留给 Method。",
+      "【铁律】方法介绍段首接回前段已建立的具体局限；方法名后同一句说明产物、核心设计与用途。随后逐项点名局限及对应解法。本教程默认开头为 To address these limitations, we propose；当前稿的人工定版优先。引言讲设计思路，实现细节留给 Method。",
       "结果段可先接回研究问题，再概述发现；摘要压缩、引言展开，不逐字重复，不把排名当分析。",
       "【铁律】摘要、引言及正文的问题、设计、名称、数字、范围与因果方向一致；每次修改后回读对应部分。局限沿用同一名称，Related Work 给比较依据，Method 说明设计，实验提供检验。",
       "【铁律】结果概述对应正文实际结论。若实验只支持某些任务或条件，摘要、引言、讨论和结论都限定到相同范围。",
@@ -9642,7 +9811,12 @@
       "teaching-two-gain": "双指标增益",
       "teaching-mainfig-before-after": "模板 1：问题与改动对照",
       "teaching-framework-before-after": "模板 1：输入、产物与评价分离",
-      "teaching-experiment-before-after": "模板 1：同一数据的排版优化"
+      "teaching-experiment-before-after": "模板 1：同一数据的排版优化",
+      "teaching-mean-distribution": "小样本：均值相同，分布不同",
+      "teaching-overlap-count": "散点遮挡：重叠点与二维计数",
+      "teaching-continuous-color": "连续色标：不要让配色制造边界",
+      "teaching-bubble-area": "气泡编码：数量对应面积",
+      "teaching-errorbar-overlap": "误差线：重叠不构成通用判据"
     },
     "template_titles": {
       "template-title": "标题模板",
@@ -9651,11 +9825,11 @@
       "template-intro-opening": "引言开头",
       "template-intro-prior": "领域回顾与比较",
       "template-intro-limitations": "研究局限",
-      "template-intro-design": "方法设计",
+      "template-intro-design": "Intro 方法介绍段：固定开头句",
       "template-intro-results": "主要发现",
       "template-intro-contributions": "贡献列表",
       "template-related-work": "相关工作模板",
-      "template-method-overview": "方法概述模板",
+      "template-method-overview": "Method Overview：完整模板",
       "template-problem-formulation": "任务定义模板",
       "template-method-module": "组件说明模板",
       "template-experiment-overview": "实验组织",
@@ -9849,7 +10023,7 @@
           "id": "design",
           "key": "M",
           "label": "核心设计与贡献",
-          "intro_sentence": "To address these obstacles, we introduce [name], a [核心亮点与用途]。For [同名局限], we [核心设计的具体动作].",
+          "intro_sentence": "To address these limitations, we propose [name], a [核心亮点与用途]。For [同名局限], we [核心设计的具体动作].",
           "intro_mark": "[核心设计的具体动作]",
           "hook": "For [named limitation], we [concrete contribution].",
           "targets": [
@@ -10005,7 +10179,8 @@
             "完整方法与删组件版本保持同顺序、同配色；再用线型、点形或纹理区分。少量柱可画细一些，透明度保留重叠；图例放空白处，关键点就近标注。",
             "【铁律】从真实记录绘制，保留缺测、下降和不确定性；不补点、不编误差、不为平滑改曲线。误差写明统计单位、类型与计算方法。",
             "【铁律】坐标有单位、方向和必要分母；同类面板保持可比尺度。柱图优先零起点，截断须明显标出；相对增益同时给绝对值，百分点与百分比区分。",
-            "【铁律】统计图导出矢量 PDF 并嵌入字体，核对数值与图形对应。KDE 是密度，ECDF 才读累计比例；投影分开不证明泛化好，雷达面积不是综合分数。"
+            "【铁律】统计图导出矢量 PDF 并嵌入字体，核对数值与图形对应。KDE 是密度，ECDF 才读累计比例；投影分开不证明泛化好，雷达面积不是综合分数。",
+            "原始点、散点遮挡、连续色标、气泡面积与误差线读法，按需要查文末绘图附录；各项依据集中在“相关参考和推荐阅读”。"
           ],
           "visuals": [
             "teaching-experiment-before-after",
@@ -10066,7 +10241,7 @@
               },
               {
                 "heading": "对应设计与贡献",
-                "text": "To address these obstacles, we introduce [method name], a [verified distinguishing design and purpose]. For [specific limitation], we [concrete design action and contribution] to meet [corresponding design requirement]. It takes [input] and produces [output] through [high-level mechanism]. For [another established limitation, if present], we [next design action] using [preceding output] to [corresponding purpose]. Together, these designs enable [supported capability] under [stated conditions].",
+                "text": "To address these limitations, we propose [method name], a [verified distinguishing design and purpose]. For [specific limitation], we [concrete design action and contribution] to meet [corresponding design requirement]. It takes [input] and produces [output] through [high-level mechanism]. For [another established limitation, if present], we [next design action] using [preceding output] to [corresponding purpose]. Together, these designs enable [supported capability] under [stated conditions].",
                 "note": "【铁律】方法名后立即交代亮点和用途；解法钩子点名前文同一个局限并给对应动作。每项设计有依据，正面修饰能从来源、操作或结果中核查。"
               },
               {
@@ -10104,7 +10279,7 @@
               },
               {
                 "heading": "数据、判据与核心贡献",
-                "text": "To address these obstacles, we introduce [artifact name], a [verified source or distinguishing design] for [evaluation purpose]. For [data construction obstacle], we construct [data contribution] from [verified source] using [documented selection or collection rule]. For [specific evaluation limitation], we [evaluation contribution and action] to measure [capability linked to the earlier gap]. The tested system receives [task input], while [evaluation evidence or criteria] is used by [evaluator] to assess [system output]. These components support [supported evaluation capability] within [coverage boundary].",
+                "text": "To address these limitations, we propose [artifact name], a [verified source or distinguishing design] for [evaluation purpose]. For [data construction obstacle], we construct [data contribution] from [verified source] using [documented selection or collection rule]. For [specific evaluation limitation], we [evaluation contribution and action] to measure [capability linked to the earlier gap]. The tested system receives [task input], while [evaluation evidence or criteria] is used by [evaluator] to assess [system output]. These components support [supported evaluation capability] within [coverage boundary].",
                 "note": "【铁律】先突出产物，再写可执行的来源与构建依据；解法钩子复用评价局限名称。受测系统输入与评分材料分开，数据与判据分别接回对应困难。"
               },
               {
@@ -10137,7 +10312,7 @@
               },
               {
                 "heading": "针对瓶颈的设计",
-                "text": "To address these obstacles, we introduce [method name], a [distinguishing design and purpose]. For [diagnosed bottleneck], we [concrete design action] to [corresponding role]. For [another established bottleneck, if present], we [next design action] using [preceding output] to [corresponding role]. [training or execution procedure] combines these components to produce [output].",
+                "text": "To address these limitations, we propose [method name], a [distinguishing design and purpose]. For [diagnosed bottleneck], we [concrete design action] to [corresponding role]. For [another established bottleneck, if present], we [next design action] using [preceding output] to [corresponding role]. [training or execution procedure] combines these components to produce [output].",
                 "note": "核心动作靠前，每项设计接到前面的诊断。没有独立第二项就删去；训练或推理按实际方法写。"
               },
               {
@@ -10170,7 +10345,7 @@
               },
               {
                 "heading": "研究设计与可检验贡献",
-                "text": "To address these obstacles, we introduce [study or analysis], a [verified distinguishing design] for testing [research question]. For [specific evidence limitation], we [core comparison or measurement]. We compare [groups or conditions] that differ in [examined factor], using [documented control or adjustment] to examine [alternative explanation]. [measurement or analysis contribution] measures [observable outcome] using [verified data or procedure]. This design estimates [precise quantity or relationship] within [study population and conditions].",
+                "text": "To address these limitations, we propose [study or analysis], a [verified distinguishing design] for testing [research question]. For [specific evidence limitation], we [core comparison or measurement]. We compare [groups or conditions] that differ in [examined factor], using [documented control or adjustment] to examine [alternative explanation]. [measurement or analysis contribution] measures [observable outcome] using [verified data or procedure]. This design estimates [precise quantity or relationship] within [study population and conditions].",
                 "note": "【铁律】解法钩子点名证据缺口，贡献落到可复核的比较或测量。受控实验交代改变因素；观察研究交代自然差异、调整及估计对象，不把调整写成排除所有解释。"
               },
               {
@@ -10319,7 +10494,7 @@
           "label": "贡献",
           "abstract": "For [specific limitation], we introduce [name], which uses [core design] to [purpose].",
           "abstract_mark": "[core design]",
-          "intro": "To address these obstacles, we introduce [name], a [key feature and purpose]. For [specific limitation], we use [core design] to [concrete action and role].",
+          "intro": "To address these limitations, we propose [name], a [key feature and purpose]. For [specific limitation], we use [core design] to [concrete action and role].",
           "intro_mark": "[core design]",
           "relation": "同一贡献，展开设计作用",
           "link": "intro-map-design"
@@ -10374,7 +10549,7 @@
                   },
                   {
                     "title": "核心工作与设计",
-                    "text": "To address these obstacles, we introduce [name], a [亮点与用途]. 随后用 For [limitation], we [设计与作用] 逐项对应。"
+                    "text": "To address these limitations, we propose [name], a [亮点与用途]. 随后用 For [limitation], we [设计与作用] 逐项对应。"
                   },
                   {
                     "title": "结果与贡献总结",
@@ -10511,7 +10686,7 @@
                   },
                   {
                     "title": "产物与对应贡献",
-                    "text": "To address these obstacles, we introduce [name], a [亮点与评价用途]. For [评价局限], we [数据或判据设计]."
+                    "text": "To address these limitations, we propose [name], a [亮点与评价用途]. For [评价局限], we [数据或判据设计]."
                   },
                   {
                     "title": "测评发现与贡献总结",
@@ -10769,6 +10944,16 @@
     }
   },
   "update_log": [
+    {
+      "at": "2026-10-13T12:00:47+08:00",
+      "date": "2026-10-13 12:00",
+      "title": "补充统计图读法与写作模板",
+      "changes": [
+        "补充小样本、散点遮挡、连续色标、气泡面积与误差线的五组教学图。",
+        "Method Overview 模板前置显示，Intro 方法介绍段增加固定开头句。",
+        "来源集中到文末“相关参考和推荐阅读”，同步写作与绘图下载包。"
+      ]
+    },
     {
       "at": "2026-10-13T11:13:04+08:00",
       "date": "2026-10-13 11:13",

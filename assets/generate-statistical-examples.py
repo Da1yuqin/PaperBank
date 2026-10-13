@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Generate ten original SVG examples with synthetic data and no dependencies.
+"""Generate original SVG examples with synthetic data and no dependencies.
 
-Run: python3 generate.py
+Run: python3 assets/generate-statistical-examples.py
 Assets and metadata are written beside this file, independent of the working
 directory. Every displayed value comes from the data or calculations below.
 """
@@ -144,6 +144,229 @@ def jacobi_eigen(matrix):
     order = sorted(range(n), key=lambda i: values[i][i], reverse=True)
     return ([values[i][i] for i in order],
             [[vectors[k][i] for k in range(n)] for i in order])
+
+
+def generate_supplements():
+    """Add five comparisons without consuming the original examples' RNG."""
+    def rect(svg, x, y, width, height, fill, stroke='none'):
+        svg.append(f'<rect x="{x:.3f}" y="{y:.3f}" width="{width:.3f}" '
+                   f'height="{height:.3f}" fill="{fill}" stroke="{stroke}"/>')
+
+    def panel(svg, left, xmin, xmax, ymin, ymax, xticks, yticks,
+              xlabel, ylabel, heading):
+        top, width, height = 145, 300, 300
+        px = lambda value: left + width * (value - xmin) / (xmax - xmin)
+        py = lambda value: top + height - height * (value - ymin) / (ymax - ymin)
+        svg.append(text(left + width / 2, 113, heading, 18, 'middle'))
+        for value in yticks:
+            svg.append(line(left, py(value), left + width, py(value)))
+            svg.append(text(left - 11, py(value) + 5, f'{value:g}', 15, 'end'))
+        for value, label in xticks:
+            svg.append(line(px(value), top + height, px(value), top + height + 6, INK))
+            svg.append(text(px(value), top + height + 28, label, 16, 'middle'))
+        svg.extend([line(left, top, left, top + height, INK, 1.7),
+                    line(left, top + height, left + width, top + height, INK, 1.7),
+                    text(left + width / 2, top + height + 57, xlabel, 17, 'middle'),
+                    text(left - 51, top + height / 2, ylabel, 17, 'middle', rotate=-90)])
+        return px, py
+
+    def mix(start, end, weight):
+        return tuple(round(a + weight * (b - a)) for a, b in zip(start, end))
+
+    def hex_color(rgb):
+        return '#%02x%02x%02x' % rgb
+
+    def luminance(rgb):
+        channels = [v / 255 for v in rgb]
+        linear = [v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4
+                  for v in channels]
+        return sum(v * w for v, w in zip(linear, [0.2126, 0.7152, 0.0722]))
+
+    def grayscale(rgb):
+        value = luminance(rgb)
+        encoded = 12.92 * value if value <= 0.0031308 else 1.055 * value ** (1 / 2.4) - 0.055
+        return hex_color((round(255 * encoded),) * 3)
+
+    # The two groups share a mean, but the first has much greater spread.
+    groups = [[2, 4, 6, 8, 10], [5, 5, 6, 7, 7]]
+    means = [statistics.mean(values) for values in groups]
+    assert means == [6, 6]
+    svg = canvas('Same mean, different distributions: show the observations')
+    for left, heading, show_points in [(120, 'A  Means alone', False),
+                                       (540, 'B  Individual observations', True)]:
+        px, py = panel(svg, left, 0, 3, 0, 12, [(1, 'A'), (2, 'B')],
+                       [0, 3, 6, 9, 12], 'Synthetic group', 'Score (a.u.)', heading)
+        for index, (values, mean, color) in enumerate(zip(groups, means, [BLUE, TEAL]), 1):
+            if show_points:
+                for value, offset in zip(values, [-18, -6, 0, 6, 18]):
+                    svg.append(circle(px(index) + offset, py(value), 5.5, color))
+                svg.append(line(px(index) - 24, py(mean), px(index) + 24, py(mean), INK, 2.5))
+            else:
+                rect(svg, px(index) - 25, py(mean), 50, py(0) - py(mean), color)
+                svg.append(text(px(index), py(mean) - 12, f'Mean = {mean:g}', 16, 'middle'))
+    svg.append(text(690, 529, 'Horizontal marks = means; n = 5 per group', 14, 'middle'))
+    save(svg, 'mean-distribution.svg', [
+        'Same mean (6), different spread: A = [2, 4, 6, 8, 10]; B = [5, 5, 6, 7, 7].',
+        'Small horizontal offsets reveal duplicate values; plotted y-values remain the original scores.'])
+    describe('teaching-mean-distribution', '均值与原始分布', '同样的均值，可以藏着不同的分布',
+             'mean-distribution.svg', '左侧两柱均为6；右侧显示各组5个模拟观测，A分散、B集中，均值线保持相同。',
+             'Both means are 6, while the five observations in each synthetic group reveal different spreads.',
+             ['横轴区分组，纵轴是任意单位的模拟分数；左右使用相同的0到12坐标范围。',
+              'A为2、4、6、8、10，B为5、5、6、7、7；黑横线是组均值。水平错开仅用于避免重复点遮挡。',
+              '柱状汇总没有展示组内分布；本图用于小样本连续值，不表示所有柱状图都不合适，也没有统计检验。'],
+             {'samples': groups, 'means': means, 'n_per_group': 5,
+              'sample_sd': [statistics.stdev(values) for values in groups],
+              'display_offsets_px': [-18, -6, 0, 6, 18]})
+
+    # Identical observed positions are preserved; a second view counts them.
+    counts = [[1, 1, 0, 0, 0], [1, 7, 4, 0, 0], [0, 3, 12, 5, 1],
+              [0, 0, 6, 8, 2], [0, 0, 0, 2, 1]]
+    observations = [(column + 0.5, row + 0.5)
+                    for row, values in enumerate(counts)
+                    for column, count in enumerate(values) for _ in range(count)]
+    svg = canvas('Overlapping points: count observations, not visible dots')
+    xticks = [(value, str(value)) for value in range(6)]
+    px, py = panel(svg, 120, 0, 5, 0, 5, xticks, list(range(6)),
+                   'X (a.u.)', 'Y (a.u.)', 'A  Opaque scatter')
+    for x, y in observations:
+        svg.append(circle(px(x), py(y), 5.5, BLUE))
+    px, py = panel(svg, 540, 0, 5, 0, 5, xticks, list(range(6)),
+                   'X (a.u.)', 'Y (a.u.)', 'B  Counts in 1 × 1 bins')
+    for row, values in enumerate(counts):
+        for column, count in enumerate(values):
+            fill = hex_color(mix((242, 247, 249), (167, 197, 186), count / 12))
+            rect(svg, px(column), py(row + 1), 60, 60, fill, 'white')
+            svg.append(text(px(column + 0.5), py(row + 0.5) + 5, count, 17, 'middle'))
+    svg.append(text(690, 529, 'Color and labels both show the bin count', 14, 'middle'))
+    save(svg, 'overlap-count.svg', [
+        f'{len(observations)} synthetic observations; multiple observations can occupy the same position.',
+        'Each bin covers one unit on each axis. Counting retains multiplicity but hides within-bin positions.'])
+    describe('teaching-overlap-count', '重叠点与二维计数', '点叠在一起，不等于只有一个观测',
+             'overlap-count.svg', '同一批54个模拟点，左图的重复位置完全遮挡，右图按1×1格统计数量并同时标数。',
+             'The same 54 synthetic points are shown as an opaque scatterplot and as labeled counts in 1 × 1 bins.',
+             ['左右横纵轴都是任意单位坐标，范围均为0到5；左侧每个点是一个观测，但同位置会重复遮挡。',
+              '右侧每格覆盖一个横轴单位和一个纵轴单位，颜色与数字表示落入该格的观测数，包含零计数。',
+              '二维分箱保留重复数量但丢失格内位置；实际使用需选择并说明分箱大小，不能把颜色直接读成概率。'],
+             {'n': len(observations), 'points': observations, 'counts_by_y_then_x': counts,
+              'bin_width_x': 1, 'bin_width_y': 1, 'max_count': 12})
+
+    # Render identical values using ordered and non-monotonic lightness scales.
+    sequential = [mix((242, 247, 249), (86, 127, 156), i / 100) for i in range(101)]
+    rainbow_anchors = [(86, 127, 156), (99, 166, 182), (126, 180, 154),
+                       (225, 210, 117), (194, 137, 91), (159, 105, 116)]
+    rainbow = []
+    for i in range(101):
+        position = i / 20
+        segment = min(int(position), 4)
+        rainbow.append(mix(rainbow_anchors[segment], rainbow_anchors[segment + 1], position - segment))
+    seq_luminance = [luminance(rgb) for rgb in sequential]
+    rainbow_luminance = [luminance(rgb) for rgb in rainbow]
+    assert all(a >= b for a, b in zip(seq_luminance, seq_luminance[1:]))
+    assert max(rainbow_luminance) > max(rainbow_luminance[0], rainbow_luminance[-1])
+    svg = canvas('Continuous color: preserve order and define the reference')
+    svg.append(text(45, 113, 'Color rows encode identical 0–1 values; grayscale reveals their lightness order.', 16))
+    left, width = 250, 560
+    for colors, color_y, gray_y, label in [(sequential, 145, 185, 'Sequential'),
+                                          (rainbow, 245, 285, 'Rainbow')]:
+        svg.append(text(227, color_y + 25, label, 18, 'end'))
+        svg.append(text(227, gray_y + 18, 'Grayscale', 16, 'end'))
+        for index, rgb in enumerate(colors):
+            x = left + width * index / len(colors)
+            rect(svg, x, color_y, width / len(colors) + 0.1, 34, hex_color(rgb))
+            rect(svg, x, gray_y, width / len(colors) + 0.1, 24, grayscale(rgb))
+    for value in [0, 0.25, 0.5, 0.75, 1]:
+        x = left + width * value
+        svg.append(line(x, 323, x, 329, INK))
+        svg.append(text(x, 351, f'{value:g}', 16, 'middle'))
+    svg.append(text(left + width / 2, 379, 'Same synthetic value (0–1)', 17, 'middle'))
+    svg.append(text(227, 439, 'Diverging', 18, 'end'))
+    diverging = [mix((86, 127, 156), (242, 247, 249), i / 50) if i <= 50
+                 else mix((242, 247, 249), (186, 125, 115), (i - 50) / 50)
+                 for i in range(101)]
+    for index, rgb in enumerate(diverging):
+        rect(svg, left + width * index / len(diverging), 416,
+             width / len(diverging) + 0.1, 34, hex_color(rgb))
+    for value in [-1, 0, 1]:
+        x = left + width * (value + 1) / 2
+        svg.append(line(x, 452, x, 459, INK))
+        svg.append(text(x, 482, f'{value:g}', 16, 'middle'))
+    svg.append(text(left + width / 2, 516, 'Signed difference: meaningful reference = 0', 17, 'middle'))
+    save(svg, 'continuous-color.svg', [
+        'All values and palettes are synthetic. Sequential lightness is ordered; rainbow lightness rises then falls.',
+        'Grayscale is computed from linear-sRGB relative luminance; the diverging example has a defined zero.'])
+    describe('teaching-continuous-color', '连续色标与基准', '连续数值的颜色，要让大小顺序看得出来',
+             'continuous-color.svg', '相同0到1数值分别用顺序色标和彩虹色标；灰度行暴露亮度是否单调，下方用零居中的发散色标显示正负差值。',
+             'Identical 0–1 values use sequential and rainbow scales; grayscale exposes lightness order, and a zero-centered diverging example represents signed differences.',
+             ['上方两行横向位置代表相同的0到1模拟值，下面的灰度按线性sRGB相对亮度计算，并非另外一批数据。',
+              '顺序色标随数值增加逐渐变暗；彩虹色标在中间变亮，可能突出非数据边界，颜色变化不等于真实分组。',
+              '下方示例范围为−1到1，浅色中心对应有意义的零差值；只有需要区分基准两侧时才使用发散色标。'],
+             {'values': [i / 100 for i in range(101)],
+              'sequential_rgb': sequential, 'rainbow_rgb': rainbow,
+              'relative_luminance_sequential': seq_luminance,
+              'relative_luminance_rainbow': rainbow_luminance,
+              'diverging_reference': 0, 'diverging_range': [-1, 1]})
+
+    values = [1, 4, 9]
+    svg = canvas('Bubble size: encode quantity by area, not radius')
+    for center, heading, area_mapping in [(270, 'A  Radius proportional to value', False),
+                                         (660, 'B  Area proportional to value', True)]:
+        svg.append(text(center, 113, heading, 17, 'middle'))
+        svg.append(text(center, 176, 'Area ratio = ' + ('1 : 4 : 9' if area_mapping else '1 : 16 : 81'), 18, 'middle'))
+        for value, x in zip(values, [center - 110, center, center + 110]):
+            radius = 18 * math.sqrt(value) if area_mapping else 6 * value
+            svg.append(circle(x, 320, radius, TEAL if area_mapping else BLUE, 0.75))
+            svg.append(text(x, 423, f'v = {value}', 17, 'middle'))
+        svg.append(text(center, 482, 'Area preserves the value ratios' if area_mapping
+                        else 'Area exaggerates the value ratios', 16, 'middle'))
+        svg.append(text(center, 520, 'r = 18 × √v pixels' if area_mapping else 'r = 6 × v pixels', 17, 'middle'))
+    save(svg, 'bubble-area.svg', [
+        'Synthetic quantities v = 1, 4, 9; both panels give the largest circle a radius of 54 pixels.',
+        'Circle area = πr². Horizontal position only arranges the examples; it encodes no second quantity.'])
+    describe('teaching-bubble-area', '气泡面积编码', '数量变大四倍，气泡面积也应变大四倍',
+             'bubble-area.svg', '相同数量1、4、9，左图按半径缩放导致面积变成1、16、81；右图用平方根半径保持面积比例。',
+             'The same quantities 1, 4, and 9 produce area ratios 1:16:81 when radius scales linearly, versus 1:4:9 when area scales linearly.',
+             ['这是三种数量对应的图形编码对照，没有数据坐标轴；横向位置仅用于排列，标签v是被编码的模拟数量。',
+              '圆面积为πr²；左侧r=6v，右侧r=18√v，两侧最大圆半径都为54像素，以便公平比较各自比例。',
+              '以圆的大小表达数量时使用面积比例；本图不表示人能够精确估计面积，重要比较仍应给数值或位置编码。'],
+             {'quantities': values, 'radius_mapping_px': [6 * value for value in values],
+              'area_mapping_radius_px': [18 * math.sqrt(value) for value in values],
+              'radius_mapping_area_ratio': [1, 16, 81], 'area_mapping_area_ratio': values})
+
+    groups = [[1, 3, 5, 7, 9], [5, 7, 9, 11, 13]]
+    means = [statistics.mean(values) for values in groups]
+    sd = [statistics.stdev(values) for values in groups]
+    se = [value / math.sqrt(5) for value in sd]
+    sd_bounds = [[mean - spread, mean + spread] for mean, spread in zip(means, sd)]
+    se_bounds = [[mean - spread, mean + spread] for mean, spread in zip(means, se)]
+    assert sd_bounds[0][1] > sd_bounds[1][0] and se_bounds[0][1] < se_bounds[1][0]
+    svg = canvas('Error-bar overlap: the bar type changes the picture')
+    for left, heading, spreads in [(120, 'A  Mean ± 1 SD', sd), (540, 'B  Mean ± 1 SE', se)]:
+        px, py = panel(svg, left, 0, 3, 0, 15, [(1, 'A'), (2, 'B')],
+                       [0, 5, 10, 15], 'Group (n = 5 each)', 'Score (a.u.)', heading)
+        for index, (values, mean, spread, color) in enumerate(zip(groups, means, spreads, [BLUE, TEAL]), 1):
+            for value in values:
+                svg.append(circle(px(index) - 18, py(value), 3.5, color, 0.7))
+            x = px(index) + 8
+            svg.append(line(x, py(mean - spread), x, py(mean + spread), color, 2.6))
+            for limit in [mean - spread, mean + spread]:
+                svg.append(line(x - 9, py(limit), x + 9, py(limit), color, 2.6))
+            svg.append(circle(x, py(mean), 6, color))
+    svg.append(text(270, 531, 'SD bars overlap', 16, 'middle'))
+    svg.append(text(690, 531, 'SE bars do not overlap', 16, 'middle'))
+    save(svg, 'errorbar-overlap.svg', [
+        'Same samples in both panels: A = [1, 3, 5, 7, 9]; B = [5, 7, 9, 11, 13].',
+        'SD = √10; SE = √2. Neither panel supplies a p-value or a test of the mean difference.'])
+    describe('teaching-errorbar-overlap', '误差线重叠与判断', '误差线重叠，不能直接当作显著性结论',
+             'errorbar-overlap.svg', '同两组模拟观测和相同均值，SD误差线重叠而SE误差线不重叠；图形变了，数据没有变。',
+             'The same two synthetic samples have overlapping SD bars and non-overlapping SE bars; the data and means are unchanged.',
+             ['左右各组均有5个构造观测，横轴是组，纵轴是任意单位分数；小点为原始观测，大点为均值5和9。',
+              '样本SD用n−1为分母，均为√10；SE=SD/√5=√2。左侧显示均值±1SD，右侧显示均值±1SE。',
+              '两种误差线回答不同问题，没有计算p值；重叠不是通用显著性判据，正式比较还需对应独立或配对设计的检验或差值区间。'],
+             {'samples': groups, 'n_per_group': 5, 'means': means, 'sample_sd_ddof': 1,
+              'sample_sd': sd, 'standard_error': se,
+              'sd_bounds': sd_bounds, 'se_bounds': se_bounds,
+              'sd_bars_overlap': True, 'se_bars_overlap': False,
+              'statistical_test': None, 'p_value': None})
 
 
 def generate():
@@ -399,6 +622,9 @@ def generate():
              'Accuracy gains improve to the right and latency reduction improves upward; zero lines separate the quadrants, with joint improvements in the upper right.',
              ['横轴是百分点，纵轴是相对延迟减少百分比，两种单位明确分开。',
               '每个点是构造的配置，不是论文结果；落在哪个象限只说明这两项指标的关系。'])
+    generate_supplements()
+    for example in METADATA[-5:]:
+        example['layout'] = 'comparison'
     (ROOT / 'metadata.json').write_text(json.dumps(METADATA, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(f'Generated {len(METADATA)} synthetic examples.')
 

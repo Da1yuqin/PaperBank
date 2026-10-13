@@ -134,6 +134,46 @@ Move the legend outside the plotted curves while preserving the data and axes.
 
 把图例移出曲线区，保留数据和坐标轴。
 
+## 统计图补充
+
+- **小样本：均值之外看原始观测：**比较小样本的连续测量时，优先展示原始观测点与样本量，可叠加均值或区间；较多观测可用箱线图或已有分布图。均值相同不代表分布相同。计数、比例等汇总量仍可用柱图，不把这条写成禁止所有柱图。
+
+Both groups average 6, but one is dispersed and the other is tightly clustered.
+
+两组均值都为 6，一组分散，另一组集中；原始点让差别可见。
+
+- **散点遮挡：必要时改看二维计数：**重叠的点可能隐藏观测数量和少数类别。先检查透明度是否仍能呈现密集区与稀疏区；大量重叠时可用二维分箱或六边形分箱，说明每格计数、范围与箱宽。保留原始坐标，不为分开点而移动测量值；颜色深浅不是未经定义的概率。
+
+The scatter view hides repeated coordinates; each cell in the count view reports how many observations it contains.
+
+散点图中相同坐标被盖住；二维计数图显示每个区域实际包含多少观测。
+
+- **连续色标：让明暗顺序对应数值：**无序类别用离散色板，连续大小用明暗顺序清楚的顺序色标；偏离有意义的参照值时用发散色标。连续数值不默认用 rainbow／jet：不均匀、非单调的明暗变化可能掩盖差异或制造边界。沿用现有色板的语义，检查灰度下的数值顺序。
+
+Equal steps in a continuous score should not acquire arbitrary bright boundaries from the palette.
+
+分数等距变化，不应因为色板突然变亮而看起来有一道数据边界。
+
+- **【铁律】气泡面积与数量成正比：**用气泡面积表示非负数量时，面积必须与数量成正比，半径随数量平方根变化；给出大小图例与单位。数量变为 4 倍，面积变为 4 倍、半径变为 2 倍。圆面积关系来自 A = πr²；颜色或位置表示的其他变量分别解释。
+
+For counts 1, 4 and 9, proportional areas require radii in the ratio 1:2:3.
+
+数量为 1、4、9 时，面积比为 1∶4∶9，对应半径比为 1∶2∶3。
+
+- **误差线重叠：先认类型与比较设计：**不能通用地把误差线重叠判作不显著，或把不重叠判作显著。解释依赖 SD、SE、CI 类型、样本量以及独立／配对设计；差异判断用相应检验或直接估计差值与区间。已有的误差类型、重复单位和区间定义继续保留，不凭图形外观补出 p 值。
+
+A paired comparison depends on within-pair differences; the two marginal error bars alone do not encode that pairing.
+
+配对比较取决于同一对象的差值，两组均值各自的误差线并没有表示这个配对关系。
+
+## 相关参考和推荐阅读
+
+- [Weissgerber 等（2015）· 小样本连续数据为何需要展示原始观测](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128)：小样本连续数据：原始观测点揭示均值与误差条隐藏的分布、离群点和配对关系；不禁止所有柱图，不规定统一的小样本阈值。
+- [Wilke（2019）· 散点重叠的处理](https://clauswilke.com/dataviz/overlapping-points.html)：调整点大小和透明度；密集散点可用二维分箱或 hexbin，并解释计数或密度。保留原始坐标，不采用 jitter；分箱不等于逐点展示。
+- [Wilke（2019）· 颜色使用的常见误区](https://clauswilke.com/dataviz/color-pitfalls.html)：连续量用有大小顺序的色标，避免 rainbow/jet 误导；类别与参照值两侧的偏离分别选择离散或发散色板，不规定唯一色板。
+- [Rougier 等（2014）· 科研绘图的十条建议](https://doi.org/10.1371/journal.pcbi.1003833)：根据读者与主要信息选择图型，检查布局、颜色及说明；以气泡面积编码非负数量，避免将半径直接设为数值。示意性形状大小不套用定量比例要求。
+- [Cumming 等（2007）· 误差条与组间差异的解读](https://pmc.ncbi.nlm.nih.gov/articles/PMC2064100/)：误差类型、独立样本数与独立或配对设计共同影响区间比较；不把特定条件下的近似重叠规则作为通用显著性判据。配对比较分析差值及相应不确定性。
+
 ---
 
 Da1yuqin / [StarPaper](https://da1yuqin.github.io/StarPaper/)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。转载保留署名、出处与许可，改编注明改动。

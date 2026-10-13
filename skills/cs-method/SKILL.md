@@ -5,7 +5,7 @@ description: 方法、任务定义与 Overview；适用于实证型 CS 会议论
 
 # 方法、任务定义与 Overview
 
-latest:【2026-10-13 00:38】
+latest:【2026-10-13 12:00】
 
 先读[共享规则](../cs-writing-common/SKILL.md)。本章只处理当前任务；既有人工定版和最新证据优先。
 
