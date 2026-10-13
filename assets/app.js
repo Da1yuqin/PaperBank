@@ -146,21 +146,45 @@ $$('a[href^="#tools"]').forEach(link=>link.addEventListener('click',()=>{$('#too
 filterTools();
 }
 
+function celebrateCheckin(button){
+ let layer=$('#checkin-celebration');
+ if(!layer){
+  layer=document.createElement('div');layer.id='checkin-celebration';
+  layer.setAttribute('aria-hidden','true');layer.setAttribute('data-annotation-exclude','');document.body.append(layer);
+ }
+ while(layer.childElementCount>=6)layer.firstElementChild.remove();
+ const group=document.createElement('div'),rect=button.getBoundingClientRect();
+ group.className='checkin-drop';
+ group.style.left=Math.max(100,Math.min(innerWidth-110,rect.left+rect.width/2))+'px';
+ group.style.top=Math.max(12,Math.min(innerHeight-100,rect.top-12))+'px';
+ const accept=document.createElement('span'),star=document.createElement('span');
+ accept.className='checkin-drop__accept';accept.textContent='ACCEPT';
+ star.className='checkin-drop__star';star.textContent='🌟';
+ group.append(accept,star);layer.append(group);setTimeout(()=>group.remove(),1600);
+}
+
 async function setupPageStats(){
- const footer=$('#page-stats');if(!footer)return;
- const like=$('#page-like'),likes=$('#page-like-count'),views=$('#page-view-count');
+ const panel=$('#page-stats');if(!panel)return;
+ const button=$('#page-like'),likes=$('#page-like-count'),views=$('#page-view-count');
  const status=$('#page-stats-status'),retry=$('#page-stats-retry');
  const endpoint='https://day-blog-comments.pages.dev/stats',page='/PaperBank/';
  const live=location.protocol==='https:'&&location.hostname==='da1yuqin.github.io'&&/^\/StarPaper\/(?:index\.html)?$/.test(location.pathname);
  const uuid=()=>crypto.randomUUID();
- let visitor=uuid();
+ let visitor=uuid(),persistent=false,confirmed=false;
  try{
   const saved=localStorage.getItem('paperbank-stats-visitor-id');
   if(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(saved||''))visitor=saved;
   else localStorage.setItem('paperbank-stats-visitor-id',visitor);
+  persistent=localStorage.getItem('paperbank-stats-visitor-id')===visitor;
+  confirmed=localStorage.getItem('paperbank-stats-checkin')===visitor;
  }catch{}
  const viewEvent={action:'view',page,visitor_id:visitor,event_id:uuid()};
- let stats=null,pending=false,failedAction=null;
+ let stats=null,pending=false,failedAction=null,queuedCheckin=false,queuedRefresh=false;
+ function render(){
+  if(stats){likes.textContent=stats.likes.toLocaleString();views.textContent=stats.views.toLocaleString();}
+  button.setAttribute('aria-pressed',String(confirmed));
+  button.querySelector('[data-like-label]').textContent=confirmed?'已打卡 · 再接个 ACCEPT':'点赞打卡';
+ }
  async function request(action){
   const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),12000);
   try{
@@ -173,32 +197,46 @@ async function setupPageStats(){
    });
    if(!response.ok)throw new Error('Statistics unavailable');
    const data=await response.json();
-   if(!Number.isSafeInteger(data.likes)||data.likes<0||!Number.isSafeInteger(data.views)||data.views<0||typeof data.liked!=='boolean')throw new Error('Invalid statistics');
+   if(data.page!==page||!Number.isSafeInteger(data.likes)||data.likes<0||!Number.isSafeInteger(data.views)||data.views<0||typeof data.liked!=='boolean')throw new Error('Invalid statistics');
+   if(action?.action==='like'&&!data.liked)throw new Error('Check-in unconfirmed');
    return data;
   }finally{clearTimeout(timeout);}
  }
  async function update(action=null){
   if(pending)return;
-  pending=true;like.disabled=true;retry.disabled=true;retry.hidden=true;footer.setAttribute('aria-busy','true');status.textContent='';
+  pending=true;retry.disabled=true;retry.hidden=true;panel.setAttribute('aria-busy','true');status.textContent='';
   try{
-   stats=await request(action);failedAction=null;
-   likes.textContent=stats.likes.toLocaleString();views.textContent=stats.views.toLocaleString();
-   like.setAttribute('aria-pressed',String(stats.liked));
-   like.querySelector('[data-like-icon]').textContent=stats.liked?'♥':'♡';
-   like.querySelector('[data-like-label]').textContent=stats.liked?'已赞':'点赞';
+   const fresh=await request(action);
+   stats={...fresh,likes:Math.max(fresh.likes,stats?.likes??0),views:Math.max(fresh.views,stats?.views??0)};
+   confirmed=confirmed||fresh.liked;failedAction=null;
+   try{
+    if(confirmed)localStorage.setItem('paperbank-stats-checkin',visitor);
+   }catch{}
+   render();
+   if(action?.action==='like')status.textContent='打卡成功！祝论文 ACCEPT。';
   }catch{
-   stats=null;failedAction=action;likes.textContent='—';views.textContent='—';
-   status.textContent='统计暂时不可用，请稍后重试。';retry.hidden=false;
+   failedAction=action;
+   status.textContent=action?.action==='like'?'打卡暂未确认，请重试；不会重复计数。':'统计暂时不可用，点击仍可播放动画。';retry.hidden=false;
   }finally{
-   pending=false;like.disabled=!stats||!live;retry.disabled=false;footer.setAttribute('aria-busy','false');
+   pending=false;retry.disabled=false;panel.setAttribute('aria-busy','false');
+   if(queuedCheckin&&!confirmed){queuedCheckin=false;await update({action:'like',page,visitor_id:visitor,liked:true});}
+   else queuedCheckin=false;
+   if(queuedRefresh){queuedRefresh=false;await update();}
   }
  }
- like.addEventListener('click',()=>{
-  if(!live||pending||!stats)return;
-  update({action:'like',page,visitor_id:visitor,liked:!stats.liked});
+ button.addEventListener('click',()=>{
+  celebrateCheckin(button);
+  if(!live){status.textContent='预览只播放动画。';return;}
+  if(!persistent){status.textContent='允许浏览器保存网站数据后即可打卡；动画照常播放。';return;}
+  if(confirmed){status.textContent='已打卡，再接一个 ACCEPT！';return;}
+  if(pending){queuedCheckin=true;return;}
+  update({action:'like',page,visitor_id:visitor,liked:true});
  });
  retry.addEventListener('click',()=>update(failedAction));
- await update();
+ window.addEventListener('storage',event=>{
+  if(event.key==='paperbank-stats-checkin'&&event.newValue===visitor){confirmed=true;render();if(pending)queuedRefresh=true;else update();}
+ });
+ render();await update();
  if(live)await update(viewEvent);
 }
 setupPageStats();
