@@ -121,34 +121,50 @@ This contrast supports [Intro contribution], while [observed trade-off] limits [
 
 **第 3 句：**解释结果意味着什么，同时保留真实取舍。
 
-#### Ablation：改一项，查一个作用
+#### 消融实验：每个模块先 Setting，再 Results
 
-消融每次去掉或替换一个因素，固定其他条件，检验对应设计的作用。
+每个模块各写设置与结果。先让读者知道两行差在哪，再解释这个差异说明什么。
 
-教学模板；【】填真实材料。
+填空模板；【】换成真实材料，不包含论文实测数字。
 
-- 同时改多项时补匹配对照，或只评价整套改动。
-- 写清目的、改动和发现，不只贴 w/o A、w/o B。
+- Setting：目的、完整变体名称、删掉或替换的因素、保留的因素、会影响结果的共享条件。训练型模块按实际协议重新训练。
+- Results：先给真实发现，再指向表中刚定义的两行，说明对应指标的变化、范围和必要代价。没有结果，不填写结论。
+- 【铁律】多项同时变化，只能评价整套改动；条件性的增量作用不能冒称单独作用或交互效应。
+- 所有变体在 Setting 和表中同名。同一变体不能在文中叫 No Reward，在表中却叫 Baseline 2。
+- 先讲整体共同设置也可以；随后每个模块仍交代其独有改动，Results 紧接对应设置。
 
-通用要求；按机制归因需求选用
+组织参考 EviNoteRAG §4.6；具体控制条件按实际实验填写。
 
-To examine [component purpose], we replace [component] with [control].
+**完整 LaTeX 结构模板**
 
-为检验[组件作用]，我们用[对照]替换[组件]。
+```latex
+\subsection{Ablation Study}
+\label{sec:ablation}
 
-**第 1 句：**消融对准方法声称的作用。
+\paragraph{Effect of [Module A].}
+\textbf{Setting.}
+To examine [Module A's role], we compare [control variant] with [Module A variant].
+Both retain [shared modules] and use [matched training data, model, evaluation set, decoding settings, and budget].
+Only [the specified factor] changes.
+[Remaining differences and their location].
 
-We keep [other settings] fixed.
+\textbf{Results.} \textbf{[Verified finding under these conditions].}
+Table~\ref{tab:ablation} compares [the two rows] on [relevant metric and scope].
+[Observed change and measured uncertainty].
+This supports [the bounded component role].
+[Observed exception or limitation].
 
-其余[设置]保持不变。
+\paragraph{Effect of [Module B].}
+\textbf{Setting.}
+We compare [variant retaining Module A] with [the same variant using Module B].
+We keep [Module A and other shared conditions] fixed and change only [Module B or specified replacement].
+[Actual retraining, repetitions, and settings location].
 
-**第 2 句：**告诉读者哪些替代解释受到控制。
-
-Figure [ref] shows [observed change], supporting [limited component role] in [tested setting].
-
-图[真实编号]显示[观察变化]，支持该组件在[实测设置]中具有[有限作用]。
-
-**第 3 句：**作用不超过实际控制的因素与范围。
+\textbf{Results.} \textbf{[Verified finding with Module A fixed].}
+Table~\ref{tab:ablation} shows [actual difference] between [the matched rows].
+This tests [Module B's incremental role in this configuration].
+[Observed trade-off or exception].
+```
 
 #### 扩展实验：稳定性、效率、迁移
 
@@ -180,34 +196,77 @@ These comparisons support [scope-limited finding], but do not establish [broader
 
 **第 3 句：**范围边界具体写；不是在每段末尾机械加免责声明。
 
-#### Case Study：走一遍流程
+#### Case Study：展示方法的运行过程
 
-用明确来源的输入与输出展示流程及判断依据，案例不能替代总体统计。
+选一个能看懂核心设计的案例，沿输入、中间产物、输出走一遍。重点解释方法在哪里发挥作用，不重复报排行榜。
 
-教学模板；【】填真实材料。
+填空模板；不预填任何真实论文的输入、输出或实验结论。
 
-- 保留原始文本、实测回复和标签；自构例子标清。案例不能代替总体结果。
-- 位置按叙述需要安排；帮助理解评价时，也可放在总体结果之前。
+- 先写选择理由：典型困难、失败边界或关键设计。不要只挑最好看的成功例子。
+- 输入交代问题、可用证据和必要条件；关键步骤展示实际可核查产物，如证据笔记、检索片段或约束标记。
+- 输出紧接中间产物，指出哪条证据支持或否定哪个判断。有对照时先交代共同与不同条件，再并排比较。
+- 【铁律】实测材料保留原始输入、输出与标签；构造案例明示。没有记录的中间步骤不编造，隐藏推理不能改画成已观察过程。
+- 【铁律】个例说明方法运行或具体失败，不能替代所声称效果需要的实验、证明整体有效或推断总体比例。
+- 时间紧时，可优先整理已有真实案例并深入分析，补充方法说明；主要结论仍需对应验证。分析充分的 Case Study 能让读者看清设计的价值。
+- 【铁律】同一案例在论文中完整展示一次；其他章节交叉引用，避免换图、换语言后重复讲同一个故事。
+- 图的颜色按语义分组，图形和纹理提供第二种区分。局部圈出关键证据并编号，旁注解释这一步如何改变输出；保留白底，不整块涂色。
 
-通用要求；教学案例须明示
+组织参考 EviNoteRAG §4.8 / Figure 4（PDF 第 8 页）；案例与统计作用不同。
 
-In [a recorded case or a stated constructed example], [input] requires [specific behavior].
+**完整 LaTeX 结构模板**
 
-在[有来源的真实案例或明示构造案例]中，[输入]要求[具体行为]。
+```latex
+\subsection{Case Study}
+\label{sec:case-study}
+\textbf{[Concrete behavior illustrated by this case].}
+We select [recorded case or explicitly constructed example] because [selection reason tied to an Introduction challenge].
+Figure~\ref{fig:case-study} shows [the actual question and relevant evidence], which requires [specific behavior].
+[Named method stage] transforms [input] into [recorded intermediate artifact].
+In this artifact, [concrete marked evidence or retained uncertainty] supports [the next operation].
+The final output [meets or violates the requirement] based on [verifiable evidence].
+[Comparable baseline output, if available, and the exact contrast].
+This case illustrates [the observed operation or failure], while [the quantitative evaluation or the untested boundary] determines the broader claim.
+```
 
-**第 1 句：**先给来源类型与任务，明确区分教学示例与实测案例。
+#### 结果表：名称、对照、口径对应
 
-[Stage] uses [evidence] to produce [intermediate output].
+先定行列再填结果。表头按“数据集—指标”分两级，表体每行就是 Setting 定义的一种变体。
 
-[阶段]利用[证据]生成[中间产物]。
+可复制 LaTeX 表格模板；需 booktabs 与 multirow。
 
-**第 2 句：**把可见处理与 framework 对上。
+- 【铁律】完整名称、引用、数值与误差在同一单元格内保持单行。优先调整列宽，必要时用通栏表，不用缩写、折行或整体缩放掩盖拥挤。
+- 共同的数据集、指标、方向、单位与精度固定。读者应能横向查同一变体，纵向比同一指标。
+- 路线很多时用分组行；消融表则将完整方法与匹配变体邻近摆放。表内变体名与 Setting 一致。
+- 【铁律】均值与不确定性必须基于真实观测和明确方法；说明统计或重采样单位、实际数量及 SD、SE 或 CI。单次运行不能冒称跨运行稳定性，不套用示例论文的重复次数。
+- 最优与次优只在可比组内逐列标记，按指标方向判断，并列共用标记。不能给整行自动加粗或声称每列都胜出。
+- Caption 写范围、单位、汇总、误差含义和标记规则；未测量写未测量，N/A 说明不适用原因，二者不能填零。
+- 最终 PDF 核查最长名称、误差上标、两级表头、列距和页边距。booktabs、multirow 在导言区加载；模板占位值逐格替换。
 
-The final output [meets or violates requirement] because [observable evidence].
+组织参考 EviNoteRAG Table 1（PDF 第 6 页）与 Table 2（第 7 页）；单行要求来自最新绘图 skill。
 
-最终输出[满足或违反要求]，依据是[可见证据]。
+**完整 LaTeX 结构模板**
 
-**第 3 句：**判定与证据直接连接，不只写一个勾叉。
+```latex
+\begin{table*}[!t]
+\centering
+\caption{Ablation results on [evaluation scope and split].
+Scores use [unit and aggregation rule]; arrows show the preferred direction.
+[Single-run results, or actual repeat count and defined uncertainty type].
+Bold marks the best and underline the second-best distinct value among comparable variants; ties share the same mark.}
+\label{tab:ablation}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l cccc @{}}
+\toprule
+\multirow{2}{*}{Variant} & \multicolumn{2}{c}{[Dataset A]} & \multicolumn{2}{c}{[Dataset B]} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+ & EM $\uparrow$ & F1 $\uparrow$ & EM $\uparrow$ & F1 $\uparrow$ \\
+\midrule
+{[Control variant full name]} & [value] & [value] & [value] & [value] \\
+{[Module A variant full name]} & [value] & [value] & [value] & [value] \\
+{[Module B variant full name]} & [value] & [value] & [value] & [value] \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+```
 
 ---
 

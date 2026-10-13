@@ -60,6 +60,9 @@ def render_writing_templates(content, section):
  for template in content['templates']:
   rendered+=f'<details class="chapter-templates writing-template" id="{e(template["id"])}"><summary>{e(template["title"])}</summary><div class="paragraph-lesson writing-template-body" data-section="{section}"><p class="template-purpose">{e(template["when"])}</p>'
   md+=['',f'<a id="{template["id"]}"></a>',f'<details><summary>{template["title"]}</summary>','',template['when']]
+  if template.get('rules'):
+   rendered+='<ul class="template-rules">'+''.join(f'<li>{rule_html(rule)}</li>' for rule in template['rules'])+'</ul>'
+   md+=['']+['- '+rule for rule in template['rules']]
   for paragraph in template['paragraphs']:
    text=paragraph['text']
    display=e(re.sub(r'(Table|Figure)~\\ref\{(\[[^\]]+\])\}',r'\1 \2',text))
@@ -130,7 +133,7 @@ def render_intro_body_map(content):
 def render_annotated_paragraph(example, refs, number=None, heading_level=4, workflow=False):
  """Keep source paragraphs intact and place matched comments beside them."""
  e=html.escape;key=example['id']
- assert len(example['paragraphs'])==1,(key,'one natural paragraph per case')
+ assert len(example['paragraphs'])==1 or (example.get('layout')=='setting-results' and len(example['paragraphs'])==2),(key,'one paragraph or a Setting–Results pair per case')
  english_label='English 原文' if example.get('source') else 'English 教学改写'
  title=(number+' ' if number else '')+example['title']
  rendered=f'<section class="paragraph-lesson annotated-example" id="{e(key)}" data-section="{e(example["section"])}">'
@@ -151,6 +154,16 @@ def render_annotated_paragraph(example, refs, number=None, heading_level=4, work
   for n,paragraph in enumerate(example['paragraphs']):
    rendered+=f'<div class="annotated-row"><div class="annotated-text" lang="{language}">'
    text=paragraph[lang];marks=[]
+   emphasis=example.get('emphasis_'+lang,[])
+   for phrase in emphasis:assert text.count(phrase)<=1,(key,'ambiguous emphasis',phrase)
+   def emphasize(fragment):
+    escaped=e(fragment)
+    for phrase in emphasis:
+     if phrase in fragment:escaped=escaped.replace(e(phrase),'<strong>'+e(phrase)+'</strong>',1)
+    return escaped
+   if paragraph.get('heading'):
+    rendered+=f'<h5 class="setting-results-label">{e(paragraph["heading"])}</h5>'
+    md+=['','**'+paragraph['heading']+'**','']
    for i,note in enumerate(example['annotations'],1):
     if note['paragraph']!=n:continue
     quote=note[lang];assert text.count(quote)==1,(key,lang,quote)
@@ -159,9 +172,13 @@ def render_annotated_paragraph(example, refs, number=None, heading_level=4, work
    for start,stop,i in sorted(marks):
     assert start>=end,(key,'overlapping highlights')
     note_key=f'{key}-{lang}-{i}'
-    marked+=e(text[end:start])+f'<mark class="paragraph-highlight tone-{(i-1)%5}" tabindex="0" data-note-key="{e(note_key)}" aria-describedby="{e(note_key)}">{e(text[start:stop])}<sup data-annotation-exclude>{i}</sup></mark>'
+    marked+=emphasize(text[end:start])+f'<mark class="paragraph-highlight tone-{(i-1)%5}" tabindex="0" data-note-key="{e(note_key)}" aria-describedby="{e(note_key)}">{emphasize(text[start:stop])}<sup data-annotation-exclude>{i}</sup></mark>'
     end=stop
-   rendered+='<p>'+marked+e(text[end:])+'</p></div><aside class="paragraph-notes" aria-label="段落写法批注" data-annotation-exclude>';md+=[text,'']
+   rendered+='<p>'+marked+emphasize(text[end:])+'</p></div><aside class="paragraph-notes" aria-label="段落写法批注" data-annotation-exclude>'
+   md_text=text
+   for phrase in emphasis:
+    if phrase in md_text:md_text=md_text.replace(phrase,'**'+phrase+'**',1)
+   md+=[md_text,'']
    for i,note in enumerate(example['annotations'],1):
     if note['paragraph']!=n:continue
     note_key=f'{key}-{lang}-{i}'
@@ -429,12 +446,30 @@ def render_figures(data):
  for part in opening['parts']:
   rendered+=f'<section id="{e(part["id"])}"><h3>{e(titles[part["id"]])}</h3><p>{e(part["purpose"])}</p>'
   if part['id']=='figure-experiments':rendered+='<span id="figure-types"></span>'
-  rendered+='<ul class="template-rules">'+''.join(f'<li>{rule_html(rule)}</li>' for rule in part['rules'])+'</ul>'
-  md+=['','<a id="'+part['id']+'"></a>','### '+titles[part['id']],'',part['purpose'],'']+['- '+rule for rule in part['rules']]
+  md+=['','<a id="'+part['id']+'"></a>','### '+titles[part['id']],'',part['purpose']]
+  for stage in part.get('stages',[]):
+   rendered+=f'<div class="figure-stage"><h4>{e(stage["label"])} · {e(stage["title"])}</h4><ul class="template-rules">'+''.join(f'<li>{rule_html(rule)}</li>' for rule in stage['rules'])+'</ul></div>'
+   md+=['','#### '+stage['label']+' · '+stage['title'],'']+['- '+rule for rule in stage['rules']]
+  if part.get('rules'):
+   rendered+='<ul class="template-rules">'+''.join(f'<li>{rule_html(rule)}</li>' for rule in part['rules'])+'</ul>'
+   md+=['']+['- '+rule for rule in part['rules']]
   if part['id']=='figure-experiments':md+=['','<a id="figure-types"></a>']
   for key in part['visuals']:
    ph,pm=figure(visuals[key]);rendered+=ph;md+=pm
   rendered+='</section>'
+ if opening.get('encodings'):
+  rendered+=f'<section class="figure-encodings" id="figure-encodings"><h4>{e(opening["encoding_title"])}</h4><p>{e(opening["encoding_intro"])}</p><dl>'
+  md+=['','<a id="figure-encodings"></a>','#### '+opening['encoding_title'],'',opening['encoding_intro']]
+  for item in opening['encodings']:
+   rendered+=f'<dt>{e(item["name"])}</dt><dd>{e(item["do"])}</dd>'
+   md+=['','- **'+item['name']+'：**'+item['do']]
+  rendered+='</dl></section>'
+ if opening.get('source_notes'):
+  rendered+='<details class="figure-source-links"><summary>补充建议与依据</summary>';md+=['','<details><summary>补充建议与依据</summary>']
+  for note in opening['source_notes']:
+   rendered+=f'<p>{e(note["text"])} <a href="{e(note["url"])}">{e(note["title"])}</a></p>'
+   md+=['',note['text']+f' [{note["title"]}]({note["url"]})']
+  rendered+='</details>';md+=['','</details>']
  rendered+='<p class="draft-next"><a href="#figure-appendix">更多图型、原图与点评：收集的参考绘图 →</a></p></section>'
  md+=['','[更多图型、原图与点评：收集的参考绘图](#figure-appendix)']
  appendix='<section class="major-chapter figure-chapter figure-appendix" id="figure-appendix"><h2>附录：收集的参考绘图</h2><p>按需要查图型。原图保留出处与许可，教学图注明模拟数据；点评同时说明值得借鉴的设计与结论边界。</p><span id="notion-gallery"></span><span id="figure-gallery"></span>'
@@ -633,7 +668,7 @@ def render_skill(data):
  for entry,label in [(skill,'cs-paper-writing'),(data['figure_chapter']['skill'],'绘图')]:
   rendered+=f'<p class="skill-links"><a href="{e(entry["download"])}" download>{e(label)} ZIP</a> {skill_latest(entry)} · <a href="{REPO}/blob/main/{e(entry["source"])}">SKILL.md</a>：{e(entry["intro"])}</p>'
   md+=['',f'[{label} ZIP](../{entry["download"]}) · [SKILL.md](../{entry["source"]})：{entry["intro"]}']
- installation='写作包已按章节拆分：入口、共享规则和六个章节，共九个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。'
+ installation='写作包已按章节拆分：入口、共享规则和七个章节，共九个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。'
  rendered+=f'<p>{e(installation)}</p><p class="boundary">写作包更新：{e(skill["updated_at"])}。只含通用规则与教学模板，不含私人稿件信息。</p>'
  md+=['',installation,'','写作包更新：'+skill['updated_at']+'。只含通用规则与教学模板，不含私人稿件信息。']
  ph,pm=render_codex_prompt(data,skill['prompt_ref'],'中文使用提示词','English usage prompt');rendered+=ph;md+=pm
@@ -864,7 +899,7 @@ def build():
    number=None
    example_html,example_md=render_annotated_paragraph(example,refs,number,heading_level=4)
    entries+=example_html;md+=example_md
-  templates=[p for p in data.get('refine_templates',[]) if p['section']==s['id'] and p.get('latex_template') and p.get('placement')!='before-examples']
+  templates=[p for p in data.get('refine_templates',[]) if p['section']==s['id'] and p.get('latex_template') and p.get('placement')!='before-examples' and not p.get('covered_by')]
   if templates:
    entries+='<details class="chapter-templates"><summary>结构模板</summary>'
    md+=['','<details><summary>结构模板</summary>','']

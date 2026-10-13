@@ -6,6 +6,13 @@
 <details><summary>更新记录</summary>
 
 
+**2026-10-13 16:01 · 绘图流程与实验写作模板**
+
+- Mainfig、Framework 与实验图按内容、排版、编码三个阶段展开，加入连续示意与元素语义说明。
+- Metrics 改为编号的紧凑自然段；消融按模块配对 Setting 与 Results，补充结果表模板。
+- 新增 Case Study 模板与选例、图中注解要求；增加悬浮回到顶部按钮。
+- 公开写作下载包同步新增实验模板，latest 标注本次时间；本地私有 skill 未改动。
+
 **2026-10-13 14:12 · 批注与原文对齐**
 
 - 批注卡片跟随对应正文滚动，上、下方显示其余批注数量，点击可跳转。
@@ -156,7 +163,7 @@
 
 
 这里有两个可以直接使用的 skill，按任务下载。
-[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-13 12:00】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 12:00】 · [用法](#writing-skill)
+[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-13 16:01】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 12:00】 · [用法](#writing-skill)
 
 ![流星划过夜空；边牧、魔法橘猫和龙举起红色 ACCEPT，庆祝论文接收的愿望成真。](../assets/starpaper-night-accept.png)
 
@@ -568,9 +575,9 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 [绘图 ZIP](../assets/starpaper-figures-skill.zip) · [SKILL.md](../skills/starpaper-figures/SKILL.md)：解压后让 Codex 读取整个 starpaper-figures/ 文件夹，并提供稿件、原始数据、参考图及允许修改的文件。
 
-写作包已按章节拆分：入口、共享规则和六个章节，共九个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。
+写作包已按章节拆分：入口、共享规则和七个章节，共九个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。
 
-写作包更新：2026-10-13 12:00。只含通用规则与教学模板，不含私人稿件信息。
+写作包更新：2026-10-13 16:01。只含通用规则与教学模板，不含私人稿件信息。
 
 **中文使用提示词**
 
@@ -596,15 +603,16 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 <a id="figures"></a>
 ## 2. 论文绘图
 
-先完成 Mainfig 与 Framework，人工核对贡献、流程和案例；实验图用 Python 读取真实数据。下面按三类图整理笔记、铁律和优化前后示范。
+按 Stage 1 内容、Stage 2 排版、Stage 3 视觉编码与验收制作。Mainfig 说明问题与关键改动，Framework 解释完整方法，实验图检验主张；三类图各做一件事。
 
 <a id="figure-skill"></a>
 [下载绘图 skill](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 12:00】
 
-- 先选一张结构清楚的参考图，借鉴读图顺序与配色；内容、数值和贡献用自己的材料。
-- 高亮越多，背景越应保持白色；同类内容同框、同层内容对齐，留白由信息关系决定。
-- 【铁律】按最终栏宽检查。图内字同一字号，介于正文减 2 pt 至正文，字体与正文一致；放不下就重排，不缩字、不压扁图、不改论文模板。
-- 【铁律】每图解释必要简称、标记与统计口径。Caption 先说明图是什么，再按面板顺序带读；插回论文检查字号、重叠、裁切与首次引用。
+- 先读对应正文，确定这张图要让读者理解哪项困难、设计或发现。借鉴参考图的组织方式，不复制内容和结论。
+- 先用黑白草图核对关系，再上色。配色不能弥补流程不清。
+- 【铁律】本教程采用当前绘图 skill 的字号约定：图内文字同一字号，介于正文减 2 pt 至正文，字体家族与正文一致；按最终栏宽检查。目标会议另有规定时优先执行。放不下就重排或拆图，不缩小规定字号、不压扁整图、不改论文模板。
+- 【铁律】图和图注须解释实际出现的简称、箭头、颜色、形状、纹理与统计口径；示意不能冒充实测结果，图标不能暗示没有证据的评分或执行。
+- 插回论文验收：先检查内容和依赖，再看字号、对齐、重叠、裁切与首次引用顺序。只看放大预览，容易错过真正的读图问题。
 
 **填写绘图任务与数据**
 
@@ -639,7 +647,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 - **每图明确一个主要任务：**mainfig 展示研究动机与观察，framework 说明设计如何对应问题，结果图提供验证证据。每图明确一个主要任务。
 
-[图例与批注：模板 2：用一个关键观察开题](#visual-lost-middle-fig-1)
+[图例与批注：长上下文中的位置效应](#visual-lost-middle-fig-1)
 
 - **绘图先于正文精修：**先完成可供合作者审核的框架图与实验图，再精修正文。图未能体现贡献时，先调整内容与布局，再修改配色。
 
@@ -647,7 +655,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 - **【铁律】统计图使用真实数据：**统计图用 Python 从真实数据绘制；imagegen 用于动机、框架和案例图。缺数据就停，不补点、不编误差、不为平滑改曲线。
 
-[图例与批注：模板 2：按职责分组，用案例串流程](#visual-interactcs-fig-1)
+[图例与批注：多任务框架的分组与连接](#visual-interactcs-fig-1)
 
 [图例与批注：KDE 密度分布](#teaching-kde)
 
@@ -657,15 +665,15 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 - **【铁律】箭头表示真实依赖：**同层成组并命名；先后、并行、汇合、反馈按真实依赖画。每条箭头说清传什么，起止明确，避免穿过文字与无必要的迂回。
 
-[图例与批注：模板 2：按职责分组，用案例串流程](#visual-interactcs-fig-1)
+[图例与批注：多任务框架的分组与连接](#visual-interactcs-fig-1)
 
 - **【铁律】区分输入与评价信息：**输入、输出、评价规则用三种边框区分，并给图例。只供评价的 rubric 不连到被测模型；不同模型收到不同材料，也要标清。
 
-[图例与批注：模板 2：按职责分组，用案例串流程](#visual-interactcs-fig-1)
+[图例与批注：多任务框架的分组与连接](#visual-interactcs-fig-1)
 
 - **【铁律】低饱和配色与清晰对比：**常规模块用中性灰，关键改动用统一强调色。低饱和配色须保持清晰对比。
 
-[图例与批注：模板 2：多面板共用编码与图例](#visual-interactcs-fig-2)
+[图例与批注：结果图的分组比较](#visual-interactcs-fig-2)
 
 - **【铁律】对话按轮次与语义分段：**一轮一框，注明角色；同一轮长回复按语义分段，不伪装成多轮。高亮只标关键约束、证据或错误，颜色含义要能读懂。
 
@@ -693,17 +701,17 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 - **【铁律】明确模块输入与输出：**每个关键模块写清收到什么、做什么、交出什么，以及交给谁。模块名与 Method 一致，所有缩写就近解释。
 
-[图例与批注：模板 2：按职责分组，用案例串流程](#visual-interactcs-fig-1)
+[图例与批注：多任务框架的分组与连接](#visual-interactcs-fig-1)
 
 - **【铁律】解释图中所有标记：**图标旁写对象名；新缩写、符号、边框、线型和数字就近解释。读者只看图与图注，应知道每个标记指什么。
 
-[图例与批注：模板 2：按职责分组，用案例串流程](#visual-interactcs-fig-1)
+[图例与批注：多任务框架的分组与连接](#visual-interactcs-fig-1)
 
 - **【铁律】Framework 展示操作与产物：**“结合 case 去绘制你的流程” 展示一个真实输入怎样变成中间产物和输出，旁边点出设计解决的困难。节点多不等于贡献多。
 
 [图例与批注：交互案例](#fig-interactcs-case)
 
-[图例与批注：模板 2：按职责分组，用案例串流程](#visual-interactcs-fig-1)
+[图例与批注：多任务框架的分组与连接](#visual-interactcs-fig-1)
 
 - **【铁律】区分示意与实测：**估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，图形本身须准确，不能仅靠图注纠正。评分通过不等于真实执行、成交或部署成功；显示改名不改冻结 prompt、机器字段和统计，不冒称执行原文。
 
@@ -715,7 +723,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 - **【铁律】保持修改范围：**只改配色就保留布局、文字、换行、字号、公式、照片和连线；重排须在约定范围内。保留数据、实验和合作者的图。
 
-[图例与批注：模板 2：多面板共用编码与图例](#visual-interactcs-fig-2)
+[图例与批注：结果图的分组比较](#visual-interactcs-fig-2)
 
 - **【铁律】按模板宽度布局：**按实际栏宽起稿，不改页边距、正文字号或页面方向。正文通栏约 16:9、单栏约 4:3 是起点，附录可纵排；不进行非等比缩放。CS 默认用 [!t]，再按正文首次引用检查实际落点。
 
@@ -723,7 +731,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 - **【铁律】表格用于结果与数据：**StarPaper 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
 
-[图例与批注：模板 2：多面板共用编码与图例](#visual-interactcs-fig-2)
+[图例与批注：结果图的分组比较](#visual-interactcs-fig-2)
 
 - **【铁律】重排文字与图形重叠处：**图例、标题、刻度和注释不能挡数据、箭头或边框。为文字保留空间，通过重排解决重叠，不能用遮盖隐藏问题。
 
@@ -734,109 +742,141 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 <a id="figure-mainfig"></a>
 ### 2.1 Mainfig
 
-让读者先看懂为什么要做这项研究，以及本文解决了什么。
+让读者看懂为什么研究这个问题，以及本文改了哪一步。它概述贡献，不承担全部方法细节。
 
-- 先简化。只留问题、关键观察和本文改动；框多不代表贡献多。
-- 方法型：Baseline 与 Ours 同层对齐，问题与解决步骤一一对应；发现型：用一张实测图提出问题。
-- 用位置讲关系，用少量高亮讲重点；图标旁写对象名，删掉重复背景和装饰。
-- 【铁律】示意和实测分清。生成工具只画概念；曲线与数值从真实数据绘制，不用示意图暗示已验证的效果。
+#### Stage 1 · 确定问题与改动
 
-<a id="teaching-mainfig-before-after"></a>
-#### 模板 1：问题与改动对照
+- 写一句图要表达的主张，再列必要输入、现有做法的缺口、本文改动和输出。删除无关节点，通常控制在 5 个环节内。
+- 方法型：旧做法和本文设计面对同一问题，对照关键改动。发现型：用实测观察提出问题，注明数据、条件和比较对象。
+- 【铁律】概念示意与实测结果分清；没有实验依据，不画提升曲线或通过标记。
 
-![模板 1：问题与改动对照](../assets/figure-mainfig-before-after.svg)
+#### Stage 2 · 对齐比较与读图顺序
 
-假设的证据问答任务。左侧流程过于抽象；右侧把“证据不足仍回答”的问题与“核对证据、保留未知”的改动对齐。只展示设计，不声称效果已验证。
+- 旧做法与本文设计放在两行或两个并列面板，共享输入的位置和名称；把改动放在相同位置，减少来回找差异。
+- 保留具体输入片段和产物，不只写 Input、Model、Output。给短标签留足位置，图注不重复抄图中文字。
+- 优先单栏简图；通栏先参考扁宽布局。先按实际栏宽安排文字，再定框大小，不把复杂 Framework 缩成 Mainfig。
 
-1. **观察 1：**先找要讲的缺口，再删掉不能帮助理解缺口的节点。左右保持同一问题和阅读顺序，让改动位置可直接比较。
+#### Stage 3 · 突出改动并验收
 
-StarPaper 原创教学改排，CC BY 4.0；非原论文修订记录。
+- 仅突出本文改变的步骤和对应问题片段，其余结构用中性色；高亮越多，背景越应保持白色。
+- 图标旁写对象名，未知用明确标签，不凭颜色表示“好”或“坏”。全部高亮和线型都有释义。
+- 按论文最终尺寸看：不读正文也能识别问题、改动和输出；不能就补必要信息或重排，不靠加装饰。
 
-<a id="visual-lost-middle-fig-1"></a>
-#### 模板 2：用一个关键观察开题
+<a id="teaching-mainfig-stages"></a>
+#### 示范：从内容到视觉重点
 
-![模板 2：用一个关键观察开题](../assets/paper-lost-middle-fig-1.png)
+![示范：从内容到视觉重点](../assets/mainfig-stages.png)
 
-20 文档设置下，答案文档的位置影响 GPT-3.5-Turbo 的问答准确率；红虚线是同一模型的无文档基准。
+同一假设问答设计的三个阶段：列出内容；对齐两条路线；只突出新增的证据核对步骤。示意不报告实际提升。
 
-1. **怎么借鉴：**一个变量、一条结果曲线、一条基准线就能提出问题。结论限于该模型与设置；纵轴未从零开始，不能按曲线高度读倍数。
+1. **观察 1：**Stage 1 的四张卡片是材料清单。Stage 2 的上下两行共享输入，改动的位置可直接比较。Stage 3 保持所有连接不变，只增加强调色。
 
-[Liu et al. · Lost in the Middle (TACL 2024), Fig. 1, p. 158 / PDF p. 2](https://aclanthology.org/2024.tacl-1.9/)
+[示意图生成提示词（内置 imagegen）](../assets/figure-stage-prompts.json)
 
-Nelson F. Liu et al., Lost in the Middle: How Language Models Use Long Contexts, TACL 12 (2024), Fig. 1, p. 158. CC BY 4.0. 从正式 PDF 提取图面；图形、坐标、文字和图例未改。
+StarPaper 原创 AI 生成教学示意 · 非实测结果 · CC BY 4.0
 
 <a id="figure-framework"></a>
 ### 2.2 Framework
 
-先说明设计为什么有效，再让读者追踪输入如何成为输出。大框对应 Method Overview，框内步骤对应方法小节。
+对应 Method Overview，解释设计怎样针对引言中的困难，再展示完整输入、关键操作、中间产物与输出。
 
-- 结合一个案例画流程：输入、关键操作、中间产物、最终输出都要出现。NLP 展示处理后的文本，CV 展示中间图像或特征。
-- 同类信息放一起；同层模块并排，真实先后关系用箭头。颜色表示职责，编号表示步骤，不靠满屏连线补逻辑。
-- 【铁律】箭头表示真实依赖。标清每步收到什么、做什么、交出什么、交给谁；训练、推理和评价分开。
-- 【铁律】边框区分输入、输出与仅供评价的材料，并给图例。参考答案或评价判据不能误画成被测模型的输入。
-- 【铁律】模块名称与正文一致，缩写、符号和颜色就近解释；同一来源案例只完整呈现一次，其他位置回引。
+#### Stage 1 · 写清输入、操作与产物
 
-<a id="teaching-framework-before-after"></a>
-#### 模板 1：输入、产物与评价分离
+- 为每个模块写四项：接收什么、做什么、产出什么、交给谁。模块名与 Method 小节一致；输出不能只叫 Features 或 Results，需说明实际对象。
+- 把引言的困难对应到解决它的模块。能说清“这个设计为什么需要”，再补实现细节；框多不等于解释充分。
+- 【铁律】每条箭头对应真实依赖；训练、推理与评价分开。仅用于评价的答案或判据，不能连到被测模型输入。
 
-![模板 1：输入、产物与评价分离](../assets/figure-framework-before-after.svg)
+#### Stage 2 · 按依赖排模块
 
-假设的文档问答流程。左侧只有泛称；右侧写清证据、被支持的主张和回答，并把参考答案送往独立评价器。
+- 先选唯一主阅读方向，再排模块。同层内容成组并命名；并行分支保持并行，汇合点写明实际收到的产物。
+- 相邻模块用短连接，箭头不穿文字；反馈放在主流程旁，并解释触发条件。不要为版面好看补出不存在的串行或反馈。
+- 用一个案例串起关键模块，就近展示输入片段、中间产物和输出。保留解释机制所需的内容；不以模块名代替实际材料。
 
-1. **观察 1：**前后使用同一任务。关键不是多画框，而是让每根箭头交代实际传递的材料；参考答案仅用于评价，不能连进回答生成流程。
+#### Stage 3 · 编码角色并逐箭头核对
 
-StarPaper 原创教学改排，CC BY 4.0；非原论文修订记录。
+- 用三种边框区分输入、输出、评价材料，图例说清含义；用统一强调色标出针对困难的模块，而非每个框换一种色。
+- 材料图标、操作模块和评价器旁均写对象名；大框对应 Overview，框内步骤对应方法小节，同名同义。
+- 验收时用一句话读每根箭头：“谁把什么交给谁”。再核对案例来源、简称、颜色和实际字号；读不通的连接先修内容。
 
-<a id="visual-interactcs-fig-1"></a>
-#### 模板 2：按职责分组，用案例串流程
+<a id="teaching-framework-stages"></a>
+#### 示范：依赖、分区与材料角色
 
-![模板 2：按职责分组，用案例串流程](../assets/paper-interactcs-fig-1.png)
+![示范：依赖、分区与材料角色](../assets/framework-stages.png)
 
-交互生成与策略优化先分两块；一个对话实例连接输入、交互与结果、过程、成本信号。
+同一假设流程先核对依赖，再分开生成与评价，最后区分材料角色。参考答案始终只送入评价器。
 
-1. **怎么借鉴：**先按职责分组，再用案例连接抽象模块与实际产物。输入、回复与评分信号各占明确位置；学习这种组织方式，不照搬全部节点。
+1. **观察 1：**图中只演示排版变化。正式图还应在连接旁写明产物：检索→候选证据，核对→支持的主张或待确认项，生成→回答。蓝色虚线框表示输入，蓝色实线框表示输出，金色双线框表示评价专用材料；灰色虚框只作分区，无色框是操作。
 
-[Reinforcing Real-world Service Agents: Balancing Utility and Cost in Task-oriented Dialogue · arXiv:2602.22697v1, Fig. 1, PDF p. 4](https://arxiv.org/abs/2602.22697v1)
+[示意图生成提示词（内置 imagegen）](../assets/figure-stage-prompts.json)
 
-Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。
+StarPaper 原创 AI 生成教学示意 · 非实测结果 · CC BY 4.0
 
 <a id="figure-experiments"></a>
 ### 2.3 实验绘图
 
-一张图回答一个实验问题。先选统计对象与比较方式，再调整配色、图例和标注。
+一张图回答一个实验问题。Python 等专业工具从真实记录绘制；美化改变呈现，不改变实验。
 
-- 少量方法比较用柱图或点图，训练动态用折线，分布用 KDE 或 ECDF；热图、投影、雷达等按需查附录，不为凑图换图型。
-- 完整方法与删组件版本保持同顺序、同配色；再用线型、点形或纹理区分。少量柱可画细一些，透明度保留重叠；图例放空白处，关键点就近标注。
-- 【铁律】从真实记录绘制，保留缺测、下降和不确定性；不补点、不编误差、不为平滑改曲线。误差写明统计单位、类型与计算方法。
-- 【铁律】坐标有单位、方向和必要分母；同类面板保持可比尺度。柱图优先零起点，截断须明显标出；相对增益同时给绝对值，百分点与百分比区分。
-- 【铁律】统计图导出矢量 PDF 并嵌入字体，核对数值与图形对应。KDE 是密度，ECDF 才读累计比例；投影分开不证明泛化好，雷达面积不是综合分数。
-- 原始点、散点遮挡、连续色标、气泡面积与误差线读法，按需要查文末绘图附录；各项依据集中在“相关参考和推荐阅读”。
+#### Stage 1 · 确定比较与统计口径
+
+- 先写要比较的对象、指标、单位、样本量、有效子集和统计方法；从原始记录计算，不让绘图工具猜分母或缺测。
+- 按问题选图：少量方法比较用点图或柱图；有序训练动态用折线；配对变化用差值；分布按需要用原始点、箱线图、KDE 或 ECDF。
+- 【铁律】保留下降、缺测和已有不确定性；不补点、不编误差、不为平滑改数据。误差线须注明 SD、SE 或 CI、统计单位和计算方法。
+
+#### Stage 2 · 统一坐标与面板
+
+- 可比面板保持方法顺序、坐标尺度和图例映射一致，写清坐标量、单位及好坏方向；图例放空白处，不遮关键点。
+- 柱长表示数量时从零起画；确需截断，应明显说明，不能按柱高读倍数。差值图标零线，无序方法不连成趋势。
+- 少量观测显示原始点；密集重叠先调透明度，仍看不清再用分箱计数，并交代箱宽。不要通过移动真实坐标制造分离。
+
+#### Stage 3 · 编码组别并核对数值
+
+- 颜色、点形、线型或纹理与方法绑定，跨面板保持一致；可用强调色突出本文方法，但比较对象仍须清晰可读。
+- 连续数值用顺序色标，有意义的基准两侧才用发散色标；同一指标的可比面板共用颜色映射与范围，不同指标另标单位与色标。缺测另标，不当零分；KDE 峰高不读成人数。
+- 对照原始数据查点位、柱高和误差，导出嵌入字体的矢量 PDF，并插回论文检查图例、字号与裁切；含位图的 PDF 不称全矢量。
 
 <a id="figure-types"></a>
 
 <a id="teaching-experiment-before-after"></a>
-#### 模板 1：同一数据的排版优化
+#### 示范：同一数据的排版优化
 
-![模板 1：同一数据的排版优化](../assets/figure-experiment-before-after.svg)
+![示范：同一数据的排版优化](../assets/figure-experiment-before-after.svg)
 
 两侧都使用 Baseline 60%、Ours 66% 的教学数据。优化后补单位和数值、移开图例、增加纹理；提高 6 个百分点，相对提高 10%。
 
-1. **观察 1：**排版修改不改柱高或数据。这里没有重复试验记录，因此不画误差棒；实际实验须保留并定义已有的不确定性。
+1. **观察 1：**排版修改不改柱高或数据。此示例只提供两个汇总值，未提供估计不确定性所需的观测与方法，因此不画误差棒；实际实验须保留并定义已有的不确定性。
 
 StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 
-<a id="visual-interactcs-fig-2"></a>
-#### 模板 2：多面板共用编码与图例
+<a id="figure-encodings"></a>
+#### 让每个元素有意义
 
-![模板 2：多面板共用编码与图例](../assets/paper-interactcs-fig2.png)
+先决定表达什么，再选颜色、图形和纹理。一个标记可以重复编码同一个含义，帮助读者在灰度下识别；别给它同时分配两个互相冲突的含义。
 
-四个面板共用一套图例：颜色区分方法族，纹理区分组内方案，↑／↓标明指标方向。
+- **位置与分组：**同层内容放在一起，外框写组名；先后关系沿一个主阅读方向排列，并行输入先汇合再进入下一步。
 
-1. **怎么借鉴：**同一方法跨面板保持颜色和纹理，读者无需反复找图例。图面未定义误差棒，不能自行补成标准差或置信区间；前三图非零起点，应读数值差。
+- **颜色：**同一对象全文同色；常规内容用中性色，关键改动用统一强调色。白底、近白面板、深色文字。连续数值用顺序色标，有明确基准的正负差值才用发散色标。
 
-[Ning Gao et al. · arXiv:2602.22697v1 · Fig. 2](https://arxiv.org/abs/2602.22697v1)
+- **形状与图标：**模型、材料和评价器用可区分的对象图形，旁边写名称；散点类别可再配不同点形。每种图形含义在图内或图注解释。
 
-Ning Gao et al., arXiv:2602.22697v1, Fig. 2. CC BY 4.0. 从原 PDF 裁切；图形与数据未改。
+- **边框与线型：**输入、输出、仅供评价的材料采用可区分的边框。主流程、反馈或条件分支按真实关系选线型，并写明图例；虚线不是默认的“高级步骤”。
+
+- **纹理与透明度：**柱图可用稀疏斜线辅助区分方案，并在图例复现纹理；同一方案跨面板保持纹理方向和密度一致。重叠分布或散点可调透明度，但不能遮掉稀少类别或关键点。
+
+- **大小：**仅在明确表示数量时改变元素大小，并给大小图例；气泡编码数量时面积成比例，半径取数量的平方根。流程框按内容分配空间，不靠大框暗示未经量化的贡献。
+
+<details><summary>补充建议与依据</summary>
+
+先确定图要传达哪项信息，再选择能把这项信息讲清的图型。 [Rougier et al. (2014), Ten Simple Rules for Better Figures](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833)
+
+排版应呈现信息关系；把相关元素分组，让读者顺着结构理解流程。 [Wong (2011), Layout](https://www.nature.com/articles/nmeth.1711)
+
+类别、数值和高亮分别选择离散色、连续色阶与强调色；有明确中点才用发散色阶。 [Claus O. Wilke, Fundamentals of Data Visualization: Color scales](https://clauswilke.com/dataviz/color-basics.html)
+
+重要区别别只靠颜色，再配形状或就近文字标签，并让图例顺序对应图中顺序。 [Claus O. Wilke, Fundamentals of Data Visualization: Redundant coding](https://clauswilke.com/dataviz/redundant-coding.html)
+
+按最终展示尺寸检查文字、线条和图例，并让图与图注能独立解释比较对象与主要信息。 [MIT AeroAstro Communication Lab, Figure Design](https://mitcommlab.mit.edu/aeroastro/commkit/figure-design/)
+
+</details>
 
 [更多图型、原图与点评：收集的参考绘图](#figure-appendix)
 
@@ -1866,9 +1906,12 @@ We propose GreenPlanner, an energy- and functionality-aware generative framework
 - 【铁律】实测案例与示意案例分开，说明选例依据。个例用于解释过程，不证明总体排名或部署效果；被测模型得分高，也不能证明 benchmark 更好。
 - 【铁律】全局失败组成、某场景发生率与条件子集表现分别给对象和分母；不能将不同分母的比例直接相减，也不能用局部失败诊断冒充整体差距的因果解释。
 - 【铁律】区分初始判分、人工复核标签与最终得分。一致性写清比较对象、范围与分母；标签一致率不等于独立准确率，也不能证明没有偏差。
-- 【铁律】Metrics 用一个紧凑自然段：先说明指标类别和适用对象，再按 1) 加粗指标名、2) 加粗指标名逐项定义；Models 或 Baselines 另写。每项交代定义、方向、单位、分母和汇总，不把指标分成零散无编号小节。
+- 【铁律】Metrics 用一个紧凑自然段：先说明指标类别和适用对象，再按 1)、2)、3) 定义；仅加粗指标名，不斜体。Models 或 Baselines 另写。每项交代定义、方向、单位、分母、汇总与无效输出处理。
 - 已有初始与复核记录时，可分析标签修改方向、模型分布和得分或排名敏感性。协议约束不等于已测得去偏效果，未测试的偏差不写成已证明。
 - 评价器的准确标识、参数和输出限制集中放在一个可定位的设置块；正文给必要角色与引用，不反复复制全部配置。实际材料与判分版本必须对应。
+- 消融按模块组织：先用 Setting 定义变体与固定条件，再用 Results 报告该对照的发现；同一个模块的设置和结果放在一起。
+- 【铁律】消融变体在设置、表格和分析中同名；归因不能超过真正改变的因素与对照范围。
+- Case Study 展示方法运行与关键判断。按选择理由、输入、关键中间产物、输出或对照、分析与边界写；个例不能替代主张所需的验证。
 
 <a id="experiments-writing-templates"></a>
 #### 实验写作模板
@@ -1901,9 +1944,17 @@ We evaluate [研究对象] on [数据与版本], using [训练、开发和测试
 
 **Metrics.**
 
-We measure [评价目标] using [指标全称及来源], where [指标定义与方向]. Scores are aggregated over [统计单位] using [平均、加权或其他汇总规则]. For [比例指标], the denominator is [分母及有效条件]. We report [实际重复次数与不确定性方法] over [种子、案例、用户或其他变动来源].
+```latex
+\noindent\textbf{Metrics.}
+We assess [target properties] on [test split] using [assessment units].
+1) \textbf{[Metric 1]} measures [definition, denominator, unit, and direction].
+2) \textbf{[Metric 2]} measures [definition, denominator, unit, and direction].
+We first compute [per-unit score] and aggregate by [actual rule].
+[Invalid-output policy and not-applicable policy].
+The complete protocol is provided in Appendix~\ref{app:metrics}.
+```
 
-区分案例、回答、判据和用户等统计单位。区间与标准差必须说明对应的重复或重采样单位；只有单次结果时如实写，不能填假误差条。
+只保留一个 Metrics 类别标题和一个自然段；编号后仅加粗指标名。每项写定义、方向、单位、分母与汇总，完整判定协议另给位置。
 
 **Baselines.**
 
@@ -1939,15 +1990,42 @@ For [需要人工或模型判断的指标], [评估者及资质，或judge模型
 </details>
 
 <a id="experiment-ablation-template"></a>
-<details><summary>设计检验与消融</summary>
+<details><summary>模块消融：Setting → Results</summary>
 
 需要判断某项设计是否发挥作用，而不是只比较整套系统。替换、删除、增加或其他受控变体都可使用。
 
-**受控变体与设计作用**
+**每个模块一组设置与结果**
 
-\textbf{Under [固定条件], [设计或变体] shows [关于原动机的一条实际结果].} To test whether [具体设计] addresses [引言中的同名局限], we compare [完整配置] with [明确删除、替换或改变的配置]. Both variants retain [其他输入、训练、评价与预算条件]. Table~\ref{[消融表]} shows [关键变化及不确定性], supporting [该对照能支持的设计作用]. [仍有耦合因素或未覆盖条件] leaves [不能区分的问题] unresolved.
+```latex
+\subsection{Ablation Study}
+\label{sec:ablation}
 
-写清改了什么、其余保留什么、结果怎样、能说明什么。删除模块同时改变参数量或预算时披露差异；整套系统更好不能自动归功于单一模块。
+\paragraph{Effect of [Module A].}
+\textbf{Setting.}
+To examine [Module A's role], we compare [control variant] with [Module A variant].
+Both retain [shared modules] and use [matched training data, model, evaluation set, decoding settings, and budget].
+Only [the specified factor] changes.
+[Remaining differences and their location].
+
+\textbf{Results.} \textbf{[Verified finding under these conditions].}
+Table~\ref{tab:ablation} compares [the two rows] on [relevant metric and scope].
+[Observed change and measured uncertainty].
+This supports [the bounded component role].
+[Observed exception or limitation].
+
+\paragraph{Effect of [Module B].}
+\textbf{Setting.}
+We compare [variant retaining Module A] with [the same variant using Module B].
+We keep [Module A and other shared conditions] fixed and change only [Module B or specified replacement].
+[Actual retraining, repetitions, and settings location].
+
+\textbf{Results.} \textbf{[Verified finding with Module A fixed].}
+Table~\ref{tab:ablation} shows [actual difference] between [the matched rows].
+This tests [Module B's incremental role in this configuration].
+[Observed trade-off or exception].
+```
+
+先定义两行的唯一差异，再给对应结果。第二个模块保持第一个模块不变，检验的是该配置下的增量作用。
 
 </details>
 
@@ -1989,33 +2067,112 @@ For [需要人工或模型判断的指标], [评估者及资质，或judge模型
 
 </details>
 
+<a id="experiment-ablation-table-template"></a>
+<details><summary>结果表：行列与标记要求</summary>
+
+先定行列再填结果。表头按“数据集—指标”分两级，表体每行就是 Setting 定义的一种变体。
+
+- 【铁律】完整名称、引用、数值与误差在同一单元格内保持单行。优先调整列宽，必要时用通栏表，不用缩写、折行或整体缩放掩盖拥挤。
+- 共同的数据集、指标、方向、单位与精度固定。读者应能横向查同一变体，纵向比同一指标。
+- 路线很多时用分组行；消融表则将完整方法与匹配变体邻近摆放。表内变体名与 Setting 一致。
+- 【铁律】均值与不确定性必须基于真实观测和明确方法；说明统计或重采样单位、实际数量及 SD、SE 或 CI。单次运行不能冒称跨运行稳定性，不套用示例论文的重复次数。
+- 最优与次优只在可比组内逐列标记，按指标方向判断，并列共用标记。不能给整行自动加粗或声称每列都胜出。
+- Caption 写范围、单位、汇总、误差含义和标记规则；未测量写未测量，N/A 说明不适用原因，二者不能填零。
+- 最终 PDF 核查最长名称、误差上标、两级表头、列距和页边距。booktabs、multirow 在导言区加载；模板占位值逐格替换。
+
+**两级表头：数据集 → 指标**
+
+```latex
+\begin{table*}[!t]
+\centering
+\caption{Ablation results on [evaluation scope and split].
+Scores use [unit and aggregation rule]; arrows show the preferred direction.
+[Single-run results, or actual repeat count and defined uncertainty type].
+Bold marks the best and underline the second-best distinct value among comparable variants; ties share the same mark.}
+\label{tab:ablation}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l cccc @{}}
+\toprule
+\multirow{2}{*}{Variant} & \multicolumn{2}{c}{[Dataset A]} & \multicolumn{2}{c}{[Dataset B]} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+ & EM $\uparrow$ & F1 $\uparrow$ & EM $\uparrow$ & F1 $\uparrow$ \\
+\midrule
+{[Control variant full name]} & [value] & [value] & [value] & [value] \\
+{[Module A variant full name]} & [value] & [value] & [value] & [value] \\
+{[Module B variant full name]} & [value] & [value] & [value] & [value] \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+```
+
+在导言区加载 booktabs、multirow。模板不预填数值，逐格填写自己的实测结果；粗体与下划线只用于可比列的排名。
+
+</details>
+
+<a id="experiment-case-study-template"></a>
+<details><summary>Case Study：展示方法的运行过程</summary>
+
+选一个能看懂核心设计的案例，沿输入、中间产物、输出走一遍。重点解释方法在哪里发挥作用，不重复报排行榜。
+
+- 先写选择理由：典型困难、失败边界或关键设计。不要只挑最好看的成功例子。
+- 输入交代问题、可用证据和必要条件；关键步骤展示实际可核查产物，如证据笔记、检索片段或约束标记。
+- 输出紧接中间产物，指出哪条证据支持或否定哪个判断。有对照时先交代共同与不同条件，再并排比较。
+- 【铁律】实测材料保留原始输入、输出与标签；构造案例明示。没有记录的中间步骤不编造，隐藏推理不能改画成已观察过程。
+- 【铁律】个例说明方法运行或具体失败，不能替代所声称效果需要的实验、证明整体有效或推断总体比例。
+- 时间紧时，可优先整理已有真实案例并深入分析，补充方法说明；主要结论仍需对应验证。分析充分的 Case Study 能让读者看清设计的价值。
+- 【铁律】同一案例在论文中完整展示一次；其他章节交叉引用，避免换图、换语言后重复讲同一个故事。
+- 图的颜色按语义分组，图形和纹理提供第二种区分。局部圈出关键证据并编号，旁注解释这一步如何改变输出；保留白底，不整块涂色。
+
+**选例 → 输入 → 中间产物 → 输出与对照 → 分析**
+
+```latex
+\subsection{Case Study}
+\label{sec:case-study}
+\textbf{[Concrete behavior illustrated by this case].}
+We select [recorded case or explicitly constructed example] because [selection reason tied to an Introduction challenge].
+Figure~\ref{fig:case-study} shows [the actual question and relevant evidence], which requires [specific behavior].
+[Named method stage] transforms [input] into [recorded intermediate artifact].
+In this artifact, [concrete marked evidence or retained uncertainty] supports [the next operation].
+The final output [meets or violates the requirement] based on [verifiable evidence].
+[Comparable baseline output, if available, and the exact contrast].
+This case illustrates [the observed operation or failure], while [the quantitative evaluation or the untested boundary] determines the broader claim.
+```
+
+案例来自同一条真实记录；图只展示有记录的步骤。本文其他位置交叉引用该案例。
+
+**图注模板**
+
+[案例图及来源类型]。颜色分别表示[语义一]和[语义二]，编号对应[旁注]。从左到右，[输入条件]经[真实步骤]形成[中间产物]，最终[输出表现]；[对照]在[对应位置]出现[可核查差异]。该例展示[有限作用]，不代表[整体效果或未测范围]。
+
+按语义分组：支持证据一种浅色；待确认内容另一种浅色并加标签；新增处理用统一边框。用①②③与旁注连接关键片段，避免整段涂色。
+
+</details>
+
 <a id="annotated-experiments-metrics"></a>
 
-#### 指标定义
+#### 指标定义：一个自然段写完整
 
-教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。
+RAG 教学例子；指标与处理规则用于演示写法，不是 EviNoteRAG 的原文或实测设置。
 
 **English 教学改写**
 
-To test whether evidence notes improve citation support, we evaluate multi-turn questions about static English manuals. Human raters check each factual answer sentence against its cited passage using a shared rule. A sentence without a citation counts as unsupported. For each question, citation support is the fraction of factual sentences supported by their cited evidence; higher is better. We average these per-question fractions rather than pooling sentences across questions. Answers with no factual sentences are reported separately as not applicable, together with their count.
+**Metrics.** We assess answer accuracy and citation support on [test split]. 1) **Exact Match (EM)** is the percentage of questions whose normalized answer matches a reference answer. 2) **Token F1** is the per-question harmonic mean of token precision and recall against the best-matching reference, averaged across questions and reported as a percentage. 3) **Citation Support (CS)** is the percentage of factual answer sentences supported by their cited passages, computed per answer and averaged across applicable answers. Missing citations count as unsupported. Higher is better for all three metrics. Empty or invalid answers receive zero EM and F1. CS is undefined for answers with no factual sentences; we report their count and the proportion of answers with defined CS. Normalization, tokenization, and citation-checking rules are specified in Appendix [protocol].
 
 
 **中文译文**
 
-为检验证据笔记能否提高引用支持率，我们评价针对静态英语手册的多轮问题。指标。人工按同一规则检查每句事实能否由所引片段支持。没有引用的句子按不支持计。对每个问题，引用支持率是获所引证据支持的事实句比例，越高越好。我们对各问题的比例取平均，不把所有问题的事实句混在一起计算。没有事实句的回答单列为不适用，并报告数量。
+**指标。**我们在[测试划分]上评价答案准确性与引用支持。1) **精确匹配（EM）**是标准化后答案与任一参考答案一致的问题占比。2) **词元 F1** 先对每个问题计算词元精确率与召回率的调和平均，采用得分最高的参考答案，再对问题取平均，以百分比报告。3) **引用支持率（CS）**是得到所引片段支持的事实句占比，先按回答计算，再对适用回答取平均。缺引用的事实句按不支持计。三项均越高越好。空回答或无效回答的 EM、F1 计零；没有事实句时 CS 无定义，单列这类回答数量及可计算 CS 的回答占比。标准化、分词与引用判定规则见附录[协议]。
 
 
 **高亮与旁批**
 
-1. **To test whether evidence notes improve citation support / 为检验证据笔记能否提高引用支持率**：问题接回方法作用。先说这组评价要检验什么，不能从设备型号开始。
-2. **Human raters check each factual answer sentence / 人工按同一规则检查每句事实**：谁判什么。人工、判定单位与证据对象都可定位。完整说明和一致性核验另给实际记录。
-3. **A sentence without a citation counts as unsupported. / 没有引用的句子按不支持计。**：缺失也进入口径。缺引用不能从分母中静默排除，否则少给引用反而可能得高分。
-4. **We average these per-question fractions rather than pooling sentences across questions. / 我们对各问题的比例取平均，不把所有问题的事实句混在一起计算。**：说明怎样汇总。先按问题计算再平均，与把所有句子合并计算不同；长回答不会只因句子多而权重更大。
-5. **reported separately as not applicable / 单列为不适用**：定义不能评分的情形。没有事实句时，比例无定义。不能自动算零或算满分，还要报告数量。
+1. **1) Exact Match (EM) is the percentage of questions whose normalized answer matches a reference answer. / 1) 精确匹配（EM）是标准化后答案与任一参考答案一致的问题占比。**：编号、加粗名称、简短定义。EM 的分母是测试问题数，单位是百分比；标准化规则不能随模型变化。名称只用粗体，不再套斜体。
+2. **2) Token F1 is the per-question harmonic mean of token precision and recall against the best-matching reference, averaged across questions and reported as a percentage. / 2) 词元 F1 先对每个问题计算词元精确率与召回率的调和平均，采用得分最高的参考答案，再对问题取平均，以百分比报告。**：先按样本算，再说明汇总。词元精确率以预测词元数为分母，召回率以参考词元数为分母。这里是问题级宏平均，不能与全体词元合并后的微平均混用。
+3. **3) Citation Support (CS) is the percentage of factual answer sentences supported by their cited passages, computed per answer and averaged across applicable answers. / 3) 引用支持率（CS）是得到所引片段支持的事实句占比，先按回答计算，再对适用回答取平均。**：指标直接检验方法作用。证据组织声称减少无支持断言，就增加对应的引用支持指标。事实句分母包含缺引用的事实句；完整人工或模型判定规则放附录。
+4. **Empty or invalid answers receive zero EM and F1. CS is undefined for answers with no factual sentences; we report their count and the proportion of answers with defined CS. / 空回答或无效回答的 EM、F1 计零；没有事实句时 CS 无定义，单列这类回答数量及可计算 CS 的回答占比。**：失败输出与不适用分开。这是教学协议示例。不同论文按实际协议处理，不能静默删掉失败回答，也不能把无分母的比例填成满分。CS 必须连同适用覆盖解读。
 
-StarPaper · 教学改写
+教学改写；组织参考 EviNoteRAG §4.2（PDF 第 5 页）。
 
-独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
+借鉴编号指标段的组织方式；补齐分母、汇总与不可评分处理。未复制论文实测数字或私有配置。
 
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
@@ -2048,65 +2205,69 @@ StarPaper · 教学改写
 
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
-<a id="annotated-experiments-ablation"></a>
+<a id="ablation-evidence-structure"></a>
 
-#### 消融分析
+#### 模块一：证据组织
 
-教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。
+结构化笔记是否比普通摘要更有效？ 填空示范，数值与结论用实际记录填写。
 
 **English 教学改写**
 
-To examine the role of retained dialogue constraints, we remove those constraints from the notes while keeping source quotes unchanged. Both variants use the same language model, test questions, decoding settings, and maximum evidence-context budget. If constraint satisfaction decreases after this single change, the comparison supports retaining constraints in the tested setting. The comparison does not isolate the benefit of the entire note-building pipeline, because source selection and quotation remain active in both variants.
+**Setting.** To isolate evidence organization, we compare [unstructured-summary variant] with [structured-note variant]. The structured variant marks [answer-relevant evidence and uncertain statements]; the control summarizes the same retrieved passages without these fields. Both use [the same training data, backbone, retrieval results, decoding configuration, and context-budget ceiling]. Neither uses [evidence-quality reward]. [Actual length or other remaining differences] are reported in Appendix [settings].
+
+**Results.** **[Verified finding about structured notes under the tested conditions].** Table [ablation] compares [the two named rows] on [the matched metric and test scope]. The observed [difference, direction, and uncertainty if measured] supports [the bounded role of evidence organization]. [Observed exceptions or remaining alternative explanation].
 
 
 **中文译文**
 
-为检验保留对话约束的作用，我们从笔记中移除这些约束，保留来源摘句。两种设置使用相同的语言模型、测试问题、解码设置和证据上下文预算上限。若这项单一改动后约束满足率下降，该比较支持在实测设置中保留约束有用。它不能单独确定整套笔记构建流程的收益，因为两种设置都仍在进行来源选择和摘句。
+**设置。**为检验证据组织，我们比较[普通摘要变体]与[结构化笔记变体]。结构化变体标记[答案相关证据与不确定陈述]；对照对相同检索片段作摘要，不提供这些字段。两者使用[相同训练数据、基础模型、检索结果、解码配置与上下文预算上限]，均不使用[证据质量奖励]。[实际长度或其他剩余差异]见附录[设置]。
+
+**结果。****[结构化笔记在实测条件下的真实发现]。**表[消融]对比[上述两行]在[对应指标与测试范围]上的表现。[真实差值、方向及已测不确定性]支持证据组织具有[有限作用]。[已观察例外或仍存在的替代解释]。
 
 
 **高亮与旁批**
 
-1. **To examine the role of retained dialogue constraints / 为检验保留对话约束的作用**：对准一项设计。消融目的应对应 Method 声称的作用，不是列一排 w/o 标签。
-2. **remove those constraints from the notes while keeping source quotes unchanged / 从笔记中移除这些约束，保留来源摘句**：只改待检验因素。去掉约束，来源摘句保留。若同时改检索器或模型，就不能把差异归给约束。
-3. **the same language model, test questions, decoding settings, and maximum evidence-context budget / 相同的语言模型、测试问题、解码设置和证据上下文预算上限**：其余条件给清楚。预算上限相同不代表实际词元数相同；正式实验仍要核对长度是否构成替代解释。
-4. **If constraint satisfaction decreases after this single change / 若这项单一改动后约束满足率下降**：没有结果就不编发现。这里是条件句教学。正式结果段应替换为真实差异及统计范围。
-5. **does not isolate the benefit of the entire note-building pipeline / 不能单独确定整套笔记构建流程的收益**：归因范围与改动一致。当前比较只检验保留约束，未单独识别检索、摘句等其他步骤的作用。
+1. **Neither uses [evidence-quality reward]. / 均不使用[证据质量奖励]。**：奖励条件固定。这一对照只查笔记结构，不能同时增添奖励。上限相同也不等于实际长度相同，长度变化另报。
+2. **[Verified finding about structured notes under the tested conditions]. / [结构化笔记在实测条件下的真实发现]。**：Results 的第一句给真实发现。可加粗这句。填实际提升、下降或无明确差异，不能预设“模块一定有效”。
+3. **[the two named rows] / [上述两行]**：结果紧接刚定义的对照。读者能在表里找到两行。不是拿完整系统和 Base 的总差异归因给一个模块。
 
-StarPaper · 教学改写
+教学模板；组织参考 EviNoteRAG §4.6。
 
-独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
+迁移设置与结果的组织方式，未复制论文实测数字。
 
 本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
-<a id="annotated-experiments-ablation-source"></a>
+<a id="ablation-evidence-quality-reward"></a>
 
-#### 组件效果
+#### 模块二：证据质量奖励
 
-论文原文整段 · 中文为本指南翻译；高亮与旁批按颜色和编号对应。
+在笔记结构固定时，奖励是否带来增益？ 填空示范，数值与结论用实际记录填写。
 
-**English 原文**
+**English 教学改写**
 
-We highlight the importance of natural footwork in enhancing visual aesthetics (Tseng, Castellon, and Liu 2023). As shown in Table 3, our Footwork Adaptor markedly enhances the model’s PFC value. Moreover, when utilized independently, it boosts the model’s GMC, underscoring the FA’s dual benefits: preventing foot slipping and augmenting dance coherence.
+**Setting.** To examine [evidence-quality reward], we compare [structured-note variant] with [structured-note variant using the reward]. Both retain [the same note fields and answer-generation procedure] and use [matched training and evaluation conditions]. Only [the reward term or specified reward replacement] changes; its [definition and weight] are given in Section [method]. [Required retraining and actual repeats] follow the recorded protocol.
+
+**Results.** **[Verified finding about the added reward with note structure fixed].** Relative to [the no-reward row], [the reward row] shows [observed difference] in [the relevant metric and scope] (Table [ablation]). This comparison identifies [the incremental role of the reward conditional on structured notes], rather than [an untested standalone or interaction effect]. [Observed trade-off or exception].
 
 
 **中文译文**
 
-我们强调自然脚步对提升视觉美感的重要性（Tseng、Castellon 与 Liu，2023）。如表 3 所示，Footwork Adaptor 明显改善了模型的 PFC 指标。此外，单独使用该模块时，它也提高了模型的 GMC，体现出 FA 的双重作用：减少脚部滑动，并增强舞蹈协调性。
+**设置。**为检验[证据质量奖励]，我们比较[结构化笔记变体]与[加入该奖励的结构化笔记变体]。两者保留[相同笔记字段和答案生成流程]，采用[匹配的训练与评价条件]。只改变[该奖励项或明确的奖励替换]，[定义及权重]见第[方法]节。[需要重新训练的变体与实际重复]按记录执行。
+
+**结果。****[笔记结构固定时，新增奖励的真实发现]。**相比[无该奖励的一行]，[加入奖励的一行]在[对应指标与范围]上呈现[真实差异]（表[消融]）。该比较检验的是[已有结构化笔记条件下奖励的增量作用]，不等于[未经检验的单独作用或交互效应]。[已观察代价或例外]。
 
 
 **高亮与旁批**
 
-1. **natural footwork in enhancing visual aesthetics / 自然脚步对提升视觉美感**：动机说明为何要测。自然脚步对应本文的脚部滑动问题。按现行结果写法，可先给主发现，再用这句解释其意义。
-2. **As shown in Table 3 / 如表 3 所示**：证据位置直接给出。表中有 w/o FA、w/o FP 和组合消融；说明模块作用前，先找能只改变 FA 的匹配对照。
-3. **enhances the model’s PFC value / 改善了模型的 PFC 指标**：指标先知道方向。PFC 是脚部接触相关指标，表中越低越好。改善不能误译为数值提高。
-4. **when utilized independently / 单独使用该模块时**：单独作用要有对应行。对应 w/o FA and FP 与 w/o FP 的比较；两行都没有 FP，只增减 FA。不能拿多项同时变化的两行归因。
-5. **preventing foot slipping and augmenting dance coherence / 减少脚部滑动，并增强舞蹈协调性**：两项作用分别给证据。PFC 对应脚步，GMC 对应群体协调。若篇幅允许，按一段一个核心发现分开分析。
+1. **Only [the reward term or specified reward replacement] changes / 只改变[该奖励项或明确的奖励替换]**：写清换了什么。删奖励、换成随机奖励和调权重是不同设置。训练型模块需要按真实协议训练，不能只在推理时关开关。
+2. **[Verified finding about the added reward with note structure fixed]. / [笔记结构固定时，新增奖励的真实发现]。**：发现与 Setting 是同一个问题。不要先讲总榜单排名，先回答这个奖励在固定笔记结构下做了什么。
+3. **[the incremental role of the reward conditional on structured notes] / [已有结构化笔记条件下奖励的增量作用]**：别把逐步增益写成交互效应。组合好于单组件不自动证明协同。只有组合定义有效且有完整匹配对照时，才能检验交互。
 
-[TCDiff · AAAI 2025](https://ojs.aaai.org/index.php/AAAI/article/view/32268) · §Ablation Study，Effectiveness of Footwork Adaptor，自然段；PDF p.7，proceedings p.2651；Table 3
+教学模板；组织参考 EviNoteRAG §4.6。
 
-英文保持原文，仅合并换行、还原排版断词，并移除粗体段标题；中文为本指南翻译。英文原文包含 PFC 与 GMC 的两项作用，教学批注明确各自的指标和对照，不改原句。
+迁移设置与结果的组织方式，未复制论文实测数字。
 
-作者教学复用；原论文英文短引与原图不受 StarPaper 原创内容 CC BY 授权覆盖。本文不转授第三方转载原论文材料的权利。
+本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
 
 <details><summary>结构模板</summary>
 
@@ -2489,6 +2650,23 @@ README 说明默认只处理 PDF 第一页；保留原件，并为输出使用�
 
 <details><summary>动机与框架</summary>
 
+<a id="visual-lost-middle-fig-1"></a>
+#### 长上下文中的位置效应
+
+![长上下文中的位置效应](../assets/paper-lost-middle-fig-1.png)
+
+这张单栏图只问一件事：答案所在文档的位置，会不会影响问答准确率？横轴是答案文档在 20 篇输入文档中的位置，纵轴是 GPT-3.5-Turbo 的准确率。紫线是带文档问答，红虚线是同一模型不读文档时的准确率。中间位置更低，开头和结尾更高；读者先记住这个发现，再去正文看实验。
+
+1. **横轴与纵轴：**横轴是答案文档在20篇输入文档中的位置，纵轴是问答准确率；两个量足以提出一个研究问题。
+
+2. **紫线与红虚线：**紫线显示带文档问答，红虚线给出同一模型的无文档基准；对照说明中间位置的低谷为什么值得研究。
+
+3. **图例与结论范围：**图例写明模型和条件。结论限于该模型与20文档设置；纵轴未从零开始，不能按曲线高度比较倍数。
+
+[Liu et al. · Lost in the Middle (TACL 2024), Fig. 1, p. 158 / PDF p. 2](https://aclanthology.org/2024.tacl-1.9/)
+
+Nelson F. Liu et al., Lost in the Middle: How Language Models Use Long Contexts, TACL 12 (2024), Fig. 1, p. 158. CC BY 4.0. 从正式 PDF 提取图面；图形、坐标、文字和图例未改。
+
 <a id="visual-tcod-fig-1"></a>
 #### 问题与解法对照
 
@@ -2522,6 +2700,25 @@ Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 1. CC BY 4.0. 从原页裁切�
 [TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 3, PDF p. 5](https://arxiv.org/abs/2604.24005v3)
 
 Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 3. CC BY 4.0. 从原页裁切；图形与数据未改。
+
+<a id="visual-interactcs-fig-1"></a>
+#### 多任务框架的分组与连接
+
+![多任务框架的分组与连接](../assets/paper-interactcs-fig-1.png)
+
+先分交互生成和策略优化两块，再编号结果、过程、成本三种信号；旁边的对话走一遍流程。
+
+1. **左侧输入分组：**用户特征、外部需求与业务场景先分组，读者知道交互由什么输入产生。
+
+2. **中间对话：**一个对话实例沿流程展开，连接抽象模块与实际交互；自己的案例须先处理身份信息。
+
+3. **右侧编号模块：**结果、过程、成本三种信号分别编号。分组讲职责，箭头讲信息流，编号讲处理步骤。
+
+4. **右上评分输出：**Task Score、Turn Credit和Global Cost并排显示，输入、回复与评分信号各有位置，避免混成一类。
+
+[Reinforcing Real-world Service Agents: Balancing Utility and Cost in Task-oriented Dialogue · arXiv:2602.22697v1, Fig. 1, PDF p. 4](https://arxiv.org/abs/2602.22697v1)
+
+Ning Gao et al., Reinforcing Real-world Service Agents, arXiv:2602.22697v1, Fig. 1. CC BY 4.0. 从原页裁切；图形与数据未改。
 
 </details>
 
@@ -2603,6 +2800,8 @@ Ning Gao et al., arXiv:2602.22697v1, Fig. 3. CC BY 4.0. 从原 PDF 裁切；图�
 
 <details><summary>消融与资源成本</summary>
 
+**主结果与消融**：少量方法用点图或柱图；完整方法与删组件版本同顺序、同配色。说明误差的统计单位和计算方法。
+
 <a id="visual-tcod-fig-6"></a>
 #### 方法效果比较
 
@@ -2619,6 +2818,25 @@ Ning Gao et al., arXiv:2602.22697v1, Fig. 3. CC BY 4.0. 从原 PDF 裁切；图�
 [TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents · arXiv:2604.24005v3, Fig. 6, PDF p. 10](https://arxiv.org/abs/2604.24005v3)
 
 Jiaqi Wang et al., TCOD, arXiv:2604.24005v3, Fig. 6. CC BY 4.0. 从原页裁切；图形与数据未改。
+
+<a id="visual-interactcs-fig-2"></a>
+#### 结果图的分组比较
+
+![结果图的分组比较](../assets/paper-interactcs-fig2.png)
+
+颜色分方法族，实色、斜线和点纹再分组内方案，四个面板共用图例，误差棒也留在柱顶。
+
+1. **顶部共享图例：**颜色区分方法族，实色、斜线和点纹区分组内方案，四个面板复用同一套编码。
+
+2. **指标标题箭头：**↑与↓标出指标的优劣方向，避免把违规率下降读成性能变差。
+
+3. **柱顶误差棒：**保留不确定性信息；图面没有定义误差棒，不能自行称为标准差或置信区间。
+
+4. **前三幅纵轴：**前三幅图未从零开始，不能按柱高比较倍数；应读坐标和数值差异。
+
+[Ning Gao et al. · arXiv:2602.22697v1 · Fig. 2](https://arxiv.org/abs/2602.22697v1)
+
+Ning Gao et al., arXiv:2602.22697v1, Fig. 2. CC BY 4.0. 从原 PDF 裁切；图形与数据未改。
 
 </details>
 
@@ -2874,6 +3092,32 @@ StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
 [可复现教学绘图代码](../assets/generate-statistical-examples.py)
 
 StarPaper 原创教学图 · 模拟数据，非论文结果 · CC BY 4.0
+
+</details>
+
+<details><summary>优化前后教学示意</summary>
+
+<a id="teaching-mainfig-before-after"></a>
+#### 模板 1：问题与改动对照
+
+![模板 1：问题与改动对照](../assets/figure-mainfig-before-after.svg)
+
+假设的证据问答任务。左侧流程过于抽象；右侧把“证据不足仍回答”的问题与“核对证据、保留未知”的改动对齐。只展示设计，不声称效果已验证。
+
+1. **观察 1：**先找要讲的缺口，再删掉不能帮助理解缺口的节点。左右保持同一问题和阅读顺序，让改动位置可直接比较。
+
+StarPaper 原创教学改排，CC BY 4.0；非原论文修订记录。
+
+<a id="teaching-framework-before-after"></a>
+#### 模板 1：输入、产物与评价分离
+
+![模板 1：输入、产物与评价分离](../assets/figure-framework-before-after.svg)
+
+假设的文档问答流程。左侧只有泛称；右侧写清证据、被支持的主张和回答，并把参考答案送往独立评价器。
+
+1. **观察 1：**前后使用同一任务。关键不是多画框，而是让每根箭头交代实际传递的材料；参考答案仅用于评价，不能连进回答生成流程。
+
+StarPaper 原创教学改排，CC BY 4.0；非原论文修订记录。
 
 </details>
 

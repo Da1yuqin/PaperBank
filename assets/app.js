@@ -240,3 +240,14 @@ async function setupPageStats(){
  if(live)await update(viewEvent);
 }
 setupPageStats();
+
+const backToTop=$('#back-to-top');
+if(backToTop){
+ const updateBackToTop=()=>{backToTop.hidden=window.scrollY<600;};
+ window.addEventListener('scroll',updateBackToTop,{passive:true});
+ backToTop.addEventListener('click',()=>{
+  window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'});
+  $('#main').setAttribute('tabindex','-1');$('#main').focus({preventScroll:true});
+ });
+ updateBackToTop();
+}
