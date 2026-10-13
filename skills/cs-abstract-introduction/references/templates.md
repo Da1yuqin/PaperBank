@@ -2,276 +2,124 @@
 
 以下为通用规则与教学模板，不是真实论文原文、研究事实或实测。
 
-#### 摘要：问题到结果
+<a id="annotated-abstract"></a>
 
-摘要先说明研究价值与新增内容，再给主要结果。使用准确、常见的词，仅保留必要术语。
+#### 摘要模板
 
-教学模板；【】填真实材料。
+用一个自然段概括问题、对应解法和实验亮点。
 
-- 首次出现的术语就近解释；摘要主张必须有正文支持。
-- 保留关键发现、比较对象和必要数字，不逐项报分。
+**English 填空模板**
 
-推荐结构模板；长度按投稿要求
+[Research task] requires [capability needed in practice]. Existing methods in [research line] face ***[limitation A]*** and ***[limitation B]***, which hinder [specific goal]. We introduce [Method], a [concrete artifact and its purpose]. For [same limitation A], we [design A and its function]. For [same limitation B], we [design B and its function]. Experiments on [evaluation scope] show that [verified quantitative result with its metric, unit, and comparison reference]. Further analysis reveals [key experimental finding], showing [what this finding answers about the research question].
 
-[Task] requires [specific capability] in [setting].
 
-[任务]在[场景]下需要[具体能力]。
+**高亮与旁批**
 
-**第 1 句：**开门见山写任务需求，不先夸领域前景。
+1. **[Research task] requires [capability needed in practice].**：背景：任务为什么需要研究。用一句话交代具体任务与能力需求，让下一句的不足有比较标准。
+2. **Existing methods in [research line] face [limitation A] and [limitation B], which hinder [specific goal].**：局限：列出本文要解决的问题。A、B 分别填具体缺失或障碍，关键词用粗斜体。存在更多独立局限时可继续展开；不要为了模板凑数，也不要把多个局限合成一个空泛问题。
+3. **We introduce [Method], a [concrete artifact and its purpose].**：贡献总述：对象与用途。先告诉读者提出了什么、用来做什么，再展开具体设计。
+4. **For [same limitation A], we [design A and its function]. For [same limitation B], we [design B and its function].**：解法：逐项回应前述局限。两个 For 后分别沿用 A、B 的问题关键词，后半句填真实设计及作用。每个问题都应找到对应解法。
+5. **Experiments on [evaluation scope] show that [verified quantitative result with its metric, unit, and comparison reference].**：实验亮点：数字与比较对象。选择最能支持主要贡献的实测数字。方法论文可填相对可比基线的提升，评价或发现型论文可填样本占比、得分差距等关键结果；范围、指标与单位必须明确。
+6. **Further analysis reveals [key experimental finding], showing [what this finding answers about the research question].**：关键结论：实验让我们知道了什么。填重要发现及其意义，例如在哪种条件下有效、哪个设计解决了哪类困难。发现型论文可先讲核心发现，再给最有说服力的数字。
 
-Existing approaches [established capability], but [specific limitation].
+<a id="annotated-intro"></a>
 
-现有方法已能[已有能力]，但仍有[具体不足]。
+#### 领域与任务模板
 
-**第 2 句：**先承认已有能力，再限定本研究的缺口。
+从领域价值收束到本文的具体任务与能力需求。
 
-For [specific limitation], we propose [method] that [key operation].
+**English 填空模板**
 
-针对[具体限制]，我们提出[方法]，通过[关键操作]实现改进。
+[Research area] supports [concrete application or research goal]. In [target scenario], [the system or researcher] must [specific task] using [available inputs]. Successful [task] requires [capability A] and [capability B], motivating research on [the problem studied here].
 
-**第 3 句：**【铁律】摘要解法用 For 点名前文同一 limitation，再给实际动作。
 
-Experiments on [tested scope] show [main finding] compared with [comparison].
+**高亮与旁批**
 
-在[实测范围]上的实验表明，相比[对照]，[主要发现]。
+1. **[Research area] supports [concrete application or research goal].**：领域价值。先写具体应用或研究用途，让读者知道为什么关心这个方向。
+2. **In [target scenario], [the system or researcher] must [specific task] using [available inputs].**：落到研究任务。说明目标场景、任务执行者、具体动作与可用输入，把领域背景收束到本文对象。
+3. **Successful [task] requires [capability A] and [capability B], motivating research on [the problem studied here].**：建立判断标准。说明任务需要哪些关键能力。下段回顾已有工作在这些方面做到了什么，再据此指出不足。
 
-**第 4 句：**说明比较条件和主要发现，不能只写 achieves superior performance。
+<a id="annotated-intro-comparison"></a>
 
-This finding supports [specific value] under [necessary condition].
+#### 已有工作与问题模板
 
-这个发现说明，在[必要条件]下，[具体价值]成立。
+归类已有工作，承认能力，再引出本文的具体问题。
 
-**第 5 句：**收束意义及范围；若与上一句重复就合并，不固定为五句。
+**English 填空模板**
 
-#### 先选主线：价值，还是发现
+To support [the task introduced above], methods in [family A] use [shared mechanism] to achieve [established capability] [supporting citations]. Methods in [family B] address [another relevant need] through [shared mechanism] [supporting citations]. However, these advances have not established [the capability required in the target condition], leaving [the specific research gap].
 
-按主要贡献选择论证顺序。发现型工作可用“现象→质疑→诊断→方法→验证”；多个困难按类别逐项展开。
 
-教学模板；【】填真实发现，不是论文原句或实测。
+**高亮与旁批**
 
-- 先概括领域与已有能力，再说明具体局限、对应设计与贡献。按真实困难分段，不固定为四段。
-- 用具体对象与操作解释核心思想，写明输入、处理与证据，不能通过命名暗示未经验证的能力。
+1. **To support [the task introduced above], methods in [family A] use [shared mechanism] to achieve [established capability] [supporting citations].**：已有路线 A。钩子接上段任务，按机制归类工作，交代已有能力并给对应引用。
+2. **Methods in [family B] address [another relevant need] through [shared mechanism] [supporting citations].**：已有路线 B。补充另一类思路及其能力，按真实文献选择类别数量，不凑两类。
+3. **However, these advances have not established [the capability required in the target condition], leaving [the specific research gap].**：回顾结束，问题出现。局限针对刚介绍的能力和条件。下一段再拆成具体困难，并说明成因与后果。
 
-[Established expectation] suggests [expected behavior], yet we observe [verified contrary phenomenon] under [conditions].
+<a id="annotated-intro-obstacles"></a>
 
-按[已有认识]，应当出现[预期行为]，但我们在[条件]下观察到[已验证的相反现象]。
+#### 局限与研究必要性模板
 
-**第 1 句：**反直觉要有明确预期与真实观察；不要给普通结果硬加 surprisingly。
+将研究问题拆成具体局限，并说明原因和实际妨碍。
 
-To test whether [candidate explanation] accounts for this pattern, we [controlled comparison].
+**English 填空模板**
 
-为检验[候选解释]是否造成该现象，我们进行[控制比较]。
+Achieving [the established research goal] remains difficult for two reasons. First, ***[limitation A]*** arises because [specific cause or missing capability]. This prevents [the concrete operation or evaluation needed for the goal]. Second, ***[limitation B]*** occurs when [relevant condition], making [another required operation] difficult. Together, these limitations prevent [the precise objective this paper will address].
 
-**第 2 句：**现象产生疑问，再用诊断排除解释；不能根据有利结果反向编写诊断理由。
 
-Motivated by [supported diagnosis], we [matching design] and evaluate [targeted outcome].
+**高亮与旁批**
 
-根据[有证据的诊断]，我们采用[对应设计]，检验[针对性结果]。
+1. **Achieving [the established research goal] remains difficult for two reasons.**：段首钩子。接回上一段目标，再解释困难。模板演示两项，数量按真实问题调整。
+2. **First, [limitation A] arises because [specific cause or missing capability]. This prevents [the concrete operation or evaluation needed for the goal].**：局限 A：原因与妨碍。先命名具体困难，再解释其成因和实际后果。不要只给一个中性的属性标签。
+3. **Second, [limitation B] occurs when [relevant condition], making [another required operation] difficult.**：局限 B：另一独立问题。与 A 区分清楚，写明在哪种条件下妨碍什么。两项应共同服务本文目标。
+4. **Together, these limitations prevent [the precise objective this paper will address].**：承上启下。把局限落到目标上，下一段的设计才能自然出现。这个目标应与摘要、方法和实验问题保持一致。
 
-**第 3 句：**诊断接方法，验证接贡献；不把相关现象直接写成原因。
+<a id="annotated-intro-design"></a>
 
-#### 引言开头：方向与任务
+#### 设计与贡献总述模板
 
-从研究方向进入具体任务，背景仅保留理解后文问题所需的信息。
+概述提出的产物，逐项解释设计如何回应前述局限。
 
-按论证顺序选用，段落可合并或拆分。
+**English 填空模板**
 
-教学模板；【】填真实材料。
+To address these limitations, we introduce *[Method]*, a [concrete artifact with its core design and purpose]. For [same limitation A], we [design A], which [verb phrase explaining how A resolves the limitation]. For [same limitation B], we [design B], allowing [the required operation]. [Key contribution object] is constructed from [verified source or selection rule] to [specific use]. Together, these designs enable [the task established in the preceding paragraph].
 
-- 前两段可以先讲领域与进展，也可以从具体问题进入，再回顾和比较已有路线；段落顺序服务于论证。
-- 领域背景、相关工作与比较都要交代；背景只留理解问题所需的信息，不固定“第一段背景、第二段局限”。
 
-StarPaper 推荐结构模板
+**高亮与旁批**
 
-[Research direction] aims to [clear task objective] [citations].
+1. **To address these limitations, we introduce [Method], a [concrete artifact with its core design and purpose].**：段首先接问题，再报贡献。these limitations 指向上一段 A、B。方法名后立即交代产物与用途，不让读者读到段末才知道提出了什么。
+2. **For [same limitation A], we [design A], which [verb phrase explaining how A resolves the limitation].**：A 对应设计 A。复用局限关键词，紧接真实设计和作用。这里讲解决思路，参数与实现步骤留到 Method。
+3. **For [same limitation B], we [design B], allowing [the required operation].**：B 对应设计 B。同样建立问题与解法的对应关系。A、B 不能只在开头列出，方法介绍却不再回应。
+4. **[Key contribution object] is constructed from [verified source or selection rule] to [specific use].**：关键产物先出现。先写读者需要记住的产物，再说明来源、筛选依据及用途；这些位置只填实际做过的工作。
+5. **Together, these designs enable [the task established in the preceding paragraph].**：收束到目标。回到上一段的研究目标。读者应能看出几个设计为什么要组合成同一个方法。
 
-[研究方向]旨在[清楚的任务目标][引用]。
+<a id="annotated-intro-findings"></a>
 
-**第 1 句：**先立研究对象，引用就近支持这个判断。
+#### 实验发现模板
 
-In [application], this capability matters because [evidence-supported value].
+先给发现总览，再用关键数字和分析回扣研究动机。
 
-在[应用]中，这种能力影响[有依据的实际价值]。
+**English 填空模板**
 
-**第 2 句：**用一句说明值得做，未经评估不能声称提高商业收益。
+To answer [the research question introduced above], we evaluate [Method or evaluated systems] on [datasets or tasks] against [comparison scope]. The experiments reveal [one-sentence overview of the main finding]. Specifically, [verified quantitative result with its comparator and unit]. Further analysis shows [which design or condition is associated with the observed outcome], supporting [the corresponding motivation or claim].
 
-In this setting, [input] must be converted into [output] while satisfying [constraint].
 
-在这一场景下，需要将[输入]转为[输出]，同时满足[约束]。
+**高亮与旁批**
 
-**第 3 句：**把大方向落到具体任务，接着概括已有解法做到哪一步。
+1. **To answer [the research question introduced above], we evaluate [Method or evaluated systems] on [datasets or tasks] against [comparison scope].**：实验钩子与范围。先接回研究问题，再用一句话交代评了什么、在哪评、和谁比。不要在这里铺完整实验设置。
+2. **The experiments reveal [one-sentence overview of the main finding].**：先给发现总览。填一句读完能记住的结论；后面的数字与分析都支撑这句话。
+3. **Specifically, [verified quantitative result with its comparator and unit].**：再给亮眼数字。用最有说服力的实测结果支持总览，写清比较对象、单位与适用范围。数字应与摘要及正文一致。
+4. **Further analysis shows [which design or condition is associated with the observed outcome], supporting [the corresponding motivation or claim].**：最后解释发现。回扣开头的困难或动机，指出设计为何有价值。这里只概述正文实际做过且支持的分析。
 
-#### 引言开头：领域回顾与比较
-
-概括已有路线的机制与能力，比较相关工作的差异和边界；可与背景或局限放在同一自然段。
-
-教学模板；【】填真实材料。
-
-- 按任务、机制或评价目标分组，不逐篇点名。
-- 引言与 Related Work 的分类、对象和关键词一致；机制细节放后者。
-- 与背景的先后和段落分工可调整；开头要有领域回顾和有依据的比较，不能只有泛化背景。
-
-StarPaper 规范化写法；段数按内容调整
-
-Existing [research line] uses [shared mechanism] to [established capability] [citations].
-
-现有[研究路线]通过[共同机制]实现[已建立的能力][引用]。
-
-**第 1 句：**先承认已经解决的部分，再让读者理解下一段为何还提出困难。
-
-Another line uses [different mechanism] to support [additional capability] [citations].
-
-另一条路线通过[不同机制]支持[另一项能力][引用]。
-
-**第 2 句：**只保留有实质差别的第二类方法；没有这类研究就删掉此句。
-
-#### 引言承接：具体局限
-
-写清现有方法在何种条件下不足，以及问题产生的原因。不能只用 expensive、limited、inefficient 概括。
-
-按论证顺序选用，段落可合并或拆分。
-
-教学模板；【】填真实材料。
-
-- 用符合真实关系的转折承接已有能力；具体局限可与领域回顾放在同一段，也可另起一段，再进入对应设计。
-- 给 2～3 个词的自明短名，首次就解释；困难数量按真实贡献，按实际内容确定。
-- 每个困难都能指向后文设计与实验；命名新不等于发现新。
-
-StarPaper 规范化写法
-
-However, [existing capability] does not establish [missing property] when [condition].
-
-然而，在[条件]下，[已有能力]仍不能说明[尚缺性质]成立。
-
-**第 1 句：**说清评价或能力的证明边界，不把未证明改写成完全失败。
-
-We call this difficulty [short name]. It occurs when [plain-language condition and consequence].
-
-我们将这个困难称为[短名]。它发生在[普通语言说明的条件与后果]下。
-
-**第 2 句：**名称帮助记住困难，紧接解释帮人理解。没有对应观察就不能仅凭名字制造新问题。
-
-For example, [concrete input or situation] requires [specific behavior], which [existing comparison] does not assess.
-
-例如，[具体输入或场景]需要[具体行为]，而[对照评价]尚未检验这一点。
-
-**第 3 句：**例子显示缺口怎样发生，是否未检验仍需核对实际来源。
-
-#### Intro 方法介绍段：固定开头句
-
-these limitations 指前段已建立的具体局限。方法名后立即说明核心设计与用途，再按同一局限顺序展开解法；这是本教程的默认句式，当前人工定版优先。
-
-按论证顺序选用，段落可合并或拆分。
-
-教学模板；【】填真实材料。
-
-- 【铁律】方法介绍段首接回前段已建立的具体局限；方法名后同一句说明产物、核心设计与用途。随后逐项点名局限及对应解法。本教程默认开头为 To address these limitations, we propose；当前稿的人工定版优先。引言讲设计思路，实现细节留给 Method。
-- Introduction 说明设计思路与作用；公式、模型细节与实现参数放在 Method。
-- 关键词与 Related Work、Method、图、实验一致。预期作用与实测效果分开。
-
-StarPaper 规范化写法
-
-To address these limitations, we propose [Method Name], a [method/framework] that [core design] to [specific purpose].
-
-为应对这些局限，我们提出[方法名]，一种通过[核心设计]实现[具体目的]的[方法／框架]。
-
-**第 1 句：**these limitations 接回前段局限；同一句给出方法名、设计与用途，不用名称代替解释。
-
-For [challenge A], we [design A] using [actual input or signal].
-
-为解决[困难 A]，我们利用[实际输入或信号]设计[A 方案]。
-
-**第 2 句：**一对一接回上一段的困难。
-
-This design [specific operation], allowing [specific intended capability].
-
-该设计通过[具体操作]，支持[明确的目标能力]。
-
-**第 3 句：**解释如何发生，不只把方案换个词再说一遍。
-
-For [challenge B], we [design B].
-
-为解决[困难 B]，我们采用[B 方案]。
-
-**第 4 句：**第二项方案处理另一项真实问题；没有就删除，不添加无必要的模块。
-
-**完整 LaTeX 结构模板**
+<a id="template-intro-contributions"></a>
+#### 贡献列表模板
 
 ```latex
-To address these limitations, we propose [Method Name], a [method/framework] that [core design] to [specific purpose].
-For [specific limitation A], we [design A and its concrete role].
-For [another established limitation, if present], we [design B and its concrete role].
-```
-
-#### 引言收束：主要发现
-
-设计之后写主要发现与启示，并给关键比较、条件及范围，不局限于分数提升。
-
-按论证顺序选用，段落可合并或拆分。
-
-教学模板；【】填真实材料。
-
-- 发现可取短名，随后解释含义；不添加未测能力。
-- 只讲关键关系，不复述结果表；引言图用来讲动机。
-
-StarPaper 规范化写法
-
-Experiments on [tested tasks] reveal [specific finding] under [comparison conditions].
-
-在[比较条件]下，[实测任务]的实验揭示[具体发现]。
-
-**第 1 句：**先说结果，限定实测范围。
-
-This finding indicates [what is supported], while [remaining limitation] remains unresolved.
-
-该发现支持[已证实的认识]，但[剩余局限]仍未解决。
-
-**第 2 句：**解释贡献及边界，不扩大主张。
-
-#### 引言最后：贡献列表
-
-依次概括本文对象、机制及实际用途、有证据的发现；正文负责建立问题与解法的对应。
-
-按论证顺序选用，段落可合并或拆分。
-
-教学模板；【】填真实材料。
-
-- 【铁律】普通正文引导句后接原生 itemize，固定三项：工作概述、新机制与实际用途、实验发现。第 2 项用 We propose [机制] 点名真正的新设计，说明依据、具体作用及实际应用；正文已建立问题与解法时，不再重复障碍标签。第 3 项给证据范围，新名称首次就近定义，列表后直接下一节。
-
-本套 CS 写作约定：固定三项，不是所有会议的官方要求
-
-In summary, our contributions are:
-
-概括而言，我们的贡献如下：
-
-**第 1 句：**普通正文引导句，后接原生 itemize。
-
-We introduce [research object], a [verified distinguishing feature] for [task and purpose].
-
-我们提出[研究对象]，以[已核验的核心特点]服务[任务与目的]。
-
-**第 2 句：**第一项 Overview：先概括做了什么，不塞流程细账或排名。
-
-We propose [mechanism], derived from [verified basis], which [specific function] and supports [actual application].
-
-我们提出[机制]，依据[已核验来源]实现[具体作用]，并支持[实际应用]。
-
-**第 3 句：**【铁律】第二项点名新机制，解释它做到了什么、用于什么；不再重复已经说明的障碍标签。
-
-Experiments within [tested scope] reveal [verified main finding and necessary conditions].
-
-在[实测范围]内，实验揭示[已核验的主要发现及必要条件]。
-
-**第 4 句：**第三项概括发现，保持真实范围，不把常规实现另列为创新。
-
-**完整 LaTeX 结构模板**
-
-```latex
-In summary, our contributions are:
+Our contributions are summarized as follows:
 \begin{itemize}
-    \item We introduce [research object], which supports [task] with [verified distinguishing feature].
-    \item We propose [mechanism], derived from [verified basis], which [specific function] and supports [actual application].
-    \item Experiments within [tested scope] reveal [verified finding]. Further diagnosis identifies [supported recurring problems].
+  \item We introduce \textit{[Method or artifact]}, which [performs the task through the core components].
+  \item We propose \textit{[new mechanism]} based on [verified basis], enabling [specific function] and [another actual use, if supported].
+  \item Our evaluation on [scope] reveals [key finding], with [the most informative verified evidence].
 \end{itemize}
 ```
 

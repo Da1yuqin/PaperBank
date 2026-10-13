@@ -125,7 +125,7 @@ document.addEventListener('paperbank:annotation-focus',event=>{
 });
 $$('.copy').forEach(b=>b.addEventListener('click',async()=>{
  try{
-  const text=b.hasAttribute('data-copy-writing-template')
+  const text=b.hasAttribute('data-copy-text') ? b.dataset.copyText : b.hasAttribute('data-copy-writing-template')
    ? [...b.closest('.writing-template-body').querySelectorAll('[data-template-raw]')].map(p=>p.dataset.templateRaw).join('\n\n')
    : b.previousElementSibling.textContent;
   await navigator.clipboard.writeText(text);b.textContent='已复制';setTimeout(()=>b.textContent=b.dataset.copyLabel||'复制提示词',2000);

@@ -119,7 +119,7 @@ For Limitations, load cs-limitations. Use one paragraph with First and Second; e
 3. 概述主发现，再按证据层级组织局部差异与独立条件分析。However 指出整体结果掩盖的差异；Separately 或 Next 转向真正独立的问题，不虚构串行或因果。
 4. 每段讲一项发现、关键对照、范围与含义；不逐行读表。全局组成、场景发生率和条件子集使用各自真实分母，不能混称或直接相减。
 5. 消融用合适对照检验实际设计；联合改变不能归因于单个模块。诊断、描述关联、因果证据及评价器一致率分别说明。
-6. 表体名称、引用、数值与上标误差保持单行，先调允许范围内的列宽。真实重复才写均值与 SD、SE 或 CI，排名不等于显著性。Caption 保留核心口径，局部例外放对应脚注，检查最终 PDF。
+6. 表体名称、引用、数值与上标误差保持单行，先调允许范围内的列宽。均值与 SD、SE 或 CI 须基于真实观测及明确方法，说明统计或重采样单位和数量；单次运行不冒称跨运行稳定性，排名不等于显著性。Caption 保留核心口径，局部例外放对应脚注，检查最终 PDF。
 7. 结果改变后回读已授权的摘要、引言和结论，不改冻结材料、不新增未经授权的实验。
 成稿章首先概述主发现，再用 Specifically 展开分析。先核对有效覆盖，不预设共同子集；区分初始判分、人工复核标签和最终得分，一致率不冒称独立准确率。
 ```
@@ -137,7 +137,7 @@ Allowed edits: [ ]; protect: [original results, execution protocol, and assessme
 3. Overview the main finding, then organize local differences and independent conditional analyses by evidence level. However exposes a difference hidden by the aggregate; Separately or Next moves to a genuinely independent question, not an invented causal chain.
 4. Each paragraph gives a finding, key comparison, scope, and meaning. Do not narrate every table row. Global composition, scenario incidence, and conditional subsets retain their own denominators and cannot be directly subtracted.
 5. Use suitable ablation controls for actual designs. Joint changes cannot be attributed to one module. Distinguish diagnosis, association, causal evidence, and judge agreement.
-6. Keep table-body names, references, values, and superscript uncertainty on one line; adjust permitted column widths first. Report means and SD, SE, or CI only for real repetitions. Ranking is not significance. Keep core definitions in captions and local exceptions in linked footnotes; inspect the final PDF.
+6. Keep table-body names, references, values, and superscript uncertainty on one line; adjust permitted column widths first. Base means and SD, SE, or CI on actual observations and an explicit method; state the statistical or resampling units and their counts. A single run does not establish stability across runs. Ranking is not significance. Keep core definitions in captions and local exceptions in linked footnotes; inspect the final PDF.
 7. Re-read authorized Abstract, Introduction, and Conclusion sections when findings change. Preserve frozen materials and do not run unauthorized new experiments.
 Overview the supported main finding before using Specifically to expand the analysis. Verify actual coverage without presuming a common subset. Separate initial judgments, human-reviewed labels, and reported scores; label agreement is not independent accuracy.
 ```

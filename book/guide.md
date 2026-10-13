@@ -6,6 +6,12 @@
 <details><summary>更新记录</summary>
 
 
+**2026-10-13 21:17 · 正文精修改为顺序填空模板 · skill 更新**
+
+- 按论文顺序集中展示各节职责、逻辑要求与填空模板；旁批解释句子位置，不再讲某篇论文的改词记录。
+- 摘要支持多个局限并用粗斜体强调关键词，结尾放关键实验数字和结论。
+- 方法、指标、消融、案例分析及文末章节统一为通用模板；网页与按章节拆分的写作 skill 同步。
+
 **2026-10-13 16:01 · 绘图流程与实验写作模板**
 
 - Mainfig、Framework 与实验图按内容、排版、编码三个阶段展开，加入连续示意与元素语义说明。
@@ -163,7 +169,7 @@
 
 
 这里有两个可以直接使用的 skill，按任务下载。
-[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-13 16:01】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 12:00】 · [用法](#writing-skill)
+[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-13 21:17】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 12:00】 · [用法](#writing-skill)
 
 ![流星划过夜空；边牧、魔法橘猫和龙举起红色 ACCEPT，庆祝论文接收的愿望成真。](../assets/starpaper-night-accept.png)
 
@@ -577,7 +583,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 写作包已按章节拆分：入口、共享规则和七个章节，共九个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。
 
-写作包更新：2026-10-13 16:01。只含通用规则与教学模板，不含私人稿件信息。
+写作包更新：2026-10-13 21:17。只含通用规则与教学模板，不含私人稿件信息。
 
 **中文使用提示词**
 
@@ -883,7 +889,7 @@ StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 <a id="refine"></a>
 ## 3. 正文精修
 
-先检查全文规范，再按章节精修。模板中的【】填自己的材料，段落按内容调整。
+按标题、摘要、引言、相关工作、方法、实验到结论的顺序填写。每节先列要求，再给带旁批的填空模板；方括号替换为自己的材料，结果填写实测值。
 
 
 <a id="general-rules"></a>
@@ -951,52 +957,23 @@ StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 
 - **【铁律】数字与统计口径准确：**数字用阿拉伯数字，并能回查最新记录。子集给 n of N、单位与版本；区分百分比与百分点、宏平均与微平均。未知不填 0，不能换分母或单位夸大结果。
 
-<a id="annotated-global-flow"></a>
-
-#### 贡献与句间衔接
-
-假设的文档问答任务；只演示句间承接与证据范围，不是论文原文或实测结果。
-
-**English 教学改写**
-
-To make answers traceable to source evidence, [Method] records each retrieved quote with the corresponding manual location and relevant dialogue constraints. These records form evidence notes that guide answer generation together with the current question and retained constraints. With the inputs and inference budget held fixed, we compare note-guided generation with passage-only generation. Note-guided generation improves citation support by [support gain] but adds [latency cost] under [tested conditions], revealing a trade-off between traceable answers and response time.
-
-
-**中文译文**
-
-为让答案依据可追溯，[方法] 记录每个检索摘句、对应的手册位置与相关对话约束。这些记录构成证据笔记，与当前问题及保留的约束共同指导答案生成。在固定输入与推理预算后，我们比较笔记引导的生成与只使用片段的生成。在[实测条件]下，笔记引导的生成使引用支持率提高[提升幅度]，但增加[延迟开销]，说明答案可追溯性与响应时间存在取舍。
-
-
-**高亮与旁批**
-
-1. **records each retrieved quote with the corresponding manual location and relevant dialogue constraints / 记录每个检索摘句、对应的手册位置与相关对话约束**：写动作和对象。记录什么，直接说出来：摘句、位置、约束。“建立可靠证据框架”没有这些信息。
-2. **These records form evidence notes / 这些记录构成证据笔记**：【铁律】钩子接产物。These records 接前句的三类记录，再说明产物是证据笔记。不是突然换个模块。
-3. **With the inputs and inference budget held fixed / 在固定输入与推理预算后**：【铁律】比较条件写在近处。说明固定什么，后面的差别才可解释；只写“公平比较”不够。
-4. **improves citation support by [support gain] but adds [latency cost] under [tested conditions] / 使引用支持率提高[提升幅度]，但增加[延迟开销]**：【铁律】发现保留收益、代价与范围。引用支持率、延迟是两项不同结果。报告已测条件下的取舍，不一句话扩大成“全面提升问答性能”。
-
-StarPaper · 教学改写
-
-本段是原创教学示范。[support gain]、[latency cost] 与 [tested conditions] 必须由真实实验替换。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
-
 **按论文顺序精修**
 
 摘要概括全文，引言提问题，方法给做法，实验查效果，讨论讲范围，结论收尾。
 
-- 3.2 标题：先把最值得记住的发现放进标题。
-- 3.3 摘要：让人用一段话看懂为什么这项工作值得做。
-- 3.4 引言：让读者认同问题，并记住你的解法为什么有用。
-- 3.5 相关工作：说明已有路线、本文差异及其与核心贡献的关系。
-- 3.6 方法：告诉读者为什么你的方法好，比解释清楚方法更重要。
-- 3.7 实验：用对照检验贡献，解释主要差异与发现。
-- 3.8 讨论：解释发现的意义，区分观察与机制。
-- 3.9 局限性：用一个自然段写清两项与任务相关的具体边界。
-- 3.10 结论：回答开头的问题，概括贡献和发现。
-- 3.11 参考文献：引用回查原文，信息和版本对齐。
-- 3.12 附录：提供可定位、可复核的设置与补充材料。
+- 3.2 标题：写研究对象与核心贡献。
+- 3.3 摘要：一个自然段串起背景、多个局限、对应设计和实验亮点。
+- 3.4 引言：建立问题，解释设计，再用发现与贡献概括全文。
+- 3.5 相关工作：按主题回顾已有工作，段末依次写局限、本文做法和应用。
+- 3.6 方法：先解释设计为什么有用，再用输入、操作和输出展开。
+- 3.7 实验：说明比较怎样做，再报告发现、关键证据和分析。
+- 3.8 讨论：解释实验发现的含义与适用范围。
+- 3.9 结论：回答引言的问题，概括已验证的贡献与发现。
+- 3.10 局限性：按本套约定，用一段 First、Second 写本文仍需研究的两个边界。
+- 3.11 参考文献：按官方格式生成文献表，核对每条引文的支持关系。
+- 3.12 附录：补实现与评价细节，按正文入口组织。
 
-逐句示范有论文原文短引，也有明确标注的模拟段落。原文例子来自不同论文，不拼接成同一篇完整论文；模拟部分用同一个假设任务串联。
+本章均为填空模板：替换方括号中的对象、动作和实测结果。旁批解释每句的职责与承接关系；按自己的贡献增删对应段落。
 
 ### 本章目录
 
@@ -1007,8 +984,8 @@ StarPaper · 教学改写
 - [3.6 方法](#method)
 - [3.7 实验](#experiments)
 - [3.8 讨论](#discussion)
-- [3.9 局限性](#limitations)
-- [3.10 结论](#conclusion)
+- [3.9 结论](#conclusion)
+- [3.10 局限性](#limitations)
 - [3.11 参考文献](#references)
 - [3.12 附录](#appendix)
 
@@ -1016,115 +993,180 @@ StarPaper · 教学改写
 <a id="chapter-title"></a>
 ### 3.2 标题
 
-先把最值得记住的发现放进标题。
+写研究对象与核心贡献。
 
 #### 本节原则
 
-- 标题交代研究对象和核心贡献；方法名后说明做了什么，发现型论文可直接写关键发现。记忆点要准确、好懂。
-- 【铁律】标题中的能力与发现须有正文证据，不能把诊断问题写成已解决问题。
+- 标题交代研究对象、任务与关键改动；不把实现细节或自评形容词堆进标题。
+- 命名论文可用“方法名：关键设计与任务”；没有独立名称时直接描述贡献。
 
 <a id="annotated-title"></a>
 
-#### 标题结构
+#### 标题模板
 
-论文原文短引 · 中文为本指南翻译
+用一行交代关键设计与研究任务。
 
-**English 原文**
+**English 填空模板**
 
-Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools with Reinforcement Learning
-
-
-**中文译文**
-
-谨慎查询，可信结果：通过强化学习教会 RAG 模型使用高级网页搜索工具。
+[Method Name]: [Core Design] for [Research Task]
 
 
 **高亮与旁批**
 
-1. **Careful Queries, Credible Results / 谨慎查询，可信结果**：先给记忆点。查询要谨慎，结果要可信。前半句让读者记住工作追求的价值，不列模块清单。
-2. **Teaching RAG Models Advanced Web Search Tools / 教会 RAG 模型使用高级网页搜索工具**：交代对象与任务。后半句立即说清教谁、学会什么。仅有一句口号，读者还不知道论文做了什么。
-3. **with Reinforcement Learning / 通过强化学习**：给出关键手段。强化学习解释任务怎样实现。标题保留关键手段，不必把训练流程全塞进来。
-
-[WebFilter · AAAI 2026](https://ojs.aaai.org/index.php/AAAI/article/view/40299) · Title，PDF第1页（刊页30458）；AAAI 2026 camera-ready；2026-03-14正式发表
-
-去除LaTeX排版与文献标记、合并换行；原词句未改。 数学符号改为可读文本形式。
-
-©2026 AAAI. All rights reserved. 独立保留原论文版权；未授予StarPaper整篇或原图再许可。
+1. **[Method Name]**：方法名。填已确定的方法或数据集名称；没有独立命名时，可直接从核心设计写起。
+2. **[Core Design]**：关键改动。填区别于已有工作的具体设计，不填 novel、powerful 等自评。
+3. **[Research Task]**：研究对象。让读者一眼知道解决什么任务。范围过宽时，补必要条件。
 
 <a id="abstract"></a>
 <a id="chapter-abstract"></a>
 ### 3.3 摘要
 
-让人用一段话看懂为什么这项工作值得做。
+一个自然段串起背景、多个局限、对应设计和实验亮点。
 
 #### 本节原则
 
-- 【铁律】摘要一个自然段，按背景、具体 limitation、对应方法与亮点、实验亮点组织。不用设问或术语定义代替不足；缺一环，就看不出研究为何必要、做了什么或证据是什么。长度服从会议要求。
-- 【铁律】贡献对象和动作尽早出现。关键改动要回应前句的不足，不先堆流程和数量。
-- 【铁律】必要术语首次解释，缩写给全称；句间的对象与逻辑关系明确，不能让读者猜。
-- 结果优先保留有信息增量的发现及比较范围，不机械以最大数字结尾。摘要通常不放引文，按会议要求处理。
-- 【铁律】摘要解法逐点写 For [具体 limitation], we [实际动作与贡献].，点名前文同一限制。
-- 【铁律】改动摘要或引言后，回读另一节；问题、设计、命名、数字、模型范围和因果方向持续对应，不逐字照抄。
+- 【铁律】一个自然段：背景 → 具体局限 → 对应方法与亮点 → 实验数字与关键结论。长度服从目标会议要求。
+- 局限按实际问题逐项写，模板用 A、B 演示；首次提出时，局限关键词用粗斜体，不把整个句子加粗。
+- 【铁律】解法逐项用 For [具体局限], we [实际动作与作用]. 接回前文，同一问题沿用同一名称。
+- 实验部分优先写最能支持贡献的实测数字、比较对象和关键发现；发现型论文可先概括发现再给数字。
+- 【铁律】摘要与引言的研究问题、设计、名称、数字、评价范围及结论一致；摘要压缩，引言展开。
 
 <a id="annotated-abstract"></a>
 
-#### 摘要结构
+#### 摘要模板
 
-假设教学段落，非论文原文或实测结果。
+用一个自然段概括问题、对应解法和实验亮点。
 
-**English 教学改写**
+**English 填空模板**
 
-Document-based dialogue requires answers that respect both source evidence and evolving user constraints. Passage-only generation supplies relevant text without explicitly recording which dialogue constraints the source quotes support. For this missing evidence-to-constraint link, we introduce structured evidence notes that pair source quotes with manual locations and active dialogue constraints. These notes let the generator cite sources and explain how the evidence relates to each constraint. In our comparison on static English manuals, notes increase citation support relative to direct generation but add latency. The comparison evaluates source support; the support scores do not establish that every user constraint is satisfied.
-
-
-**中文译文**
-
-基于文档的对话要求答案同时符合来源证据与不断变化的用户约束。只使用片段的生成方式提供相关文本，却不明确记录来源摘句支持哪些对话约束。针对证据与约束之间缺少对应记录的问题，我们提出结构化证据笔记，将来源摘句与手册位置及当前有效的对话约束配对。这些笔记帮助生成器引用来源，并说明证据与各项约束的关系。在针对静态英语手册的比较中，相比直接生成，笔记提高了引用支持率，但增加了延迟。这个比较评价的是来源支持，不能据此认定每项用户约束都得到满足。
+[Research task] requires [capability needed in practice]. Existing methods in [research line] face ***[limitation A]*** and ***[limitation B]***, which hinder [specific goal]. We introduce [Method], a [concrete artifact and its purpose]. For [same limitation A], we [design A and its function]. For [same limitation B], we [design B and its function]. Experiments on [evaluation scope] show that [verified quantitative result with its metric, unit, and comparison reference]. Further analysis reveals [key experimental finding], showing [what this finding answers about the research question].
 
 
 **高亮与旁批**
 
-1. **both source evidence and evolving user constraints / 来源证据与不断变化的用户约束**：任务需求写具体。证据与用户约束是两类要求。先建立它们，下一句的不足与后面的设计才有对象。
-2. **without explicitly recording which dialogue constraints the source quotes support / 却不明确记录来源摘句支持哪些对话约束**：【铁律】把缺口缩到本文负责的部分。承认片段提供了相关文本，再限定缺口：没有显式记录证据与约束的对应。对应设计也必须处理这个缺口。
-3. **For this missing evidence-to-constraint link, we introduce structured evidence notes that pair source quotes with manual locations and active dialogue constraints. / 针对证据与约束之间缺少对应记录的问题，我们提出结构化证据笔记，将来源摘句与手册位置及当前有效的对话约束配对。**：【铁律】For 点名缺口，紧跟产物与动作。For 接回上一句缺少的证据与约束对应记录；we introduce 立即报新产物，再用 pair 说明摘句、位置和约束怎样配对。
-4. **notes increase citation support relative to direct generation but add latency / 相比直接生成，笔记提高了引用支持率，但增加了延迟**：发现与取舍一起交代。这个假设案例保留引用支持率和延迟的取舍。真实论文换成核验过的结果，不逐项罗列排名。
-5. **the support scores do not establish that every user constraint is satisfied / 不能据此认定每项用户约束都得到满足**：【铁律】别让指标越界。引用支持率测来源支持，不能代替约束满足率。实际摘要只保留会影响结论理解的边界。
-
-StarPaper · 教学改写
-
-沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+1. **[Research task] requires [capability needed in practice].**：背景：任务为什么需要研究。用一句话交代具体任务与能力需求，让下一句的不足有比较标准。
+2. **Existing methods in [research line] face [limitation A] and [limitation B], which hinder [specific goal].**：局限：列出本文要解决的问题。A、B 分别填具体缺失或障碍，关键词用粗斜体。存在更多独立局限时可继续展开；不要为了模板凑数，也不要把多个局限合成一个空泛问题。
+3. **We introduce [Method], a [concrete artifact and its purpose].**：贡献总述：对象与用途。先告诉读者提出了什么、用来做什么，再展开具体设计。
+4. **For [same limitation A], we [design A and its function]. For [same limitation B], we [design B and its function].**：解法：逐项回应前述局限。两个 For 后分别沿用 A、B 的问题关键词，后半句填真实设计及作用。每个问题都应找到对应解法。
+5. **Experiments on [evaluation scope] show that [verified quantitative result with its metric, unit, and comparison reference].**：实验亮点：数字与比较对象。选择最能支持主要贡献的实测数字。方法论文可填相对可比基线的提升，评价或发现型论文可填样本占比、得分差距等关键结果；范围、指标与单位必须明确。
+6. **Further analysis reveals [key experimental finding], showing [what this finding answers about the research question].**：关键结论：实验让我们知道了什么。填重要发现及其意义，例如在哪种条件下有效、哪个设计解决了哪类困难。发现型论文可先讲核心发现，再给最有说服力的数字。
 
 <a id="intro"></a>
 <a id="chapter-intro"></a>
 ### 3.4 引言
 
-让读者认同问题，并记住你的解法为什么有用。
+建立问题，解释设计，再用发现与贡献概括全文。
 
 #### 本节原则
 
-- 【铁律】钩子承接前文真实问题、困难或产物，不能错置转折、目的与因果。However 可写转折，Therefore 据前述证据归纳，Specifically 展开判断；不是每段都要出现这些词。
-- 【铁律】前两段可穿插、合并或拆分，但要有领域回顾与已有方法比较。回顾给局限铺路：后面批评什么，前面先说明已有方法怎样处理它。
-- 【铁律】挑战名称本身就要显示困难：什么缺失、什么难以完成、什么阻碍目标。随后解释原因和影响，中性任务属性不能直接当挑战名。
-- 【铁律】贡献对象与动作尽早出现。expert-confirmed、manually selected、tailored 等词要对应实际工作；写清选择依据，不用“高质量”代替依据。
-- 【铁律】方法介绍段首接回前段已建立的具体局限；方法名后同一句说明产物、核心设计与用途。随后逐项点名局限及对应解法。本教程默认开头为 To address these limitations, we propose；当前稿的人工定版优先。引言讲设计思路，实现细节留给 Method。
-- 结果段可先接回研究问题，再概述发现；摘要压缩、引言展开，不逐字重复，不把排名当分析。
-- 【铁律】摘要、引言及正文的问题、设计、名称、数字、范围与因果方向一致；每次修改后回读对应部分。局限沿用同一名称，Related Work 给比较依据，Method 说明设计，实验提供检验。
-- 【铁律】结果概述对应正文实际结论。若实验只支持某些任务或条件，摘要、引言、讨论和结论都限定到相同范围。
-- 【铁律】引言只引用属于本节的图表；不提前指向后文方法、实验、附录的图表、公式或章节，也不写“见后文”。文献 citation 与有依据的结论保留。
-- 【铁律】引言中的正式命名对象每次出现用斜体，强调性加粗对同一对象全节最多一次；贡献列表不重置次数，普通专业词不机械斜体。
-- 【铁律】普通正文引导句后接原生 itemize，固定三项：工作概述、新机制与实际用途、实验发现。第 2 项用 We propose [机制] 点名真正的新设计，说明依据、具体作用及实际应用；正文已建立问题与解法时，不再重复障碍标签。第 3 项给证据范围，新名称首次就近定义，列表后直接下一节。
+- 先定论证顺序：领域与已有工作 → 具体局限及必要性 → 对应设计 → 实验发现 → 3 条贡献。前两部分可合并、交错或拆段。
+- 【铁律】每段首句承接前文真实对象；转折接已有能力的不足，目的接待解决的问题，归纳接已给出的证据。
+- 【铁律】每项局限都说明原因和实际妨碍，后面给对应设计；Method 展开设计，Experiments 检验作用，结论回到同一目标。
+- 设计段的方法名后立即交代产物与用途，再逐项回应局限。引言讲为什么这样设计，实现细节留到 Method。
+- 实验段先给发现总览，再给关键数字与必要分析；与摘要呼应，和正文实验结论一致。
+- 【铁律】贡献固定 3 点：整体对象与任务、关键机制及用途、实验发现与亮点。正文已经建立问题与解法，不在贡献列表机械重复局限标签。
+- 【铁律】引言只引用属于本节的图表，不提前指向后文章节、公式、方法图或附录；文献引用及有依据的结论保留。
+- 【铁律】引言中的正式命名对象每次出现用斜体，同一对象在完整引言强调性加粗最多一次，贡献列表计入；普通专业词不机械斜体。
 
-<a id="template-intro-design"></a>
-#### Intro 方法介绍段：固定开头句
+<a id="annotated-intro"></a>
 
-these limitations 指前段已建立的具体局限。方法名后立即说明核心设计与用途，再按同一局限顺序展开解法；这是本教程的默认句式，当前人工定版优先。
+#### 领域与任务模板
+
+从领域价值收束到本文的具体任务与能力需求。
+
+**English 填空模板**
+
+[Research area] supports [concrete application or research goal]. In [target scenario], [the system or researcher] must [specific task] using [available inputs]. Successful [task] requires [capability A] and [capability B], motivating research on [the problem studied here].
+
+
+**高亮与旁批**
+
+1. **[Research area] supports [concrete application or research goal].**：领域价值。先写具体应用或研究用途，让读者知道为什么关心这个方向。
+2. **In [target scenario], [the system or researcher] must [specific task] using [available inputs].**：落到研究任务。说明目标场景、任务执行者、具体动作与可用输入，把领域背景收束到本文对象。
+3. **Successful [task] requires [capability A] and [capability B], motivating research on [the problem studied here].**：建立判断标准。说明任务需要哪些关键能力。下段回顾已有工作在这些方面做到了什么，再据此指出不足。
+
+<a id="annotated-intro-comparison"></a>
+
+#### 已有工作与问题模板
+
+归类已有工作，承认能力，再引出本文的具体问题。
+
+**English 填空模板**
+
+To support [the task introduced above], methods in [family A] use [shared mechanism] to achieve [established capability] [supporting citations]. Methods in [family B] address [another relevant need] through [shared mechanism] [supporting citations]. However, these advances have not established [the capability required in the target condition], leaving [the specific research gap].
+
+
+**高亮与旁批**
+
+1. **To support [the task introduced above], methods in [family A] use [shared mechanism] to achieve [established capability] [supporting citations].**：已有路线 A。钩子接上段任务，按机制归类工作，交代已有能力并给对应引用。
+2. **Methods in [family B] address [another relevant need] through [shared mechanism] [supporting citations].**：已有路线 B。补充另一类思路及其能力，按真实文献选择类别数量，不凑两类。
+3. **However, these advances have not established [the capability required in the target condition], leaving [the specific research gap].**：回顾结束，问题出现。局限针对刚介绍的能力和条件。下一段再拆成具体困难，并说明成因与后果。
+
+<a id="annotated-intro-obstacles"></a>
+
+#### 局限与研究必要性模板
+
+将研究问题拆成具体局限，并说明原因和实际妨碍。
+
+**English 填空模板**
+
+Achieving [the established research goal] remains difficult for two reasons. First, ***[limitation A]*** arises because [specific cause or missing capability]. This prevents [the concrete operation or evaluation needed for the goal]. Second, ***[limitation B]*** occurs when [relevant condition], making [another required operation] difficult. Together, these limitations prevent [the precise objective this paper will address].
+
+
+**高亮与旁批**
+
+1. **Achieving [the established research goal] remains difficult for two reasons.**：段首钩子。接回上一段目标，再解释困难。模板演示两项，数量按真实问题调整。
+2. **First, [limitation A] arises because [specific cause or missing capability]. This prevents [the concrete operation or evaluation needed for the goal].**：局限 A：原因与妨碍。先命名具体困难，再解释其成因和实际后果。不要只给一个中性的属性标签。
+3. **Second, [limitation B] occurs when [relevant condition], making [another required operation] difficult.**：局限 B：另一独立问题。与 A 区分清楚，写明在哪种条件下妨碍什么。两项应共同服务本文目标。
+4. **Together, these limitations prevent [the precise objective this paper will address].**：承上启下。把局限落到目标上，下一段的设计才能自然出现。这个目标应与摘要、方法和实验问题保持一致。
+
+<a id="annotated-intro-design"></a>
+
+#### 设计与贡献总述模板
+
+概述提出的产物，逐项解释设计如何回应前述局限。
+
+**English 填空模板**
+
+To address these limitations, we introduce *[Method]*, a [concrete artifact with its core design and purpose]. For [same limitation A], we [design A], which [verb phrase explaining how A resolves the limitation]. For [same limitation B], we [design B], allowing [the required operation]. [Key contribution object] is constructed from [verified source or selection rule] to [specific use]. Together, these designs enable [the task established in the preceding paragraph].
+
+
+**高亮与旁批**
+
+1. **To address these limitations, we introduce [Method], a [concrete artifact with its core design and purpose].**：段首先接问题，再报贡献。these limitations 指向上一段 A、B。方法名后立即交代产物与用途，不让读者读到段末才知道提出了什么。
+2. **For [same limitation A], we [design A], which [verb phrase explaining how A resolves the limitation].**：A 对应设计 A。复用局限关键词，紧接真实设计和作用。这里讲解决思路，参数与实现步骤留到 Method。
+3. **For [same limitation B], we [design B], allowing [the required operation].**：B 对应设计 B。同样建立问题与解法的对应关系。A、B 不能只在开头列出，方法介绍却不再回应。
+4. **[Key contribution object] is constructed from [verified source or selection rule] to [specific use].**：关键产物先出现。先写读者需要记住的产物，再说明来源、筛选依据及用途；这些位置只填实际做过的工作。
+5. **Together, these designs enable [the task established in the preceding paragraph].**：收束到目标。回到上一段的研究目标。读者应能看出几个设计为什么要组合成同一个方法。
+
+<a id="annotated-intro-findings"></a>
+
+#### 实验发现模板
+
+先给发现总览，再用关键数字和分析回扣研究动机。
+
+**English 填空模板**
+
+To answer [the research question introduced above], we evaluate [Method or evaluated systems] on [datasets or tasks] against [comparison scope]. The experiments reveal [one-sentence overview of the main finding]. Specifically, [verified quantitative result with its comparator and unit]. Further analysis shows [which design or condition is associated with the observed outcome], supporting [the corresponding motivation or claim].
+
+
+**高亮与旁批**
+
+1. **To answer [the research question introduced above], we evaluate [Method or evaluated systems] on [datasets or tasks] against [comparison scope].**：实验钩子与范围。先接回研究问题，再用一句话交代评了什么、在哪评、和谁比。不要在这里铺完整实验设置。
+2. **The experiments reveal [one-sentence overview of the main finding].**：先给发现总览。填一句读完能记住的结论；后面的数字与分析都支撑这句话。
+3. **Specifically, [verified quantitative result with its comparator and unit].**：再给亮眼数字。用最有说服力的实测结果支持总览，写清比较对象、单位与适用范围。数字应与摘要及正文一致。
+4. **Further analysis shows [which design or condition is associated with the observed outcome], supporting [the corresponding motivation or claim].**：最后解释发现。回扣开头的困难或动机，指出设计为何有价值。这里只概述正文实际做过且支持的分析。
+
+<a id="template-intro-contributions"></a>
+#### 贡献列表模板
 
 ```latex
-To address these limitations, we propose [Method Name], a [method/framework] that [core design] to [specific purpose].
-For [specific limitation A], we [design A and its concrete role].
-For [another established limitation, if present], we [design B and its concrete role].
+Our contributions are summarized as follows:
+\begin{itemize}
+  \item We introduce \textit{[Method or artifact]}, which [performs the task through the core components].
+  \item We propose \textit{[new mechanism]} based on [verified basis], enabling [specific function] and [another actual use, if supported].
+  \item Our evaluation on [scope] reveals [key finding], with [the most informative verified evidence].
+\end{itemize}
 ```
 
 <a id="intro-writing-templates"></a>
@@ -1317,7 +1359,7 @@ In summary, our contributions are:
 <a id="intro-hooks"></a>
 #### 段落承接
 
-句首钩子点名前文的问题或产物。摘要解法用 For [具体 limitation], we ...；引言逐项接回同一困难，方法名后立即给亮点与用途。连接词服从真实关系与当前人工定版，不固定 Therefore 或 To solve。
+钩子点名前文的问题或产物：已有局限 A、B，分别对应设计 A、B，再由实验检验。摘要压缩这条逻辑，引言展开理由；各章沿用同一组关键词。
 
 
 <a id="abstract-intro-map"></a>
@@ -1328,23 +1370,23 @@ In summary, our contributions are:
 
 **问题 · 同一问题，展开背景与局限**
 
-**Abstract**：[research area] concerns [task or phenomenon]. Existing evidence leaves [specific limitation], motivating [research question].
+**Abstract**：[Task] requires [capability]. Existing approaches face [limitation A] and [limitation B], which restrict [research objective].
 
-**Intro**：[prior work] establishes [known finding] in [scope]. However, [specific limitation] leaves [research question] unresolved under [condition].
+**Intro**：[Prior work] provides [known capability]. However, [limitation A] arises when [condition A], while [limitation B] prevents [required operation]. Together, these limitations restrict [research objective].
  · [查看对应关系](#intro-map-question)
 
 **贡献 · 同一贡献，展开设计作用**
 
-**Abstract**：For [specific limitation], we introduce [name], which uses [core design] to [purpose].
+**Abstract**：For [limitation A], we [design A and purpose]. For [limitation B], we [design B and purpose].
 
-**Intro**：To address these limitations, we propose [name], a [key feature and purpose]. For [specific limitation], we use [core design] to [concrete action and role].
+**Intro**：To address these limitations, we introduce [Method], a [core design and purpose]. For [limitation A], [design A and purpose] connects [input] to [output]. For [limitation B], [design B] provides [specific function].
  · [查看对应关系](#intro-map-design)
 
 **发现 · 同一发现，展开证据与含义**
 
-**Abstract**：Experiments show [verified main finding] within [tested scope].
+**Abstract**：On [tested scope], [Method] achieves [key value] on [metric], compared with [baseline value]. Further analysis reveals [key experimental finding].
 
-**Intro**：To answer [research question], we evaluate [objects] under [conditions]. The results show [verified main finding]; [further analysis] examines [corresponding design motivation].
+**Intro**：To answer [research question], we evaluate [objects] under [conditions]. [Key comparison and numerical result] supports [main conclusion]. Further analysis reveals [key experimental finding], explaining [the aspect examined by the analysis].
  · [查看对应关系](#intro-map-findings)
 
 <a id="intro-body-map"></a>
@@ -1463,612 +1505,240 @@ L1 → M1 → E1 → Q：[具体局限] → [针对它的设计] → [能检验�
 
 **结果回写**：实际发现及范围 → 摘要、引言的贡献与发现 → 讨论与结论。结果或证据范围变了，对应主张一起改。
 
-<a id="annotated-intro-obstacles"></a>
-
-#### 困难与评价目标
-
-教学改写，非论文原文或实测结果；方括号替换自己的材料。
-
-**English 教学改写**
-
-However, answering this question faces two obstacles. First, data scarcity limits access to real commercial conversations, and identifying complex or ambiguous needs requires costly expert annotation. Second, case-dependent standards complicate evaluation: clothing recommendations require color and outfit coordination, whereas phone recommendations require different suitability checks. Even within one category, requirements and risks vary across cases. A fixed checklist can miss these differences. Together, these obstacles hinder accurate evaluation of LLMs on complex, ambiguous, and time-sensitive shopping requests.
-
-
-**中文译文**
-
-然而，回答这个问题有两个困难。首先，数据稀缺使真实商业对话难以获取，识别复杂或模糊的需求还需要成本较高的专家标注。其次，随案例变化的标准增加了评价难度：服装推荐要考虑颜色与穿搭搭配，手机推荐则要检查其他适配条件。即使是同类商品，不同案例的需求与风险也会变化。一张固定清单可能漏掉这些差异。这两类困难共同妨碍了对 LLM 处理复杂、模糊且有时效性的购物请求进行准确评价。
-
-
-**高亮与旁批**
-
-1. **However, answering this question faces two obstacles. / 然而，回答这个问题有两个困难。**：段首先加钩子。this question 接回上段的问题。先让读者知道这段为什么出现，再讲困难；只放一个 However 不够。
-2. **data scarcity limits access to real commercial conversations, and identifying complex or ambiguous needs requires costly expert annotation / 数据稀缺使真实商业对话难以获取，识别复杂或模糊的需求还需要成本较高的专家标注**：数据与标准是两类困难。数据难拿、标注成本高，是数据问题；标准随情境变化，是评价问题。别把后者写成“进一步阻碍数据获取”。
-3. **Even within one category, requirements and risks vary across cases. / 即使是同类商品，不同案例的需求与风险也会变化。**：category 和 case 别直接互换。服装与手机说明品类差异。这句再交代同类商品也有不同需求与风险，才接得上 case-dependent。
-4. **Together, these obstacles hinder accurate evaluation of LLMs on complex, ambiguous, and time-sensitive shopping requests. / 这两类困难共同妨碍了对 LLM 处理复杂、模糊且有时效性的购物请求进行准确评价。**：加一句铺垫，再提解法。点明困难妨碍的是准确评价。下一段的数据与按例标准就有了来由，不要从困难直接跳到 We introduce。
-
-StarPaper · 教学改写
-
-根据作者提供的修改意见撰写的教学段落，不含当前稿件名称、数据数量、模型名单或未经核对的基准比较。Figure [X] 为图号占位。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
-
-<a id="annotated-intro-design"></a>
-
-#### 设计与专家产物
-
-教学改写，非论文原文或实测结果；方括号替换自己的材料。
-
-**English 教学改写**
-
-Therefore, to address these obstacles, we introduce [Benchmark], an evaluation resource that preserves changing needs and unresolved conditions. Business experts screen cases in de-identified shopping conversations. Each case retains timestamped dialogue, including changed needs and unanswered questions. Experts distill Ideal Response Principles from excellent replies manually selected from completed transactions. These principles guide case-specific criteria across Core, Excellence, and Safety and inform a tailored reasoning prompt. The tiers assess required completion, added value, and risk avoidance, respectively. Our example (Figure [X]) illustrates how elapsed time and unresolved information affect the advice a case requires.
-
-
-**中文译文**
-
-因此，为处理这些困难，我们提出【Benchmark】，一个保留变化需求与未决条件的评价资源。业务专家从去标识化的购物对话中筛选案例。每个案例保留带时间戳的对话，包括发生变化的需求和未得到回答的问题。专家提炼出理想回复原则，依据的是从成功交易中手工筛选出的优秀回复。这些原则指导针对每个案例制定 Core、Excellence 和 Safety 三层标准，并用于设计专门的推理提示词。三层分别评价必要要求的完成、额外价值和风险规避。我们的例子（图【X】）说明时间推移和未决信息如何影响一个案例所需的建议。
-
-
-**高亮与旁批**
-
-1. **Experts distill Ideal Response Principles / 专家提炼出理想回复原则**：【铁律】专家的产物放前面。先说谁做了什么、产出了什么，再交代来源。不要读到句尾才知道核心贡献是提炼原则。
-2. **excellent replies manually selected from completed transactions / 从成功交易中手工筛选出的优秀回复**：手工、优秀、成单都要交代。manually 写出手工；excellent 写出质量；成单写出来源。成单可筛选，但不自动证明回复好，还需给实际质量标准。
-3. **These principles guide case-specific criteria across Core, Excellence, and Safety / 这些原则指导针对每个案例制定 Core、Excellence 和 Safety 三层标准**：【铁律】这句接回前文的评价要求。These principles 接上专家的产物；case-specific 回应标准随案例变化。三层名称全文一致，分别说明检查什么。
-4. **Our example (Figure [X]) illustrates how elapsed time and unresolved information affect the advice a case requires. / 我们的例子（图【X】）说明时间推移和未决信息如何影响一个案例所需的建议。**：图要接回刚才的输入。图中要能看到时间、需求变化与未决条件。若再比较别人缺少什么输入，逐项核对对比表；别凭方法名称推断。
-
-StarPaper · 教学改写
-
-根据作者提供的修改意见撰写的教学段落，不含当前稿件名称、数据数量、模型名单或未经核对的基准比较。Figure [X] 为图号占位。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
-
-<a id="annotated-intro-findings"></a>
-
-#### 发现与分析
-
-教学改写，非论文原文或实测结果；方括号替换自己的材料。
-
-**English 教学改写**
-
-To answer this question, we evaluate [commercial models] and [open-weight models]. Across these models, we observe Product Evidence Overreach, where replies add unsupported product claims, and Shopping Uncertainty Collapse, where unresolved needs are treated as settled. These failures may make shopping advice less reliable. Further analysis links these failures to changing requirements and unresolved information.
-
-
-**中文译文**
-
-为回答这个问题，我们评价【商业模型】与【开放权重模型】。在这些模型的回复中，我们观察到两类失败：Product Evidence Overreach，即回复添加了缺少证据支持的商品声明；Shopping Uncertainty Collapse，即将尚未确定的需求视为已经明确。这些失败可能降低购物建议的可靠性。进一步分析将这些失败与需求变化和未决信息联系起来。
-
-
-**高亮与旁批**
-
-1. **To answer this question / 为回答这个问题**：尤其是段首，要接回问题。先接前文的研究问题，再报模型范围。否则这段像突然开始列名单，读者不知道实验在回答什么。
-2. **Across these models, we observe Product Evidence Overreach, where replies add unsupported product claims, and Shopping Uncertainty Collapse, where unresolved needs are treated as settled. / 在这些模型的回复中，我们观察到两类失败：Product Evidence Overreach，即回复添加了缺少证据支持的商品声明；Shopping Uncertainty Collapse，即将尚未确定的需求视为已经明确。**：先 overview，名称要对应。先用一句总览两类失败，再展开。与摘要和前文保留同一名称，解释可以转述；模型数量与分数不能代替发现。
-3. **Further analysis links these failures to changing requirements and unresolved information. / 进一步分析将这些失败与需求变化和未决信息联系起来。**：这里还可以展开一个结论。links 还没说具体发现。补实际条件、对照与结果，说明哪类失败何时更明显；关联不能直接写成因果。
-
-StarPaper · 教学改写
-
-根据作者提供的修改意见撰写的教学段落，不含当前稿件名称、数据数量、模型名单或未经核对的基准比较。Figure [X] 为图号占位。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
-
-<a id="annotated-intro"></a>
-
-#### 领域回顾
-
-高亮与旁批按颜色和编号对应；点击切换中英。
-
-**English 原文**
-
-Humans spend nearly 90% of their time indoors [12], and the built environment contributes a substantial share of global carbon emissions [34, 65, 66]. Thus, building design sits at the nexus of daily life and sustainability. Traditional design relies heavily on expert knowledge and extensive manual iteration [2, 14, 20], often taking days to months to reach viable solutions. Recent advances in generative models on controllable [5, 32, 47] and multimodal generation [7, 24, 50] pave the way for automated building design generation.
-
-
-**中文译文**
-
-人们近 90% 的时间在室内度过 [12]，建筑环境也占全球碳排放的相当大一部分 [34, 65, 66]。因此，建筑设计连接着日常生活与可持续性。传统设计高度依赖专家知识和大量人工迭代 [2, 14, 20]，往往需要数天至数月才能得到可行方案。近期，可控生成 [5, 32, 47] 和多模态生成 [7, 24, 50] 的进展，为建筑设计的自动生成铺平了道路。
-
-
-**高亮与旁批**
-
-1. **at the nexus of daily life and sustainability / 连接着日常生活与可持续性**：背景要为后文服务。室内生活与碳排放对应两个实际问题，后文的功能和能耗也要分别接住。只说建筑重要，还没说本文为何重要。
-2. **expert knowledge and extensive manual iteration / 专家知识和大量人工迭代**：先交代实际代价。依赖专家、人工迭代慢，是自动化要解决的代价。这样下一句介绍生成模型才有来由。
-3. **pave the way for automated building design generation / 为建筑设计的自动生成铺平了道路**：进展接到具体任务。可控生成与多模态生成落到建筑设计，范围没跑远。接下来要写已有方法能做什么，再谈缺口。
-
-[GreenPlanner · CVPR Findings 2026](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html) · §1 Introduction，第一自然段，p.8596
-
-英文保持原文，仅还原 PDF 换行、断词与字体连字。中文、高亮和旁批为本指南添加；保留原文引文编号。
-
-原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
-
-<a id="annotated-intro-comparison"></a>
-
-#### 已有能力与研究缺口
-
-高亮与旁批按颜色和编号对应；点击切换中英。
-
-**English 原文**
-
-To enable automation, prior works have employed conditioned generators [22, 31, 37, 38, 44, 48, 49, 59, 60, 63, 64] that translate coarse user requirements into concrete floorplan layouts. However, existing methods rely solely on user-specified conditions and thus often violate unspecified real-world design constraints. This neglect results in over 60% of samples in existing datasets [48] being practically unusable due to excessive energy use and flawed spatial-functional design. Some methods [38, 44] even fail to generate essential structural components such as windows, leading to unrealistic energy evaluations. Therefore, enforcing design constraints in generative models remains a major bottleneck for practical deployment.
-
-
-**中文译文**
-
-为实现自动化，已有工作采用条件生成器 [22, 31, 37, 38, 44, 48, 49, 59, 60, 63, 64]，将用户的粗略需求转为具体平面布局。然而，现有方法仅依赖用户明确给出的条件，因此往往违反未被明确提出的现实设计约束。这种忽视使现有数据集 [48] 中超过 60% 的样本因能耗过高、空间与功能设计不合理而无法实际使用。一些方法 [38, 44] 甚至无法生成窗户等必要结构，导致能耗评估不符合现实。因此，在生成模型中落实设计约束，仍是实际部署的主要瓶颈。
-
-
-**高亮与旁批**
-
-1. **translate coarse user requirements into concrete floorplan layouts / 将用户的粗略需求转为具体平面布局**：比较别换对象。输入是粗略需求，输出是平面布局。后面的不足围绕这个任务展开，不能突然换比较对象。
-2. **violate unspecified real-world design constraints / 违反未被明确提出的现实设计约束**：缺口要有实际后果。关键是用户没说、现实仍要求满足的约束。后面用能耗、空间功能和窗户说明漏掉它们会怎样。
-3. **enforcing design constraints in generative models / 在生成模型中落实设计约束**：后文要接住这个问题。末句回扣设计约束。方法接下来要解释约束从哪里来、怎样进入生成过程，不能只报组件名。
-
-[GreenPlanner · CVPR Findings 2026](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html) · §1 Introduction，第二自然段，p.8596
-
-英文保持原文，仅还原 PDF 换行、断词与字体连字。中文、高亮和旁批为本指南添加；保留原文引文编号。
-
-原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
-
-<details><summary>结构模板</summary>
-
-
-<a id="template-intro-contributions"></a>
-#### 贡献列表
-
-```latex
-In summary, our contributions are:
-\begin{itemize}
-    \item We introduce [research object], which supports [task] with [verified distinguishing feature].
-    \item We propose [mechanism], derived from [verified basis], which [specific function] and supports [actual application].
-    \item Experiments within [tested scope] reveal [verified finding]. Further diagnosis identifies [supported recurring problems].
-\end{itemize}
-```
-
-</details>
-
-
 <a id="related"></a>
 <a id="chapter-related"></a>
 ### 3.5 相关工作
 
-说明已有路线、本文差异及其与核心贡献的关系。
+按主题回顾已有工作，段末依次写局限、本文做法和应用。
 
 #### 本节原则
 
-- 【铁律】使用原生 section / subsection；主题标题独占一行，在最终 PDF 最多一行，不以 paragraph 或行内粗体代替。
-- 按共同任务、机制或评价目标分组，解释各路线怎样工作；先承认已有能力，再比较近邻。逐篇罗列，读者就看不出路线差异与本文位置。
-- 【铁律】每个主题末尾固定三句：However, [具体缺口]. → [承接短语], we [动作] [对象] based on [方法或原则]. → This enables [实际应用], [效果动词] [解决的同一问题].。位置不互换，最后落在缺口如何解决；预期用途不写成已验证效果。
-- 【铁律】缺口的名称、对象与范围对齐 Intro，本文做法应对同一个问题；不同主题承担不同缺口，不能重复包装同一不足。
-- 【铁律】不足要能回查原论文。未报告不等于没有；仅测单轮，不等于多轮一定失败。客观限定范围，不夸大缺陷。
-- 【铁律】文献真实、相关且对应具体主张，不为引用配额加入无关论述，不因结果不利漏引。可比较近邻可安排基线；设置不同就说明差异。
-- 【铁律】相邻主题的承接表述按真实语义变化，不反复使用同一个过渡短语；专业术语与方法名保持一致。
-- 【铁律】核对原始或正式发布日期、实际版本及预印本身份；访问日期和版本更新日期不能当作新论文日期。
-- 【铁律】This enables 后填完整实际应用，不重复产物名称或只写局部属性；句末回扣 However 提出的同一个缺口。
-
-<a id="annotated-related-closure"></a>
-
-#### 局限与对应解法
-
-教学示范；[A]、[B] 及其评价范围均是假设。正式写作先核验原论文，再替换路线、范围与引用。
-
-**English 教学改写**
-
-Evidence-grounded dialogue systems select supporting text before generating an answer. [A] retrieves passages for the current question, whereas [B] links retrieved passages to answer claims [citations]. These claim links make support easier to inspect, but [B] is evaluated only on isolated questions. However, these comparisons do not establish whether earlier constraints remain satisfied across dialogue turns. To address this gap, we construct constraint-linked evidence notes based on a constraint-to-evidence linking rule. This enables evaluation of constraint retention across turns, addressing the lack of evidence about whether earlier requirements remain satisfied.
-
-
-**中文译文**
-
-基于证据的对话系统先筛选支持文本，再生成答案。[A] 为当前问题检索片段，[B] 则把检索片段与答案主张关联[引用]。这些主张关联便于检查依据，但 [B] 的评价仅覆盖独立问题。然而，这些比较尚未说明前文约束能否在多轮对话中持续得到满足。为应对这个缺口，我们基于约束与证据的关联规则构建绑定约束的证据笔记。这支持跨轮约束保留评价，应对前文需求能否持续得到满足缺少检验证据的问题。
-
-
-**高亮与旁批**
-
-1. **retrieves passages for the current question, whereas [B] links retrieved passages to answer claims / 为当前问题检索片段，[B] 则把检索片段与答案主张关联**：分类有共同尺度。比较支持文本怎样组织：只检索片段，还是关联到主张。不是每句换一个作者名字。
-2. **These claim links make support easier to inspect / 这些主张关联便于检查依据**：先承认已有能力。说明关联主张带来的用途。后面的不足限定在跨轮评价，不否定这一已有能力。
-3. **However, these comparisons do not establish whether earlier constraints remain satisfied across dialogue turns. / 然而，这些比较尚未说明前文约束能否在多轮对话中持续得到满足。**：【铁律】However：说清哪项问题没被回答。接回上一句的独立问题评价，限定为未检验跨轮约束。不能偷换成“这些方法无法处理多轮”。
-4. **To address this gap, we construct constraint-linked evidence notes based on a constraint-to-evidence linking rule. / 为应对这个缺口，我们基于约束与证据的关联规则构建绑定约束的证据笔记。**：【铁律】紧跟解法：同一个缺口，同一个对象。对象是绑定约束的证据笔记，依据是约束与证据的关联规则；两者共同应对跨轮约束缺少检验的缺口。
-5. **This enables evaluation of constraint retention across turns, addressing the lack of evidence about whether earlier requirements remain satisfied. / 这支持跨轮约束保留评价，应对前文需求能否持续得到满足缺少检验证据的问题。**：【铁律】末句落在应用与原缺口。前半句说用于跨轮评价，后半句接回需求保留缺少证据的问题。不能突然换成检索速度或泛化能力。
-
-StarPaper · 教学改写
-
-本段为 StarPaper 原创教学示范。路线、评价范围与方法均为假设，不能直接当作文献综述使用。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+- 按任务、机制或评价目标分主题；小节标题独占一行，主题内先归类现有能力，再比较具体缺口。
+- 【铁律】每个主题段最后 3 句固定为 However 局限 → we 对应做法 → This enables 实际应用与问题解决，不能交换位置。
+- 【铁律】结尾的问题与引言中的同一局限对应；做法、应用与解决对象三者分清。相邻主题处理不同不足。
+- 引用紧跟被支持的判断；承认已有能力，未报告不写成不存在，未比较不写成失败。
 
 <a id="annotated-related"></a>
 
-#### 方法比较
+#### 相关工作主题段模板
 
-高亮与旁批按颜色和编号对应；点击切换中英。
+每个主题使用同一结构：已有工作 → However 缺口 → 本文做法 → 应用与问题解决。
 
-**English 原文**
+**English 填空模板**
 
-Multi-dancer generation is an emerging area currently in its nascent stage. To the best of our knowledge, only a handful of studies (Yao et al. 2023; Le et al. 2023b,a; Yang et al. 2024) have focused on generating scenarios for more than two dancers. Among these, GDanceR (Le et al. 2023b) and GCD (Le et al. 2023a) utilize no special structures to avoid the imbalance issue in motion representation, resulting in a tendency for dancer ambiguity. CoDancers (Yang et al. 2024) splits group motions into single-person motions, preventing the occurrence of dancer ambiguity. However, completely isolating individual features results in incomplete group information, which leads to disharmony generation results. Therefore, a more optimal feature separation strategy is necessary. In this work, we introduce TCDiff, a method that first generates dancers’ trajectories and then produces logical movements. Together with our proposed effective plugin, Fusion Projection, this approach significantly reduces dancer ambiguity.
-
-
-**中文译文**
-
-多舞者生成是一个仍处于早期的新兴方向。据我们所知，只有少量研究（Yao et al. 2023; Le et al. 2023b,a; Yang et al. 2024）关注超过两名舞者的场景。其中，GDanceR（Le et al. 2023b）和 GCD（Le et al. 2023a）没有采用专门结构来避免运动表示的不平衡，因而容易出现舞者混淆。CoDancers（Yang et al. 2024）将群体动作拆成单人动作，避免了舞者混淆。然而，完全隔离个体特征会造成群体信息不完整，进而导致生成结果不协调。因此，需要更合适的特征分离策略。本文提出 TCDiff，先生成舞者轨迹，再生成合乎逻辑的动作。该做法结合我们提出的有效插件 Fusion Projection，显著减少了舞者混淆。
+[Research topic] studies [task or goal]. Methods in [family A] use [mechanism A] to [established capability A] [citations]. Methods in [family B] support [different capability B] through [mechanism B] [citations]. However, [specific gap under a stated condition]. To address this gap, we [action] [research object] based on [method or principle]. This enables [actual application], [evidence-supported effect verb] [the same problem stated in the gap].
 
 
 **高亮与旁批**
 
-1. **utilize no special structures to avoid the imbalance issue in motion representation, resulting in a tendency for dancer ambiguity / 没有采用专门结构来避免运动表示的不平衡，因而容易出现舞者混淆**：先统一比较维度。两项工作按表示机制归类，有共同尺度。“表示不平衡→舞者混淆”仍需定义或文献依据。
-2. **splits group motions into single-person motions / 将群体动作拆成单人动作**：承认别人解决了什么。先承认拆成单人动作处理了舞者混淆，再谈代价。后文才说得清本文要同时保留什么。
-3. **completely isolating individual features results in incomplete group information / 完全隔离个体特征会造成群体信息不完整**：代价接上了，对象还可更具体。不足来自前一句的完全隔离，逻辑接得上。但“群体信息”仍宽泛；写自己的论文时应指出缺哪种关系。
-4. **a more optimal feature separation strategy is necessary / 需要更合适的特征分离策略**：“更合适”还不够。收尾应说清需要兼顾个体区分与群体协调。“更合适的策略”本身不能代替设计目标。
-5. **first generates dancers’ trajectories and then produces logical movements / 先生成舞者轨迹，再生成合乎逻辑的动作**：操作还要解释作用。先轨迹、后动作给出顺序，还需说明怎样回应前面的两种代价。Fusion Projection 也要讲机制，不能只写 effective。
-
-[TCDiff · AAAI 2025](https://ojs.aaai.org/index.php/AAAI/article/view/32268) · Related Work / Music-driven Multi-dancer Generation，p.2646
-
-英文保持原文段落，仅合并换行、还原排版断词与字体连字，规范引文括号空白；高亮和批注为本指南添加。中文为本指南翻译，不是作者原文。 保留原文全部作者年份引文。
-
-作者教学复用；原论文英文短引与原图不受 StarPaper 原创内容 CC BY 授权覆盖。本文不转授第三方转载原论文材料的权利。
-
-<details><summary>结构模板</summary>
-
-
-<a id="template-related-work"></a>
-#### 相关工作模板
-
-```latex
-\section{Related Work}
-\subsection{[Short Topic A]}
-[Research line] addresses [shared task] by [shared mechanism]~\cite{...}.
-One group [mechanism A], whereas another group [mechanism B]~\cite{...}.
-More recent extensions [additional established capability]~\cite{...}.
-However, these approaches do not establish [Intro challenge A] under [scope A].
-To address this gap, we [action A] [object A] based on [method or principle A].
-This enables [actual application A], [resolving / addressing / reducing] [the same gap A].
-
-\subsection{[Short Topic B]}
-[Research line B] evaluates [property] using [evaluation basis]~\cite{...}.
-Other evaluations [substantive extension]~\cite{...}.
-However, [Intro challenge B] remains unresolved under [scope B].
-To overcome this limitation, we [action B] [object B] based on [method or principle B].
-This enables [actual application B], [resolving / addressing / reducing] [the same gap B].
-```
-
-</details>
-
+1. **[Research topic] studies [task or goal].**：小节主题。一个主题对应一种任务、机制或评价目标。主题标题另起一行，段首说明本组工作研究什么。
+2. **Methods in [family A] use [mechanism A] to [established capability A] [citations]. Methods in [family B] support [different capability B] through [mechanism B] [citations].**：归类回顾。说明各类工作已经实现的能力及共同思路，引用紧跟对应判断；不逐篇报题目。
+3. **However, [specific gap under a stated condition].**：固定倒数第三句：具体局限。先讲现有方法缺少什么，条件与范围写清。这项局限应对应引言的一个问题。
+4. **To address this gap, we [action] [research object] based on [method or principle].**：固定倒数第二句：我们的做法。主语是 we，填动作、研究对象和依据；必须直接处理上一句的局限。相邻主题可用 To overcome this limitation 轮换钩子。
+5. **This enables [actual application], [evidence-supported effect verb] [the same problem stated in the gap].**：固定末句：应用与问题解决。前半句填这项做法支持的完整任务，后半句落回同一个问题。按证据选择 addressing、reducing 等动词，不夸大已实现效果。
 
 <a id="method"></a>
 <a id="chapter-method"></a>
 ### 3.6 方法
 
-告诉读者为什么你的方法好，比解释清楚方法更重要。
+先解释设计为什么有用，再用输入、操作和输出展开。
 
 #### 本节原则
 
-- 为什么你的方法好，比解释清楚方法更重要。每项关键设计接回 Intro 的具体困难，再讲怎样实现。
-- 【铁律】写清真实输入、要求输出和约束；存在训练、推理或评价阶段时，分别说明可见信息，不能把仅供评价的材料写成模型输入。
-- 【铁律】Overview 先接回 Intro 的困难，再按真实输入输出概括交接。用准确章节名与 ref 定位，每节只引一次，实际执行者作主语，末句指向 framework；保留并行、循环与反馈，否则总览会误导实际流程。
-- 【铁律】方法模块、subsection 和 Step 的正文开头先交代具体动机，用 To [具体问题或目的], [真实执行者] [设计或动作] 接回问题，再讲设计依据、输入输出与必要实现。目的不能反复写成泛泛的质量提升，Overview 的承接句不机械重复 To。
-- 主要篇幅留给自己的设计，标准操作简写；长 prompt 和额外细节可放附录，正文给入口。
-- 【铁律】符号先讲普通含义，再定义对象、单位、下标与信号来源。关键计算用独立 equation / align 并编号，公式作为完整句保留标点；短定义行内写，不给普通操作造无用公式。
-- 【铁律】框架图、Overview、小节和粗体模块名必须对应真实步骤；图文各说一套，读者就无法追踪同一个方法。
-- 【铁律】说明外部模型、检索器、仿真器等组件的职责与来源，明确本文改了哪一部分；使用现成组件不等于提出新方法。
-- 【铁律】正文说明参数作用，Implementation Details 交代真实数值、搜索、版本与来源；不编参数，不删除复现所需信息。
-
-<a id="template-method-overview"></a>
-#### Method Overview：完整模板
-
-先接回 Introduction 的具体困难，说明关键设计的作用，再用真实章节名和编号概括输入、操作、产物与依赖；末句对应框架图。方括号填自己的材料，不存在的阶段删除；并行与反馈按真实关系写。
-
-```latex
-To address [Intro challenge], we [key design] rather than [verified prior approach]
-to [specific intended capability].
-In \textbf{[Problem Formulation]}
-(\S\ref{sec:problem}), we define [input] and [required output].
-Following this definition, in \textbf{[Input Construction]}
-(\S\ref{sec:inputs}), we construct [inputs] from [verified source].
-Using [constructed inputs], in \textbf{[Processing]}
-(\S\ref{sec:processing}), we [operation] to obtain [intermediate output].
-Given [intermediate output], in \textbf{[Output Generation]}
-(\S\ref{sec:output}), we [operation] and produce [final output].
-Figure~\ref{fig:framework} summarizes this workflow.
-```
+- 先写任务定义，再给方法总览，随后按真实依赖介绍各模块。每个模块写清解决什么问题、为什么采用该设计、输入和输出是什么。
+- 【铁律】模块、subsection 或 Step 的开头用 To [具体目的], [执行者] [设计或动作] 承接引言的对应问题；不能把所有模块都写成泛泛的“提高质量”。
+- 【铁律】Overview 使用准确章节名与编号引用，每个小节只引用一次；概括真实操作和产物交接，末句指向框架图。并行、串行和反馈按实际关系写。
+- 【铁律】任务定义、框架图、总览和模块小节使用相同输入、输出与名称。训练、推理和评价阶段的可见信息必须区分。
+- 【铁律】关键符号先解释对象、来源、单位和下标，再使用；必要公式单独编号并保留句子标点。普通操作不为形式化强造公式。
+- 主要篇幅解释自己的设计；外部组件说明来源与职责。参数作用放 Method，实际值、选择规则和依赖版本集中到 Implementation Details。
 
 <a id="annotated-method-task"></a>
 
 #### 任务定义
 
-教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。
+这一段交代研究处理什么、得到什么，以及什么算完成任务。
 
-**English 教学改写**
+**English 填空模板**
 
-Given a question, the dialogue history, and a collection of English manuals, the task is to generate an answer that respects earlier constraints and cites supporting passages. At inference time, the system receives these inputs but no reference answer. We use reference answers only for evaluation. A prior requirement such as offline operation remains part of the task unless the user explicitly changes it.
-
-
-**中文译文**
-
-给定一个问题、它的对话历史和一组英语手册，任务是生成遵守前文约束、附有支持片段引用的回答。推理时，系统接收这些输入，但不接收参考答案。参考答案仅用于评价。离线操作等前文要求仍属于当前任务，除非用户明确更改。
+Given [input objects and their sources], the task is to produce [output object] that satisfies [task requirements]. We denote [essential object] by [symbol] and define [the decision or objective]. During [training or inference], [system] has access to [available information]. [Evaluation-only information, if any] is used only for [evaluation role].
 
 
 **高亮与旁批**
 
-1. **Given a question, the dialogue history, and a collection of English manuals / 给定一个问题、它的对话历史和一组英语手册**：输入先落到对象。问题、历史和手册是不同输入。读者先知道系统拿到了什么，再看符号。
-2. **respects earlier constraints and cites supporting passages / 遵守前文约束、附有支持片段引用**：输出不只报名字。回答要满足哪两项要求，直接在任务定义里说。后面的指标也应检验这两件事。
-3. **no reference answer / 不接收参考答案**：【铁律】划清可见信息。评价参照不等于推理输入。图中也不能把参考答案连进生成器。
-4. **unless the user explicitly changes it / 除非用户明确更改**：边界说具体。旧约束何时有效，给出规则；不要让模型或读者自行猜。
-
-StarPaper · 教学改写
-
-独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+1. **Given [input objects and their sources]**：先给输入。填真实对象及来源；下一句的输出必须由这些输入得到。
+2. **[output object] that satisfies [task requirements]**：定义输出与任务要求。写清输出形式和判断标准，让后面的模块与指标围绕同一目标。
+3. **We denote [essential object] by [symbol] and define [the decision or objective].**：只引入必要符号。先解释对象，再定义下文实际使用的符号；具体模块公式留在对应小节。
+4. **During [training or inference], [system] has access to [available information]. [Evaluation-only information, if any] is used only for [evaluation role].**：区分各阶段可见信息。存在训练、推理、评价阶段时分别交代，避免把评价答案写成模型输入。没有对应阶段就删去。
 
 <a id="annotated-method-overview-teaching"></a>
 
-#### 方法概述
+#### 方法总览
 
-教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。
+这一段是后续小节的地图：目的、模块职责、输入输出、阅读位置。
 
-**English 教学改写**
+**English 填空模板**
 
-To retain earlier constraints during answering, we connect quoted evidence to the dialogue history before generating an answer. In History-aware Retrieval (Sec. [retrieval]), we select manual passages relevant to the current question and earlier requirements. Using these passages, in Constraint-linked Notes (Sec. [notes]), we attach the requirements to source quotes and retain their manual locations. Finally, in Grounded Answering (Sec. [answering]), the generator uses the resulting notes to produce an answer with source citations. Figure [framework] shows these dependencies.
-
-
-**中文译文**
-
-为在回答中保留前文约束，我们先把摘录证据与对话历史关联，再生成答案。在历史感知检索（第[retrieval]节）中，我们筛选与当前问题及前文需求相关的手册片段。使用这些片段，我们在约束关联笔记（第[notes]节）中将需求绑定到来源摘句，并保留手册位置。最后，在基于证据的回答（第[answering]节）中，生成器使用所得笔记生成带来源引用的答案。图[framework]展示这些依赖关系。
+To address [Introduction limitation A], in [exact subsection A title] (Section [A]), we [design action] using [input] to obtain [intermediate output]. To address [Introduction limitation B], in [exact subsection B title] (Section [B]), we use this [intermediate output] together with [additional input] to [next action]. Finally, in [exact subsection C title] (Section [C]), [actual executor] transforms [preceding output] into [final output] for [task objective]. Figure [framework] summarizes these dependencies.
 
 
 **高亮与旁批**
 
-1. **To retain earlier constraints during answering / 为在回答中保留前文约束**：先讲为什么。接回 Intro 的约束丢失问题。读者先知道设计目的，再看章节位置。
-2. **In History-aware Retrieval (Sec. [retrieval]), we select / 在历史感知检索（第[retrieval]节）中，我们筛选**：【铁律】章节负责导航，we 执行操作。小节名与节号只出现一次。不是“这个章节检索了文本”；实际处理者是系统或作者。
-3. **Using these passages / 使用这些片段**：【铁律】接住上一节的产物。检索出的片段进入笔记构建。串行、并行或反馈按实际依赖写，不能为了顺口编先后。
-4. **the generator uses the resulting notes / 生成器使用所得笔记**：再把笔记交给生成器。当前产物成为下一步输入。“先 A 再 B”还不够，要说明 B 使用 A 的什么。
-5. **Figure [framework] shows these dependencies. / 图[framework]展示这些依赖关系。**：【铁律】图与正文对上。填真实图号；框架图画出片段→笔记→答案的依赖，不只排三个模块名。
-
-StarPaper · 教学改写
-
-独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+1. **To address [Introduction limitation A]**：从引言的问题起笔。填前文已经建立的具体局限，说明这项设计为什么需要。
+2. **in [exact subsection A title] (Section [A]), we [design action] using [input] to obtain [intermediate output]**：用一句话概括一个小节。章节名与节号负责导航，执行者负责操作；同时交代这一节接收和产出什么。
+3. **we use this [intermediate output] together with [additional input]**：把真实产物接到下一步。此模板展示串行依赖；并行模块分别写其输入，再说明汇合位置，不能把独立来源强行串起来。
+4. **transforms [preceding output] into [final output] for [task objective]**：收束到任务目标。末个模块给出最终产物，并接回任务定义的输出要求。模块不足或超过三项时按真实结构增删。
+5. **Figure [framework] summarizes these dependencies.**：图文共同指向同一结构。框架图、总览与后续小节使用相同名称和依赖关系。
 
 <a id="annotated-method-module"></a>
 
-#### 组件设计
+#### 方法模块
 
-教学改写；示例方法与实验设置仅用于说明写法，不是已发表论文原文或实测结果。
+每个实际模块重复这一结构：具体目的、设计依据、操作、输出。
 
-**English 教学改写**
+**English 填空模板**
 
-To keep earlier requirements available during answering, the note builder links each retrieved quote to the relevant dialogue constraint. A retrieved passage may describe a feature correctly yet be unsuitable for an offline-only request. For each quote, we record the manual location and the constraint supported or contradicted by the quote; an unverified relation is left unresolved. The generator then receives these notes together with the current question, so the answer can cite the source and explain whether the requirement is met.
-
-
-**中文译文**
-
-为让回答阶段仍能使用前文要求，笔记构建器将每条检索摘句与相关对话约束关联。一个片段可能准确描述功能，却不适用于仅限离线的请求。对每条摘句，我们记录它在手册中的位置，以及它支持或违背的约束；尚未核验的关系保留为未确定。生成器随后接收这些笔记和当前问题，以便回答引用来源，并解释要求是否满足。
+To [solve the specific problem assigned to this module], we [key design action]. This design addresses [the specific insufficiency of the input or existing operation] by [the mechanism that meets the requirement]. Given [actual module input], [executor] performs [necessary operation] according to [criterion or equation]. The operation produces [output representation and relevant fields], which [next module] uses to [next purpose].
 
 
 **高亮与旁批**
 
-1. **To keep earlier requirements available during answering / 为让回答阶段仍能使用前文要求**：目的顶在第一句。To 后写具体目的，主句给执行者与关键设计。别先讲半段背景。
-2. **unsuitable for an offline-only request / 不适用于仅限离线的请求**：解释为什么要这样做。“事实正确”不等于“符合需求”。矛盾明确，设计才有必要性。
-3. **the manual location and the constraint supported or contradicted by the quote / 它在手册中的位置，以及它支持或违背的约束**：操作落实到字段。谁处理什么、保留哪些信息写清楚，后面的表示或公式才有内容。
-4. **an unverified relation is left unresolved / 尚未核验的关系保留为未确定**：处理边界情况。不知道的关系不能自动写成支持或冲突；需要有明确处理规则。
-5. **receives these notes together with the current question / 接收这些笔记和当前问题**：末句交给下一步。写明产物、接收者和用途；这里是目标能力，不能伪装成实测提升。
-
-StarPaper · 教学改写
-
-独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
-
-<a id="annotated-method"></a>
-
-#### 组件衔接
-
-高亮与旁批按颜色和编号对应；点击切换中英。
-
-**English 原文**
-
-We propose GreenPlanner, an energy- and functionality-aware generative framework for residential design (Fig. 2). It integrates four components: (1) Design Feasibility Dataset (DesignFD), a dataset built from RPLAN [48] via expert-verified energy and functional evaluations; (2) Practical Design Evaluator (PDE), a predictor trained on DesignFD for fast simulation of energy and functional feasibility; (3) Green Plan Dataset (GreenPD), a PDE-guided dataset pairing user requirements with regulation-compliant layouts; and (4) GreenFlow, a generator trained on GreenPD with PDE feedback for controllable, constraint-grounded layout generation. We next describe each component of the framework in detail.
-
-
-**中文译文**
-
-我们提出 GreenPlanner，一套同时考虑能耗与功能的住宅设计生成框架（图 2）。该框架集成四个组件：（1）设计可行性数据集（DesignFD），由 RPLAN [48] 经专家核验的能耗与功能评估构建；（2）实用设计评估器（PDE），在 DesignFD 上训练，用于快速模拟能耗与功能可行性；（3）绿色规划数据集（GreenPD），由 PDE 引导，将用户需求与符合规范的布局配对；（4）GreenFlow，在 GreenPD 上训练并使用 PDE 反馈，生成可控且以约束为依据的布局。下面将详细介绍框架的各个组件。
-
-
-**高亮与旁批**
-
-1. **an energy- and functionality-aware generative framework for residential design / 一套同时考虑能耗与功能的住宅设计生成框架**：接回 Intro 的两类缺口。能耗与功能对应前文的问题。Overview 要说明设计为何针对这些问题，不能只复述方法名称。
-2. **expert-verified energy and functional evaluations / 经专家核验的能耗与功能评估**：好词要有具体工作撑着。expert-verified 比“高质量”具体。数据章节仍要解释谁核验、核验什么、怎样处理分歧。
-3. **a predictor trained on DesignFD for fast simulation of energy and functional feasibility / 在 DesignFD 上训练，用于快速模拟能耗与功能可行性**：依赖清楚，效果还需证据。DesignFD 成为预测器的训练数据，两个组件接上了。fast 是效果声明，要在效率实验中给依据。
-4. **a PDE-guided dataset pairing user requirements with regulation-compliant layouts / 由 PDE 引导，将用户需求与符合规范的布局配对**：说明产物，也解释条件。PDE 引导构建需求—布局配对。regulation-compliant 需要后文说明采用哪些规范、怎样检查。
-5. **a generator trained on GreenPD with PDE feedback / 在 GreenPD 上训练并使用 PDE 反馈**：这两条路径也要画出来。GreenPD 提供训练数据，PDE 提供反馈。对照 Fig. 2 检查两条路径，不能正文有反馈、图里没有。
-
-[GreenPlanner · CVPR Findings 2026](https://openaccess.thecvf.com/content/CVPR2026F/html/Zeng_GreenPlanner_Practical_Floorplan_Layout_Generation_via_an_Energy-Aware_and_Function-Feasible_CVPRF_2026_paper.html) · §3 Method，开头自然段，p.8597
-
-英文保持原文段落，仅合并换行、还原排版断词与字体连字，规范引文括号空白；高亮和批注为本指南添加。中文为本指南翻译，不是作者原文。 保留原文组件编号、Fig.2 与引文 [48]，仅清理 PDF 提取产生的标点空白。
-
-原权利人保留版权；CVF Open Access 未声明 CC BY。本指南仅作署名教学短引，不重新发布全文或原图，不向第三方转授原论文版权。
+1. **To [solve the specific problem assigned to this module], we [key design action].**：首句连接目的与设计。不要只写模块名字，也不要反复用泛泛的“提高质量”。
+2. **This design addresses [the specific insufficiency of the input or existing operation] by [the mechanism that meets the requirement].**：解释为什么这样做。写出设计针对的具体缺陷和作用机制；这一步比罗列实现步骤更重要。
+3. **Given [actual module input], [executor] performs [necessary operation] according to [criterion or equation].**：再交代如何执行。按读者复现所需补充关键操作、条件或公式；使用外部组件时给名称与来源。
+4. **[output representation and relevant fields], which [next module] uses to [next purpose]**：末句交接产物。写清产物交给哪个模块、供它完成什么操作。最后一个模块改为说明如何满足最终输出要求；参数数值放实现细节。
 
 <a id="experiments"></a>
 <a id="chapter-experiments"></a>
 ### 3.7 实验
 
-用对照检验贡献，解释主要差异与发现。
+说明比较怎样做，再报告发现、关键证据和分析。
 
 #### 本节原则
 
-- 先把 Intro 的核心主张变成可检验的问题，再安排主结果、消融和必要的扩展实验。RQ 是组织工具，不必每表编号。
-- 诊断分析可按证据层级推进：先讲整体发现，再用 However 点明整体结果掩盖的局部差异，最后用 Separately 或 Next 引出独立条件分析。各层只回答自己实际检验的问题，不给没有这类分析的论文硬套标题。
-- 【铁律】指标交代真实定义、方向、单位、分母、汇总及无效输出处理；基线说明真实路线与版本，比较口径不能混用。
-- 【铁律】写清会改变结果的条件：数据版本与划分、参数值、训练或推理预算、评价方式，以及可获知的相关硬件条件。正文、附录及发布配置对应同一执行版；改了 prompt 或判据，不能把旧分数算成新版结果。
-- 设置可按 Metrics、Baselines、Implementation Details 排列。结果段建议先加粗一句具体发现，再给关键对照与意义，接回 Intro 的问题，不逐行读表。
-- 【铁律】判断单个因素的独立作用时，固定其他条件；多因素共同变化，只能评价整套改动，不能把收益归给其中一项。
-- 【铁律】声称效率或稳定性时，给出相应测量与口径。效率计入所声称系统的完整成本，稳定性对应真实重复变化；重要代价和负结果不能省略。
-- 实验章首承接方法或数据构建，概述真实被测对象与主发现，再用 Specifically 或自然钩子展开具体分析。名单、设置与分析拆成完整短句。
-- 【铁律】主张必须有对应证据。整套方法的结果不能证明未经检验的模块各自有效，不强制每项设计都单独做一次消融。
-- 【铁律】报告实际重复次数和重复单位，说明均值旁是 SD、SE 还是 CI。模型、案例与随机种子不能混作同一统计单位；排名高低不等于显著差异。
-- 【铁律】核对实际有效覆盖，再说明完整评估集合或有效子集，不预设必须删到共同子集。实际使用共同有效子集时，写清纳入条件、n of N 与排除原因；缺失、无效与不适用分开，不能只留成功输出。
-- 【铁律】实测案例与示意案例分开，说明选例依据。个例用于解释过程，不证明总体排名或部署效果；被测模型得分高，也不能证明 benchmark 更好。
-- 【铁律】全局失败组成、某场景发生率与条件子集表现分别给对象和分母；不能将不同分母的比例直接相减，也不能用局部失败诊断冒充整体差距的因果解释。
-- 【铁律】区分初始判分、人工复核标签与最终得分。一致性写清比较对象、范围与分母；标签一致率不等于独立准确率，也不能证明没有偏差。
-- 【铁律】Metrics 用一个紧凑自然段：先说明指标类别和适用对象，再按 1)、2)、3) 定义；仅加粗指标名，不斜体。Models 或 Baselines 另写。每项交代定义、方向、单位、分母、汇总与无效输出处理。
-- 已有初始与复核记录时，可分析标签修改方向、模型分布和得分或排名敏感性。协议约束不等于已测得去偏效果，未测试的偏差不写成已证明。
-- 评价器的准确标识、参数和输出限制集中放在一个可定位的设置块；正文给必要角色与引用，不反复复制全部配置。实际材料与判分版本必须对应。
-- 消融按模块组织：先用 Setting 定义变体与固定条件，再用 Results 报告该对照的发现；同一个模块的设置和结果放在一起。
-- 【铁律】消融变体在设置、表格和分析中同名；归因不能超过真正改变的因素与对照范围。
-- Case Study 展示方法运行与关键判断。按选择理由、输入、关键中间产物、输出或对照、分析与边界写；个例不能替代主张所需的验证。
+- 按“实验概述—数据与设置—指标—主结果—消融—必要的补充分析”组织。每项分析回答引言中的一个问题；RQ 可编号，也可直接写进标题或首句。
+- 章首先承接方法或数据，概述被测对象与主发现，再引出后续分析。名单、设置和结果分开写。
+- 【铁律】Metrics 保持一个紧凑自然段，先总述评价目标，再按 1)、2)、3) 定义各指标。指标名只加粗，不斜体；写清定义、方向、单位、分母、汇总及无效输出处理。
+- 结果段先给一句具体发现，再给图表位置、关键对照与数字，最后说明它回答了引言的哪个问题。重要代价与例外照实写，不逐行读表。
+- 消融按模块写：Setting 先定义变体和共享条件，Results 紧接该对照的真实发现。变体在设置、表格和分析中同名。
+- 【铁律】模块归因必须对应真正改变的因素；多因素同时变化不能归给其中一个。主结果不自动证明每个模块各自有效。
+- 【铁律】均值与不确定性依据真实观测和明确方法，说明统计或重采样单位、实际数量及 SD、SE 或 CI。单次运行不能冒称跨运行稳定性。
+- 【铁律】数据版本、统计范围、配置和结果必须对应同一执行协议；缺失、无效、不适用分别说明，不能只保留成功输出。
+- Case Study 沿输入、实际中间产物与输出展开，解释关键设计。实测与构造案例明确区分；个例不能代替核心主张所需的验证。
 
-<a id="experiments-writing-templates"></a>
-#### 实验写作模板
+<a id="annotated-experiments-overview"></a>
 
-按实验目的选模板，删去不适用段落。设置说明怎样比较；结果先给实际发现，再给关键对照、图表证据、解释与范围。每个模板接回引言中的同一个问题。
+#### 实验概述
 
-<a id="experiment-overview-template"></a>
-<details><summary>实验章概述</summary>
+承接方法输出，先概述发现，再交代接下来如何检验贡献。
 
-实验章开头需要说明研究问题和证据安排时。正文已经清楚时，不再加空泛总领段。
+**English 填空模板**
 
-**问题与证据安排**
+After constructing [method, dataset, or benchmark], we evaluate [target systems or behaviors] on [evaluation scope]. The results show [verified main finding that answers the Introduction question]. Specifically, we compare [method or systems] with [comparison group] to examine [primary claim]. We then analyze [component role or remaining question] through [actual ablation, diagnosis, or further test].
 
-To answer [引言中的研究问题], we evaluate [研究对象] under [关键比较条件]. The main comparison tests [整体能力或主要主张]. Controlled variants examine [核心设计的作用], while [分析类型] investigates [需要解释的现象]. Together, these tests assess [本文要回答的具体问题] within [实际测试范围].
 
-概述检验任务与顺序，不预告尚未成立的优势。只保留本论文实际开展的主结果、对照和分析；小节名称与后文一致。
+**高亮与旁批**
 
-</details>
+1. **After constructing [method, dataset, or benchmark]**：接回前章产物。开头承接已经介绍的方法或数据，让读者知道下面测试什么。
+2. **The results show [verified main finding that answers the Introduction question].**：先概述主发现。填实验最重要的结论，与摘要和引言保持一致；不从模型名单起笔。
+3. **to examine [primary claim]**：主实验回答核心主张。每项主要贡献都要能在后文找到对应证据；RQ 可以显式编号，也可以直接写进句子。
+4. **through [actual ablation, diagnosis, or further test]**：预告后续分析。只预告实际存在的分析；诊断、消融、效率实验分别回答不同问题。
 
-<a id="experiment-setup-template"></a>
-<details><summary>实验设置</summary>
+<a id="annotated-experiments-datasets"></a>
 
-读者需要复现比较，或判断结果是否可比时。训练、人工评估等条件只在适用时填写。
+#### 数据与划分
 
-**Data and splits.**
+这一段定义实验总体、样本单位与数据使用边界。
 
-We evaluate [研究对象] on [数据与版本], using [训练、开发和测试划分，或无训练任务的评测集合]. Splits are separated by [划分单位], and [重复记录或泄漏控制] prevents [具体泄漏路径]. The evaluation includes [样本数量及统计单位], with [排除规则、缺失情况和有效子集] reported in [位置].
+**English 填空模板**
 
-没有训练就删掉训练划分，不创造数据分割。说明划分是按样本、用户、场景、时间还是其他单位；独立验证与开发集比较分开。
+**Datasets.** We evaluate on [dataset names, versions, and citations], which contain [sample unit and task-relevant coverage]. We use [training, development, and test split or official evaluation protocol]. [Parameters or model choices] are selected using [development data], while [test split] is reserved for final evaluation. [Inclusion rules and resulting sample counts] define the evaluated population; [additional preprocessing details] are provided in Appendix [data].
 
-**Metrics.**
 
-```latex
-\noindent\textbf{Metrics.}
-We assess [target properties] on [test split] using [assessment units].
-1) \textbf{[Metric 1]} measures [definition, denominator, unit, and direction].
-2) \textbf{[Metric 2]} measures [definition, denominator, unit, and direction].
-We first compute [per-unit score] and aggregate by [actual rule].
-[Invalid-output policy and not-applicable policy].
-The complete protocol is provided in Appendix~\ref{app:metrics}.
-```
+**高亮与旁批**
 
-只保留一个 Metrics 类别标题和一个自然段；编号后仅加粗指标名。每项写定义、方向、单位、分母与汇总，完整判定协议另给位置。
+1. **[dataset names, versions, and citations]**：标识数据版本。名称、版本与引用放在一起，避免同名数据的不同划分混用。
+2. **[sample unit and task-relevant coverage]**：说明一条样本是什么。交代输入、标签或场景覆盖中影响评价的部分，详细统计可放数据章节或附录。
+3. **[training, development, and test split or official evaluation protocol]**：交代真实划分。按实际方案填；纯推理评价可以直接说明官方测试集，不虚构训练集。
+4. **[Inclusion rules and resulting sample counts] define the evaluated population**：固定统计范围。说明纳入规则和有效数量；排除、不适用与无效输出按真实协议分别处理。
 
-**Baselines.**
+<a id="annotated-experiments-baselines"></a>
 
-We compare [本文方法或被测对象] with [最相关对照及引用], using [官方实现、复现或引用结果及版本]. All directly comparable runs share [输入信息、数据划分、评价协议与资源条件]. [必要适配] converts [输出形式] to [评价形式]. Results from [不同协议或原论文] are reported separately because [可比性差异].
+#### 比较方法
 
-只有实际相同时才填共享条件。被测模型得分高不等于基准设计更好；引用分数与重跑结果分开，接口版本和必要适配不能省略。
+这一段说明与谁比较、为什么选它们，以及比较条件。
 
-**Implementation.**
+**English 填空模板**
 
-We implement [方法或运行流程] with [代码、模型与软件版本]. [训练或调参方法] uses [开发数据与选择规则], with [关键超参数、搜索范围及最终设置] fixed before [测试阶段]. Runs use [硬件或API配置], [推理、采样及重试规则], and [资源预算]. [完整配置、提示词或复现细节] are provided in [位置].
+**Baselines.** We compare [our method] with [baseline family A and citations], which [shared mechanism], and [baseline family B and citations], which [different relevant mechanism]. These baselines cover [comparison dimensions related to our contribution]. All methods use [matched data, model access, resources, or evaluation conditions]. [Unmatched conditions that may affect interpretation] are reported in [settings location].
 
-填会改变结果的真实设置，包括优化器、学习率、解码、调用预算和重试；不适用项删除。不能把测试集用于选参后仍称独立测试。
 
-**Human or model-based evaluation.**
+**高亮与旁批**
 
-For [需要人工或模型判断的指标], [评估者及资质，或judge模型及版本] evaluate [评估样本及统计单位] using [评分规则]. We use [盲评、随机化或其他偏差控制] and aggregate ratings by [汇总规则]. [实际一致性核验] covers [核验子集及抽样方式]; this check supports [已核验的范围].
+1. **[baseline family A and citations], which [shared mechanism]**：按路线介绍比较对象。先归类，再用一句话说明机制；版本与引用紧跟名称，不在设置里提前评价输赢。
+2. **[comparison dimensions related to our contribution]**：说明选择依据。覆盖与贡献有关的常用路线、强对照或最近工作；不是随意列几个弱基线。
+3. **[matched data, model access, resources, or evaluation conditions]**：说清比较条件。只写实际控制的条件；不能把预算上限相同说成信息量完全相同。
+4. **[Unmatched conditions that may affect interpretation]**：保留影响判断的差异。使用公开报告值、闭源模型或不同硬件时说明来源及限制。
 
-这段仅在有主观评估时使用。披露judge是否与被测模型相同、人工核验子集与分母；子集一致性不能当作全部评测准确率。
+<a id="annotated-experiments-implementation"></a>
 
-</details>
+#### 实现细节
 
-<a id="experiment-main-results-template"></a>
-<details><summary>主结果</summary>
+把会改变结果的设置集中在这里，避免散在结果分析中。
 
-报告整体能力、方法差异或主要研究发现。结论可为改善、差异、无明确支持或失败，不预设胜出。
+**English 填空模板**
 
-**结论、关键比较与范围**
+**Implementation Details.** We implement [method] with [backbone or dependency versions]. [Key parameters introduced in Method] are set to [actual values] using [selection procedure and data]. Evaluation uses [execution configuration, hardware, and resource budget relevant to the comparison]. We conduct [actual repeats] over [repeat unit] and report [aggregation and uncertainty definition]. [Evaluator identity, configuration, and assessment protocol, if applicable] are specified in [protocol location].
 
-\textbf{For [引言中的研究目标或测试条件], [一条自明的实际结论].} Table~\ref{[主结果表]} compares [关键对象] under [可比条件] using [对应指标]. [决定结论的比较或差异] supports this finding, with [必要数值、统计单位或不确定性]. This pattern indicates [证据支持的含义] for [引言中的具体问题], while [尚未检验的条件或不同结果] limits the conclusion to [实际范围].
 
-一段绑定一张主要图表，不逐格读表。只保留影响结论的数字；没有检验不写显著，没有对应对照不写原因，没有部署研究不写已提升部署可靠性。
+**高亮与旁批**
 
-</details>
+1. **[backbone or dependency versions]**：固定执行版本。写真实使用的模型、软件版本或代码版本，读者应能定位同一实现。
+2. **[actual values] using [selection procedure and data]**：补全方法参数。Method 解释参数作用，这里给实际取值、搜索范围与选择依据；一次性固定值也如实说明。
+3. **[execution configuration, hardware, and resource budget relevant to the comparison]**：写影响结果的条件。训练、推理、检索、解码和成本只保留与本研究有关的设置，完整配置可放附录。
+4. **[actual repeats] over [repeat unit] and report [aggregation and uncertainty definition]**：定义重复与误差。注明按随机种子、样本或评估轮次重复；明确 SD、SE 或 CI，单次运行不能声称跨运行稳定性。
+5. **[Evaluator identity, configuration, and assessment protocol, if applicable]**：单独交代评价器。有人工或模型判分时说明谁判什么、依据什么及如何核验。没有 judge 就删去该句。
 
-<a id="experiment-ablation-template"></a>
-<details><summary>模块消融：Setting → Results</summary>
+<a id="annotated-experiments-metrics"></a>
 
-需要判断某项设计是否发挥作用，而不是只比较整套系统。替换、删除、增加或其他受控变体都可使用。
+#### 指标定义
 
-**每个模块一组设置与结果**
+保持一个紧凑自然段：总述评价目标，再编号定义各指标。
 
-```latex
-\subsection{Ablation Study}
-\label{sec:ablation}
+**English 填空模板**
 
-\paragraph{Effect of [Module A].}
-\textbf{Setting.}
-To examine [Module A's role], we compare [control variant] with [Module A variant].
-Both retain [shared modules] and use [matched training data, model, evaluation set, decoding settings, and budget].
-Only [the specified factor] changes.
-[Remaining differences and their location].
+**Metrics.** We assess [target properties linked to the task] on [evaluation units and scope]. 1) **[Metric 1 full name (abbreviation)]** measures [definition, unit, direction, and denominator]. 2) **[Metric 2 full name (abbreviation)]** measures [definition, unit, direction, and denominator]. 3) **[Metric 3 full name (abbreviation)]** measures [definition, unit, direction, and denominator]. We compute [per-unit quantities] and aggregate them using [macro, micro, weighted, or other actual rule]. [Invalid, missing, and not-applicable outputs] are handled according to [defined policy], with [applicable counts or coverage] reported in [location].
 
-\textbf{Results.} \textbf{[Verified finding under these conditions].}
-Table~\ref{tab:ablation} compares [the two rows] on [relevant metric and scope].
-[Observed change and measured uncertainty].
-This supports [the bounded component role].
-[Observed exception or limitation].
 
-\paragraph{Effect of [Module B].}
-\textbf{Setting.}
-We compare [variant retaining Module A] with [the same variant using Module B].
-We keep [Module A and other shared conditions] fixed and change only [Module B or specified replacement].
-[Actual retraining, repetitions, and settings location].
+**高亮与旁批**
 
-\textbf{Results.} \textbf{[Verified finding with Module A fixed].}
-Table~\ref{tab:ablation} shows [actual difference] between [the matched rows].
-This tests [Module B's incremental role in this configuration].
-[Observed trade-off or exception].
-```
+1. **We assess [target properties linked to the task] on [evaluation units and scope].**：先说明衡量什么。指标对应任务目标或方法贡献，评价单位与范围紧接其后。
+2. **1) [Metric 1 full name (abbreviation)] measures [definition, unit, direction, and denominator].**：编号、加粗名称、简短定义。首次出现给全称和缩写，指标名只加粗，不斜体。按真实指标数量增删，不能为凑三项编造指标。
+3. **We compute [per-unit quantities] and aggregate them using [macro, micro, weighted, or other actual rule].**：说明如何汇总。写清先按什么单位计算，再怎样取平均；自定义指标的公式与判定细节给附录入口。
+4. **[Invalid, missing, and not-applicable outputs] are handled according to [defined policy]**：交代异常处理。失败、缺失和不适用是不同情况，按实际协议处理并报告适用覆盖，不静默删样本。
 
-先定义两行的唯一差异，再给对应结果。第二个模块保持第一个模块不变，检验的是该配置下的增量作用。
+<a id="annotated-experiments-main-teaching"></a>
 
-</details>
+#### 主要结果
 
-<a id="experiment-sensitivity-template"></a>
-<details><summary>敏感性与资源预算</summary>
+每个结果段先给一项发现，再给关键数字，最后解释它回答了什么。
 
-主张依赖阈值、输入规模或资源投入，或需要说明效果与成本的关系时。只选实际做过的段落。
+**English 填空模板**
 
-**参数或条件敏感性**
+**[Main finding under the tested conditions].** Table [main results] shows that [method] achieves [verified value and unit] on [metric], compared with [baseline value] for [named baseline]. This corresponds to [verified difference with its unit and measured uncertainty, if available] across [actual evaluation scope]. The comparison supports [the Introduction claim answered by this result]. [A relevant exception or measured trade-off, if observed].
 
-\textbf{For [对应研究目标], [指标] shows [实际趋势或不稳定现象] as [参数或条件] varies.} Figure~\ref{[敏感性图]} varies [唯一改变因素及范围] while holding [其余条件] fixed. [关键区间或变化] identifies [观察到的适用范围], with [重复方式与不确定性] reported for each setting. This result supports [原设计动机中已检验的部分], but does not establish [测试范围外的性质].
 
-不是所有参数都要扫一遍。说明选参数据与测试数据；试过的区间不能外推为普遍鲁棒，趋势也不等于机制。
+**高亮与旁批**
 
-**效果与资源代价**
+1. **[Main finding under the tested conditions].**：段首先给结论。用加粗的一句话说清主要关系；填真实发现，不预设所有指标都提升。
+2. **[verified value and unit] on [metric], compared with [baseline value] for [named baseline]**：挑有解释力的数字。给出决定结论的成绩与比较对象，避免逐行复述整张表。
+3. **[verified difference with its unit and measured uncertainty, if available]**：把差值写准确。百分比与百分点分开；显著、稳定等词需要对应统计证据。
+4. **The comparison supports [the Introduction claim answered by this result].**：回扣动机与贡献。说明这组结果回答了前文哪个问题。整套方法的优势不能直接拆成各模块的作用。
+5. **[A relevant exception or measured trade-off, if observed].**：补充影响结论的取舍。有重要代价或不成立的条件就写清；没有相关证据时删去，不机械加免责声明。
 
-\textbf{At [共同预算或比较口径], [实际效果与代价关系].} Table~\ref{[资源表]} reports [质量指标] alongside [耗时、内存、调用量、token或其他成本], measured on [硬件、API或运行条件] over [统计单位与重复方式]. [关键比较] characterizes the trade-off between [收益] and [代价]. The measured cost covers [计入环节], excluding [未计入但相关的环节].
-
-比较端到端耗时还是单步耗时须写清；训练、调参、离线处理和在线推理分别核算。API价格只说明实测时间与计费条件，不把局部加速写成端到端节省。
-
-</details>
-
-<a id="experiment-analysis-template"></a>
-<details><summary>错误分析与解释检验</summary>
-
-需要说明错误集中在哪里、可能怎样产生，或区分竞争解释时。描述性分析和解释检验分开。
-
-**错误分布与研究问题**
-
-\textbf{Within [统计范围], [错误或差异] concentrates in [实际条件].} To examine [引言中的具体困难], Figure~\ref{[分析图]} groups [统计单位] by [分组标准] and reports [错误定义、分母与实际差异]. [代表性现象或关键分组对照] indicates [观察支持的含义]. This association is consistent with [可能解释], but [未控制因素或覆盖限制] prevents attributing the pattern solely to [候选原因].
-
-分组口径与Intro问题一致；展示成功和失败的选择规则不能藏。定性例子说明现象，频率结论仍需分母，相关不写因果。
-
-**区分竞争解释**
-
-\textbf{Under [受控检验条件], [候选解释之间可判断的实际结论].} To distinguish [解释A] from [解释B], we change [可区分预测的干预或对照] while preserving [必要控制条件]. Table~\ref{[解释检验表]} shows [关键证据], which supports [该检验支持的解释范围]. [仍无法排除的解释或适用条件] limits what this test establishes about [原动机对应的机制].
-
-只有真的做过可区分检验才用这段；没有时保留上一段的可能解释，不造机制实验。
-
-</details>
+<a id="experiments-experiment-ablation-table-template-writing-templates"></a>
 
 <a id="experiment-ablation-table-template"></a>
-<details><summary>结果表：行列与标记要求</summary>
+#### 结果表：变体、指标与标记
 
 先定行列再填结果。表头按“数据集—指标”分两级，表体每行就是 Setting 定义的一种变体。
 
@@ -2094,7 +1764,7 @@ Bold marks the best and underline the second-best distinct value among comparabl
 \toprule
 \multirow{2}{*}{Variant} & \multicolumn{2}{c}{[Dataset A]} & \multicolumn{2}{c}{[Dataset B]} \\
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}
- & EM $\uparrow$ & F1 $\uparrow$ & EM $\uparrow$ & F1 $\uparrow$ \\
+ & [Metric 1] $\uparrow$ & [Metric 2] $\uparrow$ & [Metric 1] $\uparrow$ & [Metric 2] $\uparrow$ \\
 \midrule
 {[Control variant full name]} & [value] & [value] & [value] & [value] \\
 {[Module A variant full name]} & [value] & [value] & [value] & [value] \\
@@ -2104,412 +1774,216 @@ Bold marks the best and underline the second-best distinct value among comparabl
 \end{table*}
 ```
 
-在导言区加载 booktabs、multirow。模板不预填数值，逐格填写自己的实测结果；粗体与下划线只用于可比列的排名。
-
-</details>
-
-<a id="experiment-case-study-template"></a>
-<details><summary>Case Study：展示方法的运行过程</summary>
-
-选一个能看懂核心设计的案例，沿输入、中间产物、输出走一遍。重点解释方法在哪里发挥作用，不重复报排行榜。
-
-- 先写选择理由：典型困难、失败边界或关键设计。不要只挑最好看的成功例子。
-- 输入交代问题、可用证据和必要条件；关键步骤展示实际可核查产物，如证据笔记、检索片段或约束标记。
-- 输出紧接中间产物，指出哪条证据支持或否定哪个判断。有对照时先交代共同与不同条件，再并排比较。
-- 【铁律】实测材料保留原始输入、输出与标签；构造案例明示。没有记录的中间步骤不编造，隐藏推理不能改画成已观察过程。
-- 【铁律】个例说明方法运行或具体失败，不能替代所声称效果需要的实验、证明整体有效或推断总体比例。
-- 时间紧时，可优先整理已有真实案例并深入分析，补充方法说明；主要结论仍需对应验证。分析充分的 Case Study 能让读者看清设计的价值。
-- 【铁律】同一案例在论文中完整展示一次；其他章节交叉引用，避免换图、换语言后重复讲同一个故事。
-- 图的颜色按语义分组，图形和纹理提供第二种区分。局部圈出关键证据并编号，旁注解释这一步如何改变输出；保留白底，不整块涂色。
-
-**选例 → 输入 → 中间产物 → 输出与对照 → 分析**
-
-```latex
-\subsection{Case Study}
-\label{sec:case-study}
-\textbf{[Concrete behavior illustrated by this case].}
-We select [recorded case or explicitly constructed example] because [selection reason tied to an Introduction challenge].
-Figure~\ref{fig:case-study} shows [the actual question and relevant evidence], which requires [specific behavior].
-[Named method stage] transforms [input] into [recorded intermediate artifact].
-In this artifact, [concrete marked evidence or retained uncertainty] supports [the next operation].
-The final output [meets or violates the requirement] based on [verifiable evidence].
-[Comparable baseline output, if available, and the exact contrast].
-This case illustrates [the observed operation or failure], while [the quantitative evaluation or the untested boundary] determines the broader claim.
-```
-
-案例来自同一条真实记录；图只展示有记录的步骤。本文其他位置交叉引用该案例。
-
-**图注模板**
-
-[案例图及来源类型]。颜色分别表示[语义一]和[语义二]，编号对应[旁注]。从左到右，[输入条件]经[真实步骤]形成[中间产物]，最终[输出表现]；[对照]在[对应位置]出现[可核查差异]。该例展示[有限作用]，不代表[整体效果或未测范围]。
-
-按语义分组：支持证据一种浅色；待确认内容另一种浅色并加标签；新增处理用统一边框。用①②③与旁注连接关键片段，避免整段涂色。
-
-</details>
-
-<a id="annotated-experiments-metrics"></a>
-
-#### 指标定义：一个自然段写完整
-
-RAG 教学例子；指标与处理规则用于演示写法，不是 EviNoteRAG 的原文或实测设置。
-
-**English 教学改写**
-
-**Metrics.** We assess answer accuracy and citation support on [test split]. 1) **Exact Match (EM)** is the percentage of questions whose normalized answer matches a reference answer. 2) **Token F1** is the per-question harmonic mean of token precision and recall against the best-matching reference, averaged across questions and reported as a percentage. 3) **Citation Support (CS)** is the percentage of factual answer sentences supported by their cited passages, computed per answer and averaged across applicable answers. Missing citations count as unsupported. Higher is better for all three metrics. Empty or invalid answers receive zero EM and F1. CS is undefined for answers with no factual sentences; we report their count and the proportion of answers with defined CS. Normalization, tokenization, and citation-checking rules are specified in Appendix [protocol].
-
-
-**中文译文**
-
-**指标。**我们在[测试划分]上评价答案准确性与引用支持。1) **精确匹配（EM）**是标准化后答案与任一参考答案一致的问题占比。2) **词元 F1** 先对每个问题计算词元精确率与召回率的调和平均，采用得分最高的参考答案，再对问题取平均，以百分比报告。3) **引用支持率（CS）**是得到所引片段支持的事实句占比，先按回答计算，再对适用回答取平均。缺引用的事实句按不支持计。三项均越高越好。空回答或无效回答的 EM、F1 计零；没有事实句时 CS 无定义，单列这类回答数量及可计算 CS 的回答占比。标准化、分词与引用判定规则见附录[协议]。
-
-
-**高亮与旁批**
-
-1. **1) Exact Match (EM) is the percentage of questions whose normalized answer matches a reference answer. / 1) 精确匹配（EM）是标准化后答案与任一参考答案一致的问题占比。**：编号、加粗名称、简短定义。EM 的分母是测试问题数，单位是百分比；标准化规则不能随模型变化。名称只用粗体，不再套斜体。
-2. **2) Token F1 is the per-question harmonic mean of token precision and recall against the best-matching reference, averaged across questions and reported as a percentage. / 2) 词元 F1 先对每个问题计算词元精确率与召回率的调和平均，采用得分最高的参考答案，再对问题取平均，以百分比报告。**：先按样本算，再说明汇总。词元精确率以预测词元数为分母，召回率以参考词元数为分母。这里是问题级宏平均，不能与全体词元合并后的微平均混用。
-3. **3) Citation Support (CS) is the percentage of factual answer sentences supported by their cited passages, computed per answer and averaged across applicable answers. / 3) 引用支持率（CS）是得到所引片段支持的事实句占比，先按回答计算，再对适用回答取平均。**：指标直接检验方法作用。证据组织声称减少无支持断言，就增加对应的引用支持指标。事实句分母包含缺引用的事实句；完整人工或模型判定规则放附录。
-4. **Empty or invalid answers receive zero EM and F1. CS is undefined for answers with no factual sentences; we report their count and the proportion of answers with defined CS. / 空回答或无效回答的 EM、F1 计零；没有事实句时 CS 无定义，单列这类回答数量及可计算 CS 的回答占比。**：失败输出与不适用分开。这是教学协议示例。不同论文按实际协议处理，不能静默删掉失败回答，也不能把无分母的比例填成满分。CS 必须连同适用覆盖解读。
-
-教学改写；组织参考 EviNoteRAG §4.2（PDF 第 5 页）。
-
-借鉴编号指标段的组织方式；补齐分母、汇总与不可评分处理。未复制论文实测数字或私有配置。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
-
-<a id="annotated-experiments-main-teaching"></a>
-
-#### 主结果
-
-假设主结果段；比较与结果方向仅用于教学，实际须填核验后的差值、表号及统计范围。
-
-**English 教学改写**
-
-Evidence notes improve citation support under a fixed evidence-context budget. In the comparison in Table [main], the note-based system has higher support than direct passage retrieval when the language model, decoding settings, and evidence-context token budget are held fixed. The contrast supports note-guided generation as a whole; separate ablations are needed to distinguish quote organization from constraint retention. However, the note builder adds processing time, so the quality gain must be considered together with end-to-end latency.
-
-
-**中文译文**
-
-在证据上下文预算固定时，证据笔记提高了引用支持率。在表[主结果]所示的对照中，固定语言模型、解码设置和证据上下文词元预算后，笔记系统的支持率高于直接片段检索。这一对照支持该设置下的笔记引导生成整体；区分摘句组织与约束保留的作用，还需要分别消融。不过，笔记构建增加了处理时间，因此质量收益需要与端到端延迟一起考虑。
-
-
-**高亮与旁批**
-
-1. **Evidence notes improve citation support under a fixed evidence-context budget. / 在证据上下文预算固定时，证据笔记提高了引用支持率。**：段首先给一个发现。可加粗；对象、比较关系和条件明确。“实验效果很好”没有信息。
-2. **the language model, decoding settings, and evidence-context token budget are held fixed / 固定语言模型、解码设置和证据上下文词元预算后**：关键对照撑起结论。模型、解码和上下文预算对齐。预算上限相同，不等于实际长度或信息完全相同；组件归因还需匹配消融。
-3. **supports note-guided generation as a whole / 支持该设置下的笔记引导生成整体**：解释证据的意义。主结果比较整套系统；只对齐预算，不能宣称已经隔离某个组件或信息类型的作用。
-4. **the note builder adds processing time / 笔记构建增加了处理时间**：代价跟收益一起说。效率不是只算生成器；端到端延迟应计入检索、笔记构建与生成。
-
-StarPaper · 教学改写
-
-独立教学示例，使用静态手册问答说明组织方式，不对应私有项目。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+按指标方向修改箭头；主结果表将 Variant 换成 Method。导言区加载 booktabs、multirow，逐格填实测值，最优与次优只在可比列内标记。
 
 <a id="ablation-evidence-structure"></a>
 
-#### 模块一：证据组织
+#### 消融：每个模块先设置，再分析结果
 
-结构化笔记是否比普通摘要更有效？ 填空示范，数值与结论用实际记录填写。
+对每个模块重复这组 Setting、Results，分别检验对应设计的作用。
 
-**English 教学改写**
+**English 填空模板**
 
-**Setting.** To isolate evidence organization, we compare [unstructured-summary variant] with [structured-note variant]. The structured variant marks [answer-relevant evidence and uncertain statements]; the control summarizes the same retrieved passages without these fields. Both use [the same training data, backbone, retrieval results, decoding configuration, and context-budget ceiling]. Neither uses [evidence-quality reward]. [Actual length or other remaining differences] are reported in Appendix [settings].
+**Setting.** To examine [the specific role of Module A], we compare [control variant full name] with [variant containing Module A]. The two variants differ only in [Module A or its specified replacement]. Both retain [other modules] and use [matched data, backbone, training or inference settings, and evaluation protocol]. [Required retraining and any remaining differences] are described in [settings location].
 
-**Results.** **[Verified finding about structured notes under the tested conditions].** Table [ablation] compares [the two named rows] on [the matched metric and test scope]. The observed [difference, direction, and uncertainty if measured] supports [the bounded role of evidence organization]. [Observed exceptions or remaining alternative explanation].
-
-
-**中文译文**
-
-**设置。**为检验证据组织，我们比较[普通摘要变体]与[结构化笔记变体]。结构化变体标记[答案相关证据与不确定陈述]；对照对相同检索片段作摘要，不提供这些字段。两者使用[相同训练数据、基础模型、检索结果、解码配置与上下文预算上限]，均不使用[证据质量奖励]。[实际长度或其他剩余差异]见附录[设置]。
-
-**结果。****[结构化笔记在实测条件下的真实发现]。**表[消融]对比[上述两行]在[对应指标与测试范围]上的表现。[真实差值、方向及已测不确定性]支持证据组织具有[有限作用]。[已观察例外或仍存在的替代解释]。
+**Results.** **[Verified finding about Module A under these conditions].** Table [ablation] compares [the two variant rows] on [the metric tied to this module's purpose]. [Metric] changes from [control value] for [control variant] to [observed value] for [tested variant], with [measured uncertainty, if available]. This result supports [the module's role within this configuration]. [Relevant exception or trade-off, if observed].
 
 
 **高亮与旁批**
 
-1. **Neither uses [evidence-quality reward]. / 均不使用[证据质量奖励]。**：奖励条件固定。这一对照只查笔记结构，不能同时增添奖励。上限相同也不等于实际长度相同，长度变化另报。
-2. **[Verified finding about structured notes under the tested conditions]. / [结构化笔记在实测条件下的真实发现]。**：Results 的第一句给真实发现。可加粗这句。填实际提升、下降或无明确差异，不能预设“模块一定有效”。
-3. **[the two named rows] / [上述两行]**：结果紧接刚定义的对照。读者能在表里找到两行。不是拿完整系统和 Base 的总差异归因给一个模块。
+1. **To examine [the specific role of Module A]**：先点明要检验的作用。目的与 Method 中这一模块的设计动机对应，读者先知道为什么做这组消融。
+2. **[control variant full name] with [variant containing Module A]**：先定义表中的两行。变体名称在设置、表格与结果中完全一致；说明删去、替换或改变了什么。
+3. **Both retain [other modules] and use [matched data, backbone, training or inference settings, and evaluation protocol].**：固定其余条件。多项同时变化只能评价整套变动。训练型模块按实际协议重新训练，不把推理开关冒称训练消融。
+4. **[Verified finding about Module A under these conditions].**：Results 开头回答这个问题。先写真实发现，再引出数字；提升、下降或无明确差异都按记录写。
+5. **[the two variant rows] on [the metric tied to this module's purpose]**：结果回到刚定义的对照。只分析这两行及相关指标，不拿完整方法的总增益归因给当前模块。
+6. **[the module's role within this configuration]**：解释模块作用与范围。有其他模块固定时，结论是该配置下的增量作用；不能自动写成单独作用或协同效应。
 
-教学模板；组织参考 EviNoteRAG §4.6。
+<a id="annotated-experiments-further-analysis"></a>
 
-迁移设置与结果的组织方式，未复制论文实测数字。
+#### 补充分析
 
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+按贡献选择稳健性、效率、迁移或失败诊断；每组围绕一个明确问题。
 
-<a id="ablation-evidence-quality-reward"></a>
+**English 填空模板**
 
-#### 模块二：证据质量奖励
-
-在笔记结构固定时，奖励是否带来增益？ 填空示范，数值与结论用实际记录填写。
-
-**English 教学改写**
-
-**Setting.** To examine [evidence-quality reward], we compare [structured-note variant] with [structured-note variant using the reward]. Both retain [the same note fields and answer-generation procedure] and use [matched training and evaluation conditions]. Only [the reward term or specified reward replacement] changes; its [definition and weight] are given in Section [method]. [Required retraining and actual repeats] follow the recorded protocol.
-
-**Results.** **[Verified finding about the added reward with note structure fixed].** Relative to [the no-reward row], [the reward row] shows [observed difference] in [the relevant metric and scope] (Table [ablation]). This comparison identifies [the incremental role of the reward conditional on structured notes], rather than [an untested standalone or interaction effect]. [Observed trade-off or exception].
-
-
-**中文译文**
-
-**设置。**为检验[证据质量奖励]，我们比较[结构化笔记变体]与[加入该奖励的结构化笔记变体]。两者保留[相同笔记字段和答案生成流程]，采用[匹配的训练与评价条件]。只改变[该奖励项或明确的奖励替换]，[定义及权重]见第[方法]节。[需要重新训练的变体与实际重复]按记录执行。
-
-**结果。****[笔记结构固定时，新增奖励的真实发现]。**相比[无该奖励的一行]，[加入奖励的一行]在[对应指标与范围]上呈现[真实差异]（表[消融]）。该比较检验的是[已有结构化笔记条件下奖励的增量作用]，不等于[未经检验的单独作用或交互效应]。[已观察代价或例外]。
+To investigate [question not answered by the main comparison], we [analysis or test] using [actual evidence and comparison conditions]. Figure [analysis] shows [verified pattern], with [key value or contrast] under [tested scope]. This finding explains [the aspect of the original research question supported by the analysis]. [Implication for the method or a remaining question].
 
 
 **高亮与旁批**
 
-1. **Only [the reward term or specified reward replacement] changes / 只改变[该奖励项或明确的奖励替换]**：写清换了什么。删奖励、换成随机奖励和调权重是不同设置。训练型模块需要按真实协议训练，不能只在推理时关开关。
-2. **[Verified finding about the added reward with note structure fixed]. / [笔记结构固定时，新增奖励的真实发现]。**：发现与 Setting 是同一个问题。不要先讲总榜单排名，先回答这个奖励在固定笔记结构下做了什么。
-3. **[the incremental role of the reward conditional on structured notes] / [已有结构化笔记条件下奖励的增量作用]**：别把逐步增益写成交互效应。组合好于单组件不自动证明协同。只有组合定义有效且有完整匹配对照时，才能检验交互。
+1. **[question not answered by the main comparison]**：先说为什么还要分析。补充实验应增加信息：检验适用范围、定位失败、衡量成本或检查稳定性。
+2. **[actual evidence and comparison conditions]**：写清改变与保留什么。参数分析、迁移和效率比较各自给实际条件。诊断比例就近说明对象、分母与范围。
+3. **[verified pattern], with [key value or contrast] under [tested scope]**：围绕一个图给发现。先概括关系，再给有解释力的数字，不逐点读图。
+4. **[the aspect of the original research question supported by the analysis]**：连接全文问题。解释这项发现怎样支持、修正或限制引言的主张；相关模式不自动成为因果解释。
 
-教学模板；组织参考 EviNoteRAG §4.6。
+<a id="annotated-experiments-case-study"></a>
 
-迁移设置与结果的组织方式，未复制论文实测数字。
+#### 案例分析
 
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+用一个真实记录或明确标注的示例，展示方法在哪一步发挥作用。
 
-<details><summary>结构模板</summary>
+**English 填空模板**
+
+We select [case] because it contains [challenge tied to the Introduction]. Figure [case study] presents [input and available evidence]. In [method stage], [actual operation] produces [recorded intermediate artifact], where [marked evidence] determines [the next decision]. The final output [observed behavior], whereas [a comparable baseline, if available] [observed contrast]. This case illustrates [the specific operation or failure], consistent with [the relevant quantitative finding, if established].
 
 
-<a id="template-experimental-setup"></a>
-#### 实验设置
+**高亮与旁批**
 
-```latex
-\noindent\textbf{Metrics.}
-We evaluate [target properties] using [verified metrics and assessment units].
-1) \textbf{[Metric 1]} measures [definition, unit, direction, and denominator].
-2) \textbf{[Metric 2]} measures [definition, unit, direction, and denominator].
-We aggregate [per-unit results] by [actual rule] and handle [invalid or not-applicable outputs] according to [actual protocol].
-```
-
-</details>
-
+1. **[challenge tied to the Introduction]**：先交代选例理由。选择典型困难、关键设计或失败边界，避免只挑最好看的成功例子。
+2. **[input and available evidence]**：从真实输入开始。给理解案例所需的完整信息；涉及敏感数据时使用已获公开许可的版本。
+3. **[recorded intermediate artifact], where [marked evidence] determines [the next decision]**：解释关键一步怎么起作用。展示可核查的中间产物，用局部高亮、编号和旁注指出证据与下一步的关系。
+4. **[observed behavior], whereas [a comparable baseline, if available] [observed contrast]**：展示输出与具体差异。有公平对照就并排展示；没有对照就删去 whereas 分句，不编造模型输出。
+5. **[the specific operation or failure]**：收束到这个案例的含义。案例解释方法运行，不能替代主要结论所需的验证。颜色按语义分组，并用图形或标记辅助区分。
 
 <a id="discussion"></a>
 <a id="chapter-discussion"></a>
 ### 3.8 讨论
 
-解释发现的意义，区分观察与机制。
+解释实验发现的含义与适用范围。
 
 #### 本节原则
 
-- 解释结果改变了什么认识，不再复述成绩表。
-- 【铁律】解释与机制分开。没有单独控制某项设计，不能把效果全部归因于它。
-- 【铁律】讨论沿用实测范围，未执行的方案不写成已得到的结果；决定结论的实质限制就近说明。
+- 本节回答结果意味着什么。按关键发现、解释依据、实际意义组织；是否单列 Discussion 依论文与会议要求。
+- 【铁律】解释与已验证机制区分；未做控制的因素不写成唯一原因，讨论保留实验的适用范围。
 
 <a id="annotated-discussion"></a>
 
-#### 结果解释与局限
+#### 讨论：发现的含义
 
-假设教学段落，非论文原文或实测结果。
+解释关键发现改变了什么认识，以及对实际使用有什么意义。
 
-**English 教学改写**
+**English 填空模板**
 
-Higher citation support is consistent with more explicit use of document evidence. However, the current comparison changes both quote organization and the amount of constraint information provided to the generator. The comparison therefore cannot identify which change accounts for the gain. Our evaluation covers static English manuals; cross-language questions and frequently updated documents remain untested. Separate evaluations are needed because language and document updates can change which quoted evidence supports an answer.
-
-
-**中文译文**
-
-引用支持率提高，与更明确地使用文档证据这一解释相符。然而，当前比较同时改变了摘句的组织方式和提供给生成器的约束信息量。因此，这个比较不能判断哪项改变带来了收益。当前评价覆盖静态英语手册；跨语言问题与频繁更新的文档尚未检验。这些设置需要另行评价，因为语言与文档更新可能改变哪些摘句能够支持答案。
+Together, [finding 1] and [finding 2] suggest [answer to the research question] under [tested conditions]. This pattern is consistent with [explanation linked to the design], as supported by [specific comparison or analysis]. For [target use], these findings imply [practical meaning within the tested scope]. [Unresolved question] motivates further study of [specific follow-up].
 
 
 **高亮与旁批**
 
-1. **is consistent with more explicit use of document evidence / 与更明确地使用文档证据这一解释相符**：先说结果的意义。consistent with 表示解释与观察相符，尚未声称已证明机制。意义仍限于来源支持。
-2. **changes both quote organization and the amount of constraint information provided to the generator / 同时改变了摘句的组织方式和提供给生成器的约束信息量**：写清替代解释。两项条件同时变化，就不能只把提升归给笔记组织。局限应指出实际没区分什么。
-3. **The comparison therefore cannot identify which change accounts for the gain. / 因此，这个比较不能判断哪项改变带来了收益。**：However 之后要得出真实限制。前句说明两项条件同时变化，这句限定归因范围。Therefore 接住原因，不是只在句首加一个词。
-4. **cross-language questions and frequently updated documents remain untested / 跨语言问题与频繁更新的文档尚未检验**：范围要具体。语言变化和文档更新是两个尚未测的设置。写出来，比一句 limited generalizability 有用。
-5. **because language and document updates can change which quoted evidence supports an answer / 因为语言与文档更新可能改变哪些摘句能够支持答案**：未来工作说明为什么必要。下一步不是随手扩大任务，而是检查证据支持关系是否仍成立。
-
-StarPaper · 教学改写
-
-沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
-
-<a id="limitations"></a>
-<a id="chapter-limitations"></a>
-### 3.9 局限性
-
-用一个自然段写清两项与任务相关的具体边界。
-
-#### 本节原则
-
-- 【铁律】本套 CS 写作约定：Limitations 全节只写一个自然段，用 First, 和 Second, 引出两点，不另起段、列条目或加小标题。官方格式与当前用户要求优先。
-- 【铁律】每点先用 although 简短说明已完成的有据工作，再给具体的特殊或长期边界；已有措施不能写成解决了尚未验证的问题。
-- 作者行动用 we；贡献和实现细节简写，重点放在仍需讨论的具体对象及其与本文任务的关系。
-- 依据实际覆盖选择长尾需求、长期反馈或其他相关边界。不机械复用上一论文的主题，也不泛泛说未来增加数据。
-- 【铁律】未测试不等于已失败。未来场景只作研究方向示例，不冒充已发现的缺漏、数据事实或实测结论。
-- 【铁律】真实有效性限制与全文结论一致；若限制动摇核心结论，先缩小或修正结论，不用让步句掩盖。
-
-<a id="annotated-limitations"></a>
-
-#### 局限性：已完成工作与具体边界
-
-通用教学模板，非真实论文原文或实测结果。
-
-**English 教学改写**
-
-First, although we have [verified work addressing the main difficulty], [specific special condition] still warrants further study. Second, although we have [another verified contribution], [specific longer-term condition] still warrants further study.
-
-
-**中文译文**
-
-首先，尽管我们已完成[针对主要难点的有据工作]，[具体特殊情况]仍值得进一步研究。其次，尽管我们已完成[另一项有据工作]，[具体长期情况]仍值得进一步研究。
-
-
-**高亮与旁批**
-
-1. **First, although we have [verified work addressing the main difficulty] / 首先，尽管我们已完成[针对主要难点的有据工作]**：有据工作先交代。只写论文或材料已支持的处理，不虚构评估、复核或已消除的问题。
-2. **[specific special condition] still warrants further study. / [具体特殊情况]仍值得进一步研究。**：第一点落到具体边界。说明在什么条件下还需要讨论；未测场景不当作已发现的失败。
-3. **Second, although we have [another verified contribution] / 其次，尽管我们已完成[另一项有据工作]**：第二点保持同段。用另一个真实相关的边界；不重复前一点，不另起段或列第三点。
-4. **[specific longer-term condition] still warrants further study. / [具体长期情况]仍值得进一步研究。**：全文范围一致。该边界与正文任务相关。影响核心结论的限制要就近说明，不能只放在这里。
-
-StarPaper · 教学改写
-
-只展示单段 First/Second 让步结构；方括号根据本稿材料填写。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
-
-<details><summary>结构模板</summary>
-
-
-<a id="template-limitations"></a>
-#### Limitations：单段两点
-
-```latex
-First, although we have [verified work addressing the main difficulty], [specific special condition] still warrants further study. Second, although we have [another verified contribution], [specific longer-term condition] still warrants further study.
-```
-
-</details>
-
+1. **[finding 1] and [finding 2]**：已有发现。填实验章已经建立的、共同回答同一个问题的发现。
+2. **[answer to the research question] under [tested conditions]**：研究含义。说明这些发现如何回答 Intro 的问题，并保留实际成立的条件。
+3. **[explanation linked to the design], as supported by [specific comparison or analysis]**：解释与依据。填与方法设计有关的解释，紧跟支持它的对照或分析。没有机制检验时，保留 is consistent with 这类推断措辞。
+4. **For [target use], these findings imply [practical meaning within the tested scope].**：实际意义。说明谁在什么任务中可以据此做什么判断。此句按研究类型选用。
+5. **[Unresolved question] motivates further study of [specific follow-up].**：后续问题。仅在需要时保留：从尚未回答的问题推出具体下一步，不重复贡献。
 
 <a id="conclusion"></a>
 <a id="chapter-conclusion"></a>
-### 3.10 结论
+### 3.9 结论
 
-回答开头的问题，概括贡献和发现。
+回答引言的问题，概括已验证的贡献与发现。
 
 #### 本节原则
 
-- 可按“回答 Intro 问题、概括对应设计、关键发现与范围”收束；不只重复方法流程。
-- 【铁律】只收束正文已建立的认识，不新增结果、对照或能力；名称、结论方向与范围和正文一致。
-- 保留关键取舍和适用范围。未来方向接实际局限，不重复整套方法流程。
+- 用工作概述、核心设计、关键发现回答 Intro 的问题；压缩背景和操作细节。
+- 【铁律】贡献、名称、数字、结论方向与正文一致，不新增结果或能力。
+- 必要的未来方向从已说明的局限引出；不强加展望句。
 
 <a id="annotated-conclusion"></a>
 
-#### 结论结构
+#### 结论：工作、证据与回答
 
-公开预印本原文段落 · 中文为本指南翻译
+用核心设计与关键发现回答 Intro 的研究问题。
 
-**English 原文**
+**English 填空模板**
 
-We present EviNote-RAG, a framework that introduces a note-taking step to extract answer-supportive evidence before answering. By training LLMs to produce Supportive-Evidence Notes (SENs) and guiding them via a tailored entailment-based reward, our approach improves answer accuracy. Extensive experiments demonstrate that EviNote-RAG achieves state-of-the-art performance while enhancing training stability.
-
-
-**中文译文**
-
-我们提出 EviNote-RAG，在回答前加入笔记步骤，提取能够支持答案的证据。通过训练 LLM 生成能够支持答案的证据笔记（SENs），并用专门设计的蕴含奖励引导模型，方法提高了答案准确率。大量实验表明，EviNote-RAG 达到当前最优表现，同时改善了训练稳定性。
+We introduced [work name and type] to address [research problem]. By [core design and action], [work name] [actual capability]. Experiments on [evaluation scope] show [main quantitative result] and reveal [key finding]. These findings indicate [answer to the research question within the established scope].
 
 
 **高亮与旁批**
 
-1. **a framework that introduces a note-taking step to extract answer-supportive evidence before answering / 在回答前加入笔记步骤，提取能够支持答案的证据**：先收束核心设计。一句话说清新增步骤、处理对象和目的，不重新展开完整流程。
-2. **By training LLMs to produce Supportive-Evidence Notes (SENs) and guiding them via a tailored entailment-based reward / 通过训练 LLM 生成能够支持答案的证据笔记（SENs），并用专门设计的蕴含奖励引导模型**：说明设计怎样发挥作用。笔记明确训练目标，奖励引导模型形成这类笔记。这里概括共同作用，不把两个设计写成未经核验的执行先后。
-3. **achieves state-of-the-art performance while enhancing training stability / 达到当前最优表现，同时改善了训练稳定性**：结尾回到已有证据。原文用性能与训练稳定性收束。state-of-the-art 只对应发表时的比较；自己的论文要核对基线与条件，不能照搬这个评价。
+1. **We introduced [work name and type] to address [research problem].**：收束贡献。填本文提出什么、解决什么问题；与 Intro 保持同一研究对象。
+2. **By [core design and action], [work name] [actual capability].**：概括设计。留下最关键的设计与作用，不重新展开完整方法流程。
+3. **Experiments on [evaluation scope] show [main quantitative result] and reveal [key finding].**：概括证据。填真实比较范围、代表性数字和关键实验结论；与摘要、引言及实验章对应。
+4. **These findings indicate [answer to the research question within the established scope].**：回答起点。用一句话说清研究现在能回答什么，保持正文已经建立的结论强度。
 
-[EviNote-RAG · arXiv v3 公开预印本](https://arxiv.org/html/2509.00877v3#S5) · § 5 Conclusion，第一自然段（三句）；arXiv:2509.00877v3，2025-10-16；公开 HTML #S5。
+<a id="limitations"></a>
+<a id="chapter-limitations"></a>
+### 3.10 局限性
 
-摘录公开 arXiv v3 的 Conclusion 第一自然段，英文词句未改；中文翻译、高亮与旁批为本指南添加。
+按本套约定，用一段 First、Second 写本文仍需研究的两个边界。
 
-公开 arXiv v3 采用 non-exclusive distribution，原文版权由权利人保留。作者教学短引，不随本指南转授全文再版许可；中文翻译与分析为本指南新增。
+#### 本节原则
+
+- 本节写本文仍有的边界；摘要与引言中的 limitations 写已有研究缺口，两者分工不同。
+- 【铁律】本套 CS skill 采用一段两点：First, although we have [已完成工作], [具体边界] still warrants further study. Second, although we have [另一项有据工作], [另一项边界] still warrants further study. 官方格式与当前作者要求优先。
+- 【铁律】已有工作必须有据，两点各有具体对象；不把未测试写成已失败，不用让步句掩盖影响结论的限制。
+
+<a id="annotated-limitations"></a>
+
+#### 局限：已有工作与研究边界
+
+用一段两点交代本文尚需研究的具体边界。
+
+**English 填空模板**
+
+First, although we have [completed work addressing the main difficulty], [specific boundary 1] still warrants further study. Second, although we have [another completed and verified contribution], [specific boundary 2] still warrants further study.
+
+
+**高亮与旁批**
+
+1. **First, although we have [completed work addressing the main difficulty]**：第一点：已完成什么。简短填已被论文支持的工作，为后半句说明研究边界。
+2. **[specific boundary 1] still warrants further study.**：第一点：边界是什么。填实际相关的特殊条件或未覆盖问题，不能只写 limited generalizability。
+3. **Second, although we have [another completed and verified contribution]**：第二点：另一个方面。换一个有据工作与对应边界，同段承接，不重复第一点。
+4. **[specific boundary 2] still warrants further study.**：第二点：还需研究什么。填另一项明确的对象与条件。若对象为复数，将 warrants 改为 warrant。
 
 <a id="references"></a>
 <a id="chapter-references"></a>
 ### 3.11 参考文献
 
-引用回查原文，信息和版本对齐。
+按官方格式生成文献表，核对每条引文的支持关系。
 
 #### 本节原则
 
-- 【铁律】引用支持附近的具体判断，先回查原文，不把搜索摘要或能编译的 BibTeX 当核验。
-- 模型、数据、工具和外部方法首次实质出现时，可就近引原始报告或官方文档，方便查证；实际出处与归属必须准确。
-- 【铁律】条目对应实际版本，核对题名、作者、年份、原始或正式日期及预印本身份。同一论文的重复版本去重；访问日期与版本更新日期不当作新论文日期。
-- 【铁律】来源没测过的条件，不能用它支撑该条件下的结论。没有真实来源就缩小或删除说法。
-- 【铁律】直接引用的文字与借用的图注明出处，另核对转载或使用许可。公开可读不等于可以直接复用，学术用途也不自动证明已获授权。
+- 参考文献表由会议模板与 .bib 生成；本节核对正文引文与书目信息，不另写说明段。
+- 【铁律】正文判断就近放支持它的原始来源，模型、数据和工具引用实际使用版本的论文或官方文档。
+- 【铁律】核对题名、作者、年份、会议或期刊、DOI 或链接；同一论文的重复版本去重。
+- 【铁律】引文的研究对象与条件必须支持附近判断；引用文字和图注明出处并核对使用许可。
 
-<a id="annotated-references"></a>
+<a id="template-references"></a>
+#### 引文与书目格式
 
-#### 引用与主张
+```latex
+[Claim supported by the cited work] \citep{source_key}.
+We use [component and actual version] \citep{component_key}.
 
-教学段落；方括号为来源与版本占位，不是假造文献条目。
-
-**English 教学改写**
-
-Retrieval-augmented generation combines retrieved passages with answer generation [primary method paper]. A study evaluated only on single-turn questions cannot establish performance on changing multi-turn constraints. We use [retriever and version] [official documentation for that version] to retrieve candidate passages. The method citation supports the approach; the version-specific documentation identifies the tool actually used.
-
-
-**中文译文**
-
-检索增强生成将检索到的段落与答案生成结合起来[原始方法论文]。只在单轮问题上评价的研究，不能证明方法能够处理多轮对话中变化的约束。我们使用[检索器与版本][该版本的官方文档]检索候选段落。方法引用说明采用哪条路线；对应版本的文档说明实际使用什么工具。
-
-
-**高亮与旁批**
-
-1. **[primary method paper] / [原始方法论文]**：方法回到原始来源。方括号是教学占位。填写核验过的原论文，不把博客、搜索摘要或转述当原始出处。
-2. **A study evaluated only on single-turn questions cannot establish performance on changing multi-turn constraints. / 只在单轮问题上评价的研究，不能证明方法能够处理多轮对话中变化的约束。**：来源范围限制主张范围。一个来源真实存在，不等于它支持你附近写的每句话。任务条件也要对应。
-3. **[retriever and version] [official documentation for that version] / [检索器与版本][该版本的官方文档]**：名称、版本、来源对应。工具或模型没有论文时，可以引用真实官方文档。不要用另一版本的报告补当前版本出处。
-4. **The method citation supports the approach; the version-specific documentation identifies the tool actually used. / 方法引用说明采用哪条路线；对应版本的文档说明实际使用什么工具。**：别混淆引用的职责。方法来源与实际工具版本是两件事。引用准确后，还要核对运行记录是否采用这个版本。
-
-StarPaper · 教学改写
-
-用占位展示正文主张与真实来源的对应，不提供虚构作者、年份、题名或 DOI。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+@inproceedings{source_key,
+  title     = {[Verified title]},
+  author    = {[Verified author list]},
+  booktitle = {[Verified proceedings title]},
+  year      = {[Publication year]},
+  doi       = {[Verified DOI]}
+}
+```
 
 <a id="appendix"></a>
 <a id="chapter-appendix"></a>
 ### 3.12 附录
 
-提供可定位、可复核的设置与补充材料。
+补实现与评价细节，按正文入口组织。
 
 #### 本节原则
 
-- 【铁律】正文保留独立成立所需的核心设计、关键证据与决定结论的限制，不能全移附录。整理时可先删重复，再移次要细节。
-- 技术细节、实验设置、补充结果分节，每节开头说明服务哪项主张；正文在对应位置引用具体节、图或表，避免读者在附录里查找。
-- 【铁律】附录中的参数、prompt、数据与评分规则对应实际运行版，符号和统计范围与正文一致。后加规则不能写成实验已用。
-- 【铁律】补充结果改变主结论时，同步改正文、摘要和引言；不能把相反证据只留在附录。
-- 【铁律】图表移到附录时，同时移动详解，修正 Overview 和引用；正文保留主要结论。名称更新不改变冻结 prompt、机器字段或分析结果；显示改写不能冒称执行原文。
+- 按实际内容设实现细节、实验设置、补充分析等小节。每节首句说明对应哪项正文方法或主张，正文给具体入口。
+- 【铁律】核心设计、关键证据和影响结论的限制保留在正文，附录补足复现与扩展信息。
+- 【铁律】正文与附录沿用同一版本、符号、分母和结论范围；补充结果改变主结论时一起修改。
 
 <a id="annotated-appendix"></a>
 
-#### 附录组织
+#### 附录：开头说明补什么
 
-假设教学段落，非论文原文或实测结果。
+给每个附录小节一个正文入口，集中交代复现细节或补充分析。
 
-**English 教学改写**
+**English 填空模板**
 
-To reproduce the citation-support comparison in Section [X], this appendix records the prompts, document versions, retrieval settings, and scoring rules for both systems. Each run is linked to the corresponding configuration and retains failed outputs. We select the maximum note length using development questions and freeze it before evaluating the test questions. Per-run scores and uncertainty estimates are reported in Table [Y], so the aggregate in the main text can be traced to the same runs.
-
-
-**中文译文**
-
-为复现第[X]节的引用支持率比较，本附录记录两个系统的提示词、文档版本、检索设置与评分规则。每次运行都关联对应配置，并保留失败输出。我们用开发集问题选择笔记最大长度，在评价测试问题前冻结这个选择。表[Y]报告各次运行得分与不确定性估计，使正文的汇总结果能追溯到同一批运行。
+To reproduce [method or experiment] in Section [X], this section provides [necessary implementation or evaluation details]. We specify [actual settings and selection procedure] for [all relevant systems or conditions]. Table [Y] reports [supplementary results and their aggregation], extending the analysis of [main-text question] to [additional tested condition]. The results show [supported conclusion about that condition].
 
 
 **高亮与旁批**
 
-1. **To reproduce the citation-support comparison in Section [X] / 为复现第[X]节的引用支持率比较**：开头说明补什么。先点名服务哪个比较，读者不必回翻猜本节用途。正文也要指向这个具体附录节。
-2. **for both systems / 两个系统的**：设置覆盖全部对照。只写自己的配置，不能复现比较。共享条件与不同条件要分别交代。
-3. **using development questions and freeze it before evaluating the test questions / 用开发集问题选择笔记最大长度，在评价测试问题前冻结这个选择**：参数选择与测试分开。给出选择数据和冻结时点，说明参数如何确定。不能用最终测试结果倒选参数。
-4. **so the aggregate in the main text can be traced to the same runs / 使正文的汇总结果能追溯到同一批运行**：附录与正文口径一致。补充表应对应正文统计，配置、运行与失败处理不能换一套范围。
-
-StarPaper · 教学改写
-
-沿用文档问答的假设任务，展示信息顺序与论证作用，不代表新增研究结果。
-
-本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。
+1. **To reproduce [method or experiment] in Section [X]**：正文入口。点名正文哪项方法或实验需要这里的细节，正文也在对应位置引用本附录节。
+2. **[necessary implementation or evaluation details]**：本节材料。填足以复现的具体信息类型，如算法、参数、提示词或评分规则；按小节主题选用。
+3. **[actual settings and selection procedure] for [all relevant systems or conditions]**：设置与选择依据。交代实际采用的设置及如何确定，覆盖本节比较涉及的全部对象。
+4. **Table [Y] reports [supplementary results and their aggregation], extending the analysis of [main-text question] to [additional tested condition].**：补充结果。有补充实验才保留：说明表里是什么、如何汇总、它扩展了正文的哪个问题。
+5. **The results show [supported conclusion about that condition].**：本节结论。给该条件下的发现，回扣本节目的。纯实现细节小节删除这句及前一句。
 
 <a id="tools"></a>
 ## 4. 辅助工具

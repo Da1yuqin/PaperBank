@@ -2,237 +2,122 @@
 
 以下为通用规则与教学模板，不是真实论文原文、研究事实或实测。
 
-#### Experiments：承接方法，概述发现
+<a id="annotated-experiments-overview"></a>
 
-先列 Intro 主张与检验标准；成稿章首承接方法，概述被测对象和主发现，再进入实际分析。
+#### 实验概述
 
-教学模板；【】填真实材料。
+承接方法输出，先概述发现，再交代接下来如何检验贡献。
 
-- RQ 可用于组织，不必每表一个编号；标题写 Main Results、Ablation Studies 或具体目的。
-- 按论文贡献选实验，不照搬另一类研究的实验清单。
-- 章首先概述已有证据支持的主发现，再用 Specifically 展开分析；没有实际结果时，不用模板编造发现。
+**English 填空模板**
 
-通用要求；推荐结构模板
+After constructing [method, dataset, or benchmark], we evaluate [target systems or behaviors] on [evaluation scope]. The results show [verified main finding that answers the Introduction question]. Specifically, we compare [method or systems] with [comparison group] to examine [primary claim]. We then analyze [component role or remaining question] through [actual ablation, diagnosis, or further test].
 
-After constructing [method or benchmark], we evaluate [actual target] on [scope].
 
-构建[方法或基准]后，我们在[范围]内评价[实际对象]。
+**高亮与旁批**
 
-**第 1 句：**承接前章产物，交代实际被测对象与范围。
+1. **After constructing [method, dataset, or benchmark]**：接回前章产物。开头承接已经介绍的方法或数据，让读者知道下面测试什么。
+2. **The results show [verified main finding that answers the Introduction question].**：先概述主发现。填实验最重要的结论，与摘要和引言保持一致；不从模型名单起笔。
+3. **to examine [primary claim]**：主实验回答核心主张。每项主要贡献都要能在后文找到对应证据；RQ 可以显式编号，也可以直接写进句子。
+4. **through [actual ablation, diagnosis, or further test]**：预告后续分析。只预告实际存在的分析；诊断、消融、效率实验分别回答不同问题。
 
-Our results show [supported main finding] under [tested conditions].
+<a id="annotated-experiments-datasets"></a>
 
-结果显示，在[已测试条件]下，[有证据支持的主发现]。
+#### 数据与划分
 
-**第 2 句：**先让读者知道发现什么，范围与正文实测一致。
+这一段定义实验总体、样本单位与数据使用边界。
 
-Specifically, we examine whether [design] addresses [Intro limitation] using [actual comparison].
+**English 填空模板**
 
-具体而言，我们用[实际比较]检验[设计]是否处理了[引言局限]。
+**Datasets.** We evaluate on [dataset names, versions, and citations], which contain [sample unit and task-relevant coverage]. We use [training, development, and test split or official evaluation protocol]. [Parameters or model choices] are selected using [development data], while [test split] is reserved for final evaluation. [Inclusion rules and resulting sample counts] define the evaluated population; [additional preprocessing details] are provided in Appendix [data].
 
-**第 3 句：**展开上一句的发现与检验依据；设计、局限和比较必须真实对应。
 
-We further analyze [actual additional question] through [existing evidence or control].
+**高亮与旁批**
 
-我们进一步通过[已有证据或对照]分析[实际的补充问题]。
+1. **[dataset names, versions, and citations]**：标识数据版本。名称、版本与引用放在一起，避免同名数据的不同划分混用。
+2. **[sample unit and task-relevant coverage]**：说明一条样本是什么。交代输入、标签或场景覆盖中影响评价的部分，详细统计可放数据章节或附录。
+3. **[training, development, and test split or official evaluation protocol]**：交代真实划分。按实际方案填；纯推理评价可以直接说明官方测试集，不虚构训练集。
+4. **[Inclusion rules and resulting sample counts] define the evaluated population**：固定统计范围。说明纳入规则和有效数量；排除、不适用与无效输出按真实协议分别处理。
 
-**第 4 句：**只引出实际存在的分析，不自动要求消融或虚构串行依赖。
+<a id="annotated-experiments-baselines"></a>
 
-#### Experimental Setup：比较设置
+#### 比较方法
 
-集中定义指标、方向、分母、简称与实验设置，新增指标说明用途与贡献。
+这一段说明与谁比较、为什么选它们，以及比较条件。
 
-教学模板；【】填真实材料。
+**English 填空模板**
 
-- Metrics：一个紧凑自然段，先总述指标类别，再编号并加粗各指标名；各项给定义、方向、单位、分母、汇总和无效输出处理。Models 或 Baselines 独立介绍。
-- Baselines：按路线分类，给引用和可影响结果的共享条件。简介讲它做什么，结果差异留给分析。
-- Implementation Details：Method 出现的参数给实际值与选择依据；完整参数表可放附录。训练、推理、硬件、重复次数和成本口径说全。
-- 人工或模型 judge：谁判什么、按什么判、核验多少。设置是为了让人判断比较是否成立，不是报设备清单。
+**Baselines.** We compare [our method] with [baseline family A and citations], which [shared mechanism], and [baseline family B and citations], which [different relevant mechanism]. These baselines cover [comparison dimensions related to our contribution]. All methods use [matched data, model access, resources, or evaluation conditions]. [Unmatched conditions that may affect interpretation] are reported in [settings location].
 
-通用要求；Metrics/Baselines 为推荐组织
 
-We evaluate [unit] from [dataset version], using [split or selection rule].
+**高亮与旁批**
 
-我们从[数据版本]中按[划分或选择规则]评价[样本单位]。
+1. **[baseline family A and citations], which [shared mechanism]**：按路线介绍比较对象。先归类，再用一句话说明机制；版本与引用紧跟名称，不在设置里提前评价输赢。
+2. **[comparison dimensions related to our contribution]**：说明选择依据。覆盖与贡献有关的常用路线、强对照或最近工作；不是随意列几个弱基线。
+3. **[matched data, model access, resources, or evaluation conditions]**：说清比较条件。只写实际控制的条件；不能把预算上限相同说成信息量完全相同。
+4. **[Unmatched conditions that may affect interpretation]**：保留影响判断的差异。使用公开报告值、闭源模型或不同硬件时说明来源及限制。
 
-**第 1 句：**先定义比较对象与分母，不根据结果更换统计范围。
+<a id="annotated-experiments-implementation"></a>
 
-Metrics. We evaluate [target properties]. 1) [Metric 1] measures [definition, unit, direction, and denominator]. 2) [Metric 2] measures [definition, unit, direction, and denominator].
+#### 实现细节
 
-指标。我们评价[目标属性]。1) [指标一]衡量[定义、单位、方向与分母]。2) [指标二]衡量[定义、单位、方向与分母]。
+把会改变结果的设置集中在这里，避免散在结果分析中。
 
-**第 2 句：**保持一个紧凑自然段，编号定义各指标；正式 LaTeX 中只用 textbf 加粗指标名，完整格式见下方模板。
+**English 填空模板**
 
-We compute [per-unit statistic] and aggregate by [rule]. [Invalid-output policy].
+**Implementation Details.** We implement [method] with [backbone or dependency versions]. [Key parameters introduced in Method] are set to [actual values] using [selection procedure and data]. Evaluation uses [execution configuration, hardware, and resource budget relevant to the comparison]. We conduct [actual repeats] over [repeat unit] and report [aggregation and uncertainty definition]. [Evaluator identity, configuration, and assessment protocol, if applicable] are specified in [protocol location].
 
-先计算[单位统计量]，再按[规则]汇总；[无效输出处理规则]。
 
-**第 3 句：**宏平均、微平均与条件子集不能混用。
+**高亮与旁批**
 
-Baselines. We compare [method] with [routes and citations] using [shared conditions].
+1. **[backbone or dependency versions]**：固定执行版本。写真实使用的模型、软件版本或代码版本，读者应能定位同一实现。
+2. **[actual values] using [selection procedure and data]**：补全方法参数。Method 解释参数作用，这里给实际取值、搜索范围与选择依据；一次性固定值也如实说明。
+3. **[execution configuration, hardware, and resource budget relevant to the comparison]**：写影响结果的条件。训练、推理、检索、解码和成本只保留与本研究有关的设置，完整配置可放附录。
+4. **[actual repeats] over [repeat unit] and report [aggregation and uncertainty definition]**：定义重复与误差。注明按随机种子、样本或评估轮次重复；明确 SD、SE 或 CI，单次运行不能声称跨运行稳定性。
+5. **[Evaluator identity, configuration, and assessment protocol, if applicable]**：单独交代评价器。有人工或模型判分时说明谁判什么、依据什么及如何核验。没有 judge 就删去该句。
 
-基线。我们在[共享条件]下，将[方法]与[基线路线及引用]比较。
+<a id="annotated-experiments-metrics"></a>
 
-**第 4 句：**把可影响结果的条件说明白，不只报模型名字。
+#### 指标定义
 
-Implementation Details. We select [parameters] on [development data] and fix them before [final evaluation].
+保持一个紧凑自然段：总述评价目标，再编号定义各指标。
 
-实现细节。我们在[开发数据]上选择[参数]，并在[最终评价]前固定这些选择。
+**English 填空模板**
 
-**第 5 句：**明确选择边界；具体值与来源按真实记录填。
+**Metrics.** We assess [target properties linked to the task] on [evaluation units and scope]. 1) **[Metric 1 full name (abbreviation)]** measures [definition, unit, direction, and denominator]. 2) **[Metric 2 full name (abbreviation)]** measures [definition, unit, direction, and denominator]. 3) **[Metric 3 full name (abbreviation)]** measures [definition, unit, direction, and denominator]. We compute [per-unit quantities] and aggregate them using [macro, micro, weighted, or other actual rule]. [Invalid, missing, and not-applicable outputs] are handled according to [defined policy], with [applicable counts or coverage] reported in [location].
 
-**完整 LaTeX 结构模板**
 
-```latex
-\noindent\textbf{Metrics.}
-We evaluate [target properties] using [verified metrics and assessment units].
-1) \textbf{[Metric 1]} measures [definition, unit, direction, and denominator].
-2) \textbf{[Metric 2]} measures [definition, unit, direction, and denominator].
-We aggregate [per-unit results] by [actual rule] and handle [invalid or not-applicable outputs] according to [actual protocol].
-```
+**高亮与旁批**
 
-#### Main Results：先写发现
+1. **We assess [target properties linked to the task] on [evaluation units and scope].**：先说明衡量什么。指标对应任务目标或方法贡献，评价单位与范围紧接其后。
+2. **1) [Metric 1 full name (abbreviation)] measures [definition, unit, direction, and denominator].**：编号、加粗名称、简短定义。首次出现给全称和缩写，指标名只加粗，不斜体。按真实指标数量增删，不能为凑三项编造指标。
+3. **We compute [per-unit quantities] and aggregate them using [macro, micro, weighted, or other actual rule].**：说明如何汇总。写清先按什么单位计算，再怎样取平均；自定义指标的公式与判定细节给附录入口。
+4. **[Invalid, missing, and not-applicable outputs] are handled according to [defined policy]**：交代异常处理。失败、缺失和不适用是不同情况，按实际协议处理并报告适用覆盖，不静默删样本。
 
-解释主要差异、可能原因及对应设计，不逐行重复表格数值。
+<a id="annotated-experiments-main-teaching"></a>
 
-教学模板；【】填真实材料。
+#### 主要结果
 
-- 把有依据的结论写在段首或小标题。一段优先围着一个实验、一个图表、一个结论讲，不混三件事。
-- 先说明关键关系，再给决定判断的数字与范围；全面胜出、显著、稳定需要对应证据。
-- 观察之后解释原因，消融才能帮助归因；有利、不利指标与代价都照实解释。
+每个结果段先给一项发现，再给关键数字，最后解释它回答了什么。
 
-通用要求；加粗发现为 StarPaper 偏好
+**English 填空模板**
 
-[Design] improves [specific ability] under [tested condition].
+**[Main finding under the tested conditions].** Table [main results] shows that [method] achieves [verified value and unit] on [metric], compared with [baseline value] for [named baseline]. This corresponds to [verified difference with its unit and measured uncertainty, if available] across [actual evaluation scope]. The comparison supports [the Introduction claim answered by this result]. [A relevant exception or measured trade-off, if observed].
 
-在[实测条件]下，[设计]改善了[具体能力]。
 
-**第 1 句：**作为加粗结论；无提升就写真实差异或未支持的主张。
+**高亮与旁批**
 
-Table [ref] shows [qualitative contrast] relative to [comparison].
+1. **[Main finding under the tested conditions].**：段首先给结论。用加粗的一句话说清主要关系；填真实发现，不预设所有指标都提升。
+2. **[verified value and unit] on [metric], compared with [baseline value] for [named baseline]**：挑有解释力的数字。给出决定结论的成绩与比较对象，避免逐行复述整张表。
+3. **[verified difference with its unit and measured uncertainty, if available]**：把差值写准确。百分比与百分点分开；显著、稳定等词需要对应统计证据。
+4. **The comparison supports [the Introduction claim answered by this result].**：回扣动机与贡献。说明这组结果回答了前文哪个问题。整套方法的优势不能直接拆成各模块的作用。
+5. **[A relevant exception or measured trade-off, if observed].**：补充影响结论的取舍。有重要代价或不成立的条件就写清；没有相关证据时删去，不机械加免责声明。
 
-表[真实编号]显示，相比[对照]，[关键关系]。
+<a id="experiments-experiment-ablation-table-template-writing-templates"></a>
 
-**第 2 句：**只讲决定结论的对照，不逐行复述数字。
-
-This contrast supports [Intro contribution], while [observed trade-off] limits [scope].
-
-这一对照支持[引言贡献]，但[已观察代价]限制了[适用范围]。
-
-**第 3 句：**解释结果意味着什么，同时保留真实取舍。
-
-#### 消融实验：每个模块先 Setting，再 Results
-
-每个模块各写设置与结果。先让读者知道两行差在哪，再解释这个差异说明什么。
-
-填空模板；【】换成真实材料，不包含论文实测数字。
-
-- Setting：目的、完整变体名称、删掉或替换的因素、保留的因素、会影响结果的共享条件。训练型模块按实际协议重新训练。
-- Results：先给真实发现，再指向表中刚定义的两行，说明对应指标的变化、范围和必要代价。没有结果，不填写结论。
-- 【铁律】多项同时变化，只能评价整套改动；条件性的增量作用不能冒称单独作用或交互效应。
-- 所有变体在 Setting 和表中同名。同一变体不能在文中叫 No Reward，在表中却叫 Baseline 2。
-- 先讲整体共同设置也可以；随后每个模块仍交代其独有改动，Results 紧接对应设置。
-
-组织参考 EviNoteRAG §4.6；具体控制条件按实际实验填写。
-
-**完整 LaTeX 结构模板**
-
-```latex
-\subsection{Ablation Study}
-\label{sec:ablation}
-
-\paragraph{Effect of [Module A].}
-\textbf{Setting.}
-To examine [Module A's role], we compare [control variant] with [Module A variant].
-Both retain [shared modules] and use [matched training data, model, evaluation set, decoding settings, and budget].
-Only [the specified factor] changes.
-[Remaining differences and their location].
-
-\textbf{Results.} \textbf{[Verified finding under these conditions].}
-Table~\ref{tab:ablation} compares [the two rows] on [relevant metric and scope].
-[Observed change and measured uncertainty].
-This supports [the bounded component role].
-[Observed exception or limitation].
-
-\paragraph{Effect of [Module B].}
-\textbf{Setting.}
-We compare [variant retaining Module A] with [the same variant using Module B].
-We keep [Module A and other shared conditions] fixed and change only [Module B or specified replacement].
-[Actual retraining, repetitions, and settings location].
-
-\textbf{Results.} \textbf{[Verified finding with Module A fixed].}
-Table~\ref{tab:ablation} shows [actual difference] between [the matched rows].
-This tests [Module B's incremental role in this configuration].
-[Observed trade-off or exception].
-```
-
-#### 扩展实验：稳定性、效率、迁移
-
-按主张选择稳健性、效率或迁移分析。保留失败记录，报告有助于判断贡献的负结果。
-
-教学模板；【】填真实材料。
-
-- 效率比较给端到端成本、资源和质量取舍；计入生成与审核。
-- 每组先说为什么测、改什么、固定什么，再说发现和范围。
-- 哪些条件有效、哪条路走不通，都是有信息的结果；不能只挑最好一次，或把失败全藏起来。
-
-按贡献选择必要分析
-
-To test [stability or transfer claim], we vary [factor] while holding [controls] fixed.
-
-为检验[稳定或迁移主张]，我们改变[因素]，保持[控制项]不变。
-
-**第 1 句：**问题与实际变化必须匹配。
-
-We report [variation or outcome] across [repeat unit or new setting].
-
-我们报告跨[重复单位或新设置]的[变化或结果]。
-
-**第 2 句：**说清独立运行、样本和重复层级，不靠最好一次说明稳定。
-
-These comparisons support [scope-limited finding], but do not establish [broader claim].
-
-这些比较支持[有限范围的发现]，尚不能说明[更广主张]成立。
-
-**第 3 句：**范围边界具体写；不是在每段末尾机械加免责声明。
-
-#### Case Study：展示方法的运行过程
-
-选一个能看懂核心设计的案例，沿输入、中间产物、输出走一遍。重点解释方法在哪里发挥作用，不重复报排行榜。
-
-填空模板；不预填任何真实论文的输入、输出或实验结论。
-
-- 先写选择理由：典型困难、失败边界或关键设计。不要只挑最好看的成功例子。
-- 输入交代问题、可用证据和必要条件；关键步骤展示实际可核查产物，如证据笔记、检索片段或约束标记。
-- 输出紧接中间产物，指出哪条证据支持或否定哪个判断。有对照时先交代共同与不同条件，再并排比较。
-- 【铁律】实测材料保留原始输入、输出与标签；构造案例明示。没有记录的中间步骤不编造，隐藏推理不能改画成已观察过程。
-- 【铁律】个例说明方法运行或具体失败，不能替代所声称效果需要的实验、证明整体有效或推断总体比例。
-- 时间紧时，可优先整理已有真实案例并深入分析，补充方法说明；主要结论仍需对应验证。分析充分的 Case Study 能让读者看清设计的价值。
-- 【铁律】同一案例在论文中完整展示一次；其他章节交叉引用，避免换图、换语言后重复讲同一个故事。
-- 图的颜色按语义分组，图形和纹理提供第二种区分。局部圈出关键证据并编号，旁注解释这一步如何改变输出；保留白底，不整块涂色。
-
-组织参考 EviNoteRAG §4.8 / Figure 4（PDF 第 8 页）；案例与统计作用不同。
-
-**完整 LaTeX 结构模板**
-
-```latex
-\subsection{Case Study}
-\label{sec:case-study}
-\textbf{[Concrete behavior illustrated by this case].}
-We select [recorded case or explicitly constructed example] because [selection reason tied to an Introduction challenge].
-Figure~\ref{fig:case-study} shows [the actual question and relevant evidence], which requires [specific behavior].
-[Named method stage] transforms [input] into [recorded intermediate artifact].
-In this artifact, [concrete marked evidence or retained uncertainty] supports [the next operation].
-The final output [meets or violates the requirement] based on [verifiable evidence].
-[Comparable baseline output, if available, and the exact contrast].
-This case illustrates [the observed operation or failure], while [the quantitative evaluation or the untested boundary] determines the broader claim.
-```
-
-#### 结果表：名称、对照、口径对应
+<a id="experiment-ablation-table-template"></a>
+#### 结果表：变体、指标与标记
 
 先定行列再填结果。表头按“数据集—指标”分两级，表体每行就是 Setting 定义的一种变体。
-
-可复制 LaTeX 表格模板；需 booktabs 与 multirow。
 
 - 【铁律】完整名称、引用、数值与误差在同一单元格内保持单行。优先调整列宽，必要时用通栏表，不用缩写、折行或整体缩放掩盖拥挤。
 - 共同的数据集、指标、方向、单位与精度固定。读者应能横向查同一变体，纵向比同一指标。
@@ -242,9 +127,7 @@ This case illustrates [the observed operation or failure], while [the quantitati
 - Caption 写范围、单位、汇总、误差含义和标记规则；未测量写未测量，N/A 说明不适用原因，二者不能填零。
 - 最终 PDF 核查最长名称、误差上标、两级表头、列距和页边距。booktabs、multirow 在导言区加载；模板占位值逐格替换。
 
-组织参考 EviNoteRAG Table 1（PDF 第 6 页）与 Table 2（第 7 页）；单行要求来自最新绘图 skill。
-
-**完整 LaTeX 结构模板**
+**两级表头：数据集 → 指标**
 
 ```latex
 \begin{table*}[!t]
@@ -258,7 +141,7 @@ Bold marks the best and underline the second-best distinct value among comparabl
 \toprule
 \multirow{2}{*}{Variant} & \multicolumn{2}{c}{[Dataset A]} & \multicolumn{2}{c}{[Dataset B]} \\
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}
- & EM $\uparrow$ & F1 $\uparrow$ & EM $\uparrow$ & F1 $\uparrow$ \\
+ & [Metric 1] $\uparrow$ & [Metric 2] $\uparrow$ & [Metric 1] $\uparrow$ & [Metric 2] $\uparrow$ \\
 \midrule
 {[Control variant full name]} & [value] & [value] & [value] & [value] \\
 {[Module A variant full name]} & [value] & [value] & [value] & [value] \\
@@ -267,6 +150,67 @@ Bold marks the best and underline the second-best distinct value among comparabl
 \end{tabular*}
 \end{table*}
 ```
+
+按指标方向修改箭头；主结果表将 Variant 换成 Method。导言区加载 booktabs、multirow，逐格填实测值，最优与次优只在可比列内标记。
+
+<a id="ablation-evidence-structure"></a>
+
+#### 消融：每个模块先设置，再分析结果
+
+对每个模块重复这组 Setting、Results，分别检验对应设计的作用。
+
+**English 填空模板**
+
+**Setting.** To examine [the specific role of Module A], we compare [control variant full name] with [variant containing Module A]. The two variants differ only in [Module A or its specified replacement]. Both retain [other modules] and use [matched data, backbone, training or inference settings, and evaluation protocol]. [Required retraining and any remaining differences] are described in [settings location].
+
+**Results.** **[Verified finding about Module A under these conditions].** Table [ablation] compares [the two variant rows] on [the metric tied to this module's purpose]. [Metric] changes from [control value] for [control variant] to [observed value] for [tested variant], with [measured uncertainty, if available]. This result supports [the module's role within this configuration]. [Relevant exception or trade-off, if observed].
+
+
+**高亮与旁批**
+
+1. **To examine [the specific role of Module A]**：先点明要检验的作用。目的与 Method 中这一模块的设计动机对应，读者先知道为什么做这组消融。
+2. **[control variant full name] with [variant containing Module A]**：先定义表中的两行。变体名称在设置、表格与结果中完全一致；说明删去、替换或改变了什么。
+3. **Both retain [other modules] and use [matched data, backbone, training or inference settings, and evaluation protocol].**：固定其余条件。多项同时变化只能评价整套变动。训练型模块按实际协议重新训练，不把推理开关冒称训练消融。
+4. **[Verified finding about Module A under these conditions].**：Results 开头回答这个问题。先写真实发现，再引出数字；提升、下降或无明确差异都按记录写。
+5. **[the two variant rows] on [the metric tied to this module's purpose]**：结果回到刚定义的对照。只分析这两行及相关指标，不拿完整方法的总增益归因给当前模块。
+6. **[the module's role within this configuration]**：解释模块作用与范围。有其他模块固定时，结论是该配置下的增量作用；不能自动写成单独作用或协同效应。
+
+<a id="annotated-experiments-further-analysis"></a>
+
+#### 补充分析
+
+按贡献选择稳健性、效率、迁移或失败诊断；每组围绕一个明确问题。
+
+**English 填空模板**
+
+To investigate [question not answered by the main comparison], we [analysis or test] using [actual evidence and comparison conditions]. Figure [analysis] shows [verified pattern], with [key value or contrast] under [tested scope]. This finding explains [the aspect of the original research question supported by the analysis]. [Implication for the method or a remaining question].
+
+
+**高亮与旁批**
+
+1. **[question not answered by the main comparison]**：先说为什么还要分析。补充实验应增加信息：检验适用范围、定位失败、衡量成本或检查稳定性。
+2. **[actual evidence and comparison conditions]**：写清改变与保留什么。参数分析、迁移和效率比较各自给实际条件。诊断比例就近说明对象、分母与范围。
+3. **[verified pattern], with [key value or contrast] under [tested scope]**：围绕一个图给发现。先概括关系，再给有解释力的数字，不逐点读图。
+4. **[the aspect of the original research question supported by the analysis]**：连接全文问题。解释这项发现怎样支持、修正或限制引言的主张；相关模式不自动成为因果解释。
+
+<a id="annotated-experiments-case-study"></a>
+
+#### 案例分析
+
+用一个真实记录或明确标注的示例，展示方法在哪一步发挥作用。
+
+**English 填空模板**
+
+We select [case] because it contains [challenge tied to the Introduction]. Figure [case study] presents [input and available evidence]. In [method stage], [actual operation] produces [recorded intermediate artifact], where [marked evidence] determines [the next decision]. The final output [observed behavior], whereas [a comparable baseline, if available] [observed contrast]. This case illustrates [the specific operation or failure], consistent with [the relevant quantitative finding, if established].
+
+
+**高亮与旁批**
+
+1. **[challenge tied to the Introduction]**：先交代选例理由。选择典型困难、关键设计或失败边界，避免只挑最好看的成功例子。
+2. **[input and available evidence]**：从真实输入开始。给理解案例所需的完整信息；涉及敏感数据时使用已获公开许可的版本。
+3. **[recorded intermediate artifact], where [marked evidence] determines [the next decision]**：解释关键一步怎么起作用。展示可核查的中间产物，用局部高亮、编号和旁注指出证据与下一步的关系。
+4. **[observed behavior], whereas [a comparable baseline, if available] [observed contrast]**：展示输出与具体差异。有公平对照就并排展示；没有对照就删去 whereas 分句，不编造模型输出。
+5. **[the specific operation or failure]**：收束到这个案例的含义。案例解释方法运行，不能替代主要结论所需的验证。颜色按语义分组，并用图形或标记辅助区分。
 
 ---
 

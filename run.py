@@ -52,14 +52,17 @@ def package_prompt_reference(data, folder, keys):
 def section_label(section):
  return '先读 · ' if int(section['number'])==0 else str(int(section['number']))+'. '
 
-def render_writing_templates(content, section):
+def render_writing_templates(content, section, inline=False):
  """Keep reusable fill-in paragraphs together, separate from paper excerpts."""
  e=html.escape;key=section+'-writing-templates'
- rendered=f'<section class="writing-templates" id="{key}"><h4>{e(content["title"])}</h4><p>{e(content["lead"])}</p>'
- md=['',f'<a id="{key}"></a>','#### '+content['title'],'',content['lead']]
+ rendered=f'<section class="writing-templates" id="{key}">'
+ if not inline:rendered+=f'<h4>{e(content["title"])}</h4><p>{e(content["lead"])}</p>'
+ md=['',f'<a id="{key}"></a>']+([] if inline else ['#### '+content['title'],'',content['lead']])
  for template in content['templates']:
-  rendered+=f'<details class="chapter-templates writing-template" id="{e(template["id"])}"><summary>{e(template["title"])}</summary><div class="paragraph-lesson writing-template-body" data-section="{section}"><p class="template-purpose">{e(template["when"])}</p>'
-  md+=['',f'<a id="{template["id"]}"></a>',f'<details><summary>{template["title"]}</summary>','',template['when']]
+  if inline:rendered+=f'<section class="paragraph-lesson writing-template-body" id="{e(template["id"])}" data-section="{section}"><h4>{e(template["title"])}</h4>'
+  else:rendered+=f'<details class="chapter-templates writing-template" id="{e(template["id"])}"><summary>{e(template["title"])}</summary><div class="paragraph-lesson writing-template-body" data-section="{section}">'
+  rendered+=f'<p class="template-purpose">{e(template["when"])}</p>'
+  md+=['',f'<a id="{template["id"]}"></a>',('#### '+template['title'] if inline else f'<details><summary>{template["title"]}</summary>'),'',template['when']]
   if template.get('rules'):
    rendered+='<ul class="template-rules">'+''.join(f'<li>{rule_html(rule)}</li>' for rule in template['rules'])+'</ul>'
    md+=['']+['- '+rule for rule in template['rules']]
@@ -68,10 +71,14 @@ def render_writing_templates(content, section):
    display=e(re.sub(r'(Table|Figure)~\\ref\{(\[[^\]]+\])\}',r'\1 \2',text))
    display=re.sub(r'\\textbf\{([^{}]*)\}',r'<strong>\1</strong>',display)
    tag='pre' if paragraph.get('format')=='latex' else 'p'
-   rendered+=f'<div class="template-paragraph"><h5>{e(paragraph["heading"])}</h5><{tag} lang="en" class="template-text" data-template-raw="{e(text,quote=True)}">{display}</{tag}><p class="template-guidance">{rule_html(paragraph["note"])}</p></div>'
+   rendered+=f'<div class="template-paragraph"><h5>{e(paragraph["heading"])}</h5>'
+   if inline and tag=='pre':rendered+='<details class="prompt"><summary>展开 LaTeX 模板</summary>'
+   rendered+=f'<{tag} lang="en" class="template-text" data-template-raw="{e(text,quote=True)}">{display}</{tag}>'
+   if inline and tag=='pre':rendered+='</details>'
+   rendered+=f'<p class="template-guidance">{rule_html(paragraph["note"])}</p></div>'
    md+=['','**'+paragraph['heading']+'**','']+(['```latex',text,'```'] if tag=='pre' else [text])+['',paragraph['note']]
-  rendered+='<button type="button" class="copy js-only" data-copy-writing-template data-copy-label="复制完整模板">复制完整模板</button></div></details>'
-  md+=['','</details>']
+  rendered+='<button type="button" class="copy js-only" data-copy-writing-template data-copy-label="复制完整模板">复制完整模板</button>'+('</section>' if inline else '</div></details>')
+  if not inline:md+=['','</details>']
  return rendered+'</section>',md
 
 def render_intro_connections(data):
@@ -134,10 +141,15 @@ def render_annotated_paragraph(example, refs, number=None, heading_level=4, work
  """Keep source paragraphs intact and place matched comments beside them."""
  e=html.escape;key=example['id']
  assert len(example['paragraphs'])==1 or (example.get('layout')=='setting-results' and len(example['paragraphs'])==2),(key,'one paragraph or a Setting–Results pair per case')
- english_label='English 原文' if example.get('source') else 'English 教学改写'
+ is_template=example.get('kind')=='template'
+ english_label='English 填空模板' if is_template else ('English 原文' if example.get('source') else 'English 教学改写')
  title=(number+' ' if number else '')+example['title']
  rendered=f'<section class="paragraph-lesson annotated-example" id="{e(key)}" data-section="{e(example["section"])}">'
- if not workflow:rendered+=f'<h{heading_level}>{e(title)}</h{heading_level}><p class="lesson-context">{e(example["label"])}</p>'
+ if not workflow:
+  rendered+=f'<h{heading_level}>{e(title)}</h{heading_level}>'
+  if not is_template:rendered+=f'<p class="lesson-context">{e(example["label"])}</p>'
+ if example.get('purpose'):rendered+=f'<p class="template-purpose">{e(example["purpose"])}</p>'
+ if example.get('rules'):rendered+='<ul class="template-rules">'+''.join(f'<li>{rule_html(rule)}</li>' for rule in example['rules'])+'</ul>'
  languages=[lang for lang in ('en','zh') if lang in example['paragraphs'][0]]
  labels={'en':english_label,'zh':'中文译文' if 'en' in languages else '流程说明'}
  if len(languages)>1:
@@ -146,7 +158,9 @@ def render_annotated_paragraph(example, refs, number=None, heading_level=4, work
    rendered+=f'<button type="button" data-paragraph-language="{lang}" aria-pressed="{str(lang==languages[0]).lower()}" aria-controls="{e(key)}-{lang}">{labels[lang]}</button>'
   rendered+='</div>'
  md=['',f'<a id="{key}"></a>']
- if not workflow:md+=['','#'*heading_level+' '+title,'',example['label']]
+ if not workflow:md+=['','#'*heading_level+' '+title]+([] if is_template else ['',example['label']])
+ if example.get('purpose'):md+=['',example['purpose']]
+ if example.get('rules'):md+=['']+['- '+rule for rule in example['rules']]
  for lang in languages:
   language='en' if lang=='en' else 'zh-CN'
   rendered+=f'<div class="annotated-panel" id="{e(key)}-{lang}" data-paragraph-panel="{lang}">'
@@ -155,11 +169,18 @@ def render_annotated_paragraph(example, refs, number=None, heading_level=4, work
    rendered+=f'<div class="annotated-row"><div class="annotated-text" lang="{language}">'
    text=paragraph[lang];marks=[]
    emphasis=example.get('emphasis_'+lang,[])
+   bold_italic=example.get('bold_italic_'+lang,[])
+   italic=example.get('italic_'+lang,[])
    for phrase in emphasis:assert text.count(phrase)<=1,(key,'ambiguous emphasis',phrase)
+   for phrase in bold_italic:assert text.count(phrase)<=1,(key,'ambiguous bold italic',phrase)
    def emphasize(fragment):
     escaped=e(fragment)
+    for phrase in bold_italic:
+     if phrase in fragment:escaped=escaped.replace(e(phrase),'<strong><em>'+e(phrase)+'</em></strong>',1)
     for phrase in emphasis:
      if phrase in fragment:escaped=escaped.replace(e(phrase),'<strong>'+e(phrase)+'</strong>',1)
+    for phrase in italic:
+     if phrase in fragment:escaped=escaped.replace(e(phrase),'<em>'+e(phrase)+'</em>',1)
     return escaped
    if paragraph.get('heading'):
     rendered+=f'<h5 class="setting-results-label">{e(paragraph["heading"])}</h5>'
@@ -178,6 +199,10 @@ def render_annotated_paragraph(example, refs, number=None, heading_level=4, work
    md_text=text
    for phrase in emphasis:
     if phrase in md_text:md_text=md_text.replace(phrase,'**'+phrase+'**',1)
+   for phrase in bold_italic:
+    if phrase in md_text:md_text=md_text.replace(phrase,'***'+phrase+'***',1)
+   for phrase in italic:
+    if phrase in md_text:md_text=md_text.replace(phrase,'*'+phrase+'*',1)
    md+=[md_text,'']
    for i,note in enumerate(example['annotations'],1):
     if note['paragraph']!=n:continue
@@ -196,9 +221,34 @@ def render_annotated_paragraph(example, refs, number=None, heading_level=4, work
  else:
   source=source_md=example.get('source_label','StarPaper · 教学改写')
   rights='本指南原创内容采用 CC BY 4.0；转载请附作者、原文链接与许可，改写注明改动。'
- if not workflow:rendered+=f'<p class="example-source">{source}</p><details class="annotation-rights"><summary>出处与复用范围</summary><p>{e(example["processing"])}</p><p>{e(rights)}</p></details>'
+ if is_template:
+  raw=example.get('latex_template') or '\n\n'.join(paragraph['en'] for paragraph in example['paragraphs'])
+  if not example.get('latex_template'):
+   for phrase in example.get('bold_italic_en',[]):raw=raw.replace(phrase,r'\textbf{\textit{'+phrase+'}}',1)
+   for phrase in example.get('emphasis_en',[]):raw=raw.replace(phrase,r'\textbf{'+phrase+'}',1)
+   for phrase in example.get('italic_en',[]):raw=raw.replace(phrase,r'\textit{'+phrase+'}',1)
+  rendered+=f'<button type="button" class="copy js-only" data-copy-text="{e(raw,quote=True)}" data-copy-label="复制 LaTeX 模板">复制 LaTeX 模板</button>'
+ elif not workflow:rendered+=f'<p class="example-source">{source}</p><details class="annotation-rights"><summary>出处与复用范围</summary><p>{e(example["processing"])}</p><p>{e(rights)}</p></details>'
  rendered+='</section>'
- if not workflow:md+=['',source_md,'',example['processing'],'',rights]
+ if not workflow and not is_template:md+=['',source_md,'',example['processing'],'',rights]
+ return rendered,md
+
+def render_refine_steps(data, section):
+ """Use one ordered set of templates for the page and downloadable chapters."""
+ annotated={item['id']:item for item in data['annotated_paragraphs']}
+ structures={item['id']:item for item in data['refine_templates']}
+ writing={item['id']:item for group in data['tutorial_layout']['writing_templates'].values() for item in group['templates']}
+ rendered='';md=[]
+ for key in data['refine_flow'][section]:
+  if key in annotated:
+   part,notes=render_annotated_paragraph(annotated[key],data['references'])
+  elif key in structures:
+   part,notes=render_paragraph(structures[key],data['references'],compact=True)
+  else:
+   item=writing[key]
+   content={'title':item['title'],'lead':item['when'],'templates':[item]}
+   part,notes=render_writing_templates(content,section+'-'+key,inline=True)
+  rendered+=part;md+=notes
  return rendered,md
 
 def render_paragraph(lesson, refs, md_level=4, number=None, heading=True, compact=False):
@@ -730,9 +780,9 @@ def package_skill(data):
    template_md+=supplement_reading_md(data)
    reference_name='rules.md'
   else:
-   for lesson in data['refine_templates']:
-    if lesson['section'] in sections and not lesson.get('source'):
-     _,rm=render_paragraph(lesson,data['references']);template_md+=rm
+   for section in sections:
+    if section in data.get('refine_flow',{}):
+     _,rm=render_refine_steps(data,section);template_md+=rm
    reference_name='templates.md'
   (ref/reference_name).write_text('\n'.join(template_md+attribution)+'\n',encoding='utf-8')
  index=['# 写作规则索引','','写作包已按章节拆分；不再默认加载旧的整份检查清单。先读入口和共享规则，再按任务选择。','','[入口](../SKILL.md) · [共享规则](../../cs-writing-common/SKILL.md)']
@@ -832,7 +882,7 @@ def build():
  for case in data['annotated_paragraphs']:case['title']=names.get(case['id'],case['title'])
  for figure in data['figure_chapter']['visual_examples']:figure['title']=data['tutorial_layout']['figure_titles'][figure['id']]
  for template in data['refine_templates']:template['title']=data['tutorial_layout']['template_titles'].get(template['id'],template['title'])
- data['refine_global_cases'][0]['title']='贡献与句间衔接'
+ if data.get('refine_global_cases'):data['refine_global_cases'][0]['title']='贡献与句间衔接'
  data['intro_connections']['title']='段落承接'
  data['intro_connections']['map_title']='摘要与引言：主张对应'
  data['intro_connections'].update(data['tutorial_layout']['abstract_intro_template'])
@@ -867,7 +917,7 @@ def build():
   nav+=f'<a href="#chapter-{s["id"]}">3.{number} {e(s["nav"])}</a>'
  entries='';chapter_html={};chapter_md={}
  md=['# '+data['site_title'],'','先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为辅助工具。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎给 Codex 用作 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://da1yuqin.github.io/StarPaper/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，修改版本注明改动。如有帮助，欢迎 Star。']
- md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 正文精修','','先检查全文规范，再按章节精修。模板中的【】填自己的材料，段落按内容调整。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
+ md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 正文精修','','按标题、摘要、引言、相关工作、方法、实验到结论的顺序填写。每节先列要求，再给带旁批的填空模板；方括号替换为自己的材料，结果填写实测值。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
  md += [f'- [{section_label(s)}{s["title"]}](#{s["id"]})' for s in sections]
  md += ['- [好用工具与开源整理提示词](#tools)']
  for s in sections:
@@ -885,34 +935,19 @@ def build():
   elif s.get('principle'):
    entries+=f'<p class="chapter-principle">{e(s["principle"])}</p>'
    md+=['',s['principle']]
-  for lesson in data.get('refine_templates',[]):
-   if lesson['section']==s['id'] and lesson.get('placement')=='before-examples':
-    lesson_html,lesson_md=render_paragraph(lesson,refs,md_level=4,compact=True)
-    entries+=lesson_html;md+=lesson_md
-  if s['id'] in data['tutorial_layout'].get('writing_templates',{}):
-   templates_html,templates_md=render_writing_templates(data['tutorial_layout']['writing_templates'][s['id']],s['id'])
-   entries+=templates_html;md+=templates_md
-  if s['id']=='intro' and data.get('intro_connections'):
-   connections_html,connections_md=render_intro_connections(data)
-   entries+=connections_html;md+=connections_md
-  for n,example in enumerate([p for p in annotated if p['section']==s['id']]):
-   number=None
-   example_html,example_md=render_annotated_paragraph(example,refs,number,heading_level=4)
-   entries+=example_html;md+=example_md
-  templates=[p for p in data.get('refine_templates',[]) if p['section']==s['id'] and p.get('latex_template') and p.get('placement')!='before-examples' and not p.get('covered_by')]
-  if templates:
-   entries+='<details class="chapter-templates"><summary>结构模板</summary>'
-   md+=['','<details><summary>结构模板</summary>','']
-  for n,lesson in enumerate(templates):
-   number=None if any(p['section']==s['id'] for p in annotated) else (f'{prefix.strip()}.{chr(97+n)}' if s.get('manuscript') and len(templates)>1 else None)
-   lesson_html,lesson_md=render_paragraph(lesson,refs,md_level=4,number=number,heading=len(templates)>1,compact=True)
-   entries+=lesson_html;md+=lesson_md
-  if templates:
-   entries+='</details>';md+=['','</details>','']
+  if s['id'] in data.get('refine_flow',{}):
+   part,notes=render_refine_steps(data,s['id']);entries+=part;md+=notes
+  if s['id']=='intro':
+   content=data['tutorial_layout']['writing_templates']['intro']
+   entries+='<details class="chapter-templates"><summary>其他研究类型的引言模板</summary>'
+   part,notes=render_writing_templates(content,'intro');entries+=part+'</details>';md+=notes
+   if data.get('intro_connections'):
+    entries+='<details class="chapter-templates"><summary>检查引言、摘要与正文的对应关系</summary>'
+    part,notes=render_intro_connections(data);entries+=part+'</details>';md+=notes
   entries+='</section>'
   chapter_html[s['id']]=entries[html_start:];chapter_md[s['id']]=md[md_start:]
  entries=''.join(chapter_html[s['id']] for s in sections if s.get('manuscript'))
- md=md[:1]+['',data['site_subtitle'],'']+preface_md+md[1:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 正文精修','','先检查全文规范，再按章节精修。模板中的【】填自己的材料，段落按内容调整。','']+opening_md+['','### 本章目录','']
+ md=md[:1]+['',data['site_subtitle'],'']+preface_md+md[1:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 正文精修','','按标题、摘要、引言、相关工作、方法、实验到结论的顺序填写。每节先列要求，再给带旁批的填空模板；方括号替换为自己的材料，结果填写实测值。','']+opening_md+['','### 本章目录','']
  md+=[f'- [3.{int(s["number"])+1} {s["nav"]}](#{s["id"]})' for s in sections if s.get('manuscript')]
  for s in sections:
   if s.get('manuscript'):md+=chapter_md[s['id']]

@@ -2,77 +2,24 @@
 
 以下为通用规则与教学模板，不是真实论文原文、研究事实或实测。
 
-#### Related Work：完整模板
+<a id="annotated-related"></a>
 
-按共同机制归类。可直接比较的工作安排对应基线；不能直接比较时说明设置差异。
+#### 相关工作主题段模板
 
-教学模板；【】填真实材料。
+每个主题使用同一结构：已有工作 → However 缺口 → 本文做法 → 应用与问题解决。
 
-- 每个主题按路线、机制和已有能力归类，再用固定三句收尾：缺口、本文做法、应用及问题解决。
-- 【铁律】每个主题末尾固定三句：However, [具体缺口]. → [承接短语], we [动作] [对象] based on [方法或原则]. → This enables [实际应用], [效果动词] [解决的同一问题].。位置不互换，最后落在缺口如何解决；预期用途不写成已验证效果。
-- 结尾的对象、范围、关键词与 Intro 一致；各小节讲不同缺口。
-- 小节标题简短。短主题一段写完，复杂主题按问题分段。
-- 相近工作的差异提前讲清。引用准确完整，不因图相似或结果不利而漏引。
-- 引用数量不是会议配额；删除重复说明，不加入无关文献。
-- 【铁律】This enables 后写完整实际应用，末尾回扣 However 的同一缺口；不重复产物名称或局部属性。
+**English 填空模板**
 
-StarPaper 规范化写法；主题数量按论文内容
+[Research topic] studies [task or goal]. Methods in [family A] use [mechanism A] to [established capability A] [citations]. Methods in [family B] support [different capability B] through [mechanism B] [citations]. However, [specific gap under a stated condition]. To address this gap, we [action] [research object] based on [method or principle]. This enables [actual application], [evidence-supported effect verb] [the same problem stated in the gap].
 
-[Research line] addresses [shared task] by [shared mechanism] [citations].
 
-[研究路线]通过[共同机制]处理[共同任务][引用]。
+**高亮与旁批**
 
-**第 1 句：**第一句定义本小节主题，把真正相近的工作归成一类。
-
-One group [mechanism A], whereas another group [mechanism B] [citations].
-
-一类方法采用[机制 A]，另一类采用[机制 B][引用]。
-
-**第 2 句：**分组必须有实质机制差别，不是换作者名字。
-
-More recent extensions [additional established capability] [citations].
-
-后续扩展进一步实现了[已有额外能力][引用]。
-
-**第 3 句：**承接基本路线的扩展，新增引用须与所述扩展直接相关。
-
-However, these approaches do not establish [Intro challenge] under [specific scope].
-
-然而，在[具体范围]内，这些方法尚未说明[引言中的问题]得到解决。
-
-**第 4 句：**不足直接复用引言关键词，并限定到原文支持的边界。
-
-[Transition], we [action] [object] based on [method or principle].
-
-[承接短语]，我们基于[方法或原则]，对[对象]实施[动作]。
-
-**第 5 句：**【铁律】缺口之后立即给本文做法；主语为 we，对象和原则应对前句同一个不足。
-
-This enables [actual application], [resolving / addressing / reducing] [the same gap].
-
-这支持[实际应用]，从而[解决／应对／减轻][同一个缺口]。
-
-**第 6 句：**【铁律】先填完整实际应用，后半句处理 However 的同一缺口。不能只重复产物名或局部属性；效果动词按证据强度选择。
-
-**完整 LaTeX 结构模板**
-
-```latex
-\section{Related Work}
-\subsection{[Short Topic A]}
-[Research line] addresses [shared task] by [shared mechanism]~\cite{...}.
-One group [mechanism A], whereas another group [mechanism B]~\cite{...}.
-More recent extensions [additional established capability]~\cite{...}.
-However, these approaches do not establish [Intro challenge A] under [scope A].
-To address this gap, we [action A] [object A] based on [method or principle A].
-This enables [actual application A], [resolving / addressing / reducing] [the same gap A].
-
-\subsection{[Short Topic B]}
-[Research line B] evaluates [property] using [evaluation basis]~\cite{...}.
-Other evaluations [substantive extension]~\cite{...}.
-However, [Intro challenge B] remains unresolved under [scope B].
-To overcome this limitation, we [action B] [object B] based on [method or principle B].
-This enables [actual application B], [resolving / addressing / reducing] [the same gap B].
-```
+1. **[Research topic] studies [task or goal].**：小节主题。一个主题对应一种任务、机制或评价目标。主题标题另起一行，段首说明本组工作研究什么。
+2. **Methods in [family A] use [mechanism A] to [established capability A] [citations]. Methods in [family B] support [different capability B] through [mechanism B] [citations].**：归类回顾。说明各类工作已经实现的能力及共同思路，引用紧跟对应判断；不逐篇报题目。
+3. **However, [specific gap under a stated condition].**：固定倒数第三句：具体局限。先讲现有方法缺少什么，条件与范围写清。这项局限应对应引言的一个问题。
+4. **To address this gap, we [action] [research object] based on [method or principle].**：固定倒数第二句：我们的做法。主语是 we，填动作、研究对象和依据；必须直接处理上一句的局限。相邻主题可用 To overcome this limitation 轮换钩子。
+5. **This enables [actual application], [evidence-supported effect verb] [the same problem stated in the gap].**：固定末句：应用与问题解决。前半句填这项做法支持的完整任务，后半句落回同一个问题。按证据选择 addressing、reducing 等动词，不夸大已实现效果。
 
 ---
 
