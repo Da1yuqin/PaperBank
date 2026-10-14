@@ -249,6 +249,9 @@ def render_refine_steps(data, section, figure_parts=None):
  writing={item['id']:item for group in data['tutorial_layout']['writing_templates'].values() for item in group['templates']}
  rendered='';md=[]
  for key in data['refine_flow'][section]:
+  for comic in data['refine_comics']:
+   if data.get('_tutorial_layout') and comic.get('before')==key:
+    part,notes=render_refine_comic(comic);rendered+=part;md+=notes
   if figure_parts and key in ('annotated-intro','annotated-experiments-main-teaching'):
    figure_key=FIGURE_SECTIONS[section][0]
    part,notes=figure_parts[figure_key];rendered+=part;md+=notes

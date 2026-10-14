@@ -10226,6 +10226,15 @@
   },
   "update_log": [
     {
+      "at": "2026-10-15T00:25:42+08:00",
+      "date": "2026-10-15 00:25",
+      "title": "六张漫画串联正文",
+      "skill_update": false,
+      "changes": [
+        "新增段首钩子、方法输入输出、消融对照和结论边界漫画，六张按正文进度分布。"
+      ]
+    },
+    {
       "at": "2026-10-14T21:12:53+08:00",
       "date": "2026-10-14 21:12",
       "title": "补充 Rebuttal 教程入口",
@@ -10741,13 +10750,49 @@
       "caption": "设计回应引言的问题，实验检验对应设计。"
     },
     {
+      "id": "refine-hooks-comic",
+      "image": "assets/refine-hooks-comic.png",
+      "width": 2167,
+      "height": 726,
+      "alt": "段首有钩子，前后才连贯。魔法猫用金色钩子连接前段问题与后段回应。",
+      "caption": "段首点名上一段的问题，再引出对应做法。",
+      "section": "intro"
+    },
+    {
+      "id": "refine-method-comic",
+      "before": "annotated-method-overview-teaching",
+      "image": "assets/refine-method-comic.png",
+      "width": 2167,
+      "height": 725,
+      "alt": "先讲目的，再讲输入输出。边牧提供两块半星，魔法猫拼接，小龙接收完整星星。",
+      "caption": "先说明这一步解决什么，再交代输入、处理与输出。"
+    },
+    {
       "id": "refine-attribution-comic",
-      "section": "experiments",
       "image": "assets/refine-evidence-comic.png",
       "width": 2167,
       "height": 725,
       "alt": "铁律：实验支撑 Intro 的结论。星星与菱形将两项实验结果分别连到对应的引言结论。",
-      "caption": "引言的每项关键结论，都要有对应结果与分析支撑。"
+      "caption": "引言的每项关键结论，都要有对应结果与分析支撑。",
+      "before": "annotated-experiments-main-teaching"
+    },
+    {
+      "id": "refine-ablation-comic",
+      "before": "ablation-evidence-structure",
+      "image": "assets/refine-ablation-comic.png",
+      "width": 2167,
+      "height": 725,
+      "alt": "铁律：归因要有对照。相同输入分别经过保留 A 和移除 A 的系统，其余条件一致。",
+      "caption": "比较保留与移除 A；其余条件保持一致，结果由实验给出。"
+    },
+    {
+      "id": "refine-limits-comic",
+      "before": "annotated-limitations",
+      "image": "assets/refine-limits-comic.png",
+      "width": 2167,
+      "height": 725,
+      "alt": "结论不越过证据。边牧和魔法猫站在已验证区域，小龙在未测试区域举起问号。",
+      "caption": "区分已验证与未测试；限制说明适用范围，不把未知写成失败。"
     }
   ]
 }

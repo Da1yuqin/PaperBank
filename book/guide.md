@@ -6,6 +6,10 @@
 <details><summary>更新记录</summary>
 
 
+**2026-10-15 00:25 · 六张漫画串联正文**
+
+- 新增段首钩子、方法输入输出、消融对照和结论边界漫画，六张按正文进度分布。
+
 **2026-10-14 21:12 · 补充 Rebuttal 教程入口**
 
 - 开头加入 StrongResponse 教程入口，方便切换到审稿回复教程。
@@ -1091,6 +1095,11 @@ S、A、G、E 分别取自 Service、Agent、Graph-guided、Evaluation。A 来�
 
 建立问题，解释设计，再用发现与贡献概括全文。
 
+<a id="refine-hooks-comic"></a>
+![段首有钩子，前后才连贯。魔法猫用金色钩子连接前段问题与后段回应。](../assets/refine-hooks-comic.png)
+
+段首点名上一段的问题，再引出对应做法。
+
 #### 本节原则
 
 - 先定顺序：领域与回顾 → 局限 → 设计 → 发现 → 3 条贡献。前两部分可合并、交错或拆段。
@@ -1651,6 +1660,11 @@ Given [input objects and their sources], the task is to produce [output object] 
 3. **We denote [essential object] by [symbol] and define [the decision or objective].**：必要符号。先解释对象，再定义符号。模块公式放对应小节。
 4. **During [training or inference], [system] has access to [available information]. [Evaluation-only information, if any] is used only for [evaluation role].**：各阶段可见信息。分清训练、推理与评价的信息。评价答案不能充当模型输入。不存在的阶段删去。
 
+<a id="refine-method-comic"></a>
+![先讲目的，再讲输入输出。边牧提供两块半星，魔法猫拼接，小龙接收完整星星。](../assets/refine-method-comic.png)
+
+先说明这一步解决什么，再交代输入、处理与输出。
+
 <a id="annotated-method-overview-teaching"></a>
 
 #### 方法总览
@@ -1731,11 +1745,6 @@ To [solve the specific problem assigned to this module], we [key design action].
 ### 2.7 实验
 
 说明比较怎样做，再报告发现、关键证据和分析。
-
-<a id="refine-attribution-comic"></a>
-![铁律：实验支撑 Intro 的结论。星星与菱形将两项实验结果分别连到对应的引言结论。](../assets/refine-evidence-comic.png)
-
-引言的每项关键结论，都要有对应结果与分析支撑。
 
 #### 本节原则
 
@@ -1839,6 +1848,11 @@ After constructing [method, dataset, or benchmark], we evaluate [target systems 
 2. **1) [Metric 1 full name (abbreviation)] measures [definition, unit, direction, and denominator].**：编号与指标定义。首次给全称与缩写。名称只加粗，不斜体。指标数量按实际增删。
 3. **We compute [per-unit quantities] and aggregate them using [macro, micro, weighted, or other actual rule].**：说明如何汇总。写先按什么单位计算。再写如何汇总。自定义公式与判据给附录入口。
 4. **[Invalid, missing, and not-applicable outputs] are handled according to [defined policy]**：交代异常处理。区分失败、缺失与不适用。按协议处理，并报告覆盖范围。不得静默删样本。
+
+<a id="refine-attribution-comic"></a>
+![铁律：实验支撑 Intro 的结论。星星与菱形将两项实验结果分别连到对应的引言结论。](../assets/refine-evidence-comic.png)
+
+引言的每项关键结论，都要有对应结果与分析支撑。
 
 <a id="figure-experiments"></a>
 #### 实验绘图
@@ -1982,6 +1996,11 @@ Bold marks the best and underline the second-best distinct value among comparabl
 
 按指标方向改箭头；主结果将 Variant 改为 Method。逐格填实测值，标记可比列内最优与次优。
 
+<a id="refine-ablation-comic"></a>
+![铁律：归因要有对照。相同输入分别经过保留 A 和移除 A 的系统，其余条件一致。](../assets/refine-ablation-comic.png)
+
+比较保留与移除 A；其余条件保持一致，结果由实验给出。
+
 <a id="ablation-evidence-structure"></a>
 
 #### 消融：设置与结果
@@ -2112,6 +2131,11 @@ We introduced [work name and type] to address [research problem]. By [core desig
 - 本节写本文边界；摘要与引言的 limitations 写已有研究缺口。
 - 【铁律】本套 CS skill 采用一段两点，用 First / Second 起句。每点先写有据工作，再说明仍待研究的边界。官方格式与当前作者要求优先。
 - 【铁律】已有工作须有据，两点各有具体对象。未测试不能写成失败。让步句不能掩盖影响结论的限制。
+
+<a id="refine-limits-comic"></a>
+![结论不越过证据。边牧和魔法猫站在已验证区域，小龙在未测试区域举起问号。](../assets/refine-limits-comic.png)
+
+区分已验证与未测试；限制说明适用范围，不把未知写成失败。
 
 <a id="annotated-limitations"></a>
 

@@ -196,7 +196,7 @@ Overleaf 本地 Git 同步的 Premium 权限与当前入口核对自 [Git integr
 
 assets/starpaper-logo.png 与 assets/starpaper-night-accept.png 由内置 imagegen 生成，分别参考自有 StrongResponse 标题质感和作者提供的三位动物角色。流星和 ACCEPT 为庆祝性的品牌插画，不对应真实论文接收或实验结果。生成说明见同目录的 prompt 文本。
 
-`assets/refine-alignment-comic.png` 与 `assets/refine-evidence-comic.png` 沿用封面三位角色，由内置 imagegen 生成。两幅教学漫画分别说明问题、设计与实验的对应关系，以及实验结果对引言结论的支撑；不展示实测结果。生成说明见 `assets/refine-comics-prompts.json`，角色复用边界同封面。
+六幅 `assets/refine-*-comic.png` 沿用封面三位角色，由内置 imagegen 生成。内容依次为全文对应、段首钩子、方法输入输出、实验支撑引言、消融对照与结论边界；均为教学示意，不展示实测结果。生成说明见 `assets/refine-comics-prompts.json`，角色复用边界同封面。
 
 写作包新增 cs-limitations，九个同级模块，附单段 First/Second 模板；同步 Metrics 编号、贡献格式和篇幅规则。只提取通用要求，未复制私人论文案例、数量、模型、费用、路径或审核记录。官方要求与当前人工要求优先。
 
