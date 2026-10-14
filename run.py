@@ -460,6 +460,8 @@ def render_draft_chapter(data):
   md+=['',f'<a id="{step["id"]}"></a>','### '+step['title']]
   if step['id']=='draft-step-3':
    organization=layout['organization_templates']
+   for note in organization.get('author_reminder',[]):
+    rendered+=f'<p>{e(note)}</p>';md+=['',note]
    rendered+='<ul class="draft-requirements">'+''.join(f'<li>{e(rule)}</li>' for rule in organization['requirements'])+'</ul>'
    md+=['']+['- '+rule for rule in organization['requirements']]
    ph,pm=render_organization_templates(organization);rendered+=ph;md+=pm
