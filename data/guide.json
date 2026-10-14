@@ -10226,6 +10226,15 @@
   },
   "update_log": [
     {
+      "at": "2026-10-14T16:16:30+08:00",
+      "date": "2026-10-14 16:16",
+      "title": "实验支撑引言结论",
+      "skill_update": false,
+      "changes": [
+        "实验章开头漫画改为实验结果与 Intro 结论逐项对应，更新图注。"
+      ]
+    },
+    {
       "at": "2026-10-14T15:53:30+08:00",
       "date": "2026-10-14 15:53",
       "title": "绘图与模板归入对应章节",
@@ -10716,12 +10725,11 @@
     {
       "id": "refine-attribution-comic",
       "section": "experiments",
-      "image": "assets/refine-attribution-comic.png",
+      "image": "assets/refine-evidence-comic.png",
       "width": 2167,
       "height": 725,
-      "alt": "铁律：归因要有对照。同一输入与共享设置下，对比完整模型和去掉模块 A 的模型。",
-      "caption": "多个因素同时变化，不能只归因于一个。主结果也不能证明每个模块各自有效。",
-      "replaces": "【铁律】模块归因对应实际改变的因素。多因素同时变化，不能只归给其中一个。主结果不能证明每个模块各自有效。"
+      "alt": "铁律：实验支撑 Intro 的结论。星星与菱形将两项实验结果分别连到对应的引言结论。",
+      "caption": "引言的每项关键结论，都要有对应结果与分析支撑。"
     }
   ]
 }
