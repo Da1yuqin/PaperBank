@@ -8,6 +8,8 @@ Open-source **CS paper writing and academic figure drawing skills for Codex**, w
 
 [阅读 StarPaper](https://da1yuqin.github.io/StarPaper/) · [下载写作 skill](assets/cs-paper-writing-skill.zip) · [下载绘图 skill](assets/starpaper-figures-skill.zip)
 
+Rebuttal 请参考：[💪 StrongResponse](https://da1yuqin.github.io/StarPaper/StrongResponse/)。
+
 按初稿准备、正文精修、辅助工具三章阅读。Mainfig 随引言，Framework 随方法，实验图与表格随实验讲解；其余图放文末参考绘图附录。
 
 章节先给原则，再给完整模板或段落批注；方括号填写自己的材料。StarPaper 的真实论文摘录与原图附出处、版本和许可。

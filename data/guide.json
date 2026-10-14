@@ -10226,6 +10226,15 @@
   },
   "update_log": [
     {
+      "at": "2026-10-14T16:39:50+08:00",
+      "date": "2026-10-14 16:39",
+      "title": "新增 StrongResponse 回复教程入口",
+      "skill_update": false,
+      "changes": [
+        "开头增加“Rebuttal 请参考：💪 StrongResponse”，与审稿回复教程互相链接。"
+      ]
+    },
+    {
       "at": "2026-10-14T16:16:30+08:00",
       "date": "2026-10-14 16:16",
       "title": "实验支撑引言结论",

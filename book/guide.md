@@ -6,6 +6,10 @@
 <details><summary>更新记录</summary>
 
 
+**2026-10-14 16:39 · 新增 StrongResponse 回复教程入口**
+
+- 开头增加“Rebuttal 请参考：💪 StrongResponse”，与审稿回复教程互相链接。
+
 **2026-10-14 16:16 · 实验支撑引言结论**
 
 - 实验章开头漫画改为实验结果与 Intro 结论逐项对应，更新图注。
@@ -209,6 +213,8 @@
 
 </details>
 
+
+Rebuttal 请参考：[💪 StrongResponse](https://da1yuqin.github.io/StarPaper/StrongResponse/)
 
 写作与绘图 skill，可直接下载使用。
 [cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-14 15:53】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-14 15:53】 · [用法](#writing-skill)
