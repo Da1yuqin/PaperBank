@@ -29,7 +29,7 @@ description: Write a concise conference AC letter from completed rebuttals and r
 - 没有二轮回应就不推测认可或问题解决，不能把作者结论冒充 reviewer 结论。
 - 聚焦贡献与已经完成的回应；不制造全体共识，也不虚称全部问题解决。必要的剩余分歧如实交代。
 - 不贬低或指挥审稿人和 AC，不请求接收，不要求按指定方式加权。
-- 不写 `Dear Area Chair`、`TL;DR`，不用破折号连接句子。
+- 不用破折号连接句子。
 - 全文不超过 500 个英文单词；当轮上限更低时遵守更低上限。
 
 通用骨架见 [rules.md](references/rules.md)，复制提示词见 [prompts.md](references/prompts.md)。骨架依据原有规则整理，英文措辞仅供参考。输出可复制的英文信；词数、缺失材料与检查说明放在正文之外。只编辑作者授权的信件文件；提交另按作者授权执行。
