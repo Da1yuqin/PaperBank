@@ -34,12 +34,12 @@ def render_codex_prompt(data, key, label_zh, label_en='English prompt'):
   rendered+=f'<details class="prompt" data-prompt-ref="{e(key)}" data-prompt-lang="{language}"><summary>{e(label)}</summary><pre lang="{lang}">{e(text)}</pre><button class="copy js-only">复制提示词</button></details>'
   md+=['','**'+label+'**','','```text',text,'```']
  source=(f'{REPO}/blob/main/skills/{prompt["skill"]}/references/prompts.md#{key}' if prompt['skill'] else f'{REPO}/blob/main/data/guide.json')
- rendered+=f'<p class="example-source">依据：{e(" · ".join(prompt["sources"]))} · <a href="{e(source)}">对应铁律与完整提示词</a></p>'
- md+=['','依据：'+' · '.join(prompt['sources'])+f' · [对应铁律与完整提示词]({source})']
+ rendered+=f'<p class="example-source"><a href="{e(source)}">规则依据与完整提示词</a></p>'
+ md+=['',f'[规则依据与完整提示词]({source})']
  return rendered,md
 
 def package_prompt_reference(data, folder, keys):
- lead=('填写【】后使用。材料权限、证据与当轮回复规定先确认；不附真实审稿记录，不推测审稿人身份或评分变化。' if folder.name=='rebuttal' else '填写【】后使用。以下采用适用于实证型 CS 论文的通用规则；不套用某篇论文的固定宽度、色值、模型阵容或重复次数。Nature 系列使用独立体系。')
+ lead=('填写【】后使用。材料权限、证据与当轮回复规定先确认；不附真实审稿记录，不推测审稿人身份或评分变化。' if folder.name=='rebuttal' else '填写【】后使用，适用于实证型 CS 论文。宽度、色值、模型与重复次数按本篇确定。Nature 系列使用独立体系。')
  md=['# 给 Codex 的提示词','',lead,'']
  for key in keys:
   prompt=data['codex_prompts'][key]
@@ -359,12 +359,12 @@ def render_preface(data):
  p=data['preface']
  skill=data['writing_skill']
  rendered,log_md=render_update_log(data)
- rendered+=f'<p class="skill-links"><strong>这里有两个可以直接使用的 skill，按任务下载。</strong> <a href="{e(skill["download"])}" download>cs-paper-writing</a> {skill_latest(skill)} · <a href="{e(data["figure_chapter"]["skill"]["download"])}" download>绘图</a> {skill_latest(data["figure_chapter"]["skill"])} · <a href="#writing-skill">用法</a></p>'
+ rendered+=f'<p class="skill-links"><strong>写作与绘图 skill，可直接下载使用。</strong> <a href="{e(skill["download"])}" download>cs-paper-writing</a> {skill_latest(skill)} · <a href="{e(data["figure_chapter"]["skill"]["download"])}" download>绘图</a> {skill_latest(data["figure_chapter"]["skill"])} · <a href="#writing-skill">用法</a></p>'
  rendered+=f'<figure class="accept-banner"><img src="{e(p["image"])}" alt="{e(p["image_alt"])}" width="{p["image_width"]}" height="{p["image_height"]}" fetchpriority="high"></figure><section class="preface" id="preface"><h2>{e(p["title"])}</h2>'
  rendered+=''.join(f'<p>{e(text)}</p>' for text in p['paragraphs'])
  rendered+=f'<p class="preface-aside"><em>{e(p["aside"])}</em></p>'
  rendered+='</section>'
- md=log_md+['','这里有两个可以直接使用的 skill，按任务下载。',f'[cs-paper-writing](../{skill["download"]}) latest:【{skill["updated_at"]}】 · [绘图](../{data["figure_chapter"]["skill"]["download"]}) latest:【{data["figure_chapter"]["skill"]["updated_at"]}】 · [用法](#writing-skill)','',f'![{p["image_alt"]}](../{p["image"]})','','## '+p['title'],'']
+ md=log_md+['','写作与绘图 skill，可直接下载使用。',f'[cs-paper-writing](../{skill["download"]}) latest:【{skill["updated_at"]}】 · [绘图](../{data["figure_chapter"]["skill"]["download"]}) latest:【{data["figure_chapter"]["skill"]["updated_at"]}】 · [用法](#writing-skill)','',f'![{p["image_alt"]}](../{p["image"]})','','## '+p['title'],'']
  md+=sum(([text,''] for text in p['paragraphs']),[])
  md+=['*'+p['aside']+'*','']
  return rendered,md
@@ -453,8 +453,8 @@ def render_organization_templates(content):
 
 def render_draft_chapter(data):
  e=html.escape;q=data['quick_start'];layout=data['tutorial_layout']
- rendered='<section class="quick-start major-chapter" id="quick-start"><h2>1. 初稿准备</h2><p>准备研究材料与模板，确定正文结构，再进入<a href="#figure-mainfig">论文绘图</a>。图先成型，方便合作者审阅；正文随后填充。</p>'
- md=['','<a id="quick-start"></a>','## 1. 初稿准备','','准备研究材料与模板，确定正文结构，再进入[论文绘图](#figure-mainfig)。图先成型，方便合作者审阅；正文随后填充。']
+ rendered='<section class="quick-start major-chapter" id="quick-start"><h2>1. 初稿准备</h2><p>准备研究材料与模板，确定正文结构，再进入<a href="#figure-mainfig">论文绘图</a>。先画图供合作者审阅，再填正文。</p>'
+ md=['','<a id="quick-start"></a>','## 1. 初稿准备','','准备研究材料与模板，确定正文结构，再进入[论文绘图](#figure-mainfig)。先画图供合作者审阅，再填正文。']
  for n,step in enumerate(layout['draft_steps'],1):
   rendered+=f'<section class="draft-step" id="{step["id"]}"><h3>{e(step["title"])}</h3>'
   md+=['',f'<a id="{step["id"]}"></a>','### '+step['title']]
@@ -545,8 +545,8 @@ def render_figures(data):
   rendered+='</details>';md+=['','</details>']
  rendered+='<p class="draft-next"><a href="#figure-appendix">更多图型、原图与点评：收集的参考绘图 →</a></p></section>'
  md+=['','[更多图型、原图与点评：收集的参考绘图](#figure-appendix)']
- appendix='<section class="major-chapter figure-chapter figure-appendix" id="figure-appendix"><h2>附录：收集的参考绘图</h2><p>按需要查图型。原图保留出处与许可，教学图注明模拟数据；点评同时说明值得借鉴的设计与结论边界。</p><span id="notion-gallery"></span><span id="figure-gallery"></span>'
- appendix_md=['','<a id="figure-appendix"></a>','<a id="notion-gallery"></a>','<a id="figure-gallery"></a>','## 附录：收集的参考绘图','','按需要查图型。原图保留出处与许可，教学图注明模拟数据；点评同时说明值得借鉴的设计与结论边界。']
+ appendix='<section class="major-chapter figure-chapter figure-appendix" id="figure-appendix"><h2>附录：收集的参考绘图</h2><p>按图型查阅。原图附出处与许可，模拟数据另标。点评说明设计优点与结论边界。</p><span id="notion-gallery"></span><span id="figure-gallery"></span>'
+ appendix_md=['','<a id="figure-appendix"></a>','<a id="notion-gallery"></a>','<a id="figure-gallery"></a>','## 附录：收集的参考绘图','','按图型查阅。原图附出处与许可，模拟数据另标。点评说明设计优点与结论边界。']
  shown={key for part in opening['parts'] for key in part['visuals']}
  for topic in dict.fromkeys(v['topic'] for v in visuals.values()):
   group=[v for v in visuals.values() if v['topic']==topic and v['id'] not in shown]
@@ -736,14 +736,14 @@ def render_skill(data):
  """Keep the portable entry point separate from the full reading guide."""
  e=html.escape
  skill=data['writing_skill']
- rendered=f'<details class="writing-skill" id="writing-skill"><summary>给 Codex 用：写作与绘图 skill</summary><p>{e(skill["intro"])}</p>'
- md=['','<a id="writing-skill"></a>','### 写作与绘图 skill','',skill['intro']]
+ rendered=f'<details class="writing-skill" id="writing-skill"><summary>给 Codex 用：写作与绘图 skill</summary>'
+ md=['','<a id="writing-skill"></a>','### 写作与绘图 skill']
  for entry,label in [(skill,'cs-paper-writing'),(data['figure_chapter']['skill'],'绘图')]:
   rendered+=f'<p class="skill-links"><a href="{e(entry["download"])}" download>{e(label)} ZIP</a> {skill_latest(entry)} · <a href="{REPO}/blob/main/{e(entry["source"])}">SKILL.md</a>：{e(entry["intro"])}</p>'
   md+=['',f'[{label} ZIP](../{entry["download"]}) · [SKILL.md](../{entry["source"]})：{entry["intro"]}']
- installation='写作包已按章节拆分：入口、共享规则和七个章节，共九个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。'
- rendered+=f'<p>{e(installation)}</p><p class="boundary">写作包更新：{e(skill["updated_at"])}。只含通用规则与教学模板，不含私人稿件信息。</p>'
- md+=['',installation,'','写作包更新：'+skill['updated_at']+'。只含通用规则与教学模板，不含私人稿件信息。']
+ installation='解压写作包，保留九个同级文件夹。先读 cs-paper-writing/SKILL.md，再加载当前章节。绘图包单独使用。填入材料、任务与允许修改的范围。'
+ rendered+=f'<p>{e(installation)}</p><p class="boundary">写作包更新：{e(skill["updated_at"])}。仅含通用规则与教学模板。</p>'
+ md+=['',installation,'','写作包更新：'+skill['updated_at']+'。仅含通用规则与教学模板。']
  ph,pm=render_codex_prompt(data,skill['prompt_ref'],'中文使用提示词','English usage prompt');rendered+=ph;md+=pm
  return rendered+'</details>',md
 
@@ -764,28 +764,28 @@ def package_skill(data):
   text=['---','name: '+name,'description: '+title+'；适用于实证型 CS 会议论文，按当前任务加载。','---','','# '+title,'',f'latest:【{skill["updated_at"]}】','']+body+attribution
   (target/'SKILL.md').write_text('\n'.join(text)+'\n',encoding='utf-8')
   return target
- router=['先读一次[共享规则](../cs-writing-common/SKILL.md)，再只读当前任务涉及的章节；不默认加载全部模板。当前章规则与当前人工定版优先于历史写法。仅用于 CS 会议，Nature 系列使用独立体系。','','| 任务 | 章节入口 |','| --- | --- |']
+ router=['先读[共享规则](../cs-writing-common/SKILL.md)，再加载当前章节。当前章规则与人工定版优先于历史写法。仅用于 CS 会议，Nature 系列使用独立体系。','','| 任务 | 章节入口 |','| --- | --- |']
  router += [f'| {title} | [{name}](../{name}/SKILL.md) |' for name,title,_ in modules]
- router+=['','起草前先借鉴合适论文的组织逻辑，再根据自己的研究拟大纲。参考结构，不复制措辞、事实或贡献。','','解压后保留全部九个同级目录。旧入口和下载地址保留，写作任务不需要同时加载绘图包。','','[任务提示词](references/prompts.md) · [规则索引](references/checklist.md)']
+ router+=['','先梳理参考论文结构，再按本研究拟大纲。不复制措辞、事实或贡献。','','解压后保留九个同级目录。入口与下载地址不变，绘图包按需加载。','','[任务提示词](references/prompts.md) · [规则索引](references/checklist.md)']
  write_skill('cs-paper-writing','CS 论文写作入口',router)
- common=['每个新写作任务先读一次。当前用户指令、官方要求与人工定版优先；某篇稿件的页数、图号、颜色、数字与授权不移植到其他论文。',
+ common=['每个新任务先读一次。当前指令、官方要求与人工定版优先。单篇稿件的页数、图号、配色、数字与授权不能移植。',
   '【铁律】先核对最新源与证据，只改授权范围，保留他人并发修改、原始输入、prompt、模型回复和实测结果。',
   '【铁律】不编造结果、引用、首次提出或因果效果。未知不填 0，展示案例不证明总体能力。',
   data['refine_global_lead'],'','## 共享表达与证据','']
  common += ['- '+rule['title']+'：'+rule['purpose'] for rule in data['refine_standards']]
- common += ['','某章的具体写法由该章 SKILL 维护；阅读全文检查时加载 cs-integration，不重复读取所有历史例库。']
+ common += ['','具体写法见各章 SKILL。全文检查加载 cs-integration，不遍读历史例库。']
  write_skill('cs-writing-common','CS 写作共享规则',common)
  for name,title,sections in modules:
-  body=['先读[共享规则](../cs-writing-common/SKILL.md)。本章只处理当前任务；既有人工定版和最新证据优先。','','## 本章要求']
+  body=['先读[共享规则](../cs-writing-common/SKILL.md)，仅处理当前任务。人工定版与最新证据优先。','','## 本章要求']
   for section in sections:
    label=next(s['nav'] for s in data['sections'] if s['id']==section)
    body+=['','### '+label,'']+['- '+rule for rule in data['refine_section_principles'][section]]
   if name=='cs-visuals':
    body+=['']
    body+=['- '+rule for rule in skill['visual_rules']]
-   body+=['','图型与完整绘图规范按需读[视觉参考](references/rules.md)。人工精修图形也可使用网页的独立绘图下载包。']
+   body+=['','图型与规范见[视觉参考](references/rules.md)。图形精修可另用绘图包。']
   else:
-   body+=['','只在需要句式时读[本章模板](references/templates.md)。方括号换成实际材料；模板不能制造研究事实。']
+   body+=['','需要句式时读[本章模板](references/templates.md)。方括号填实际材料，不补造研究事实。']
   if name=='cs-integration':
    body+=['','【铁律】全文检查同时覆盖摘要、引言、正文、Caption、表注和解释性附录。问题、设计、证据、范围与因果方向统一。',
     '【铁律】本地编译、最终 PDF、远端源同步与服务端 PDF 分开核验；旧源码或 hash 不证明服务器 PDF。共享项目先取最新源，写入前再查远端是否前移。',
@@ -869,7 +869,7 @@ def render_tools(data):
  """Render linked resources separately from manuscript checks."""
  e=html.escape
  groups=data.get('tools',[])
- intro='按用途选。以下整理自公开文档，未逐项安装；版本和许可见原项目。'
+ intro='按用途选用，版本与许可见原项目。以下依据公开文档整理，未逐项安装。'
  rendered=f'<section class="toolbox major-chapter" id="tools"><h2>4. 辅助工具</h2><p class="chapter-desc">{e(intro)}</p>'
  rendered+='<p class="tool-index">'+ ' · '.join(f'<a href="#tools-{e(g["id"])}">4.{n} {e(g["title"])}</a>' for n,g in enumerate(groups,1))+f' · <a href="#code-release-prompt">4.{len(groups)+1} 开源整理</a></p>'
  total=sum(len(g['items']) for g in groups)
@@ -889,8 +889,8 @@ def render_tools(data):
   rendered+='</ul></section>'
  rendered+='<p class="boundary js-only" id="tool-empty" hidden>没有匹配的工具。换个短词试试。</p>'
  title=f'4.{len(groups)+1} 开源整理'
- rendered+=f'<section class="release-prompt" id="code-release-prompt"><h3>{e(title)}</h3><p>先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。填写允许修改的范围后再使用。</p>'
- md+=['','<a id="code-release-prompt"></a>','### '+title,'','先写清允许处理的文件。中文界面、接口字符串、业务路径也可能影响运行，不能一键全换。']
+ rendered+=f'<section class="release-prompt" id="code-release-prompt"><h3>{e(title)}</h3><p>先指定文件范围。界面文字、接口字符串和路径可能影响运行，不能批量替换。</p>'
+ md+=['','<a id="code-release-prompt"></a>','### '+title,'','先指定文件范围。界面文字、接口字符串和路径可能影响运行，不能批量替换。']
  ph,pm=render_codex_prompt(data,data['code_release_prompt']['prompt_ref'],'中文提示词');rendered+=ph;md+=pm
  rendered+=f'<p class="tool-checked">文档核对：{e(data["tools_checked_at"])}。安装、版本和许可见项目原文。</p></section></section>'
  return rendered,md
@@ -943,7 +943,7 @@ def build():
   nav+=f'<a href="#chapter-{s["id"]}">3.{number} {e(s["nav"])}</a>'
  entries='';chapter_html={};chapter_md={}
  md=['# '+data['site_title'],'','先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为辅助工具。','','主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。','','欢迎使用、改写、转载，也欢迎给 Codex 用作 skill。原创内容采用 CC BY 4.0，论文摘录与图片保留各自许可。转载原创内容请保留作者 Da1yuqin、[原文链接](https://da1yuqin.github.io/StarPaper/)和 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可，修改版本注明改动。如有帮助，欢迎 Star。']
- md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 正文精修','','按标题、摘要、引言、相关工作、方法、实验到结论的顺序填写。每节先列要求，再给带旁批的填空模板；方括号替换为自己的材料，结果填写实测值。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
+ md+=quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 正文精修','','按论文顺序，先读要求，再填模板。旁批解释每句的内容与衔接。','']+['','<a id="rules"></a>']+opening_md+['','### 本章目录','']
  md += [f'- [{section_label(s)}{s["title"]}](#{s["id"]})' for s in sections]
  md += ['- [好用工具与开源整理提示词](#tools)']
  for s in sections:
@@ -973,7 +973,7 @@ def build():
   entries+='</section>'
   chapter_html[s['id']]=entries[html_start:];chapter_md[s['id']]=md[md_start:]
  entries=''.join(chapter_html[s['id']] for s in sections if s.get('manuscript'))
- md=md[:1]+['',data['site_subtitle'],'']+preface_md+md[1:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 正文精修','','按标题、摘要、引言、相关工作、方法、实验到结论的顺序填写。每节先列要求，再给带旁批的填空模板；方括号替换为自己的材料，结果填写实测值。','']+opening_md+['','### 本章目录','']
+ md=md[:1]+['',data['site_subtitle'],'']+preface_md+md[1:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 正文精修','','按论文顺序，先读要求，再填模板。旁批解释每句的内容与衔接。','']+opening_md+['','### 本章目录','']
  md+=[f'- [3.{int(s["number"])+1} {s["nav"]}](#{s["id"]})' for s in sections if s.get('manuscript')]
  for s in sections:
   if s.get('manuscript'):md+=chapter_md[s['id']]

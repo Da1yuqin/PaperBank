@@ -6,7 +6,7 @@
 
 #### 相关工作主题段模板
 
-每个主题使用同一结构：已有工作 → However 缺口 → 本文做法 → 应用与问题解决。
+每段依次写：已有工作、局限、做法、应用。
 
 **English 填空模板**
 
@@ -15,11 +15,11 @@
 
 **高亮与旁批**
 
-1. **[Research topic] studies [task or goal].**：小节主题。一个主题对应一种任务、机制或评价目标。主题标题另起一行，段首说明本组工作研究什么。
-2. **Methods in [family A] use [mechanism A] to [established capability A] [citations]. Methods in [family B] support [different capability B] through [mechanism B] [citations].**：归类回顾。说明各类工作已经实现的能力及共同思路，引用紧跟对应判断；不逐篇报题目。
-3. **However, [a complete clause stating the limitation and its consequence].**：固定倒数第三句：具体局限。However 后填有主语、谓语的完整判断：谁在什么条件下无法完成什么，以及这会妨碍哪个目标。对应引言中的同一局限。
-4. **To address this gap, we [action] [research object] based on [method or principle].**：固定倒数第二句：我们的做法。主语是 we，填动作、研究对象和依据；必须直接处理上一句的局限。相邻主题可用 To overcome this limitation 轮换钩子。
-5. **This enables [actual application], [evidence-supported -ing verb] [the same problem stated in the gap].**：固定末句：应用与问题解决。前半句填实际支持的任务；逗号后用 addressing、reducing 等 -ing 形式接回同一个问题，动词强度服从已有证据。
+1. **[Research topic] studies [task or goal].**：小节主题。填本组工作的任务或机制。主题标题另起一行。
+2. **Methods in [family A] use [mechanism A] to [established capability A] [citations]. Methods in [family B] support [different capability B] through [mechanism B] [citations].**：归类回顾。归类写已有能力与共同思路。引用紧跟判断。
+3. **However, [a complete clause stating the limitation and its consequence].**：倒数第三句：局限。However 后写完整判断。说明谁在什么条件下做不到什么。再写这会妨碍哪个目标。
+4. **To address this gap, we [action] [research object] based on [method or principle].**：倒数第二句：做法。主语用 we，填动作、对象与依据。做法直接回应上一句局限。
+5. **This enables [actual application], [evidence-supported -ing verb] [the same problem stated in the gap].**：末句：应用与作用。前半句填支持的任务。后半句用 -ing 接回同一问题。动词强度取决于证据。
 
 ---
 

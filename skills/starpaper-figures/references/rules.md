@@ -1,12 +1,12 @@
 # StarPaper 绘图参考
 
-先确定图的主要任务与对应贡献，再安排内容和布局。复杂图先删去重复信息，保留必要输入、操作与输出。
+先定图要说明的贡献，再排内容与布局。删去重复信息，保留必要输入、操作与输出。
 
 标为铁律的要求必须遵守，其余是可调整建议。这里的中英句式是教学例子，数值和口径用自己的实际记录。
 
 ## 绘图规范
 
-- **每图明确一个主要任务：**mainfig 展示研究动机与观察，framework 说明设计如何对应问题，结果图提供验证证据。每图明确一个主要任务。
+- **每图明确一个主要任务：**mainfig 展示动机与观察。framework 解释设计如何解决问题。结果图验证主张。
 
 Show where the existing pipeline fails and which step our method changes.
 
@@ -14,7 +14,7 @@ Show where the existing pipeline fails and which step our method changes.
 
 图例与拆解：[单栏首图：一条曲线提出问题](https://da1yuqin.github.io/StarPaper/#visual-lost-middle-fig-1)
 
-- **绘图先于正文精修：**先完成可供合作者审核的框架图与实验图，再精修正文。图未能体现贡献时，先调整内容与布局，再修改配色。
+- **绘图先于正文精修：**先画框架图与实验图，供合作者审核，再精修正文。图未体现贡献时，先改内容和布局，再改颜色。
 
 Panel (a) shows the observed gap; panel (b) tests the proposed repair.
 
@@ -22,7 +22,7 @@ Panel (a) shows the observed gap; panel (b) tests the proposed repair.
 
 图例与拆解：[对照图要对齐改动](https://da1yuqin.github.io/StarPaper/#visual-tcod-fig-3)
 
-- **【铁律】统计图使用真实数据：**统计图用 Python 从真实数据绘制；imagegen 用于动机、框架和案例图。缺数据就停，不补点、不编误差、不为平滑改曲线。
+- **【铁律】统计图使用真实数据：**统计图用 Python 从真实数据绘制。imagegen 用于动机、框架和案例示意。缺数据就停，不补点、不编误差、不为平滑改曲线。
 
 Draw the recorded success rates with Python. Generate only the workflow illustration with imagegen.
 
@@ -30,7 +30,7 @@ Draw the recorded success rates with Python. Generate only the workflow illustra
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/StarPaper/#visual-interactcs-fig-1) · [KDE：看哪里密集，不是已经累计了多少](https://da1yuqin.github.io/StarPaper/#teaching-kde)
 
-- **【铁律】按最终尺寸检查字号：**按最终栏宽排字，字体与正文一致；所有图内字同一字号，介于正文与正文减 2 pt 之间，标题也不能更大。放不下先重排，不缩小规定字号。
+- **【铁律】按最终尺寸检查字号：**按最终栏宽排字，字体与正文一致。图内统一字号，范围为正文减 2 pt 至正文。标题也不放大；放不下就重排。
 
 Use the paper’s column width and body font; remove repeated labels rather than shrinking text.
 
@@ -38,7 +38,7 @@ Use the paper’s column width and body font; remove repeated labels rather than
 
 图例与拆解：[对照图要对齐改动](https://da1yuqin.github.io/StarPaper/#visual-tcod-fig-3)
 
-- **【铁律】箭头表示真实依赖：**同层成组并命名；先后、并行、汇合、反馈按真实依赖画。每条箭头说清传什么，起止明确，避免穿过文字与无必要的迂回。
+- **【铁律】箭头表示真实依赖：**同层内容成组并命名。先后、并行、汇合与反馈按真实依赖绘制。箭头注明传递内容，起止清楚，不穿文字、不绕远路。
 
 Retrieved passages enter the generator; the evaluator receives the generated answer.
 
@@ -46,7 +46,7 @@ Retrieved passages enter the generator; the evaluator receives the generated ans
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/StarPaper/#visual-interactcs-fig-1)
 
-- **【铁律】区分输入与评价信息：**输入、输出、评价规则用三种边框区分，并给图例。只供评价的 rubric 不连到被测模型；不同模型收到不同材料，也要标清。
+- **【铁律】区分输入与评价信息：**输入、输出和评价规则用三种边框区分，并给图例。评价专用的 rubric 不连到被测模型。模型收到的材料不同，也须标明。
 
 Dashed boxes contain model inputs; solid boxes contain responses; dotted boxes contain evaluator-only criteria.
 
@@ -54,7 +54,7 @@ Dashed boxes contain model inputs; solid boxes contain responses; dotted boxes c
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/StarPaper/#visual-interactcs-fig-1)
 
-- **【铁律】低饱和配色与清晰对比：**常规模块用中性灰，关键改动用统一强调色。低饱和配色须保持清晰对比。
+- **【铁律】低饱和配色与清晰对比：**常规模块用中性灰，关键改动用统一强调色。配色低饱和，对比清楚。
 
 Blue circles denote the baseline; orange triangles denote our method in every panel.
 
@@ -62,7 +62,7 @@ Blue circles denote the baseline; orange triangles denote our method in every pa
 
 图例与拆解：[消融：颜色分组，纹理分方法](https://da1yuqin.github.io/StarPaper/#visual-interactcs-fig-2)
 
-- **【铁律】对话按轮次与语义分段：**一轮一框，注明角色；同一轮长回复按语义分段，不伪装成多轮。高亮只标关键约束、证据或错误，颜色含义要能读懂。
+- **【铁律】对话按轮次与语义分段：**对话一轮一框，并注明角色。长回复按语义分段，不拆成虚假的多轮。只高亮关键约束、证据或错误，并解释颜色。
 
 The left column contains evidence; the right column shows the model response and its evaluation.
 
@@ -70,7 +70,7 @@ The left column contains evidence; the right column shows the model response and
 
 图例与拆解：[案例：相同信息同框](https://da1yuqin.github.io/StarPaper/#fig-interactcs-case)
 
-- **【铁律】同一案例仅完整呈现一次：**同一来源的案例在全文只完整呈现一次，其他位置交叉引用。改名、翻译、裁剪也算同一个；必要对照集中展示，单个案例不能证明总体效果。
+- **【铁律】同一案例仅完整呈现一次：**同一案例全文只完整展示一次，其他位置交叉引用。改名、翻译或裁剪仍算同一案例。必要对照集中展示，单个案例不证明总体效果。
 
 Figure 1 presents the case; Section 4 refers back to Figure 1 without repeating the dialogue.
 
@@ -78,7 +78,7 @@ Figure 1 presents the case; Section 4 refers back to Figure 1 without repeating 
 
 图例与拆解：[案例：相同信息同框](https://da1yuqin.github.io/StarPaper/#fig-interactcs-case)
 
-- **【铁律】同类子图使用一致尺度：**围绕一个问题排现象、诊断、对照和稳健性；同条件同顺序、同配色，同类轴和色标保持可比。
+- **【铁律】同类子图使用一致尺度：**围绕同一问题排列现象、诊断、对照和稳健性。条件顺序与配色统一，同类轴和色标保持可比。
 
 The first panel identifies the gap, the second locates it, and the third tests whether it persists.
 
@@ -86,15 +86,15 @@ The first panel identifies the gap, the second locates it, and the third tests w
 
 图例与拆解：[TCOD：四幅图围着一个诊断](https://da1yuqin.github.io/StarPaper/#visual-tcod-fig-2)
 
-- **【铁律】准确呈现坐标与差异：**查单位、分母、方向、坐标起点和误差类型；截断坐标要明确标出。相对增益同时给绝对值，柱长和数值必须对应。
+- **【铁律】准确呈现坐标与差异：**核对单位、分母、方向、坐标起点和误差类型。截断坐标须标明；相对增益同时给绝对值。柱长必须对应数值。
 
 Accuracy rises from 60% to 66%: 6 percentage points, or a 10% relative increase.
 
-准确率从 60% 到 66%：增加 6 个百分点，相对提高 10%。
+准确率从 60% 到 66%，增加 6 个百分点。相对增益为 10%。
 
 图例与拆解：[配对增益：同一任务，直接看差了多少](https://da1yuqin.github.io/StarPaper/#teaching-paired-gain)
 
-- **【铁律】Caption 按图的读序讲解：**先定位图表对象，在本图 Caption 或对应脚注解释实际简称，再按读序带读。案例条件对应难点标签，颜色点明连接对象；保留必要单位、分母与边界，不堆单项判定。“显著”须有统计检验。
+- **【铁律】Caption 按图的读序讲解：**图注先说明图表对象，再按读图顺序讲解。简称在本图 Caption 或脚注解释。案例条件对应难点标签，颜色说明连接对象。保留必要单位、分母与边界，单项判定移到脚注。“显著”须有统计检验。
 
 Error bars show 95% question-level bootstrap intervals; the horizontal line marks zero gain.
 
@@ -102,7 +102,7 @@ Error bars show 95% question-level bootstrap intervals; the horizontal line mark
 
 图例与拆解：[置信带：先认统计单位，再认内外两层](https://da1yuqin.github.io/StarPaper/#teaching-confidence)
 
-- **【铁律】编译后检查最终页面：**放回论文检查实际字号、字体嵌入、可选文字、裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后仍正确。图表移到附录时，同步详解、Overview 与引用，正文保留主要结论。
+- **【铁律】编译后检查最终页面：**放回论文检查字号、字体嵌入与可选文字。再查裁切、碰撞、图注总高度和首次引用顺序。源码字号正确，不代表插入后正确。图表移到附录时，同步详解、Overview 与引用。正文保留主要结论。
 
 Place the figure after its first mention and check all labels at normal reading size.
 
@@ -110,7 +110,7 @@ Place the figure after its first mention and check all labels at normal reading 
 
 图例与拆解：[问题和解法放在同一张图](https://da1yuqin.github.io/StarPaper/#visual-tcod-fig-1)
 
-- **【铁律】明确模块输入与输出：**每个关键模块写清收到什么、做什么、交出什么，以及交给谁。模块名与 Method 一致，所有缩写就近解释。
+- **【铁律】明确模块输入与输出：**模块写清输入、操作、产物及接收者。名称与 Method 一致，缩写就近解释。
 
 The checker receives evidence and returns supported constraints to the planner.
 
@@ -118,7 +118,7 @@ The checker receives evidence and returns supported constraints to the planner.
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/StarPaper/#visual-interactcs-fig-1)
 
-- **【铁律】解释图中所有标记：**图标旁写对象名；新缩写、符号、边框、线型和数字就近解释。读者只看图与图注，应知道每个标记指什么。
+- **【铁律】解释图中所有标记：**图标旁写对象名，缩写、符号、边框和线型就近解释。图与图注应讲清每个标记和数字。
 
 Label the robot as the planner and define dashed edges as feedback.
 
@@ -126,7 +126,7 @@ Label the robot as the planner and define dashed edges as feedback.
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/StarPaper/#visual-interactcs-fig-1)
 
-- **【铁律】Framework 展示操作与产物：**“结合 case 去绘制你的流程” 展示一个真实输入怎样变成中间产物和输出，旁边点出设计解决的困难。节点多不等于贡献多。
+- **【铁律】Framework 展示操作与产物：**用一个真实输入串起中间产物与输出。旁边指出各项设计解决的困难。
 
 Trace one task from the evidence input through checking to the final plan.
 
@@ -134,7 +134,7 @@ Trace one task from the evidence input through checking to the final plan.
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/StarPaper/#visual-interactcs-fig-1) · [案例：相同信息同框](https://da1yuqin.github.io/StarPaper/#fig-interactcs-case)
 
-- **【铁律】区分示意与实测：**估计、作者示例和实测输出分清；可选路径不能画成必经步骤。框的面积、线宽和箭头不能暗示没有证据的比例或因果，图形本身须准确，不能仅靠图注纠正。评分通过不等于真实执行、成交或部署成功；显示改名不改冻结 prompt、机器字段和统计，不冒称执行原文。
+- **【铁律】区分示意与实测：**区分估计、作者示例和实测输出。可选路径不能画成必经步骤。面积、线宽和箭头不能暗示无依据的比例或因果。图形须准确，不能靠图注补救。评分通过不等于执行、成交或部署成功。显示改名时，保留冻结 prompt、机器字段和统计。改写不能冒称执行原文。
 
 Keep illustrative module boxes equally sized; plot measured latency on a labeled axis.
 
@@ -142,7 +142,7 @@ Keep illustrative module boxes equally sized; plot measured latency on a labeled
 
 图例与拆解：[成本性能：每个点对应一项明确配置](https://da1yuqin.github.io/StarPaper/#teaching-cost)
 
-- **【铁律】准确区分矢量与位图：**统计图导出矢量 PDF 并嵌入字体。生成底图上的标签另排原生、可见、可选的 PDF 文字；不留重叠字形，不加隐藏 OCR 层。混合 PDF 仍含位图。
+- **【铁律】准确区分矢量与位图：**统计图导出矢量 PDF，并嵌入字体。底图标签另排原生、可见、可选的 PDF 文字。不叠字形，不加隐藏 OCR 层。混合 PDF 仍含位图。
 
 Export the plot as vector PDF and verify that its axis labels can be selected.
 
@@ -150,7 +150,7 @@ Export the plot as vector PDF and verify that its axis labels can be selected.
 
 图例与拆解：[对照图要对齐改动](https://da1yuqin.github.io/StarPaper/#visual-tcod-fig-3)
 
-- **【铁律】保持修改范围：**只改配色就保留布局、文字、换行、字号、公式、照片和连线；重排须在约定范围内。保留数据、实验和合作者的图。
+- **【铁律】保持修改范围：**只改配色时，保留布局、文字、换行、字号和公式。照片与连线也不变；重排须在约定范围内。保留数据、实验和合作者的图。
 
 Change panel fills while retaining every label, coordinate, and arrow endpoint.
 
@@ -158,7 +158,7 @@ Change panel fills while retaining every label, coordinate, and arrow endpoint.
 
 图例与拆解：[消融：颜色分组，纹理分方法](https://da1yuqin.github.io/StarPaper/#visual-interactcs-fig-2)
 
-- **【铁律】按模板宽度布局：**按实际栏宽起稿，不改页边距、正文字号或页面方向。正文通栏约 16:9、单栏约 4:3 是起点，附录可纵排；不进行非等比缩放。CS 默认用 [!t]，再按正文首次引用检查实际落点。
+- **【铁律】按模板宽度布局：**按实际栏宽起稿，不改页边距、正文字号或页面方向。通栏可从 16:9 起稿，单栏可从 4:3 起稿。附录可纵排，图不能非等比缩放。CS 默认用 [!t]，按首次引用检查实际落点。
 
 Rearrange parallel branches within the column width; keep the paper template unchanged.
 
@@ -166,7 +166,7 @@ Rearrange parallel branches within the column width; keep the paper template unc
 
 图例与拆解：[问题和解法放在同一张图](https://da1yuqin.github.io/StarPaper/#visual-tcod-fig-1)
 
-- **【铁律】表格用于结果与数据：**StarPaper 默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文，不能通过截图规避该规则；统计数字也不能把说明表变成实验结果。
+- **【铁律】表格用于结果与数据：**本教程默认表格只放真实结果或数据。术语、方法、实验计划和案例点评写正文。不能把说明表截图规避，也不能靠添数字冒充结果。
 
 Put success rates in a table and explain the checking procedure in the text.
 
@@ -174,7 +174,7 @@ Put success rates in a table and explain the checking procedure in the text.
 
 图例与拆解：[消融：颜色分组，纹理分方法](https://da1yuqin.github.io/StarPaper/#visual-interactcs-fig-2)
 
-- **【铁律】重排文字与图形重叠处：**图例、标题、刻度和注释不能挡数据、箭头或边框。为文字保留空间，通过重排解决重叠，不能用遮盖隐藏问题。
+- **【铁律】重排文字与图形重叠处：**图例、标题、刻度和注释不能遮挡数据与连线。重排并留出文字空间，不用遮盖掩饰重叠。
 
 Move the legend outside the plotted curves while preserving the data and axes.
 
@@ -184,7 +184,7 @@ Move the legend outside the plotted curves while preserving the data and axes.
 
 ## 按图的任务选模板
 
-- **摘要图：**方法型画问题、旧做法和本文改动；发现型展示一个关键观察。通常最多 5 个环节，保留必要对照。
+- **摘要图：**方法型展示问题、旧做法和本文改动。发现型展示关键观察。通常最多 5 个环节，并保留必要对照。
 
 Show the problem, the existing limitation, and the changed step.
 
@@ -192,7 +192,7 @@ Show the problem, the existing limitation, and the changed step.
 
 图例与拆解：[单栏首图：一条曲线提出问题](https://da1yuqin.github.io/StarPaper/#visual-lost-middle-fig-1)
 
-- **框架图：**输入是什么，经过哪几个模块，每步产物交给谁，输出是什么。旁边走一个可追踪例子。
+- **框架图：**画清输入、模块、各步产物、接收者与最终输出。旁边用一个案例走完流程。
 
 Given a query, retrieve passages, rank evidence, and generate an answer with cited support.
 
@@ -200,7 +200,7 @@ Given a query, retrieve passages, rank evidence, and generate an answer with cit
 
 图例与拆解：[大框先分两块，小框再编号](https://da1yuqin.github.io/StarPaper/#visual-interactcs-fig-1)
 
-- **案例图：**“不同highlight颜色表示不同类型的信息” 白底保留必要背景、需求、证据、动作与结果；输入、模型输出、judge 用可解释边框，位置表示真实层级。
+- **案例图：**白底保留必要背景、需求、证据、动作与结果。高亮颜色区分信息类型。边框区分输入、模型输出与 judge，位置对应真实层级。
 
 Separate the request, evidence, response, and evaluation.
 
@@ -208,7 +208,7 @@ Separate the request, evidence, response, and evaluation.
 
 图例与拆解：[案例：相同信息同框](https://da1yuqin.github.io/StarPaper/#fig-interactcs-case)
 
-- **主结果与消融：**少量方法用点图或柱图；完整方法与删组件版本同顺序、同配色。说明误差的统计单位和计算方法。
+- **主结果与消融：**少量方法用点图或柱图。完整方法与消融版本保持同顺序、同配色。注明误差的统计单位与算法。
 
 Compare the complete model with variants that remove one component.
 
@@ -224,7 +224,7 @@ Each point shows the intervention-minus-control accuracy on matched questions.
 
 图例与拆解：[配对增益：同一任务，直接看差了多少](https://da1yuqin.github.io/StarPaper/#teaching-paired-gain)
 
-- **训练或轮次动态：**折线只连有序变量；横轴写训练步数或轮次，不把无序方法连成趋势。
+- **训练或轮次动态：**折线只连有序变量，横轴写训练步数或轮次。无序方法不连成趋势。
 
 Track success rate and penalty magnitude against the same training steps.
 
@@ -232,7 +232,7 @@ Track success rate and penalty magnitude against the same training steps.
 
 图例与拆解：[训练动态：控制量和实际行为并排](https://da1yuqin.github.io/StarPaper/#visual-interactcs-fig-3)
 
-- **KDE：看分布形状：**横轴是变量，纵轴是密度；颜色跟组走，均值线补位置，交代样本量和带宽。峰高不是人数，也不是累计比例。
+- **KDE：看分布形状：**横轴是变量，纵轴是密度。颜色区分组别，均值线标位置，并注明样本量和带宽。峰高不是人数或累计比例。
 
 Compare density shapes with a shared bandwidth; mark sample counts and mean values.
 
@@ -240,7 +240,7 @@ Compare density shapes with a shared bandwidth; mark sample counts and mean valu
 
 图例与拆解：[KDE：看哪里密集，不是已经累计了多少](https://da1yuqin.github.io/StarPaper/#teaching-kde)
 
-- **ECDF：看阈值以下有多少：**横轴取阈值，纵轴直接读累计比例；同一坐标比两组，阶梯从 0 到 1。低于某阈值的样本比例应从 ECDF 读取，KDE 峰值不能表示累计比例。
+- **ECDF：看阈值以下有多少：**横轴取阈值，纵轴读不超过阈值的累计比例。两组共用坐标，阶梯从 0 到 1。KDE 峰高不表示累计比例。
 
 At a threshold of 10, the ECDF gives the fraction of observations at or below 10.
 
@@ -256,7 +256,7 @@ Use one shared color scale for all conditions and mark missing cells.
 
 图例与拆解：[热图：一个色标，缺测直接空出来](https://da1yuqin.github.io/StarPaper/#teaching-heatmap)
 
-- **PCA：把高维关系投到二维：**“利用空间位置关系绑定数据，更换不同的颜色呈现不同属性” 同时交代特征、标准化与解释方差。分得开不等于泛化好；PaCMAP、t-SNE 不叫 PCA。
+- **PCA：把高维关系投到二维：**位置展示数据关系，颜色区分属性。注明特征、标准化方式与解释方差。分得开不等于泛化好；PaCMAP、t-SNE 不叫 PCA。
 
 Project standardized features onto two principal components and report the variance explained by each axis.
 
@@ -264,7 +264,7 @@ Project standardized features onto two principal components and report the varia
 
 图例与拆解：[PCA：先定义输入，再看二维投影](https://da1yuqin.github.io/StarPaper/#teaching-pca)
 
-- **雷达图：多指标逐轴读：**每轴一个指标，写尺度、归一化和好坏方向；颜色再配点形。不同量纲不能用面积直接比较，轴顺序也会改变面积。
+- **雷达图：多指标逐轴读：**每轴一个指标，注明尺度、归一化和好坏方向。颜色再配点形。不同量纲不能按面积比较，轴顺序也会影响面积。
 
 Compare normalized metrics spoke by spoke; polygon area is not an overall score.
 
@@ -272,7 +272,7 @@ Compare normalized metrics spoke by spoke; polygon area is not an overall score.
 
 图例与拆解：[雷达：比较各指标，面积不代表总分](https://da1yuqin.github.io/StarPaper/#teaching-radar)
 
-- **成本性能图：**每点是一个实际配置；在线与离线成本分开，写单位和好坏方向。连接前沿不意味着有中间配置。
+- **成本性能图：**每点对应实际配置，注明单位和好坏方向。在线与离线成本分开。前沿连线不代表存在中间配置。
 
 Plot measured accuracy against online cost; report one-time training cost separately.
 
@@ -280,7 +280,7 @@ Plot measured accuracy against online cost; report one-time training cost separa
 
 图例与拆解：[成本性能：每个点对应一项明确配置](https://da1yuqin.github.io/StarPaper/#teaching-cost)
 
-- **数据集分布：**先写清统计单位、样本量、类别与分母。同一图不能混用案例数、回复数与判据数；说明类别覆盖范围与占比。
+- **数据集分布：**注明统计单位、样本量、类别与分母。案例数、回复数和判据数分开统计。说明类别覆盖范围与占比。
 
 Count unique cases by domain; report response counts separately.
 
@@ -288,7 +288,7 @@ Count unique cases by domain; report response counts separately.
 
 图例与拆解：[环图：组成比例，先说总数](https://da1yuqin.github.io/StarPaper/#teaching-donut)
 
-- **置信带：**按实际重采样或模型计算区间，写清区间类型和置信水平。同一估计的嵌套区间才可比较覆盖范围；不同样本量、方差也会改变带宽。
+- **置信带：**按实际重采样或模型计算区间。注明区间类型与置信水平。同一估计的嵌套区间才能比较覆盖范围。样本量和方差也会影响带宽。
 
 Nested bands show the estimated 68% and 95% intervals under the stated procedure.
 
@@ -296,7 +296,7 @@ Nested bands show the estimated 68% and 95% intervals under the stated procedure
 
 图例与拆解：[置信带：先认统计单位，再认内外两层](https://da1yuqin.github.io/StarPaper/#teaching-confidence)
 
-- **饼图、环图与圆环排名：**饼图只画互斥且组成整体的比例；圆环柱图可画排名，极值相邻只是环形排序，不是变量关系。要读精确差值，横向条图更方便。
+- **饼图、环图与圆环排名：**饼图只展示互斥、合成整体的比例。圆环柱图可排排名，相邻极值不代表变量相关。精确比较差值时，用横向条图。
 
 Use slices for a composition and ordered bars for a ranking.
 
@@ -304,7 +304,7 @@ Use slices for a composition and ordered bars for a ranking.
 
 图例与拆解：[环图：组成比例，先说总数](https://da1yuqin.github.io/StarPaper/#teaching-donut)
 
-- **二维增益与九宫格：**“可以用这种九宫格来分类，好处是可以看出两个渐进的变化” 两轴写指标、单位和好坏方向；差值图以零线分区，不为填满网格补造数据。
+- **二维增益与九宫格：**两轴写明指标、单位和好坏方向。差值图用零线分区，呈现两项变化及其取舍。不为填满网格补造数据。
 
 With both gains defined as higher is better, the upper-right quadrant shows improvements on both metrics.
 
@@ -312,31 +312,31 @@ With both gains defined as higher is better, the upper-right quadrant shows impr
 
 图例与拆解：[二维增益：右上都改善，其他象限看取舍](https://da1yuqin.github.io/StarPaper/#teaching-two-gain)
 
-- **小样本：均值之外看原始观测：**比较小样本的连续测量时，优先展示原始观测点与样本量，可叠加均值或区间；较多观测可用箱线图或已有分布图。均值相同不代表分布相同。计数、比例等汇总量仍可用柱图，不把这条写成禁止所有柱图。
+- **小样本：均值之外看原始观测：**小样本连续值优先展示原始点与样本量。可叠均值或区间；观测较多时可用箱线图或分布图。均值相同不代表分布相同。计数、比例等汇总量仍可用柱图。
 
 Both groups average 6, but one is dispersed and the other is tightly clustered.
 
-两组均值都为 6，一组分散，另一组集中；原始点让差别可见。
+两组均值均为 6，原始点显示一组分散、一组集中。
 
 图例与拆解：[同样的均值，可以藏着不同的分布](https://da1yuqin.github.io/StarPaper/#teaching-mean-distribution)
 
-- **散点遮挡：必要时改看二维计数：**重叠的点可能隐藏观测数量和少数类别。先检查透明度是否仍能呈现密集区与稀疏区；大量重叠时可用二维分箱或六边形分箱，说明每格计数、范围与箱宽。保留原始坐标，不为分开点而移动测量值；颜色深浅不是未经定义的概率。
+- **散点遮挡：必要时改看二维计数：**重叠点可能隐藏数量和少数类别。先调透明度，检查密集区与稀疏区能否分清。大量重叠时用二维或六边形分箱。注明每格计数、范围与箱宽。保留真实坐标，不为分开点而移动数值。未定义时，颜色深浅不表示概率。
 
 The scatter view hides repeated coordinates; each cell in the count view reports how many observations it contains.
 
-散点图中相同坐标被盖住；二维计数图显示每个区域实际包含多少观测。
+相同坐标的散点会遮挡，二维计数图显示各区观测数。
 
 图例与拆解：[点叠在一起，不等于只有一个观测](https://da1yuqin.github.io/StarPaper/#teaching-overlap-count)
 
-- **连续色标：让明暗顺序对应数值：**无序类别用离散色板，连续大小用明暗顺序清楚的顺序色标；偏离有意义的参照值时用发散色标。连续数值不默认用 rainbow／jet：不均匀、非单调的明暗变化可能掩盖差异或制造边界。沿用现有色板的语义，检查灰度下的数值顺序。
+- **连续色标：让明暗顺序对应数值：**类别用离散色板，连续量用明暗有序的色标。偏离有意义的基准时，用发散色标。连续量不默认用 rainbow／jet。其明暗不均可能掩盖差异或制造边界。保留已有颜色含义，并检查灰度下的数值顺序。
 
 Equal steps in a continuous score should not acquire arbitrary bright boundaries from the palette.
 
-分数等距变化，不应因为色板突然变亮而看起来有一道数据边界。
+等距分数不应因颜色骤变而出现虚假的数据边界。
 
 图例与拆解：[连续数值的颜色，要让大小顺序看得出来](https://da1yuqin.github.io/StarPaper/#teaching-continuous-color)
 
-- **【铁律】气泡面积与数量成正比：**用气泡面积表示非负数量时，面积必须与数量成正比，半径随数量平方根变化；给出大小图例与单位。数量变为 4 倍，面积变为 4 倍、半径变为 2 倍。圆面积关系来自 A = πr²；颜色或位置表示的其他变量分别解释。
+- **【铁律】气泡面积与数量成正比：**气泡表示非负数量时，面积须与数量成正比。半径取数量的平方根，并给大小图例与单位。数量增至 4 倍，面积增至 4 倍、半径增至 2 倍。关系来自 A = πr²；其他颜色与位置编码另解释。
 
 For counts 1, 4 and 9, proportional areas require radii in the ratio 1:2:3.
 
@@ -344,21 +344,21 @@ For counts 1, 4 and 9, proportional areas require radii in the ratio 1:2:3.
 
 图例与拆解：[数量变大四倍，气泡面积也应变大四倍](https://da1yuqin.github.io/StarPaper/#teaching-bubble-area)
 
-- **误差线重叠：先认类型与比较设计：**不能通用地把误差线重叠判作不显著，或把不重叠判作显著。解释依赖 SD、SE、CI 类型、样本量以及独立／配对设计；差异判断用相应检验或直接估计差值与区间。已有的误差类型、重复单位和区间定义继续保留，不凭图形外观补出 p 值。
+- **误差线重叠：先认类型与比较设计：**不能只凭误差线是否重叠判断显著性。先看 SD、SE 或 CI 类型、样本量及独立／配对设计。用对应检验，或直接估计差值与区间。保留误差类型、重复单位和区间定义，不凭图补 p 值。
 
 A paired comparison depends on within-pair differences; the two marginal error bars alone do not encode that pairing.
 
-配对比较取决于同一对象的差值，两组均值各自的误差线并没有表示这个配对关系。
+配对比较使用同一对象的差值。两组均值各自的误差线不体现配对关系。
 
 图例与拆解：[误差线重叠，不能直接当作显著性结论](https://da1yuqin.github.io/StarPaper/#teaching-errorbar-overlap)
 
 ## 相关参考和推荐阅读
 
-- [Weissgerber 等（2015）· 小样本连续数据为何需要展示原始观测](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128)：小样本连续数据：原始观测点揭示均值与误差条隐藏的分布、离群点和配对关系；不禁止所有柱图，不规定统一的小样本阈值。
-- [Wilke（2019）· 散点重叠的处理](https://clauswilke.com/dataviz/overlapping-points.html)：调整点大小和透明度；密集散点可用二维分箱或 hexbin，并解释计数或密度。保留原始坐标，不采用 jitter；分箱不等于逐点展示。
-- [Wilke（2019）· 颜色使用的常见误区](https://clauswilke.com/dataviz/color-pitfalls.html)：连续量用有大小顺序的色标，避免 rainbow/jet 误导；类别与参照值两侧的偏离分别选择离散或发散色板，不规定唯一色板。
-- [Rougier 等（2014）· 科研绘图的十条建议](https://doi.org/10.1371/journal.pcbi.1003833)：根据读者与主要信息选择图型，检查布局、颜色及说明；以气泡面积编码非负数量，避免将半径直接设为数值。示意性形状大小不套用定量比例要求。
-- [Cumming 等（2007）· 误差条与组间差异的解读](https://pmc.ncbi.nlm.nih.gov/articles/PMC2064100/)：误差类型、独立样本数与独立或配对设计共同影响区间比较；不把特定条件下的近似重叠规则作为通用显著性判据。配对比较分析差值及相应不确定性。
+- [Weissgerber 等（2015）· 小样本连续数据为何需要展示原始观测](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128)：原始点揭示均值与误差条隐藏的分布、离群点及配对。适用于小样本连续数据，不设统一样本阈值。不禁止所有柱图。
+- [Wilke（2019）· 散点重叠的处理](https://clauswilke.com/dataviz/overlapping-points.html)：先调点大小与透明度。密集散点可用二维分箱或 hexbin，解释计数或密度。保留真实坐标，不用 jitter；分箱不保留逐点位置。
+- [Wilke（2019）· 颜色使用的常见误区](https://clauswilke.com/dataviz/color-pitfalls.html)：连续量用明暗有序的色标，避免 rainbow/jet 误导。类别用离散色，偏离基准时用发散色。不指定唯一色板。
+- [Rougier 等（2014）· 科研绘图的十条建议](https://doi.org/10.1371/journal.pcbi.1003833)：按读者与主要信息选图，核对布局、颜色和说明。气泡表示非负数量时，面积须成比例，不能直接缩放半径。示意形状不套用定量比例。
+- [Cumming 等（2007）· 误差条与组间差异的解读](https://pmc.ncbi.nlm.nih.gov/articles/PMC2064100/)：区间比较取决于误差类型、独立样本数及独立／配对设计。特定条件的重叠近似规则不能推广为通用判据。配对比较使用差值及其不确定性。
 
 ---
 

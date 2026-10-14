@@ -4,9 +4,9 @@
 
 <a id="annotated-limitations"></a>
 
-#### 局限：已有工作与研究边界
+#### 局限：本文的研究边界
 
-用一段两点交代本文尚需研究的具体边界。
+用一段两点写清本文的研究边界。
 
 **English 填空模板**
 
@@ -15,10 +15,10 @@ First, although we have [completed work addressing the main difficulty], [specif
 
 **高亮与旁批**
 
-1. **First, although we have [completed work addressing the main difficulty]**：第一点：已完成什么。have 后填过去分词短语，简短写明已完成且有证据的工作，再说明仍未覆盖的边界。
-2. **[specific boundary 1] still warrants further study.**：第一点：边界是什么。填实际相关的特殊条件或未覆盖问题，不能只写 limited generalizability。
-3. **Second, although we have [another completed and verified contribution]**：第二点：另一个方面。换一个有据工作与对应边界，同段承接，不重复第一点。
-4. **[specific boundary 2] still warrants further study.**：第二点：还需研究什么。填另一项明确的对象与条件。若对象为复数，将 warrants 改为 warrant。
+1. **First, although we have [completed work addressing the main difficulty]**：第一点：已完成什么。have 后填过去分词短语。先写已有工作，再引出边界。
+2. **[specific boundary 1] still warrants further study.**：第一点：边界是什么。填未覆盖的具体条件或问题。不能只说泛化有限。
+3. **Second, although we have [another completed and verified contribution]**：第二点：另一个方面。填另一项工作及其边界。同段承接，不重复第一点。
+4. **[specific boundary 2] still warrants further study.**：第二点：还需研究什么。填另一项对象与条件。复数对象用 warrant。
 
 ---
 
