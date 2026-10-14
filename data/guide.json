@@ -3789,7 +3789,7 @@
       "cs-integration",
       "cs-limitations"
     ],
-    "updated_at": "2026-10-14 13:29",
+    "updated_at": "2026-10-14 15:01",
     "visual_rules": [
       "【铁律】保留真实数据、几何、拓扑、分母和输入输出。示意图与实测图分开。截图从原始生成源更新，不擦改证据。评分通过不代表执行、购买或部署成功。",
       "【铁律】表体文字、名称与引用、数值与误差保持单行。换行时先调模板允许的列宽。不擅自简称、缩字或越界。多级表头与注释保留结构。",
@@ -6871,11 +6871,11 @@
       "scope": "沿用会议官方模板的引文命令与书目样式。",
       "purpose": "引文放 .tex，条目放 .bib，两处引用键一致。命令与书目样式沿用会议模板。",
       "rules": [
-        "按官方模板选用 cite、citep 或 citet。",
-        "按来源类型选择会议、期刊或官方文档条目。"
+        "从出版方官网或 Google Scholar 导出 BibTeX，仍须逐项核对。",
+        "建议统一会议简称，期刊补全 pages 页码。无页码时沿用官方文章号。"
       ],
       "label": "引用与 BibTeX 模板；方括号填经原文核对的信息。",
-      "context_zh": "无 DOI 则删该字段，可保留核验过的 URL。提交前替换全部占位字段。",
+      "context_zh": "模板仅供参考。替换方括号；无 DOI 等可选信息时，删除对应字段。",
       "code_blocks": [
         {
           "title": "正文引用（.tex）",
@@ -6885,11 +6885,46 @@
           "text": "[Claim supported by the cited work] \\citep{source_key}."
         },
         {
-          "title": "文献条目（.bib）",
-          "note": "会议用 inproceedings；期刊用 article，填写 journal。字段逐项核对原文，作者间用 and 分隔。无 DOI 则删除，可补真实 URL。",
+          "title": "会议论文（inproceedings）",
+          "note": "booktitle 填论文集名；作者之间用 and 分隔。pages 填页码范围，用双连字符连接。",
           "language": "bibtex",
-          "copy_label": "复制 BibTeX 条目",
-          "text": "@inproceedings{source_key,\n  title     = {[Verified title]},\n  author    = {[Family name, Given name] and [Family name, Given name]},\n  booktitle = {[Verified proceedings title]},\n  year      = {[Publication year]},\n  doi       = {[Verified DOI]}\n}"
+          "copy_label": "复制会议条目",
+          "text": "@inproceedings{source_key,\n  title     = {[Verified title]},\n  author    = {[Family name, Given name] and [Family name, Given name]},\n  booktitle = {[Verified proceedings title]},\n  year      = {[Publication year]},\n  pages     = {[First page]--[Last page]},\n  doi       = {[Verified DOI]}\n}",
+          "collapsed": true
+        },
+        {
+          "title": "期刊论文（article）",
+          "note": "journal 填刊名；volume 填卷，number 填期，pages 填页码。",
+          "language": "bibtex",
+          "copy_label": "复制期刊条目",
+          "text": "@article{journal_key,\n  title   = {[Verified title]},\n  author  = {[Family name, Given name] and [Family name, Given name]},\n  journal = {[Verified journal title]},\n  year    = {[Publication year]},\n  volume  = {[Volume]},\n  number  = {[Issue]},\n  pages   = {[First page]--[Last page]},\n  doi     = {[Verified DOI]}\n}",
+          "collapsed": true
+        },
+        {
+          "title": "arXiv 预印本（misc）",
+          "note": "优先使用 arXiv 导出条目，核对所引版本。编译后检查编号；样式不显示 eprint 时，可用 note 保留。",
+          "language": "bibtex",
+          "copy_label": "复制预印本条目",
+          "text": "@misc{preprint_key,\n  title         = {[Verified title]},\n  author        = {[Family name, Given name] and [Family name, Given name]},\n  year          = {[Version year]},\n  eprint        = {[Verified arXiv identifier]},\n  archivePrefix = {arXiv},\n  primaryClass  = {[Verified subject class]},\n  url           = {[Verified arXiv URL]}\n}",
+          "collapsed": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "BibTeX 官方文档：条目类型与字段",
+          "url": "https://mirrors.ctan.org/biblio/bibtex/base/btxdoc.pdf"
+        },
+        {
+          "title": "Google Scholar：导出引用",
+          "url": "https://scholar.google.com/intl/en/scholar/help.html"
+        },
+        {
+          "title": "arXiv 官方 BibTeX 导出示例",
+          "url": "https://arxiv.org/bibtex/2604.09285"
+        },
+        {
+          "title": "ACL 2026：幻觉引用拒稿声明",
+          "url": "https://2026.aclweb.org/acl_statement/"
         }
       ]
     }
@@ -8730,7 +8765,8 @@
       "参考文献由会议模板与 .bib 生成。核对引文及书目信息，无需另写说明段。",
       "【铁律】判断旁给支持它的原始来源。模型、数据和工具引用所用版本的论文或官方文档。",
       "【铁律】核对题名、作者、年份、出处、DOI 或链接。同一论文的重复版本去重。",
-      "【铁律】来源的对象与条件须支持附近判断。引用文字和图均注明出处，核对许可。"
+      "【铁律】来源的对象与条件须支持附近判断。引用文字和图均注明出处，核对许可。",
+      "【铁律】逐条核实引用，虚假或幻觉引用有拒稿风险。自动导出与核验不能替代人工检查。"
     ],
     "appendix": [
       "按内容设实现细节、设置、补充分析等小节。节首先指向对应的正文方法或主张。正文给出附录入口。",
@@ -9770,13 +9806,6 @@
     "organization_templates": {
       "title": "论文大纲与章节衔接",
       "lead": "先按核心贡献选论证主线，再排全文章节。诊断驱动论文须先用证据确立发现。不能只换引言标题。下列三套仅供参考，段落、模块与节号按需调整。",
-      "requirements": [
-        "找一篇结构合适的论文，把参考部分交给 Codex。让它梳理各节职责、论证顺序与衔接。再按自己的研究拟大纲。只借结构，不照搬主张与结果。",
-        "先列节标题、待答问题、对应证据与篇幅。标题点明对象或任务，不混放无关动作。",
-        "同一问题贯穿引言、相关工作、设计与实验。用 For [limitation], we [对应动作] 点名问题。结论回答原问题，局限全文一致。",
-        "Method 的 Overview 先说设计为何能处理局限。再概括各节输入、输出与依赖。诊断型补瓶颈证据。基准型区分系统输入与评分材料。",
-        "主结果检验整体效果，受控比较检验设计作用。改变相关条件，检验能力边界。诊断驱动研究还要复测原诊断。具体写法见第 3 章实验部分。"
-      ],
       "patterns": [
         {
           "id": "structure-method",
@@ -10202,6 +10231,17 @@
     }
   },
   "update_log": [
+    {
+      "at": "2026-10-14T15:01:04+08:00",
+      "date": "2026-10-14 15:01",
+      "title": "新增目录、铁律漫画与引用模板",
+      "skill_update": true,
+      "changes": [
+        "开头按章节列用途，初稿说明改为使用 Codex skill 后逐节精修。",
+        "两幅简图说明前后对应与实验归因，合并重复文字。",
+        "补齐会议、期刊与 arXiv 的 BibTeX 模板，更新公开写作 skill。"
+      ]
+    },
     {
       "at": "2026-10-14T13:29:50+08:00",
       "date": "2026-10-14 13:29",
@@ -10640,5 +10680,48 @@
       "annotated-experiments-further-analysis",
       "annotated-experiments-case-study"
     ]
-  }
+  },
+  "chapter_overview": [
+    {
+      "target": "quick-start",
+      "title": "1. 初稿准备",
+      "purpose": "整理材料，用 Codex 生成初稿"
+    },
+    {
+      "target": "figures",
+      "title": "2. 论文绘图",
+      "purpose": "画清问题、方法与实验结果"
+    },
+    {
+      "target": "refine",
+      "title": "3. 正文精修",
+      "purpose": "按论文顺序，逐节改逻辑与表达"
+    },
+    {
+      "target": "tools",
+      "title": "4. 辅助工具",
+      "purpose": "查文献、做图表、核对引用"
+    }
+  ],
+  "refine_comics": [
+    {
+      "id": "standard-alignment",
+      "group": "logic",
+      "image": "assets/refine-alignment-comic.png",
+      "width": 2167,
+      "height": 725,
+      "alt": "铁律：前后对应。边牧指出星形缺口，魔法猫制作对应星星，小龙检验是否匹配。",
+      "caption": "设计回应引言的问题，实验检验对应设计。"
+    },
+    {
+      "id": "refine-attribution-comic",
+      "section": "experiments",
+      "image": "assets/refine-attribution-comic.png",
+      "width": 2167,
+      "height": 725,
+      "alt": "铁律：归因要有对照。同一输入与共享设置下，对比完整模型和去掉模块 A 的模型。",
+      "caption": "多个因素同时变化，不能只归因于一个。主结果也不能证明每个模块各自有效。",
+      "replaces": "【铁律】模块归因对应实际改变的因素。多因素同时变化，不能只归给其中一个。主结果不能证明每个模块各自有效。"
+    }
+  ]
 }

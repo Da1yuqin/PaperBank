@@ -272,9 +272,20 @@ def render_paragraph(lesson, refs, md_level=4, number=None, heading=True, compac
   if lesson.get('code_blocks'):
    rendered=f'<section class="paragraph-lesson template-only" id="{e(lesson["id"])}" data-section="{e(lesson["section"])}"><h4>{e(title)}</h4><p>{e(lesson["purpose"])}</p>'
    md=['',f'<a id="{lesson["id"]}"></a>','#### '+title,'',lesson['purpose']]
+   if lesson.get('rules'):
+    rendered+='<ul>'+''.join(f'<li>{e(rule)}</li>' for rule in lesson['rules'])+'</ul>'
+    md+=['']+['- '+rule for rule in lesson['rules']]
+   if lesson.get('context_zh'):
+    rendered+=f'<p class="lesson-context">{e(lesson["context_zh"])}</p>'
+    md+=['',lesson['context_zh']]
    for block in lesson['code_blocks']:
-    rendered+=f'<h5>{e(block["title"])}</h5><p>{e(block["note"])}</p><pre>{e(block["text"])}</pre><button type="button" class="copy js-only" data-copy-text="{e(block["text"],quote=True)}" data-copy-label="{e(block["copy_label"])}">{e(block["copy_label"])}</button>'
+    rendered+=(f'<details class="reference-template"><summary>{e(block["title"])}</summary>' if block.get('collapsed') else f'<h5>{e(block["title"])}</h5>')
+    rendered+=f'<p>{e(block["note"])}</p><pre>{e(block["text"])}</pre><button type="button" class="copy js-only" data-copy-text="{e(block["text"],quote=True)}" data-copy-label="{e(block["copy_label"])}">{e(block["copy_label"])}</button>'
+    if block.get('collapsed'):rendered+='</details>'
     md+=['','**'+block['title']+'**','',block['note'],'','```'+block['language'],block['text'],'```']
+   if lesson.get('sources'):
+    rendered+='<p class="example-source">'+' · '.join(f'<a href="{e(source["url"])}">{e(source["title"])}</a>' for source in lesson['sources'])+'</p>'
+    md+=['',' · '.join(f'[{source["title"]}]({source["url"]})' for source in lesson['sources'])]
    return rendered+'</section>',md
   template=lesson.get('latex_template')
   if not template:return '',[]
@@ -312,6 +323,20 @@ def render_paragraph(lesson, refs, md_level=4, number=None, heading=True, compac
   md+=['','**完整 LaTeX 结构模板**','','```latex',lesson['latex_template'],'```']
  return rendered+'</section>',md
 
+def render_chapter_overview(data):
+ e=html.escape
+ rendered='<nav class="chapter-overview" aria-labelledby="overview-title"><h2 id="overview-title">目录与用途</h2><ol>'
+ md=['','## 目录与用途','']
+ for chapter in data['chapter_overview']:
+  rendered+=f'<li><a href="#{e(chapter["target"])}">{e(chapter["title"])}</a><span>{e(chapter["purpose"])}</span></li>'
+  md+=[f'- [{chapter["title"]}](#{chapter["target"]})：{chapter["purpose"]}']
+ return rendered+'</ol></nav>',md
+
+def render_refine_comic(comic):
+ e=html.escape
+ rendered=f'<figure class="refine-comic" id="{e(comic["id"])}"><img src="{e(comic["image"])}" alt="{e(comic["alt"])}" width="{comic["width"]}" height="{comic["height"]}" loading="lazy" decoding="async"><figcaption>{e(comic["caption"])}</figcaption></figure>'
+ return rendered,['',f'<a id="{comic["id"]}"></a>',f'![{comic["alt"]}](../{comic["image"]})','',comic['caption']]
+
 def render_opening(data):
  e=html.escape
  lead=data.get('refine_global_lead',data['opening_lead'])
@@ -321,9 +346,13 @@ def render_opening(data):
   title=group['title']
   rendered+=f'<h4>{e(title)}</h4><ul class="compact-rules">';md+=['','#### '+title]
   for rule in [r for r in data['refine_standards'] if r['group']==group['id']]:
+   if any(c['id']==rule['id'] for c in data['refine_comics']):continue
    rendered+=f'<li id="{rule["id"]}"><strong>{rule_html(rule["title"])}：</strong>{e(rule["purpose"])}</li>'
    md+=['',f'- **{rule["title"]}：**{rule["purpose"]}']
   rendered+='</ul>'
+  for comic in data['refine_comics']:
+   if comic.get('group')==group['id']:
+    part,notes=render_refine_comic(comic);rendered+=part;md+=notes
  for example in data.get('refine_global_cases',[]):
   case_html,case_md=render_annotated_paragraph(example,data['references'])
   rendered+=case_html;md+=case_md
@@ -463,8 +492,8 @@ def render_draft_chapter(data):
    for note in organization.get('author_reminder',[]):
     formatted=re.sub(r'\*\*\*(.+?)\*\*\*',r'<strong><em>\1</em></strong>',e(note))
     rendered+=f'<p>{formatted}</p>';md+=['',note]
-   rendered+='<ul class="draft-requirements">'+''.join(f'<li>{e(rule)}</li>' for rule in organization['requirements'])+'</ul>'
-   md+=['']+['- '+rule for rule in organization['requirements']]
+   rendered+='<p>先用 <a href="#writing-skill">Codex 写作 skill</a> 生成初稿。生成后，按<a href="#refine">正文精修</a>逐节修改。</p>'
+   md+=['','先用 [Codex 写作 skill](#writing-skill) 生成初稿。生成后，按[正文精修](#refine)逐节修改。']
    ph,pm=render_organization_templates(organization);rendered+=ph;md+=pm
   else:
    text=step['text']
@@ -927,6 +956,7 @@ def build():
   r=refs[key]
   return f'<a href="{e(r["url"])}">{e(r["title"])}</a>'
  preface,preface_md=render_preface(data)
+ overview,overview_md=render_chapter_overview(data)
  quick_start,quick_md=render_quick_start(data)
  figures,figures_md,figure_appendix,figure_appendix_md=render_figures(data)
  opening,opening_md=render_opening(data)
@@ -956,6 +986,10 @@ def build():
   md+=['',f'<a id="{s["id"]}"></a>',f'<a id="chapter-{s["id"]}"></a>',f'{"#"*heading_level} {prefix}{s["title"]}','',purpose]
   principles=data.get('refine_section_principles',{}).get(s['id'])
   if principles:
+   for comic in data['refine_comics']:
+    if comic.get('section')==s['id']:
+     part,notes=render_refine_comic(comic);entries+=part;md+=notes
+     principles=[rule for rule in principles if rule!=comic.get('replaces')]
    entries+='<div class="section-principles"><h4>本节原则</h4><ul>'+''.join(f'<li>{rule_html(rule)}</li>' for rule in principles)+'</ul></div>'
    md+=['','#### 本节原则','']+['- '+rule for rule in principles]
   elif s.get('principle'):
@@ -973,7 +1007,7 @@ def build():
   entries+='</section>'
   chapter_html[s['id']]=entries[html_start:];chapter_md[s['id']]=md[md_start:]
  entries=''.join(chapter_html[s['id']] for s in sections if s.get('manuscript'))
- md=md[:1]+['',data['site_subtitle'],'']+preface_md+md[1:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 正文精修','','按论文顺序，先读要求，再填模板。旁批解释每句的内容与衔接。','']+opening_md+['','### 本章目录','']
+ md=md[:1]+['',data['site_subtitle'],'']+preface_md+overview_md+md[1:7]+quick_md+skill_md+figures_md+['','<a id="refine"></a>','## 3. 正文精修','','按论文顺序，先读要求，再填模板。旁批解释每句的内容与衔接。','']+opening_md+['','### 本章目录','']
  md+=[f'- [3.{int(s["number"])+1} {s["nav"]}](#{s["id"]})' for s in sections if s.get('manuscript')]
  for s in sections:
   if s.get('manuscript'):md+=chapter_md[s['id']]
@@ -984,7 +1018,7 @@ def build():
  reading='<h3>绘图补充</h3><ul>'+''.join(f'<li>{link(k)}<span> — {e(refs[k]["scope"])}</span></li>' for k in drawing_refs)+'</ul><h3>写作指南、投稿要求与示例论文</h3><ul>'
  reading+=''.join(f'<li>{link(k)}<span> — {e(r["scope"])}</span></li>' for k,r in refs.items() if r.get('public') and k not in drawing_refs)+'</ul>'
  t=(ROOT/'assets/template.html').read_text(encoding='utf-8')
- for k,v in {'TITLE':e(data['site_title']),'SUBTITLE':e(data['site_subtitle']),'PREFACE':preface,'NAV':nav,'DRAFT_NAV':draft_nav,'FIGURE_NAV':figure_nav,'TOOLS_NAV':tools_nav,'ENTRIES':entries,'TOOLS':tools,'QUICK_START':quick_start,'FIGURES':figures,'FIGURE_APPENDIX':figure_appendix,'OPENING':opening,'SKILL':skill,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':'4','EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
+ for k,v in {'TITLE':e(data['site_title']),'SUBTITLE':e(data['site_subtitle']),'PREFACE':preface,'OVERVIEW':overview,'NAV':nav,'DRAFT_NAV':draft_nav,'FIGURE_NAV':figure_nav,'TOOLS_NAV':tools_nav,'ENTRIES':entries,'TOOLS':tools,'QUICK_START':quick_start,'FIGURES':figures,'FIGURE_APPENDIX':figure_appendix,'OPENING':opening,'SKILL':skill,'READING':reading,'TOTAL':str(len(items)),'CHAPTERS':'4','EXAMPLES':str(examples)}.items():t=t.replace('{{'+k+'}}',v)
  (ROOT/'index.html').write_text(t,encoding='utf-8')
  (ROOT/'book').mkdir(exist_ok=True)
  md+=figure_appendix_md

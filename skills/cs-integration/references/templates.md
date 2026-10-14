@@ -131,6 +131,11 @@ We introduced [work name and type] to address [research problem]. By [core desig
 
 引文放 .tex，条目放 .bib，两处引用键一致。命令与书目样式沿用会议模板。
 
+- 从出版方官网或 Google Scholar 导出 BibTeX，仍须逐项核对。
+- 建议统一会议简称，期刊补全 pages 页码。无页码时沿用官方文章号。
+
+模板仅供参考。替换方括号；无 DOI 等可选信息时，删除对应字段。
+
 **正文引用（.tex）**
 
 引用紧跟判断。本例用 citep；模板只支持 cite 时换用 cite。书目加载命令沿用官方模板。
@@ -139,9 +144,9 @@ We introduced [work name and type] to address [research problem]. By [core desig
 [Claim supported by the cited work] \citep{source_key}.
 ```
 
-**文献条目（.bib）**
+**会议论文（inproceedings）**
 
-会议用 inproceedings；期刊用 article，填写 journal。字段逐项核对原文，作者间用 and 分隔。无 DOI 则删除，可补真实 URL。
+booktitle 填论文集名；作者之间用 and 分隔。pages 填页码范围，用双连字符连接。
 
 ```bibtex
 @inproceedings{source_key,
@@ -149,9 +154,45 @@ We introduced [work name and type] to address [research problem]. By [core desig
   author    = {[Family name, Given name] and [Family name, Given name]},
   booktitle = {[Verified proceedings title]},
   year      = {[Publication year]},
+  pages     = {[First page]--[Last page]},
   doi       = {[Verified DOI]}
 }
 ```
+
+**期刊论文（article）**
+
+journal 填刊名；volume 填卷，number 填期，pages 填页码。
+
+```bibtex
+@article{journal_key,
+  title   = {[Verified title]},
+  author  = {[Family name, Given name] and [Family name, Given name]},
+  journal = {[Verified journal title]},
+  year    = {[Publication year]},
+  volume  = {[Volume]},
+  number  = {[Issue]},
+  pages   = {[First page]--[Last page]},
+  doi     = {[Verified DOI]}
+}
+```
+
+**arXiv 预印本（misc）**
+
+优先使用 arXiv 导出条目，核对所引版本。编译后检查编号；样式不显示 eprint 时，可用 note 保留。
+
+```bibtex
+@misc{preprint_key,
+  title         = {[Verified title]},
+  author        = {[Family name, Given name] and [Family name, Given name]},
+  year          = {[Version year]},
+  eprint        = {[Verified arXiv identifier]},
+  archivePrefix = {arXiv},
+  primaryClass  = {[Verified subject class]},
+  url           = {[Verified arXiv URL]}
+}
+```
+
+[BibTeX 官方文档：条目类型与字段](https://mirrors.ctan.org/biblio/bibtex/base/btxdoc.pdf) · [Google Scholar：导出引用](https://scholar.google.com/intl/en/scholar/help.html) · [arXiv 官方 BibTeX 导出示例](https://arxiv.org/bibtex/2604.09285) · [ACL 2026：幻觉引用拒稿声明](https://2026.aclweb.org/acl_statement/)
 
 <a id="annotated-appendix"></a>
 

@@ -6,6 +6,12 @@
 <details><summary>更新记录</summary>
 
 
+**2026-10-14 15:01 · 新增目录、铁律漫画与引用模板 · skill 更新**
+
+- 开头按章节列用途，初稿说明改为使用 Codex skill 后逐节精修。
+- 两幅简图说明前后对应与实验归因，合并重复文字。
+- 补齐会议、期刊与 arXiv 的 BibTeX 模板，更新公开写作 skill。
+
 **2026-10-14 13:29 · 全文语言精简 · skill 更新**
 
 - 删重复，拆长句，压缩旁批。
@@ -195,7 +201,7 @@
 
 
 写作与绘图 skill，可直接下载使用。
-[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-14 13:29】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-14 13:29】 · [用法](#writing-skill)
+[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-14 15:01】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-14 13:29】 · [用法](#writing-skill)
 
 ![流星划过夜空。边牧、魔法橘猫和龙举起红色 ACCEPT，庆祝论文接收。](../assets/starpaper-night-accept.png)
 
@@ -209,6 +215,13 @@ cs-paper-writing 按章节加载写作规则。starpaper-figures 支持方法图
 
 *多数例子来自本人、本人参与或熟人的论文。其余选自公开论文，均附出处。用于研究时，请引用对应原论文。*
 
+
+## 目录与用途
+
+- [1. 初稿准备](#quick-start)：整理材料，用 Codex 生成初稿
+- [2. 论文绘图](#figures)：画清问题、方法与实验结果
+- [3. 正文精修](#refine)：按论文顺序，逐节改逻辑与表达
+- [4. 辅助工具](#tools)：查文献、做图表、核对引用
 
 先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为辅助工具。
 
@@ -274,11 +287,7 @@ cs-paper-writing 按章节加载写作规则。starpaper-figures 支持方法图
 
 师兄说：“把审稿人当作魔鬼。”先问自己：实验够吗？比较公平吗？结论有证据吗？其他章节同样检查，别留解释缺口。关键实验缺失、论证不足，都可能导致拒稿。
 
-- 找一篇结构合适的论文，把参考部分交给 Codex。让它梳理各节职责、论证顺序与衔接。再按自己的研究拟大纲。只借结构，不照搬主张与结果。
-- 先列节标题、待答问题、对应证据与篇幅。标题点明对象或任务，不混放无关动作。
-- 同一问题贯穿引言、相关工作、设计与实验。用 For [limitation], we [对应动作] 点名问题。结论回答原问题，局限全文一致。
-- Method 的 Overview 先说设计为何能处理局限。再概括各节输入、输出与依赖。诊断型补瓶颈证据。基准型区分系统输入与评分材料。
-- 主结果检验整体效果，受控比较检验设计作用。改变相关条件，检验能力边界。诊断驱动研究还要复测原诊断。具体写法见第 3 章实验部分。
+先用 [Codex 写作 skill](#writing-skill) 生成初稿。生成后，按[正文精修](#refine)逐节修改。
 
 #### 论文大纲与章节衔接
 
@@ -628,7 +637,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 解压写作包，保留九个同级文件夹。先读 cs-paper-writing/SKILL.md，再加载当前章节。绘图包单独使用。填入材料、任务与允许修改的范围。
 
-写作包更新：2026-10-14 13:29。仅含通用规则与教学模板。
+写作包更新：2026-10-14 15:01。仅含通用规则与教学模板。
 
 **中文使用提示词**
 
@@ -1021,9 +1030,12 @@ StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 
 - **【铁律】不虚构章节依赖：**章首承接具体问题或产物。确有后续用途，章末才交代去向。不把并行写成串行。Related Work 小节直接进入内容。Intro 以贡献列表结束。Conclusion 不预告不存在的下一步。
 
-- **【铁律】问题、设计、实验对应：**方法或研究设计回应引言的问题。实验或分析提供对应证据。
-
 - **【铁律】钩子连接真实关系：**前句建立对象或前提，后句推进判断。However 表示转折，Therefore 从证据归纳。Specifically 展开判断，Then 表示真实先后。举例用 For example 或 For instance。连接词不能代替依据。
+
+<a id="standard-alignment"></a>
+![铁律：前后对应。边牧指出星形缺口，魔法猫制作对应星星，小龙检验是否匹配。](../assets/refine-alignment-comic.png)
+
+设计回应引言的问题，实验检验对应设计。
 
 #### 语言：完整判断与句长
 
@@ -1789,6 +1801,11 @@ To [solve the specific problem assigned to this module], we [key design action].
 
 说明比较怎样做，再报告发现、关键证据和分析。
 
+<a id="refine-attribution-comic"></a>
+![铁律：归因要有对照。同一输入与共享设置下，对比完整模型和去掉模块 A 的模型。](../assets/refine-attribution-comic.png)
+
+多个因素同时变化，不能只归因于一个。主结果也不能证明每个模块各自有效。
+
 #### 本节原则
 
 - 依次写：概述、设置、指标、主结果、消融、补充分析。每项分析回答引言中的一个问题。RQ 可编号，也可写进标题或首句。
@@ -1796,7 +1813,6 @@ To [solve the specific problem assigned to this module], we [key design action].
 - 【铁律】Metrics 用一个紧凑自然段。先写目标，再按 1)、2)、3) 定义指标。名称只加粗，不斜体。写清定义、方向、单位、分母与汇总。交代无效输出处理。
 - 结果段先给发现，再给图表、对照与关键数字。最后回答引言中的问题，说明代价与例外。
 - 逐模块写消融。Setting 定义变体及共享条件，Results 分析对应结果。设置、表格与分析中的变体同名。
-- 【铁律】模块归因对应实际改变的因素。多因素同时变化，不能只归给其中一个。主结果不能证明每个模块各自有效。
 - 【铁律】均值与不确定性来自真实观测和明确方法。说明统计或重采样单位、数量及 SD、SE 或 CI。单次运行不能声称跨运行稳定。
 - 【铁律】数据版本、范围、配置与结果对应同一协议。缺失、无效、不适用分别交代。不得只保留成功输出。
 - Case Study 展示输入、中间产物与输出，解释关键设计。区分实测与构造案例，个例不能替代核心验证。
@@ -2113,11 +2129,17 @@ First, although we have [completed work addressing the main difficulty], [specif
 - 【铁律】判断旁给支持它的原始来源。模型、数据和工具引用所用版本的论文或官方文档。
 - 【铁律】核对题名、作者、年份、出处、DOI 或链接。同一论文的重复版本去重。
 - 【铁律】来源的对象与条件须支持附近判断。引用文字和图均注明出处，核对许可。
+- 【铁律】逐条核实引用，虚假或幻觉引用有拒稿风险。自动导出与核验不能替代人工检查。
 
 <a id="template-references"></a>
 #### 引文与书目格式
 
 引文放 .tex，条目放 .bib，两处引用键一致。命令与书目样式沿用会议模板。
+
+- 从出版方官网或 Google Scholar 导出 BibTeX，仍须逐项核对。
+- 建议统一会议简称，期刊补全 pages 页码。无页码时沿用官方文章号。
+
+模板仅供参考。替换方括号；无 DOI 等可选信息时，删除对应字段。
 
 **正文引用（.tex）**
 
@@ -2127,9 +2149,9 @@ First, although we have [completed work addressing the main difficulty], [specif
 [Claim supported by the cited work] \citep{source_key}.
 ```
 
-**文献条目（.bib）**
+**会议论文（inproceedings）**
 
-会议用 inproceedings；期刊用 article，填写 journal。字段逐项核对原文，作者间用 and 分隔。无 DOI 则删除，可补真实 URL。
+booktitle 填论文集名；作者之间用 and 分隔。pages 填页码范围，用双连字符连接。
 
 ```bibtex
 @inproceedings{source_key,
@@ -2137,9 +2159,45 @@ First, although we have [completed work addressing the main difficulty], [specif
   author    = {[Family name, Given name] and [Family name, Given name]},
   booktitle = {[Verified proceedings title]},
   year      = {[Publication year]},
+  pages     = {[First page]--[Last page]},
   doi       = {[Verified DOI]}
 }
 ```
+
+**期刊论文（article）**
+
+journal 填刊名；volume 填卷，number 填期，pages 填页码。
+
+```bibtex
+@article{journal_key,
+  title   = {[Verified title]},
+  author  = {[Family name, Given name] and [Family name, Given name]},
+  journal = {[Verified journal title]},
+  year    = {[Publication year]},
+  volume  = {[Volume]},
+  number  = {[Issue]},
+  pages   = {[First page]--[Last page]},
+  doi     = {[Verified DOI]}
+}
+```
+
+**arXiv 预印本（misc）**
+
+优先使用 arXiv 导出条目，核对所引版本。编译后检查编号；样式不显示 eprint 时，可用 note 保留。
+
+```bibtex
+@misc{preprint_key,
+  title         = {[Verified title]},
+  author        = {[Family name, Given name] and [Family name, Given name]},
+  year          = {[Version year]},
+  eprint        = {[Verified arXiv identifier]},
+  archivePrefix = {arXiv},
+  primaryClass  = {[Verified subject class]},
+  url           = {[Verified arXiv URL]}
+}
+```
+
+[BibTeX 官方文档：条目类型与字段](https://mirrors.ctan.org/biblio/bibtex/base/btxdoc.pdf) · [Google Scholar：导出引用](https://scholar.google.com/intl/en/scholar/help.html) · [arXiv 官方 BibTeX 导出示例](https://arxiv.org/bibtex/2604.09285) · [ACL 2026：幻觉引用拒稿声明](https://2026.aclweb.org/acl_statement/)
 
 <a id="appendix"></a>
 <a id="chapter-appendix"></a>
