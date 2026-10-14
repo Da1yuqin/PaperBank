@@ -5,6 +5,13 @@
 <details><summary>更新记录</summary>
 
 
+**2026-10-14 20:19 · 三个独立 skill、审稿偏好与模拟复核 · skill 更新**
+
+- 拆分 AC letter、Rebuttal、审稿人画像与模拟三个下载包。
+- 第一部分增加从 Weaknesses 和审稿文本逆推偏好，Revise loop 按画像审核、反馈、修改、再审核。
+- 删除额外添加的“限定结论”批注，改为实验分析；AC letter 恢复正面引文、评分、真实改分与逐审稿人总结。
+- 开头增加独立打卡统计与随机卡通提分动画。
+
 **2026-10-14 16:39 · 上线与 StarPaper 互相链接**
 
 - 开头增加“论文写作请参考：StarPaper”，StarPaper 开头增加 StrongResponse 入口。
@@ -41,16 +48,22 @@
 
 ![戴眼镜、穿白色贴身肌肉背心的健壮德牧，用“回答、证据、结论”说明研究，与一位惊讶的人类学者讨论。](../assets/strongresponse-negotiation.png?v=20261014-white-tanktop)
 
-下载后，把论文、完整审稿意见和已有证据交给 Codex；作者核对事实、决定是否补实验，最后定稿。当轮官方格式、字数、匿名与 AI 使用规定优先。 铁律是本教程的默认要求，官方规则优先；普通建议按问题选择。
+先用“审稿人画像与模拟”分析 review，再用 Rebuttal 起草；按画像模拟审核、根据意见修改，再审核。全部回复完成后，用独立 AC letter 总结真实评价与回应。当轮官方格式、字数、匿名与 AI 使用规定优先。
 
-[下载 rebuttal skill](../assets/rebuttal-skill.zip) · [SKILL.md](../skills/rebuttal/SKILL.md)
+## 三个独立 skill
 
-解压并保留完整 rebuttal 文件夹，让 Codex 读取 rebuttal/SKILL.md。
+- **审稿人画像与模拟**：逆推关切与偏好，按画像模拟审核并给反馈。 [下载 ZIP](../assets/rebuttal-reviewer-profile-skill.zip) · [SKILL.md](../skills/rebuttal-reviewer-profile/SKILL.md)
+- **Rebuttal**：起草逐题回复、追问，并根据模拟意见修改。 [下载 ZIP](../assets/rebuttal-skill.zip) · [SKILL.md](../skills/rebuttal/SKILL.md)
+- **AC letter**：整理审稿人正面评价、评分、真实改分和核心回应。 [下载 ZIP](../assets/ac-letter-skill.zip) · [SKILL.md](../skills/ac-letter/SKILL.md)
 
 ## 给 Codex 的提示词
 
 ```text
-读取 rebuttal skill。目标会议与当轮规则：【】；论文：【】；完整 review：【】；已有结果及位置：【】；允许修改的文件：【】。先根据完整 review 与已发生的讨论，制作审稿人画像与投入优先级表：分别记录第二轮参与可能性、改评开放程度、核心负面风险和对应的原话依据；依据不足写未知。高分、语气客气、意见很多且句句关键的“笑面虎”优先级极高；高价值重点争取转变，关键优先挽回，低价值保证完整回复后收手；涉及决定性负面论点时不能因沉默降低优先级。然后按审稿人拆出全部问题，编号 Q1.1、Q1.2；同一题有多问时用 Q1.2a、Q1.2b。每题用 > **Qx.x: 原问题** 开头，首句直接回答，再给证据、解释和位置。每位审稿人交付一份可复制 Markdown。随后运行 revise loop，按原问题检查漏答、证据与逻辑，只改未通过项。缺证据就列出缺口与最小检验，不自动跑实验、修改稿件或提交回复。不得编造结果、隐藏必要条件或把画像预估写成确定的参与、涨分或录用承诺。 执行标为【铁律】的要求：每问必答，首句回答，证据可定位；比较数据用表格，保留必要条件和负结果；承诺不充当结果，同一实验跨 Q 命名一致。
+分三步使用 StrongResponse：
+1. 读取 rebuttal-reviewer-profile/SKILL.md，根据完整 reviews【】和真实讨论【】建立画像、偏好与原问题清单，每项保留原话依据。
+2. 读取 rebuttal/SKILL.md，用论文【】、画像【】、真实证据【】起草逐题回复。随后用画像与模拟 skill 审核，Rebuttal skill 根据意见修改，再用同一画像复核，运行 Revise loop。
+3. 全部回复完成后，读取 ac-letter/SKILL.md，用真实 review、二轮记录、评分和已完成的回应写 AC letter。
+当轮规则【】；允许修改的文件【】。没有依据不编结果，模拟通过不冒充真实认可；补实验、改稿和提交另按作者授权。
 ```
 
 <a id="reviewer-profile"></a>
@@ -62,9 +75,25 @@ Response 时间紧急，合理分配精力将拉开你和竞争者的差距。
 
 - 先读懂每位审稿人真正卡在哪里，再决定把时间花在哪。这里的“价值”指额外回复投入可能带来的作用。
 - 分开预估三件事：是否会参与第二轮讨论，解决关切后是否愿意调整评价，以及未解决的质疑会不会影响 AC 和其他审稿人的判断。
+- 从 Weaknesses 和审稿人的全部文本逆推偏好：Strengths 看欣赏什么，Summary 看如何理解论文，Questions 看想得到什么证据，附录与细节问题看阅读深度。每项记录原话依据，不只凭分数或 Confidence 判断。
 - 先看话量、语气、评分与 Confidence 的组合，形成初步画像；再看意见是不是触及论文的核心、有没有后续互动。尤其别被高分和客气语气麻痹：“笑面虎”也可能是需要极高投入的关键审稿人。
 - 【铁律】每位审稿人都先得到完整、正确、证据可定位的回复。再把额外精力投入关键审稿人和高价值审稿人；低价值审稿人保证逐题回复完毕即可，不需要追求完美。
 - 画像随讨论更新。高价值与关键可能重叠，重叠时按关键处理；不活跃但留下了决定性负面论点的人，仍要认真处理其论点，供 AC 核查。分类与投入判断留给作者使用，不写进正式回复。
+
+<a id="reviewer-preferences"></a>
+### 审稿偏好：从 Weaknesses 和审稿文本逆推
+
+先找审稿人反复强调、措辞最强、与评分理由直接相连的关切。再判断他更需要实验、解释还是尊重感；同一人可以兼有多种偏好。下面是分析维度，不是替他预设身份。
+
+| 偏好 | 看哪些原话 | 怎么回复 | 模拟复核重点 |
+| :--- | :--- | :--- | :--- |
+| 最关心的问题 | Weaknesses 中反复出现的质疑、明确的评分理由，以及二轮继续追问的部分。 | 先把这一问答透，其他回应围绕它补证据与解释。 | 把这一问设为最高要求；逐句检查是否真正消除疑虑。 |
+| 情绪价值与尊重 | 肯定哪些细节，是否强调自己的建议被忽略，是否看重认真讨论和细致回应。 | 准确复述他的关切，解释意见如何帮助完善论文，给具体、克制的感谢。 | 检查是否被认真理解；强硬驳斥、敷衍感谢或转移问题都要给出反馈。 |
+| 实验量与证据 | 多次要求对照、消融、重复实验、完整结果，或直接给出想看的实验设计。 | 按关切提供已有或新完成的对应实验，解释结果为何回答这道题。 | 按其要求检查证据类型、实验覆盖和结果分析；设计动机或未来承诺不能代替数据。 |
+| 背景知识与解释 | 定义和流程问题较多，Summary 有误解，或低 Confidence 与基础概念问题同时出现。也可能是论文没有讲清楚。 | 可能需要更多背景：先解释概念和中间逻辑，用一个 case 带读，语气像认真讨论。 | 不默认他懂术语；检查解释是否足够、有无跳步，是否让人感到被说教。 |
+| 细节与严格程度 | 是否读附录、发现细节遗漏、核对数字与设置，是否指出明确的逻辑链或近邻工作。 | 补齐其真正关注的细节，保持每题自洽；高分、客气也可能要求极高。 | 按阅读深度提高严格程度；重点检查漏答、实验设置、推理链和措辞是否经得起细读。 |
+
+把“原话 → 偏好判断 → 回复方式 → 模拟检查重点”连起来。缺少依据的项写未知；有新追问或讨论记录时再更新画像。
 
 | 类别 | 预估 | 投入比例 |
 | :--- | :--- | :--- |
@@ -158,22 +187,30 @@ Response 时间紧急，合理分配精力将拉开你和竞争者的差距。
 参考：[ICLR 2026 Reviewer Guide](https://iclr.cc/Conferences/2026/ReviewerGuide)。官方指南要求参与讨论，并允许依据新信息调整推荐。这里的刻板印象与投入顺序是经验性整理；具体讨论方式以目标会议当轮规定为准。
 
 <a id="reviewer-profile-template-1"></a>
-### 审稿人画像与投入优先级表
+### 审稿人画像、偏好与投入表
 
 ```markdown
-| 审稿人 | 原话／讨论记录 | 第二轮参与预估 | 改评开放程度 | 核心负面风险 | 类别与下一步 | 收手条件 |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| R1 | 【具体原话、位置或时间】 | 【高／中／低／未知；依据】 | 【明确愿意／可能／未知；依据】 | 【哪条论点可能影响判断】 | 【关键／高价值／低价值；先答哪一问】 | 【什么完成状态意味着转移精力】 |
+审稿人 [ID]：
+- 当前评分与 Confidence：【原始值、含义；缺失则写未知】
+- 最欣赏的点：【Strengths / Summary 原话与位置】
+- 阅读深度与理解偏差：【对应原话；是否读附录、哪里可能误解】
+- 核心关切：【Q 编号、Weaknesses 原话；要求最高的问题】
+- 偏好：【情绪价值 / 实验量 / 背景解释 / 技术细节；逐项附依据】
+- 期待的回应：【实验、对照、case、引用、定义、讨论或尊重感】
+- 模拟严格程度：【中 / 高 / 极高；依据与重点】
+- 第二轮参与、改评开放程度、核心负面风险：【分别判断，附原话】
+- 投入：【高价值：高；关键：极大；低价值：中；笑面虎：极高】
+- 下一步与收手条件：【优先回答哪一问；何时转移精力】
 
-分配顺序：
-1. 每位审稿人先有完整、正确、可定位证据的回复。
-2. 关键审稿人优先：处理核心否定理由，准备 AC 可核查的证据。
-3. 高价值审稿人重点投入：优先满足明确的改评条件。
-4. 低价值审稿人完成逐题覆盖后收手，不追求完美。
-5. 每次出现新追问、明确认可、评分更新或讨论共识变化，就更新这张表。
+原问题清单：
+| Q | 原话与位置 | 真正在意什么 | 期待什么证据或解释 | 模拟审核重点 |
+| :--- | :--- | :--- | :--- | :--- |
+| Q1.1 | 【】 | 【】 | 【】 | 【】 |
+
+每一项能回查 review 或真实讨论。画像交给 Rebuttal 起草与 Revise loop 复用；新的讨论改变判断时再更新。
 ```
 
-作者内部使用。画像是依据当前信号作出的投入判断，不是已验证的参与率或涨分预测；正式回复保持完整、尊重和证据导向。
+作者内部使用。最关键的问题与最高回复要求必须明确；画像不是对审稿人身份或最终评分的确定判断。
 
 <a id="prepare"></a>
 ## 2. 整理问题与证据
@@ -210,7 +247,7 @@ Response 时间紧急，合理分配精力将拉开你和竞争者的差距。
 - 【铁律】第一句直接回答：是否题先给结论，证据不足就说明不能判断；原因题给原因，流程题给操作，数值题给具体值。
 - 【铁律】回答之后给必要设置、证据、解释与表号、节号或行号；不先感谢，不先讲背景。
 - 【铁律】可比较数据用表格，写全条件、单位、指标方向和统计口径；表后解释结论，不逐格复述。
-- 【铁律】一个小点一段；问题之间空一行，不堆分隔线，简短致谢放最后。
+- 【铁律】一个小点一段；问题之间空一行。感谢具体、克制，放在相关解释后或文末，第一句仍先回答问题。
 - 【铁律】修改给真实位置；只有实际改过稿件，才能写成已修改。
 - 【铁律】同一实验跨 Q 引用，首次定义简短名称，后续统一使用；每个 Q 仍要独立读懂。
 
@@ -231,7 +268,7 @@ Under [tested setting], [component] [improves / does not improve] [metric] relat
 | [Control] | [Verified value] | [Verified count] |
 | [With component] | [Verified value] | [Verified count] |
 
-This comparison supports [bounded conclusion]; it does not establish [untested mechanism or generalization]. The results and protocol are in [table or record] and Section [X].
+The observed [finding] addresses [the reviewer’s concern] because [explanation of the result], supporting [the corresponding contribution]. The results and protocol are in [table or record] and Section [X].
 ```
 
 方括号全部换成已核实材料；增删表格列取决于比较需要，不能删掉影响公平性或解释结果的条件。若 Q1.2 同时问定义与效果，拆为 Q1.2a、Q1.2b，分别首句回答。
@@ -244,14 +281,14 @@ This comparison supports [bounded conclusion]; it does not establish [untested m
 
 **English 教学改写**
 
-Under [tested setting], [component] improves [metric] relative to [control] by [absolute difference and unit]. We hold [confounding factors] fixed and compare [configurations] on [same test set]. The result supports [bounded conclusion], but does not establish [untested mechanism]. The protocol and results are in Section [X] and Table [Y].
+Under [tested setting], [component] improves [metric] relative to [control] by [absolute difference and unit]. We hold [confounding factors] fixed and compare [configurations] on [same test set]. The observed [finding] addresses [the reviewer’s concern] because [explanation of the result], supporting [the corresponding contribution]. The protocol and results are in Section [X] and Table [Y].
 
 
 **高亮与旁批**
 
 1. **Under [tested setting], [component] improves [metric] relative to [control] by [absolute difference and unit].**：【铁律】先答问题。首句给答案：条件、比较对象、指标与差异都在。仅在相应结果支持时使用。
 2. **We hold [confounding factors] fixed and compare [configurations] on [same test set].**：【铁律】交代对照。交代怎样得到答案；对照要对应审稿人的质疑。
-3. **The result supports [bounded conclusion], but does not establish [untested mechanism].**：【铁律】限定结论。说明证据支持到哪里，避免把相关性写成因果。
+3. **The observed [finding] addresses [the reviewer’s concern] because [explanation of the result], supporting [the corresponding contribution].**：分析实验。实验后解释现象，回应审稿人的疑虑，并落到论文的创新点和贡献。
 4. **The protocol and results are in Section [X] and Table [Y].**：【铁律】给出位置。给位置，便于核查。
 
 StrongResponse · 原创教学模板
@@ -318,40 +355,56 @@ We do not have direct evidence for [claim] under [untested condition]. The avail
 <a id="revise-loop"></a>
 ## 5. Revise loop
 
-回到原 review，逐题查漏答、证据与逻辑。先修内容，再缩文字；一篇流畅的答非所问，还是答非所问。
+Revise loop：用第一部分的画像模拟这位审稿人审核回复，给出意见；根据意见改 Rebuttal，再用同一画像复核。
 
-- 【铁律】按原问题清单检查，逐项定位具体 Q、段落或表格；不能因为别处提过就算回答。
-- 【铁律】先只读题目与首句：是否答了原问题？再读证据：能否支撑这句结论、区分争议解释？
-- 【铁律】核对数字、引用、范围、必要条件和位置；表格要能独立说明比较了什么。
-- 【铁律】只改未通过项，改后重查同一张清单；新证据引出新问题时补入清单。
-- 【铁律】覆盖完整、证据对应、逻辑成立、篇幅合规后停止，交作者定稿。缺实验时列出需要作者决定的事项，不预测提分或录用。
+- 【铁律】先读取第一部分的审稿人画像与全部原问题，再模拟审稿人；不要先读作者回复、再临时编一个宽松人设。
+- 按画像设置严格程度，拟合核心关切和审稿偏好。最关心、要求最高的问题要最严格；看重实验就查实验，看重情绪价值就查是否被理解，需要背景解释就检查术语与中间逻辑。
+- 【铁律】模拟复核以 review 原问题顺序为准。逐题指出回复位置、是否真正回答、证据是否合适，以及这位审稿人仍可能追问什么。
+- 反馈必须具体：原问题、画像关注点、回复位置、通过或不通过、原因、最小改法和缺失证据。不要只说“更有说服力一点”。
+- 【铁律】Rebuttal skill 依据反馈修改获授权的回复，再让画像与模拟 skill 用同一张清单复核；新 review 信息出现时才更新画像。
+- 每问覆盖完整，关键关切有对应证据，解释深度、语气和长度符合画像要求后停止。补实验由作者决定；模拟通过不能写成真实审稿人已认可。
+
+### 1. 带着画像进入审稿人角色
+
+读取评分、Confidence、原话依据、核心关切、期待的证据与偏好。按这些信息设定难度，带着疑问读回复。
+
+### 2. 模拟审核，给出具体意见
+
+逐题检查答案、证据、实验分析、解释深度和尊重感。要求最高的问题细读；按其阅读习惯再扫一遍首句、表格和加粗结论。
+
+### 3. 根据意见修改 Rebuttal
+
+只修改不通过项：补回答或证据，分析实验，解释术语，缩短长段落，调整语气。需要新实验或新事实时交作者决定。
+
+### 4. 用同一画像再审核
+
+重新检查原问题与刚才的意见，确认修改确实解决了问题。有新疑问就继续修改，再复核；不要为了通过而降低原画像要求。
 
 <a id="revise-loop-template-1"></a>
-### 让 Codex 逐题检查
+### 让 Codex 按画像运行 Revise loop
 
 ```markdown
-运行 revise loop。输入为论文【】、原 review【】、回复【】、真实证据【】、当轮规则【】。
+运行 Revise loop。
+论文：【】；完整 review：【】；第一部分的审稿人画像与偏好表：【】；当前 Rebuttal：【】；真实证据：【】；当轮规则和允许修改的文件：【】。
 
-按 review 原顺序逐题检查：
-1. 原问题是否有明确对应的 Q？
-2. 首句是否直接回答，而非重复问题？
-3. 证据是否支持结论、区分争议解释，且保留必要条件与范围？
-4. 图表、引用和修改位置是否真实？
+1. 读取 rebuttal-reviewer-profile skill，按画像扮演每位审稿人。依据原话设严格程度，重点拟合其核心关切、最高要求的问题、情绪价值、实验量、背景解释及扫读习惯。
+2. 按原 review 的问题清单逐题审核回复。输出：Q｜原问题｜画像关注点｜回复位置｜通过/不通过｜原因｜最小改法｜缺失证据。
+3. 读取 rebuttal skill，依据反馈只修改不通过项；不编造结果，不自动跑实验或改论文。
+4. 用同一画像、原问题清单和反馈重新审核修改后的回复。未通过则再次修改、再次审核。只有新的 review 或讨论改变依据时才更新画像。
+5. 所有问题都有明确回应，关键证据与实验分析到位，语气、长度和解释深度符合这位审稿人的要求后停止。
 
-对未通过项输出：Q 编号｜原问题｜回复位置｜具体缺口｜最小改法｜还缺的证据。只修改获授权的回复文件，不自动跑实验或改稿。修改后重查同一清单；最终交付每位审稿人的独立 Markdown，把检查记录与证据缺口单独给作者。
+最终交付：每位审稿人的可复制 Rebuttal、作者内部的复核记录，以及需要作者决定的证据缺口。模拟意见和通过结果不粘入正式回复。
 ```
 
-检查记录不粘进正式回复；它帮助作者决定如何修改，不代替作者判断。
+画像与模拟 skill 负责审核，Rebuttal skill 负责修改；同一画像贯穿循环。模拟反馈是作者内部检查，不是真实审稿意见。
 
 <a id="follow-up"></a>
-## 6. 追问与 AC 总结
+## 6. 追问与 AC letter
 
-追问只补新增信息。给 AC 的总结写问题、回应、证据和剩余分歧，不重贴整份 rebuttal。
+追问用 Rebuttal skill 只补新增信息。完成回复后，再用独立的 AC letter skill 总结审稿人的评价、改分与核心回应。
 
 - 【铁律】保留原 Q 编号和问题关系；新子问可续为 Q1.2c，编号仍以平台要求为准。
 - 【铁律】先回答追问，再定位新增证据；已经讲清的背景用位置引用。
-- 【铁律】AC 指 Area Chair。总结按重要关切组织，写清哪些已澄清、哪些仍未解决；引用评价须与原文一致。
-- 【铁律】不猜未回复审稿人的态度，不请求提分或接收，把判断交给审稿方。
 
 <a id="follow-up-template-1"></a>
 ### 6.1 追问回复模板
@@ -370,18 +423,36 @@ We do not have direct evidence for [claim] under [untested condition]. The avail
 
 保留原 Q 编号，追问新子项续编。填真实证据与位置；无新结果就给已有依据和明确边界。未改稿删 Revision，没有剩余疑问删 Remaining issue；可比较数据改用紧凑表格。
 
+<a id="ac-letter"></a>
+### AC letter 怎么写
+
+AC letter 最后写。先让 AC 看到审稿人的正面评价、评分和真实改分，再用简短段落说明关键关切如何得到回应。
+
+- 先感谢审稿人的时间与意见，随后引用审稿人的正面评价原话，并带上 Overall 分数与 Confidence（若平台提供）。先报分，再讲关切。
+- 有真实涨分、认可或问题解决的二轮回复，优先陈述改分前后与认可原话；没有就删去该项。没有回复只陈述客观状态，不能把沉默写成认可，也不能预期问题已经解决。
+- 每位审稿人单独一段，通常 3–4 句：正面评价与评分 → 主要关切 → 我们做了什么 → 有证据的结论。每段加粗一两个关键结论，供 AC 扫读。
+- AC 想知道关切是否被认真回应。概括最关键的数据、对照或修改，并给简短位置；不展开实验流程、方法细节、公式或整份逐题回复。
+- 重点呈现论文的贡献、审稿人的认可和已经完成的回应。引用必须忠于原意；不把作者的解释写成审稿人的认可，不制造共识。确有剩余分歧时如实交代必要信息，不编造“全部解决”。
+- 不要贬低或指挥审稿人和 AC。若有必要说明评审之间的分数差异，只用真实记录与可核对事实，让 AC 判断；不能仅凭 Confidence 或未回复就推断审稿人失职。
+- 全文不超过 500 个英文单词；会议上限更低时遵守会议上限。不写 Dear Area Chair 或 TL;DR，不用破折号连接句子。
+- 适用时补一句真实的代码开放或可复现状态；尚未完成的只能写真实承诺，不能冒充已发布。结尾使用：We hope these clarifications support a fair and informed assessment.
+
 <a id="follow-up-template-2"></a>
-### 6.2 给 AC 的总结模板
+### 6.2 AC letter 模板
 
 ```markdown
-The evidence supports [central conclusion] under [evaluated setting]. The main concerns were [issue A] and [issue B].
+We thank all reviewers for their time and feedback. Reviewer [ID] (Overall [score], Confidence [confidence]) described [specific contribution] as “[exact positive quotation from the review].” [Optional genuine update: Following our rebuttal, Reviewer [ID] updated the Overall score from [old score] to [new score] and wrote, “[exact acknowledgement from the discussion].”]
 
-**1. [Key concern A] — Reviewer [ID], Q[X.X].** The concern was [faithful summary]. Our response [direct answer]. [Verified comparison or clarification] in [table / section / lines] supports [bounded conclusion]. [Remaining disagreement or evidence gap, if any].
+**Reviewer [ID] (Overall [current score], Confidence [confidence]).** The reviewer recognized [specific strength] as “[exact positive quotation].” The main concern was [one faithful sentence summarizing the concern]. We addressed it with [completed response or evidence, summarized briefly] ([Q number / table / section]). **[Concise conclusion supported by that evidence, with a verified key result if useful].**
 
-**2. [Key concern B] — Reviewer [ID], Q[Y.Y].** The concern was [faithful summary]. Our response [direct answer]. [Verified result or completed revision] in [table / section / lines] establishes [what the evidence shows], but does not establish [unresolved claim, if any].
+**Reviewer [ID] (Overall [current score], Confidence [confidence]).** The reviewer appreciated “[exact positive quotation].” The main concern was [one faithful sentence summarizing the concern]. Our response provided [completed clarification, comparison or revision] ([Q number / table / section]). **[Concise conclusion supported by the response].**
+
+[Optional factual release statement: The [code / data / model weights] are available at [permitted location].]
+
+We hope these clarifications support a fair and informed assessment.
 ```
 
-按关键关切增删条目，同一关切可列多个审稿人和 Q。首句给有依据的总体结论；每项写关切、回应、证据位置和剩余分歧。不把作者的解释写成“审稿人已认可”，不猜未回复者态度。
+按审稿人数增删段落；没有正面原话、改分或公开材料就删去相应句子。所有 ID、分数、引文、数据和位置填真实记录。英文骨架仅供参考；删除占位符后检查词数。
 
 ---
 
