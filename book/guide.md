@@ -6,6 +6,11 @@
 <details><summary>更新记录</summary>
 
 
+**2026-10-14 12:59 · 标题示范以真实论文为准 · skill 更新**
+
+- 加入 Careful Queries, Credible Results，拆解记忆点、研究目标与实现手段。
+- 删除缺少真实论文示范的设计型、问句型和发现型模板；保留模板仅供参考，同步公开写作 skill。
+
 **2026-10-14 12:48 · 标题模板与简称命名 · skill 更新**
 
 - 标题补充设计型、问句型、发现型、目标型与简称型，注明模板仅供参考。
@@ -181,7 +186,7 @@
 
 
 这里有两个可以直接使用的 skill，按任务下载。
-[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-14 12:48】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 12:00】 · [用法](#writing-skill)
+[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-14 12:59】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 12:00】 · [用法](#writing-skill)
 
 ![流星划过夜空；边牧、魔法橘猫和龙举起红色 ACCEPT，庆祝论文接收的愿望成真。](../assets/starpaper-night-accept.png)
 
@@ -595,7 +600,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 写作包已按章节拆分：入口、共享规则和七个章节，共九个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。
 
-写作包更新：2026-10-14 12:48。只含通用规则与教学模板，不含私人稿件信息。
+写作包更新：2026-10-14 12:59。只含通用规则与教学模板，不含私人稿件信息。
 
 **中文使用提示词**
 
@@ -1005,61 +1010,39 @@ StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 
 #### 本节原则
 
-- 模板仅供参考。标题没有固定套路；按核心贡献选问句、发现、目标、设计或命名式，不必强行套用。
-- 标题写清研究对象与最值得记住的贡献。问句要能由论文回答，发现要有实验支持，目标要有具体实现；不堆模块名或自评形容词。
+- 模板仅供参考。下面按真实论文拆解三种写法，不是标题分类全集。
+- 标题写清研究对象与主要贡献；醒目的短语和简称方便记忆，具体研究信息不能省。不堆模块名或自评形容词。
 - 【铁律】用大写字母作简称时，每个字母必须能对应全称中的词或词内位置；不要求全称的每个词都进入简称。首次在正文定义时加粗对应字母，并给出完整名称。
 - 名字尽量简短、易读、易记，方便审稿人建立印象，也方便传播与检索。不要为了凑名字改坏全称；全文保持同一拼写。
 
 <a id="annotated-title"></a>
 
-#### 设计型：做了什么
+#### 短语引题：记忆点与研究内容
 
-适合主要贡献是一种方法或技术设计的论文。
+前半句用简短短语概括亮点，后半句交代研究对象、目标和方法。
 
 **English 填空模板**
 
-[Core Design] for [Research Task]
+[Memorable Phrase]: [Research Goal] with [Core Approach]
 
 
 **高亮与旁批**
 
-1. **[Core Design]**：核心设计。填区别于已有工作的具体设计；后半句交代服务什么任务。没有独立方法名也成立。
+1. **[Memorable Phrase]**：留下记忆点。用简短、准确的短语概括亮点。例题前半句用并列结构呼应查询与结果。
+2. **[Research Goal]**：写清研究内容。冒号后交代研究对象和目标能力。例题写明教会 RAG 模型使用高级网页搜索工具。
+3. **[Core Approach]**：点明实现手段。填支撑目标的核心方法。例题用 with Reinforcement Learning 交代训练方式。
 
-<a id="title-question"></a>
+**论文原题**：Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools with Reinforcement Learning
 
-#### 问句型：研究什么问题
+Careful Queries, Credible Results 用两段并列短语留下记忆点；Teaching… 交代对象与目标；with Reinforcement Learning 点明实现手段。不能只留前半句，让读者猜研究内容。
 
-适合能力评价、诊断或需要实证回答的问题。
-
-**English 填空模板**
-
-Can [Research Object] [Target Capability] under [Key Condition]?
-
-
-**高亮与旁批**
-
-1. **Can [Research Object] [Target Capability]**：可检验的问题。对象后填动词原形，如 solve、retain；末尾补关键条件并保留问号。实验与结论必须回答这个问题。
-
-<a id="title-finding"></a>
-
-#### 发现型：实验发现了什么
-
-适合主要贡献是实验规律、能力缺口或条件性发现的论文。
-
-**English 填空模板**
-
-[Research Object] [Observed Behavior] under [Tested Condition]
-
-
-**高亮与旁批**
-
-1. **[Observed Behavior]**：直接写主要发现。填与主语一致的谓语短语，如 fails to…、benefits from…；保留影响结论的条件，不能把相关性写成因果。
+[论文原题 · AAAI 2026](https://ojs.aaai.org/index.php/AAAI/article/view/40299)
 
 <a id="title-purpose"></a>
 
 #### 目标型：希望实现什么能力
 
-适合围绕某项能力提出设计的论文；也可按实际含义使用 Enabling 或 Improving。
+适合围绕某项能力提出设计的论文。
 
 **English 填空模板**
 

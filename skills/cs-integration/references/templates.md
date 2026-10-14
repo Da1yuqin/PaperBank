@@ -4,54 +4,32 @@
 
 <a id="annotated-title"></a>
 
-#### 设计型：做了什么
+#### 短语引题：记忆点与研究内容
 
-适合主要贡献是一种方法或技术设计的论文。
+前半句用简短短语概括亮点，后半句交代研究对象、目标和方法。
 
 **English 填空模板**
 
-[Core Design] for [Research Task]
+[Memorable Phrase]: [Research Goal] with [Core Approach]
 
 
 **高亮与旁批**
 
-1. **[Core Design]**：核心设计。填区别于已有工作的具体设计；后半句交代服务什么任务。没有独立方法名也成立。
+1. **[Memorable Phrase]**：留下记忆点。用简短、准确的短语概括亮点。例题前半句用并列结构呼应查询与结果。
+2. **[Research Goal]**：写清研究内容。冒号后交代研究对象和目标能力。例题写明教会 RAG 模型使用高级网页搜索工具。
+3. **[Core Approach]**：点明实现手段。填支撑目标的核心方法。例题用 with Reinforcement Learning 交代训练方式。
 
-<a id="title-question"></a>
+**论文原题**：Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools with Reinforcement Learning
 
-#### 问句型：研究什么问题
+Careful Queries, Credible Results 用两段并列短语留下记忆点；Teaching… 交代对象与目标；with Reinforcement Learning 点明实现手段。不能只留前半句，让读者猜研究内容。
 
-适合能力评价、诊断或需要实证回答的问题。
-
-**English 填空模板**
-
-Can [Research Object] [Target Capability] under [Key Condition]?
-
-
-**高亮与旁批**
-
-1. **Can [Research Object] [Target Capability]**：可检验的问题。对象后填动词原形，如 solve、retain；末尾补关键条件并保留问号。实验与结论必须回答这个问题。
-
-<a id="title-finding"></a>
-
-#### 发现型：实验发现了什么
-
-适合主要贡献是实验规律、能力缺口或条件性发现的论文。
-
-**English 填空模板**
-
-[Research Object] [Observed Behavior] under [Tested Condition]
-
-
-**高亮与旁批**
-
-1. **[Observed Behavior]**：直接写主要发现。填与主语一致的谓语短语，如 fails to…、benefits from…；保留影响结论的条件，不能把相关性写成因果。
+[论文原题 · AAAI 2026](https://ojs.aaai.org/index.php/AAAI/article/view/40299)
 
 <a id="title-purpose"></a>
 
 #### 目标型：希望实现什么能力
 
-适合围绕某项能力提出设计的论文；也可按实际含义使用 Enabling 或 Improving。
+适合围绕某项能力提出设计的论文。
 
 **English 填空模板**
 

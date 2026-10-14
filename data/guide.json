@@ -272,7 +272,7 @@
       "section": "title",
       "title": "标题说明内容",
       "priority": "值得做",
-      "action": "分别写一个问题型、方法型和发现型标题，让不了解项目的人说说各自读出了什么。哪个最贴近你真正想讲的内容，就从哪个改。",
+      "action": "参考有真实论文示范的标题结构，写清对象与主要贡献，再让不了解项目的人读一遍，检查是否准确。",
       "boundary": "结论型标题注明适用范围，有限条件下的发现不能写成普遍规律。",
       "source": "notes",
       "lead": "标题明确研究对象、任务及主要贡献，避免无必要的缩写和生僻词。",
@@ -303,7 +303,7 @@
         "neurips",
         "paper_webfilter"
       ],
-      "paragraph": "可分别试问题型、方法型和发现型标题。让不熟悉项目的人读一遍，检查读出的内容是否符合真实贡献。",
+      "paragraph": "从真实论文标题中借鉴结构。让不熟悉项目的人读一遍，检查读出的内容是否符合真实贡献。",
       "iron_rule": false
     },
     {
@@ -3789,7 +3789,7 @@
       "cs-integration",
       "cs-limitations"
     ],
-    "updated_at": "2026-10-14 12:48",
+    "updated_at": "2026-10-14 12:59",
     "visual_rules": [
       "【铁律】保留真实数据、几何、拓扑、统计分母和输入输出。示意图与实测图明确区分；截图由真实生成源更新，不擦改证据像素。评分通过不等于真实执行、购买或部署成功。",
       "【铁律】表体文字、完整名称与同格引用、数值及上标误差保持单行。出现换行先调整模板允许范围内的总宽与列宽，不擅自简称、缩字或越过页边距。多级表头与注释保留各自结构。",
@@ -7443,74 +7443,46 @@
     {
       "id": "annotated-title",
       "section": "title",
-      "title": "设计型：做了什么",
+      "title": "短语引题：记忆点与研究内容",
       "kind": "template",
       "label": "模板仅供参考；方括号替换为自己的材料。",
       "processing": "StarPaper 原创标题模板；真实论文标题与教学加粗另行标注。",
       "source_label": "StarPaper · 通用写作模板",
       "paragraphs": [
         {
-          "en": "[Core Design] for [Research Task]"
+          "en": "[Memorable Phrase]: [Research Goal] with [Core Approach]"
         }
       ],
       "annotations": [
         {
           "paragraph": 0,
-          "en": "[Core Design]",
-          "title": "核心设计",
-          "body": "填区别于已有工作的具体设计；后半句交代服务什么任务。没有独立方法名也成立。"
-        }
-      ],
-      "purpose": "适合主要贡献是一种方法或技术设计的论文。",
-      "latex_template": "\\title{[Core Design] for [Research Task]}"
-    },
-    {
-      "id": "title-question",
-      "section": "title",
-      "title": "问句型：研究什么问题",
-      "kind": "template",
-      "label": "模板仅供参考；方括号替换为自己的材料。",
-      "processing": "StarPaper 原创标题模板；真实论文标题与教学加粗另行标注。",
-      "source_label": "StarPaper · 通用写作模板",
-      "paragraphs": [
-        {
-          "en": "Can [Research Object] [Target Capability] under [Key Condition]?"
-        }
-      ],
-      "annotations": [
+          "en": "[Memorable Phrase]",
+          "title": "留下记忆点",
+          "body": "用简短、准确的短语概括亮点。例题前半句用并列结构呼应查询与结果。"
+        },
         {
           "paragraph": 0,
-          "en": "Can [Research Object] [Target Capability]",
-          "title": "可检验的问题",
-          "body": "对象后填动词原形，如 solve、retain；末尾补关键条件并保留问号。实验与结论必须回答这个问题。"
-        }
-      ],
-      "purpose": "适合能力评价、诊断或需要实证回答的问题。",
-      "latex_template": "\\title{Can [Research Object] [Target Capability] under [Key Condition]?}"
-    },
-    {
-      "id": "title-finding",
-      "section": "title",
-      "title": "发现型：实验发现了什么",
-      "kind": "template",
-      "label": "模板仅供参考；方括号替换为自己的材料。",
-      "processing": "StarPaper 原创标题模板；真实论文标题与教学加粗另行标注。",
-      "source_label": "StarPaper · 通用写作模板",
-      "paragraphs": [
-        {
-          "en": "[Research Object] [Observed Behavior] under [Tested Condition]"
-        }
-      ],
-      "annotations": [
+          "en": "[Research Goal]",
+          "title": "写清研究内容",
+          "body": "冒号后交代研究对象和目标能力。例题写明教会 RAG 模型使用高级网页搜索工具。"
+        },
         {
           "paragraph": 0,
-          "en": "[Observed Behavior]",
-          "title": "直接写主要发现",
-          "body": "填与主语一致的谓语短语，如 fails to…、benefits from…；保留影响结论的条件，不能把相关性写成因果。"
+          "en": "[Core Approach]",
+          "title": "点明实现手段",
+          "body": "填支撑目标的核心方法。例题用 with Reinforcement Learning 交代训练方式。"
         }
       ],
-      "purpose": "适合主要贡献是实验规律、能力缺口或条件性发现的论文。",
-      "latex_template": "\\title{[Research Object] [Observed Behavior] under [Tested Condition]}"
+      "purpose": "前半句用简短短语概括亮点，后半句交代研究对象、目标和方法。",
+      "latex_template": "\\title{[Memorable Phrase]: [Research Goal] with [Core Approach]}",
+      "title_examples": [
+        {
+          "title": "Careful Queries, Credible Results: Teaching RAG Models Advanced Web Search Tools with Reinforcement Learning",
+          "url": "https://ojs.aaai.org/index.php/AAAI/article/view/40299",
+          "source_label": "论文原题 · AAAI 2026",
+          "explanation": "Careful Queries, Credible Results 用两段并列短语留下记忆点；Teaching… 交代对象与目标；with Reinforcement Learning 点明实现手段。不能只留前半句，让读者猜研究内容。"
+        }
+      ]
     },
     {
       "id": "title-purpose",
@@ -7533,7 +7505,7 @@
           "body": "写本文实现或改善的能力，后半句限定任务。目标明确即可，不必在标题罗列所有模块。"
         }
       ],
-      "purpose": "适合围绕某项能力提出设计的论文；也可按实际含义使用 Enabling 或 Improving。",
+      "purpose": "适合围绕某项能力提出设计的论文。",
       "latex_template": "\\title{Unlocking [Target Capability] in [Task or Setting]}",
       "title_examples": [
         {
@@ -8733,8 +8705,8 @@
       "Case Study 沿输入、实际中间产物与输出展开，解释关键设计。实测与构造案例明确区分；个例不能代替核心主张所需的验证。"
     ],
     "title": [
-      "模板仅供参考。标题没有固定套路；按核心贡献选问句、发现、目标、设计或命名式，不必强行套用。",
-      "标题写清研究对象与最值得记住的贡献。问句要能由论文回答，发现要有实验支持，目标要有具体实现；不堆模块名或自评形容词。",
+      "模板仅供参考。下面按真实论文拆解三种写法，不是标题分类全集。",
+      "标题写清研究对象与主要贡献；醒目的短语和简称方便记忆，具体研究信息不能省。不堆模块名或自评形容词。",
       "【铁律】用大写字母作简称时，每个字母必须能对应全称中的词或词内位置；不要求全称的每个词都进入简称。首次在正文定义时加粗对应字母，并给出完整名称。",
       "名字尽量简短、易读、易记，方便审稿人建立印象，也方便传播与检索。不要为了凑名字改坏全称；全文保持同一拼写。"
     ],
@@ -10235,6 +10207,16 @@
   },
   "update_log": [
     {
+      "at": "2026-10-14T12:59:05+08:00",
+      "date": "2026-10-14 12:59",
+      "title": "标题示范以真实论文为准",
+      "skill_update": true,
+      "changes": [
+        "加入 Careful Queries, Credible Results，拆解记忆点、研究目标与实现手段。",
+        "删除缺少真实论文示范的设计型、问句型和发现型模板；保留模板仅供参考，同步公开写作 skill。"
+      ]
+    },
+    {
       "at": "2026-10-14T12:48:38+08:00",
       "date": "2026-10-14 12:48",
       "title": "标题模板与简称命名",
@@ -10594,8 +10576,6 @@
   "refine_flow": {
     "title": [
       "annotated-title",
-      "title-question",
-      "title-finding",
       "title-purpose",
       "title-acronym"
     ],
