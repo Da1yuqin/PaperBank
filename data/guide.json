@@ -3789,7 +3789,7 @@
       "cs-integration",
       "cs-limitations"
     ],
-    "updated_at": "2026-10-13 21:46",
+    "updated_at": "2026-10-14 12:48",
     "visual_rules": [
       "【铁律】保留真实数据、几何、拓扑、统计分母和输入输出。示意图与实测图明确区分；截图由真实生成源更新，不擦改证据像素。评分通过不等于真实执行、购买或部署成功。",
       "【铁律】表体文字、完整名称与同格引用、数值及上标误差保持单行。出现换行先调整模板允许范围内的总宽与列宽，不擅自简称、缩字或越过页边距。多级表头与注释保留各自结构。",
@@ -3813,7 +3813,7 @@
     "方法说明输入、操作、输出；图中箭头对应真实信息流。"
   ],
   "structure_note": "这是方法与实证论文的常见组织，不固定引言段数。相关工作可按论证后置；Discussion 是否单列、Limitations 所在位置按目标会议要求，局限性正文仍用本套单段两点模板。理论论文、综述及其他学科按证据形式调整。阅读顺序不等于起草顺序。",
-  "simulation_context": "本章均为填空模板。方括号替换为自己的材料，we 后填动词短语，However 后填主谓完整的判断；按实际工作删除可选句、调整单复数。不适用的模块、基线、指标或分析不为套模板补造。",
+  "simulation_context": "本章以填空模板为主，论文原题示范另附出处。方括号替换为自己的材料，we 后填动词短语，However 后填主谓完整的判断；按实际工作删除可选句、调整单复数。不适用的模块、基线、指标或分析不为套模板补造。",
   "manuscript_paragraphs": [
     {
       "id": "p-title",
@@ -7443,38 +7443,146 @@
     {
       "id": "annotated-title",
       "section": "title",
-      "title": "标题模板",
-      "label": "填空模板；方括号换成自己的材料。",
-      "processing": "本指南原创写作模板，不摘录具体论文。方括号、字母标签和说明文字须替换为当前论文的真实材料。",
+      "title": "设计型：做了什么",
+      "kind": "template",
+      "label": "模板仅供参考；方括号替换为自己的材料。",
+      "processing": "StarPaper 原创标题模板；真实论文标题与教学加粗另行标注。",
       "source_label": "StarPaper · 通用写作模板",
       "paragraphs": [
         {
-          "en": "[Method Name]: [Core Design] for [Research Task]"
+          "en": "[Core Design] for [Research Task]"
         }
       ],
       "annotations": [
         {
           "paragraph": 0,
-          "en": "[Method Name]",
-          "title": "方法名",
-          "body": "填已确定的方法或数据集名称；没有独立命名时，可直接从核心设计写起。"
-        },
-        {
-          "paragraph": 0,
           "en": "[Core Design]",
-          "title": "关键改动",
-          "body": "填区别于已有工作的具体设计，不填 novel、powerful 等自评。"
-        },
-        {
-          "paragraph": 0,
-          "en": "[Research Task]",
-          "title": "研究对象",
-          "body": "让读者一眼知道解决什么任务。范围过宽时，补必要条件。"
+          "title": "核心设计",
+          "body": "填区别于已有工作的具体设计；后半句交代服务什么任务。没有独立方法名也成立。"
         }
       ],
-      "purpose": "用一行交代关键设计与研究任务。",
+      "purpose": "适合主要贡献是一种方法或技术设计的论文。",
+      "latex_template": "\\title{[Core Design] for [Research Task]}"
+    },
+    {
+      "id": "title-question",
+      "section": "title",
+      "title": "问句型：研究什么问题",
       "kind": "template",
-      "latex_template": "\\title{[Method Name]: [Core Design] for [Research Task]}"
+      "label": "模板仅供参考；方括号替换为自己的材料。",
+      "processing": "StarPaper 原创标题模板；真实论文标题与教学加粗另行标注。",
+      "source_label": "StarPaper · 通用写作模板",
+      "paragraphs": [
+        {
+          "en": "Can [Research Object] [Target Capability] under [Key Condition]?"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "Can [Research Object] [Target Capability]",
+          "title": "可检验的问题",
+          "body": "对象后填动词原形，如 solve、retain；末尾补关键条件并保留问号。实验与结论必须回答这个问题。"
+        }
+      ],
+      "purpose": "适合能力评价、诊断或需要实证回答的问题。",
+      "latex_template": "\\title{Can [Research Object] [Target Capability] under [Key Condition]?}"
+    },
+    {
+      "id": "title-finding",
+      "section": "title",
+      "title": "发现型：实验发现了什么",
+      "kind": "template",
+      "label": "模板仅供参考；方括号替换为自己的材料。",
+      "processing": "StarPaper 原创标题模板；真实论文标题与教学加粗另行标注。",
+      "source_label": "StarPaper · 通用写作模板",
+      "paragraphs": [
+        {
+          "en": "[Research Object] [Observed Behavior] under [Tested Condition]"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "[Observed Behavior]",
+          "title": "直接写主要发现",
+          "body": "填与主语一致的谓语短语，如 fails to…、benefits from…；保留影响结论的条件，不能把相关性写成因果。"
+        }
+      ],
+      "purpose": "适合主要贡献是实验规律、能力缺口或条件性发现的论文。",
+      "latex_template": "\\title{[Research Object] [Observed Behavior] under [Tested Condition]}"
+    },
+    {
+      "id": "title-purpose",
+      "section": "title",
+      "title": "目标型：希望实现什么能力",
+      "kind": "template",
+      "label": "模板仅供参考；方括号替换为自己的材料。",
+      "processing": "StarPaper 原创标题模板；真实论文标题与教学加粗另行标注。",
+      "source_label": "StarPaper · 通用写作模板",
+      "paragraphs": [
+        {
+          "en": "Unlocking [Target Capability] in [Task or Setting]"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "[Target Capability]",
+          "title": "目标要具体",
+          "body": "写本文实现或改善的能力，后半句限定任务。目标明确即可，不必在标题罗列所有模块。"
+        }
+      ],
+      "purpose": "适合围绕某项能力提出设计的论文；也可按实际含义使用 Enabling 或 Improving。",
+      "latex_template": "\\title{Unlocking [Target Capability] in [Task or Setting]}",
+      "title_examples": [
+        {
+          "title": "Unlocking Proactivity in Task-Oriented Dialogue",
+          "url": "https://arxiv.org/abs/2605.22240v2",
+          "source_label": "论文原题 · arXiv v2",
+          "explanation": "Unlocking 说明目标，Proactivity 点名能力，Task-Oriented Dialogue 限定场景；不在标题展开训练流程。"
+        }
+      ]
+    },
+    {
+      "id": "title-acronym",
+      "section": "title",
+      "title": "简称型：给工作一个好记的名字",
+      "kind": "template",
+      "label": "模板仅供参考；方括号替换为自己的材料。",
+      "processing": "StarPaper 原创标题模板；真实论文标题与教学加粗另行标注。",
+      "source_label": "StarPaper · 通用写作模板",
+      "paragraphs": [
+        {
+          "en": "[ACRONYM]: [Full Name or Core Contribution]"
+        }
+      ],
+      "annotations": [
+        {
+          "paragraph": 0,
+          "en": "[ACRONYM]",
+          "title": "简称与全称对应",
+          "body": "先确保全称准确，再选容易记住的简称。正文首次定义时，按下面示范加粗构成简称的字母。"
+        }
+      ],
+      "purpose": "适合需要命名的方法、系统、数据集或基准。冒号后写清是什么，名字本身不能代替研究信息。",
+      "latex_template": "\\title{[ACRONYM]: [Full Name or Core Contribution]}",
+      "title_examples": [
+        {
+          "title": "SEAD: Self-Evolving Agent for Multi-Turn Service Dialogue",
+          "url": "https://arxiv.org/abs/2602.03548v3",
+          "source_label": "论文原题与摘要全称 · arXiv v3",
+          "definition": "\\textbf{S}elf-\\textbf{E}volving \\textbf{A}gent for Service \\textbf{D}ialogue (SEAD)",
+          "explanation": "S、E、A、D 对应 Self、Evolving、Agent、Dialogue。摘要展开式不含标题中的 Multi-Turn；Service 保留在全称中，不另取字母。"
+        },
+        {
+          "title": "SAGE: A Service Agent Graph-guided Evaluation Benchmark",
+          "url": "https://arxiv.org/abs/2604.09285v1",
+          "source_label": "论文原题与摘要全称 · arXiv v1",
+          "definition": "\\textbf{S}ervice \\textbf{A}gent \\textbf{G}raph-guided \\textbf{E}valuation (SAGE)",
+          "explanation": "S、A、G、E 对应 Service、Agent、Graph-guided、Evaluation。标题开头的 A 是冠词；简称中的 A 来自 Agent，Benchmark 不进入简称。"
+        }
+      ]
     },
     {
       "id": "annotated-abstract",
@@ -8587,7 +8695,7 @@
       }
     ]
   },
-  "refine_global_lead": "“铁律”标记本套 skill 中必须遵守的要求；未标记的是写法建议。官方规定与当前作者要求优先。三项贡献和文末 Limitations 的两点格式属于本套约定，不是所有会议的规定；页数按当轮要求核对。",
+  "refine_global_lead": "“铁律”标记本套 skill 中必须遵守的要求；未标记的是写法建议。官方规定与当前作者要求优先。三项贡献和文末 Limitations 的两点格式属于本套约定，不是所有会议的规定；页数按当轮要求核对。 除明确标注的规范外，句式与组织模板仅供参考，按研究内容调整。",
   "refine_section_principles": {
     "intro": [
       "先定论证顺序：领域与已有工作 → 具体局限及必要性 → 对应设计 → 实验发现 → 3 条贡献。前两部分可合并、交错或拆段。",
@@ -8625,8 +8733,10 @@
       "Case Study 沿输入、实际中间产物与输出展开，解释关键设计。实测与构造案例明确区分；个例不能代替核心主张所需的验证。"
     ],
     "title": [
-      "标题交代研究对象、任务与关键改动；不把实现细节或自评形容词堆进标题。",
-      "命名论文可用“方法名：关键设计与任务”；没有独立名称时直接描述贡献。"
+      "模板仅供参考。标题没有固定套路；按核心贡献选问句、发现、目标、设计或命名式，不必强行套用。",
+      "标题写清研究对象与最值得记住的贡献。问句要能由论文回答，发现要有实验支持，目标要有具体实现；不堆模块名或自评形容词。",
+      "【铁律】用大写字母作简称时，每个字母必须能对应全称中的词或词内位置；不要求全称的每个词都进入简称。首次在正文定义时加粗对应字母，并给出完整名称。",
+      "名字尽量简短、易读、易记，方便审稿人建立印象，也方便传播与检索。不要为了凑名字改坏全称；全文保持同一拼写。"
     ],
     "abstract": [
       "【铁律】一个自然段：背景 → 具体局限 → 对应方法与亮点 → 实验数字与关键结论。长度服从目标会议要求。",
@@ -10125,6 +10235,16 @@
   },
   "update_log": [
     {
+      "at": "2026-10-14T12:48:38+08:00",
+      "date": "2026-10-14 12:48",
+      "title": "标题模板与简称命名",
+      "skill_update": true,
+      "changes": [
+        "标题补充设计型、问句型、发现型、目标型与简称型，注明模板仅供参考。",
+        "用 Unlocking Proactivity、SEAD 和 SAGE 说明标题结构、简称来源与正文加粗方式；同步公开写作 skill。"
+      ]
+    },
+    {
       "at": "2026-10-13T21:46+08:00",
       "date": "2026-10-13 21:46",
       "title": "正文精修全文检查",
@@ -10473,7 +10593,11 @@
   },
   "refine_flow": {
     "title": [
-      "annotated-title"
+      "annotated-title",
+      "title-question",
+      "title-finding",
+      "title-purpose",
+      "title-acronym"
     ],
     "abstract": [
       "annotated-abstract"

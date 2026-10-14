@@ -6,6 +6,11 @@
 <details><summary>更新记录</summary>
 
 
+**2026-10-14 12:48 · 标题模板与简称命名 · skill 更新**
+
+- 标题补充设计型、问句型、发现型、目标型与简称型，注明模板仅供参考。
+- 用 Unlocking Proactivity、SEAD 和 SAGE 说明标题结构、简称来源与正文加粗方式；同步公开写作 skill。
+
 **2026-10-13 21:46 · 正文精修全文检查 · skill 更新**
 
 - 按论文类型区分引言贡献，修正占位句法与全文对应图。
@@ -176,7 +181,7 @@
 
 
 这里有两个可以直接使用的 skill，按任务下载。
-[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-13 21:46】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 12:00】 · [用法](#writing-skill)
+[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-14 12:48】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-13 12:00】 · [用法](#writing-skill)
 
 ![流星划过夜空；边牧、魔法橘猫和龙举起红色 ACCEPT，庆祝论文接收的愿望成真。](../assets/starpaper-night-accept.png)
 
@@ -590,7 +595,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 写作包已按章节拆分：入口、共享规则和七个章节，共九个同级文件夹。解压后保留全部文件夹，让 Codex 先读 cs-paper-writing/SKILL.md，再只加载当前任务相关的章节。绘图 ZIP 单独使用。填入材料、任务和允许修改的范围。
 
-写作包更新：2026-10-13 21:46。只含通用规则与教学模板，不含私人稿件信息。
+写作包更新：2026-10-14 12:48。只含通用规则与教学模板，不含私人稿件信息。
 
 **中文使用提示词**
 
@@ -902,7 +907,7 @@ StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 <a id="general-rules"></a>
 ### 3.1 全文规范
 
-“铁律”标记本套 skill 中必须遵守的要求；未标记的是写法建议。官方规定与当前作者要求优先。三项贡献和文末 Limitations 的两点格式属于本套约定，不是所有会议的规定；页数按当轮要求核对。
+“铁律”标记本套 skill 中必须遵守的要求；未标记的是写法建议。官方规定与当前作者要求优先。三项贡献和文末 Limitations 的两点格式属于本套约定，不是所有会议的规定；页数按当轮要求核对。 除明确标注的规范外，句式与组织模板仅供参考，按研究内容调整。
 
 #### 篇幅与版面：充分呈现证据
 
@@ -976,7 +981,7 @@ StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 - 3.11 参考文献：按官方格式生成文献表，核对每条引文的支持关系。
 - 3.12 附录：补实现与评价细节，按正文入口组织。
 
-本章均为填空模板。方括号替换为自己的材料，we 后填动词短语，However 后填主谓完整的判断；按实际工作删除可选句、调整单复数。不适用的模块、基线、指标或分析不为套模板补造。
+本章以填空模板为主，论文原题示范另附出处。方括号替换为自己的材料，we 后填动词短语，However 后填主谓完整的判断；按实际工作删除可选句、调整单复数。不适用的模块、基线、指标或分析不为套模板补造。
 
 ### 本章目录
 
@@ -1000,25 +1005,119 @@ StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 
 #### 本节原则
 
-- 标题交代研究对象、任务与关键改动；不把实现细节或自评形容词堆进标题。
-- 命名论文可用“方法名：关键设计与任务”；没有独立名称时直接描述贡献。
+- 模板仅供参考。标题没有固定套路；按核心贡献选问句、发现、目标、设计或命名式，不必强行套用。
+- 标题写清研究对象与最值得记住的贡献。问句要能由论文回答，发现要有实验支持，目标要有具体实现；不堆模块名或自评形容词。
+- 【铁律】用大写字母作简称时，每个字母必须能对应全称中的词或词内位置；不要求全称的每个词都进入简称。首次在正文定义时加粗对应字母，并给出完整名称。
+- 名字尽量简短、易读、易记，方便审稿人建立印象，也方便传播与检索。不要为了凑名字改坏全称；全文保持同一拼写。
 
 <a id="annotated-title"></a>
 
-#### 标题模板
+#### 设计型：做了什么
 
-用一行交代关键设计与研究任务。
+适合主要贡献是一种方法或技术设计的论文。
 
 **English 填空模板**
 
-[Method Name]: [Core Design] for [Research Task]
+[Core Design] for [Research Task]
 
 
 **高亮与旁批**
 
-1. **[Method Name]**：方法名。填已确定的方法或数据集名称；没有独立命名时，可直接从核心设计写起。
-2. **[Core Design]**：关键改动。填区别于已有工作的具体设计，不填 novel、powerful 等自评。
-3. **[Research Task]**：研究对象。让读者一眼知道解决什么任务。范围过宽时，补必要条件。
+1. **[Core Design]**：核心设计。填区别于已有工作的具体设计；后半句交代服务什么任务。没有独立方法名也成立。
+
+<a id="title-question"></a>
+
+#### 问句型：研究什么问题
+
+适合能力评价、诊断或需要实证回答的问题。
+
+**English 填空模板**
+
+Can [Research Object] [Target Capability] under [Key Condition]?
+
+
+**高亮与旁批**
+
+1. **Can [Research Object] [Target Capability]**：可检验的问题。对象后填动词原形，如 solve、retain；末尾补关键条件并保留问号。实验与结论必须回答这个问题。
+
+<a id="title-finding"></a>
+
+#### 发现型：实验发现了什么
+
+适合主要贡献是实验规律、能力缺口或条件性发现的论文。
+
+**English 填空模板**
+
+[Research Object] [Observed Behavior] under [Tested Condition]
+
+
+**高亮与旁批**
+
+1. **[Observed Behavior]**：直接写主要发现。填与主语一致的谓语短语，如 fails to…、benefits from…；保留影响结论的条件，不能把相关性写成因果。
+
+<a id="title-purpose"></a>
+
+#### 目标型：希望实现什么能力
+
+适合围绕某项能力提出设计的论文；也可按实际含义使用 Enabling 或 Improving。
+
+**English 填空模板**
+
+Unlocking [Target Capability] in [Task or Setting]
+
+
+**高亮与旁批**
+
+1. **[Target Capability]**：目标要具体。写本文实现或改善的能力，后半句限定任务。目标明确即可，不必在标题罗列所有模块。
+
+**论文原题**：Unlocking Proactivity in Task-Oriented Dialogue
+
+Unlocking 说明目标，Proactivity 点名能力，Task-Oriented Dialogue 限定场景；不在标题展开训练流程。
+
+[论文原题 · arXiv v2](https://arxiv.org/abs/2605.22240v2)
+
+<a id="title-acronym"></a>
+
+#### 简称型：给工作一个好记的名字
+
+适合需要命名的方法、系统、数据集或基准。冒号后写清是什么，名字本身不能代替研究信息。
+
+**English 填空模板**
+
+[ACRONYM]: [Full Name or Core Contribution]
+
+
+**高亮与旁批**
+
+1. **[ACRONYM]**：简称与全称对应。先确保全称准确，再选容易记住的简称。正文首次定义时，按下面示范加粗构成简称的字母。
+
+**论文原题**：SEAD: Self-Evolving Agent for Multi-Turn Service Dialogue
+
+**正文首次定义（加粗为教学标示）**
+
+**S**elf-**E**volving **A**gent for Service **D**ialogue (SEAD)
+
+```latex
+\textbf{S}elf-\textbf{E}volving \textbf{A}gent for Service \textbf{D}ialogue (SEAD)
+```
+
+S、E、A、D 对应 Self、Evolving、Agent、Dialogue。摘要展开式不含标题中的 Multi-Turn；Service 保留在全称中，不另取字母。
+
+[论文原题与摘要全称 · arXiv v3](https://arxiv.org/abs/2602.03548v3)
+
+**论文原题**：SAGE: A Service Agent Graph-guided Evaluation Benchmark
+
+**正文首次定义（加粗为教学标示）**
+
+**S**ervice **A**gent **G**raph-guided **E**valuation (SAGE)
+
+```latex
+\textbf{S}ervice \textbf{A}gent \textbf{G}raph-guided \textbf{E}valuation (SAGE)
+```
+
+S、A、G、E 对应 Service、Agent、Graph-guided、Evaluation。标题开头的 A 是冠词；简称中的 A 来自 Agent，Benchmark 不进入简称。
+
+[论文原题与摘要全称 · arXiv v1](https://arxiv.org/abs/2604.09285v1)
 
 <a id="abstract"></a>
 <a id="chapter-abstract"></a>

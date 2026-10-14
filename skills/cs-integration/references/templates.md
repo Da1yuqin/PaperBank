@@ -1,23 +1,115 @@
 # 全文整合、标题、讨论、结论与附录：按需参考
 
-以下为通用规则与教学模板，不是真实论文原文、研究事实或实测。
+以下以通用规则与教学模板为主；论文原题与简称全称另附出处，其余占位内容不代表研究事实或实测结果。
 
 <a id="annotated-title"></a>
 
-#### 标题模板
+#### 设计型：做了什么
 
-用一行交代关键设计与研究任务。
+适合主要贡献是一种方法或技术设计的论文。
 
 **English 填空模板**
 
-[Method Name]: [Core Design] for [Research Task]
+[Core Design] for [Research Task]
 
 
 **高亮与旁批**
 
-1. **[Method Name]**：方法名。填已确定的方法或数据集名称；没有独立命名时，可直接从核心设计写起。
-2. **[Core Design]**：关键改动。填区别于已有工作的具体设计，不填 novel、powerful 等自评。
-3. **[Research Task]**：研究对象。让读者一眼知道解决什么任务。范围过宽时，补必要条件。
+1. **[Core Design]**：核心设计。填区别于已有工作的具体设计；后半句交代服务什么任务。没有独立方法名也成立。
+
+<a id="title-question"></a>
+
+#### 问句型：研究什么问题
+
+适合能力评价、诊断或需要实证回答的问题。
+
+**English 填空模板**
+
+Can [Research Object] [Target Capability] under [Key Condition]?
+
+
+**高亮与旁批**
+
+1. **Can [Research Object] [Target Capability]**：可检验的问题。对象后填动词原形，如 solve、retain；末尾补关键条件并保留问号。实验与结论必须回答这个问题。
+
+<a id="title-finding"></a>
+
+#### 发现型：实验发现了什么
+
+适合主要贡献是实验规律、能力缺口或条件性发现的论文。
+
+**English 填空模板**
+
+[Research Object] [Observed Behavior] under [Tested Condition]
+
+
+**高亮与旁批**
+
+1. **[Observed Behavior]**：直接写主要发现。填与主语一致的谓语短语，如 fails to…、benefits from…；保留影响结论的条件，不能把相关性写成因果。
+
+<a id="title-purpose"></a>
+
+#### 目标型：希望实现什么能力
+
+适合围绕某项能力提出设计的论文；也可按实际含义使用 Enabling 或 Improving。
+
+**English 填空模板**
+
+Unlocking [Target Capability] in [Task or Setting]
+
+
+**高亮与旁批**
+
+1. **[Target Capability]**：目标要具体。写本文实现或改善的能力，后半句限定任务。目标明确即可，不必在标题罗列所有模块。
+
+**论文原题**：Unlocking Proactivity in Task-Oriented Dialogue
+
+Unlocking 说明目标，Proactivity 点名能力，Task-Oriented Dialogue 限定场景；不在标题展开训练流程。
+
+[论文原题 · arXiv v2](https://arxiv.org/abs/2605.22240v2)
+
+<a id="title-acronym"></a>
+
+#### 简称型：给工作一个好记的名字
+
+适合需要命名的方法、系统、数据集或基准。冒号后写清是什么，名字本身不能代替研究信息。
+
+**English 填空模板**
+
+[ACRONYM]: [Full Name or Core Contribution]
+
+
+**高亮与旁批**
+
+1. **[ACRONYM]**：简称与全称对应。先确保全称准确，再选容易记住的简称。正文首次定义时，按下面示范加粗构成简称的字母。
+
+**论文原题**：SEAD: Self-Evolving Agent for Multi-Turn Service Dialogue
+
+**正文首次定义（加粗为教学标示）**
+
+**S**elf-**E**volving **A**gent for Service **D**ialogue (SEAD)
+
+```latex
+\textbf{S}elf-\textbf{E}volving \textbf{A}gent for Service \textbf{D}ialogue (SEAD)
+```
+
+S、E、A、D 对应 Self、Evolving、Agent、Dialogue。摘要展开式不含标题中的 Multi-Turn；Service 保留在全称中，不另取字母。
+
+[论文原题与摘要全称 · arXiv v3](https://arxiv.org/abs/2602.03548v3)
+
+**论文原题**：SAGE: A Service Agent Graph-guided Evaluation Benchmark
+
+**正文首次定义（加粗为教学标示）**
+
+**S**ervice **A**gent **G**raph-guided **E**valuation (SAGE)
+
+```latex
+\textbf{S}ervice \textbf{A}gent \textbf{G}raph-guided \textbf{E}valuation (SAGE)
+```
+
+S、A、G、E 对应 Service、Agent、Graph-guided、Evaluation。标题开头的 A 是冠词；简称中的 A 来自 Agent，Benchmark 不进入简称。
+
+[论文原题与摘要全称 · arXiv v1](https://arxiv.org/abs/2604.09285v1)
 
 <a id="annotated-discussion"></a>
 

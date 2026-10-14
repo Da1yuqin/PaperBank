@@ -232,6 +232,16 @@ def render_annotated_paragraph(example, refs, number=None, heading_level=4, work
    for phrase in example.get('italic_en',[]):raw=raw.replace(phrase,r'\textit{'+phrase+'}',1)
   rendered+=f'<button type="button" class="copy js-only" data-copy-text="{e(raw,quote=True)}" data-copy-label="复制 LaTeX 模板">复制 LaTeX 模板</button>'
  elif not workflow:rendered+=f'<p class="example-source">{source}</p><details class="annotation-rights"><summary>出处与复用范围</summary><p>{e(example["processing"])}</p><p>{e(rights)}</p></details>'
+ for item in example.get('title_examples',[]):
+  rendered+=f'<p class="example-title" lang="en">{e(item["title"])}</p>'
+  md+=['','**论文原题**：'+item['title']]
+  if item.get('definition'):
+   definition=re.sub(r'\\textbf\{([^{}]*)\}',r'<strong>\1</strong>',e(item['definition']))
+   rendered+=f'<p class="template-purpose">正文首次定义（加粗为教学标示）</p><p lang="en">{definition}</p>'
+   rendered+=f'<button type="button" class="copy js-only" data-copy-text="{e(item["definition"],quote=True)}" data-copy-label="复制简称定义">复制简称定义</button>'
+   md+=['','**正文首次定义（加粗为教学标示）**','',re.sub(r'\\textbf\{([^{}]*)\}',r'**\1**',item['definition']),'','```latex',item['definition'],'```']
+  rendered+=f'<p>{e(item["explanation"])}</p><p class="example-source"><a href="{e(item["url"])}">{e(item["source_label"])}</a></p>'
+  md+=['',item['explanation'],'',f'[{item["source_label"]}]({item["url"]})']
  rendered+='</section>'
  if not workflow and not is_template:md+=['',source_md,'',example['processing'],'',rights]
  return rendered,md
@@ -780,6 +790,7 @@ def package_skill(data):
     '局限性按[cs-limitations](../cs-limitations/SKILL.md) 的当前约定检查，与摘要、引言、实验和结论保持同一范围；不在这里维护另一套格式。']
   target=write_skill(name,title,body);ref=target/'references';ref.mkdir(exist_ok=True)
   template_md=['# '+title+'：按需参考','','以下为通用规则与教学模板，不是真实论文原文、研究事实或实测。']
+  if name=='cs-integration':template_md[2]='以下以通用规则与教学模板为主；论文原题与简称全称另附出处，其余占位内容不代表研究事实或实测结果。'
   if name=='cs-visuals':
    for rule in data['figure_chapter']['rules']:
     _,rm=render_short_rules([rule]);template_md+=rm
