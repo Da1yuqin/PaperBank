@@ -68,7 +68,7 @@ const argumentObserver=new ResizeObserver(alignArgumentArrows);
 $$('.argument-pair,.intro-body-row').forEach(pair=>argumentObserver.observe(pair));
 window.addEventListener('resize',alignArgumentArrows);
 requestAnimationFrame(alignArgumentArrows);
-const lessons=$$('.paragraph-lesson');
+const lessons=$$('.paragraph-lesson,.inline-figures');
 try{if(localStorage.getItem('paperbank-theme')==='dark')document.documentElement.classList.add('dark');}catch{}
 function sync(){
  const words=$('#search').value.trim().toLowerCase().split(/\s+/).filter(Boolean);
@@ -87,7 +87,7 @@ function sync(){
   }
  }
  $$('.chapter').forEach(chapter=>{
-  chapter.hidden=!chapter.querySelector('.paragraph-lesson:not([hidden])');
+  chapter.hidden=!chapter.querySelector('.paragraph-lesson:not([hidden]),.inline-figures:not([hidden])');
   chapter.querySelectorAll('.more-lessons,.chapter-templates').forEach(detail=>{
    const matches=detail.querySelector('.paragraph-lesson:not([hidden])');detail.hidden=!matches;
    if(filtering&&matches&&!detail.open){detail.dataset.filterOpened='true';detail.open=true;}
@@ -95,7 +95,7 @@ function sync(){
   });
  });
  $('#count').hidden=!filtering;
- $('#count').textContent=`找到 ${count} 段`;
+ $('#count').textContent=`找到 ${count} 项`;
  $('#empty').hidden=count>0;
 }
 function closeMenu(){$('#sidebar').classList.remove('open');$('#mobile-toggle').setAttribute('aria-expanded','false');}

@@ -5,7 +5,7 @@ description: Create and refine CS paper main figures, framework diagrams, case i
 
 # StarPaper 绘图 skill
 
-latest:【2026-10-13 12:00】
+latest:【2026-10-14 15:53】
 
 图须突出对应贡献，明确问题、输入、操作与输出。先核对内容和真实依赖，再调整布局、字体与配色。
 
@@ -61,7 +61,7 @@ CS 图表默认使用 [!t]，按正文首次引用核对最终页内顺序。保
 
 ## 给 Codex 的提示词
 
-直接复制 [prompts.md](references/prompts.md) 中的绘图说明单，填写【】。提示词已列明本 skill 的适用铁律，和网页第一、二章使用同一份内容。
+直接复制 [prompts.md](references/prompts.md) 中的绘图说明单，填写【】。提示词已列明本 skill 的适用铁律，与网页中的绘图提示词共用内容。
 
 ## 来源与许可
 

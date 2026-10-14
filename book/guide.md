@@ -6,6 +6,12 @@
 <details><summary>更新记录</summary>
 
 
+**2026-10-14 15:53 · 绘图与模板归入对应章节 · skill 更新**
+
+- 取消独立绘图章：Mainfig 放引言，Framework 放方法，实验图与表格放实验。
+- 第一章缩短；贡献总结合并到引言模板，通用绘图规范集中放全文规范。
+- 目录改为初稿、精修、工具三章，保留旧链接；公开写作包同步贡献与表格模板。绘图包同步导航说明。
+
 **2026-10-14 15:01 · 新增目录、铁律漫画与引用模板 · skill 更新**
 
 - 开头按章节列用途，初稿说明改为使用 Codex skill 后逐节精修。
@@ -201,7 +207,7 @@
 
 
 写作与绘图 skill，可直接下载使用。
-[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-14 15:01】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-14 13:29】 · [用法](#writing-skill)
+[cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-14 15:53】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-14 15:53】 · [用法](#writing-skill)
 
 ![流星划过夜空。边牧、魔法橘猫和龙举起红色 ACCEPT，庆祝论文接收。](../assets/starpaper-night-accept.png)
 
@@ -219,11 +225,10 @@ cs-paper-writing 按章节加载写作规则。starpaper-figures 支持方法图
 ## 目录与用途
 
 - [1. 初稿准备](#quick-start)：整理材料，用 Codex 生成初稿
-- [2. 论文绘图](#figures)：画清问题、方法与实验结果
-- [3. 正文精修](#refine)：按论文顺序，逐节改逻辑与表达
-- [4. 辅助工具](#tools)：查文献、做图表、核对引用
+- [2. 正文精修](#refine)：按论文顺序，逐节修改正文与图表
+- [3. 辅助工具](#tools)：查文献、做图表、核对引用
 
-先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第四章为辅助工具。
+先用 Codex 起草正文与关键图，再由作者审核逻辑、逐章精修。第三章为辅助工具。
 
 主要面向方法与实证研究；按学科、研究类型和投稿要求调整。模拟段落明确标注，真实论文摘录另给出处与版本。
 
@@ -232,7 +237,7 @@ cs-paper-writing 按章节加载写作规则。starpaper-figures 支持方法图
 <a id="quick-start"></a>
 ## 1. 初稿准备
 
-准备研究材料与模板，确定正文结构，再进入[论文绘图](#figure-mainfig)。先画图供合作者审阅，再填正文。
+准备材料与模板，用 Codex skill 起草，再按[正文精修](#refine)逐节修改。
 
 <a id="draft-step-1"></a>
 ### 1.1 研究材料与模板
@@ -288,6 +293,8 @@ cs-paper-writing 按章节加载写作规则。starpaper-figures 支持方法图
 师兄说：“把审稿人当作魔鬼。”先问自己：实验够吗？比较公平吗？结论有证据吗？其他章节同样检查，别留解释缺口。关键实验缺失、论证不足，都可能导致拒稿。
 
 先用 [Codex 写作 skill](#writing-skill) 生成初稿。生成后，按[正文精修](#refine)逐节修改。
+
+<details><summary>参考大纲：按论文类型选结构</summary>
 
 #### 论文大纲与章节衔接
 
@@ -561,72 +568,9 @@ References 支撑已有工作、定义与外部事实。Appendix 收录完整设
 
 只有实证发现、没有改进方法时，可用以下结构。Introduction → Study Design → Results → Robustness / Further Analysis → Discussion → Conclusion。引言顺序：问题 → 证据缺口 → 研究设计 → 发现 → 贡献总结。删去改进方法及其消融。Related Work、局限与声明按论证及投稿要求安排。
 
-<a id="draft-contribution-format"></a>
-#### 引言的贡献总结：默认保留的格式
+</details>
 
-先用连贯段落说明核心工作、对应设计与实验发现。方法名后的同位语立即点明亮点与用途。不要先堆流程，再讲贡献。
-
-【铁律】正文引导句后接原生 itemize，固定三项。依次写整体工作、设计或证据贡献、实验发现。列表后直接进入下一节。
-
-方法论文第 2 项写新机制与用途。基准论文写构建或评价设计。实证研究写比较、测量或分析贡献。只写已完成的工作。
-
-三项贡献是本套 CS 约定，不是所有会议的规定。论文类型与当轮要求优先。先删重复背景与次要流程，不改模板规避页数。
-
-```latex
-Our contributions are summarized as follows:
-\begin{itemize}
-  \item We introduce [work and its type], which [supports the target task through its core contribution].
-  \item We [propose or provide] [key design or evidence contribution] based on [verified basis], enabling [specific function or comparison].
-  \item Our evaluation on [scope] reveals [key finding], with [the most informative verified evidence].
-\end{itemize}
-```
-
-[引言段落模板与精修要求](#intro-writing-templates)
-
-排版示例，数值均为假设。上标为标准差，浅红标最优，浅蓝标次优。
-
-| Method | Success (%) ↑ | Latency (ms) ↓ |
-| --- | --- | --- |
-| Baseline A | 70.0 ±2.0 | 120 ±4 |
-| Baseline B | 73.0 ±1.0 | 130 ±4 |
-| Proposed method | 76.0 ±1.0 | 125 ±3 |
-
-**LaTeX 表格模板**
-
-```latex
-% Add these packages to the preamble if the venue permits them.
-\usepackage{booktabs}
-\usepackage[table]{xcolor}
-\definecolor{bestcell}{HTML}{F2EBEA}
-\definecolor{secondcell}{HTML}{EDF0F4}
-
-% Insert this environment in the body.
-\begin{table}[!t]
-\centering
-\caption{Illustrative values only. Success rate is in percent;
-latency is in milliseconds. Superscripts illustrate standard deviations.
-Best values are bold; second-best values are underlined.}
-\label{tab:main-results}
-\begin{tabular}{lcc}
-\toprule
-Method & Success ($\uparrow$) & Latency ($\downarrow$) \\
-\midrule
-Baseline A & 70.0\textsuperscript{\(\pm2.0\)}
- & \cellcolor{bestcell}\textbf{120}\textsuperscript{\(\pm4\)} \\
-Baseline B & \cellcolor{secondcell}\underline{73.0}\textsuperscript{\(\pm1.0\)}
- & 130\textsuperscript{\(\pm4\)} \\
-Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
- & \cellcolor{secondcell}\underline{125}\textsuperscript{\(\pm3\)} \\
-\bottomrule
-\end{tabular}
-\end{table}
-```
-
-先确认会议允许使用这些包。包声明放导言区，table 环境放正文。正式表换成真实数据。表注写统计单位、重复次数、可比范围与主要发现。跨栏用 table*，不改模板栏宽。
-
-结构确定后，进入论文绘图。Mainfig 解释问题与核心贡献。framework 说明对应设计及输入输出。结果图支持实验发现。先确定各图用途，再绘制与精修。
-
-[进入第 2 章：论文绘图](#figure-mainfig)
+[进入第 2 章：正文精修](#refine)。绘图随引言、方法与实验分别完成。
 
 <a id="writing-skill"></a>
 ### 写作与绘图 skill
@@ -637,7 +581,7 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 解压写作包，保留九个同级文件夹。先读 cs-paper-writing/SKILL.md，再加载当前章节。绘图包单独使用。填入材料、任务与允许修改的范围。
 
-写作包更新：2026-10-14 15:01。仅含通用规则与教学模板。
+写作包更新：2026-10-14 15:53。仅含通用规则与教学模板。
 
 **中文使用提示词**
 
@@ -683,13 +627,81 @@ Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
 
 [规则依据与完整提示词](https://github.com/Da1yuqin/StarPaper/blob/main/skills/cs-paper-writing/references/prompts.md#writing)
 
-<a id="figures"></a>
-## 2. 论文绘图
+<a id="refine"></a>
+## 2. 正文精修
 
-Stage 1 定内容，Stage 2 排版。Stage 3 完成视觉编码与验收。Mainfig 展示问题与关键改动。Framework 解释完整方法，实验图检验主张。
+按论文顺序精修正文与图表。先读要求，再填模板。
+
+
+<a id="general-rules"></a>
+### 2.1 全文规范
+
+“铁律”是本套 skill 的必守要求，其余为建议。官方规定与当前作者要求优先。三项贡献、Limitations 两点格式均属本套约定。它们不是所有会议的规定。句式与组织模板仅供参考。
+
+#### 篇幅与版面：充分呈现证据
+
+- **【铁律】遵守当轮篇幅要求：**按会议上限和当前稿件目标安排篇幅。要求写满时，补足证据、比较和解释。明显偏短，容易让人怀疑实验与分析不足。不要凑页注水，也不要跨论文套页数。
+
+- **实验与分析就近呈现：**结果、图表与解释就近排。核心证据留在正文，篇幅按分析需要分配。
+
+- **【铁律】保留支撑结论的证据：**保留支撑结论的实验分析、必要条件和关键比较。超页先删重复和无关背景。再压缩 Related Work 与常规方法介绍。
+
+- **【铁律】保持官方模板：**分别核查正文、文献与附录的页数。不得改字号、行距、字距或页边距凑页。以最终 PDF 为准，不能只看源码长度。
+
+- **【铁律】图表与正文一致：**统一名称、符号、单位、数值和范围。图表就近引用，caption 解释读法。改图表后回查正文。
+
+#### 逻辑：句子承接与对象一致
+
+- **先说为什么值得做：**先说已有做法在哪些条件下不足。再说本文改了什么、为何有用、证据是什么。
+
+- **【铁律】不虚构章节依赖：**章首承接具体问题或产物。确有后续用途，章末才交代去向。不把并行写成串行。Related Work 小节直接进入内容。Intro 以贡献列表结束。Conclusion 不预告不存在的下一步。
+
+- **【铁律】钩子连接真实关系：**前句建立对象或前提，后句推进判断。However 表示转折，Therefore 从证据归纳。Specifically 展开判断，Then 表示真实先后。举例用 For example 或 For instance。连接词不能代替依据。
+
+<a id="standard-alignment"></a>
+![铁律：前后对应。边牧指出星形缺口，魔法猫制作对应星星，小龙检验是否匹配。](../assets/refine-alignment-comic.png)
+
+设计回应引言的问题，实验检验对应设计。
+
+#### 语言：完整判断与句长
+
+- **用具体操作替代空泛评价：**用具体操作替换 powerful、comprehensive 等空评价。
+
+- **【铁律】短句，完整动作：**每句一个主要判断，不用分号续长句。最终 PDF 中，常用双栏窄栏句子最多 3 行。单栏约 1.5 行；本稿另有要求时从其规定。保留动作、条件与承接，不缩字体或改模板。
+
+- **【铁律】正文写完整句子：**正文写完整句子。不用加号、斜杠、与号或箭头代替文字。英文不用破折号插入解释。复合词连字符、数学、单位和图连线保留。
+
+- **同级小节篇幅相称：**任务相近，篇幅尽量相称。过长先查重复，复杂内容分段。
+
+- **【铁律】近距离用词去重：**检查同句、相邻句和短段的用词重复。包括实义词、词根和起句。删冗余，不靠同义词掩盖重复。必要术语保留。
+
+#### 术语：首次定义与名称一致
+
+- **【铁律】术语首次解释：**写清对象和用途，不让读者到后文找定义。
+
+- **【铁律】符号首次定义：**符号首次出现就定义对象、单位和下标。计算量再说明来源与算法。删除未使用的符号。
+
+- **【铁律】同一对象同一称呼：**同一对象使用同一名称。代词应指向唯一、明确且就近的对象。含混时改用短名称，清楚的代词保留。
+
+- **【铁律】贡献修饰词：**先写贡献对象与动作，修饰词不能代替贡献。tailored、expert-confirmed 等词需有证据。
+
+- **命名发现立即解释：**用准确、好懂的短名概括发现。通常不超过四个英文词。紧接定义与证据，不能只给名称。
+
+#### 主张：证据与适用范围
+
+- **【铁律】保留结论条件：**写清任务、模型、范围和分母。有限测试不推广到所有场景。
+
+- **【铁律】观察与原因分开：**先报告现象，再讲可能原因。匹配对照支持后才归因。
+
+- **结果首句写发现：**结果段先给发现，再给图表、关键比较和意义。不要把结论藏在设置后面。
+
+- **【铁律】数字与统计口径准确：**数字用阿拉伯数字，并能回查最新记录。子集给 n of N、单位与版本。区分百分比与百分点、宏平均与微平均。未知不填 0，不换分母或单位夸大结果。
+
+<a id="figures"></a>
+#### 图表通用规范
 
 <a id="figure-skill"></a>
-[下载绘图 skill](../assets/starpaper-figures-skill.zip) latest:【2026-10-14 13:29】
+[下载绘图 skill](../assets/starpaper-figures-skill.zip) latest:【2026-10-14 15:53】
 
 - 先读对应正文，确定图要解释的困难、设计或发现。参考图只借鉴组织方式，不复制内容和结论。
 - 先用黑白草图核对关系，再上色。配色不弥补流程缺陷。
@@ -860,116 +872,8 @@ Stage 1 定内容，Stage 2 排版。Stage 3 完成视觉编码与验收。Mainf
 
 </details>
 
-<a id="figure-mainfig"></a>
-### 2.1 Mainfig
-
-说明研究问题与本文改动，概述贡献。不承担全部方法细节。
-
-#### Stage 1 · 确定问题与改动
-
-- 先用一句话定主张，再列必要输入、缺口、改动和输出。删除无关节点，通常不超过 5 个环节。
-- 方法型用同一问题对照旧做法与本文改动。发现型用实测观察提出问题。注明数据、条件与比较对象。
-- 【铁律】分清概念示意与实测结果。没有实验依据，不画提升曲线或通过标记。
-
-#### Stage 2 · 对齐比较与读图顺序
-
-- 旧做法与本文设计分两行或两面板。共享输入的位置与名称，并对齐改动处。
-- 保留具体输入片段与产物，不只写 Input、Model、Output。为短标签留空间，图注不抄图中文字。
-- 优先用单栏简图，通栏可从扁宽布局起稿。按实际栏宽排字，再定框大小。不把复杂 Framework 缩成 Mainfig。
-
-#### Stage 3 · 突出改动并验收
-
-- 只突出本文改动及对应问题，其余结构用中性色。高亮较多时保持白底。
-- 图标旁写对象名，未知项用文字标明。高亮与线型均有释义，不靠颜色暗示好坏。
-- 按最终尺寸，检查能否独立读懂问题、改动和输出。读不懂就补信息或重排，不加装饰。
-
-<a id="teaching-mainfig-stages"></a>
-#### 示范：从内容到视觉重点
-
-![示范：从内容到视觉重点](../assets/mainfig-stages.png)
-
-同一假设设计分三步：列内容、对齐路线、突出改动。此图只展示流程，不报告实际提升。
-
-1. **观察 1：**Stage 1 用四张卡片列材料。Stage 2 两行共享输入，对齐改动位置。Stage 3 保持连线不变，只给证据核对步骤加色。
-
-[示意图生成提示词（内置 imagegen）](../assets/figure-stage-prompts.json)
-
-StarPaper 原创 AI 生成教学示意 · 非实测结果 · CC BY 4.0
-
-<a id="figure-framework"></a>
-### 2.2 Framework
-
-对应 Method Overview，解释设计如何解决引言的困难。再展示输入、关键操作、中间产物与输出。
-
-#### Stage 1 · 写清输入、操作与产物
-
-- 每个模块写清输入、操作、产物与接收者。名称与 Method 小节一致。产物注明对象，不只叫 Features 或 Results。
-- 将引言的困难对应到解决它的模块。先说明设计为何必要，再补实现细节。
-- 【铁律】箭头对应真实依赖，训练、推理与评价分开。评价专用的答案与判据，不连到被测模型输入。
-
-#### Stage 2 · 按依赖排模块
-
-- 先定唯一主阅读方向，再排模块。同层内容成组并命名，并行分支保持并行。汇合点写明收到的产物。
-- 相邻模块用短连线，箭头不穿文字。反馈放在主流程旁，注明触发条件。不为排版添加虚构的串行或反馈。
-- 用一个案例串起关键模块。就近展示输入片段、中间产物和输出。不用模块名替代实际材料。
-
-#### Stage 3 · 编码角色并逐箭头核对
-
-- 三种边框区分输入、输出与评价材料，图例解释含义。解决关键困难的模块用统一强调色。
-- 材料、操作模块和评价器旁写对象名。大框对应 Overview，内部步骤对应方法小节。同名同义。
-- 逐条读箭头：“谁把什么交给谁”。再查案例来源、简称、颜色与实际字号。读不通的连接先修内容。
-
-<a id="teaching-framework-stages"></a>
-#### 示范：依赖、分区与材料角色
-
-![示范：依赖、分区与材料角色](../assets/framework-stages.png)
-
-先核对依赖，再分开生成与评价，最后区分材料角色。参考答案始终只送入评价器。
-
-1. **观察 1：**此图只演示排版，正式图须在连线旁标产物。检索产出候选证据，核对产出支持的主张或待确认项。生成产出回答。蓝虚框表示输入，蓝实框表示输出。金色双线框表示评价专用材料。灰虚框只作分区，无色框表示操作。
-
-[示意图生成提示词（内置 imagegen）](../assets/figure-stage-prompts.json)
-
-StarPaper 原创 AI 生成教学示意 · 非实测结果 · CC BY 4.0
-
-<a id="figure-experiments"></a>
-### 2.3 实验绘图
-
-一图回答一个实验问题。Python 等工具从真实记录绘图，美化不改变实验。
-
-#### Stage 1 · 确定比较与统计口径
-
-- 先列比较对象、指标、单位、样本量和有效子集。注明统计方法，从原始记录计算。不让绘图工具猜分母或缺测。
-- 少量方法比较用点图或柱图。有序动态用折线，配对变化用差值。分布按需用原始点、箱线图、KDE 或 ECDF。
-- 【铁律】保留下降、缺测与已有不确定性。不补点、不编误差、不为平滑改数据。误差线注明 SD、SE 或 CI、统计单位与算法。
-
-#### Stage 2 · 统一坐标与面板
-
-- 可比面板统一方法顺序、坐标尺度和图例映射。坐标写明变量、单位和好坏方向。图例放空白处，不遮关键点。
-- 柱长表示数量时，坐标从零起。确需截断时须注明，不能按柱高读倍数。差值图标零线，无序方法不连成趋势。
-- 少量观测显示原始点，密集重叠先调透明度。仍看不清再用分箱计数，并注明箱宽。不得移动真实坐标制造分离。
-
-#### Stage 3 · 编码组别并核对数值
-
-- 颜色、点形、线型和纹理与方法绑定，跨面板一致。可用强调色突出本文方法，对照方法也须清晰。
-- 连续量用顺序色标，区分有意义的基准才用发散色标。同指标的可比面板共用颜色映射与范围。不同指标另标单位和色标。缺测不当零分，KDE 峰高不当人数。
-- 按原始数据核对点位、柱高和误差。导出嵌入字体的矢量 PDF。插回论文检查图例、字号与裁切。含位图的 PDF 不称全矢量。
-
-<a id="figure-types"></a>
-
-<a id="teaching-experiment-before-after"></a>
-#### 示范：同一数据的排版优化
-
-![示范：同一数据的排版优化](../assets/figure-experiment-before-after.svg)
-
-两侧共用 Baseline 60%、Ours 66% 的教学数据。右侧补单位与数值，移开图例，增加纹理。提高 6 个百分点，相对提高 10%。
-
-1. **观察 1：**排版不改柱高与数据。示例只有两个汇总值，缺少估计不确定性的观测和方法。因此不画误差棒；真实实验保留并定义已有不确定性。
-
-StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
-
 <a id="figure-encodings"></a>
-#### 让每个元素有意义
+<details><summary>让每个元素有意义</summary>
 
 先定含义，再选颜色、图形和纹理。同一含义可用多种标记辅助识别。一个标记不能承担冲突的含义。
 
@@ -985,6 +889,8 @@ StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 
 - **大小：**大小表示数量时，须给大小图例。气泡面积与数量成正比，半径取数量的平方根。流程框按内容留空间，不暗示未量化的贡献。
 
+</details>
+
 <details><summary>补充建议与依据</summary>
 
 先定要表达的信息，再选图型。 [Rougier et al. (2014), Ten Simple Rules for Better Figures](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833)
@@ -999,113 +905,41 @@ StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
 
 </details>
 
-[更多图型、原图与点评：收集的参考绘图](#figure-appendix)
-
-<a id="refine"></a>
-## 3. 正文精修
-
-按论文顺序，先读要求，再填模板。旁批解释每句的内容与衔接。
-
-
-<a id="general-rules"></a>
-### 3.1 全文规范
-
-“铁律”是本套 skill 的必守要求，其余为建议。官方规定与当前作者要求优先。三项贡献、Limitations 两点格式均属本套约定。它们不是所有会议的规定。句式与组织模板仅供参考。
-
-#### 篇幅与版面：充分呈现证据
-
-- **【铁律】遵守当轮篇幅要求：**按会议上限和当前稿件目标安排篇幅。要求写满时，补足证据、比较和解释。明显偏短，容易让人怀疑实验与分析不足。不要凑页注水，也不要跨论文套页数。
-
-- **实验与分析就近呈现：**结果、图表与解释就近排。核心证据留在正文，篇幅按分析需要分配。
-
-- **【铁律】保留支撑结论的证据：**保留支撑结论的实验分析、必要条件和关键比较。超页先删重复和无关背景。再压缩 Related Work 与常规方法介绍。
-
-- **【铁律】保持官方模板：**分别核查正文、文献与附录的页数。不得改字号、行距、字距或页边距凑页。以最终 PDF 为准，不能只看源码长度。
-
-- **【铁律】图表与正文一致：**统一名称、符号、单位、数值和范围。图表就近引用，caption 解释读法。改图表后回查正文。
-
-#### 逻辑：句子承接与对象一致
-
-- **先说为什么值得做：**先说已有做法在哪些条件下不足。再说本文改了什么、为何有用、证据是什么。
-
-- **【铁律】不虚构章节依赖：**章首承接具体问题或产物。确有后续用途，章末才交代去向。不把并行写成串行。Related Work 小节直接进入内容。Intro 以贡献列表结束。Conclusion 不预告不存在的下一步。
-
-- **【铁律】钩子连接真实关系：**前句建立对象或前提，后句推进判断。However 表示转折，Therefore 从证据归纳。Specifically 展开判断，Then 表示真实先后。举例用 For example 或 For instance。连接词不能代替依据。
-
-<a id="standard-alignment"></a>
-![铁律：前后对应。边牧指出星形缺口，魔法猫制作对应星星，小龙检验是否匹配。](../assets/refine-alignment-comic.png)
-
-设计回应引言的问题，实验检验对应设计。
-
-#### 语言：完整判断与句长
-
-- **用具体操作替代空泛评价：**用具体操作替换 powerful、comprehensive 等空评价。
-
-- **【铁律】短句，完整动作：**每句一个主要判断，不用分号续长句。最终 PDF 中，常用双栏窄栏句子最多 3 行。单栏约 1.5 行；本稿另有要求时从其规定。保留动作、条件与承接，不缩字体或改模板。
-
-- **【铁律】正文写完整句子：**正文写完整句子。不用加号、斜杠、与号或箭头代替文字。英文不用破折号插入解释。复合词连字符、数学、单位和图连线保留。
-
-- **同级小节篇幅相称：**任务相近，篇幅尽量相称。过长先查重复，复杂内容分段。
-
-- **【铁律】近距离用词去重：**检查同句、相邻句和短段的用词重复。包括实义词、词根和起句。删冗余，不靠同义词掩盖重复。必要术语保留。
-
-#### 术语：首次定义与名称一致
-
-- **【铁律】术语首次解释：**写清对象和用途，不让读者到后文找定义。
-
-- **【铁律】符号首次定义：**符号首次出现就定义对象、单位和下标。计算量再说明来源与算法。删除未使用的符号。
-
-- **【铁律】同一对象同一称呼：**同一对象使用同一名称。代词应指向唯一、明确且就近的对象。含混时改用短名称，清楚的代词保留。
-
-- **【铁律】贡献修饰词：**先写贡献对象与动作，修饰词不能代替贡献。tailored、expert-confirmed 等词需有证据。
-
-- **命名发现立即解释：**用准确、好懂的短名概括发现。通常不超过四个英文词。紧接定义与证据，不能只给名称。
-
-#### 主张：证据与适用范围
-
-- **【铁律】保留结论条件：**写清任务、模型、范围和分母。有限测试不推广到所有场景。
-
-- **【铁律】观察与原因分开：**先报告现象，再讲可能原因。匹配对照支持后才归因。
-
-- **结果首句写发现：**结果段先给发现，再给图表、关键比较和意义。不要把结论藏在设置后面。
-
-- **【铁律】数字与统计口径准确：**数字用阿拉伯数字，并能回查最新记录。子集给 n of N、单位与版本。区分百分比与百分点、宏平均与微平均。未知不填 0，不换分母或单位夸大结果。
-
 **按论文顺序精修**
 
 摘要概括全文，引言提问题，方法给做法，实验查效果，讨论讲范围，结论收尾。
 
-- 3.2 标题：写研究对象与核心贡献。
-- 3.3 摘要：一个自然段串起背景、多个局限、对应设计和实验亮点。
-- 3.4 引言：建立问题，解释设计，再用发现与贡献概括全文。
-- 3.5 相关工作：按主题回顾已有工作，段末依次写局限、本文做法和应用。
-- 3.6 方法：先解释设计为什么有用，再用输入、操作和输出展开。
-- 3.7 实验：说明比较怎样做，再报告发现、关键证据和分析。
-- 3.8 讨论：解释实验发现的含义与适用范围。
-- 3.9 结论：回答引言的问题，概括已验证的贡献与发现。
-- 3.10 局限性：本套约定用一个自然段写两个研究边界。分别以 First、Second 引出。
-- 3.11 参考文献：按官方格式生成文献表，核对每条引文的支持关系。
-- 3.12 附录：补实现与评价细节，按正文入口组织。
+- 2.2 标题：写研究对象与核心贡献。
+- 2.3 摘要：一个自然段串起背景、多个局限、对应设计和实验亮点。
+- 2.4 引言：建立问题，解释设计，再用发现与贡献概括全文。
+- 2.5 相关工作：按主题回顾已有工作，段末依次写局限、本文做法和应用。
+- 2.6 方法：先解释设计为什么有用，再用输入、操作和输出展开。
+- 2.7 实验：说明比较怎样做，再报告发现、关键证据和分析。
+- 2.8 讨论：解释实验发现的含义与适用范围。
+- 2.9 结论：回答引言的问题，概括已验证的贡献与发现。
+- 2.10 局限性：本套约定用一个自然段写两个研究边界。分别以 First、Second 引出。
+- 2.11 参考文献：按官方格式生成文献表，核对每条引文的支持关系。
+- 2.12 附录：补实现与评价细节，按正文入口组织。
 
 方括号换成自己的材料。we 后填动词短语，However 后填完整判断。按实际工作删可选句，调整单复数。不为套模板补造模块、基线、指标或分析。论文原题另附出处。
 
 ### 本章目录
 
-- [3.2 标题](#title)
-- [3.3 摘要](#abstract)
-- [3.4 引言](#intro)
-- [3.5 相关工作](#related)
-- [3.6 方法](#method)
-- [3.7 实验](#experiments)
-- [3.8 讨论](#discussion)
-- [3.9 结论](#conclusion)
-- [3.10 局限性](#limitations)
-- [3.11 参考文献](#references)
-- [3.12 附录](#appendix)
+- [2.2 标题](#title)
+- [2.3 摘要](#abstract)
+- [2.4 引言](#intro)
+- [2.5 相关工作](#related)
+- [2.6 方法](#method)
+- [2.7 实验](#experiments)
+- [2.8 讨论](#discussion)
+- [2.9 结论](#conclusion)
+- [2.10 局限性](#limitations)
+- [2.11 参考文献](#references)
+- [2.12 附录](#appendix)
 
 <a id="title"></a>
 <a id="chapter-title"></a>
-### 3.2 标题
+### 2.2 标题
 
 写研究对象与核心贡献。
 
@@ -1205,7 +1039,7 @@ S、A、G、E 分别取自 Service、Agent、Graph-guided、Evaluation。A 来�
 
 <a id="abstract"></a>
 <a id="chapter-abstract"></a>
-### 3.3 摘要
+### 2.3 摘要
 
 一个自然段串起背景、多个局限、对应设计和实验亮点。
 
@@ -1239,7 +1073,7 @@ S、A、G、E 分别取自 Service、Agent、Graph-guided、Evaluation。A 来�
 
 <a id="intro"></a>
 <a id="chapter-intro"></a>
-### 3.4 引言
+### 2.4 引言
 
 建立问题，解释设计，再用发现与贡献概括全文。
 
@@ -1253,6 +1087,44 @@ S、A、G、E 分别取自 Service、Agent、Graph-guided、Evaluation。A 来�
 - 【铁律】贡献固定 3 点：整体工作、关键设计或证据、实验发现。按类型填真实贡献，不虚构机制或诊断。已讲清的问题与解法无需重复局限标签。
 - 【铁律】引言只引用本节图表。不要提前指向后文章节、公式、方法图或附录。保留文献引用与有据结论。
 - 【铁律】正式命名对象在引言中每次出现用斜体。每个对象最多强调性加粗一次，含贡献列表。普通术语不机械斜体。
+
+<a id="figure-mainfig"></a>
+#### Mainfig：引言主图
+
+说明研究问题与本文改动，概述贡献。不承担全部方法细节。
+
+##### Stage 1 · 确定问题与改动
+
+- 先用一句话定主张，再列必要输入、缺口、改动和输出。删除无关节点，通常不超过 5 个环节。
+- 方法型用同一问题对照旧做法与本文改动。发现型用实测观察提出问题。注明数据、条件与比较对象。
+- 【铁律】分清概念示意与实测结果。没有实验依据，不画提升曲线或通过标记。
+
+##### Stage 2 · 对齐比较与读图顺序
+
+- 旧做法与本文设计分两行或两面板。共享输入的位置与名称，并对齐改动处。
+- 保留具体输入片段与产物，不只写 Input、Model、Output。为短标签留空间，图注不抄图中文字。
+- 优先用单栏简图，通栏可从扁宽布局起稿。按实际栏宽排字，再定框大小。不把复杂 Framework 缩成 Mainfig。
+
+##### Stage 3 · 突出改动并验收
+
+- 只突出本文改动及对应问题，其余结构用中性色。高亮较多时保持白底。
+- 图标旁写对象名，未知项用文字标明。高亮与线型均有释义，不靠颜色暗示好坏。
+- 按最终尺寸，检查能否独立读懂问题、改动和输出。读不懂就补信息或重排，不加装饰。
+
+<a id="teaching-mainfig-stages"></a>
+#### 示范：从内容到视觉重点
+
+![示范：从内容到视觉重点](../assets/mainfig-stages.png)
+
+同一假设设计分三步：列内容、对齐路线、突出改动。此图只展示流程，不报告实际提升。
+
+1. **观察 1：**Stage 1 用四张卡片列材料。Stage 2 两行共享输入，对齐改动位置。Stage 3 保持连线不变，只给证据核对步骤加色。
+
+[示意图生成提示词（内置 imagegen）](../assets/figure-stage-prompts.json)
+
+StarPaper 原创 AI 生成教学示意 · 非实测结果 · CC BY 4.0
+
+[图表通用规范与绘图 skill](#figures) · [更多参考绘图](#figure-appendix)
 
 <a id="annotated-intro"></a>
 
@@ -1344,9 +1216,16 @@ To answer [the research question introduced above], we evaluate [Method or evalu
 4. **Further analysis shows [which design or condition is associated with the observed outcome], supporting [the corresponding motivation or claim].**：最后解释发现。回扣研究动机，解释设计价值。只概述正文已有分析。
 
 <a id="template-intro-contributions"></a>
+<a id="draft-contribution-format"></a>
 #### 贡献列表模板
 
 用 3 条收束引言：整体工作、关键设计或证据、实验发现。第 2 条按类型选 propose 或 provide。正式方法名用 textit，普通描述不斜体。
+
+- 先用连贯段落说明核心工作、对应设计与实验发现。方法名后的同位语立即点明亮点与用途。不要先堆流程，再讲贡献。
+- 【铁律】正文引导句后接原生 itemize，固定三项。依次写整体工作、设计或证据贡献、实验发现。列表后直接进入下一节。
+- 方法论文第 2 项写新机制与用途。基准论文写构建或评价设计。实证研究写比较、测量或分析贡献。只写已完成的工作。
+- 三项贡献是本套 CS 约定，不是所有会议的规定。论文类型与当轮要求优先。先删重复背景与次要流程，不改模板规避页数。
+- 只填真实贡献，不虚构机制或诊断。已讲清的问题与解法无需重复局限标签。
 
 ```latex
 Our contributions are summarized as follows:
@@ -1695,7 +1574,7 @@ L1 → M1 → E1 → Q：[具体局限] → [对应设计] → [设计作用的�
 
 <a id="related"></a>
 <a id="chapter-related"></a>
-### 3.5 相关工作
+### 2.5 相关工作
 
 按主题回顾已有工作，段末依次写局限、本文做法和应用。
 
@@ -1727,7 +1606,7 @@ L1 → M1 → E1 → Q：[具体局限] → [对应设计] → [设计作用的�
 
 <a id="method"></a>
 <a id="chapter-method"></a>
-### 3.6 方法
+### 2.6 方法
 
 先解释设计为什么有用，再用输入、操作和输出展开。
 
@@ -1777,6 +1656,44 @@ To address [Introduction limitation A], in [exact subsection A title] (Section [
 4. **transforms this [output of module B] into [final output] for [task objective]**：收束到任务目标。末个模块给最终输出。模块数量按真实结构增删。
 5. **Figure [framework] summarizes these dependencies.**：图文结构一致。框架图、总览与小节同名。三处使用相同依赖关系。
 
+<a id="figure-framework"></a>
+#### Framework：方法框架图
+
+对应 Method Overview，解释设计如何解决引言的困难。再展示输入、关键操作、中间产物与输出。
+
+##### Stage 1 · 写清输入、操作与产物
+
+- 每个模块写清输入、操作、产物与接收者。名称与 Method 小节一致。产物注明对象，不只叫 Features 或 Results。
+- 将引言的困难对应到解决它的模块。先说明设计为何必要，再补实现细节。
+- 【铁律】箭头对应真实依赖，训练、推理与评价分开。评价专用的答案与判据，不连到被测模型输入。
+
+##### Stage 2 · 按依赖排模块
+
+- 先定唯一主阅读方向，再排模块。同层内容成组并命名，并行分支保持并行。汇合点写明收到的产物。
+- 相邻模块用短连线，箭头不穿文字。反馈放在主流程旁，注明触发条件。不为排版添加虚构的串行或反馈。
+- 用一个案例串起关键模块。就近展示输入片段、中间产物和输出。不用模块名替代实际材料。
+
+##### Stage 3 · 编码角色并逐箭头核对
+
+- 三种边框区分输入、输出与评价材料，图例解释含义。解决关键困难的模块用统一强调色。
+- 材料、操作模块和评价器旁写对象名。大框对应 Overview，内部步骤对应方法小节。同名同义。
+- 逐条读箭头：“谁把什么交给谁”。再查案例来源、简称、颜色与实际字号。读不通的连接先修内容。
+
+<a id="teaching-framework-stages"></a>
+#### 示范：依赖、分区与材料角色
+
+![示范：依赖、分区与材料角色](../assets/framework-stages.png)
+
+先核对依赖，再分开生成与评价，最后区分材料角色。参考答案始终只送入评价器。
+
+1. **观察 1：**此图只演示排版，正式图须在连线旁标产物。检索产出候选证据，核对产出支持的主张或待确认项。生成产出回答。蓝虚框表示输入，蓝实框表示输出。金色双线框表示评价专用材料。灰虚框只作分区，无色框表示操作。
+
+[示意图生成提示词（内置 imagegen）](../assets/figure-stage-prompts.json)
+
+StarPaper 原创 AI 生成教学示意 · 非实测结果 · CC BY 4.0
+
+[图表通用规范与绘图 skill](#figures) · [更多参考绘图](#figure-appendix)
+
 <a id="annotated-method-module"></a>
 
 #### 方法模块
@@ -1797,7 +1714,7 @@ To [solve the specific problem assigned to this module], we [key design action].
 
 <a id="experiments"></a>
 <a id="chapter-experiments"></a>
-### 3.7 实验
+### 2.7 实验
 
 说明比较怎样做，再报告发现、关键证据和分析。
 
@@ -1908,6 +1825,44 @@ After constructing [method, dataset, or benchmark], we evaluate [target systems 
 3. **We compute [per-unit quantities] and aggregate them using [macro, micro, weighted, or other actual rule].**：说明如何汇总。写先按什么单位计算。再写如何汇总。自定义公式与判据给附录入口。
 4. **[Invalid, missing, and not-applicable outputs] are handled according to [defined policy]**：交代异常处理。区分失败、缺失与不适用。按协议处理，并报告覆盖范围。不得静默删样本。
 
+<a id="figure-experiments"></a>
+#### 实验绘图
+
+一图回答一个实验问题。Python 等工具从真实记录绘图，美化不改变实验。
+
+##### Stage 1 · 确定比较与统计口径
+
+- 先列比较对象、指标、单位、样本量和有效子集。注明统计方法，从原始记录计算。不让绘图工具猜分母或缺测。
+- 少量方法比较用点图或柱图。有序动态用折线，配对变化用差值。分布按需用原始点、箱线图、KDE 或 ECDF。
+- 【铁律】保留下降、缺测与已有不确定性。不补点、不编误差、不为平滑改数据。误差线注明 SD、SE 或 CI、统计单位与算法。
+
+##### Stage 2 · 统一坐标与面板
+
+- 可比面板统一方法顺序、坐标尺度和图例映射。坐标写明变量、单位和好坏方向。图例放空白处，不遮关键点。
+- 柱长表示数量时，坐标从零起。确需截断时须注明，不能按柱高读倍数。差值图标零线，无序方法不连成趋势。
+- 少量观测显示原始点，密集重叠先调透明度。仍看不清再用分箱计数，并注明箱宽。不得移动真实坐标制造分离。
+
+##### Stage 3 · 编码组别并核对数值
+
+- 颜色、点形、线型和纹理与方法绑定，跨面板一致。可用强调色突出本文方法，对照方法也须清晰。
+- 连续量用顺序色标，区分有意义的基准才用发散色标。同指标的可比面板共用颜色映射与范围。不同指标另标单位和色标。缺测不当零分，KDE 峰高不当人数。
+- 按原始数据核对点位、柱高和误差。导出嵌入字体的矢量 PDF。插回论文检查图例、字号与裁切。含位图的 PDF 不称全矢量。
+
+<a id="figure-types"></a>
+
+<a id="teaching-experiment-before-after"></a>
+#### 示范：同一数据的排版优化
+
+![示范：同一数据的排版优化](../assets/figure-experiment-before-after.svg)
+
+两侧共用 Baseline 60%、Ours 66% 的教学数据。右侧补单位与数值，移开图例，增加纹理。提高 6 个百分点，相对提高 10%。
+
+1. **观察 1：**排版不改柱高与数据。示例只有两个汇总值，缺少估计不确定性的观测和方法。因此不画误差棒；真实实验保留并定义已有不确定性。
+
+StarPaper 原创教学数据与改排，CC BY 4.0；不是论文实验结果。
+
+[图表通用规范与绘图 skill](#figures) · [更多参考绘图](#figure-appendix)
+
 <a id="annotated-experiments-main-teaching"></a>
 
 #### 主要结果
@@ -1926,6 +1881,50 @@ After constructing [method, dataset, or benchmark], we evaluate [target systems 
 3. **[verified difference with its unit and measured uncertainty, if available]**：把差值写准确。区分百分比与百分点。显著、稳定须有统计证据。
 4. **The comparison supports [the Introduction claim answered by this result].**：回扣动机与贡献。回答前文对应的问题。整体优势不能拆作各模块作用。
 5. **[A relevant exception or measured trade-off, if observed].**：补充影响结论的取舍。填重要代价或失效条件。没有相关证据则删去。
+
+<a id="experiment-results-table"></a>
+#### 主结果表：排版与 LaTeX 模板
+
+排版示例，数值均为假设。上标为标准差，浅红标最优，浅蓝标次优。
+
+| Method | Success (%) ↑ | Latency (ms) ↓ |
+| --- | --- | --- |
+| Baseline A | 70.0 ±2.0 | 120 ±4 |
+| Baseline B | 73.0 ±1.0 | 130 ±4 |
+| Proposed method | 76.0 ±1.0 | 125 ±3 |
+
+**LaTeX 表格模板**
+
+```latex
+% Add these packages to the preamble if the venue permits them.
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\definecolor{bestcell}{HTML}{F2EBEA}
+\definecolor{secondcell}{HTML}{EDF0F4}
+
+% Insert this environment in the body.
+\begin{table}[!t]
+\centering
+\caption{Illustrative values only. Success rate is in percent;
+latency is in milliseconds. Superscripts illustrate standard deviations.
+Best values are bold; second-best values are underlined.}
+\label{tab:main-results}
+\begin{tabular}{lcc}
+\toprule
+Method & Success ($\uparrow$) & Latency ($\downarrow$) \\
+\midrule
+Baseline A & 70.0\textsuperscript{\(\pm2.0\)}
+ & \cellcolor{bestcell}\textbf{120}\textsuperscript{\(\pm4\)} \\
+Baseline B & \cellcolor{secondcell}\underline{73.0}\textsuperscript{\(\pm1.0\)}
+ & 130\textsuperscript{\(\pm4\)} \\
+Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
+ & \cellcolor{secondcell}\underline{125}\textsuperscript{\(\pm3\)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+```
+
+先确认会议允许使用这些包。包声明放导言区，table 环境放正文。正式表换成真实数据。表注写统计单位、重复次数、可比范围与主要发现。跨栏用 table*，不改模板栏宽。
 
 <a id="experiments-experiment-ablation-table-template-writing-templates"></a>
 
@@ -2029,7 +2028,7 @@ We select [case] because it contains [challenge tied to the Introduction]. Figur
 
 <a id="discussion"></a>
 <a id="chapter-discussion"></a>
-### 3.8 讨论
+### 2.8 讨论
 
 解释实验发现的含义与适用范围。
 
@@ -2059,7 +2058,7 @@ Together, [finding 1] and [finding 2] suggest [answer to the research question] 
 
 <a id="conclusion"></a>
 <a id="chapter-conclusion"></a>
-### 3.9 结论
+### 2.9 结论
 
 回答引言的问题，概括已验证的贡献与发现。
 
@@ -2089,7 +2088,7 @@ We introduced [work name and type] to address [research problem]. By [core desig
 
 <a id="limitations"></a>
 <a id="chapter-limitations"></a>
-### 3.10 局限性
+### 2.10 局限性
 
 本套约定用一个自然段写两个研究边界。分别以 First、Second 引出。
 
@@ -2119,7 +2118,7 @@ First, although we have [completed work addressing the main difficulty], [specif
 
 <a id="references"></a>
 <a id="chapter-references"></a>
-### 3.11 参考文献
+### 2.11 参考文献
 
 按官方格式生成文献表，核对每条引文的支持关系。
 
@@ -2201,7 +2200,7 @@ journal 填刊名；volume 填卷，number 填期，pages 填页码。
 
 <a id="appendix"></a>
 <a id="chapter-appendix"></a>
-### 3.12 附录
+### 2.12 附录
 
 补实现与评价细节，按正文入口组织。
 
@@ -2231,13 +2230,13 @@ To reproduce [method or experiment] in Section [X], this section provides [neces
 5. **The results show [supported conclusion about that condition].**：本节结论。填该条件下的发现。纯实现节删去本句及前一句。
 
 <a id="tools"></a>
-## 4. 辅助工具
+## 3. 辅助工具
 
 按用途选用，版本与许可见原项目。以下依据公开文档整理，未逐项安装。
 
 核对日期：2026-10-07。
 
-### 4.1 文献检索与阅读
+### 3.1 文献检索与阅读
 
 - **[AI-Powered Literature Review Skills](https://github.com/stephenlzc/AI-Powered-Literature-Review-Skills)：**检索、去重、逐篇分析，再组织综述。
 
@@ -2262,7 +2261,7 @@ Markdown 自动同步为双向。启用前确认同步文件，并保留原始�
 
 插件也能写入笔记、标签与元数据。需要只读时须限制操作。连接云端 AI 后，内容可能传给模型服务商。
 
-### 4.2 写作与排版
+### 3.2 写作与排版
 
 - **[ChineseResearchLaTeX](https://github.com/huangwb8/ChineseResearchLaTeX)：**中文科研 LaTeX 模板：标书、论文、学位论文、简历。
 
@@ -2271,7 +2270,7 @@ Markdown 自动同步为双向。启用前确认同步文件，并保留原始�
 
 许可为 CC BY-NC-SA 4.0。须署名、非商业使用，并按相同许可共享。校徽等标识另遵其规则。
 
-### 4.3 论文绘图
+### 3.3 论文绘图
 
 - **[Paper Plot Skills](https://github.com/Trae1ounG/paper-plot-skills)：**用自己的数据绘图，将参考布局转为 matplotlib。
 
@@ -2285,7 +2284,7 @@ Markdown 自动同步为双向。启用前确认同步文件，并保留原始�
 
 [项目 LICENSE](https://github.com/larashero3-dotcom/lieflat-charts/blob/main/LICENSE)
 
-### 4.4 引用核验
+### 3.4 引用核验
 
 - **[Scholar Ref Cleaner](https://github.com/libo-huang/scholar-ref-cleaner)：**BibTeX、Word、文本引用与数据库元数据比对。
 
@@ -2302,7 +2301,7 @@ ruanyf/weekly 链接为开发者自荐，不是独立评测。LLM 报告可能�
 
 自动核验仍可能出错。排版导出依赖项目的综述 skill。
 
-### 4.5 代码阅读
+### 3.5 代码阅读
 
 - **[DeepWiki](https://deepwiki.com/)：**看 GitHub 仓库架构，查函数和数据流。
 
@@ -2310,7 +2309,7 @@ ruanyf/weekly 链接为开发者自荐，不是独立评测。LLM 报告可能�
 
 [官方说明](https://docs.devin.ai/work-with-devin/deepwiki)
 
-### 4.6 论文发布与维护
+### 3.6 论文发布与维护
 
 - **[Hugging Face Daily Papers 投稿](https://huggingface.co/papers/submit)：**将公开 arXiv 论文提交到 Daily Papers。
 
@@ -2328,7 +2327,7 @@ ruanyf/weekly 链接为开发者自荐，不是独立评测。LLM 报告可能�
 
 [2026-02-06 示例页面](https://huggingface.co/papers/date/2026-02-06)
 
-### 4.7 其他资源
+### 3.7 其他资源
 
 - **[Edit Banana](https://github.com/BIT-DataLab/Edit-Banana)：**静态图转可编辑 DrawIO 元素。
 
@@ -2343,7 +2342,7 @@ ruanyf/weekly 链接为开发者自荐，不是独立评测。LLM 报告可能�
 体验与排名属于社区观点，不是统一条件下的测试。也不代表许可或安全保证。
 
 <a id="code-release-prompt"></a>
-### 4.8 开源整理
+### 3.8 开源整理
 
 先指定文件范围。界面文字、接口字符串和路径可能影响运行，不能批量替换。
 

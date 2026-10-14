@@ -112,9 +112,16 @@ To answer [the research question introduced above], we evaluate [Method or evalu
 4. **Further analysis shows [which design or condition is associated with the observed outcome], supporting [the corresponding motivation or claim].**：最后解释发现。回扣研究动机，解释设计价值。只概述正文已有分析。
 
 <a id="template-intro-contributions"></a>
+<a id="draft-contribution-format"></a>
 #### 贡献列表模板
 
 用 3 条收束引言：整体工作、关键设计或证据、实验发现。第 2 条按类型选 propose 或 provide。正式方法名用 textit，普通描述不斜体。
+
+- 先用连贯段落说明核心工作、对应设计与实验发现。方法名后的同位语立即点明亮点与用途。不要先堆流程，再讲贡献。
+- 【铁律】正文引导句后接原生 itemize，固定三项。依次写整体工作、设计或证据贡献、实验发现。列表后直接进入下一节。
+- 方法论文第 2 项写新机制与用途。基准论文写构建或评价设计。实证研究写比较、测量或分析贡献。只写已完成的工作。
+- 三项贡献是本套 CS 约定，不是所有会议的规定。论文类型与当轮要求优先。先删重复背景与次要流程，不改模板规避页数。
+- 只填真实贡献，不虚构机制或诊断。已讲清的问题与解法无需重复局限标签。
 
 ```latex
 Our contributions are summarized as follows:

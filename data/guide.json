@@ -3789,7 +3789,7 @@
       "cs-integration",
       "cs-limitations"
     ],
-    "updated_at": "2026-10-14 15:01",
+    "updated_at": "2026-10-14 15:53",
     "visual_rules": [
       "【铁律】保留真实数据、几何、拓扑、分母和输入输出。示意图与实测图分开。截图从原始生成源更新，不擦改证据。评分通过不代表执行、购买或部署成功。",
       "【铁律】表体文字、名称与引用、数值与误差保持单行。换行时先调模板允许的列宽。不擅自简称、缩字或越界。多级表头与注释保留结构。",
@@ -5613,86 +5613,6 @@
             "code_title": "给 Codex 的实验整理提示词",
             "code_language": "text",
             "prompt_ref": "experiments"
-          },
-          {
-            "title": "表格：先让人看清比较",
-            "rules": [
-              {
-                "label": "结构",
-                "text": "表承载实测结果和数据。模型按实际类型分组；列写指标、单位与好坏方向。三线表，少网格，同一指标保持精度一致。",
-                "example_zh": "中：方法名一列，成功率（%）一列，延迟（ms）一列；不同测试集分组，不混算平均。",
-                "example_en": "EN: Use columns for method, success rate (%), and latency (ms). Separate test sets into groups rather than averaging incompatible results."
-              },
-              {
-                "label": "标记",
-                "text": "可比组内逐列判断：最优加粗，次优加下划线；需要时用很浅的底色。性能和成本方向不同，并列共享标记。颜色标记不能证明统计显著性。",
-                "example_zh": "中：成功率越高越好，延迟越低越好；两列分别找最优，不把本文整行全部涂红。",
-                "example_en": "EN: Higher success and lower latency are better. Mark each column independently rather than highlighting the entire proposed-method row."
-              },
-              {
-                "label": "统计与排版",
-                "text": "均值与不确定性放同一行，表注写清重复次数及 SD、SE 或 CI。缺失用破折号并解释；长表先拆列或跨栏，不整表 resizebox。",
-                "example_zh": "中：70.0 上标 ±2.0 表示均值及标准差；“—”表示未测，不是 0。",
-                "example_en": "EN: A mean of 70.0 with superscript ±2.0 denotes a mean and standard deviation. A dash denotes an unmeasured value, not zero."
-              }
-            ],
-            "table": {
-              "caption": "排版示例，数值均为假设。上标为标准差，浅红标最优，浅蓝标次优。",
-              "headers": [
-                "Method",
-                "Success (%) ↑",
-                "Latency (ms) ↓"
-              ],
-              "rows": [
-                {
-                  "method": "Baseline A",
-                  "cells": [
-                    {
-                      "value": "70.0",
-                      "uncertainty": "2.0"
-                    },
-                    {
-                      "value": "120",
-                      "uncertainty": "4",
-                      "mark": "best"
-                    }
-                  ]
-                },
-                {
-                  "method": "Baseline B",
-                  "cells": [
-                    {
-                      "value": "73.0",
-                      "uncertainty": "1.0",
-                      "mark": "second"
-                    },
-                    {
-                      "value": "130",
-                      "uncertainty": "4"
-                    }
-                  ]
-                },
-                {
-                  "method": "Proposed method",
-                  "cells": [
-                    {
-                      "value": "76.0",
-                      "uncertainty": "1.0",
-                      "mark": "best"
-                    },
-                    {
-                      "value": "125",
-                      "uncertainty": "3",
-                      "mark": "second"
-                    }
-                  ]
-                }
-              ]
-            },
-            "code_title": "可复制的 LaTeX 表格模板",
-            "code_language": "latex",
-            "code": "% Add these packages to the preamble if the venue permits them.\n\\usepackage{booktabs}\n\\usepackage[table]{xcolor}\n\\definecolor{bestcell}{HTML}{F2EBEA}\n\\definecolor{secondcell}{HTML}{EDF0F4}\n\n% Insert this environment in the body.\n\\begin{table}[!t]\n\\centering\n\\caption{Illustrative values only. Success rate is in percent;\nlatency is in milliseconds. Superscripts illustrate standard deviations.\nBest values are bold; second-best values are underlined.}\n\\label{tab:main-results}\n\\begin{tabular}{lcc}\n\\toprule\nMethod & Success ($\\uparrow$) & Latency ($\\downarrow$) \\\\\n\\midrule\nBaseline A & 70.0\\textsuperscript{\\(\\pm2.0\\)}\n & \\cellcolor{bestcell}\\textbf{120}\\textsuperscript{\\(\\pm4\\)} \\\\\nBaseline B & \\cellcolor{secondcell}\\underline{73.0}\\textsuperscript{\\(\\pm1.0\\)}\n & 130\\textsuperscript{\\(\\pm4\\)} \\\\\nProposed method & \\cellcolor{bestcell}\\textbf{76.0}\\textsuperscript{\\(\\pm1.0\\)}\n & \\cellcolor{secondcell}\\underline{125}\\textsuperscript{\\(\\pm3\\)} \\\\\n\\bottomrule\n\\end{tabular}\n\\end{table}",
-            "code_note": "先确认会议允许使用这些包。包声明放导言区，table 环境放正文。正式表换成真实数据。表注写统计单位、重复次数、可比范围与主要发现。跨栏用 table*，不改模板栏宽。"
           }
         ]
       },
@@ -6836,8 +6756,8 @@
       "source": "skills/starpaper-figures/SKILL.md",
       "download": "assets/starpaper-figures-skill.zip",
       "intro": "解压后让 Codex 读取整个 starpaper-figures/ 文件夹。提供稿件、原始数据、参考图和允许修改的文件。",
-      "instructions": "---\nname: starpaper-figures\ndescription: Create and refine CS paper main figures, framework diagrams, case illustrations, and quantitative charts from manuscripts and real data, with self-explanatory labels and final-size PDF checks.\n---\n\n# StarPaper 绘图 skill\n\nlatest:【2026-10-13 12:00】\n\n图须突出对应贡献，明确问题、输入、操作与输出。先核对内容和真实依赖，再调整布局、字体与配色。\n\n## 使用前\n\n核对目标会议及 track 的 AI 绘图规定，按要求披露；作者核实图的内容并承担责任。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。\n\n生成图用于已确认的概念或明确标注的教学示例，不能充当实验结果。保留原图出处与许可，不提供规避 AI 政策或检测的做法。\n\n## 先确认图的任务\n\n读取稿件对应段落、原始数据、已有图和作者允许修改的文件。确定图型、目标会议、最终插入宽度、正文实际字体与字号、已确认色板。缺关键材料先指出缺口，不编实验或流程。\n\n这是实证型 CS 论文的默认约定。作者当前要求和会议硬规则优先；Nature 系列使用其独立的写作与绘图体系，不强套本包的 CS 字号、浮动或案例配置。\n\n## 选图型与工具\n\n- **mainfig / Introduction 图**：讲具体问题、已有做法的缺口、本文改哪一步。默认不超过 5 个环节；保留理解贡献所需的输入、输出和必要对照。\n- **framework**：对应 Method Overview，说明关键设计为何针对 Intro 的困难，再讲真实模块、输入、操作、输出及接收者。用一个能追踪的案例串起来，保持并行、汇合与反馈的真实关系；训练、推理和评价分开。\n- **案例图**：给必要背景、有效需求、证据、回复或决策及判据。标清实测输出或作者示例；同一案例只完整呈现一次，其他位置交叉引用。\n- **统计图**：用 Python 等专业绘图工具读取真实数据，保留坐标、数值、误差、分母和统计几何。按数据形态选图，不为美观改数据、补缺测、平滑曲线或重跑实验。\n- **概念图**：按当前环境用 imagegen。先确认真实语义和连线，再生成图面；不要让生成器猜模块关系或发明实验结果。\n\n详细规范与中英例子见 [rules.md](references/rules.md)。只将明确必须遵守或禁止违反的要求标为铁律；图的编排与起草顺序是可调整建议。先读“绘图规范”，统计图再按需读“按图的任务选模板”，其中补充了小样本、散点遮挡、连续色标、气泡面积和误差线读法。来源集中在该参考文件文末“相关参考和推荐阅读”。\n\n## 排字与配色\n\n按稿件最终栏宽起稿。图内所有文字同一字号，范围为正文减 2 pt 至正文，字体家族匹配；标题、轴、图例、注释都不能更大。以插入论文后的 PDF 实测为准，不看放大 PNG 猜字号。放不下就重排、删重复或拆图，不进行非等比缩放，不缩小规定字号。\n\n白底，面板近白，深色文字与刻度。常规模块用中性色，自己的关键改动用统一强调色，突出显示。同一对象全篇同色，再用点形、线型或纹理辅助；已有色板优先，不复制另一篇论文的配置。输入、输出、评价规则采用三种可解释的边框；仅供评价的规则不能画成模型输入。\n\n所有缩写、符号、箭头、颜色、图标和数值都可解释。图标旁写对象名，模块名与 Method 一致。对话一轮一框，长回复按语义分段；未评分的检查不画勾号。\n\n正文通栏先参考 16:9，单栏参考 4:3；这是初始布局参考。按内容重排并保留关键文字，附录可纵排。只改色时，保留布局、文字、照片、公式、字号和连线；不扩大改图范围或改论文模板。\n\n## Caption 与导出\n\n【铁律】每图自身解释实际简称。案例用具体条件对应难点标签，颜色说明点明连接对象；Caption 只留全图必要读法，单项判定写对应脚注。用 `\\footnote` 管理页底脚注、`\\footref` 复用，跨栏表可用 `footnotehyper` 的 `savenotes`；改排版后核查实际落页和跳转。\n\n【铁律】图表移到附录，同步详解、Overview 和引用，正文保留结论。评分通过不等于真实执行或成交；显示名称改写不改冻结 prompt、机器字段与统计，不冒称执行原文。\n\n【铁律】Caption 先说明图是什么，再解释必要标记与术语，按实际面板或上下左右顺序带读，最后给有证据的发现与贡献意义。写清比较对象和必要口径。解释单位、分母、误差、简称和未在图内解释的标记；不要重复图内文字，不用“画法说明”修补错误的数量或因果暗示。尽量三行，必要定义优先。\n\n统计图优先导出矢量 PDF 并嵌入字体。生成底图保留图像，用原生、可见、可选的 PDF 文字排标签；不叠两套字形，不用隐藏 OCR 文字层。混合 PDF 仍含位图，不能称全矢量。\n\nCS 图表默认使用 [!t]，按正文首次引用核对最终页内顺序。保留当前模板、数据、已有可靠图和合作者修改；图与 Caption 合计占高一起查。\n\n## 验收与交付\n\n把图插回论文、编译并查看受影响页面。逐项核对图形与源数据、真实依赖、实际字体字号、可选文字、字体嵌入、图例、裁切、碰撞和引用顺序。源码能编译不等于图已通过。\n\n保留生成或绘图源、真实数据来源、色板、最终提示词和导出文件。交付源文件、PDF 和预览图；只报告已完成的检查。远端同步、改实验或发布按原任务授权，不因本 skill 扩大权限。\n\n## 给 Codex 的提示词\n\n直接复制 [prompts.md](references/prompts.md) 中的绘图说明单，填写【】。提示词已列明本 skill 的适用铁律，和网页第一、二章使用同一份内容。\n\n## 来源与许可\n\nDa1yuqin / StarPaper，[网页](https://da1yuqin.github.io/StarPaper/#figures)。原创规则与教学例子采用 CC BY 4.0，详见 LICENSE。论文原图和第三方摘录不随本包分发；网页所链接材料保留各自许可。\n",
-      "updated_at": "2026-10-14 13:29"
+      "instructions": "---\nname: starpaper-figures\ndescription: Create and refine CS paper main figures, framework diagrams, case illustrations, and quantitative charts from manuscripts and real data, with self-explanatory labels and final-size PDF checks.\n---\n\n# StarPaper 绘图 skill\n\nlatest:【2026-10-14 15:53】\n\n图须突出对应贡献，明确问题、输入、操作与输出。先核对内容和真实依赖，再调整布局、字体与配色。\n\n## 使用前\n\n核对目标会议及 track 的 AI 绘图规定，按要求披露；作者核实图的内容并承担责任。确认材料使用权限和工具的数据处理方式；未获许可，不向外部服务上传未公开稿件、review、个人数据或密钥。\n\n生成图用于已确认的概念或明确标注的教学示例，不能充当实验结果。保留原图出处与许可，不提供规避 AI 政策或检测的做法。\n\n## 先确认图的任务\n\n读取稿件对应段落、原始数据、已有图和作者允许修改的文件。确定图型、目标会议、最终插入宽度、正文实际字体与字号、已确认色板。缺关键材料先指出缺口，不编实验或流程。\n\n这是实证型 CS 论文的默认约定。作者当前要求和会议硬规则优先；Nature 系列使用其独立的写作与绘图体系，不强套本包的 CS 字号、浮动或案例配置。\n\n## 选图型与工具\n\n- **mainfig / Introduction 图**：讲具体问题、已有做法的缺口、本文改哪一步。默认不超过 5 个环节；保留理解贡献所需的输入、输出和必要对照。\n- **framework**：对应 Method Overview，说明关键设计为何针对 Intro 的困难，再讲真实模块、输入、操作、输出及接收者。用一个能追踪的案例串起来，保持并行、汇合与反馈的真实关系；训练、推理和评价分开。\n- **案例图**：给必要背景、有效需求、证据、回复或决策及判据。标清实测输出或作者示例；同一案例只完整呈现一次，其他位置交叉引用。\n- **统计图**：用 Python 等专业绘图工具读取真实数据，保留坐标、数值、误差、分母和统计几何。按数据形态选图，不为美观改数据、补缺测、平滑曲线或重跑实验。\n- **概念图**：按当前环境用 imagegen。先确认真实语义和连线，再生成图面；不要让生成器猜模块关系或发明实验结果。\n\n详细规范与中英例子见 [rules.md](references/rules.md)。只将明确必须遵守或禁止违反的要求标为铁律；图的编排与起草顺序是可调整建议。先读“绘图规范”，统计图再按需读“按图的任务选模板”，其中补充了小样本、散点遮挡、连续色标、气泡面积和误差线读法。来源集中在该参考文件文末“相关参考和推荐阅读”。\n\n## 排字与配色\n\n按稿件最终栏宽起稿。图内所有文字同一字号，范围为正文减 2 pt 至正文，字体家族匹配；标题、轴、图例、注释都不能更大。以插入论文后的 PDF 实测为准，不看放大 PNG 猜字号。放不下就重排、删重复或拆图，不进行非等比缩放，不缩小规定字号。\n\n白底，面板近白，深色文字与刻度。常规模块用中性色，自己的关键改动用统一强调色，突出显示。同一对象全篇同色，再用点形、线型或纹理辅助；已有色板优先，不复制另一篇论文的配置。输入、输出、评价规则采用三种可解释的边框；仅供评价的规则不能画成模型输入。\n\n所有缩写、符号、箭头、颜色、图标和数值都可解释。图标旁写对象名，模块名与 Method 一致。对话一轮一框，长回复按语义分段；未评分的检查不画勾号。\n\n正文通栏先参考 16:9，单栏参考 4:3；这是初始布局参考。按内容重排并保留关键文字，附录可纵排。只改色时，保留布局、文字、照片、公式、字号和连线；不扩大改图范围或改论文模板。\n\n## Caption 与导出\n\n【铁律】每图自身解释实际简称。案例用具体条件对应难点标签，颜色说明点明连接对象；Caption 只留全图必要读法，单项判定写对应脚注。用 `\\footnote` 管理页底脚注、`\\footref` 复用，跨栏表可用 `footnotehyper` 的 `savenotes`；改排版后核查实际落页和跳转。\n\n【铁律】图表移到附录，同步详解、Overview 和引用，正文保留结论。评分通过不等于真实执行或成交；显示名称改写不改冻结 prompt、机器字段与统计，不冒称执行原文。\n\n【铁律】Caption 先说明图是什么，再解释必要标记与术语，按实际面板或上下左右顺序带读，最后给有证据的发现与贡献意义。写清比较对象和必要口径。解释单位、分母、误差、简称和未在图内解释的标记；不要重复图内文字，不用“画法说明”修补错误的数量或因果暗示。尽量三行，必要定义优先。\n\n统计图优先导出矢量 PDF 并嵌入字体。生成底图保留图像，用原生、可见、可选的 PDF 文字排标签；不叠两套字形，不用隐藏 OCR 文字层。混合 PDF 仍含位图，不能称全矢量。\n\nCS 图表默认使用 [!t]，按正文首次引用核对最终页内顺序。保留当前模板、数据、已有可靠图和合作者修改；图与 Caption 合计占高一起查。\n\n## 验收与交付\n\n把图插回论文、编译并查看受影响页面。逐项核对图形与源数据、真实依赖、实际字体字号、可选文字、字体嵌入、图例、裁切、碰撞和引用顺序。源码能编译不等于图已通过。\n\n保留生成或绘图源、真实数据来源、色板、最终提示词和导出文件。交付源文件、PDF 和预览图；只报告已完成的检查。远端同步、改实验或发布按原任务授权，不因本 skill 扩大权限。\n\n## 给 Codex 的提示词\n\n直接复制 [prompts.md](references/prompts.md) 中的绘图说明单，填写【】。提示词已列明本 skill 的适用铁律，与网页中的绘图提示词共用内容。\n\n## 来源与许可\n\nDa1yuqin / StarPaper，[网页](https://da1yuqin.github.io/StarPaper/#figures)。原创规则与教学例子采用 CC BY 4.0，详见 LICENSE。论文原图和第三方摘录不随本包分发；网页所链接材料保留各自许可。\n",
+      "updated_at": "2026-10-14 15:53"
     },
     "prompt_ref": "figures",
     "reference_keys": [
@@ -6858,11 +6778,16 @@
       "scope": "本套 CS 论文写作模板；目标会议要求与当前人工定版优先。",
       "label": "填空模板；方括号填当前论文的真实材料。",
       "rules": [
-        "【铁律】贡献固定 3 点：整体工作、关键设计或证据、实验发现。按类型填真实贡献，不虚构机制或诊断。已讲清的问题与解法无需重复局限标签。"
+        "先用连贯段落说明核心工作、对应设计与实验发现。方法名后的同位语立即点明亮点与用途。不要先堆流程，再讲贡献。",
+        "【铁律】正文引导句后接原生 itemize，固定三项。依次写整体工作、设计或证据贡献、实验发现。列表后直接进入下一节。",
+        "方法论文第 2 项写新机制与用途。基准论文写构建或评价设计。实证研究写比较、测量或分析贡献。只写已完成的工作。",
+        "三项贡献是本套 CS 约定，不是所有会议的规定。论文类型与当轮要求优先。先删重复背景与次要流程，不改模板规避页数。",
+        "只填真实贡献，不虚构机制或诊断。已讲清的问题与解法无需重复局限标签。"
       ],
       "sentences": [],
       "latex_template": "Our contributions are summarized as follows:\n\\begin{itemize}\n  \\item We introduce [work and its type], which [supports the target task through its core contribution].\n  \\item We [propose or provide] [key design or evidence contribution] based on [verified basis], enabling [specific function or comparison].\n  \\item Our evaluation on [scope] reveals [key finding], with [the most informative verified evidence].\n\\end{itemize}",
-      "placement": "after-examples"
+      "placement": "after-examples",
+      "legacy_id": "draft-contribution-format"
     },
     {
       "id": "template-references",
@@ -10213,24 +10138,104 @@
         }
       ],
       "variant_note": "只有实证发现、没有改进方法时，可用以下结构。Introduction → Study Design → Results → Robustness / Further Analysis → Discussion → Conclusion。引言顺序：问题 → 证据缺口 → 研究设计 → 发现 → 贡献总结。删去改进方法及其消融。Related Work、局限与声明按论证及投稿要求安排。",
-      "contributions": {
-        "title": "引言的贡献总结：默认保留的格式",
-        "rules": [
-          "先用连贯段落说明核心工作、对应设计与实验发现。方法名后的同位语立即点明亮点与用途。不要先堆流程，再讲贡献。",
-          "【铁律】正文引导句后接原生 itemize，固定三项。依次写整体工作、设计或证据贡献、实验发现。列表后直接进入下一节。",
-          "方法论文第 2 项写新机制与用途。基准论文写构建或评价设计。实证研究写比较、测量或分析贡献。只写已完成的工作。",
-          "三项贡献是本套 CS 约定，不是所有会议的规定。论文类型与当轮要求优先。先删重复背景与次要流程，不改模板规避页数。"
-        ],
-        "code": "Our contributions are summarized as follows:\n\\begin{itemize}\n  \\item We introduce [work and its type], which [supports the target task through its core contribution].\n  \\item We [propose or provide] [key design or evidence contribution] based on [verified basis], enabling [specific function or comparison].\n  \\item Our evaluation on [scope] reveals [key finding], with [the most informative verified evidence].\n\\end{itemize}"
-      },
-      "closing": "结构确定后，进入论文绘图。Mainfig 解释问题与核心贡献。framework 说明对应设计及输入输出。结果图支持实验发现。先确定各图用途，再绘制与精修。",
       "author_reminder": [
         "提醒小伙伴：实验要充足，正文篇幅要用足！我的排版目标是：***最后几页每页至少一项实验及其分析。正文一定要写满投稿限制的最大内容。例如 limit 8 页，一定要写满 8 页***。补充必要的对照、消融与边界分析。这是个人经验，须按研究内容与会议要求调整。",
         "师兄说：“把审稿人当作魔鬼。”先问自己：实验够吗？比较公平吗？结论有证据吗？其他章节同样检查，别留解释缺口。关键实验缺失、论证不足，都可能导致拒稿。"
       ]
+    },
+    "experiment_table": {
+      "title": "表格：先让人看清比较",
+      "rules": [
+        {
+          "label": "结构",
+          "text": "表承载实测结果和数据。模型按实际类型分组；列写指标、单位与好坏方向。三线表，少网格，同一指标保持精度一致。",
+          "example_zh": "中：方法名一列，成功率（%）一列，延迟（ms）一列；不同测试集分组，不混算平均。",
+          "example_en": "EN: Use columns for method, success rate (%), and latency (ms). Separate test sets into groups rather than averaging incompatible results."
+        },
+        {
+          "label": "标记",
+          "text": "可比组内逐列判断：最优加粗，次优加下划线；需要时用很浅的底色。性能和成本方向不同，并列共享标记。颜色标记不能证明统计显著性。",
+          "example_zh": "中：成功率越高越好，延迟越低越好；两列分别找最优，不把本文整行全部涂红。",
+          "example_en": "EN: Higher success and lower latency are better. Mark each column independently rather than highlighting the entire proposed-method row."
+        },
+        {
+          "label": "统计与排版",
+          "text": "均值与不确定性放同一行，表注写清重复次数及 SD、SE 或 CI。缺失用破折号并解释；长表先拆列或跨栏，不整表 resizebox。",
+          "example_zh": "中：70.0 上标 ±2.0 表示均值及标准差；“—”表示未测，不是 0。",
+          "example_en": "EN: A mean of 70.0 with superscript ±2.0 denotes a mean and standard deviation. A dash denotes an unmeasured value, not zero."
+        }
+      ],
+      "table": {
+        "caption": "排版示例，数值均为假设。上标为标准差，浅红标最优，浅蓝标次优。",
+        "headers": [
+          "Method",
+          "Success (%) ↑",
+          "Latency (ms) ↓"
+        ],
+        "rows": [
+          {
+            "method": "Baseline A",
+            "cells": [
+              {
+                "value": "70.0",
+                "uncertainty": "2.0"
+              },
+              {
+                "value": "120",
+                "uncertainty": "4",
+                "mark": "best"
+              }
+            ]
+          },
+          {
+            "method": "Baseline B",
+            "cells": [
+              {
+                "value": "73.0",
+                "uncertainty": "1.0",
+                "mark": "second"
+              },
+              {
+                "value": "130",
+                "uncertainty": "4"
+              }
+            ]
+          },
+          {
+            "method": "Proposed method",
+            "cells": [
+              {
+                "value": "76.0",
+                "uncertainty": "1.0",
+                "mark": "best"
+              },
+              {
+                "value": "125",
+                "uncertainty": "3",
+                "mark": "second"
+              }
+            ]
+          }
+        ]
+      },
+      "code_title": "可复制的 LaTeX 表格模板",
+      "code_language": "latex",
+      "code": "% Add these packages to the preamble if the venue permits them.\n\\usepackage{booktabs}\n\\usepackage[table]{xcolor}\n\\definecolor{bestcell}{HTML}{F2EBEA}\n\\definecolor{secondcell}{HTML}{EDF0F4}\n\n% Insert this environment in the body.\n\\begin{table}[!t]\n\\centering\n\\caption{Illustrative values only. Success rate is in percent;\nlatency is in milliseconds. Superscripts illustrate standard deviations.\nBest values are bold; second-best values are underlined.}\n\\label{tab:main-results}\n\\begin{tabular}{lcc}\n\\toprule\nMethod & Success ($\\uparrow$) & Latency ($\\downarrow$) \\\\\n\\midrule\nBaseline A & 70.0\\textsuperscript{\\(\\pm2.0\\)}\n & \\cellcolor{bestcell}\\textbf{120}\\textsuperscript{\\(\\pm4\\)} \\\\\nBaseline B & \\cellcolor{secondcell}\\underline{73.0}\\textsuperscript{\\(\\pm1.0\\)}\n & 130\\textsuperscript{\\(\\pm4\\)} \\\\\nProposed method & \\cellcolor{bestcell}\\textbf{76.0}\\textsuperscript{\\(\\pm1.0\\)}\n & \\cellcolor{secondcell}\\underline{125}\\textsuperscript{\\(\\pm3\\)} \\\\\n\\bottomrule\n\\end{tabular}\n\\end{table}",
+      "code_note": "先确认会议允许使用这些包。包声明放导言区，table 环境放正文。正式表换成真实数据。表注写统计单位、重复次数、可比范围与主要发现。跨栏用 table*，不改模板栏宽。"
     }
   },
   "update_log": [
+    {
+      "at": "2026-10-14T15:53:30+08:00",
+      "date": "2026-10-14 15:53",
+      "title": "绘图与模板归入对应章节",
+      "skill_update": true,
+      "changes": [
+        "取消独立绘图章：Mainfig 放引言，Framework 放方法，实验图与表格放实验。",
+        "第一章缩短；贡献总结合并到引言模板，通用绘图规范集中放全文规范。",
+        "目录改为初稿、精修、工具三章，保留旧链接；公开写作包同步贡献与表格模板。绘图包同步导航说明。"
+      ]
+    },
     {
       "at": "2026-10-14T15:01:04+08:00",
       "date": "2026-10-14 15:01",
@@ -10688,18 +10693,13 @@
       "purpose": "整理材料，用 Codex 生成初稿"
     },
     {
-      "target": "figures",
-      "title": "2. 论文绘图",
-      "purpose": "画清问题、方法与实验结果"
-    },
-    {
       "target": "refine",
-      "title": "3. 正文精修",
-      "purpose": "按论文顺序，逐节改逻辑与表达"
+      "title": "2. 正文精修",
+      "purpose": "按论文顺序，逐节修改正文与图表"
     },
     {
       "target": "tools",
-      "title": "4. 辅助工具",
+      "title": "3. 辅助工具",
       "purpose": "查文献、做图表、核对引用"
     }
   ],

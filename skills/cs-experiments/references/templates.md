@@ -112,6 +112,50 @@ After constructing [method, dataset, or benchmark], we evaluate [target systems 
 4. **The comparison supports [the Introduction claim answered by this result].**：回扣动机与贡献。回答前文对应的问题。整体优势不能拆作各模块作用。
 5. **[A relevant exception or measured trade-off, if observed].**：补充影响结论的取舍。填重要代价或失效条件。没有相关证据则删去。
 
+<a id="experiment-results-table"></a>
+#### 主结果表：排版与 LaTeX 模板
+
+排版示例，数值均为假设。上标为标准差，浅红标最优，浅蓝标次优。
+
+| Method | Success (%) ↑ | Latency (ms) ↓ |
+| --- | --- | --- |
+| Baseline A | 70.0 ±2.0 | 120 ±4 |
+| Baseline B | 73.0 ±1.0 | 130 ±4 |
+| Proposed method | 76.0 ±1.0 | 125 ±3 |
+
+**LaTeX 表格模板**
+
+```latex
+% Add these packages to the preamble if the venue permits them.
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\definecolor{bestcell}{HTML}{F2EBEA}
+\definecolor{secondcell}{HTML}{EDF0F4}
+
+% Insert this environment in the body.
+\begin{table}[!t]
+\centering
+\caption{Illustrative values only. Success rate is in percent;
+latency is in milliseconds. Superscripts illustrate standard deviations.
+Best values are bold; second-best values are underlined.}
+\label{tab:main-results}
+\begin{tabular}{lcc}
+\toprule
+Method & Success ($\uparrow$) & Latency ($\downarrow$) \\
+\midrule
+Baseline A & 70.0\textsuperscript{\(\pm2.0\)}
+ & \cellcolor{bestcell}\textbf{120}\textsuperscript{\(\pm4\)} \\
+Baseline B & \cellcolor{secondcell}\underline{73.0}\textsuperscript{\(\pm1.0\)}
+ & 130\textsuperscript{\(\pm4\)} \\
+Proposed method & \cellcolor{bestcell}\textbf{76.0}\textsuperscript{\(\pm1.0\)}
+ & \cellcolor{secondcell}\underline{125}\textsuperscript{\(\pm3\)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+```
+
+先确认会议允许使用这些包。包声明放导言区，table 环境放正文。正式表换成真实数据。表注写统计单位、重复次数、可比范围与主要发现。跨栏用 table*，不改模板栏宽。
+
 <a id="experiments-experiment-ablation-table-template-writing-templates"></a>
 
 <a id="experiment-ablation-table-template"></a>
