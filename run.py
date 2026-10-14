@@ -395,13 +395,13 @@ def render_preface(data):
  p=data['preface']
  skill=data['writing_skill']
  rendered,log_md=render_update_log(data)
- rendered+='<p class="site-switch">Rebuttal 请参考：<a href="StrongResponse/">💪 StrongResponse</a></p>'
+ rendered+='<p class="site-switch">Rebuttal 教程：<a href="StrongResponse/">💪 StrongResponse</a></p>'
  rendered+=f'<p class="skill-links"><strong>写作与绘图 skill，可直接下载使用。</strong> <a href="{e(skill["download"])}" download>cs-paper-writing</a> {skill_latest(skill)} · <a href="{e(data["figure_chapter"]["skill"]["download"])}" download>绘图</a> {skill_latest(data["figure_chapter"]["skill"])} · <a href="#writing-skill">用法</a></p>'
  rendered+=f'<figure class="accept-banner"><img src="{e(p["image"])}" alt="{e(p["image_alt"])}" width="{p["image_width"]}" height="{p["image_height"]}" fetchpriority="high"></figure><section class="preface" id="preface"><h2>{e(p["title"])}</h2>'
  rendered+=''.join(f'<p>{e(text)}</p>' for text in p['paragraphs'])
  rendered+=f'<p class="preface-aside"><em>{e(p["aside"])}</em></p>'
  rendered+='</section>'
- md=log_md+['','Rebuttal 请参考：[💪 StrongResponse](https://da1yuqin.github.io/StarPaper/StrongResponse/)','','写作与绘图 skill，可直接下载使用。',f'[cs-paper-writing](../{skill["download"]}) latest:【{skill["updated_at"]}】 · [绘图](../{data["figure_chapter"]["skill"]["download"]}) latest:【{data["figure_chapter"]["skill"]["updated_at"]}】 · [用法](#writing-skill)','',f'![{p["image_alt"]}](../{p["image"]})','','## '+p['title'],'']
+ md=log_md+['','Rebuttal 教程：[💪 StrongResponse](https://da1yuqin.github.io/StarPaper/StrongResponse/)','','写作与绘图 skill，可直接下载使用。',f'[cs-paper-writing](../{skill["download"]}) latest:【{skill["updated_at"]}】 · [绘图](../{data["figure_chapter"]["skill"]["download"]}) latest:【{data["figure_chapter"]["skill"]["updated_at"]}】 · [用法](#writing-skill)','',f'![{p["image_alt"]}](../{p["image"]})','','## '+p['title'],'']
  md+=sum(([text,''] for text in p['paragraphs']),[])
  md+=['*'+p['aside']+'*','']
  return rendered,md

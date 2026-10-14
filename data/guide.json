@@ -10226,6 +10226,15 @@
   },
   "update_log": [
     {
+      "at": "2026-10-14T21:12:53+08:00",
+      "date": "2026-10-14 21:12",
+      "title": "补充 Rebuttal 教程入口",
+      "skill_update": false,
+      "changes": [
+        "开头加入 StrongResponse 教程入口，方便切换到审稿回复教程。"
+      ]
+    },
+    {
       "at": "2026-10-14T16:39:50+08:00",
       "date": "2026-10-14 16:39",
       "title": "新增 StrongResponse 回复教程入口",
