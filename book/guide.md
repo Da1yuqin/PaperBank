@@ -218,7 +218,7 @@
 </details>
 
 
-Rebuttal 教程：[💪 StrongResponse](https://da1yuqin.github.io/StarPaper/StrongResponse/)
+Rebuttal 教程：[💪 StrongResponse](https://da1yuqin.github.io/StrongResponse/)
 
 写作与绘图 skill，可直接下载使用。
 [cs-paper-writing](../assets/cs-paper-writing-skill.zip) latest:【2026-10-14 15:53】 · [绘图](../assets/starpaper-figures-skill.zip) latest:【2026-10-14 15:53】 · [用法](#writing-skill)
