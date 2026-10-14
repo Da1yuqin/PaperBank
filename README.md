@@ -50,3 +50,12 @@ python3 run.py --serve
 如有帮助，欢迎 Star。
 
 组织与表达受到 eternity4719 的[《高性价比人生指南》](https://eternity4719.github.io/HowToLiveBetter/)启发，正文与代码独立编写。
+
+## Star 增长曲线
+
+<a href="https://www.star-history.com/?repos=Da1yuqin%2FStarPaper&amp;type=date&amp;legend=top-left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=da1yuqin/starpaper&amp;type=date&amp;theme=dark&amp;legend=top-left">
+    <img alt="StarPaper 的 GitHub Star 增长曲线" src="https://api.star-history.com/chart?repos=da1yuqin/starpaper&amp;type=date&amp;legend=top-left" width="800">
+  </picture>
+</a>
